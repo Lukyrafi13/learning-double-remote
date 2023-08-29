@@ -9,6 +9,7 @@ namespace NewLMS.UMKM.Data
         [Key]
         [Required]
         
+        [MaxLength(4)]
         public string Code { get; set; }
         public string Name { get; set; }
         [MaxLength(3)]

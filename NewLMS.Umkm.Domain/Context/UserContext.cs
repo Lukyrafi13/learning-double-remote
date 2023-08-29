@@ -33,11 +33,22 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<EmailSMTPSetting> EmailSMTPSettings { get; set; }
         public virtual DbSet<UserDevice> UserDevices { get; set; }
         public virtual DbSet<ThridParty> ThridParties { get; set; }
-        // public DbSet<RfProduct> RfProducts { get; set; }
-        // public DbSet<RfOwnerCategory> RFOwnerCategories { get; set; }
-        // public DbSet<RfGender> RfGenders { get; set; }
-        // public DbSet<RfTargetStatus> RfTargetStatuses { get; set; }
-        // public DbSet<Prospect> Prospects { get; set; }
+        public DbSet<RfProduct> RfProducts { get; set; }
+        public DbSet<RfOwnerCategory> RfOwnerCategories { get; set; }
+        public DbSet<RfGender> RfGenders { get; set; }
+        public DbSet<RfTargetStatus> RfTargetStatuses { get; set; }
+        public DbSet<RfSectorLBU1> RfSectorLBU1s { get; set; }
+        public DbSet<RfSectorLBU2> RfSectorLBU2s { get; set; }
+        public DbSet<RfSectorLBU3> RfSectorLBU3s { get; set; }
+        public DbSet<RfCompanyGroup> RfCompanyGroups { get; set; }
+        public DbSet<RfCompanyType> RfCompanyTypes { get; set; }
+        public DbSet<RfCompanyStatus> RfCompanyStatuses { get; set; }
+        public DbSet<RfBranch> RfBranches { get; set; }
+        public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
+        public virtual DbSet<RfAppType> RfAppTypes { get; set; }
+        public virtual DbSet<RfCategory> RfCategories { get; set; }
+        public virtual DbSet<RfServiceCode> RfServiceCodes { get; set; }
+        public DbSet<Prospect> Prospects { get; set; }
         // public DbSet<Debitur> Debiturs { get; set; }
         // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         // public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
@@ -57,14 +68,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFJOB> RFJOB { get; set; }
         // public DbSet<RFMARITAL> RFMARITALs { get; set; }
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHANs { get; set; }
-        // public virtual DbSet<RfSectorLBU1> RfSectorLBU1s { get; set; }
-        // public virtual DbSet<RfSectorLBU2> RfSectorLBU2s { get; set; }
-        // public virtual DbSet<RfSectorLBU3> RfSectorLBU3s { get; set; }
-        // public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
-        // public virtual DbSet<RfAppType> RfAppTypes { get; set; }
         // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
-        // public virtual DbSet<RfCategory> RfCategories { get; set; }
-        // public virtual DbSet<RFKodeDinas> RfServiceCodes { get; set; }
         // public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         // public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
         // public DbSet<RFDocument> RFDocuments { get; set; }
@@ -77,10 +81,8 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFSifatKredit> RFSifatKredits { get; set; }
         // public DbSet<RFVehModel> RFVehModels { get; set; }
         // public DbSet<RFJenisKendaraanAgunan> RFJenisKendaraanAgunans { get; set; }
-        // public DbSet<RfBranches> RfBranch { get; set; }
         // public DbSet<RFBuktiKepemilikan> RFBuktiKepemilikans { get; set; }
         // public DbSet<RFDecisionSK> RFDecisionSKs { get; set; }
-        // public DbSet<RfCompanyGroup> RfCompanyGroups { get; set; }
         // public DbSet<RFLokasiTempatUsaha> RFLokasiTempatUsahas { get; set; }
         // public DbSet<RFSubProductTenor> RFSubProductTenors { get; set; }
         // public DbSet<RFVehicleTypeList> RFVehicleTypeLists { get; set; }
@@ -90,7 +92,6 @@ namespace NewLMS.UMKM.Domain.Context
         // public virtual DbSet<RFStages> RFStages { get; set; }
         // public virtual DbSet<ProspectStageLogs> ProspectStageLogs { get; set; }
         // public DbSet<RFJenisTempatUsaha> RFJenisTempatUsahas { get; set; }
-        // public DbSet<RfCompanyType> RfCompanyTypes { get; set; }
         // public DbSet<RFJumlahPegawai> RFJumlahPegawais { get; set; }
         // public DbSet<RFAspekPemasaran> RFAspekPemasarans { get; set; }
         // public DbSet<RFKepemilikanTU> RFKepemilikanTUs { get; set; }
@@ -320,88 +321,23 @@ namespace NewLMS.UMKM.Domain.Context
                     .OnDelete(DeleteBehavior.NoAction);
             });
 
-            // builder.Entity<Prospect>(b =>
-            // {
-            //     b.HasOne(e => e.JenisProduk)
-            //         .WithMany()
-            //         .HasForeignKey(ur => ur.RfProductId)
-            //         .OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Prospect>(b =>
+            {
+                b.HasOne(e => e.RfZipCode)
+                    .WithMany()
+                    .HasForeignKey(ur => ur.ZipCodeId)
+                    .OnDelete(DeleteBehavior.NoAction);
 
-            //     b.HasOne(e => e.TipeDebitur)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfOwnerCategoryId)
-            //         .OnDelete(DeleteBehavior.NoAction);
+                b.HasOne(e => e.RfPlaceZipCode)
+                    .WithMany()
+                    .HasForeignKey(rc => rc.PlaceZipCodeId)
+                    .OnDelete(DeleteBehavior.NoAction);
 
-            //     b.HasOne(e => e.JenisKelamin)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfGenderId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.Status)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RFStatusId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.SektorEkonomi)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfSectorLBU1Code)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.SubSektorEkonomi)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfSectorLBU2Code)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.SubSubSektorEkonomi)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfSectorLBU3Code)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.KodePos)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfZipCodeId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.KodePosTempat)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfZipCodeTempatId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.JenisPermohonanKredit)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfAppTypeId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.Debitur)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.DebiturId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.Kategori)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfCategoryId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.KodeDinas)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RFKodeDinasId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.KodePosUsaha)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfZipCodeUsahaId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.KelompokBidangUsaha)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfCompanyGroupId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-
-            //     b.HasOne(e => e.JenisUsaha)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfCompanyTypeId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-            // });
+                b.HasOne(e => e.RfCompanyZipCode)
+                    .WithMany()
+                    .HasForeignKey(rc => rc.CompanyZipCodeId)
+                    .OnDelete(DeleteBehavior.NoAction);
+            });
 
             // builder.Entity<Debitur>(b =>
             // {
