@@ -1,94 +1,125 @@
 using System;
+using NewLMS.UMKM.Data;
+
 namespace NewLMS.UMKM.Data.Dto.Prospects
 {
     public class ProspectResponseDto
     {
+        #region Account Office
         public Guid Id { get; set; }
+
         public string ProspectId { get; set; }
 
-        public RfProduct JenisProduk { get; set; }
-        public RfOwnerCategory TipeDebitur { get; set; }
-        public string NamaCustomer { get; set; }
-        public string NamaDepanCustomer { get; set; }
-        public string NamaTengahCustomer { get; set; }
-        public string NamaBelakangCustomer { get; set; }
-        public RfGender JenisKelamin { get; set; }
-        public string StatusPerusahaan { get; set; }
-        public string NomorTelpon { get; set; }
-        public string NomorKTP { get; set; }
-        public string TempatLahir { get; set; }
-        public DateTime? TanggalLahir { get; set; }
+        public string AccountOfficer { get; set; }
 
-        // Alamat Debitor
-        public string Alamat { get; set; }
-        public RfZipCode KodePos { get; set; }
-        public string Kelurahan { get; set; }
-        public string Kecamatan { get; set; }
-        public string KabupatenKota { get; set; }
-        public string Propinsi { get; set; }
+        public string BranchId { get; set; }
 
-        // Alamat Tempat
-        public bool AlamatSesuaiKTP { get; set; }
-        public string AlamatTempat { get; set; }
-        public RfZipCode KodePosTempat { get; set; }
-        public string KelurahanTempat { get; set; }
-        public string KecamatanTempat { get; set; }
-        public string KabupatenKotaTempat { get; set; }
-        public string PropinsiTempat { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
 
-        // Target
-        public string NamaAO { get; set; }
-        public string NamaCabang { get; set; }
-        public string KodeCabang { get; set; }
-        public RfAppType JenisPermohonanKredit { get; set; }
-        public RfTargetStatus Status { get; set; }
-        public RfSectorLBU1 SektorEkonomi { get; set; }
-        public RfSectorLBU2 SubSektorEkonomi { get; set; }
-        public RfSectorLBU3 SubSubSektorEkonomi { get; set; }
-        public string Alasan { get; set; }
-        public double PerkiraanPengajuan { get; set; }
-        public DateTime TanggalProspect { get; set; }
-
-        // Data Usaha - Perorangan
-        public string NamaUsaha { get; set; }
-        public string AlamatUsaha { get; set; }
-        public string AlamatLengkapUsaha { get; set; }
-        public RfZipCode KodePosUsaha { get; set; }
-        public string KelurahanUsaha { get; set; }
-        public string KecamatanUsaha { get; set; }
-        public string KabupatenKotaUsaha { get; set; }
-        public string PropinsiUsaha { get; set; }
-
-        // Data Usaha - Badan Usaha
-        public RfCompanyGroup KelompokBidangUsaha { get; set; } 
-        public RfCompanyType JenisUsaha { get; set; }
-        public string JenisUsahaLain { get; set; }
-
-        // etc
-        public string SumberData { get; set; }
-        public RfCategory Kategori { get; set; } 
-        public RFKodeDinas KodeDinas { get; set; }
-        public RFStages Stage { get; set; }
-
-        public int Age { get; set; }
-
-        // Foreign keys
-        
-        public Guid RfProductId { get; set; }
-        public Guid RfOwnerCategoryId { get; set; }
         public Guid? RfGenderId { get; set; }
-        public Guid RFStatusId { get; set; }
-        public Guid RfAppTypeId { get; set; }
-        public string RfSectorLBU1Code { get; set; }
-        public string RfSectorLBU2Code { get; set; }
+
+        public Guid? RfCompanyStatusId { get; set; }
+
+        #endregion
+
+        #region Debitur
+        public string NoIdentity { get; set; }
+
+        public string Fullname { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
+
+        public string PlaceOfBirth { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string SourceApplication { get; set; }
+        #endregion
+
+        #region Alamat Debitur
+        public string Address { get; set; }
+
+        public string Province { get; set; }
+
+        public string City { get; set; }
+
+        public string District { get; set; }
+
+        public string Neighborhoods { get; set; }
+        
+        public int ZipCodeId { get; set; }
+        #endregion
+
+        #region PlaceAddress
+        public string PlaceAddress { get; set; }
+
+        public string PlaceProvince { get; set; }
+
+        public string PlaceCity { get; set; }
+
+        public string PlaceDistrict { get; set; }
+
+        public string PlaceNeighborhoods { get; set; }
+        
+        public int PlaceZipCodeId { get; set; }
+        #endregion
+
+        #region Product And Loan
+        public Guid? ProductId { get; set; }
+        
+        #endregion
+
+        #region Target
+        
+        public Guid? RfAppTypeId { get; set; }
+        public Guid? RfTargetStatusId { get; set; }
         public string RfSectorLBU3Code { get; set; }
-        public int? RfZipCodeId { get; set; }
-        public Guid RfCategoryId { get; set; }
-        public Guid? RFKodeDinasId { get; set; }
-        public int? RFStagesId { get; set; }
-        public int? RfZipCodeUsahaId { get; set; }
+        public Guid? RfCategoryId { get; set; }
+        public Guid? RfServiceCodeId { get; set; }
+        public string Reason { get; set; }
+        public double? TargetPladfond { get; set; }
+        public DateTime? EstimateProcessDate { get; set; }
+        #endregion
+        
+        #region Company Data - Personal
+        public string CompanyName { get; set; }
+        public string CompanyAddress { get; set; }
+        public string CompanyFullAddress { get; set; }
+        public string CompanyProvince { get; set; }
+
+        public string CompanyCity { get; set; }
+
+        public string CompanyDistrict { get; set; }
+
+        public string CompanyNeighborhoods { get; set; }
+        
+        public int CompanyZipCodeId { get; set; }
+        #endregion
+
+        #region Company Data - Company
         public Guid? RfCompanyGroupId { get; set; }
         public Guid? RfCompanyTypeId { get; set; }
-        public int? RfZipCodeTempatId { get; set; }
+        public string OtherCompanyType { get; set; }
+        #endregion
+
+        #region ETC
+        public string DataSource { get; set; }
+        #endregion
+
+        public RfCompanyGroup RfCompanyGroup { get; set; }
+        public RfCompanyStatus RfCompanyStatus { get; set; }
+        public RfCompanyType RfCompanyType { get; set; }
+        public RfBranch RfBranch { get; set; }
+        public RfProduct RfProduct { get; set; }
+        public RfGender RfGender { get; set; }
+        public RfSectorLBU3 RfSectorLBU3 { get; set; }
+        public RfOwnerCategory RfOwnerCategory { get; set; }
+        public RfZipCode RfZipCode { get; set; }
+        public RfZipCode RfPlaceZipCode { get; set; }
+        public RfZipCode RfCompanyZipCode { get; set; }
+        public RfAppType RfAppType { get; set; }
+        public RfTargetStatus RfTargetStatus { get; set; }
+        public RfCategory RfCategory { get; set; }
+        public RfServiceCode RfServiceCode { get; set; }
     }
 }

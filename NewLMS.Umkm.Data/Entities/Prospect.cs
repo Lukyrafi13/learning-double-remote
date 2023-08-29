@@ -108,8 +108,8 @@ namespace NewLMS.UMKM.Data
         public string RfSectorLBU3Code { get; set; }
         [ForeignKey(nameof(RfCategory))]
         public Guid? RfCategoryId { get; set; }
-        [ForeignKey(nameof(RfCompany))]
-        public Guid? RfCompanyId { get; set; }
+        [ForeignKey(nameof(RfServiceCode))]
+        public Guid? RfServiceCodeId { get; set; }
         public string Reason { get; set; }
         public double? TargetPladfond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }
@@ -163,6 +163,6 @@ namespace NewLMS.UMKM.Data
         public RfAppType RfAppType { get; set; }
         public RfTargetStatus RfTargetStatus { get; set; }
         public RfCategory RfCategory { get; set; }
-        public RfCompany RfCompany { get; set; }
+        public RfServiceCode RfServiceCode { get; set; }
     }
 }

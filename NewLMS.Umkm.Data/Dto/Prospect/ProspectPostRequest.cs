@@ -3,45 +3,104 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 {
     public class ProspectPostRequestDto
     {
-        public string NamaCustomer { get; set; }
-        public string StatusPerusahaan { get; set; }
-        public string NomorTelpon { get; set; }
-        public string Alamat { get; set; }
-        public int KodePosId { get; set; }
-        public string Kelurahan { get; set; }
-        public bool AlamatSesuaiKTP { get; set; }
-        public string AlamatTempat { get; set; }
-        public int KodePosTempatId { get; set; }
-        public string KelurahanTempat { get; set; }
-        public Guid RfAppTypeId { get; set; }
-        public string Alasan { get; set; }
-        public double PerkiraanPengajuan { get; set; }
-        public DateTime TanggalProspect { get; set; }
-        public Guid RfProductId { get; set; }
-        public Guid RfOwnerCategoryId { get; set; }
+        #region Account Office
+
+        public string ProspectId { get; set; }
+
+        public string AccountOfficer { get; set; }
+
+        public string BranchId { get; set; }
+
+        public Guid? RfOwnerCategoryId { get; set; }
+
         public Guid? RfGenderId { get; set; }
-        public Guid RFStatusId { get; set; }
-        public string RfSectorLBU1Code { get; set; }
-        public string RfSectorLBU2Code { get; set; }
+
+        public Guid? RfCompanyStatusId { get; set; }
+
+        #endregion
+
+        #region Debitur
+        public string NoIdentity { get; set; }
+
+        public string Fullname { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
+
+        public string PlaceOfBirth { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string SourceApplication { get; set; }
+        #endregion
+
+        #region Alamat Debitur
+        public string Address { get; set; }
+
+        public string Province { get; set; }
+
+        public string City { get; set; }
+
+        public string District { get; set; }
+
+        public string Neighborhoods { get; set; }
+        
+        public int ZipCodeId { get; set; }
+        #endregion
+
+        #region PlaceAddress
+        public bool SameAsIdentity { get; set; }
+        public string PlaceAddress { get; set; }
+
+        public string PlaceProvince { get; set; }
+
+        public string PlaceCity { get; set; }
+
+        public string PlaceDistrict { get; set; }
+
+        public string PlaceNeighborhoods { get; set; }
+        
+        public int PlaceZipCodeId { get; set; }
+        #endregion
+
+        #region Product And Loan
+        public Guid? RfProductId { get; set; }
+        
+        #endregion
+
+        #region Target
+        public Guid? RfAppTypeId { get; set; }
+        public Guid? RfTargetStatusId { get; set; }
         public string RfSectorLBU3Code { get; set; }
-        public Guid RfCategoryId { get; set; }
-        public Guid? RFKodeDinasId { get; set; }
-        public string NamaAO { get; set; }
-        public string KodeCabang { get; set; }
-        public string NamaCabang { get; set; }
-        public string NomorKTP { get; set; }
-        public string TempatLahir { get; set; }
-        public DateTime? TanggalLahir { get; set; }
-        public string NamaUsaha { get; set; }
-        public string AlamatUsaha { get; set; }
-        public string AlamatLengkapUsaha { get; set; }
-        public string KelurahanUsaha { get; set; }
-        public string KecamatanUsaha { get; set; }
-        public string KabupatenKotaUsaha { get; set; }
-        public string PropinsiUsaha { get; set; }
-        public int? RfZipCodeUsahaId { get; set; }
+        public Guid? RfCategoryId { get; set; }
+        public Guid? RfServiceCodeId { get; set; }
+        public string Reason { get; set; }
+        public double? TargetPladfond { get; set; }
+        public DateTime? EstimateProcessDate { get; set; }
+        #endregion
+        
+        #region Company Data - Personal
+        public string CompanyName { get; set; }
+        public string CompanyAddress { get; set; }
+        public string CompanyFullAddress { get; set; }
+        public string CompanyProvince { get; set; }
+
+        public string CompanyCity { get; set; }
+
+        public string CompanyDistrict { get; set; }
+
+        public string CompanyNeighborhoods { get; set; }
+        
+        public int CompanyZipCodeId { get; set; }
+        #endregion
+
+        #region Company Data - Company
         public Guid? RfCompanyGroupId { get; set; }
         public Guid? RfCompanyTypeId { get; set; }
-        public string JenisUsahaLain { get; set; }
+        public string OtherCompanyType { get; set; }
+        #endregion
+
+        #region ETC
+        public string DataSource { get; set; }
+        #endregion
     }
 }

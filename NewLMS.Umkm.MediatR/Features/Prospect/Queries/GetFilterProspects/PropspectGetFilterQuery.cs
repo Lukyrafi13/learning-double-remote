@@ -5,6 +5,9 @@ using NewLMS.UMKM.Repository.GenericRepository;
 using NewLMS.UMKM.Common.GenericRespository;
 using System.Net;
 using NewLMS.UMKM.Data;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
 {

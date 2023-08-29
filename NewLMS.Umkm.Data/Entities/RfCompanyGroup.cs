@@ -6,9 +6,9 @@ namespace NewLMS.UMKM.Data
     public class RfCompanyGroup : BaseEntity
     {
         public Guid Id { get; set; }
-        public string ANL_CODE { get; set;}
-        public string ANL_DESC { get; set;}
-        public string CORE_CODE { get; set;}
-        public bool ACTIVE { get; set;}
+        public string AnlCode { get; set; }
+        public string AnlDesc { get; set; }
+        public string CoreCode { get; set; }
+        public bool Active { get; set; }
     }
 }

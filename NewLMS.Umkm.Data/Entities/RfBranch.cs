@@ -31,6 +31,7 @@ namespace NewLMS.UMKM.Data
         public string Sandi { get; set; }
         [MaxLength(50)]
         public string KcName { get; set; }
+        public string OfficeType { get; set; }
 
     }
 }

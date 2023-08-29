@@ -28,7 +28,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
         public async Task<ServiceResponse<Unit>> Handle(ProspectDeleteCommand request, CancellationToken cancellationToken)
         {
-            var prospect = await _prospect.GetByIdAsync(Guid.Parse(request.Id), "Id");
+            var prospect = await _prospect.GetByIdAsync(request.Id, "Id");
             prospect.IsDeleted = true;
             await _prospect.UpdateAsync(prospect);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);

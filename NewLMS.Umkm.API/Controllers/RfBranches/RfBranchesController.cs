@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Dto.RfBranchess;
+using NewLMS.UMKM.Data.Dto.RfBranches;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.MediatR.Features.RfBranchess.Commands;
-using NewLMS.UMKM.MediatR.Features.RfBranchess.Queries;
+using NewLMS.UMKM.MediatR.Features.RfBranches.Commands;
+using NewLMS.UMKM.MediatR.Features.RfBranches.Queries;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Helper;
 
@@ -46,7 +46,7 @@ namespace NewLMS.UMKM.API.Controllers.RfBranches
         /// <returns></returns>
         [HttpPost("get", Name = "GetRfBranchesList")]
         [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfBranchesResponseDto>>))]
-        public async Task<IActionResult> GetRfBranchesList(RfBranchessGetFilterQuery filterQuery)
+        public async Task<IActionResult> GetRfBranchesList(RfBranchesGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
