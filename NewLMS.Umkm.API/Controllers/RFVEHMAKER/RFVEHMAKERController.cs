@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFVEHMAKERs;
+using NewLMS.UMKM.Data.Dto.RFVEHMAKERs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFVEHMAKERs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFVEHMAKERs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFVEHMAKERs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFVEHMAKERs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFVEHMAKER
+namespace NewLMS.UMKM.API.Controllers.RFVEHMAKER
 {
     public class RFVEHMAKERController : BaseController
     {

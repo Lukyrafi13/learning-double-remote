@@ -1,40 +1,40 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFStatusTargets;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfTargetStatuss;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFStatusTargets.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfTargetStatuss.Queries
 {
-    public class RFStatusTargetsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFStatusTargetResponseDto>>>
+    public class RfTargetStatussGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfTargetStatusResponseDto>>>
     {
     }
 
-    public class GetFilterRFStatusTargetQueryHandler : IRequestHandler<RFStatusTargetsGetFilterQuery, PagedResponse<IEnumerable<RFStatusTargetResponseDto>>>
+    public class GetFilterRfTargetStatusQueryHandler : IRequestHandler<RfTargetStatussGetFilterQuery, PagedResponse<IEnumerable<RfTargetStatusResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFStatusTarget> _rfStatusTarget;
+        private IGenericRepositoryAsync<RfTargetStatus> _rfStatusTarget;
         private readonly IMapper _mapper;
 
-        public GetFilterRFStatusTargetQueryHandler(IGenericRepositoryAsync<RFStatusTarget> rfStatusTarget, IMapper mapper)
+        public GetFilterRfTargetStatusQueryHandler(IGenericRepositoryAsync<RfTargetStatus> rfStatusTarget, IMapper mapper)
         {
             _rfStatusTarget = rfStatusTarget;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFStatusTargetResponseDto>>> Handle(RFStatusTargetsGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfTargetStatusResponseDto>>> Handle(RfTargetStatussGetFilterQuery request, CancellationToken cancellationToken)
         {
             var data = await _rfStatusTarget.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFStatusTargetResponseDto>>(data.Results);
-            IEnumerable<RFStatusTargetResponseDto> dataVm;
-            var listResponse = new List<RFStatusTargetResponseDto>();
+            // var dataVm = _mapper.Map<IEnumerable<RfTargetStatusResponseDto>>(data.Results);
+            IEnumerable<RfTargetStatusResponseDto> dataVm;
+            var listResponse = new List<RfTargetStatusResponseDto>();
 
             foreach (var res in data.Results){
-                var response = new RFStatusTargetResponseDto();
+                var response = new RfTargetStatusResponseDto();
                 
                 response.Id = res.Id;
                 response.Active = res.Active;
@@ -45,7 +45,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFStatusTargets.Queries
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFStatusTargetResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfTargetStatusResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

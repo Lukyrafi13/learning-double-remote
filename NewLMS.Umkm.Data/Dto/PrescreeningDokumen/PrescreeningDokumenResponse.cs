@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.PrescreeningDokumens
+namespace NewLMS.UMKM.Data.Dto.PrescreeningDokumens
 {
     public class PrescreeningDokumenResponseDto
     {

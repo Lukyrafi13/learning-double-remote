@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Commands
+namespace NewLMS.UMKM.MediatR.Features.Tests.Commands
 {
     public class GenerateExcelCommand : IRequest<byte[]>
     {

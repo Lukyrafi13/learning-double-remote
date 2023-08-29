@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFDecisionSKs;
+using NewLMS.UMKM.Data.Dto.RFDecisionSKs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFDecisionSKs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFDecisionSKs.Commands
 {
     public class RFDecisionSKPostValidator : AbstractValidator<RFDecisionSKPostCommand>
     {

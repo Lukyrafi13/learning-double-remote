@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFVEHMAKERs
+namespace NewLMS.UMKM.Data.Dto.RFVEHMAKERs
 {
     public class RFVEHMAKERResponseDto
     {

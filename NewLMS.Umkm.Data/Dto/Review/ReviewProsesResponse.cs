@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Reviews
+namespace NewLMS.UMKM.Data.Dto.Reviews
 {
     public class ReviewProsesResponse
     {

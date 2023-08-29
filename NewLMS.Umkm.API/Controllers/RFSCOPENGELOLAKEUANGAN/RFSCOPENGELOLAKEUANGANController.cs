@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOPENGELOLAKEUANGANs;
+using NewLMS.UMKM.Data.Dto.RFSCOPENGELOLAKEUANGANs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOPENGELOLAKEUANGANs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOPENGELOLAKEUANGANs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOPENGELOLAKEUANGANs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOPENGELOLAKEUANGANs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOPENGELOLAKEUANGAN
+namespace NewLMS.UMKM.API.Controllers.RFSCOPENGELOLAKEUANGAN
 {
     public class RFSCOPENGELOLAKEUANGANController : BaseController
     {

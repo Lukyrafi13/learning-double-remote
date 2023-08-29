@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSiklusUsahas;
+using NewLMS.UMKM.Data.Dto.RFSiklusUsahas;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSiklusUsahas.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSiklusUsahas.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSiklusUsahas.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSiklusUsahas.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSiklusUsaha
+namespace NewLMS.UMKM.API.Controllers.RFSiklusUsaha
 {
     public class RFSiklusUsahaController : BaseController
     {

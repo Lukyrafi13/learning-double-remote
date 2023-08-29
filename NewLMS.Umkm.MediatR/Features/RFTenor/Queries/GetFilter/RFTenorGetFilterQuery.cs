@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFTenors;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFTenors;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFTenors.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFTenors.Queries
 {
     public class RFTenorsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFTenorResponseDto>>>
     {

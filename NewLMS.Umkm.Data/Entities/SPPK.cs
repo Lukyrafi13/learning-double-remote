@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class SPPK : BaseEntity
     {
@@ -79,7 +79,6 @@ namespace NewLMS.Umkm.Data
         public string NamaPejabatMKK3 { get; set; }
         public string NamaPejabatMKK4 { get; set; }
         public string NamaPejabatMKK5 { get; set; }
-        public int Age => App?.Prospect?.AgeStage("8.0")??-1;
 
         public Guid AppId { get; set; }
         public Guid? AnalisaId { get; set; }

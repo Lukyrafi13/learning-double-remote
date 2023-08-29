@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFDebiturMemilikiUsahaLains;
+using NewLMS.UMKM.Data.Dto.RFDebiturMemilikiUsahaLains;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFDebiturMemilikiUsahaLains.Commands;
-using NewLMS.Umkm.MediatR.Features.RFDebiturMemilikiUsahaLains.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFDebiturMemilikiUsahaLains.Commands;
+using NewLMS.UMKM.MediatR.Features.RFDebiturMemilikiUsahaLains.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFDebiturMemilikiUsahaLain
+namespace NewLMS.UMKM.API.Controllers.RFDebiturMemilikiUsahaLain
 {
     public class RFDebiturMemilikiUsahaLainController : BaseController
     {

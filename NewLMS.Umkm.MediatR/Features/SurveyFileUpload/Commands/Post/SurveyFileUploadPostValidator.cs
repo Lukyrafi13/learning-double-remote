@@ -1,12 +1,12 @@
-using FluentValidation;
-using NewLMS.Umkm.Data.Dto.SurveyFileUploads;
+// using FluentValidation;
+// using NewLMS.UMKM.Data.Dto.SurveyFileUploads;
 
-namespace NewLMS.Umkm.MediatR.Features.SurveyFileUploads.Commands
-{
-    public class SurveyFileUploadPostValidator : AbstractValidator<SurveyFileUploadPostCommand>
-    {
-        public SurveyFileUploadPostValidator(){
-            // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
-        }
-    }
-}
+// namespace NewLMS.UMKM.MediatR.Features.SurveyFileUploads.Commands
+// {
+//     public class SurveyFileUploadPostValidator : AbstractValidator<SurveyFileUploadPostCommand>
+//     {
+//         public SurveyFileUploadPostValidator(){
+//             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
+//         }
+//     }
+// }

@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFKategoris;
+using NewLMS.UMKM.Data.Dto.RfCategorys;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKategoris.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCategorys.Commands
 {
-    public class RFKategoriPostValidator : AbstractValidator<RFKategoriPostCommand>
+    public class RfCategoryPostValidator : AbstractValidator<RfCategoryPostCommand>
     {
-        public RFKategoriPostValidator(){
+        public RfCategoryPostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

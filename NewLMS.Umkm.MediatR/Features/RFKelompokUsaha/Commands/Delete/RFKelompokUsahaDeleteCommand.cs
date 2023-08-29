@@ -1,36 +1,36 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Commands
 {
-    public class RFKelompokUsahaDeleteCommand : RFKelompokUsahaFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfCompanyGroupDeleteCommand : RfCompanyGroupFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class DeleteRFKelompokUsahaCommandHandler : IRequestHandler<RFKelompokUsahaDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfCompanyGroupCommandHandler : IRequestHandler<RfCompanyGroupDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFKelompokUsaha> _RFKelompokUsaha;
+        private readonly IGenericRepositoryAsync<RfCompanyGroup> _RfCompanyGroup;
         private readonly IMapper _mapper;
 
-        public DeleteRFKelompokUsahaCommandHandler(IGenericRepositoryAsync<RFKelompokUsaha> RFKelompokUsaha, IMapper mapper){
-            _RFKelompokUsaha = RFKelompokUsaha;
+        public DeleteRfCompanyGroupCommandHandler(IGenericRepositoryAsync<RfCompanyGroup> RfCompanyGroup, IMapper mapper){
+            _RfCompanyGroup = RfCompanyGroup;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFKelompokUsahaDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfCompanyGroupDeleteCommand request, CancellationToken cancellationToken)
         {
-            var rFProduct = await _RFKelompokUsaha.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
+            var rFProduct = await _RfCompanyGroup.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
             rFProduct.IsDeleted = true;
-            await _RFKelompokUsaha.UpdateAsync(rFProduct);
+            await _RfCompanyGroup.UpdateAsync(rFProduct);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

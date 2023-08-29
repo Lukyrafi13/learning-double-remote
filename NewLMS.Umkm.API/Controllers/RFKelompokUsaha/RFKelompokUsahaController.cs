@@ -1,98 +1,98 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Commands;
-using NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Commands;
+using NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFKelompokUsaha
+namespace NewLMS.UMKM.API.Controllers.RfCompanyGroup
 {
-    public class RFKelompokUsahaController : BaseController
+    public class RfCompanyGroupController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFKelompokUsaha
+        /// RfCompanyGroup
         /// </summary>
         /// <param name="mediator"></param>
-        public RFKelompokUsahaController(IMediator mediator)
+        public RfCompanyGroupController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFKelompokUsaha By ANL_CODE
+        /// Get RfCompanyGroup By ANL_CODE
         /// </summary>
         /// <param name="ANL_CODE"></param>
         /// <returns></returns>
-        [HttpGet("get/{ANL_CODE}", Name = "GetRFKelompokUsahaByCode")]
-        [Produces("application/json", "application/xml", Type = typeof(RFKelompokUsahaResponseDto))]
-        public async Task<IActionResult> GetRFKelompokUsahaByCode(string ANL_CODE)
+        [HttpGet("get/{ANL_CODE}", Name = "GetRfCompanyGroupByCode")]
+        [Produces("application/json", "application/xml", Type = typeof(RfCompanyGroupResponseDto))]
+        public async Task<IActionResult> GetRfCompanyGroupByCode(string ANL_CODE)
         {
-            var getSCOQuery = new RFKelompokUsahaGetQuery { ANL_CODE = ANL_CODE };
+            var getSCOQuery = new RfCompanyGroupGetQuery { ANL_CODE = ANL_CODE };
             var result = await _mediator.Send(getSCOQuery);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFKelompokUsaha By ANL_CODE
+        /// Get RfCompanyGroup By ANL_CODE
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFKelompokUsahaList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFKelompokUsahaResponseDto>>))]
-        public async Task<IActionResult> GetRFKelompokUsahaList(RFKelompokUsahasGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfCompanyGroupList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfCompanyGroupResponseDto>>))]
+        public async Task<IActionResult> GetRfCompanyGroupList(RfCompanyGroupsGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFKelompokUsaha
+        /// Post New RfCompanyGroup
         /// </summary>
-        /// <param name="postRFKelompokUsaha"></param>
+        /// <param name="postRfCompanyGroup"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFKelompokUsaha")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFKelompokUsahaResponseDto>))]
-        public async Task<IActionResult> AddRFKelompokUsaha(RFKelompokUsahaPostCommand postRFKelompokUsaha)
+        [HttpPost("post", Name = "AddRfCompanyGroup")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCompanyGroupResponseDto>))]
+        public async Task<IActionResult> AddRfCompanyGroup(RfCompanyGroupPostCommand postRfCompanyGroup)
         {
-            var result = await _mediator.Send(postRFKelompokUsaha);
+            var result = await _mediator.Send(postRfCompanyGroup);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFKelompokUsahaByCode", new { id = result.Data.ANL_CODE }, result.Data);
+            return CreatedAtAction("GetRfCompanyGroupByCode", new { id = result.Data.ANL_CODE }, result.Data);
         }
 
         /// <summary>
-        /// Put Edit RFKelompokUsaha
+        /// Put Edit RfCompanyGroup
         /// </summary>
         /// <param name="ANL_CODE"></param>
-        /// <param name="putRFKelompokUsaha"></param>
+        /// <param name="putRfCompanyGroup"></param>
         /// <returns></returns>
-        [HttpPut("put/{ANL_CODE}", Name = "EditRFKelompokUsaha")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFKelompokUsahaResponseDto>))]
-        public async Task<IActionResult> EditRFKelompokUsaha([FromRoute] string ANL_CODE, [FromBody] RFKelompokUsahaPutCommand putRFKelompokUsaha)
+        [HttpPut("put/{ANL_CODE}", Name = "EditRfCompanyGroup")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCompanyGroupResponseDto>))]
+        public async Task<IActionResult> EditRfCompanyGroup([FromRoute] string ANL_CODE, [FromBody] RfCompanyGroupPutCommand putRfCompanyGroup)
         {
-            putRFKelompokUsaha.ANL_CODE = ANL_CODE;
-            var result = await _mediator.Send(putRFKelompokUsaha);
+            putRfCompanyGroup.ANL_CODE = ANL_CODE;
+            var result = await _mediator.Send(putRfCompanyGroup);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFKelompokUsaha
+        /// Delete RfCompanyGroup
         /// </summary>
         /// <param name="ANL_CODE"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{ANL_CODE}", Name = "DeleteRFKelompokUsaha")]
+        [HttpDelete("delete/{ANL_CODE}", Name = "DeleteRfCompanyGroup")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFKelompokUsaha([FromRoute] string ANL_CODE, [FromBody]RFKelompokUsahaDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfCompanyGroup([FromRoute] string ANL_CODE, [FromBody]RfCompanyGroupDeleteCommand deleteCommand)
         {
             deleteCommand.ANL_CODE = ANL_CODE;
             return Ok(await _mediator.Send(deleteCommand));

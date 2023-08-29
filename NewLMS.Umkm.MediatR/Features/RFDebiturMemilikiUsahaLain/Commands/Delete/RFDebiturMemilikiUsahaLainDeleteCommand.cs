@@ -1,13 +1,13 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFDebiturMemilikiUsahaLains;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFDebiturMemilikiUsahaLains;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFDebiturMemilikiUsahaLains.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFDebiturMemilikiUsahaLains.Commands
 {
     public class RFDebiturMemilikiUsahaLainDeleteCommand : RFDebiturMemilikiUsahaLainFindRequestDto, IRequest<ServiceResponse<Unit>>
     {

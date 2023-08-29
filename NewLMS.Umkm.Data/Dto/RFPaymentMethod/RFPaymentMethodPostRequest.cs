@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFPaymentMethods
+namespace NewLMS.UMKM.Data.Dto.RFPaymentMethods
 {
     public class RFPaymentMethodPostRequestDto
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFInsCompanys
+namespace NewLMS.UMKM.Data.Dto.RFInsCompanys
 {
     public class RFInsCompanyFindRequestDto
     {

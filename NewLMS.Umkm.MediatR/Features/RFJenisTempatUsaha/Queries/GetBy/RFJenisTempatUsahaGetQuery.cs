@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisTempatUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFJenisTempatUsahas;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisTempatUsahas.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFJenisTempatUsahas.Queries
 {
     public class RFJenisTempatUsahaGetQuery : RFJenisTempatUsahaFindRequestDto, IRequest<ServiceResponse<RFJenisTempatUsahaResponseDto>>
     {

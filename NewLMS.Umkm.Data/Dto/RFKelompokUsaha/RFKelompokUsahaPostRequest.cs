@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFKelompokUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyGroups
 {
-    public class RFKelompokUsahaPostRequestDto
+    public class RfCompanyGroupPostRequestDto
     {
         public string ANL_CODE { get; set;}
         public string ANL_DESC { get; set;}

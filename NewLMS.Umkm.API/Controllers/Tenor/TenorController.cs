@@ -1,16 +1,16 @@
 // using System;
 // using System.Collections.Generic;
 // using System.Threading.Tasks;
-// using NewLMS.Umkm.Data.Dto.Tenors;
+// using NewLMS.UMKM.Data.Dto.Tenors;
 // using MediatR;
 // using Microsoft.AspNetCore.Authorization;
 // using Microsoft.AspNetCore.Mvc;
-// using NewLMS.Umkm.MediatR.Features.Tenors.Commands;
-// using NewLMS.Umkm.MediatR.Features.Tenors.Queries;
-// using NewLMS.Umkm.Common.GenericRespository;
-// using NewLMS.Umkm.Helper;
+// using NewLMS.UMKM.MediatR.Features.Tenors.Commands;
+// using NewLMS.UMKM.MediatR.Features.Tenors.Queries;
+// using NewLMS.UMKM.Common.GenericRespository;
+// using NewLMS.UMKM.Helper;
 
-// namespace NewLMS.Umkm.API.Controllers.Tenor
+// namespace NewLMS.UMKM.API.Controllers.Tenor
 // {
 //     public class TenorController : BaseController
 //     {

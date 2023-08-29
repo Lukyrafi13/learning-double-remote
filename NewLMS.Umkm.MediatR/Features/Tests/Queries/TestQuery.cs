@@ -1,14 +1,14 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Data.Dto.Tests;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Dto.Tests;
+using NewLMS.UMKM.Helper;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Queries
+namespace NewLMS.UMKM.MediatR.Features.Tests.Queries
 {
     public class TestQuery : RequestParameter, IRequest<ServiceResponse<IEnumerable<TestResponse>>>
     {

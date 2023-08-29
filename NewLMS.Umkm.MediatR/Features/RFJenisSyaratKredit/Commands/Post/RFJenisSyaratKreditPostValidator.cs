@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJenisSyaratKredits;
+using NewLMS.UMKM.Data.Dto.RFJenisSyaratKredits;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisSyaratKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFJenisSyaratKredits.Commands
 {
     public class RFJenisSyaratKreditPostValidator : AbstractValidator<RFJenisSyaratKreditPostCommand>
     {

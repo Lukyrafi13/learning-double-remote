@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Approvals
+namespace NewLMS.UMKM.Data.Dto.Approvals
 {
     public class ApprovalFind
     {

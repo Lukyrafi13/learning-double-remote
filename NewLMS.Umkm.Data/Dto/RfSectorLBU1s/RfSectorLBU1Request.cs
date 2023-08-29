@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data.Dto.RFSectorLBU1s
+namespace NewLMS.UMKM.Data.Dto.RfSectorLBU1s
 {
-    internal class RFSectorLBU1Request
+    internal class RfSectorLBU1Request
     {
     }
 }

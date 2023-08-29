@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisAktas
+namespace NewLMS.UMKM.Data.Dto.RFJenisAktas
 {
     public class RFJenisAktaFindRequestDto
     {        

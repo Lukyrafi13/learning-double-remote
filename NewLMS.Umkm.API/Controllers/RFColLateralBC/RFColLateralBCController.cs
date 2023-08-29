@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFColLateralBCs;
+using NewLMS.UMKM.Data.Dto.RFColLateralBCs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFColLateralBCs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFColLateralBCs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFColLateralBC
+namespace NewLMS.UMKM.API.Controllers.RFColLateralBC
 {
     public class RFColLateralBCController : BaseController
     {

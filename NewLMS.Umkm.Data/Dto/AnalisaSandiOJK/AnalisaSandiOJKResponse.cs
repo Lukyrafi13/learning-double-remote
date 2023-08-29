@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.AnalisaSandiOJKs
+namespace NewLMS.UMKM.Data.Dto.AnalisaSandiOJKs
 {
     public class AnalisaSandiOJKResponseDto
     {

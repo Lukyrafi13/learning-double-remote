@@ -1,65 +1,65 @@
-using AutoMapper;
-using MediatR;
-using NewLMS.Umkm.Data.Dto.PersiapanAkads;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Net;
+// using AutoMapper;
+// using MediatR;
+// using NewLMS.UMKM.Data.Dto.PersiapanAkads;
+// using NewLMS.UMKM.Data;
+// using NewLMS.UMKM.Helper;
+// using NewLMS.UMKM.Repository.GenericRepository;
+// using System;
+// using System.Threading;
+// using System.Threading.Tasks;
+// using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.PersiapanAkads.Commands
-{
-    public class PersiapanAkadBiayaAsuransiPutCommand : PersiapanAkadBiayaAsuransiPut, IRequest<ServiceResponse<PersiapanAkadBiayaAsuransiResponse>>
-    {
-    }
+// namespace NewLMS.UMKM.MediatR.Features.PersiapanAkads.Commands
+// {
+//     public class PersiapanAkadBiayaAsuransiPutCommand : PersiapanAkadBiayaAsuransiPut, IRequest<ServiceResponse<PersiapanAkadBiayaAsuransiResponse>>
+//     {
+//     }
 
-    public class PersiapanAkadBiayaAsuransiPutCommandHandler : IRequestHandler<PersiapanAkadBiayaAsuransiPutCommand, ServiceResponse<PersiapanAkadBiayaAsuransiResponse>>
-    {
-        private readonly IGenericRepositoryAsync<PersiapanAkad> _PersiapanAkad;
-        private readonly IGenericRepositoryAsync<Analisa> _Analisa;
-        private readonly IMapper _mapper;
+//     public class PersiapanAkadBiayaAsuransiPutCommandHandler : IRequestHandler<PersiapanAkadBiayaAsuransiPutCommand, ServiceResponse<PersiapanAkadBiayaAsuransiResponse>>
+//     {
+//         private readonly IGenericRepositoryAsync<PersiapanAkad> _PersiapanAkad;
+//         private readonly IGenericRepositoryAsync<Analisa> _Analisa;
+//         private readonly IMapper _mapper;
 
-        public PersiapanAkadBiayaAsuransiPutCommandHandler(
-            IGenericRepositoryAsync<PersiapanAkad> PersiapanAkad,
-            IGenericRepositoryAsync<Analisa> Analisa,
-            IMapper mapper)
-        {
-            _PersiapanAkad = PersiapanAkad;
-            _Analisa = Analisa;
-            _mapper = mapper;
-        }
+//         public PersiapanAkadBiayaAsuransiPutCommandHandler(
+//             IGenericRepositoryAsync<PersiapanAkad> PersiapanAkad,
+//             IGenericRepositoryAsync<Analisa> Analisa,
+//             IMapper mapper)
+//         {
+//             _PersiapanAkad = PersiapanAkad;
+//             _Analisa = Analisa;
+//             _mapper = mapper;
+//         }
 
-        public async Task<ServiceResponse<PersiapanAkadBiayaAsuransiResponse>> Handle(PersiapanAkadBiayaAsuransiPutCommand request, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var existingPersiapanAkad = await _PersiapanAkad.GetByIdAsync(request.Id, "Id");
+//         public async Task<ServiceResponse<PersiapanAkadBiayaAsuransiResponse>> Handle(PersiapanAkadBiayaAsuransiPutCommand request, CancellationToken cancellationToken)
+//         {
+//             try
+//             {
+//                 var existingPersiapanAkad = await _PersiapanAkad.GetByIdAsync(request.Id, "Id");
                 
-                existingPersiapanAkad = _mapper.Map<PersiapanAkadBiayaAsuransiPut, PersiapanAkad>(request, existingPersiapanAkad);
+//                 existingPersiapanAkad = _mapper.Map<PersiapanAkadBiayaAsuransiPut, PersiapanAkad>(request, existingPersiapanAkad);
 
-                await _PersiapanAkad.UpdateAsync(existingPersiapanAkad);
+//                 await _PersiapanAkad.UpdateAsync(existingPersiapanAkad);
 
-                var existingAnalisa = await _Analisa.GetByIdAsync((Guid)existingPersiapanAkad.AnalisaId, "Id");
+//                 var existingAnalisa = await _Analisa.GetByIdAsync((Guid)existingPersiapanAkad.AnalisaId, "Id");
                 
-                existingAnalisa.Provisi = request.Provisi;
+//                 existingAnalisa.Provisi = request.Provisi;
 
-                await _Analisa.UpdateAsync(existingAnalisa);
+//                 await _Analisa.UpdateAsync(existingAnalisa);
 
-                var response = _mapper.Map<PersiapanAkadBiayaAsuransiResponse>(existingPersiapanAkad);
+//                 var response = _mapper.Map<PersiapanAkadBiayaAsuransiResponse>(existingPersiapanAkad);
 
-                response.NilaiProvisi = existingAnalisa.NilaiProvisi;
-                response.NilaiPertanggungan = existingAnalisa.NilaiPertanggungan;
-                response.BiayaAsuransi = existingAnalisa.TotalBiayaAsuransi;
-                response.BiayaAdmin = existingAnalisa.BiayaAdmin;
+//                 response.NilaiProvisi = existingAnalisa.NilaiProvisi;
+//                 response.NilaiPertanggungan = existingAnalisa.NilaiPertanggungan;
+//                 response.BiayaAsuransi = existingAnalisa.TotalBiayaAsuransi;
+//                 response.BiayaAdmin = existingAnalisa.BiayaAdmin;
 
-                return ServiceResponse<PersiapanAkadBiayaAsuransiResponse>.ReturnResultWith200(response);
-            }
-            catch (Exception ex)
-            {
-                return ServiceResponse<PersiapanAkadBiayaAsuransiResponse>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
-            }
-        }
-    }
-}
+//                 return ServiceResponse<PersiapanAkadBiayaAsuransiResponse>.ReturnResultWith200(response);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return ServiceResponse<PersiapanAkadBiayaAsuransiResponse>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+//             }
+//         }
+//     }
+// }

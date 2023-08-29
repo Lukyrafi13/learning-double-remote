@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SPPKFileUploads
+namespace NewLMS.UMKM.Data.Dto.SPPKFileUploads
 {
     public class SPPKFileUploadResponseDto
     {

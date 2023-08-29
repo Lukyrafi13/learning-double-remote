@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFCSBPHeaders
+namespace NewLMS.UMKM.Data.Dto.RFCSBPHeaders
 {
     public class RFCSBPHeaderPostRequestDto
     {

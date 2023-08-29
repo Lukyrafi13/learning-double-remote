@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFVehicleTypeLists;
+using NewLMS.UMKM.Data.Dto.RFVehicleTypeLists;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFVehicleTypeLists.Commands;
-using NewLMS.Umkm.MediatR.Features.RFVehicleTypeLists.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFVehicleTypeLists.Commands;
+using NewLMS.UMKM.MediatR.Features.RFVehicleTypeLists.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFVehicleTypeList
+namespace NewLMS.UMKM.API.Controllers.RFVehicleTypeList
 {
     public class RFVehicleTypeListController : BaseController
     {

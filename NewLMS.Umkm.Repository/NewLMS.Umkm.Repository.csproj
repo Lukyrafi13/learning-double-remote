@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NewLMS.Umkm.Common\NewLMS.Umkm.Common.csproj" />
-    <ProjectReference Include="..\NewLMS.Umkm.Data\NewLMS.Umkm.Data.csproj" />
-    <ProjectReference Include="..\NewLMS.Umkm.DomainDWH\NewLMS.Umkm.Domain.Dwh.csproj" />
-    <ProjectReference Include="..\NewLMS.Umkm.Domain\NewLMS.Umkm.Domain.csproj" />
-    <ProjectReference Include="..\NewLMS.Umkm.Helper\NewLMS.Umkm.Helper.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Common\NewLMS.UMKM.Common.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Data\NewLMS.UMKM.Data.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.DomainDWH\NewLMS.UMKM.Domain.Dwh.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Domain\NewLMS.UMKM.Domain.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Helper\NewLMS.UMKM.Helper.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,42 +1,42 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaYangDihindaris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeYangDihindaris;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaYangDihindaris.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeYangDihindaris.Queries
 {
-    public class RFJenisUsahaYangDihindariGetQuery : RFJenisUsahaYangDihindariFindRequestDto, IRequest<ServiceResponse<RFJenisUsahaYangDihindariResponseDto>>
+    public class RfCompanyTypeYangDihindariGetQuery : RfCompanyTypeYangDihindariFindRequestDto, IRequest<ServiceResponse<RfCompanyTypeYangDihindariResponseDto>>
     {
     }
 
-    public class RFJenisUsahaYangDihindariGetQueryHandler : IRequestHandler<RFJenisUsahaYangDihindariGetQuery, ServiceResponse<RFJenisUsahaYangDihindariResponseDto>>
+    public class RfCompanyTypeYangDihindariGetQueryHandler : IRequestHandler<RfCompanyTypeYangDihindariGetQuery, ServiceResponse<RfCompanyTypeYangDihindariResponseDto>>
     {
-        private IGenericRepositoryAsync<RFJenisUsahaYangDihindari> _RFJenisUsahaYangDihindari;
+        private IGenericRepositoryAsync<RfCompanyTypeYangDihindari> _RfCompanyTypeYangDihindari;
         private readonly IMapper _mapper;
 
-        public RFJenisUsahaYangDihindariGetQueryHandler(IGenericRepositoryAsync<RFJenisUsahaYangDihindari> RFJenisUsahaYangDihindari, IMapper mapper)
+        public RfCompanyTypeYangDihindariGetQueryHandler(IGenericRepositoryAsync<RfCompanyTypeYangDihindari> RfCompanyTypeYangDihindari, IMapper mapper)
         {
-            _RFJenisUsahaYangDihindari = RFJenisUsahaYangDihindari;
+            _RfCompanyTypeYangDihindari = RfCompanyTypeYangDihindari;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<RFJenisUsahaYangDihindariResponseDto>> Handle(RFJenisUsahaYangDihindariGetQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCompanyTypeYangDihindariResponseDto>> Handle(RfCompanyTypeYangDihindariGetQuery request, CancellationToken cancellationToken)
         {
             try
             {
-                var data = await _RFJenisUsahaYangDihindari.GetByIdAsync(request.StatusJenisUsaha_Code, "StatusJenisUsaha_Code");
+                var data = await _RfCompanyTypeYangDihindari.GetByIdAsync(request.StatusJenisUsaha_Code, "StatusJenisUsaha_Code");
                 if (data == null)
-                    return ServiceResponse<RFJenisUsahaYangDihindariResponseDto>.Return404("Data RFJenisUsahaYangDihindari not found");
-                var response = _mapper.Map<RFJenisUsahaYangDihindariResponseDto>(data);
-                return ServiceResponse<RFJenisUsahaYangDihindariResponseDto>.ReturnResultWith200(response);
+                    return ServiceResponse<RfCompanyTypeYangDihindariResponseDto>.Return404("Data RfCompanyTypeYangDihindari not found");
+                var response = _mapper.Map<RfCompanyTypeYangDihindariResponseDto>(data);
+                return ServiceResponse<RfCompanyTypeYangDihindariResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFJenisUsahaYangDihindariResponseDto>.ReturnException(ex);
+                return ServiceResponse<RfCompanyTypeYangDihindariResponseDto>.ReturnException(ex);
             }
         }
     }

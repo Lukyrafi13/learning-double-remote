@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaMaps.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeMaps.Commands
 {
-    public class RFJenisUsahaMapPostValidator : AbstractValidator<RFJenisUsahaMapPostCommand>
+    public class RfCompanyTypeMapPostValidator : AbstractValidator<RfCompanyTypeMapPostCommand>
     {
-        public RFJenisUsahaMapPostValidator()
+        public RfCompanyTypeMapPostValidator()
         {
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }

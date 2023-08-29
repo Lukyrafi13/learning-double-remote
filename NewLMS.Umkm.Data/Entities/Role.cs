@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Role : IdentityRole<Guid>
     {

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFKodeDinass
+namespace NewLMS.UMKM.Data.Dto.RFKodeDinass
 {
     public class RFKodeDinasPostRequestDto
     {

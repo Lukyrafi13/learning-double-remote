@@ -1,11 +1,11 @@
-﻿using NewLMS.Umkm.Scoring.Interfaces;
-using NewLMS.Umkm.Scoring.Models.TypeA;
-using NewLMS.Umkm.Scoring.Models.TypeB;
+﻿using NewLMS.UMKM.Scoring.Interfaces;
+using NewLMS.UMKM.Scoring.Models.TypeA;
+using NewLMS.UMKM.Scoring.Models.TypeB;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Scoring.Services
+namespace NewLMS.UMKM.Scoring.Services
 {
     public class ScoringService : IScoringService
     {

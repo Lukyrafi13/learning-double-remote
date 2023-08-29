@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Approval : BaseEntity
     {
@@ -22,7 +22,6 @@ namespace NewLMS.Umkm.Data
 
         public bool? BacaDanSetuju { get; set; }
         public string Covenant { get; set; }
-        public int Age => App?.Prospect?.AgeStage("7.0")??-1;
 
         public Guid AppId { get; set; }
         public Guid? PrescreeningId { get; set; }

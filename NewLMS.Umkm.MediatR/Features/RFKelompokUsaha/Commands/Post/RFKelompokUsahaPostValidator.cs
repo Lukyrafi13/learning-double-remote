@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Commands
 {
-    public class RFKelompokUsahaPostValidator : AbstractValidator<RFKelompokUsahaPostCommand>
+    public class RfCompanyGroupPostValidator : AbstractValidator<RfCompanyGroupPostCommand>
     {
-        public RFKelompokUsahaPostValidator(){
+        public RfCompanyGroupPostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

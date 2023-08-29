@@ -1,6 +1,6 @@
-﻿namespace NewLMS.Umkm.Data.Dto.RFSectorLBU1s
+﻿namespace NewLMS.UMKM.Data.Dto.RfSectorLBU1s
 {
-    public class RFSectorLBU1PostRequest
+    public class RfSectorLBU1PostRequest
     {
         public string Code { get; set; }
         public string Description { get; set; }

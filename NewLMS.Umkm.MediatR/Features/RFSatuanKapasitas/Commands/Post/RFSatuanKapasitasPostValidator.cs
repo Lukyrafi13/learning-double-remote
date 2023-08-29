@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSatuanKapasitass;
+using NewLMS.UMKM.Data.Dto.RFSatuanKapasitass;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSatuanKapasitass.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSatuanKapasitass.Commands
 {
     public class RFSatuanKapasitasPostValidator : AbstractValidator<RFSatuanKapasitasPostCommand>
     {

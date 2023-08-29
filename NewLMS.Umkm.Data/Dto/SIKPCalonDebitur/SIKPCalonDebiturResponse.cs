@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
+namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
 {
     public class SIKPCalonDebiturResponseDto
     {        
@@ -8,15 +8,15 @@ namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
         public App App { get; set; }
 
         // Data IDE
-        public RFOwnerCategory TipeDebitur { get; set; }
-        public RFSectorLBU1 SektorEkonomi { get; set; }
-        public RFSectorLBU2 SubSektorEkonomi { get; set; }
-        public RFSectorLBU3 SubSubSektorEkonomi { get; set; }
-        public RFGender JenisKelamin { get; set; }
+        public RfOwnerCategory TipeDebitur { get; set; }
+        public RfSectorLBU1 SektorEkonomi { get; set; }
+        public RfSectorLBU2 SubSektorEkonomi { get; set; }
+        public RfSectorLBU3 SubSubSektorEkonomi { get; set; }
+        public RfGender JenisKelamin { get; set; }
         public RFMARITAL StatusPernikahan { get; set; }
         public RFEDUCATION PendidikanTerakhir { get; set; }
         public RFJOB DataPekerjaan { get; set; }
-        public RFZipCode KodePos { get; set; }
+        public RfZipCode KodePos { get; set; }
         public string NoCIF { get; set; }
         public string NoKTP { get; set; }
         public string NPWP { get; set; }
@@ -29,7 +29,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
         public string Propinsi { get; set; }
 
         // Data Usaha
-        public RFZipCode KodePosUsaha { get; set; }
+        public RfZipCode KodePosUsaha { get; set; }
         public RFLinkage Linkage { get; set; }
         public DateTime? TanggalMulaiUsaha { get; set; }
         public string AlamatUsaha { get; set; }
@@ -49,11 +49,11 @@ namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
 
 
         // Data IDE SKIP
-        public RFGender JenisKelaminSIKP { get; set; }
+        public RfGender JenisKelaminSIKP { get; set; }
         public RFMARITAL StatusPernikahanSIKP { get; set; }
         public RFEDUCATION PendidikanTerakhirSIKP { get; set; }
         public RFJOB DataPekerjaanSIKP { get; set; }
-        public RFZipCode KodePosSIKP { get; set; }
+        public RfZipCode KodePosSIKP { get; set; }
         public string NoRegistrasiSIKP { get; set; }
         public string NoKTPSIKP { get; set; }
         public string NPWPSIKP { get; set; }
@@ -68,7 +68,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
 
 
         // Data Usaha SIKP
-        public RFZipCode KodePosUsahaSIKP { get; set; }
+        public RfZipCode KodePosUsahaSIKP { get; set; }
         public RFLinkage LinkageSIKP { get; set; }
         public DateTime? TanggalMulaiUsahaSIKP { get; set; }
         public string AlamatUsahaSIKP { get; set; }
@@ -91,23 +91,23 @@ namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
 
         // Foreign Keys
         public Guid AppId { get; set; }
-        public Guid? RFOwnerCategoryId { get; set; }
-        public string? RFSectorLBU1Code { get; set; }
-        public string? RFSectorLBU2Code { get; set; }
-        public string? RFSectorLBU3Code { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
+        public string? RfSectorLBU1Code { get; set; }
+        public string? RfSectorLBU2Code { get; set; }
+        public string? RfSectorLBU3Code { get; set; }
+        public Guid? RfGenderId { get; set; }
         public Guid? RFMaritalId { get; set; }
         public Guid? RFEducationId { get; set; }
         public Guid? RFJobId { get; set; }
-        public int? RFZipCodeId { get; set; }
-        public int? RFZipCodeUsahaId { get; set; }
+        public int? RfZipCodeId { get; set; }
+        public int? RfZipCodeUsahaId { get; set; }
         public Guid? RFLinkageUsahaId { get; set; }
-        public Guid? RFGenderSIKPId { get; set; }
+        public Guid? RfGenderSIKPId { get; set; }
         public Guid? RFMaritalSIKPId { get; set; }
         public Guid? RFEducationSIKPId { get; set; }
         public Guid? RFJobSIKPId { get; set; }
-        public int? RFZipCodeSIKPId { get; set; }
-        public int? RFZipCodeUsahaSIKPId { get; set; }
+        public int? RfZipCodeSIKPId { get; set; }
+        public int? RfZipCodeUsahaSIKPId { get; set; }
         public Guid? RFLinkageUsahaSIKPId { get; set; }
 
     }

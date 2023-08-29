@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFSCOCARATRANSAKSIs
+namespace NewLMS.UMKM.Data.Dto.RFSCOCARATRANSAKSIs
 {
     public class RFSCOCARATRANSAKSIPostRequestDto
     {

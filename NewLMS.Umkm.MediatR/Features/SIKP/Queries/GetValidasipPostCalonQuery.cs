@@ -1,19 +1,19 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.SIKP2.Models;
-using NewLMS.Umkm.SIKP.Models;
-using NewLMS.Umkm.SIKP2.Interfaces;
-using NewLMS.Umkm.SIKP.Interfaces;
+using NewLMS.UMKM.SIKP2.Models;
+using NewLMS.UMKM.SIKP.Models;
+using NewLMS.UMKM.SIKP2.Interfaces;
+using NewLMS.UMKM.SIKP.Interfaces;
 using System.Collections.Generic;
-using NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs;
+using NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs;
 
-namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
+namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
 {
     public class SIKPGetValidasiPostCalonRequest
     {
@@ -61,28 +61,28 @@ namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
 
     public class SIKPGetValidasiPostCalonQueryHandler : IRequestHandler<SIKPGetValidasiPostCalonQuery, ServiceResponse<ValidasiPostCalonResponseModel>>
     {
-        private IGenericRepositoryAsync<RFSectorLBU1> _Sektor;
-        private IGenericRepositoryAsync<RFSectorLBU2> _SubSektor;
-        private IGenericRepositoryAsync<RFSectorLBU3> _SubSubSektor;
+        private IGenericRepositoryAsync<RfSectorLBU1> _Sektor;
+        private IGenericRepositoryAsync<RfSectorLBU2> _SubSektor;
+        private IGenericRepositoryAsync<RfSectorLBU3> _SubSubSektor;
         private IGenericRepositoryAsync<SIKPCalonDebitur> _SIKPCalonDebitur;
-        private IGenericRepositoryAsync<RFGender> _RFGender;
+        private IGenericRepositoryAsync<RfGender> _RfGender;
         private IGenericRepositoryAsync<RFMARITAL> _RFMARITAL;
         private IGenericRepositoryAsync<RFEDUCATION> _RFEDUCATION;
-        private IGenericRepositoryAsync<RFZipCode> _RFZipCode;
+        private IGenericRepositoryAsync<RfZipCode> _RfZipCode;
         private IGenericRepositoryAsync<RFJOB> _RFJOB;
         private IGenericRepositoryAsync<RFLinkage> _RFLinkage;
         private ISIKPService _SIKPService;
         private readonly IMapper _mapper;
 
         public SIKPGetValidasiPostCalonQueryHandler(
-            IGenericRepositoryAsync<RFSectorLBU1> Sektor,
-            IGenericRepositoryAsync<RFSectorLBU2> SubSektor,
-            IGenericRepositoryAsync<RFSectorLBU3> SubSubSektor,
+            IGenericRepositoryAsync<RfSectorLBU1> Sektor,
+            IGenericRepositoryAsync<RfSectorLBU2> SubSektor,
+            IGenericRepositoryAsync<RfSectorLBU3> SubSubSektor,
             IGenericRepositoryAsync<SIKPCalonDebitur> SIKPCalonDebitur,
-            IGenericRepositoryAsync<RFGender> RFGender,
+            IGenericRepositoryAsync<RfGender> RfGender,
             IGenericRepositoryAsync<RFMARITAL> RFMARITAL,
             IGenericRepositoryAsync<RFEDUCATION> RFEDUCATION,
-            IGenericRepositoryAsync<RFZipCode> RFZipCode,
+            IGenericRepositoryAsync<RfZipCode> RfZipCode,
             IGenericRepositoryAsync<RFJOB> RFJOB,
             IGenericRepositoryAsync<RFLinkage> RFLinkage,
             ISIKPService SIKPService,
@@ -92,10 +92,10 @@ namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
             _SubSektor = SubSektor;
             _SubSubSektor = SubSubSektor;
             _SIKPCalonDebitur = SIKPCalonDebitur;
-            _RFGender = RFGender;
+            _RfGender = RfGender;
             _RFMARITAL = RFMARITAL;
             _RFEDUCATION = RFEDUCATION;
-            _RFZipCode = RFZipCode;
+            _RfZipCode = RfZipCode;
             _RFJOB = RFJOB;
             _RFLinkage = RFLinkage;
             _SIKPService = SIKPService;
@@ -198,8 +198,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
             if (request.Skema == "3" || request.Skema == "1")
             {
                 var subsubsektor = await _SubSubSektor.GetByIdAsync(request.Sektor, "Code");
-                var subsektor = await _SubSektor.GetByIdAsync(subsubsektor.RFSectorLBU2Code, "Code");
-                var sektor = await _Sektor.GetByIdAsync(subsektor.RFSectorLBU1Code, "Code");
+                var subsektor = await _SubSektor.GetByIdAsync(subsubsektor.RfSectorLBU2Code, "Code");
+                var sektor = await _Sektor.GetByIdAsync(subsektor.RfSectorLBU1Code, "Code");
 
                 var subSubSectorList = new List<string> { "A1", "B1", "B2", "B3", "B4", "B5" };
 
@@ -284,8 +284,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
                 if (dataCalonDebitur.data != null)
                 {
                     // Get SIKP RFs
-                    var RFZipCode = await _RFZipCode.GetByPredicate(x => x.ZipCode == dataCalonDebitur.data.kode_pos && x.KodeKabupaten == dataCalonDebitur.data.kode_kabkota);
-                    var RFGender = await _RFGender.GetByIdAsync(dataCalonDebitur.data.jns_kelamin, "GenderCodeSIKP");
+                    var RfZipCode = await _RfZipCode.GetByPredicate(x => x.ZipCode == dataCalonDebitur.data.kode_pos && x.KodeKabupaten == dataCalonDebitur.data.kode_kabkota);
+                    var RfGender = await _RfGender.GetByIdAsync(dataCalonDebitur.data.jns_kelamin, "GenderCodeSIKP");
                     var RFMarital = await _RFMARITAL.GetByIdAsync(dataCalonDebitur.data.maritas_sts, "MR_CODESIKP");
                     var RFEducation = await _RFEDUCATION.GetByIdAsync(dataCalonDebitur.data.pendidikan, "ED_CODESIKP");
                     var RFJob = await _RFJOB.GetByIdAsync(dataCalonDebitur.data.pekerjaan, "JOB_CODESIKP");
@@ -298,24 +298,24 @@ namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
                     SIKPCalonDebitur.NamaDebiturSIKP = dataCalonDebitur.data.nama;
                     SIKPCalonDebitur.TanggalLahirSIKP = DateTime.Parse(dataCalonDebitur.data.tgl_lahir);
                     SIKPCalonDebitur.AlamatSIKP = dataCalonDebitur.data.alamat;
-                    SIKPCalonDebitur.KelurahanSIKP = RFZipCode.Kelurahan;
-                    SIKPCalonDebitur.KecamatanSIKP = RFZipCode.Kecamatan;
-                    SIKPCalonDebitur.KabupatenKotaSIKP = RFZipCode.KodeKabKota;
-                    SIKPCalonDebitur.PropinsiSIKP = RFZipCode.Provinsi;
+                    SIKPCalonDebitur.KelurahanSIKP = RfZipCode.Kelurahan;
+                    SIKPCalonDebitur.KecamatanSIKP = RfZipCode.Kecamatan;
+                    SIKPCalonDebitur.KabupatenKotaSIKP = RfZipCode.KodeKabKota;
+                    SIKPCalonDebitur.PropinsiSIKP = RfZipCode.Provinsi;
 
-                    SIKPCalonDebitur.RFGenderSIKPId = RFGender.Id;
+                    SIKPCalonDebitur.RfGenderSIKPId = RfGender.Id;
                     SIKPCalonDebitur.RFMaritalSIKPId = RFMarital.Id;
                     SIKPCalonDebitur.RFEducationSIKPId = RFEducation.Id;
                     SIKPCalonDebitur.RFJobSIKPId = RFJob.Id;
-                    SIKPCalonDebitur.RFZipCodeSIKPId = RFZipCode.Id;
+                    SIKPCalonDebitur.RfZipCodeSIKPId = RfZipCode.Id;
 
                     // Usaha
                     SIKPCalonDebitur.TanggalMulaiUsahaSIKP = DateTime.Parse(dataCalonDebitur.data.mulai_usaha);
                     SIKPCalonDebitur.AlamatUsahaSIKP = dataCalonDebitur.data.alamat_usaha;
-                    SIKPCalonDebitur.KelurahanUsahaSIKP = RFZipCode.Kelurahan;
-                    SIKPCalonDebitur.KecamatanUsahaSIKP = RFZipCode.Kecamatan;
-                    SIKPCalonDebitur.KabupatenKotaUsahaSIKP = RFZipCode.KodeKabKota;
-                    SIKPCalonDebitur.PropinsiUsahaSIKP = RFZipCode.Provinsi;
+                    SIKPCalonDebitur.KelurahanUsahaSIKP = RfZipCode.Kelurahan;
+                    SIKPCalonDebitur.KecamatanUsahaSIKP = RfZipCode.Kecamatan;
+                    SIKPCalonDebitur.KabupatenKotaUsahaSIKP = RfZipCode.KodeKabKota;
+                    SIKPCalonDebitur.PropinsiUsahaSIKP = RfZipCode.Provinsi;
                     SIKPCalonDebitur.IzinUsahaSIKP = dataCalonDebitur.data.ijin_usaha;
                     SIKPCalonDebitur.ModalUsahaSIKP = double.Parse(dataCalonDebitur.data.modal_usaha);
                     SIKPCalonDebitur.JumlahKreditSIKP = double.Parse(dataCalonDebitur.data.jml_kredit);
@@ -325,7 +325,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
                     SIKPCalonDebitur.StatusSubsidiSIKP = dataCalonDebitur.data.is_subsidized == "1";
                     SIKPCalonDebitur.SubsidiSebelumnyaSIKP = double.Parse(dataCalonDebitur.data.subsidi_sebelumnya ?? "0");
 
-                    SIKPCalonDebitur.RFZipCodeUsahaSIKPId = RFZipCode.Id;
+                    SIKPCalonDebitur.RfZipCodeUsahaSIKPId = RfZipCode.Id;
                     SIKPCalonDebitur.RFLinkageUsahaSIKPId = RFLinkage.Id;
 
                     await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);

@@ -1,23 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOCARATRANSAKSIs;
+using NewLMS.UMKM.Data.Dto.RFSCOCARATRANSAKSIs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOCARATRANSAKSIS.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOCARATRANSAKSIS.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOCARATRANSAKSIS.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOCARATRANSAKSIS.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOCARATRANSAKSI
+namespace NewLMS.UMKM.API.Controllers.RFSCOCARATRANSAKSI
 {
     public class RFSCOCARATRANSAKSIController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFOwnerCategory
+        /// RfOwnerCategory
         /// </summary>
         /// <param name="mediator"></param>
         public RFSCOCARATRANSAKSIController(IMediator mediator)

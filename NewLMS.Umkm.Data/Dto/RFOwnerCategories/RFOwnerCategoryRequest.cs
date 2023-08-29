@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFOwnerCategories
+namespace NewLMS.UMKM.Data.Dto.RFOwnerCategories
 {
-    public class RFOwnerCategoryRequestDto
+    public class RfOwnerCategoryRequestDto
     {
     }
 }

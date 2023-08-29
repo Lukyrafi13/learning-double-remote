@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SlikRequestObjects
+namespace NewLMS.UMKM.Data.Dto.SlikRequestObjects
 {
     public class SlikRequestObjectResponseDto
     {

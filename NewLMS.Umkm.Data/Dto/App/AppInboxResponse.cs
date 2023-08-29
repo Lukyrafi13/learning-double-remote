@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.Umkm.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppInboxResponse
     {

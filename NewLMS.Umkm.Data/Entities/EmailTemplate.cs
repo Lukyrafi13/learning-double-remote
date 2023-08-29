@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class EmailTemplate: BaseEntity
     {

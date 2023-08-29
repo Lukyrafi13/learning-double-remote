@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RfBranchess;
+using NewLMS.UMKM.Data.Dto.RfBranchess;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RfBranchess.Commands;
-using NewLMS.Umkm.MediatR.Features.RfBranchess.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RfBranchess.Commands;
+using NewLMS.UMKM.MediatR.Features.RfBranchess.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RfBranches
+namespace NewLMS.UMKM.API.Controllers.RfBranches
 {
     public class RfBranchesController : BaseController
     {
@@ -26,7 +26,7 @@ namespace NewLMS.Umkm.API.Controllers.RfBranches
         }
 
         /// <summary>
-        /// Get RfBranches By Code
+        /// Get RfBranch By Code
         /// </summary>
         /// <param name="Code"></param>
         /// <returns></returns>
@@ -40,7 +40,7 @@ namespace NewLMS.Umkm.API.Controllers.RfBranches
         }
 
         /// <summary>
-        /// Get RfBranches List
+        /// Get RfBranch List
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>

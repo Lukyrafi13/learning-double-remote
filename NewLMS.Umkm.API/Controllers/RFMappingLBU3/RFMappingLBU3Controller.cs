@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFMappingLBU3s;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU3s;
+using NewLMS.UMKM.Data.Dto.RFMappingLBU3s;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFMappingLBU3s.Commands;
-using NewLMS.Umkm.MediatR.Features.RFMappingLBU3s.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFMappingLBU3s.Commands;
+using NewLMS.UMKM.MediatR.Features.RFMappingLBU3s.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFMappingLBU3
+namespace NewLMS.UMKM.API.Controllers.RFMappingLBU3
 {
     public class RFMappingLBU3Controller : BaseController
     {
@@ -54,13 +54,13 @@ namespace NewLMS.Umkm.API.Controllers.RFMappingLBU3
         }
 
         /// <summary>
-        /// Get RFSectorLBU3 By SectorLBU2 and ProductId
+        /// Get RfSectorLBU3 By SectorLBU2 and ProductId
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("sector/get", Name = "GetRFSectorLBU3List")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFSectorLBU3Response>>))]
-        public async Task<IActionResult> GetRFSectorLBU3List(RFSectorLBU3sGetFilterQuery filterQuery)
+        [HttpPost("sector/get", Name = "GetRfSectorLBU3List")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfSectorLBU3Response>>))]
+        public async Task<IActionResult> GetRfSectorLBU3List(RfSectorLBU3sGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOSCORINGAGUNANs;
+using NewLMS.UMKM.Data.Dto.RFSCOSCORINGAGUNANs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOSCORINGAGUNANs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOSCORINGAGUNANs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOSCORINGAGUNANs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOSCORINGAGUNANs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOSCORINGAGUNAN
+namespace NewLMS.UMKM.API.Controllers.RFSCOSCORINGAGUNAN
 {
     public class RFSCOSCORINGAGUNANController : BaseController
     {

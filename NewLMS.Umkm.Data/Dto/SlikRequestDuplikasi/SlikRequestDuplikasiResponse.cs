@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using NewLMS.Umkm.Data.Dto.MSearchs;
+using NewLMS.UMKM.Data.Dto.MSearchs;
 
-namespace NewLMS.Umkm.Data.Dto.SlikRequestDuplikasis
+namespace NewLMS.UMKM.Data.Dto.SlikRequestDuplikasis
 {
     public class SlikRequestDuplikasiResponse
     {

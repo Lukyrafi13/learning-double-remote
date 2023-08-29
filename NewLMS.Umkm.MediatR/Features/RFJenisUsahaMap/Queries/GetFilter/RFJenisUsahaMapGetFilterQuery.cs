@@ -1,45 +1,45 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaMaps.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeMaps.Queries
 {
-    public class RFJenisUsahaMapsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFJenisUsahaMapResponseDto>>>
+    public class RfCompanyTypeMapsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfCompanyTypeMapResponseDto>>>
     {
     }
 
-    public class GetFilterRFJenisUsahaMapQueryHandler : IRequestHandler<RFJenisUsahaMapsGetFilterQuery, PagedResponse<IEnumerable<RFJenisUsahaMapResponseDto>>>
+    public class GetFilterRfCompanyTypeMapQueryHandler : IRequestHandler<RfCompanyTypeMapsGetFilterQuery, PagedResponse<IEnumerable<RfCompanyTypeMapResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFJenisUsahaMap> _RFJenisUsahaMap;
-                private IGenericRepositoryAsync<RFJenisUsaha> _RFJenisUsaha;
+        private IGenericRepositoryAsync<RfCompanyTypeMap> _RfCompanyTypeMap;
+                private IGenericRepositoryAsync<RfCompanyType> _RfCompanyType;
         private readonly IMapper _mapper;
 
-        public GetFilterRFJenisUsahaMapQueryHandler(IGenericRepositoryAsync<RFJenisUsahaMap> RFJenisUsahaMap, IGenericRepositoryAsync<RFJenisUsaha> RFJenisUsaha, IMapper mapper)
+        public GetFilterRfCompanyTypeMapQueryHandler(IGenericRepositoryAsync<RfCompanyTypeMap> RfCompanyTypeMap, IGenericRepositoryAsync<RfCompanyType> RfCompanyType, IMapper mapper)
         {
-            _RFJenisUsahaMap = RFJenisUsahaMap;
-            _RFJenisUsaha = RFJenisUsaha;
+            _RfCompanyTypeMap = RfCompanyTypeMap;
+            _RfCompanyType = RfCompanyType;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFJenisUsahaMapResponseDto>>> Handle(RFJenisUsahaMapsGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfCompanyTypeMapResponseDto>>> Handle(RfCompanyTypeMapsGetFilterQuery request, CancellationToken cancellationToken)
         {
-            var data = await _RFJenisUsahaMap.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFJenisUsahaMapResponseDto>>(data.Results);
-            IEnumerable<RFJenisUsahaMapResponseDto> dataVm;
-            var listResponse = new List<RFJenisUsahaMapResponseDto>();
+            var data = await _RfCompanyTypeMap.GetPagedReponseAsync(request);
+            // var dataVm = _mapper.Map<IEnumerable<RfCompanyTypeMapResponseDto>>(data.Results);
+            IEnumerable<RfCompanyTypeMapResponseDto> dataVm;
+            var listResponse = new List<RfCompanyTypeMapResponseDto>();
 
             foreach (var res in data.Results)
             {
-                var response = _mapper.Map<RFJenisUsahaMapResponseDto>(res);
+                var response = _mapper.Map<RfCompanyTypeMapResponseDto>(res);
 
-                var jenisUsaha = await _RFJenisUsaha.GetByIdAsync(response.ANL_CODE, "ANL_CODE");
+                var jenisUsaha = await _RfCompanyType.GetByIdAsync(response.ANL_CODE, "ANL_CODE");
 
                 if (jenisUsaha != null){
                     response.ANL_DESC = jenisUsaha.ANL_DESC;
@@ -50,7 +50,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaMaps.Queries
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFJenisUsahaMapResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfCompanyTypeMapResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

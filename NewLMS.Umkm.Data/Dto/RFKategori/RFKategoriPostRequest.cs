@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFKategoris
+namespace NewLMS.UMKM.Data.Dto.RfCategorys
 {
-    public class RFKategoriPostRequestDto
+    public class RfCategoryPostRequestDto
     {
         public string KategoriCode { get; set; }
         public string KategoriDesc { get; set; }

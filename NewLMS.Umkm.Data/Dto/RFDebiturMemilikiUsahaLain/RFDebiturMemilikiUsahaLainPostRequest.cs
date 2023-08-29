@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFDebiturMemilikiUsahaLains
+namespace NewLMS.UMKM.Data.Dto.RFDebiturMemilikiUsahaLains
 {
     public class RFDebiturMemilikiUsahaLainPostRequestDto
     {

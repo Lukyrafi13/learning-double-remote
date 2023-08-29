@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFAspekPemasarans;
+using NewLMS.UMKM.Data.Dto.RFAspekPemasarans;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFAspekPemasarans.Commands;
-using NewLMS.Umkm.MediatR.Features.RFAspekPemasarans.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFAspekPemasarans.Commands;
+using NewLMS.UMKM.MediatR.Features.RFAspekPemasarans.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFAspekPemasaran
+namespace NewLMS.UMKM.API.Controllers.RFAspekPemasaran
 {
     public class RFAspekPemasaranController : BaseController
     {

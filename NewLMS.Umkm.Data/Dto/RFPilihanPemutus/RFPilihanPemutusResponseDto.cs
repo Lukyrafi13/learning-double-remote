@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFPilihanPemutuss
+namespace NewLMS.UMKM.Data.Dto.RFPilihanPemutuss
 {
     public class RFPilihanPemutusResponseDto : BaseResponse
     {

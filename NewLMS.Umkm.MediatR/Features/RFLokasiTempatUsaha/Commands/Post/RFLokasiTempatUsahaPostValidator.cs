@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFLokasiTempatUsahas;
+using NewLMS.UMKM.Data.Dto.RFLokasiTempatUsahas;
 
-namespace NewLMS.Umkm.MediatR.Features.RFLokasiTempatUsahas.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFLokasiTempatUsahas.Commands
 {
     public class RFLokasiTempatUsahaPostValidator : AbstractValidator<RFLokasiTempatUsahaPostCommand>
     {

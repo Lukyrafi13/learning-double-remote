@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSCOTINGKATKEBUTUHANs
+namespace NewLMS.UMKM.Data.Dto.RFSCOTINGKATKEBUTUHANs
 {
     public class RFSCOTINGKATKEBUTUHANFindRequestDto
     {

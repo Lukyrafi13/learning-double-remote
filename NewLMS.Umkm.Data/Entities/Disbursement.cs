@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Disbursement : BaseEntity
     {
@@ -17,7 +17,6 @@ namespace NewLMS.Umkm.Data
         public Prescreening Prescreening { get; set; }
         [ForeignKey("PersiapanAkadId")]
         public PersiapanAkad PersiapanAkad { get; set; }
-        public int Age => App?.Prospect?.AgeStage("12.0")??-1;
 
         public Guid AppId { get; set; }
         public Guid? SppkId { get; set; }

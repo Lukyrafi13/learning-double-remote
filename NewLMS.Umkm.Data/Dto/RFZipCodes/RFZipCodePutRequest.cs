@@ -1,6 +1,6 @@
-﻿namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+﻿namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodePutRequest : RFZipCodePostRequest
+    public class RfZipCodePutRequest : RfZipCodePostRequest
     {
     }
 }

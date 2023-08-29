@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFTermConditions;
+using NewLMS.UMKM.Data.Dto.RFTermConditions;
 
-namespace NewLMS.Umkm.MediatR.Features.RFTermConditions.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFTermConditions.Commands
 {
     public class RFTermConditionPostValidator : AbstractValidator<RFTermConditionPostCommand>
     {

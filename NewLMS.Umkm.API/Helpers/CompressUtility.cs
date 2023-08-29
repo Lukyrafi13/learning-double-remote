@@ -2,7 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 
-namespace NewLMS.Umkm.Api.Helpers
+namespace NewLMS.UMKM.Api.Helpers
 {
     public class CompressUtility
     {

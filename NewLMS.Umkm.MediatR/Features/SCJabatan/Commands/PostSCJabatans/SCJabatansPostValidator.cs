@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.SCJabatans;
+using NewLMS.UMKM.Data.Dto.SCJabatans;
 
-namespace NewLMS.Umkm.MediatR.Features.SCJabatans.Commands
+namespace NewLMS.UMKM.MediatR.Features.SCJabatans.Commands
 {
     public class SCJabatansPostValidator : AbstractValidator<SCJabatanPostCommand>
     {

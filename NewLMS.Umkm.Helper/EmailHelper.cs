@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 
-namespace NewLMS.Umkm.Helper
+namespace NewLMS.UMKM.Helper
 {
     public class EmailHelper
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RfBranchess
+namespace NewLMS.UMKM.Data.Dto.RfBranchess
 {
     public class RfBranchesFindRequestDto
     {

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFTermConditions;
+using NewLMS.UMKM.Data.Dto.RFTermConditions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFTermConditions.Commands;
-using NewLMS.Umkm.MediatR.Features.RFTermConditions.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFTermConditions.Commands;
+using NewLMS.UMKM.MediatR.Features.RFTermConditions.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFTermCondition
+namespace NewLMS.UMKM.API.Controllers.RFTermCondition
 {
     public class RFTermConditionController : BaseController
     {

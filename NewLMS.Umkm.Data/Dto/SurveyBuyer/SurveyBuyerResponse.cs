@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SurveyBuyers
+namespace NewLMS.UMKM.Data.Dto.SurveyBuyers
 {
     public class SurveyBuyerResponseDto : SurveyBuyerPostRequestDto
     {

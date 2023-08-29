@@ -1,25 +1,22 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.Prospects;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
+using NewLMS.UMKM.Data.Dto.Prospects;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
+namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
 {
     public class ProspectsGetByIdQuery : ProspectFindRequestDto, IRequest<ServiceResponse<ProspectResponseDto>>
     {
     }
 
-    public class GetByIdProspectQueryHandler : IRequestHandler<ProspectsGetByIdQuery, ServiceResponse<ProspectResponseDto>>
+    public class ProspectGetByIdQueryHandler : IRequestHandler<ProspectsGetByIdQuery, ServiceResponse<ProspectResponseDto>>
     {
         private IGenericRepositoryAsync<Prospect> _prospect;
         private readonly IMapper _mapper;
 
-        public GetByIdProspectQueryHandler(IGenericRepositoryAsync<Prospect> prospect, IMapper mapper)
+        public ProspectGetByIdQueryHandler(IGenericRepositoryAsync<Prospect> prospect, IMapper mapper)
         {
             _prospect = prospect;
             _mapper = mapper;
@@ -28,26 +25,21 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
         {
             try
             {
-                var prospect = await _prospect.GetByIdAsync(Guid.Parse(request.Id), "Id", 
+                var prospect = await _prospect.GetByIdAsync(request.Id, "Id", 
                     new string[] {
-                        "JenisProduk",
-                        "TipeDebitur",
-                        "JenisKelamin",
-                        "JenisPermohonanKredit",
-                        "KodePos",
-                        "Status",
-                        "SektorEkonomi",
-                        "SubSektorEkonomi",
-                        "SubSubSektorEkonomi",
-                        "Kategori",
-                        "KodeDinas",
-                        "Stage",
-                        "KodePosUsaha",
-                        "KodePosTempat",
-                        "KelompokBidangUsaha",
-                        "JenisUsaha",
-                        "ProspectStageLogs",
-                        "ProspectStageLogs.RFStages",
+                        "RfCompanyGroup",
+                        "RfCompanyStatus",
+                        "RfCompanyType",
+                        "RfBranch",
+                        "RfProduct",
+                        "RfGender",
+                        "RfSectorLBU3",
+                        "RfOwnerCategory",
+                        "RfZipCode",
+                        "RfPlaceZipCode",
+                        "RfCompanyZipCode",
+                        "RfAppType",
+                        "RfTargetStatus",
                     }
                 );
                 if (prospect == null)

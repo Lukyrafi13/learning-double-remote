@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFRelationCols;
+using NewLMS.UMKM.Data.Dto.RFRelationCols;
 
-namespace NewLMS.Umkm.MediatR.Features.RFRelationCols.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFRelationCols.Commands
 {
     public class RFRelationColPostValidator : AbstractValidator<RFRelationColPostCommand>
     {

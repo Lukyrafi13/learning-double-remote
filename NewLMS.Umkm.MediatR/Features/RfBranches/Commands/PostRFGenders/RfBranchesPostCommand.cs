@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RfBranchess;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfBranchess;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfBranchess.Commands
 {
     public class RfBranchesPostCommand : RfBranchesPostRequestDto, IRequest<ServiceResponse<RfBranchesResponseDto>>
     {
@@ -22,7 +22,7 @@ namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Commands
 
         public PostRfBranchesCommandHandler(IGenericRepositoryAsync<RfBranches> RfBranches, IMapper mapper)
         {
-            _RfBranches = RfBranches;
+            _RfBranch = RfBranches;
             _mapper = mapper;
         }
 
@@ -31,7 +31,7 @@ namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Commands
 
             try
             {
-                var RfBranches = new RfBranches();
+                var RfBranch = new RfBranches();
 
                 RfBranches.Code = request.Code;
                 RfBranches.Name = request.Name;

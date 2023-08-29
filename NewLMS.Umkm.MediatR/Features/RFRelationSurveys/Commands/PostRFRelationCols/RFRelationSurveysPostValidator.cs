@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFRelationSurveys;
+using NewLMS.UMKM.Data.Dto.RFRelationSurveys;
 
-namespace NewLMS.Umkm.MediatR.Features.RFRelationSurveys.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFRelationSurveys.Commands
 {
     public class RFRelationSurveyPostValidator : AbstractValidator<RFRelationSurveyPostCommand>
     {

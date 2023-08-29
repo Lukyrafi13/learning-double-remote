@@ -1,10 +1,10 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppPemohonBadanUsahaResponse : AppPemohonBadanUsaha
     {
-        public RFZipCode KodePos { get; set; }
-        public RFZipCode KodePosKontakDarurat { get; set; }
+        public RfZipCode KodePos { get; set; }
+        public RfZipCode KodePosKontakDarurat { get; set; }
 
     }
 }

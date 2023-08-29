@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOHUBUNGANPERBANKANs;
+using NewLMS.UMKM.Data.Dto.RFSCOHUBUNGANPERBANKANs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOHUBUNGANPERBANKANs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOHUBUNGANPERBANKANs.Commands
 {
     public class RFSCOHUBUNGANPERBANKANPostValidator : AbstractValidator<RFSCOHUBUNGANPERBANKANPostCommand>
     {

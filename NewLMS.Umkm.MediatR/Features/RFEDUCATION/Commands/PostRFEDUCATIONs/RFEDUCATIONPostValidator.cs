@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFEDUCATIONs;
+using NewLMS.UMKM.Data.Dto.RFEDUCATIONs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFEDUCATIONs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFEDUCATIONs.Commands
 {
     public class RFEDUCATIONPostValidator : AbstractValidator<RFEDUCATIONPostCommand>
     {

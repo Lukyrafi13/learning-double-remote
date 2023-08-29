@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFPengikatanKredits
+namespace NewLMS.UMKM.Data.Dto.RFPengikatanKredits
 {
     public class RFPengikatanKreditResponseDto : BaseResponse
     {

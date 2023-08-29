@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.SIKPHistorys
+namespace NewLMS.UMKM.Data.Dto.SIKPHistorys
 {
     public class SIKPHistoryDetailDTO {
         public string KodeBank { get; set; }
@@ -23,7 +23,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPHistorys
         public string KodeBank { get; set; }
         public int? SisaHariBook { get; set; }
         public double? Plafond { get; set; }
-        public string? RFSectorLBU3Code { get; set; }
+        public string? RfSectorLBU3Code { get; set; }
         public string InquiryCode { get; set; }
 
         public List<SIKPHistoryDetailDTO> Details { get; set; }

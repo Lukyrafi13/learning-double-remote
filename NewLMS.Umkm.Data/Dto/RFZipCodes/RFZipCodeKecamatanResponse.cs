@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodeKecamatanResponse
+    public class RfZipCodeKecamatanResponse
     {
         public string kodeKecamatan { get; set; }
         public string kecamatan { get; set; }

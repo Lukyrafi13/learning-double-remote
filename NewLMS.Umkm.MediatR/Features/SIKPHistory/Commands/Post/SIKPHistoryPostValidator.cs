@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.SIKPHistorys;
+using NewLMS.UMKM.Data.Dto.SIKPHistorys;
 
-namespace NewLMS.Umkm.MediatR.Features.SIKPHistorys.Commands
+namespace NewLMS.UMKM.MediatR.Features.SIKPHistorys.Commands
 {
     public class SIKPHistoryPostValidator : AbstractValidator<SIKPHistoryPostCommand>
     {

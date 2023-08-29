@@ -1,36 +1,36 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKategoris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCategorys;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKategoris.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCategorys.Commands
 {
-    public class RFKategoriDeleteCommand : RFKategoriFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfCategoryDeleteCommand : RfCategoryFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class DeleteRFKategoriCommandHandler : IRequestHandler<RFKategoriDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfCategoryCommandHandler : IRequestHandler<RfCategoryDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFKategori> _RFKategori;
+        private readonly IGenericRepositoryAsync<RfCategory> _RfCategory;
         private readonly IMapper _mapper;
 
-        public DeleteRFKategoriCommandHandler(IGenericRepositoryAsync<RFKategori> RFKategori, IMapper mapper){
-            _RFKategori = RFKategori;
+        public DeleteRfCategoryCommandHandler(IGenericRepositoryAsync<RfCategory> RfCategory, IMapper mapper){
+            _RfCategory = RfCategory;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFKategoriDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfCategoryDeleteCommand request, CancellationToken cancellationToken)
         {
-            var RFKategori = await _RFKategori.GetByIdAsync(request.KategoriCode, "KategoriCode");
-            RFKategori.IsDeleted = true;
-            await _RFKategori.UpdateAsync(RFKategori);
+            var RfCategory = await _RfCategory.GetByIdAsync(request.KategoriCode, "KategoriCode");
+            RfCategory.IsDeleted = true;
+            await _RfCategory.UpdateAsync(RfCategory);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

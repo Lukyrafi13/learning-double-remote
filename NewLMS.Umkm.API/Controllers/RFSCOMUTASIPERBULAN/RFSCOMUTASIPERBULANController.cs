@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOMUTASIPERBULANs;
+using NewLMS.UMKM.Data.Dto.RFSCOMUTASIPERBULANs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOMUTASIPERBULANs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOMUTASIPERBULANs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOMUTASIPERBULANs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOMUTASIPERBULANs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOMUTASIPERBULAN
+namespace NewLMS.UMKM.API.Controllers.RFSCOMUTASIPERBULAN
 {
     public class RFSCOMUTASIPERBULANController : BaseController
     {

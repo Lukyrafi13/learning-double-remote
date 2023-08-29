@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFSiklusUsahaPokoks
+namespace NewLMS.UMKM.Data.Dto.RFSiklusUsahaPokoks
 {
     public class RFSiklusUsahaPokokResponseDto : BaseResponse
     {

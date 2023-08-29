@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.FileUrls
+namespace NewLMS.UMKM.Data.Dto.FileUrls
 {
     public class FileUrlPostRequestDto
     {

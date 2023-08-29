@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFGenders;
+using NewLMS.UMKM.Data.Dto.RfGenders;
 
-namespace NewLMS.Umkm.MediatR.Features.RFGenders.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfGenders.Commands
 {
-    public class RFGenderPostValidator : AbstractValidator<RFGenderPostCommand>
+    public class RfGenderPostValidator : AbstractValidator<RfGenderPostCommand>
     {
-        public RFGenderPostValidator(){
+        public RfGenderPostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

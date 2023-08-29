@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFOwnerOTSs;
+using NewLMS.UMKM.Data.Dto.RFOwnerOTSs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFOwnerOTSs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFOwnerOTSs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFOwnerOTSs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFOwnerOTSs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFOwnerOTS
+namespace NewLMS.UMKM.API.Controllers.RFOwnerOTS
 {
     public class RFOwnerOTSController : BaseController
     {

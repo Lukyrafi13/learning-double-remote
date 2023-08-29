@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFKategoris
+namespace NewLMS.UMKM.Data.Dto.RfCategorys
 {
-    public class RFKategoriPutRequestDto
+    public class RfCategoryPutRequestDto
     {
         public string KategoriCode { get; set; }
         public string KategoriDesc { get; set; }

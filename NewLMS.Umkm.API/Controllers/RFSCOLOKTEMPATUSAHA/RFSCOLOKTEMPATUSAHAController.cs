@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOLOKTEMPATUSAHAs;
+using NewLMS.UMKM.Data.Dto.RFSCOLOKTEMPATUSAHAs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOLOKTEMPATUSAHAs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOLOKTEMPATUSAHAs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOLOKTEMPATUSAHAs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOLOKTEMPATUSAHAs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOLOKTEMPATUSAHA
+namespace NewLMS.UMKM.API.Controllers.RFSCOLOKTEMPATUSAHA
 {
     public class RFSCOLOKTEMPATUSAHAController : BaseController
     {

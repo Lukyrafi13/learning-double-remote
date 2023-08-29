@@ -1,52 +1,52 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFStatusTargets;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfTargetStatuss;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFStatusTargets.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfTargetStatuss.Commands
 {
-    public class RFStatusTargetPutCommand : RFStatusTargetPutRequestDto, IRequest<ServiceResponse<RFStatusTargetResponseDto>>
+    public class RfTargetStatusPutCommand : RfTargetStatusPutRequestDto, IRequest<ServiceResponse<RfTargetStatusResponseDto>>
     {
     }
 
-    public class PutRFStatusTargetCommandHandler : IRequestHandler<RFStatusTargetPutCommand, ServiceResponse<RFStatusTargetResponseDto>>
+    public class PutRfTargetStatusCommandHandler : IRequestHandler<RfTargetStatusPutCommand, ServiceResponse<RfTargetStatusResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFStatusTarget> _rfStatusTarget;
+        private readonly IGenericRepositoryAsync<RfTargetStatus> _rfStatusTarget;
         private readonly IMapper _mapper;
 
-        public PutRFStatusTargetCommandHandler(IGenericRepositoryAsync<RFStatusTarget> rfStatusTarget, IMapper mapper){
+        public PutRfTargetStatusCommandHandler(IGenericRepositoryAsync<RfTargetStatus> rfStatusTarget, IMapper mapper){
             _rfStatusTarget = rfStatusTarget;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFStatusTargetResponseDto>> Handle(RFStatusTargetPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfTargetStatusResponseDto>> Handle(RfTargetStatusPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFStatusTarget = await _rfStatusTarget.GetByIdAsync(request.StatusCode, "StatusCode");
-                existingRFStatusTarget.Active = request.Active;
-                existingRFStatusTarget.StatusCode = request.StatusCode;
-                existingRFStatusTarget.StatusDesc = request.StatusDesc;
+                var existingRfTargetStatus = await _rfStatusTarget.GetByIdAsync(request.StatusCode, "StatusCode");
+                existingRfTargetStatus.Active = request.Active;
+                existingRfTargetStatus.StatusCode = request.StatusCode;
+                existingRfTargetStatus.StatusDesc = request.StatusDesc;
                 
-                await _rfStatusTarget.UpdateAsync(existingRFStatusTarget);
+                await _rfStatusTarget.UpdateAsync(existingRfTargetStatus);
 
-                var response = new RFStatusTargetResponseDto();
-                response.Id = existingRFStatusTarget.Id;
-                response.Active = existingRFStatusTarget.Active;
-                response.StatusCode = existingRFStatusTarget.StatusCode;
-                response.StatusDesc = existingRFStatusTarget.StatusDesc;
+                var response = new RfTargetStatusResponseDto();
+                response.Id = existingRfTargetStatus.Id;
+                response.Active = existingRfTargetStatus.Active;
+                response.StatusCode = existingRfTargetStatus.StatusCode;
+                response.StatusDesc = existingRfTargetStatus.StatusDesc;
 
-                return ServiceResponse<RFStatusTargetResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfTargetStatusResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFStatusTargetResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfTargetStatusResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

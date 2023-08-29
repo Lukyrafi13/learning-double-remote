@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.AppKeyPersons
+namespace NewLMS.UMKM.Data.Dto.AppKeyPersons
 {
     public class AppKeyPersonFindRequestDto
     {

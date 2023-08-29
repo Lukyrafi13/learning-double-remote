@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJumlahPegawais;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFJumlahPegawais;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJumlahPegawais.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFJumlahPegawais.Queries
 {
     public class RFJumlahPegawaiGetQuery : RFJumlahPegawaiFindRequestDto, IRequest<ServiceResponse<RFJumlahPegawaiResponseDto>>
     {

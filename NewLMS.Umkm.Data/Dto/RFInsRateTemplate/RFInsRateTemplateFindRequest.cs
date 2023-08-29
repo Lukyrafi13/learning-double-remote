@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFInsRateTemplates
+namespace NewLMS.UMKM.Data.Dto.RFInsRateTemplates
 {
     public class RFInsRateTemplateFindRequestDto
     {        

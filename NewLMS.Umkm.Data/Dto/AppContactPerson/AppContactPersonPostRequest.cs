@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.AppContactPersons
+namespace NewLMS.UMKM.Data.Dto.AppContactPersons
 {
     public class AppContactPersonPostRequestDto
     {
@@ -10,6 +10,6 @@ namespace NewLMS.Umkm.Data.Dto.AppContactPersons
 
         public Guid AppId { get; set; }
         public Guid? RFRelationColId { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfGenderId { get; set; }
     }
 }

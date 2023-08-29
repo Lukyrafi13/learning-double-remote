@@ -4,13 +4,13 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.MediatR.Features.Tests.Commands;
-using NewLMS.Umkm.MediatR.Features.Tests.Queries;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.Tests.Commands;
+using NewLMS.UMKM.MediatR.Features.Tests.Queries;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.API.Controllers
+namespace NewLMS.UMKM.API.Controllers
 {
     public class TestController : BaseController
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOHUTANGPIHAKLAINs;
+using NewLMS.UMKM.Data.Dto.RFSCOHUTANGPIHAKLAINs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOHUTANGPIHAKLAINs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOHUTANGPIHAKLAINs.Commands
 {
     public class RFSCOHUTANGPIHAKLAINPostValidator : AbstractValidator<RFSCOHUTANGPIHAKLAINPostCommand>
     {

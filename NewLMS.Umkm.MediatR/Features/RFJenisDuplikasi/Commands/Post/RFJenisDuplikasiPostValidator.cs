@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJenisDuplikasis;
+using NewLMS.UMKM.Data.Dto.RFJenisDuplikasis;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisDuplikasis.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFJenisDuplikasis.Commands
 {
     public class RFJenisDuplikasiPostValidator : AbstractValidator<RFJenisDuplikasiPostCommand>
     {

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Linq.Dynamic.Core;
-using NewLMS.Umkm.Data.Dto;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Domain.FUSE.Context;
+using NewLMS.UMKM.Data.Dto;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Domain.FUSE.Context;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 
-namespace NewLMS.Umkm.Domain.FUSE.GenericRepositoryFuse
+namespace NewLMS.UMKM.Domain.FUSE.GenericRepositoryFuse
 {
     public class GenericRepositoryFuseAsync<T> : IGenericRepositoryFuseAsync<T> where T : class
     {

@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps
 {
-    public class RFJenisUsahaMapFindRequestDto
+    public class RfCompanyTypeMapFindRequestDto
     {
         public Guid Id { get; set;}
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFRelationSurveys
+namespace NewLMS.UMKM.Data.Dto.RFRelationSurveys
 {
     public class RFRelationSurveyPutRequestDto
     {

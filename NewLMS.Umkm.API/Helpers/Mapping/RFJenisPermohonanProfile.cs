@@ -1,17 +1,17 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFJenisPermohonans;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RfAppTypes;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RFJenisPermohonanProfile : Profile
+    public class RfAppTypeProfile : Profile
     {
-        public RFJenisPermohonanProfile()
+        public RfAppTypeProfile()
         {
-            CreateMap<RFJenisPermohonan, RFJenisPermohonanResponseDto>().ReverseMap();
-            CreateMap<RFJenisPermohonanPostRequestDto, RFJenisPermohonan>();
-            CreateMap<RFJenisPermohonanPutRequestDto, RFJenisPermohonan>();
+            CreateMap<RfAppType, RfAppTypeResponseDto>().ReverseMap();
+            CreateMap<RfAppTypePostRequestDto, RfAppType>();
+            CreateMap<RfAppTypePutRequestDto, RfAppType>();
         }
     }
 }

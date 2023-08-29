@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOTINGKATKEBUTUHANs;
+using NewLMS.UMKM.Data.Dto.RFSCOTINGKATKEBUTUHANs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOTINGKATKEBUTUHANs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOTINGKATKEBUTUHANs.Commands
 {
     public class RFSCOTINGKATKEBUTUHANPostValidator : AbstractValidator<RFSCOTINGKATKEBUTUHANPostCommand>
     {

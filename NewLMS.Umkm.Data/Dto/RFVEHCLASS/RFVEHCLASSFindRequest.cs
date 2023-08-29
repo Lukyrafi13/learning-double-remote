@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFVEHCLASSs
+namespace NewLMS.UMKM.Data.Dto.RFVEHCLASSs
 {
     public class RFVEHCLASSFindRequestDto
     {

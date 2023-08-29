@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSCOMUTASIPERBULANs
+namespace NewLMS.UMKM.Data.Dto.RFSCOMUTASIPERBULANs
 {
     public class RFSCOMUTASIPERBULANRequestDto
     {

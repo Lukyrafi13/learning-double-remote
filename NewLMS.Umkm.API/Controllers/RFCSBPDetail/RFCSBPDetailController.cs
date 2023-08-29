@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFCSBPDetails;
+using NewLMS.UMKM.Data.Dto.RFCSBPDetails;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFCSBPDetails.Commands;
-using NewLMS.Umkm.MediatR.Features.RFCSBPDetails.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFCSBPDetails.Commands;
+using NewLMS.UMKM.MediatR.Features.RFCSBPDetails.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFCSBPDetail
+namespace NewLMS.UMKM.API.Controllers.RFCSBPDetail
 {
     public class RFCSBPDetailController : BaseController
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFOwnerOTSs;
+using NewLMS.UMKM.Data.Dto.RFOwnerOTSs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFOwnerOTSs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFOwnerOTSs.Commands
 {
     public class RFOwnerOTSPostValidator : AbstractValidator<RFOwnerOTSPostCommand>
     {

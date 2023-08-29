@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFApprTanahLokasis;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFApprTanahLokasis;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFApprTanahLokasis.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFApprTanahLokasis.Queries
 {
     public class RFApprTanahLokasiGetQuery : RFApprTanahLokasiFindRequestDto, IRequest<ServiceResponse<RFApprTanahLokasiResponseDto>>
     {

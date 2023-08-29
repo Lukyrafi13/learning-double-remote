@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFVehicleTypeLists
+namespace NewLMS.UMKM.Data.Dto.RFVehicleTypeLists
 {
     public class RFVehicleTypeListPostRequestDto
     {

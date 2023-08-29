@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFCSBPDetails;
+using NewLMS.UMKM.Data.Dto.RFCSBPDetails;
 
-namespace NewLMS.Umkm.MediatR.Features.RFCSBPDetails.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFCSBPDetails.Commands
 {
     public class RFCSBPDetailPostValidator : AbstractValidator<RFCSBPDetailPostCommand>
     {

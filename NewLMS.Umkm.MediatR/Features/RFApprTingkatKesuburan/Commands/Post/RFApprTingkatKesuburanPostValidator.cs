@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFApprTingkatKesuburans;
+using NewLMS.UMKM.Data.Dto.RFApprTingkatKesuburans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFApprTingkatKesuburans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFApprTingkatKesuburans.Commands
 {
     public class RFApprTingkatKesuburanPostValidator : AbstractValidator<RFApprTingkatKesuburanPostCommand>
     {

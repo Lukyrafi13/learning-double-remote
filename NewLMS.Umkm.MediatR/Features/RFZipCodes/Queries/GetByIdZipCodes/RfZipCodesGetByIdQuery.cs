@@ -1,45 +1,45 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Queries
 {
-    public class RFZipCodesGetByIdQuery : IRequest<ServiceResponse<RFZipCodeResponse>>
+    public class RfZipCodesGetByIdQuery : IRequest<ServiceResponse<RfZipCodeResponse>>
     {
         public string ZipCode { get; set; }
     }
 
-    public class GetByIdRFZipCodeQueryHandler : IRequestHandler<RFZipCodesGetByIdQuery, ServiceResponse<RFZipCodeResponse>>
+    public class GetByIdRfZipCodeQueryHandler : IRequestHandler<RfZipCodesGetByIdQuery, ServiceResponse<RfZipCodeResponse>>
     {
-        private IGenericRepositoryAsync<RFZipCode> _rfZipCode;
+        private IGenericRepositoryAsync<RfZipCode> _rfZipCode;
         private readonly IMapper _mapper;
 
-        public GetByIdRFZipCodeQueryHandler(IGenericRepositoryAsync<RFZipCode> rfZipCode, IMapper mapper)
+        public GetByIdRfZipCodeQueryHandler(IGenericRepositoryAsync<RfZipCode> rfZipCode, IMapper mapper)
         {
             _rfZipCode = rfZipCode;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFZipCodeResponse>> Handle(RFZipCodesGetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfZipCodeResponse>> Handle(RfZipCodesGetByIdQuery request, CancellationToken cancellationToken)
         {
             try
             {
                 var data = await _rfZipCode.GetByIdAsync(request.ZipCode, "ZipCode");
                 if (data == null)
-                    return ServiceResponse<RFZipCodeResponse>.Return404("Data RFZipCode not found");
-                var dataVm = _mapper.Map<RFZipCodeResponse>(data);
-                return ServiceResponse<RFZipCodeResponse>.ReturnResultWith200(dataVm);
+                    return ServiceResponse<RfZipCodeResponse>.Return404("Data RfZipCode not found");
+                var dataVm = _mapper.Map<RfZipCodeResponse>(data);
+                return ServiceResponse<RfZipCodeResponse>.ReturnResultWith200(dataVm);
             }
             catch (Exception ex)
             {
 
-                return ServiceResponse<RFZipCodeResponse>.ReturnException(ex);
+                return ServiceResponse<RfZipCodeResponse>.ReturnException(ex);
             }
 
         }

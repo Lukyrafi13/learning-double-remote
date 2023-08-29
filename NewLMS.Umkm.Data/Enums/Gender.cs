@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data.Enums
+namespace NewLMS.UMKM.Data.Enums
 {
     public enum Gender
     {

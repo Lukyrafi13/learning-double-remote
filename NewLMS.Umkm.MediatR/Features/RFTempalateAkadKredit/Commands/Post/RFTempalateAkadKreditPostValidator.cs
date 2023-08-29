@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFTempalateAkadKredits;
+using NewLMS.UMKM.Data.Dto.RFTempalateAkadKredits;
 
-namespace NewLMS.Umkm.MediatR.Features.RFTempalateAkadKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFTempalateAkadKredits.Commands
 {
     public class RFTempalateAkadKreditPostValidator : AbstractValidator<RFTempalateAkadKreditPostCommand>
     {

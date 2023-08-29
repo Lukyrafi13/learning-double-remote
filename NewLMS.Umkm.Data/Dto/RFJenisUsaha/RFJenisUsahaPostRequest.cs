@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypes
 {
-    public class RFJenisUsahaPostRequestDto
+    public class RfCompanyTypePostRequestDto
     {
         public string ANL_CODE { get; set; }
         public string ANL_DESC { get; set; }

@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data;
 using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
-namespace NewLMS.Umkm.Common.GenericRespository
+namespace NewLMS.UMKM.Common.GenericRespository
 {
     public class GenericRepository<TC, TContext> : IGenericRepository<TC>
         where TC : class

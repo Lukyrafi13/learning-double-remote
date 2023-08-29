@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFKategoris
+namespace NewLMS.UMKM.Data.Dto.RfCategorys
 {
-    public class RFKategoriResponseDto : BaseResponse
+    public class RfCategoryResponseDto : BaseResponse
     {
         public Guid Id { get; set; }
         public string KategoriCode { get; set; }

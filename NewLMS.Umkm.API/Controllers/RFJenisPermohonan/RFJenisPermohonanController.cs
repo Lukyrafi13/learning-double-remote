@@ -1,98 +1,98 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisPermohonans;
+using NewLMS.UMKM.Data.Dto.RfAppTypes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisPermohonans.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisPermohonans.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RfAppTypes.Commands;
+using NewLMS.UMKM.MediatR.Features.RfAppTypes.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisPermohonan
+namespace NewLMS.UMKM.API.Controllers.RfAppType
 {
-    public class RFJenisPermohonanController : BaseController
+    public class RfAppTypeController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFJenisPermohonan
+        /// RfAppType
         /// </summary>
         /// <param name="mediator"></param>
-        public RFJenisPermohonanController(IMediator mediator)
+        public RfAppTypeController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFJenisPermohonan By Id
+        /// Get RfAppType By Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet("get/{Id}", Name = "GetRFJenisPermohonanById")]
-        [Produces("application/json", "application/xml", Type = typeof(RFJenisPermohonanResponseDto))]
-        public async Task<IActionResult> GetRFJenisPermohonanById(Guid Id)
+        [HttpGet("get/{Id}", Name = "GetRfAppTypeById")]
+        [Produces("application/json", "application/xml", Type = typeof(RfAppTypeResponseDto))]
+        public async Task<IActionResult> GetRfAppTypeById(Guid Id)
         {
-            var getGenderQuery = new RFJenisPermohonansGetByIdQuery { Id = Id };
+            var getGenderQuery = new RfAppTypesGetByIdQuery { Id = Id };
             var result = await _mediator.Send(getGenderQuery);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFJenisPermohonan
+        /// Get RfAppType
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFJenisPermohonanList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFJenisPermohonanResponseDto>>))]
-        public async Task<IActionResult> GetRFJenisPermohonanList(RFJenisPermohonansGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfAppTypeList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfAppTypeResponseDto>>))]
+        public async Task<IActionResult> GetRfAppTypeList(RfAppTypesGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFJenisPermohonan
+        /// Post New RfAppType
         /// </summary>
-        /// <param name="postRFJenisPermohonan"></param>
+        /// <param name="postRfAppType"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFJenisPermohonan")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFJenisPermohonanResponseDto>))]
-        public async Task<IActionResult> AddRFJenisPermohonan(RFJenisPermohonanPostCommand postRFJenisPermohonan)
+        [HttpPost("post", Name = "AddRfAppType")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfAppTypeResponseDto>))]
+        public async Task<IActionResult> AddRfAppType(RfAppTypePostCommand postRfAppType)
         {
-            var result = await _mediator.Send(postRFJenisPermohonan);
+            var result = await _mediator.Send(postRfAppType);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFJenisPermohonanById", new { id = result.Data.Id }, result.Data);
+            return CreatedAtAction("GetRfAppTypeById", new { id = result.Data.Id }, result.Data);
         }
 
         /// <summary>
-        /// Put Edit RFJenisPermohonan
+        /// Put Edit RfAppType
         /// </summary>
         /// <param name="Id"></param>
-        /// <param name="putRFJenisPermohonan"></param>
+        /// <param name="putRfAppType"></param>
         /// <returns></returns>
-        [HttpPut("put/{Id}", Name = "EditRFJenisPermohonan")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFJenisPermohonanResponseDto>))]
-        public async Task<IActionResult> EditRFJenisPermohonan([FromRoute] Guid Id, [FromBody] RFJenisPermohonanPutCommand putRFJenisPermohonan)
+        [HttpPut("put/{Id}", Name = "EditRfAppType")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfAppTypeResponseDto>))]
+        public async Task<IActionResult> EditRfAppType([FromRoute] Guid Id, [FromBody] RfAppTypePutCommand putRfAppType)
         {
-            putRFJenisPermohonan.Id = Id;
-            var result = await _mediator.Send(putRFJenisPermohonan);
+            putRfAppType.Id = Id;
+            var result = await _mediator.Send(putRfAppType);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFJenisPermohonan
+        /// Delete RfAppType
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{Id}", Name = "DeleteRFJenisPermohonan")]
+        [HttpDelete("delete/{Id}", Name = "DeleteRfAppType")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFJenisPermohonan([FromRoute] Guid Id, [FromBody]RFJenisPermohonanDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfAppType([FromRoute] Guid Id, [FromBody]RfAppTypeDeleteCommand deleteCommand)
         {
             deleteCommand.Id = Id;
             return Ok(await _mediator.Send(deleteCommand));

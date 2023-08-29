@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFJenisKendaraanAgunans
+namespace NewLMS.UMKM.Data.Dto.RFJenisKendaraanAgunans
 {
     public class RFJenisKendaraanAgunanResponseDto
     {

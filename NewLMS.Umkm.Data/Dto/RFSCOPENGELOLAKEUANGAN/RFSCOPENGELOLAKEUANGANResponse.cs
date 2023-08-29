@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFSCOPENGELOLAKEUANGANs
+namespace NewLMS.UMKM.Data.Dto.RFSCOPENGELOLAKEUANGANs
 {
     public class RFSCOPENGELOLAKEUANGANResponseDto
     {

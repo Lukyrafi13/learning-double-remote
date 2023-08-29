@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class SlikRequest : BaseEntity
     {
@@ -27,7 +27,7 @@ namespace NewLMS.Umkm.Data
         public double TotalWorkingCapital => GetTotal("working");
         public DateTime? InquiryDate { get; set; }
         public App App { get; set; }
-        public RfBranches Branch { get; set; }
+        public RfBranch Branch { get; set; }
         public ICollection<SlikHistoryKredit> SlikHistoryKredits { get; set; }
         public ICollection<SlikRequestObject> SlikRequestObjects { get; set; }
 
@@ -35,7 +35,6 @@ namespace NewLMS.Umkm.Data
         public string CheckingErrorMessage { get; set; }
         public int? StatusCheckingDuplikasi { get; set; }
 
-        public int Age => App?.Prospect?.AgeStage("4.2.1")??-1;
         private double GetTotal(string type)
         {
             var totalOtherUses = 0.00;

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFOwnerOTSs
+namespace NewLMS.UMKM.Data.Dto.RFOwnerOTSs
 {
     public class RFOwnerOTSFindRequestDto
     {

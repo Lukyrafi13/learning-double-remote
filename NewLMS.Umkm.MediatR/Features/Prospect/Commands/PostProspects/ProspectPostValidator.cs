@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.UMKM.Data.Dto.Prospects;
 
-namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
+namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 {
     public class ProspectPostValidator : AbstractValidator<ProspectPostCommand>
     {

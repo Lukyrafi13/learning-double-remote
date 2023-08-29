@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodeProvinsiResponse
+    public class RfZipCodeProvinsiResponse
     {
         public string kodeProvinsi { get; set; }
         public string Provinsi { get; set; }

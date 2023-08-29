@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace NewLMS.Umkm.Helper
+namespace NewLMS.UMKM.Helper
 {
     public static class FileStorage
     {

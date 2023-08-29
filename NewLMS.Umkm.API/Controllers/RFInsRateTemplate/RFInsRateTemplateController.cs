@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFInsRateTemplates;
+using NewLMS.UMKM.Data.Dto.RFInsRateTemplates;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFInsRateTemplates.Commands;
-using NewLMS.Umkm.MediatR.Features.RFInsRateTemplates.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFInsRateTemplates.Commands;
+using NewLMS.UMKM.MediatR.Features.RFInsRateTemplates.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFInsRateTemplate
+namespace NewLMS.UMKM.API.Controllers.RFInsRateTemplate
 {
     public class RFInsRateTemplateController : BaseController
     {

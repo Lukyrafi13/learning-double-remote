@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSkemaSIKPs;
+using NewLMS.UMKM.Data.Dto.RFSkemaSIKPs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSkemaSIKPs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSkemaSIKPs.Commands
 {
     public class RFSkemaSIKPPostValidator : AbstractValidator<RFSkemaSIKPPostCommand>
     {

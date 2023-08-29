@@ -1,46 +1,46 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Queries
 {
-    public class RFKelompokUsahasGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFKelompokUsahaResponseDto>>>
+    public class RfCompanyGroupsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfCompanyGroupResponseDto>>>
     {
     }
 
-    public class GetFilterRFKelompokUsahaQueryHandler : IRequestHandler<RFKelompokUsahasGetFilterQuery, PagedResponse<IEnumerable<RFKelompokUsahaResponseDto>>>
+    public class GetFilterRfCompanyGroupQueryHandler : IRequestHandler<RfCompanyGroupsGetFilterQuery, PagedResponse<IEnumerable<RfCompanyGroupResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFKelompokUsaha> _RFKelompokUsaha;
+        private IGenericRepositoryAsync<RfCompanyGroup> _RfCompanyGroup;
         private readonly IMapper _mapper;
 
-        public GetFilterRFKelompokUsahaQueryHandler(IGenericRepositoryAsync<RFKelompokUsaha> RFKelompokUsaha, IMapper mapper)
+        public GetFilterRfCompanyGroupQueryHandler(IGenericRepositoryAsync<RfCompanyGroup> RfCompanyGroup, IMapper mapper)
         {
-            _RFKelompokUsaha = RFKelompokUsaha;
+            _RfCompanyGroup = RfCompanyGroup;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFKelompokUsahaResponseDto>>> Handle(RFKelompokUsahasGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfCompanyGroupResponseDto>>> Handle(RfCompanyGroupsGetFilterQuery request, CancellationToken cancellationToken)
         {
-            var data = await _RFKelompokUsaha.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFKelompokUsahaResponseDto>>(data.Results);
-            IEnumerable<RFKelompokUsahaResponseDto> dataVm;
-            var listResponse = new List<RFKelompokUsahaResponseDto>();
+            var data = await _RfCompanyGroup.GetPagedReponseAsync(request);
+            // var dataVm = _mapper.Map<IEnumerable<RfCompanyGroupResponseDto>>(data.Results);
+            IEnumerable<RfCompanyGroupResponseDto> dataVm;
+            var listResponse = new List<RfCompanyGroupResponseDto>();
 
             foreach (var res in data.Results){
-                var response = _mapper.Map<RFKelompokUsahaResponseDto>(res);
+                var response = _mapper.Map<RfCompanyGroupResponseDto>(res);
 
                 listResponse.Add(response);
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFKelompokUsahaResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfCompanyGroupResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.Umkm.SIKP2.Delegates;
-using NewLMS.Umkm.SIKP2.Interfaces;
-using NewLMS.Umkm.SIKP2.Models;
-using NewLMS.Umkm.SIKP2.Services;
+using NewLMS.UMKM.SIKP2.Delegates;
+using NewLMS.UMKM.SIKP2.Interfaces;
+using NewLMS.UMKM.SIKP2.Models;
+using NewLMS.UMKM.SIKP2.Services;
 using Refit;
 using System.Reflection;
 using System.Text.Json;
 
-namespace NewLMS.Umkm.SIKP2
+namespace NewLMS.UMKM.SIKP2
 {
     public static class ServiceRegistration
     {

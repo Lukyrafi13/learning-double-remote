@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFGenders
+namespace NewLMS.UMKM.Data.Dto.RfGenders
 {
-    public class RFGenderResponseDto : BaseResponse
+    public class RfGenderResponseDto : BaseResponse
     {
         public Guid Id { get; set; }
         public string GenderCode { get; set; }

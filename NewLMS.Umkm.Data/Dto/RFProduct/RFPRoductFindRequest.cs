@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFProducts
+namespace NewLMS.UMKM.Data.Dto.RfProducts
 {
-    public class RFProductFindRequestDto
+    public class RfProductFindRequestDto
     {
         public string ProductId { get; set; }
     }

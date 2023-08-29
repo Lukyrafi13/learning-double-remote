@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.FileDokumens
+namespace NewLMS.UMKM.Data.Dto.FileDokumens
 {
     public class FileDokumenFindRequestDto
     {        

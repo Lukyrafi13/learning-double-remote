@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFPaymentMethods;
+using NewLMS.UMKM.Data.Dto.RFPaymentMethods;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFPaymentMethods.Commands;
-using NewLMS.Umkm.MediatR.Features.RFPaymentMethods.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFPaymentMethods.Commands;
+using NewLMS.UMKM.MediatR.Features.RFPaymentMethods.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFPaymentMethod
+namespace NewLMS.UMKM.API.Controllers.RFPaymentMethod
 {
     public class RFPaymentMethodController : BaseController
     {

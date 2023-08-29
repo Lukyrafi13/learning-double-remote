@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFBusinessTypes;
+using NewLMS.UMKM.Data.Dto.RFBusinessTypes;
 
-namespace NewLMS.Umkm.MediatR.Features.RFBusinessTypes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFBusinessTypes.Commands
 {
     public class RFBusinessTypePostValidator : AbstractValidator<RFBusinessTypePostCommand>
     {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
-    public class RFSectorLBU1 : BaseEntity
+    public class RfSectorLBU1 : BaseEntity
     {
         [Key]
         public string Code { get; set; }
@@ -15,6 +15,6 @@ namespace NewLMS.Umkm.Data
         public string CoreCode { get; set; }
         public bool? IsShowing { get; set; }
         public bool? HideKUR { get; set; }
-        public virtual ICollection<RFSectorLBU2> RFSectorLBU2s { get; set; }
+        public virtual ICollection<RfSectorLBU2> RfSectorLBU2s { get; set; }
     }
 }

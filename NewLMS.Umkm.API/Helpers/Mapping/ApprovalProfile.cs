@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.Approvals;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.Approvals;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 {
     public class ApprovalProfile : Profile
     {

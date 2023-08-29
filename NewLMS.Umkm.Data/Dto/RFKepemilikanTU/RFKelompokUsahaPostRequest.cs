@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFKepemilikanTUs
+namespace NewLMS.UMKM.Data.Dto.RFKepemilikanTUs
 {
     public class RFKepemilikanTUPostRequestDto
     {

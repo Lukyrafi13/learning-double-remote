@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFSifatKredits
+namespace NewLMS.UMKM.Data.Dto.RFSifatKredits
 {
     public class RFSifatKreditRequestDto
     {

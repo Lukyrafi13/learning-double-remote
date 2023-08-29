@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.BiayaVariabelTenagaKerjas
+namespace NewLMS.UMKM.Data.Dto.BiayaVariabelTenagaKerjas
 {
     public class BiayaVariabelTenagaKerjaPutRequestDto : BiayaVariabelTenagaKerjaPostRequestDto
     {

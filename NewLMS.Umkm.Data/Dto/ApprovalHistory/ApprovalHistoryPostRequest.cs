@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.ApprovalHistorys
+namespace NewLMS.UMKM.Data.Dto.ApprovalHistorys
 {
     public class ApprovalHistoryPostRequestDto
     {

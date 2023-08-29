@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppPemohonPerorangan
     {
@@ -22,7 +22,7 @@ namespace NewLMS.Umkm.Data.Dto.Apps
         public DateTime? TanggalAktaNikah { get; set; }
         public string PembuatAktaNikah { get; set; }
         public string Alamat { get; set; }
-        public int RFZipCodeId { get; set; }
+        public int RfZipCodeId { get; set; }
         public string Kelurahan { get; set; }
         public string Kecamatan { get; set; }
         public string KabupatenKota { get; set; }
@@ -37,7 +37,7 @@ namespace NewLMS.Umkm.Data.Dto.Apps
         public DateTime? TanggalLahirPasangan { get; set; }
         public bool AlamatSamaDenganDebitur { get; set; }
         public string AlamatPasangan { get; set; }
-        public int? RFZipCodePasanganId { get; set; }
+        public int? RfZipCodePasanganId { get; set; }
         public string KelurahanPasangan { get; set; }
         public string KecamatanPasangan { get; set; }
         public string KabupatenKotaPasangan { get; set; }
@@ -46,7 +46,7 @@ namespace NewLMS.Umkm.Data.Dto.Apps
         public string NoTelpKontakDarurat { get; set; }
         public string NoKTPKontakDarurat { get; set; }
         public string AlamatKontakDarurat { get; set; }
-        public int? RFZipCodeKontakDaruratId { get; set; }
+        public int? RfZipCodeKontakDaruratId { get; set; }
         public string KelurahanKontakDarurat { get; set; }
         public string KecamatanKontakDarurat { get; set; }
         public string KabupatenKotaKontakDarurat { get; set; }

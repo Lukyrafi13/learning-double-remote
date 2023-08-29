@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFEDUCATIONs;
+using NewLMS.UMKM.Data.Dto.RFEDUCATIONs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFEDUCATIONs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFEDUCATIONs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFEDUCATIONs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFEDUCATIONs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFEDUCATION
+namespace NewLMS.UMKM.API.Controllers.RFEDUCATION
 {
     public class RFEDUCATIONController : BaseController
     {

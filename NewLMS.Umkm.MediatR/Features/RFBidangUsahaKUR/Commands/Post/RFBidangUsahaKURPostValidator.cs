@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFBidangUsahaKURs;
+using NewLMS.UMKM.Data.Dto.RFBidangUsahaKURs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFBidangUsahaKURs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFBidangUsahaKURs.Commands
 {
     public class RFBidangUsahaKURPostValidator : AbstractValidator<RFBidangUsahaKURPostCommand>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Survey : BaseEntity
     {
@@ -13,16 +13,16 @@ namespace NewLMS.Umkm.Data
         public App App { get; set; }
         [ForeignKey("RFRelationSurveyId")]
         public RFRelationSurvey HubunganDebitur { get; set; }
-        [ForeignKey("RFOwnerCategoryId")]
-        public RFOwnerCategory BentukBadanUsaha { get; set; }
+        [ForeignKey("RfOwnerCategoryId")]
+        public RfOwnerCategory BentukBadanUsaha { get; set; }
         [ForeignKey("RFOwnerOTSId")]
         public RFOwnerOTS StatusTempatUsaha { get; set; }
         // [ForeignKey("RFBusinessTypeId")]
         // public RFBusinessType BidangUsaha { get; set; }
         [ForeignKey("RFBidangUsahaKURId")]
         public RFBidangUsahaKUR BidangUsahaKUR { get; set; }
-        [ForeignKey("RFZipCodeId")]
-        public RFZipCode KodePos { get; set; }
+        [ForeignKey("RfZipCodeId")]
+        public RfZipCode KodePos { get; set; }
         [ForeignKey("RFKepemilikanUsahaId")]
         public RFKepemilikanUsaha KepemilikanTempatUsaha { get; set; }
         [ForeignKey("RFLamaUsahaLainId")]
@@ -71,11 +71,11 @@ namespace NewLMS.Umkm.Data
 
         public Guid AppId { get; set; }
         public Guid? RFRelationSurveyId { get; set; }
-        public Guid? RFOwnerCategoryId { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
         public Guid? RFOwnerOTSId { get; set; }
         // public Guid? RFBusinessTypeId { get; set; }
         public Guid? RFBidangUsahaKURId { get; set; }
-        public int? RFZipCodeId { get; set; }
+        public int? RfZipCodeId { get; set; }
         public Guid? RFKepemilikanUsahaId { get; set; }
         public Guid? RFLamaUsahaLainId { get; set; }
 
@@ -94,6 +94,5 @@ namespace NewLMS.Umkm.Data
         public double? HPPNilai => (OmsetDiambil ?? 0.00) * (HPPPersen ?? 0.00) / 100;
         public double? BiayaRumahTanggaTertinggi => Math.Max(Math.Max(BiayaRumahTanggaWawancara ?? 0.00, BiayaRumahTanggaHasilVerifikasi ?? 0.00), BiayaRumahTanggaKeseluruhan ?? 0.00);
         
-        public int Age => App?.Prospect?.AgeStage("4.2.3")??-1;
     }
 }

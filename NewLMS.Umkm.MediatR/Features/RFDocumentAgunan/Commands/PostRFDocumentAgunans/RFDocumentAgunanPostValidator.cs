@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFDocumentAgunans;
+using NewLMS.UMKM.Data.Dto.RFDocumentAgunans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFDocumentAgunans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFDocumentAgunans.Commands
 {
     public class RFDocumentAgunanPostValidator : AbstractValidator<RFDocumentAgunanPostCommand>
     {

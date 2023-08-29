@@ -1,11 +1,11 @@
 ﻿using Bjb.DigitalBisnis.SLIK.Interfaces;
 using Bjb.DigitalBisnis.SLIK.Models.Inquiry;
 using MediatR;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Commands
+namespace NewLMS.UMKM.MediatR.Features.Tests.Commands
 {
     public class InquirySlikIndividualCommand : SlikInquiryIndividualRequest,IRequest<ServiceResponse<SlikInquiryResponse>>
     {

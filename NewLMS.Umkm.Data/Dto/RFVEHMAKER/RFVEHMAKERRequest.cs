@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFVEHMAKERs
+namespace NewLMS.UMKM.Data.Dto.RFVEHMAKERs
 {
     public class RFVEHMAKERRequestDto
     {

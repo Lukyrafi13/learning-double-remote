@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKepemilikanTUs;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFKepemilikanTUs;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKepemilikanTUs.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFKepemilikanTUs.Queries
 {
     public class RFKepemilikanTUsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFKepemilikanTUResponseDto>>>
     {

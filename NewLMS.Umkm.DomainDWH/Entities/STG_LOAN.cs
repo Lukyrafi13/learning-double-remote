@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Domain.Dwh.Entities
+namespace NewLMS.UMKM.Domain.Dwh.Entities
 {
     public class STG_LOAN
     {

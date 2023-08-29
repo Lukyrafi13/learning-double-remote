@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOREPUTASITEMPATTINGGALs;
+using NewLMS.UMKM.Data.Dto.RFSCOREPUTASITEMPATTINGGALs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOREPUTASITEMPATTINGGALs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOREPUTASITEMPATTINGGALs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOREPUTASITEMPATTINGGALs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOREPUTASITEMPATTINGGALs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOREPUTASITEMPATTINGGAL
+namespace NewLMS.UMKM.API.Controllers.RFSCOREPUTASITEMPATTINGGAL
 {
     public class RFSCOREPUTASITEMPATTINGGALController : BaseController
     {

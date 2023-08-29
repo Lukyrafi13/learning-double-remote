@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFOwnerCategories
+namespace NewLMS.UMKM.Data.Dto.RFOwnerCategories
 {
-    public class RFOwnerCategoryResponseDto
+    public class RfOwnerCategoryResponseDto
     {
         public Guid Id { get; set; }
         public string OwnCode { get; set; }

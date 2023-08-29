@@ -1,11 +1,11 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Debiturs
+namespace NewLMS.UMKM.Data.Dto.Debiturs
 {
     public class DebiturResponseDto
     {
         public Guid Id { get; set; }
         public string NamaLengkap { get; set; }
-        public RFGender JenisKelamin { get; set; }
+        public RfGender JenisKelamin { get; set; }
         public string NomorKTP { get; set; }
 		public string NomorTelpon { get; set; }
 		public string AlamatKTP { get; set; }
@@ -25,6 +25,6 @@ namespace NewLMS.Umkm.Data.Dto.Debiturs
 		public string NomorHP { get; set; }
 		public string TempatLahir { get; set; }
         public DateTime TanggalLahir { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfGenderId { get; set; }
     }
 }

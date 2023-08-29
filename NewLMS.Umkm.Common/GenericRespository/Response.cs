@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Common.GenericRespository
+namespace NewLMS.UMKM.Common.GenericRespository
 {
     public class Response<T>
     {

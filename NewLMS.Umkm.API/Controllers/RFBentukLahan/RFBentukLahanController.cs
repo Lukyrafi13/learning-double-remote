@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFBentukLahans;
+using NewLMS.UMKM.Data.Dto.RFBentukLahans;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFBentukLahans.Commands;
-using NewLMS.Umkm.MediatR.Features.RFBentukLahans.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFBentukLahans.Commands;
+using NewLMS.UMKM.MediatR.Features.RFBentukLahans.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFBentukLahan
+namespace NewLMS.UMKM.API.Controllers.RFBentukLahan
 {
     public class RFBentukLahanController : BaseController
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJumlahPegawais;
+using NewLMS.UMKM.Data.Dto.RFJumlahPegawais;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJumlahPegawais.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFJumlahPegawais.Commands
 {
     public class RFJumlahPegawaiPostValidator : AbstractValidator<RFJumlahPegawaiPostCommand>
     {

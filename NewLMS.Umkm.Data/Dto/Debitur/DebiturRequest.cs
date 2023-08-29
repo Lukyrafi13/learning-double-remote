@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.Debiturs
+namespace NewLMS.UMKM.Data.Dto.Debiturs
 {
     public class DebiturRequestDto
     {

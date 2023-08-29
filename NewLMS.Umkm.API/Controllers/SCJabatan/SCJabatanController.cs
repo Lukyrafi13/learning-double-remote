@@ -6,13 +6,13 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Data.Dto.SCJabatans;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.MediatR.Features.SCJabatans.Commands;
-using NewLMS.Umkm.MediatR.Features.SCJabatans.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Dto.SCJabatans;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.SCJabatans.Commands;
+using NewLMS.UMKM.MediatR.Features.SCJabatans.Queries;
 
-namespace NewLMS.Umkm.API.Controllers.SCJabatan
+namespace NewLMS.UMKM.API.Controllers.SCJabatan
 {
     public class SCJabatanController : BaseController
     {

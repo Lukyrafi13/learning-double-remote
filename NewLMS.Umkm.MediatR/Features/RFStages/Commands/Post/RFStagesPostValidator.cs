@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RFStagess;
 
-namespace NewLMS.Umkm.MediatR.Features.RFStagess.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFStagess.Commands
 {
     public class RFStagesPostValidator : AbstractValidator<RFStagesPostCommand>
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using NewLMS.Umkm.Data.Dto.RFTenors;
+using NewLMS.UMKM.Data.Dto.RFTenors;
 
-namespace NewLMS.Umkm.Data.Dto.RFSubProductTenors
+namespace NewLMS.UMKM.Data.Dto.RFSubProductTenors
 {
     public class RFSubProductTenorDetailResponseDto
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJOBs
+namespace NewLMS.UMKM.Data.Dto.RFJOBs
 {
     public class RFJOBFindRequestDto
     {

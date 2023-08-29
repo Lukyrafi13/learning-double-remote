@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
+namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
 {
     public class SIKPCalonDebiturPostRequestDto
     {
@@ -33,16 +33,16 @@ namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
 
         // Foreign Keys
         public Guid AppId { get; set; }
-        public Guid? RFOwnerCategoryId { get; set; }
-        public string? RFSectorLBU1Code { get; set; }
-        public string? RFSectorLBU2Code { get; set; }
-        public string? RFSectorLBU3Code { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
+        public string? RfSectorLBU1Code { get; set; }
+        public string? RfSectorLBU2Code { get; set; }
+        public string? RfSectorLBU3Code { get; set; }
+        public Guid? RfGenderId { get; set; }
         public Guid? RFMaritalId { get; set; }
         public Guid? RFEducationId { get; set; }
         public Guid? RFJobId { get; set; }
-        public int? RFZipCodeId { get; set; }
-        public int? RFZipCodeUsahaId { get; set; }
+        public int? RfZipCodeId { get; set; }
+        public int? RfZipCodeUsahaId { get; set; }
         public Guid? RFLinkageUsahaId { get; set; }
     }
 }

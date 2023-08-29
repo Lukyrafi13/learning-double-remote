@@ -1,17 +1,17 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSubProductTenors;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFSubProductTenors;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFTenors;
+using NewLMS.UMKM.Data.Dto.RFTenors;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSubProductTenors.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFSubProductTenors.Queries
 {
     public class RFSubProductTenorGetSubProductIdQuery : IRequest<ServiceResponse<RFSubProductTenorDetailResponseDto>>
     {

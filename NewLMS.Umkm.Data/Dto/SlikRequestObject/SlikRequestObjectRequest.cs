@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.SlikRequestObjectDetails
+namespace NewLMS.UMKM.Data.Dto.SlikRequestObjectDetails
 {
     public class SlikRequestObjectDetailRequestDto
     {

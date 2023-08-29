@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFLamaUsahaLains;
+using NewLMS.UMKM.Data.Dto.RFLamaUsahaLains;
 
-namespace NewLMS.Umkm.MediatR.Features.RFLamaUsahaLains.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFLamaUsahaLains.Commands
 {
     public class RFLamaUsahaLainPostValidator : AbstractValidator<RFLamaUsahaLainPostCommand>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Reflection;
 
-namespace NewLMS.Umkm.Helper
+namespace NewLMS.UMKM.Helper
 {
     public static class ObjectExtensions
     {

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFHOMESTAs
+namespace NewLMS.UMKM.Data.Dto.RFHOMESTAs
 {
     public class RFHOMESTAPostRequestDto
     {

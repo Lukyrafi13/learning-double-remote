@@ -1,36 +1,36 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFGenders;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfGenders;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFGenders.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfGenders.Queries
 {
-    public class RFGendersGetByGenderCodeQuery : RFGenderFindRequestDto, IRequest<ServiceResponse<RFGenderResponseDto>>
+    public class RfGendersGetByGenderCodeQuery : RfGenderFindRequestDto, IRequest<ServiceResponse<RfGenderResponseDto>>
     {
     }
 
-    public class GetByIdRFGenderQueryHandler : IRequestHandler<RFGendersGetByGenderCodeQuery, ServiceResponse<RFGenderResponseDto>>
+    public class GetByIdRfGenderQueryHandler : IRequestHandler<RfGendersGetByGenderCodeQuery, ServiceResponse<RfGenderResponseDto>>
     {
-        private IGenericRepositoryAsync<RFGender> _rfGender;
+        private IGenericRepositoryAsync<RfGender> _rfGender;
         private readonly IMapper _mapper;
 
-        public GetByIdRFGenderQueryHandler(IGenericRepositoryAsync<RFGender> rfGender, IMapper mapper)
+        public GetByIdRfGenderQueryHandler(IGenericRepositoryAsync<RfGender> rfGender, IMapper mapper)
         {
             _rfGender = rfGender;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFGenderResponseDto>> Handle(RFGendersGetByGenderCodeQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfGenderResponseDto>> Handle(RfGendersGetByGenderCodeQuery request, CancellationToken cancellationToken)
         {
 
             var data = await _rfGender.GetByIdAsync(request.GenderCode, "GenderCode");
 
-            var response = new RFGenderResponseDto();
+            var response = new RfGenderResponseDto();
             response.Id = data.Id;
             response.GenderCode = data.GenderCode;
             response.GenderDesc = data.GenderDesc;
@@ -39,7 +39,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFGenders.Queries
             response.GenderDescSIKP = data.GenderDescSIKP;
             response.Active = data.Active;
             
-            return ServiceResponse<RFGenderResponseDto>.ReturnResultWith200(response);
+            return ServiceResponse<RfGenderResponseDto>.ReturnResultWith200(response);
         }
     }
 }

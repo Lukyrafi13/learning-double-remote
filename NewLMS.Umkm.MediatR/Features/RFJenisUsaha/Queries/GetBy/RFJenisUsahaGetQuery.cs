@@ -1,42 +1,42 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahas.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypes.Queries
 {
-    public class RFJenisUsahaGetQuery : RFJenisUsahaFindRequestDto, IRequest<ServiceResponse<RFJenisUsahaResponseDto>>
+    public class RfCompanyTypeGetQuery : RfCompanyTypeFindRequestDto, IRequest<ServiceResponse<RfCompanyTypeResponseDto>>
     {
     }
 
-    public class RFJenisUsahaGetQueryHandler : IRequestHandler<RFJenisUsahaGetQuery, ServiceResponse<RFJenisUsahaResponseDto>>
+    public class RfCompanyTypeGetQueryHandler : IRequestHandler<RfCompanyTypeGetQuery, ServiceResponse<RfCompanyTypeResponseDto>>
     {
-        private IGenericRepositoryAsync<RFJenisUsaha> _RFJenisUsaha;
+        private IGenericRepositoryAsync<RfCompanyType> _RfCompanyType;
         private readonly IMapper _mapper;
 
-        public RFJenisUsahaGetQueryHandler(IGenericRepositoryAsync<RFJenisUsaha> RFJenisUsaha, IMapper mapper)
+        public RfCompanyTypeGetQueryHandler(IGenericRepositoryAsync<RfCompanyType> RfCompanyType, IMapper mapper)
         {
-            _RFJenisUsaha = RFJenisUsaha;
+            _RfCompanyType = RfCompanyType;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<RFJenisUsahaResponseDto>> Handle(RFJenisUsahaGetQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCompanyTypeResponseDto>> Handle(RfCompanyTypeGetQuery request, CancellationToken cancellationToken)
         {
             try
             {
-                var data = await _RFJenisUsaha.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
+                var data = await _RfCompanyType.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
                 if (data == null)
-                    return ServiceResponse<RFJenisUsahaResponseDto>.Return404("Data RFJenisUsaha not found");
-                var response = _mapper.Map<RFJenisUsahaResponseDto>(data);
-                return ServiceResponse<RFJenisUsahaResponseDto>.ReturnResultWith200(response);
+                    return ServiceResponse<RfCompanyTypeResponseDto>.Return404("Data RfCompanyType not found");
+                var response = _mapper.Map<RfCompanyTypeResponseDto>(data);
+                return ServiceResponse<RfCompanyTypeResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFJenisUsahaResponseDto>.ReturnException(ex);
+                return ServiceResponse<RfCompanyTypeResponseDto>.ReturnException(ex);
             }
         }
     }

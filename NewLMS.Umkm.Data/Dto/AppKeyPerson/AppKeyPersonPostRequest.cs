@@ -1,13 +1,13 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.AppKeyPersons
+namespace NewLMS.UMKM.Data.Dto.AppKeyPersons
 {
     public class AppKeyPersonPostRequestDto
     {
         public Guid AppId { get; set; }
         public Guid? RFEducationId { get; set; }
         public Guid? RFMaritalId { get; set; }
-        public int? RFZipCodeId { get; set; }
+        public int? RfZipCodeId { get; set; }
         public string Nama { get; set; }
         public string TempatLahir { get; set; }
         public DateTime? TanggalLahir { get; set; }

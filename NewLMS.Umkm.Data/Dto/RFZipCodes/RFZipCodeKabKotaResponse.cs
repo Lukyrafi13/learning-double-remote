@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodeKabKotaResponse
+    public class RfZipCodeKabKotaResponse
     {
         public string kodeKabKota { get; set; }
         public string Kota { get; set; }

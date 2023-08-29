@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFApprTanahLokasis
+namespace NewLMS.UMKM.Data.Dto.RFApprTanahLokasis
 {
     public class RFApprTanahLokasiRequestDto
     {

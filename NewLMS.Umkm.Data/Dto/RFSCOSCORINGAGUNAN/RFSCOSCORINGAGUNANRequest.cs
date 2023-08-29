@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSCOSCORINGAGUNANs
+namespace NewLMS.UMKM.Data.Dto.RFSCOSCORINGAGUNANs
 {
     public class RFSCOSCORINGAGUNANRequestDto
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFPaymentMethods;
+using NewLMS.UMKM.Data.Dto.RFPaymentMethods;
 
-namespace NewLMS.Umkm.MediatR.Features.RFPaymentMethods.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFPaymentMethods.Commands
 {
     public class RFPaymentMethodPostValidator : AbstractValidator<RFPaymentMethodPostCommand>
     {

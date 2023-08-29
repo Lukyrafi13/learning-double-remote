@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RfBranchess;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfBranchess;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfBranchess.Queries
 {
     public class RfBranchessGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfBranchesResponseDto>>>
     {
@@ -22,7 +22,7 @@ namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Queries
 
         public GetFilterRfBranchesQueryHandler(IGenericRepositoryAsync<RfBranches> RfBranches, IMapper mapper)
         {
-            _RfBranches = RfBranches;
+            _RfBranch = RfBranches;
             _mapper = mapper;
         }
 

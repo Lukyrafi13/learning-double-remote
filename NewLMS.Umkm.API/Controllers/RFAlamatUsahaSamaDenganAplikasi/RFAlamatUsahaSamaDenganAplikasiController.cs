@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFAlamatUsahaSamaDenganAplikasis;
+using NewLMS.UMKM.Data.Dto.RFAlamatUsahaSamaDenganAplikasis;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFAlamatUsahaSamaDenganAplikasis.Commands;
-using NewLMS.Umkm.MediatR.Features.RFAlamatUsahaSamaDenganAplikasis.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFAlamatUsahaSamaDenganAplikasis.Commands;
+using NewLMS.UMKM.MediatR.Features.RFAlamatUsahaSamaDenganAplikasis.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFAlamatUsahaSamaDenganAplikasi
+namespace NewLMS.UMKM.API.Controllers.RFAlamatUsahaSamaDenganAplikasi
 {
     public class RFAlamatUsahaSamaDenganAplikasiController : BaseController
     {

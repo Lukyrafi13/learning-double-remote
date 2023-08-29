@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Disbursements
+namespace NewLMS.UMKM.Data.Dto.Disbursements
 {
     public class DisbursementFind
     {

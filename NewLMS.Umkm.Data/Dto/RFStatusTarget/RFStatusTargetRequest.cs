@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFStatusTargets
+namespace NewLMS.UMKM.Data.Dto.RfTargetStatuss
 {
-    public class RFStatusTargetRequestDto
+    public class RfTargetStatusRequestDto
     {
     }
 }

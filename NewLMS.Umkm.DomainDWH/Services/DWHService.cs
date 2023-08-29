@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NewLMS.Umkm.Data.Constants;
-using NewLMS.Umkm.Domain.Dwh.Context;
-using NewLMS.Umkm.Domain.Context;
-using NewLMS.Umkm.DomainDWH.Dtos;
+using NewLMS.UMKM.Data.Constants;
+using NewLMS.UMKM.Domain.Dwh.Context;
+using NewLMS.UMKM.Domain.Context;
+using NewLMS.UMKM.DomainDWH.Dtos;
 
-namespace NewLMS.Umkm.Domain.Dwh.Services
+namespace NewLMS.UMKM.Domain.Dwh.Services
 {
     public interface IDWHService
     {

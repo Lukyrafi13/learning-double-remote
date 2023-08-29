@@ -1,42 +1,42 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU1s;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU1s;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 using System;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU1s.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfSectorLBU1s.Commands
 {
-    public class RFSectorLBU1PutCommand : RFSectorLBU1PutRequest, IRequest<ServiceResponse<Unit>>
+    public class RfSectorLBU1PutCommand : RfSectorLBU1PutRequest, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class PutRFSectorLBU1CommandHandler : IRequestHandler<RFSectorLBU1PutCommand, ServiceResponse<Unit>>
+    public class PutRfSectorLBU1CommandHandler : IRequestHandler<RfSectorLBU1PutCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFSectorLBU1> _rfSectorLBU1;
+        private readonly IGenericRepositoryAsync<RfSectorLBU1> _rfSectorLBU1;
         private readonly IMapper _mapper;
 
-        public PutRFSectorLBU1CommandHandler(IGenericRepositoryAsync<RFSectorLBU1> rfSectorLBU1, IMapper mapper)
+        public PutRfSectorLBU1CommandHandler(IGenericRepositoryAsync<RfSectorLBU1> rfSectorLBU1, IMapper mapper)
         {
             _rfSectorLBU1 = rfSectorLBU1;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFSectorLBU1PutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfSectorLBU1PutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var RFSectorLBU1 = await _rfSectorLBU1.GetByIdAsync(request.Code, "Code");
+                var RfSectorLBU1 = await _rfSectorLBU1.GetByIdAsync(request.Code, "Code");
 
-                RFSectorLBU1.Description = request.Description;
-                RFSectorLBU1.CoreCode = request.CoreCode;
+                RfSectorLBU1.Description = request.Description;
+                RfSectorLBU1.CoreCode = request.CoreCode;
 
-                await _rfSectorLBU1.UpdateAsync(RFSectorLBU1);
+                await _rfSectorLBU1.UpdateAsync(RfSectorLBU1);
 
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }

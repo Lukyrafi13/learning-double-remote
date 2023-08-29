@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOHUBUNGANPERBANKANs;
+using NewLMS.UMKM.Data.Dto.RFSCOHUBUNGANPERBANKANs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOHUBUNGANPERBANKANs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOHUBUNGANPERBANKANs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOHUBUNGANPERBANKANs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOHUBUNGANPERBANKANs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOHUBUNGANPERBANKAN
+namespace NewLMS.UMKM.API.Controllers.RFSCOHUBUNGANPERBANKAN
 {
     public class RFSCOHUBUNGANPERBANKANController : BaseController
     {

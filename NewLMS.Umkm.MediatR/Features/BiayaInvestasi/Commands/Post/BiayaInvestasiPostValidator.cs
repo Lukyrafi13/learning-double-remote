@@ -1,13 +1,13 @@
-using FluentValidation;
-using NewLMS.Umkm.Data.Dto.BiayaInvestasis;
+// using FluentValidation;
+// using NewLMS.UMKM.Data.Dto.BiayaInvestasis;
 
-namespace NewLMS.Umkm.MediatR.Features.BiayaInvestasis.Commands
-{
-    public class BiayaInvestasiPostValidator : AbstractValidator<BiayaInvestasiPostCommand>
-    {
-        public BiayaInvestasiPostValidator()
-        {
-            // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
-        }
-    }
-}
+// namespace NewLMS.UMKM.MediatR.Features.BiayaInvestasis.Commands
+// {
+//     public class BiayaInvestasiPostValidator : AbstractValidator<BiayaInvestasiPostCommand>
+//     {
+//         public BiayaInvestasiPostValidator()
+//         {
+//             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
+//         }
+//     }
+// }

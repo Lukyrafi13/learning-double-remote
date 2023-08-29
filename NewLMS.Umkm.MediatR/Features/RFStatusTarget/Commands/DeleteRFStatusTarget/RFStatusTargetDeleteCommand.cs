@@ -1,32 +1,32 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFStatusTargets;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfTargetStatuss;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFStatusTargets.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfTargetStatuss.Commands
 {
-    public class RFStatusTargetDeleteCommand : RFStatusTargetFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfTargetStatusDeleteCommand : RfTargetStatusFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class DeleteRFStatusTargetCommandHandler : IRequestHandler<RFStatusTargetDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfTargetStatusCommandHandler : IRequestHandler<RfTargetStatusDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFStatusTarget> _rfStatusTarget;
+        private readonly IGenericRepositoryAsync<RfTargetStatus> _rfStatusTarget;
         private readonly IMapper _mapper;
 
-        public DeleteRFStatusTargetCommandHandler(IGenericRepositoryAsync<RFStatusTarget> rfStatusTarget, IMapper mapper){
+        public DeleteRfTargetStatusCommandHandler(IGenericRepositoryAsync<RfTargetStatus> rfStatusTarget, IMapper mapper){
             _rfStatusTarget = rfStatusTarget;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFStatusTargetDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfTargetStatusDeleteCommand request, CancellationToken cancellationToken)
         {
             var rFStatusTarget = await _rfStatusTarget.GetByIdAsync(request.StatusCode, "StatusCode");
             rFStatusTarget.IsDeleted = true;

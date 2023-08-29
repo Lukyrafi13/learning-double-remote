@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace NewLMS.Umkm.Maps.Models
+namespace NewLMS.UMKM.Maps.Models
 {
     public class UserLocationResponseModel
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSCORiwayatKreditBJBs
+namespace NewLMS.UMKM.Data.Dto.RFSCORiwayatKreditBJBs
 {
     public class RFSCORiwayatKreditBJBRequestDto
     {

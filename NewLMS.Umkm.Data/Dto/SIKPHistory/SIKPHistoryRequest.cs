@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.SIKPHistorys
+namespace NewLMS.UMKM.Data.Dto.SIKPHistorys
 {
     public class SIKPHistoryRequestDto
     {

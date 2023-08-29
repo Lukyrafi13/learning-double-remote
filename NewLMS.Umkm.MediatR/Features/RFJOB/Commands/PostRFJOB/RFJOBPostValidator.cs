@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJOBs;
+using NewLMS.UMKM.Data.Dto.RFJOBs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJOBs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFJOBs.Commands
 {
     public class RFJOBPostValidator : AbstractValidator<RFJOBSPostCommand>
     {

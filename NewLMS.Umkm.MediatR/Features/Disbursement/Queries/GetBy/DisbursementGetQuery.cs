@@ -1,14 +1,14 @@
 // using AutoMapper;
 // using MediatR;
-// using NewLMS.Umkm.Data.Dto.Analisas;
-// using NewLMS.Umkm.Data;
-// using NewLMS.Umkm.Helper;
-// using NewLMS.Umkm.Repository.GenericRepository;
+// using NewLMS.UMKM.Data.Dto.Analisas;
+// using NewLMS.UMKM.Data;
+// using NewLMS.UMKM.Helper;
+// using NewLMS.UMKM.Repository.GenericRepository;
 // using System;
 // using System.Threading;
 // using System.Threading.Tasks;
 
-// namespace NewLMS.Umkm.MediatR.Features.Analisas.Queries
+// namespace NewLMS.UMKM.MediatR.Features.Analisas.Queries
 // {
 //     public class AnalisaInformasiUsahaGetQuery : AnalisaFind, IRequest<ServiceResponse<AnalisaInformasiUsahaResponse>>
 //     {

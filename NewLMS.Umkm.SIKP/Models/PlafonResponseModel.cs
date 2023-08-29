@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace NewLMS.Umkm.SIKP.Models
+namespace NewLMS.UMKM.SIKP.Models
 {
     public class PlafonResponseModel
     {

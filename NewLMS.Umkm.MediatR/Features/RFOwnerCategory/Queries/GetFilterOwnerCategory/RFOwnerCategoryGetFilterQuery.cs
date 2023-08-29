@@ -1,40 +1,40 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFOwnerCategories;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFOwnerCategories;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFOwnerCategories.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFOwnerCategories.Queries
 {
-    public class RFOwnerCategoriesGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFOwnerCategoryResponseDto>>>
+    public class RFOwnerCategoriesGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfOwnerCategoryResponseDto>>>
     {
     }
 
-    public class GetFilterRFOwnerCategoryQueryHandler : IRequestHandler<RFOwnerCategoriesGetFilterQuery, PagedResponse<IEnumerable<RFOwnerCategoryResponseDto>>>
+    public class GetFilterRfOwnerCategoryQueryHandler : IRequestHandler<RFOwnerCategoriesGetFilterQuery, PagedResponse<IEnumerable<RfOwnerCategoryResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFOwnerCategory> _rfGender;
+        private IGenericRepositoryAsync<RfOwnerCategory> _rfGender;
         private readonly IMapper _mapper;
 
-        public GetFilterRFOwnerCategoryQueryHandler(IGenericRepositoryAsync<RFOwnerCategory> rfGender, IMapper mapper)
+        public GetFilterRfOwnerCategoryQueryHandler(IGenericRepositoryAsync<RfOwnerCategory> rfGender, IMapper mapper)
         {
             _rfGender = rfGender;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFOwnerCategoryResponseDto>>> Handle(RFOwnerCategoriesGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfOwnerCategoryResponseDto>>> Handle(RFOwnerCategoriesGetFilterQuery request, CancellationToken cancellationToken)
         {
             var data = await _rfGender.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFOwnerCategoryResponseDto>>(data.Results);
-            IEnumerable<RFOwnerCategoryResponseDto> dataVm;
-            var listResponse = new List<RFOwnerCategoryResponseDto>();
+            // var dataVm = _mapper.Map<IEnumerable<RfOwnerCategoryResponseDto>>(data.Results);
+            IEnumerable<RfOwnerCategoryResponseDto> dataVm;
+            var listResponse = new List<RfOwnerCategoryResponseDto>();
 
             foreach (var gender in data.Results){
-                var response = new RFOwnerCategoryResponseDto();
+                var response = new RfOwnerCategoryResponseDto();
                 
                 response.Id = gender.Id;
                 response.OwnCode = gender.OwnCode;
@@ -46,7 +46,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFOwnerCategories.Queries
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFOwnerCategoryResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfOwnerCategoryResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

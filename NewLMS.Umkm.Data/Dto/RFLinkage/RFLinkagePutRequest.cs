@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFLinkages
+namespace NewLMS.UMKM.Data.Dto.RFLinkages
 {
     public class RFLinkagePutRequestDto : RFLinkagePostRequestDto
     {

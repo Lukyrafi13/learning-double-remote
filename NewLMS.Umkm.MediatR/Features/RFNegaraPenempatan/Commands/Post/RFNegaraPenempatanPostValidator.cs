@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFNegaraPenempatans;
+using NewLMS.UMKM.Data.Dto.RFNegaraPenempatans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFNegaraPenempatans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Commands
 {
     public class RFNegaraPenempatanPostValidator : AbstractValidator<RFNegaraPenempatanPostCommand>
     {

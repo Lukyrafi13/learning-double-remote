@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFMappingPrescreeningDocuments
+namespace NewLMS.UMKM.Data.Dto.RFMappingPrescreeningDocuments
 {
     public class RFMappingPrescreeningDocumentFindRequestDto
     {

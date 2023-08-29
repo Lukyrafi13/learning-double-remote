@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisSyaratKredits
+namespace NewLMS.UMKM.Data.Dto.RFJenisSyaratKredits
 {
     public class RFJenisSyaratKreditRequestDto
     {

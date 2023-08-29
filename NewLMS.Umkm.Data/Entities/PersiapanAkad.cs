@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class PersiapanAkad : BaseEntity
     {
@@ -21,7 +21,6 @@ namespace NewLMS.Umkm.Data
         public string NamaBroker { get; set; }
         public string JenisCoverage { get; set; }
         public double? PremiAsuransi { get; set; }
-        public int Age => App?.Prospect?.AgeStage("9.0")??-1;
         
         public Guid AppId { get; set; }
         public Guid? SppkId { get; set; }

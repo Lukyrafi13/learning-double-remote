@@ -1,10 +1,14 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
-    public class RFProduct : BaseEntity
+    public class RfProduct : BaseEntity
     {
+        [Key]
+        [Required]
+		
         public Guid Id { get; set; }
         public string ProductId { get; set; }
         public string ProductDesc { get; set; }

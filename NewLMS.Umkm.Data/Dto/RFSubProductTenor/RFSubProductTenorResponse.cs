@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFSubProductTenors
+namespace NewLMS.UMKM.Data.Dto.RFSubProductTenors
 {
     public class RFSubProductTenorResponseDto
     {

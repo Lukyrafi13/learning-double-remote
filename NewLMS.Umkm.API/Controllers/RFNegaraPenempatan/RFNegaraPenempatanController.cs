@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFNegaraPenempatans;
+using NewLMS.UMKM.Data.Dto.RFNegaraPenempatans;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFNegaraPenempatans.Commands;
-using NewLMS.Umkm.MediatR.Features.RFNegaraPenempatans.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Commands;
+using NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFNegaraPenempatan
+namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
 {
     public class RFNegaraPenempatanController : BaseController
     {

@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahaYangDihindaris
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypeYangDihindaris
 {
-    public class RFJenisUsahaYangDihindariFindRequestDto
+    public class RfCompanyTypeYangDihindariFindRequestDto
     {
         public string StatusJenisUsaha_Code { get; set; }
 

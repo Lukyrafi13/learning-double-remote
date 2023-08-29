@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppPemohonGapoktan
     {
@@ -11,7 +11,7 @@ namespace NewLMS.Umkm.Data.Dto.Apps
         public DateTime? TanggalAktaPendirian { get; set; }
         public string NPWP { get; set; }
         public string Alamat { get; set; }
-        public int RFZipCodeId { get; set; }
+        public int RfZipCodeId { get; set; }
         public string Kelurahan { get; set; }
         public string Kecamatan { get; set; }
         public string KabupatenKota { get; set; }
@@ -53,10 +53,10 @@ namespace NewLMS.Umkm.Data.Dto.Apps
 
         public Guid? RFMaritalKetuaId { get; set; }
         public Guid? RFEducationKetuaId { get; set; }
-        public int? RFZipCodeKetuaId { get; set; }
+        public int? RfZipCodeKetuaId { get; set; }
         public Guid? RFMaritalBendaharaId { get; set; }
         public Guid? RFEducationBendaharaId { get; set; }
-        public int? RFZipCodeBendaharaId { get; set; }
+        public int? RfZipCodeBendaharaId { get; set; }
         
     }
 }

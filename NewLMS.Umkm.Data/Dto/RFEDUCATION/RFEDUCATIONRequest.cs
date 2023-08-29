@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFEDUCATIONs
+namespace NewLMS.UMKM.Data.Dto.RFEDUCATIONs
 {
     public class RFEDUCATIONRequestDto
     {

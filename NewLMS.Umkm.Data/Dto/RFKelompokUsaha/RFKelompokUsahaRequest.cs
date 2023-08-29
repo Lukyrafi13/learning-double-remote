@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFKelompokUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyGroups
 {
-    public class RFKelompokUsahaRequestDto
+    public class RfCompanyGroupRequestDto
     {
     }
 }

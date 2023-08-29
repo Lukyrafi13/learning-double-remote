@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFKepemilikanUsahas;
+using NewLMS.UMKM.Data.Dto.RFKepemilikanUsahas;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKepemilikanUsahas.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFKepemilikanUsahas.Commands
 {
     public class RFKepemilikanUsahaPostValidator : AbstractValidator<RFKepemilikanUsahaPostCommand>
     {

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.SlikHistoryKreditDetails
+namespace NewLMS.UMKM.Data.Dto.SlikHistoryKreditDetails
 {
     public class SlikHistoryKreditDetailRequestDto
     {

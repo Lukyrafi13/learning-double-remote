@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFDecisionSKs
+namespace NewLMS.UMKM.Data.Dto.RFDecisionSKs
 {
     public class RFDecisionSKPutRequestDto : RFDecisionSKPostRequestDto
     {

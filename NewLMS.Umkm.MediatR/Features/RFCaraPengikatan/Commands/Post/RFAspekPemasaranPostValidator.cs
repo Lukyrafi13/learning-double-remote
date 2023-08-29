@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFCaraPengikatans;
+using NewLMS.UMKM.Data.Dto.RFCaraPengikatans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFCaraPengikatans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFCaraPengikatans.Commands
 {
     public class RFCaraPengikatanPostValidator : AbstractValidator<RFCaraPengikatanPostCommand>
     {

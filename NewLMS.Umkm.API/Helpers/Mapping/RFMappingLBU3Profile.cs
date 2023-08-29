@@ -1,8 +1,8 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFMappingLBU3s;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RFMappingLBU3s;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
     public class RFMappingLBU3Profile : Profile

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOHUTANGPIHAKLAINs;
+using NewLMS.UMKM.Data.Dto.RFSCOHUTANGPIHAKLAINs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOHUTANGPIHAKLAINs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOHUTANGPIHAKLAINs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOHUTANGPIHAKLAINs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOHUTANGPIHAKLAINs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOHUTANGPIHAKLAIN
+namespace NewLMS.UMKM.API.Controllers.RFSCOHUTANGPIHAKLAIN
 {
     public class RFSCOHUTANGPIHAKLAINController : BaseController
     {

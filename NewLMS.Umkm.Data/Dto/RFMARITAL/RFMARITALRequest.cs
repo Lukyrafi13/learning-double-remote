@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFMARITALs
+namespace NewLMS.UMKM.Data.Dto.RFMARITALs
 {
     public class RFMARITALRequestDto
     {

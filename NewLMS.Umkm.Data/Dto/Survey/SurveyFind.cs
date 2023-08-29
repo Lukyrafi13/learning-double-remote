@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.Surveys
+namespace NewLMS.UMKM.Data.Dto.Surveys
 {
     public class SurveyFind
     {

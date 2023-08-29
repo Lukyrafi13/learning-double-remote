@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Domain.Dwh.Entities
+namespace NewLMS.UMKM.Domain.Dwh.Entities
 {
     public class DownloadData
     {
@@ -34,7 +34,7 @@ namespace NewLMS.Umkm.Domain.Dwh.Entities
         public string? Neighborhoods { get; set; }
         public byte? ProcessStatus { get; set; }
         public string? ZipCode { get; set; }
-        public string? RFSectorLBU3Code { get; set; }
+        public string? RfSectorLBU3Code { get; set; }
         public double? TargetPlafond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }
         public DateTime? MaturityDate { get; set; }

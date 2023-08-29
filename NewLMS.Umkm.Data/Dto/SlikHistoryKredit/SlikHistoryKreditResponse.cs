@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SlikHistoryKredits
+namespace NewLMS.UMKM.Data.Dto.SlikHistoryKredits
 {
     public class SlikHistoryKreditResponseDto
     {

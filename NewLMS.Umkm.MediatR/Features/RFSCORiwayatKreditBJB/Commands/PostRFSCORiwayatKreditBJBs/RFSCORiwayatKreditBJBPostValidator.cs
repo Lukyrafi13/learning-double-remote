@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCORiwayatKreditBJBs;
+using NewLMS.UMKM.Data.Dto.RFSCORiwayatKreditBJBs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCORiwayatKreditBJBs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCORiwayatKreditBJBs.Commands
 {
     public class RFSCORiwayatKreditBJBPostValidator : AbstractValidator<RFSCORiwayatKreditBJBPostCommand>
     {

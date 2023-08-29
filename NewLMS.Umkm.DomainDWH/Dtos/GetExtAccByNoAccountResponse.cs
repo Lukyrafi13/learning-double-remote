@@ -1,4 +1,4 @@
-﻿namespace NewLMS.Umkm.DomainDWH.Dtos
+﻿namespace NewLMS.UMKM.DomainDWH.Dtos
 {
     public class GetExtAccByNoAccountResponse
     {

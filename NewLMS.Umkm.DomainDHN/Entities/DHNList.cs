@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.DomainDHN.Entities
+namespace NewLMS.UMKM.DomainDHN.Entities
 {
     [Table("tbl_dhnlist")]
     public class DHNList

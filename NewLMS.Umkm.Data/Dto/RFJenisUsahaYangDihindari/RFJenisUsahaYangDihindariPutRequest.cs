@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahaYangDihindaris
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypeYangDihindaris
 {
-    public class RFJenisUsahaYangDihindariPutRequestDto : RFJenisUsahaYangDihindariPostRequestDto
+    public class RfCompanyTypeYangDihindariPutRequestDto : RfCompanyTypeYangDihindariPostRequestDto
     {
     }
 }

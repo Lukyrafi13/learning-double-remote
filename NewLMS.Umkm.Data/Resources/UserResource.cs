@@ -1,4 +1,4 @@
-﻿namespace NewLMS.Umkm.Data.Resources
+﻿namespace NewLMS.UMKM.Data.Resources
 {
     public class UserResource : ResourceParameter
     {

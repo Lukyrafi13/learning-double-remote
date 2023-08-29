@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Analisas
+namespace NewLMS.UMKM.Data.Dto.Analisas
 {
     public class AnalisaInformasiUsahaPut
     {
@@ -19,8 +19,8 @@ namespace NewLMS.Umkm.Data.Dto.Analisas
         public string AktifitasUsaha { get; set; }
         public Guid? RFLokasiUsahaId { get; set; }
         public Guid? RFJenisTempatUsahaId { get; set; }
-        public Guid? RFKelompokUsahaId { get; set; }
-        public Guid? RFJenisUsahaId { get; set; }
+        public Guid? RfCompanyGroupId { get; set; }
+        public Guid? RfCompanyTypeId { get; set; }
         public Guid? RFLokasiTempatUsahaId { get; set; }
         public Guid? RFKepemilikanTUId { get; set; }
         public Guid? RFBuktiKepemilikanId { get; set; }

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFApprTanahLnkPertumbuhans;
+using NewLMS.UMKM.Data.Dto.RFApprTanahLnkPertumbuhans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFApprTanahLnkPertumbuhans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFApprTanahLnkPertumbuhans.Commands
 {
     public class RFApprTanahLnkPertumbuhanPostValidator : AbstractValidator<RFApprTanahLnkPertumbuhanPostCommand>
     {

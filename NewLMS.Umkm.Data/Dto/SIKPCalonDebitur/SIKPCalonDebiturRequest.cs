@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.SIKPCalonDebiturs
+namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
 {
     public class SIKPCalonDebiturRequestDto
     {

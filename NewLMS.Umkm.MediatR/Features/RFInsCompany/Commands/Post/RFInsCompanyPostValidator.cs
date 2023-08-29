@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFInsCompanys;
+using NewLMS.UMKM.Data.Dto.RFInsCompanys;
 
-namespace NewLMS.Umkm.MediatR.Features.RFInsCompanys.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFInsCompanys.Commands
 {
     public class RFInsCompanyPostValidator : AbstractValidator<RFInsCompanyPostCommand>
     {

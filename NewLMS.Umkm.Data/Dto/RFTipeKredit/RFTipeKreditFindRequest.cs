@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFTipeKredits
+namespace NewLMS.UMKM.Data.Dto.RFTipeKredits
 {
     public class RFTipeKreditFindRequestDto
     {        

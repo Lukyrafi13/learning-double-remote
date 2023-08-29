@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFCSBPDetails
+namespace NewLMS.UMKM.Data.Dto.RFCSBPDetails
 {
     public class RFCSBPDetailResponseDto
     {

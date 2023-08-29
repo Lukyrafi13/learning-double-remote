@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
-    public class RFSectorLBU2 : BaseEntity
+    public class RfSectorLBU2 : BaseEntity
     {
         [Key]
         public string Code { get; set; }
@@ -16,10 +16,10 @@ namespace NewLMS.Umkm.Data
         public string LBCode1 { get; set; }
         public string Description { get; set; }
         public string CoreCode { get; set; }
-        [ForeignKey(nameof(RFSectorLBU1))]
-        public string RFSectorLBU1Code { get; set; }
+        [ForeignKey(nameof(RfSectorLBU1))]
+        public string RfSectorLBU1Code { get; set; }
         public bool IsShowing { get; set; }
-        public virtual RFSectorLBU1 RFSectorLBU1 { get; set; }
-        public virtual ICollection<RFSectorLBU3> RFSectorLBU3s { get; set; }
+        public virtual RfSectorLBU1 RfSectorLBU1 { get; set; }
+        public virtual ICollection<RfSectorLBU3> RfSectorLBU3s { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFRelationCols
+namespace NewLMS.UMKM.Data.Dto.RFRelationCols
 {
     public class RFRelationColRequestDto
     {

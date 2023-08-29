@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFAlamatUsahaSamaDenganAplikasis
+namespace NewLMS.UMKM.Data.Dto.RFAlamatUsahaSamaDenganAplikasis
 {
     public class RFAlamatUsahaSamaDenganAplikasiPutRequestDto : RFAlamatUsahaSamaDenganAplikasiPostRequestDto
     {

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.AppContactPersons
+namespace NewLMS.UMKM.Data.Dto.AppContactPersons
 {
     public class AppContactPersonRequestDto
     {

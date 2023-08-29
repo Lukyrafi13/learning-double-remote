@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOSALDOREKRATAs;
+using NewLMS.UMKM.Data.Dto.RFSCOSALDOREKRATAs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOSALDOREKRATAs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOSALDOREKRATAs.Commands
 {
     public class RFSCOSALDOREKRATAPostValidator : AbstractValidator<RFSCOSALDOREKRATAPostCommand>
     {

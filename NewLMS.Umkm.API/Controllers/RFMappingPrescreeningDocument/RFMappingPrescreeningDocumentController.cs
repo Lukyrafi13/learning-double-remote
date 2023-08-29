@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFMappingPrescreeningDocuments;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU3s;
+using NewLMS.UMKM.Data.Dto.RFMappingPrescreeningDocuments;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFMappingPrescreeningDocuments.Commands;
-using NewLMS.Umkm.MediatR.Features.RFMappingPrescreeningDocuments.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFMappingPrescreeningDocuments.Commands;
+using NewLMS.UMKM.MediatR.Features.RFMappingPrescreeningDocuments.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFMappingPrescreeningDocument
+namespace NewLMS.UMKM.API.Controllers.RFMappingPrescreeningDocument
 {
     public class RFMappingPrescreeningDocumentController : BaseController
     {

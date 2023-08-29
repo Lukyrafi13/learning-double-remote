@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFDebiturMemilikiUsahaLains;
+using NewLMS.UMKM.Data.Dto.RFDebiturMemilikiUsahaLains;
 
-namespace NewLMS.Umkm.MediatR.Features.RFDebiturMemilikiUsahaLains.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFDebiturMemilikiUsahaLains.Commands
 {
     public class RFDebiturMemilikiUsahaLainPostValidator : AbstractValidator<RFDebiturMemilikiUsahaLainPostCommand>
     {

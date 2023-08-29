@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFStatusTargets
+namespace NewLMS.UMKM.Data.Dto.RfTargetStatuss
 {
-    public class RFStatusTargetResponseDto
+    public class RfTargetStatusResponseDto
     {
         public Guid Id { get; set; }
         public string StatusCode { get; set; }

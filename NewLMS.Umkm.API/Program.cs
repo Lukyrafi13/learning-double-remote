@@ -9,9 +9,9 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System.Runtime.InteropServices;
-using NewLMS.Umkm.Domain;
+using NewLMS.UMKM.Domain;
 
-namespace NewLMS.Umkm.API
+namespace NewLMS.UMKM.API
 {
     public class Program
     {

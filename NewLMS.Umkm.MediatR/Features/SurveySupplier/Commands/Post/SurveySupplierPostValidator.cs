@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.SurveySuppliers;
+using NewLMS.UMKM.Data.Dto.SurveySuppliers;
 
-namespace NewLMS.Umkm.MediatR.Features.SurveySuppliers.Commands
+namespace NewLMS.UMKM.MediatR.Features.SurveySuppliers.Commands
 {
     public class SurveySupplierPostValidator : AbstractValidator<SurveySupplierPostCommand>
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFRejects;
+using NewLMS.UMKM.Data.Dto.RFRejects;
 
-namespace NewLMS.Umkm.MediatR.Features.RFRejects.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFRejects.Commands
 {
     public class RFRejectPostValidator : AbstractValidator<RFRejectPostCommand>
     {

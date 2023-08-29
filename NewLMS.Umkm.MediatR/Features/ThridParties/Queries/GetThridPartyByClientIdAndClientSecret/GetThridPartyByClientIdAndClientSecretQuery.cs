@@ -1,8 +1,8 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
 using MediatR;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.MediatR.Exceptions;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.MediatR.Exceptions;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret
+namespace NewLMS.UMKM.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret
 {
     public class GetThridPartyByClientIdAndClientSecretQuery : IRequest<bool>
     {

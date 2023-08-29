@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
-    public class RFZipCode : BaseEntity
+    public class RfZipCode : BaseEntity
     {
         [Key]
         [Required]

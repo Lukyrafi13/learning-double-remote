@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.SlikHistoryKredits;
+using NewLMS.UMKM.Data.Dto.SlikHistoryKredits;
 
-namespace NewLMS.Umkm.MediatR.Features.SlikHistoryKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.SlikHistoryKredits.Commands
 {
     public class SlikHistoryKreditPostValidator : AbstractValidator<SlikHistoryKreditPostCommand>
     {

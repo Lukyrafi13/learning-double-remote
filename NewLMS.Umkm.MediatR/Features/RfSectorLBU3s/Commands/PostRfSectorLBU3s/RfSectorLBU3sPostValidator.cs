@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU3s;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU3s.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfSectorLBU3s.Commands
 {
-    public class RFSectorLBU3PostValidator : AbstractValidator<RFSectorLBU3PostRequest>
+    public class RfSectorLBU3PostValidator : AbstractValidator<RfSectorLBU3PostRequest>
     {
-        public RFSectorLBU3PostValidator()
+        public RfSectorLBU3PostValidator()
         {
             RuleFor(c => c.Code).NotEmpty().WithMessage("Code is required");
             RuleFor(c => c.LBCode2).NotEmpty().WithMessage("LBCode2 is required");

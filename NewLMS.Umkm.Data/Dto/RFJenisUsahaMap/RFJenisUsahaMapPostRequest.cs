@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps
 {
-    public class RFJenisUsahaMapPostRequestDto
+    public class RfCompanyTypeMapPostRequestDto
     {
         public string ANL_CODE { get; set;}
         public string KELOMPOK_CODE { get; set;}

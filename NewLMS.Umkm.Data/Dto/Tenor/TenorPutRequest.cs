@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Tenors
+namespace NewLMS.UMKM.Data.Dto.Tenors
 {
     public class TenorPutRequestDto : TenorPostRequestDto
     {

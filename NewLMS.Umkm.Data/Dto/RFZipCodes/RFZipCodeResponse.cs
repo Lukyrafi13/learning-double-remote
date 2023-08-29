@@ -1,6 +1,6 @@
-﻿namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+﻿namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodeResponse : BaseResponse
+    public class RfZipCodeResponse : BaseResponse
     {
 		public int Id { get; set; }
 		public string ZipCode { get; set; }

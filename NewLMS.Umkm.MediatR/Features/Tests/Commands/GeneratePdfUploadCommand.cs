@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Commands
+namespace NewLMS.UMKM.MediatR.Features.Tests.Commands
 {
     public class GeneratePdfUploadCommand : IRequest<Byte[]>
     {

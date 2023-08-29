@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFKelompokUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyGroups
 {
-    public class RFKelompokUsahaFindRequestDto
+    public class RfCompanyGroupFindRequestDto
     {
         public string ANL_CODE { get; set;}
 

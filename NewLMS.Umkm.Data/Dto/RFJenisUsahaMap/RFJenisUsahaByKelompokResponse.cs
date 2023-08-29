@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps
 {
-    public class RFJenisUsahaByKelompokResponse
+    public class RfCompanyTypeByKelompokResponse
     {
         public Guid Id { get; set; }
         public string ANL_CODE { get; set;}
@@ -9,6 +9,6 @@ namespace NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps
         public bool ANL_ACTIVE { get; set;}
         public string KELOMPOK_CODE { get; set;}
         public string PRODUCTID { get; set;}
-        public RFJenisUsaha JENIS_USAHA { get; set;}
+        public RfCompanyType JENIS_USAHA { get; set;}
     }
 }

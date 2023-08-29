@@ -1,12 +1,12 @@
-using FluentValidation;
-using NewLMS.Umkm.Data.Dto.AnalisaFasilitass;
+// using FluentValidation;
+// using NewLMS.UMKM.Data.Dto.AnalisaFasilitass;
 
-namespace NewLMS.Umkm.MediatR.Features.AnalisaFasilitass.Commands
-{
-    public class AnalisaFasilitasPostValidator : AbstractValidator<AnalisaFasilitasPostCommand>
-    {
-        public AnalisaFasilitasPostValidator(){
-            // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
-        }
-    }
-}
+// namespace NewLMS.UMKM.MediatR.Features.AnalisaFasilitass.Commands
+// {
+//     public class AnalisaFasilitasPostValidator : AbstractValidator<AnalisaFasilitasPostCommand>
+//     {
+//         public AnalisaFasilitasPostValidator(){
+//             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
+//         }
+//     }
+// }

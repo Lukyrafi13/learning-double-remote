@@ -1,37 +1,37 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaYangDihindaris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeYangDihindaris;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaYangDihindaris.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeYangDihindaris.Commands
 {
-    public class RFJenisUsahaYangDihindariDeleteCommand : RFJenisUsahaYangDihindariFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfCompanyTypeYangDihindariDeleteCommand : RfCompanyTypeYangDihindariFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
 
     }
 
-    public class DeleteRFJenisUsahaYangDihindariCommandHandler : IRequestHandler<RFJenisUsahaYangDihindariDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfCompanyTypeYangDihindariCommandHandler : IRequestHandler<RfCompanyTypeYangDihindariDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFJenisUsahaYangDihindari> _RFJenisUsahaYangDihindari;
+        private readonly IGenericRepositoryAsync<RfCompanyTypeYangDihindari> _RfCompanyTypeYangDihindari;
         private readonly IMapper _mapper;
 
-        public DeleteRFJenisUsahaYangDihindariCommandHandler(IGenericRepositoryAsync<RFJenisUsahaYangDihindari> RFJenisUsahaYangDihindari, IMapper mapper)
+        public DeleteRfCompanyTypeYangDihindariCommandHandler(IGenericRepositoryAsync<RfCompanyTypeYangDihindari> RfCompanyTypeYangDihindari, IMapper mapper)
         {
-            _RFJenisUsahaYangDihindari = RFJenisUsahaYangDihindari;
+            _RfCompanyTypeYangDihindari = RfCompanyTypeYangDihindari;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFJenisUsahaYangDihindariDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfCompanyTypeYangDihindariDeleteCommand request, CancellationToken cancellationToken)
         {
-            var rFProduct = await _RFJenisUsahaYangDihindari.GetByIdAsync(request.StatusJenisUsaha_Code, "StatusJenisUsaha_Code");
+            var rFProduct = await _RfCompanyTypeYangDihindari.GetByIdAsync(request.StatusJenisUsaha_Code, "StatusJenisUsaha_Code");
             rFProduct.IsDeleted = true;
-            await _RFJenisUsahaYangDihindari.UpdateAsync(rFProduct);
+            await _RfCompanyTypeYangDihindari.UpdateAsync(rFProduct);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

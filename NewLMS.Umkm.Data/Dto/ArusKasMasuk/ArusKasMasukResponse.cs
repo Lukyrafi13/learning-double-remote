@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.ArusKasMasuks
+namespace NewLMS.UMKM.Data.Dto.ArusKasMasuks
 {
     public class ArusKasMasukResponseDto
     {

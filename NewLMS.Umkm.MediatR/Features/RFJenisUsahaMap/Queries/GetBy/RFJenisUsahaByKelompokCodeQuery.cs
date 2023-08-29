@@ -1,48 +1,48 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaMaps.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeMaps.Queries
 {
-    public class RFJenisUsahaByKelompokCodeQuery : RequestParameter, IRequest<ServiceResponse<IEnumerable<RFJenisUsahaByKelompokResponse>>>
+    public class RfCompanyTypeByKelompokCodeQuery : RequestParameter, IRequest<ServiceResponse<IEnumerable<RfCompanyTypeByKelompokResponse>>>
     {
         public string KELOMPOK_CODE { get; set;}
     }
 
-    public class RFJenisUsahaByKelompokCodeQueryHandler : IRequestHandler<RFJenisUsahaByKelompokCodeQuery, ServiceResponse<IEnumerable<RFJenisUsahaByKelompokResponse>>>
+    public class RfCompanyTypeByKelompokCodeQueryHandler : IRequestHandler<RfCompanyTypeByKelompokCodeQuery, ServiceResponse<IEnumerable<RfCompanyTypeByKelompokResponse>>>
     {
-        private IGenericRepositoryAsync<RFJenisUsahaMap> _RFJenisUsahaMap;
-                private IGenericRepositoryAsync<RFJenisUsaha> _RFJenisUsaha;
+        private IGenericRepositoryAsync<RfCompanyTypeMap> _RfCompanyTypeMap;
+                private IGenericRepositoryAsync<RfCompanyType> _RfCompanyType;
         private readonly IMapper _mapper;
 
-        public RFJenisUsahaByKelompokCodeQueryHandler(IGenericRepositoryAsync<RFJenisUsahaMap> RFJenisUsahaMap, IGenericRepositoryAsync<RFJenisUsaha> RFJenisUsaha, IMapper mapper)
+        public RfCompanyTypeByKelompokCodeQueryHandler(IGenericRepositoryAsync<RfCompanyTypeMap> RfCompanyTypeMap, IGenericRepositoryAsync<RfCompanyType> RfCompanyType, IMapper mapper)
         {
-            _RFJenisUsahaMap = RFJenisUsahaMap;
-            _RFJenisUsaha = RFJenisUsaha;
+            _RfCompanyTypeMap = RfCompanyTypeMap;
+            _RfCompanyType = RfCompanyType;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<IEnumerable<RFJenisUsahaByKelompokResponse>>> Handle(RFJenisUsahaByKelompokCodeQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<IEnumerable<RfCompanyTypeByKelompokResponse>>> Handle(RfCompanyTypeByKelompokCodeQuery request, CancellationToken cancellationToken)
         {
-            var data = await _RFJenisUsahaMap.GetListByPredicate(x=> x.KELOMPOK_CODE == request.KELOMPOK_CODE);
-            // var dataVm = _mapper.Map<IEnumerable<RFJenisUsahaByKelompokResponse>>(data.Results);
-            IEnumerable<RFJenisUsahaByKelompokResponse> dataVm;
-            var listResponse = new List<RFJenisUsahaByKelompokResponse>();
+            var data = await _RfCompanyTypeMap.GetListByPredicate(x=> x.KELOMPOK_CODE == request.KELOMPOK_CODE);
+            // var dataVm = _mapper.Map<IEnumerable<RfCompanyTypeByKelompokResponse>>(data.Results);
+            IEnumerable<RfCompanyTypeByKelompokResponse> dataVm;
+            var listResponse = new List<RfCompanyTypeByKelompokResponse>();
             var addedANL = new List<string>();
 
             foreach (var res in data)
             {
-                var response = _mapper.Map<RFJenisUsahaByKelompokResponse>(res);
+                var response = _mapper.Map<RfCompanyTypeByKelompokResponse>(res);
 
-                var jenisUsaha = await _RFJenisUsaha.GetByIdAsync(response.ANL_CODE, "ANL_CODE");
+                var jenisUsaha = await _RfCompanyType.GetByIdAsync(response.ANL_CODE, "ANL_CODE");
 
                 if (jenisUsaha != null){
                     response.ANL_DESC = jenisUsaha.ANL_DESC;
@@ -57,7 +57,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaMaps.Queries
             }
 
             dataVm = listResponse.ToArray();
-            return ServiceResponse<IEnumerable<RFJenisUsahaByKelompokResponse>>.ReturnResultWith200(dataVm);
+            return ServiceResponse<IEnumerable<RfCompanyTypeByKelompokResponse>>.ReturnResultWith200(dataVm);
         }
     }
 }

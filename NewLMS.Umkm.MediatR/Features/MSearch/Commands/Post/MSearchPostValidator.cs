@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.MSearchs;
+using NewLMS.UMKM.Data.Dto.MSearchs;
 
-namespace NewLMS.Umkm.MediatR.Features.MSearchs.Commands
+namespace NewLMS.UMKM.MediatR.Features.MSearchs.Commands
 {
     public class MSearchPostValidator : AbstractValidator<MSearchPostCommand>
     {

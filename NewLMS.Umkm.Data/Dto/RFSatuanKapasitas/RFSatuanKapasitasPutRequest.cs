@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSatuanKapasitass
+namespace NewLMS.UMKM.Data.Dto.RFSatuanKapasitass
 {
     public class RFSatuanKapasitasPutRequestDto : RFSatuanKapasitasPostRequestDto
     {

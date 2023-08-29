@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFVEHMAKERs;
+using NewLMS.UMKM.Data.Dto.RFVEHMAKERs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFVEHMAKERs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFVEHMAKERs.Commands
 {
     public class RFVEHMAKERPostValidator : AbstractValidator<RFVEHMAKERPostCommand>
     {

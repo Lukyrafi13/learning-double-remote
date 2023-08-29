@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFApprKomoditis;
+using NewLMS.UMKM.Data.Dto.RFApprKomoditis;
 
-namespace NewLMS.Umkm.MediatR.Features.RFApprKomoditis.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFApprKomoditis.Commands
 {
     public class RFApprKomoditiPostValidator : AbstractValidator<RFApprKomoditiPostCommand>
     {

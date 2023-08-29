@@ -1,47 +1,47 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisPermohonans;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfAppTypes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisPermohonans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfAppTypes.Commands
 {
-    public class RFJenisPermohonanPutCommand : RFJenisPermohonanPutRequestDto, IRequest<ServiceResponse<RFJenisPermohonanResponseDto>>
+    public class RfAppTypePutCommand : RfAppTypePutRequestDto, IRequest<ServiceResponse<RfAppTypeResponseDto>>
     {
     }
 
-    public class PutRFJenisPermohonanCommandHandler : IRequestHandler<RFJenisPermohonanPutCommand, ServiceResponse<RFJenisPermohonanResponseDto>>
+    public class PutRfAppTypeCommandHandler : IRequestHandler<RfAppTypePutCommand, ServiceResponse<RfAppTypeResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFJenisPermohonan> _rfJenisPermohonan;
+        private readonly IGenericRepositoryAsync<RfAppType> _rfJenisPermohonan;
         private readonly IMapper _mapper;
 
-        public PutRFJenisPermohonanCommandHandler(IGenericRepositoryAsync<RFJenisPermohonan> rfJenisPermohonan, IMapper mapper){
+        public PutRfAppTypeCommandHandler(IGenericRepositoryAsync<RfAppType> rfJenisPermohonan, IMapper mapper){
             _rfJenisPermohonan = rfJenisPermohonan;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFJenisPermohonanResponseDto>> Handle(RFJenisPermohonanPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfAppTypeResponseDto>> Handle(RfAppTypePutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFJenisPermohonan = await _rfJenisPermohonan.GetByIdAsync(request.Id, "Id");
+                var existingRfAppType = await _rfJenisPermohonan.GetByIdAsync(request.Id, "Id");
                 
-                existingRFJenisPermohonan.JenisPermohonan = request.JenisPermohonan;
+                existingRfAppType.JenisPermohonan = request.JenisPermohonan;
                 
-                await _rfJenisPermohonan.UpdateAsync(existingRFJenisPermohonan);
+                await _rfJenisPermohonan.UpdateAsync(existingRfAppType);
 
-                var response = _mapper.Map<RFJenisPermohonanResponseDto>(existingRFJenisPermohonan);
+                var response = _mapper.Map<RfAppTypeResponseDto>(existingRfAppType);
 
-                return ServiceResponse<RFJenisPermohonanResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfAppTypeResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFJenisPermohonanResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfAppTypeResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

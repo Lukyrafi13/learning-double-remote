@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.AppAgunans
+namespace NewLMS.UMKM.Data.Dto.AppAgunans
 {
     public class AppAgunanRequestDto
     {

@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Commands
+namespace NewLMS.UMKM.MediatR.Features.Tests.Commands
 {
     public class TestPostDataCommand : IRequest<ServiceResponse<Unit>>
     {

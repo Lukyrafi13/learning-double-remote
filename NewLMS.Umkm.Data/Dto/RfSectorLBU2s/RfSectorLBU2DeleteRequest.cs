@@ -1,6 +1,6 @@
-﻿namespace NewLMS.Umkm.Data.Dto.RFSectorLBU2s
+﻿namespace NewLMS.UMKM.Data.Dto.RfSectorLBU2s
 {
-    public class RFSectorLBU2DeleteRequest
+    public class RfSectorLBU2DeleteRequest
     {
         public string Code { get; set; }
     }

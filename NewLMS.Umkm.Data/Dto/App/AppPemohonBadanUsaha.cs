@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppPemohonBadanUsaha
     {
@@ -7,7 +7,7 @@ namespace NewLMS.Umkm.Data.Dto.Apps
         public string NamaCustomer { get; set; }
         public string NomorTelpon { get; set; }
         public string Alamat { get; set; }
-        public int RFZipCodeId { get; set; }
+        public int RfZipCodeId { get; set; }
         public string Kelurahan { get; set; }
         public string Kecamatan { get; set; }
         public string KabupatenKota { get; set; }
@@ -15,7 +15,7 @@ namespace NewLMS.Umkm.Data.Dto.Apps
         public string NamaKontakDarurat { get; set; }
         public string NoTelpKontakDarurat { get; set; }
         public string AlamatKontakDarurat { get; set; }
-        public int? RFZipCodeKontakDaruratId { get; set; }
+        public int? RfZipCodeKontakDaruratId { get; set; }
         public string KelurahanKontakDarurat { get; set; }
         public string KecamatanKontakDarurat { get; set; }
         public string KabupatenKotaKontakDarurat { get; set; }

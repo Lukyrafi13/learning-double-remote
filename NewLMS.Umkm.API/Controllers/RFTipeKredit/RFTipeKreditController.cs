@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RFTipeKredits;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFTipeKredits.Commands;
-using NewLMS.Umkm.MediatR.Features.RFTipeKredits.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands;
+using NewLMS.UMKM.MediatR.Features.RFTipeKredits.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFTipeKredit
+namespace NewLMS.UMKM.API.Controllers.RFTipeKredit
 {
     public class RFTipeKreditController : BaseController
     {

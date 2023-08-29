@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.Analisas
+namespace NewLMS.UMKM.Data.Dto.Analisas
 {
     public class AnalisaTableResponse
     {

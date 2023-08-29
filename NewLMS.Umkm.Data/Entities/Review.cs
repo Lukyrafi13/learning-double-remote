@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Review : BaseEntity
     {
@@ -20,7 +20,6 @@ namespace NewLMS.Umkm.Data
         [ForeignKey("SlikRequestId")]
         public SlikRequest SlikRequest { get; set; }
 
-        public int Age => App?.Prospect?.AgeStage("6.0")??-1;
         
         public Guid AppId { get; set; }
         public Guid? PrescreeningId { get; set; }

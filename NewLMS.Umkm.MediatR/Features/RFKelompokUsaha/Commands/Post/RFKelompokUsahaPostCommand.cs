@@ -1,49 +1,49 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Commands
 {
-    public class RFKelompokUsahaPostCommand : RFKelompokUsahaPostRequestDto, IRequest<ServiceResponse<RFKelompokUsahaResponseDto>>
+    public class RfCompanyGroupPostCommand : RfCompanyGroupPostRequestDto, IRequest<ServiceResponse<RfCompanyGroupResponseDto>>
     {
 
     }
-    public class PostRFKelompokUsahaCommandHandler : IRequestHandler<RFKelompokUsahaPostCommand, ServiceResponse<RFKelompokUsahaResponseDto>>
+    public class PostRfCompanyGroupCommandHandler : IRequestHandler<RfCompanyGroupPostCommand, ServiceResponse<RfCompanyGroupResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFKelompokUsaha> _RFKelompokUsaha;
+        private readonly IGenericRepositoryAsync<RfCompanyGroup> _RfCompanyGroup;
         private readonly IMapper _mapper;
 
-        public PostRFKelompokUsahaCommandHandler(IGenericRepositoryAsync<RFKelompokUsaha> RFKelompokUsaha, IMapper mapper)
+        public PostRfCompanyGroupCommandHandler(IGenericRepositoryAsync<RfCompanyGroup> RfCompanyGroup, IMapper mapper)
         {
-            _RFKelompokUsaha = RFKelompokUsaha;
+            _RfCompanyGroup = RfCompanyGroup;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFKelompokUsahaResponseDto>> Handle(RFKelompokUsahaPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCompanyGroupResponseDto>> Handle(RfCompanyGroupPostCommand request, CancellationToken cancellationToken)
         {
 
             try
             {
-                var RFKelompokUsaha = _mapper.Map<RFKelompokUsaha>(request);
+                var RfCompanyGroup = _mapper.Map<RfCompanyGroup>(request);
 
-                var returnedRFKelompokUsaha = await _RFKelompokUsaha.AddAsync(RFKelompokUsaha, callSave: false);
+                var returnedRfCompanyGroup = await _RfCompanyGroup.AddAsync(RfCompanyGroup, callSave: false);
 
-                // var response = _mapper.Map<RFKelompokUsahaResponseDto>(returnedRFKelompokUsaha);
-                var response = _mapper.Map<RFKelompokUsahaResponseDto>(returnedRFKelompokUsaha);
+                // var response = _mapper.Map<RfCompanyGroupResponseDto>(returnedRfCompanyGroup);
+                var response = _mapper.Map<RfCompanyGroupResponseDto>(returnedRfCompanyGroup);
 
-                await _RFKelompokUsaha.SaveChangeAsync();
-                return ServiceResponse<RFKelompokUsahaResponseDto>.ReturnResultWith200(response);
+                await _RfCompanyGroup.SaveChangeAsync();
+                return ServiceResponse<RfCompanyGroupResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFKelompokUsahaResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfCompanyGroupResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

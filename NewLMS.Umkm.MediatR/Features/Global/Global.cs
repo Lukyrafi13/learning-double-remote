@@ -5,10 +5,10 @@ using System.Linq;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-// using NewLMS.Umkm.Data.Dto.User;
-using NewLMS.Umkm.Data;
+// using NewLMS.UMKM.Data.Dto.User;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.MediatR.Features
+namespace NewLMS.UMKM.MediatR.Features
 {
     public class Globals
     {

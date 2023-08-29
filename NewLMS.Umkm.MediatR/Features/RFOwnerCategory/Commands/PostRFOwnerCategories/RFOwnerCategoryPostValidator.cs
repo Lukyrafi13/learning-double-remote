@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFOwnerCategories;
+using NewLMS.UMKM.Data.Dto.RFOwnerCategories;
 
-namespace NewLMS.Umkm.MediatR.Features.RFOwnerCategories.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFOwnerCategories.Commands
 {
-    public class RFOwnerCategoryPostValidator : AbstractValidator<RFOwnerCategoryPostCommand>
+    public class RfOwnerCategoryPostValidator : AbstractValidator<RfOwnerCategoryPostCommand>
     {
-        public RFOwnerCategoryPostValidator(){
+        public RfOwnerCategoryPostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

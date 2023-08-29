@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.AppContactPersons
+namespace NewLMS.UMKM.Data.Dto.AppContactPersons
 {
     public class AppContactPersonResponseDto
     {
@@ -9,10 +9,10 @@ namespace NewLMS.Umkm.Data.Dto.AppContactPersons
         public RFRelationCol Hubungan { get; set; }
         public string NomorHandphone { get; set; }
         public string AlamatEmail { get; set; }
-        public RFGender JenisKelamin { get; set; }
+        public RfGender JenisKelamin { get; set; }
 
         public Guid AppId { get; set; }
         public Guid? RFRelationColId { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfGenderId { get; set; }
     }
 }

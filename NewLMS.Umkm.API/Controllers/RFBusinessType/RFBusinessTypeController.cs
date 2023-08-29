@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFBusinessTypes;
+using NewLMS.UMKM.Data.Dto.RFBusinessTypes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFBusinessTypes.Commands;
-using NewLMS.Umkm.MediatR.Features.RFBusinessTypes.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFBusinessTypes.Commands;
+using NewLMS.UMKM.MediatR.Features.RFBusinessTypes.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFBusinessType
+namespace NewLMS.UMKM.API.Controllers.RFBusinessType
 {
     public class RFBusinessTypeController : BaseController
     {

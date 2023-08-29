@@ -1,12 +1,12 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Analisas
+namespace NewLMS.UMKM.Data.Dto.Analisas
 {
     public class AnalisaInformasiUsahaResponse : AnalisaInformasiUsahaPut
     {
         public RFLokasiUsaha LokasiUsaha { get; set; }
         public RFJenisTempatUsaha JenisTempatUsaha { get; set; }
-        public RFKelompokUsaha KelompokBidangUsaha { get; set; }
-        public RFJenisUsaha JenisUsaha { get; set; }
+        public RfCompanyGroup KelompokBidangUsaha { get; set; }
+        public RfCompanyType JenisUsaha { get; set; }
         public RFLokasiTempatUsaha LokasiTempatUsaha { get; set; }
         public RFKepemilikanTU KepemilikanTU { get; set; }
         public RFBuktiKepemilikan BuktiKepemilikan { get; set; }

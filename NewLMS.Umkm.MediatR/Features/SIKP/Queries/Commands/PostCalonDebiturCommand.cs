@@ -1,13 +1,13 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.SIKP.Models;
-using NewLMS.Umkm.SIKP.Interfaces;
+using NewLMS.UMKM.SIKP.Models;
+using NewLMS.UMKM.SIKP.Interfaces;
 
-namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries.Commands
+namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries.Commands
 {
     public class SIKPPostCalonDebiturCommand : PostCalonDebiturRequestModel, IRequest<ServiceResponse<PostCalonDebiturResponseModel>>
     {

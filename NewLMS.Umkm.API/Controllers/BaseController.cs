@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace NewLMS.Umkm.API.Controllers
+namespace NewLMS.UMKM.API.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]

@@ -1,30 +1,30 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
 {
-    public class RFZipCodePutCommand : RFZipCodePutRequest, IRequest<ServiceResponse<Unit>>
+    public class RfZipCodePutCommand : RfZipCodePutRequest, IRequest<ServiceResponse<Unit>>
     {
     }
 
-    public class PutRFZipCodeCommandHandler : IRequestHandler<RFZipCodePutCommand, ServiceResponse<Unit>>
+    public class PutRfZipCodeCommandHandler : IRequestHandler<RfZipCodePutCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFZipCode> _rfZipCode;
+        private readonly IGenericRepositoryAsync<RfZipCode> _rfZipCode;
         private readonly IMapper _mapper;
 
-        public PutRFZipCodeCommandHandler(IGenericRepositoryAsync<RFZipCode> rfZipCode, IMapper mapper)
+        public PutRfZipCodeCommandHandler(IGenericRepositoryAsync<RfZipCode> rfZipCode, IMapper mapper)
         {
             _rfZipCode = rfZipCode;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFZipCodePutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfZipCodePutCommand request, CancellationToken cancellationToken)
         {
             var rfZipCode = await _rfZipCode.GetByIdAsync(request.Id, "Id");
 

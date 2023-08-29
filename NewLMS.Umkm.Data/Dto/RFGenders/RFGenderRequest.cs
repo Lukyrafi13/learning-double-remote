@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFGenders
+namespace NewLMS.UMKM.Data.Dto.RfGenders
 {
-    public class RFGenderRequestDto
+    public class RfGenderRequestDto
     {
     }
 }

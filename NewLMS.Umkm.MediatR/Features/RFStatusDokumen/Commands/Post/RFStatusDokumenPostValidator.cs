@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFStatusDokumens;
+using NewLMS.UMKM.Data.Dto.RFStatusDokumens;
 
-namespace NewLMS.Umkm.MediatR.Features.RFStatusDokumens.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFStatusDokumens.Commands
 {
     public class RFStatusDokumenPostValidator : AbstractValidator<RFStatusDokumenPostCommand>
     {

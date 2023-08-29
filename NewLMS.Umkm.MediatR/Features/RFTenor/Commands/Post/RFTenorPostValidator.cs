@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFTenors;
+using NewLMS.UMKM.Data.Dto.RFTenors;
 
-namespace NewLMS.Umkm.MediatR.Features.RFTenors.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFTenors.Commands
 {
     public class RFTenorPostValidator : AbstractValidator<RFTenorPostCommand>
     {

@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.BiayaVariabels
+namespace NewLMS.UMKM.Data.Dto.BiayaVariabels
 {
     public class BiayaVariabelResponseDto
     {

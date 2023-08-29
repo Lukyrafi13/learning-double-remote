@@ -1,58 +1,58 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFGenders;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfGenders;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFGenders.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfGenders.Commands
 {
-    public class RFGenderPutCommand : RFGenderPutRequestDto, IRequest<ServiceResponse<RFGenderResponseDto>>
+    public class RfGenderPutCommand : RfGenderPutRequestDto, IRequest<ServiceResponse<RfGenderResponseDto>>
     {
     }
 
-    public class PutRFGenderCommandHandler : IRequestHandler<RFGenderPutCommand, ServiceResponse<RFGenderResponseDto>>
+    public class PutRfGenderCommandHandler : IRequestHandler<RfGenderPutCommand, ServiceResponse<RfGenderResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFGender> _rfGender;
+        private readonly IGenericRepositoryAsync<RfGender> _rfGender;
         private readonly IMapper _mapper;
 
-        public PutRFGenderCommandHandler(IGenericRepositoryAsync<RFGender> rfGender, IMapper mapper){
+        public PutRfGenderCommandHandler(IGenericRepositoryAsync<RfGender> rfGender, IMapper mapper){
             _rfGender = rfGender;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFGenderResponseDto>> Handle(RFGenderPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfGenderResponseDto>> Handle(RfGenderPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFGender = await _rfGender.GetByIdAsync(request.GenderCode, "GenderCode");
-                existingRFGender.Active = true;
-                existingRFGender.GenderCode = request.GenderCode;
-                existingRFGender.GenderDesc = request.GenderDesc;
-                existingRFGender.CoreCode = request.CoreCode;
-                existingRFGender.GenderCodeSIKP = request.GenderCodeSIKP;
-                existingRFGender.GenderDescSIKP = request.GenderDescSIKP;
+                var existingRfGender = await _rfGender.GetByIdAsync(request.GenderCode, "GenderCode");
+                existingRfGender.Active = true;
+                existingRfGender.GenderCode = request.GenderCode;
+                existingRfGender.GenderDesc = request.GenderDesc;
+                existingRfGender.CoreCode = request.CoreCode;
+                existingRfGender.GenderCodeSIKP = request.GenderCodeSIKP;
+                existingRfGender.GenderDescSIKP = request.GenderDescSIKP;
                 
-                await _rfGender.UpdateAsync(existingRFGender);
+                await _rfGender.UpdateAsync(existingRfGender);
 
-                var response = new RFGenderResponseDto();
-                response.Id = existingRFGender.Id;
-                response.GenderCode = existingRFGender.GenderCode;
-                response.GenderDesc = existingRFGender.GenderDesc;
-                response.CoreCode = existingRFGender.CoreCode;
-                response.GenderCodeSIKP = existingRFGender.GenderCodeSIKP;
-                response.GenderDescSIKP = existingRFGender.GenderDescSIKP;
-                response.Active = existingRFGender.Active;
+                var response = new RfGenderResponseDto();
+                response.Id = existingRfGender.Id;
+                response.GenderCode = existingRfGender.GenderCode;
+                response.GenderDesc = existingRfGender.GenderDesc;
+                response.CoreCode = existingRfGender.CoreCode;
+                response.GenderCodeSIKP = existingRfGender.GenderCodeSIKP;
+                response.GenderDescSIKP = existingRfGender.GenderDescSIKP;
+                response.Active = existingRfGender.Active;
 
-                return ServiceResponse<RFGenderResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfGenderResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFGenderResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfGenderResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

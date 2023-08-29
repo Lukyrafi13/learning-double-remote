@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 
-namespace NewLMS.Umkm.Data.Dto.SurveyBuyers
+namespace NewLMS.UMKM.Data.Dto.SurveyBuyers
 {
     public class SurveyBuyerPostRequestDto
     {

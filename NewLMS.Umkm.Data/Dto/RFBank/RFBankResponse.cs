@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFBanks
+namespace NewLMS.UMKM.Data.Dto.RFBanks
 {
     public class RFBankResponseDto
     {

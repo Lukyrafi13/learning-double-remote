@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFDocumentAgunans
+namespace NewLMS.UMKM.Data.Dto.RFDocumentAgunans
 {
     public class RFDocumentAgunanRequestDto
     {

@@ -1,54 +1,54 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFOwnerCategories;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFOwnerCategories;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFOwnerCategories.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFOwnerCategories.Commands
 {
-    public class RFOwnerCategoryPutCommand : RFOwnerCategoryPutRequestDto, IRequest<ServiceResponse<RFOwnerCategoryResponseDto>>
+    public class RfOwnerCategoryPutCommand : RfOwnerCategoryPutRequestDto, IRequest<ServiceResponse<RfOwnerCategoryResponseDto>>
     {
     }
 
-    public class PutRFOwnerCategoryCommandHandler : IRequestHandler<RFOwnerCategoryPutCommand, ServiceResponse<RFOwnerCategoryResponseDto>>
+    public class PutRfOwnerCategoryCommandHandler : IRequestHandler<RfOwnerCategoryPutCommand, ServiceResponse<RfOwnerCategoryResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFOwnerCategory> _rfOwnerCategory;
+        private readonly IGenericRepositoryAsync<RfOwnerCategory> _rfOwnerCategory;
         private readonly IMapper _mapper;
 
-        public PutRFOwnerCategoryCommandHandler(IGenericRepositoryAsync<RFOwnerCategory> rfOwnerCategory, IMapper mapper){
+        public PutRfOwnerCategoryCommandHandler(IGenericRepositoryAsync<RfOwnerCategory> rfOwnerCategory, IMapper mapper){
             _rfOwnerCategory = rfOwnerCategory;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFOwnerCategoryResponseDto>> Handle(RFOwnerCategoryPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfOwnerCategoryResponseDto>> Handle(RfOwnerCategoryPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFOwnerCategory = await _rfOwnerCategory.GetByIdAsync(request.OwnCode, "OwnCode");
-                existingRFOwnerCategory.Active = true;
-                existingRFOwnerCategory.OwnCode = request.OwnCode;
-                existingRFOwnerCategory.OwnDesc = request.OwnDesc;
-                existingRFOwnerCategory.CoreCode = request.CoreCode;
+                var existingRfOwnerCategory = await _rfOwnerCategory.GetByIdAsync(request.OwnCode, "OwnCode");
+                existingRfOwnerCategory.Active = true;
+                existingRfOwnerCategory.OwnCode = request.OwnCode;
+                existingRfOwnerCategory.OwnDesc = request.OwnDesc;
+                existingRfOwnerCategory.CoreCode = request.CoreCode;
                 
-                await _rfOwnerCategory.UpdateAsync(existingRFOwnerCategory);
+                await _rfOwnerCategory.UpdateAsync(existingRfOwnerCategory);
 
-                var response = new RFOwnerCategoryResponseDto();
-                response.Id = existingRFOwnerCategory.Id;
-                response.OwnCode = existingRFOwnerCategory.OwnCode;
-                response.OwnDesc = existingRFOwnerCategory.OwnDesc;
-                response.CoreCode = existingRFOwnerCategory.CoreCode;
-                response.Active = existingRFOwnerCategory.Active;
+                var response = new RfOwnerCategoryResponseDto();
+                response.Id = existingRfOwnerCategory.Id;
+                response.OwnCode = existingRfOwnerCategory.OwnCode;
+                response.OwnDesc = existingRfOwnerCategory.OwnDesc;
+                response.CoreCode = existingRfOwnerCategory.CoreCode;
+                response.Active = existingRfOwnerCategory.Active;
 
-                return ServiceResponse<RFOwnerCategoryResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfOwnerCategoryResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFOwnerCategoryResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfOwnerCategoryResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

@@ -1,32 +1,32 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisPermohonans;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfAppTypes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisPermohonans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfAppTypes.Commands
 {
-    public class RFJenisPermohonanDeleteCommand : RFJenisPermohonanFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfAppTypeDeleteCommand : RfAppTypeFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class DeleteRFJenisPermohonanCommandHandler : IRequestHandler<RFJenisPermohonanDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfAppTypeCommandHandler : IRequestHandler<RfAppTypeDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFJenisPermohonan> _rfJenisPermohonan;
+        private readonly IGenericRepositoryAsync<RfAppType> _rfJenisPermohonan;
         private readonly IMapper _mapper;
 
-        public DeleteRFJenisPermohonanCommandHandler(IGenericRepositoryAsync<RFJenisPermohonan> rfJenisPermohonan, IMapper mapper){
+        public DeleteRfAppTypeCommandHandler(IGenericRepositoryAsync<RfAppType> rfJenisPermohonan, IMapper mapper){
             _rfJenisPermohonan = rfJenisPermohonan;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFJenisPermohonanDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfAppTypeDeleteCommand request, CancellationToken cancellationToken)
         {
             var rfJenisPermohonan = await _rfJenisPermohonan.GetByIdAsync(request.Id, "Id");
             rfJenisPermohonan.IsDeleted = true;

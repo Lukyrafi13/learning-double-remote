@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RFStagess;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFStagess.Commands;
-using NewLMS.Umkm.MediatR.Features.RFStagess.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFStagess.Commands;
+using NewLMS.UMKM.MediatR.Features.RFStagess.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFStages
+namespace NewLMS.UMKM.API.Controllers.RFStages
 {
     public class RFStagesController : BaseController
     {

@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RfBranchess;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfBranchess;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfBranchess.Queries
 {
     public class RfBranchesGetByCodeQuery : RfBranchesFindRequestDto, IRequest<ServiceResponse<RfBranchesResponseDto>>
     {
@@ -21,7 +21,7 @@ namespace NewLMS.Umkm.MediatR.Features.RfBranchess.Queries
 
         public GetByIdRfBranchesQueryHandler(IGenericRepositoryAsync<RfBranches> RfBranches, IMapper mapper)
         {
-            _RfBranches = RfBranches;
+            _RfBranch = RfBranches;
             _mapper = mapper;
         }
 

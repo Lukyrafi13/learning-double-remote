@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.Prescreenings;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.Prescreenings;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 {
     public class PrescreeningProfile : Profile
     {

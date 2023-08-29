@@ -1,7 +1,7 @@
 using System;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.Data.Dto.SPPKs
+namespace NewLMS.UMKM.Data.Dto.SPPKs
 {
     public class SPPKHalamanUtamaResponse : SPPKHalamanUtamaPut
     {

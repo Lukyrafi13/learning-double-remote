@@ -1,49 +1,49 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaMaps;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeMaps;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaMaps.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeMaps.Commands
 {
-    public class RFJenisUsahaMapPutCommand : RFJenisUsahaMapPutRequestDto, IRequest<ServiceResponse<RFJenisUsahaMapResponseDto>>
+    public class RfCompanyTypeMapPutCommand : RfCompanyTypeMapPutRequestDto, IRequest<ServiceResponse<RfCompanyTypeMapResponseDto>>
     {
     }
 
-    public class PutRFJenisUsahaMapCommandHandler : IRequestHandler<RFJenisUsahaMapPutCommand, ServiceResponse<RFJenisUsahaMapResponseDto>>
+    public class PutRfCompanyTypeMapCommandHandler : IRequestHandler<RfCompanyTypeMapPutCommand, ServiceResponse<RfCompanyTypeMapResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFJenisUsahaMap> _RFJenisUsahaMap;
+        private readonly IGenericRepositoryAsync<RfCompanyTypeMap> _RfCompanyTypeMap;
         private readonly IMapper _mapper;
 
-        public PutRFJenisUsahaMapCommandHandler(IGenericRepositoryAsync<RFJenisUsahaMap> RFJenisUsahaMap, IMapper mapper)
+        public PutRfCompanyTypeMapCommandHandler(IGenericRepositoryAsync<RfCompanyTypeMap> RfCompanyTypeMap, IMapper mapper)
         {
-            _RFJenisUsahaMap = RFJenisUsahaMap;
+            _RfCompanyTypeMap = RfCompanyTypeMap;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFJenisUsahaMapResponseDto>> Handle(RFJenisUsahaMapPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCompanyTypeMapResponseDto>> Handle(RfCompanyTypeMapPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFJenisUsahaMap = await _RFJenisUsahaMap.GetByIdAsync(request.Id, "Id");
-                existingRFJenisUsahaMap.ANL_CODE = request.ANL_CODE;
-                existingRFJenisUsahaMap.KELOMPOK_CODE = request.KELOMPOK_CODE;
-                existingRFJenisUsahaMap.PRODUCTID = request.PRODUCTID;
+                var existingRfCompanyTypeMap = await _RfCompanyTypeMap.GetByIdAsync(request.Id, "Id");
+                existingRfCompanyTypeMap.ANL_CODE = request.ANL_CODE;
+                existingRfCompanyTypeMap.KELOMPOK_CODE = request.KELOMPOK_CODE;
+                existingRfCompanyTypeMap.PRODUCTID = request.PRODUCTID;
 
-                await _RFJenisUsahaMap.UpdateAsync(existingRFJenisUsahaMap);
+                await _RfCompanyTypeMap.UpdateAsync(existingRfCompanyTypeMap);
 
-                var response = _mapper.Map<RFJenisUsahaMapResponseDto>(existingRFJenisUsahaMap);
+                var response = _mapper.Map<RfCompanyTypeMapResponseDto>(existingRfCompanyTypeMap);
 
-                return ServiceResponse<RFJenisUsahaMapResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfCompanyTypeMapResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFJenisUsahaMapResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfCompanyTypeMapResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

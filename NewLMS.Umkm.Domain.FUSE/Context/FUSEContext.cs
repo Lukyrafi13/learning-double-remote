@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using NewLMS.Umkm.Domain.FUSE.Entites;
+using NewLMS.UMKM.Domain.FUSE.Entites;
 
-namespace NewLMS.Umkm.Domain.FUSE.Context
+namespace NewLMS.UMKM.Domain.FUSE.Context
 {
     public class FUSEContext : DbContext
     {

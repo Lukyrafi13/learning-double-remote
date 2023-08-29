@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJenisAsuransis;
+using NewLMS.UMKM.Data.Dto.RFJenisAsuransis;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisAsuransis.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFJenisAsuransis.Commands
 {
     public class RFJenisAsuransiPostValidator : AbstractValidator<RFJenisAsuransiPostCommand>
     {

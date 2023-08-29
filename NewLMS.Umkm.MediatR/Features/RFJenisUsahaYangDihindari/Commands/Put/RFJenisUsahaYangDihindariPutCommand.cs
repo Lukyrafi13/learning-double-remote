@@ -1,48 +1,48 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaYangDihindaris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeYangDihindaris;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahaYangDihindaris.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeYangDihindaris.Commands
 {
-    public class RFJenisUsahaYangDihindariPutCommand : RFJenisUsahaYangDihindariPutRequestDto, IRequest<ServiceResponse<RFJenisUsahaYangDihindariResponseDto>>
+    public class RfCompanyTypeYangDihindariPutCommand : RfCompanyTypeYangDihindariPutRequestDto, IRequest<ServiceResponse<RfCompanyTypeYangDihindariResponseDto>>
     {
     }
 
-    public class PutRFJenisUsahaYangDihindariCommandHandler : IRequestHandler<RFJenisUsahaYangDihindariPutCommand, ServiceResponse<RFJenisUsahaYangDihindariResponseDto>>
+    public class PutRfCompanyTypeYangDihindariCommandHandler : IRequestHandler<RfCompanyTypeYangDihindariPutCommand, ServiceResponse<RfCompanyTypeYangDihindariResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFJenisUsahaYangDihindari> _RFJenisUsahaYangDihindari;
+        private readonly IGenericRepositoryAsync<RfCompanyTypeYangDihindari> _RfCompanyTypeYangDihindari;
         private readonly IMapper _mapper;
 
-        public PutRFJenisUsahaYangDihindariCommandHandler(IGenericRepositoryAsync<RFJenisUsahaYangDihindari> RFJenisUsahaYangDihindari, IMapper mapper)
+        public PutRfCompanyTypeYangDihindariCommandHandler(IGenericRepositoryAsync<RfCompanyTypeYangDihindari> RfCompanyTypeYangDihindari, IMapper mapper)
         {
-            _RFJenisUsahaYangDihindari = RFJenisUsahaYangDihindari;
+            _RfCompanyTypeYangDihindari = RfCompanyTypeYangDihindari;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFJenisUsahaYangDihindariResponseDto>> Handle(RFJenisUsahaYangDihindariPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCompanyTypeYangDihindariResponseDto>> Handle(RfCompanyTypeYangDihindariPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFJenisUsahaYangDihindari = await _RFJenisUsahaYangDihindari.GetByIdAsync(request.StatusJenisUsaha_Code, "StatusJenisUsaha_Code");
-                existingRFJenisUsahaYangDihindari.StatusJenisUsaha_Code = request.StatusJenisUsaha_Code;
-                existingRFJenisUsahaYangDihindari.StatusJenisUsaha_Desc = request.StatusJenisUsaha_Desc;
+                var existingRfCompanyTypeYangDihindari = await _RfCompanyTypeYangDihindari.GetByIdAsync(request.StatusJenisUsaha_Code, "StatusJenisUsaha_Code");
+                existingRfCompanyTypeYangDihindari.StatusJenisUsaha_Code = request.StatusJenisUsaha_Code;
+                existingRfCompanyTypeYangDihindari.StatusJenisUsaha_Desc = request.StatusJenisUsaha_Desc;
 
-                await _RFJenisUsahaYangDihindari.UpdateAsync(existingRFJenisUsahaYangDihindari);
+                await _RfCompanyTypeYangDihindari.UpdateAsync(existingRfCompanyTypeYangDihindari);
 
-                var response = _mapper.Map<RFJenisUsahaYangDihindariResponseDto>(existingRFJenisUsahaYangDihindari);
+                var response = _mapper.Map<RfCompanyTypeYangDihindariResponseDto>(existingRfCompanyTypeYangDihindari);
 
-                return ServiceResponse<RFJenisUsahaYangDihindariResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfCompanyTypeYangDihindariResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFJenisUsahaYangDihindariResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfCompanyTypeYangDihindariResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

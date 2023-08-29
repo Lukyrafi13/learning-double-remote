@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU2s;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU2s;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 {
-    public class RFSectorLBU2Profile : Profile
+    public class RfSectorLBU2Profile : Profile
     {
-        public RFSectorLBU2Profile()
+        public RfSectorLBU2Profile()
         {
-            CreateMap<RFSectorLBU2, RFSectorLBU2Response>()
-                .ForMember(x => x.RFSectorLBU1, s => s.MapFrom(x => x.RFSectorLBU1));
-            CreateMap<RFSectorLBU2PostRequest, RFSectorLBU2>();
-            CreateMap<RFSectorLBU2PutRequest, RFSectorLBU2>();
-            CreateMap<RFSectorLBU2DeleteRequest, RFSectorLBU2>();
+            CreateMap<RfSectorLBU2, RfSectorLBU2Response>()
+                .ForMember(x => x.RfSectorLBU1, s => s.MapFrom(x => x.RfSectorLBU1));
+            CreateMap<RfSectorLBU2PostRequest, RfSectorLBU2>();
+            CreateMap<RfSectorLBU2PutRequest, RfSectorLBU2>();
+            CreateMap<RfSectorLBU2DeleteRequest, RfSectorLBU2>();
         }
     }
 }

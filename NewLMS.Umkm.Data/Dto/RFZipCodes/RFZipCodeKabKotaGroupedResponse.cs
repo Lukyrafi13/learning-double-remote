@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodeKabKotaGroupedResponse
+    public class RfZipCodeKabKotaGroupedResponse
     {
         public string KabupatenKota { get; set; }
         public string Provinsi { get; set; }

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFSANDIBIS
+namespace NewLMS.UMKM.Data.Dto.RFSANDIBIS
 {
     public class RFSANDIBIRequestDto
     {

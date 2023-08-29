@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFMARITALs;
+using NewLMS.UMKM.Data.Dto.RFMARITALs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFMARITALs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFMARITALs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFMARITALs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFMARITALs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFMARITAL
+namespace NewLMS.UMKM.API.Controllers.RFMARITAL
 {
     public class RFMARITALController : BaseController
     {

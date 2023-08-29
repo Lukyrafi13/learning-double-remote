@@ -1,37 +1,37 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahas.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypes.Commands
 {
-    public class RFJenisUsahaDeleteCommand : RFJenisUsahaFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfCompanyTypeDeleteCommand : RfCompanyTypeFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
 
     }
 
-    public class DeleteRFJenisUsahaCommandHandler : IRequestHandler<RFJenisUsahaDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfCompanyTypeCommandHandler : IRequestHandler<RfCompanyTypeDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFJenisUsaha> _RFJenisUsaha;
+        private readonly IGenericRepositoryAsync<RfCompanyType> _RfCompanyType;
         private readonly IMapper _mapper;
 
-        public DeleteRFJenisUsahaCommandHandler(IGenericRepositoryAsync<RFJenisUsaha> RFJenisUsaha, IMapper mapper)
+        public DeleteRfCompanyTypeCommandHandler(IGenericRepositoryAsync<RfCompanyType> RfCompanyType, IMapper mapper)
         {
-            _RFJenisUsaha = RFJenisUsaha;
+            _RfCompanyType = RfCompanyType;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFJenisUsahaDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfCompanyTypeDeleteCommand request, CancellationToken cancellationToken)
         {
-            var rFProduct = await _RFJenisUsaha.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
+            var rFProduct = await _RfCompanyType.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
             rFProduct.IsDeleted = true;
-            await _RFJenisUsaha.UpdateAsync(rFProduct);
+            await _RfCompanyType.UpdateAsync(rFProduct);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.SIKPHistoryDetails;
+using NewLMS.UMKM.Data.Dto.SIKPHistoryDetails;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.SIKPHistoryDetails.Commands;
-using NewLMS.Umkm.MediatR.Features.SIKPHistoryDetails.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.SIKPHistoryDetails.Commands;
+using NewLMS.UMKM.MediatR.Features.SIKPHistoryDetails.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.SIKPHistoryDetail
+namespace NewLMS.UMKM.API.Controllers.SIKPHistoryDetail
 {
     public class SIKPHistoryDetailController : BaseController
     {

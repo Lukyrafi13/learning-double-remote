@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSiklusUsahaPokoks;
+using NewLMS.UMKM.Data.Dto.RFSiklusUsahaPokoks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSiklusUsahaPokoks.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSiklusUsahaPokoks.Commands
 {
     public class RFSiklusUsahaPokokPostValidator : AbstractValidator<RFSiklusUsahaPokokPostCommand>
     {

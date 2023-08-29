@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using NewLMS.Umkm.Repository.GenericRepository;
-using NewLMS.Umkm.Domain.FUSE.GenericRepositoryFuse;
-// using NewLMS.Umkm.Domain.Services;
-using NewLMS.Umkm.MediatR.Features.SlikRequestDuplikasis.Commands;
-using NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands;
+using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.UMKM.Domain.FUSE.GenericRepositoryFuse;
+// using NewLMS.UMKM.Domain.Services;
+using NewLMS.UMKM.MediatR.Features.SlikRequestDuplikasis.Commands;
+using NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands;
 
-namespace NewLMS.Umkm.Api.Helpers
+namespace NewLMS.UMKM.Api.Helpers
 {
     public static class DependencyInjectionExtension
     {

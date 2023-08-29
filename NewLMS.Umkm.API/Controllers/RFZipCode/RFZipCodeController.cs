@@ -1,78 +1,78 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands;
-using NewLMS.Umkm.MediatR.Features.RFZipcodes.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands;
+using NewLMS.UMKM.MediatR.Features.RfZipcodes.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 using Microsoft.AspNetCore.Http;
 using Hangfire;
 
-namespace NewLMS.Umkm.API.Controllers.RFZipCode
+namespace NewLMS.UMKM.API.Controllers.RfZipCode
 {
-    public class RFZipCodeController : BaseController
+    public class RfZipCodeController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFZipCode
+        /// RfZipCode
         /// </summary>
         /// <param name="mediator"></param>
-        public RFZipCodeController(IMediator mediator)
+        public RfZipCodeController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFZipCode By ZipCode
+        /// Get RfZipCode By ZipCode
         /// </summary>
         /// <param name="ZipCode"></param>
         /// <returns></returns>
-        [HttpGet("get/{ZipCode}", Name = "GetRFZipCodeByZipCode")]
-        [Produces("application/json", "application/xml", Type = typeof(RFZipCodeResponse))]
-        public async Task<IActionResult> GetRFZipCodeByZipCode(string ZipCode)
+        [HttpGet("get/{ZipCode}", Name = "GetRfZipCodeByZipCode")]
+        [Produces("application/json", "application/xml", Type = typeof(RfZipCodeResponse))]
+        public async Task<IActionResult> GetRfZipCodeByZipCode(string ZipCode)
         {
-            var getStatusTargetQuery = new RFZipCodesGetByIdQuery { ZipCode = ZipCode };
+            var getStatusTargetQuery = new RfZipCodesGetByIdQuery { ZipCode = ZipCode };
             var result = await _mediator.Send(getStatusTargetQuery);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFZipCode By ZipCode
+        /// Get RfZipCode By ZipCode
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFZipCodeList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFZipCodeResponse>>))]
-        public async Task<IActionResult> GetRFZipCodeList(RFZipCodeGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfZipCodeList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfZipCodeResponse>>))]
+        public async Task<IActionResult> GetRfZipCodeList(RfZipCodeGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFZipCode
+        /// Post New RfZipCode
         /// </summary>
-        /// <param name="postRFZipCode"></param>
+        /// <param name="postRfZipCode"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFZipCode")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFZipCodeResponse>))]
-        public async Task<IActionResult> AddRFZipCode(RFZipCodePostCommand postRFZipCode)
+        [HttpPost("post", Name = "AddRfZipCode")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfZipCodeResponse>))]
+        public async Task<IActionResult> AddRfZipCode(RfZipCodePostCommand postRfZipCode)
         {
-            var result = await _mediator.Send(postRFZipCode);
+            var result = await _mediator.Send(postRfZipCode);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFZipCodeByZipCode", new { ZipCode = result.Data.ZipCode }, result.Data);
+            return CreatedAtAction("GetRfZipCodeByZipCode", new { ZipCode = result.Data.ZipCode }, result.Data);
         }
 
         /// <summary>
-        /// Post Update RFZipCode JSON
+        /// Post Update RfZipCode JSON
         /// </summary>
         /// <param name="JSONFile"></param>
         /// <returns></returns>
@@ -85,29 +85,29 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         }
 
         /// <summary>
-        /// Put Edit RFZipCode
+        /// Put Edit RfZipCode
         /// </summary>
         /// <param name="ZipCode"></param>
-        /// <param name="putRFZipCode"></param>
+        /// <param name="putRfZipCode"></param>
         /// <returns></returns>
-        [HttpPut("put/{ZipCode}", Name = "EditRFZipCode")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFZipCodeResponse>))]
-        public async Task<IActionResult> EditRFZipCode([FromRoute] string ZipCode, [FromBody] RFZipCodePutCommand putRFZipCode)
+        [HttpPut("put/{ZipCode}", Name = "EditRfZipCode")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfZipCodeResponse>))]
+        public async Task<IActionResult> EditRfZipCode([FromRoute] string ZipCode, [FromBody] RfZipCodePutCommand putRfZipCode)
         {
-            putRFZipCode.ZipCode = ZipCode;
-            var result = await _mediator.Send(putRFZipCode);
+            putRfZipCode.ZipCode = ZipCode;
+            var result = await _mediator.Send(putRfZipCode);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFZipCode
+        /// Delete RfZipCode
         /// </summary>
         /// <param name="ZipCode"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{ZipCode}", Name = "DeleteRFZipCode")]
+        [HttpDelete("delete/{ZipCode}", Name = "DeleteRfZipCode")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFZipCode([FromRoute] string ZipCode, [FromBody]RFZipCodeDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfZipCode([FromRoute] string ZipCode, [FromBody]RfZipCodeDeleteCommand deleteCommand)
         {
             deleteCommand.ZipCode = ZipCode;
             return Ok(await _mediator.Send(deleteCommand));
@@ -118,7 +118,7 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         /// </summary>
         /// <returns></returns>
         [HttpGet("get/provinces", Name = "GetProvinces")]
-        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RFZipCodeResponse>))]
+        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfZipCodeResponse>))]
         public async Task<IActionResult> GetProvinces()
         {
             var getProvinces = new GetProvinsiZipCode{};
@@ -132,7 +132,7 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         /// <param name="kodeProvinsi"></param>
         /// <returns></returns>
         [HttpGet("get/kabupatens", Name = "GetKabupatens")]
-        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RFZipCodeResponse>))]
+        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfZipCodeResponse>))]
         public async Task<IActionResult> GetKabupatens(string kodeProvinsi)
         {
             var getKabupatens = new GetKabKotaByProvinsiQueryZipCode{KodeProvinsi = kodeProvinsi};
@@ -146,7 +146,7 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         /// <param name="ZipCode"></param>
         /// <returns></returns>
         [HttpGet("get/kabupatens-by-code", Name = "GetKabupatensByCode")]
-        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RFZipCodeResponse>))]
+        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfZipCodeResponse>))]
         public async Task<IActionResult> GetKabupatensByCode(string ZipCode)
         {
             var getKabupatensByCode = new GetKabKotaByZipCode{ZipCode = ZipCode};
@@ -159,7 +159,7 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         /// </summary>
         /// <returns></returns>
         [HttpGet("get/kabupaten-list", Name = "GetKabupatenList")]
-        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RFZipCodeKabKotaGroupedResponse>))]
+        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfZipCodeKabKotaGroupedResponse>))]
         public async Task<IActionResult> GetKabupatenList()
         {
             var getKabupatenList = new GetKabKotaGroupedQuery{};
@@ -173,7 +173,7 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         /// <param name="kodeKabKota"></param>
         /// <returns></returns>
         [HttpGet("get/kecamatans", Name = "GetKecamatans")]
-        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RFZipCodeResponse>))]
+        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfZipCodeResponse>))]
         public async Task<IActionResult> GetKecamatans(string kodeKabKota)
         {
             var getKecamatans = new GetKecamatanByKabKotaQueryZipCode{KodeKabKota = kodeKabKota};
@@ -187,7 +187,7 @@ namespace NewLMS.Umkm.API.Controllers.RFZipCode
         /// <param name="kodeKecamatan"></param>
         /// <returns></returns>
         [HttpGet("get/kelurahans", Name = "getKelurahans")]
-        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RFZipCodeResponse>))]
+        [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfZipCodeResponse>))]
         public async Task<IActionResult> getKelurahans(string kodeKecamatan)
         {
             var getKelurahans = new GetKelurahanByKecamatanQueryZipCode{KodeKecamatan = kodeKecamatan};

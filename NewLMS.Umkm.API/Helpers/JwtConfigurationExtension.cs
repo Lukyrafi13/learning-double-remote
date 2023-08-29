@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.Api.Helpers
+namespace NewLMS.UMKM.Api.Helpers
 {
     public static class JwtAuthenticationConfigurationExtension
     {

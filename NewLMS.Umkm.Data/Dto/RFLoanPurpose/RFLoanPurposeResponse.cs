@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFLoanPurposes
+namespace NewLMS.UMKM.Data.Dto.RFLoanPurposes
 {
     public class RFLoanPurposeResponseDto
     {

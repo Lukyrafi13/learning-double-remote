@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFColLateralBCs
+namespace NewLMS.UMKM.Data.Dto.RFColLateralBCs
 {
     public class RFColLateralBCFindRequestDto
     {

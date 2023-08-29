@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.SIKP2.Models
+namespace NewLMS.UMKM.SIKP2.Models
 {
     public class RateAkadRequestModel
     {

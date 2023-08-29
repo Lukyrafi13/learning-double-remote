@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFTenors
+namespace NewLMS.UMKM.Data.Dto.RFTenors
 {
     public class RFTenorPostRequestDto
     {

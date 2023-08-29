@@ -7,11 +7,11 @@ using System.Net;
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using NewLMS.Umkm.MediatR.Exceptions;
-using NewLMS.Umkm.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret;
+using NewLMS.UMKM.MediatR.Exceptions;
+using NewLMS.UMKM.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.API.Filters
+namespace NewLMS.UMKM.API.Filters
 {
     public class BasicAuthFilter : IAuthorizationFilter
     {

@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFProducts
+namespace NewLMS.UMKM.Data.Dto.RfProducts
 {
-    public class RFProductRequestDto
+    public class RfProductRequestDto
     {
     }
 }

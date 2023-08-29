@@ -1,67 +1,67 @@
-using AutoMapper;
-using MediatR;
-using NewLMS.Umkm.Data.Dto.PrescreeningDokumens;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+// using AutoMapper;
+// using MediatR;
+// using NewLMS.UMKM.Data.Dto.PrescreeningDokumens;
+// using NewLMS.UMKM.Data;
+// using NewLMS.UMKM.Helper;
+// using NewLMS.UMKM.Repository.GenericRepository;
+// using System;
+// using System.Threading;
+// using System.Threading.Tasks;
+// using System.Collections.Generic;
 
-namespace NewLMS.Umkm.MediatR.Features.PrescreeningDokumens.Queries
-{
-    public class PrescreeningDokumenGetQuery : PrescreeningDokumenFindRequestDto, IRequest<ServiceResponse<PrescreeningDokumenResponseDto>>
-    {
-    }
+// namespace NewLMS.UMKM.MediatR.Features.PrescreeningDokumens.Queries
+// {
+//     public class PrescreeningDokumenGetQuery : PrescreeningDokumenFindRequestDto, IRequest<ServiceResponse<PrescreeningDokumenResponseDto>>
+//     {
+//     }
 
-    public class PrescreeningDokumenGetQueryHandler : IRequestHandler<PrescreeningDokumenGetQuery, ServiceResponse<PrescreeningDokumenResponseDto>>
-    {
-        private IGenericRepositoryAsync<PrescreeningDokumen> _PrescreeningDokumen;
-        private IGenericRepositoryAsync<FileDokumen> _FileDokumen;
-        private readonly IMapper _mapper;
+//     public class PrescreeningDokumenGetQueryHandler : IRequestHandler<PrescreeningDokumenGetQuery, ServiceResponse<PrescreeningDokumenResponseDto>>
+//     {
+//         private IGenericRepositoryAsync<PrescreeningDokumen> _PrescreeningDokumen;
+//         private IGenericRepositoryAsync<FileDokumen> _FileDokumen;
+//         private readonly IMapper _mapper;
 
-        public PrescreeningDokumenGetQueryHandler(
-            IGenericRepositoryAsync<PrescreeningDokumen> PrescreeningDokumen,
-            IGenericRepositoryAsync<FileDokumen> FileDokumen,
-            IMapper mapper)
-        {
-            _PrescreeningDokumen = PrescreeningDokumen;
-            _FileDokumen = FileDokumen;
-            _mapper = mapper;
-        }
-        public async Task<ServiceResponse<PrescreeningDokumenResponseDto>> Handle(PrescreeningDokumenGetQuery request, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var includes = new string[]{
-                    "Prescreening",
-                    "Dokumen",
-                    "TipeDokumen",
-                    "DokumenStatus",
-                    "JenisAgunan",
-                };
+//         public PrescreeningDokumenGetQueryHandler(
+//             IGenericRepositoryAsync<PrescreeningDokumen> PrescreeningDokumen,
+//             IGenericRepositoryAsync<FileDokumen> FileDokumen,
+//             IMapper mapper)
+//         {
+//             _PrescreeningDokumen = PrescreeningDokumen;
+//             _FileDokumen = FileDokumen;
+//             _mapper = mapper;
+//         }
+//         public async Task<ServiceResponse<PrescreeningDokumenResponseDto>> Handle(PrescreeningDokumenGetQuery request, CancellationToken cancellationToken)
+//         {
+//             try
+//             {
+//                 var includes = new string[]{
+//                     "Prescreening",
+//                     "Dokumen",
+//                     "TipeDokumen",
+//                     "DokumenStatus",
+//                     "JenisAgunan",
+//                 };
 
-                var data = await _PrescreeningDokumen.GetByIdAsync(request.Id, "Id", includes);
-                if (data == null)
-                    return ServiceResponse<PrescreeningDokumenResponseDto>.Return404("Data PrescreeningDokumen not found");
-                var response = _mapper.Map<PrescreeningDokumenResponseDto>(data);
+//                 var data = await _PrescreeningDokumen.GetByIdAsync(request.Id, "Id", includes);
+//                 if (data == null)
+//                     return ServiceResponse<PrescreeningDokumenResponseDto>.Return404("Data PrescreeningDokumen not found");
+//                 var response = _mapper.Map<PrescreeningDokumenResponseDto>(data);
 
-                var fileDokumens = await _FileDokumen.GetListByPredicate(x => x.PrescreeningDokumenId == data.Id, new string[] { "FileUrl"});
-                var listFileDokumens = new List<FileDokumen>();
+//                 var fileDokumens = await _FileDokumen.GetListByPredicate(x => x.PrescreeningDokumenId == data.Id, new string[] { "FileUrl"});
+//                 var listFileDokumens = new List<FileDokumen>();
 
-                foreach (var fileDokumen in fileDokumens){
-                    listFileDokumens.Add(fileDokumen);
-                }
+//                 foreach (var fileDokumen in fileDokumens){
+//                     listFileDokumens.Add(fileDokumen);
+//                 }
 
-                response.ListFile = listFileDokumens;
+//                 response.ListFile = listFileDokumens;
 
-                return ServiceResponse<PrescreeningDokumenResponseDto>.ReturnResultWith200(response);
-            }
-            catch (Exception ex)
-            {
-                return ServiceResponse<PrescreeningDokumenResponseDto>.ReturnException(ex);
-            }
-        }
-    }
-}
+//                 return ServiceResponse<PrescreeningDokumenResponseDto>.ReturnResultWith200(response);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return ServiceResponse<PrescreeningDokumenResponseDto>.ReturnException(ex);
+//             }
+//         }
+//     }
+// }

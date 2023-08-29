@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFKepemilikanUsahas;
+using NewLMS.UMKM.Data.Dto.RFKepemilikanUsahas;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFKepemilikanUsahas.Commands;
-using NewLMS.Umkm.MediatR.Features.RFKepemilikanUsahas.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFKepemilikanUsahas.Commands;
+using NewLMS.UMKM.MediatR.Features.RFKepemilikanUsahas.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFKepemilikanUsaha
+namespace NewLMS.UMKM.API.Controllers.RFKepemilikanUsaha
 {
     public class RFKepemilikanUsahaController : BaseController
     {

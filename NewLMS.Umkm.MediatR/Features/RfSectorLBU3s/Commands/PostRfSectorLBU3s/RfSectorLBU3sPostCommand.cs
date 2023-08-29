@@ -1,33 +1,33 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU3s;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU3s.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfSectorLBU3s.Commands
 {
-    public class RFSectorLBU3PostCommand : RFSectorLBU3PostRequest, IRequest<ServiceResponse<Unit>>
+    public class RfSectorLBU3PostCommand : RfSectorLBU3PostRequest, IRequest<ServiceResponse<Unit>>
     {
     }
 
-    public class PostRFSectorLBU3CommandHandler : IRequestHandler<RFSectorLBU3PostCommand, ServiceResponse<Unit>>
+    public class PostRfSectorLBU3CommandHandler : IRequestHandler<RfSectorLBU3PostCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFSectorLBU3> _RFSectorLBU3;
+        private readonly IGenericRepositoryAsync<RfSectorLBU3> _RfSectorLBU3;
         private readonly IMapper _mapper;
 
-        public PostRFSectorLBU3CommandHandler(IGenericRepositoryAsync<RFSectorLBU3> rfSectorLBU3, IMapper mapper)
+        public PostRfSectorLBU3CommandHandler(IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IMapper mapper)
         {
-            _RFSectorLBU3 = rfSectorLBU3;
+            _RfSectorLBU3 = rfSectorLBU3;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFSectorLBU3PostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfSectorLBU3PostCommand request, CancellationToken cancellationToken)
         {
-            var RFSectorLBU3 = _mapper.Map<RFSectorLBU3>(request);
-            await _RFSectorLBU3.AddAsync(RFSectorLBU3);
+            var RfSectorLBU3 = _mapper.Map<RfSectorLBU3>(request);
+            await _RfSectorLBU3.AddAsync(RfSectorLBU3);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

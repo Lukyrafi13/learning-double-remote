@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class RFSubProduct : BaseEntity
     {
@@ -10,7 +10,7 @@ namespace NewLMS.Umkm.Data
         public string SubProductDesc { get; set; }
         public string ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
-        public RFProduct Product { get; set; }
+        public RfProduct Product { get; set; }
         public string CoreCode { get; set; }
         public bool Active { get; set; }
         public bool? MandNPWP { get; set; }

@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class AppKeyPerson : BaseEntity
     {
@@ -23,8 +23,8 @@ namespace NewLMS.Umkm.Data
         [ForeignKey("RFMaritalId")]
         public RFMARITAL Status { get; set; }
         public string Alamat { get; set; }
-        [ForeignKey("RFZipCodeId")]
-        public RFZipCode KodePos { get; set; }
+        [ForeignKey("RfZipCodeId")]
+        public RfZipCode KodePos { get; set; }
         public string Kelurahan { get; set; }
         public string Kecamatan { get; set; }
         public string KabupatenKota { get; set; }
@@ -34,6 +34,6 @@ namespace NewLMS.Umkm.Data
         public Guid AppId { get; set; }
         public Guid? RFEducationId { get; set; }
         public Guid? RFMaritalId { get; set; }
-        public int? RFZipCodeId { get; set; }
+        public int? RfZipCodeId { get; set; }
     }
 }

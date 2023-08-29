@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFBentukLahans;
+using NewLMS.UMKM.Data.Dto.RFBentukLahans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFBentukLahans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFBentukLahans.Commands
 {
     public class RFBentukLahanPostValidator : AbstractValidator<RFBentukLahanPostCommand>
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFLoanPurposes;
+using NewLMS.UMKM.Data.Dto.RFLoanPurposes;
 
-namespace NewLMS.Umkm.MediatR.Features.RFLoanPurposes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFLoanPurposes.Commands
 {
     public class RFLoanPurposePostValidator : AbstractValidator<RFLoanPurposePostCommand>
     {

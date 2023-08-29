@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFAspekPemasarans;
+using NewLMS.UMKM.Data.Dto.RFAspekPemasarans;
 
-namespace NewLMS.Umkm.MediatR.Features.RFAspekPemasarans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFAspekPemasarans.Commands
 {
     public class RFAspekPemasaranPostValidator : AbstractValidator<RFAspekPemasaranPostCommand>
     {

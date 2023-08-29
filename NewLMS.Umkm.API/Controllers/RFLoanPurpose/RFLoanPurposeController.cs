@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFLoanPurposes;
+using NewLMS.UMKM.Data.Dto.RFLoanPurposes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFLoanPurposes.Commands;
-using NewLMS.Umkm.MediatR.Features.RFLoanPurposes.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFLoanPurposes.Commands;
+using NewLMS.UMKM.MediatR.Features.RFLoanPurposes.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFLoanPurpose
+namespace NewLMS.UMKM.API.Controllers.RFLoanPurpose
 {
     public class RFLoanPurposeController : BaseController
     {

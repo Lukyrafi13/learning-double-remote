@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFHOMESTAs
+namespace NewLMS.UMKM.Data.Dto.RFHOMESTAs
 {
     public class RFHOMESTAPutRequestDto : RFHOMESTAPostRequestDto
     {

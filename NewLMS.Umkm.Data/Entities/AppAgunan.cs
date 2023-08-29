@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class AppAgunan : BaseEntity
     {
@@ -37,8 +37,8 @@ namespace NewLMS.Umkm.Data
         public string NoSuratUkur { get; set; }
         public string NoSuratUkurGambarSituasi { get; set; }
         public string AlamatAgunan { get; set; }
-        [ForeignKey("RFZipCodeAgunanId")]
-        public RFZipCode KodePosAgunan { get; set; }
+        [ForeignKey("RfZipCodeAgunanId")]
+        public RfZipCode KodePosAgunan { get; set; }
         public string KelurahanAgunan { get; set; }
         public string KecamatanAgunan { get; set; }
         public string KabupatenKotaAgunan { get; set; }
@@ -79,8 +79,8 @@ namespace NewLMS.Umkm.Data
         public DateTime? BerlakuSampaiDengan { get; set; }
         public bool? SeumurHidup { get; set; }
         public string Alamat { get; set; }
-        [ForeignKey("RFZipCodeId")]
-        public RFZipCode KodePos { get; set; }
+        [ForeignKey("RfZipCodeId")]
+        public RfZipCode KodePos { get; set; }
         public string Kelurahan { get; set; }
         public string Kecamatan { get; set; }
         public string KabupatenKota { get; set; }
@@ -99,8 +99,8 @@ namespace NewLMS.Umkm.Data
         public string NomorKTPPasangan { get; set; }
         public DateTime? BerlakuSampaiDenganPasangan { get; set; }
         public string AlamatPasangan { get; set; }
-        [ForeignKey("RFZipCodePasanganId")]
-        public RFZipCode KodePosPasangan { get; set; }
+        [ForeignKey("RfZipCodePasanganId")]
+        public RfZipCode KodePosPasangan { get; set; }
         public string KelurahanPasangan { get; set; }
         public string KecamatanPasangan { get; set; }
         public string KabupatenKotaPasangan { get; set; }
@@ -119,8 +119,8 @@ namespace NewLMS.Umkm.Data
         public Guid? RFRelationColId { get; set; }
         public Guid? RFMaritalId { get; set; }
         public Guid? RFJenisAktaId { get; set; }
-        public int? RFZipCodeId { get; set; }
-        public int? RFZipCodeAgunanId { get; set; }
-        public int? RFZipCodePasanganId { get; set; }
+        public int? RfZipCodeId { get; set; }
+        public int? RfZipCodeAgunanId { get; set; }
+        public int? RfZipCodePasanganId { get; set; }
     }
 }

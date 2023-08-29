@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Prescreening : BaseEntity
     {
@@ -22,7 +22,6 @@ namespace NewLMS.Umkm.Data
         public bool? RACTidakMemilikiFasilitasKreditLain { get; set; }
         public bool? TidakPernahMenerimaKredit { get; set; }
         public bool? PesertaBPJSTK { get; set; }
-        public int Age => App?.Prospect?.AgeStage("4.2.2")??-1;
 
         public Guid AppId { get; set; }
         public Guid? SlikRequestId { get; set; }

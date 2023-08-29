@@ -1,10 +1,10 @@
-﻿using NewLMS.Umkm.Data;
+﻿using NewLMS.UMKM.Data;
 using Microsoft.EntityFrameworkCore;
-using NewLMS.Umkm.Data.Entities;
+using NewLMS.UMKM.Data.Entities;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NewLMS.Umkm.Domain
+namespace NewLMS.UMKM.Domain
 {
     public static class DefaultEntityMappingExtension
     {
@@ -120,7 +120,7 @@ namespace NewLMS.Umkm.Domain
             //  modelBuilder.Entity<RfSubProgram>()
             //.HasQueryFilter(p => !p.IsDeleted);
 
-            //  modelBuilder.Entity<RFZipCode>()
+            //  modelBuilder.Entity<RfZipCode>()
             //.HasQueryFilter(p => !p.IsDeleted);
 
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())

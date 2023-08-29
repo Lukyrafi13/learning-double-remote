@@ -1,7 +1,7 @@
-﻿using NewLMS.Umkm.SIKP.Models;
+﻿using NewLMS.UMKM.SIKP.Models;
 using Refit;
 
-namespace NewLMS.Umkm.SIKP.Interfaces
+namespace NewLMS.UMKM.SIKP.Interfaces
 {
     public interface IApiService
     {

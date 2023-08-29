@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisLinkAges;
+using NewLMS.UMKM.Data.Dto.RFJenisLinkAges;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisLinkAges.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisLinkAges.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFJenisLinkAges.Commands;
+using NewLMS.UMKM.MediatR.Features.RFJenisLinkAges.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisLinkAge
+namespace NewLMS.UMKM.API.Controllers.RFJenisLinkAge
 {
     public class RFJenisLinkAgeController : BaseController
     {

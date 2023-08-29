@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFAlamatUsahaSamaDenganAplikasis;
+using NewLMS.UMKM.Data.Dto.RFAlamatUsahaSamaDenganAplikasis;
 
-namespace NewLMS.Umkm.MediatR.Features.RFAlamatUsahaSamaDenganAplikasis.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFAlamatUsahaSamaDenganAplikasis.Commands
 {
     public class RFAlamatUsahaSamaDenganAplikasiPostValidator : AbstractValidator<RFAlamatUsahaSamaDenganAplikasiPostCommand>
     {

@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.ReviewPersiapanAkads
+namespace NewLMS.UMKM.Data.Dto.ReviewPersiapanAkads
 {
     public class ReviewPersiapanAkadFind
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.AnalisaAsuransis
+namespace NewLMS.UMKM.Data.Dto.AnalisaAsuransis
 {
     public class AnalisaAsuransiPostRequestDto
     {

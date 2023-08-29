@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFStatusTargets;
+using NewLMS.UMKM.Data.Dto.RfTargetStatuss;
 
-namespace NewLMS.Umkm.MediatR.Features.RFStatusTargets.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfTargetStatuss.Commands
 {
-    public class RFStatusTargetPostValidator : AbstractValidator<RFStatusTargetPostCommand>
+    public class RfTargetStatusPostValidator : AbstractValidator<RfTargetStatusPostCommand>
     {
-        public RFStatusTargetPostValidator(){
+        public RfTargetStatusPostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

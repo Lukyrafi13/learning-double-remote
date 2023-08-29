@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SIKPHistorys
+namespace NewLMS.UMKM.Data.Dto.SIKPHistorys
 {
     public class SIKPHistoryResponseDto
     {
@@ -11,8 +11,8 @@ namespace NewLMS.Umkm.Data.Dto.SIKPHistorys
         public int? AkadDiizinkan { get; set; }
         public double? RateAkad { get; set; }
         public double? LimitAktif { get; set; }
-        public string? RFSectorLBU3Code { get; set; }
+        public string? RfSectorLBU3Code { get; set; }
         public string InquiryCode { get; set; }
-        public RFSectorLBU3 SubSubSektorEkonomiLBU { get; set; }
+        public RfSectorLBU3 SubSubSektorEkonomiLBU { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.SurveySuppliers
+namespace NewLMS.UMKM.Data.Dto.SurveySuppliers
 {
     public class SurveySupplierFindRequestDto
     {

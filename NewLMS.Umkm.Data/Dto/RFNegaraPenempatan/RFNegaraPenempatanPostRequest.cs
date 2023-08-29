@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFNegaraPenempatans
+namespace NewLMS.UMKM.Data.Dto.RFNegaraPenempatans
 {
     public class RFNegaraPenempatanPostRequestDto
     {

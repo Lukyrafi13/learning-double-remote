@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Data.Dto.RFSCOCARATRANSAKSIs;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Dto.RFSCOCARATRANSAKSIs;
+using NewLMS.UMKM.Repository.GenericRepository;
 using AutoMapper;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOCARATRANSAKSIS.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFSCOCARATRANSAKSIS.Queries
 {
     public class GetByRFSCOCARATRANSAKSIFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFSCOCARATRANSAKSIResponseDto>>>
     {

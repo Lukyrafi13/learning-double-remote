@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOSCORINGAGUNANs;
+using NewLMS.UMKM.Data.Dto.RFSCOSCORINGAGUNANs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOSCORINGAGUNANs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOSCORINGAGUNANs.Commands
 {
     public class RFSCOSCORINGAGUNANPostValidator : AbstractValidator<RFSCOSCORINGAGUNANPostCommand>
     {

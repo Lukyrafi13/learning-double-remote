@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSANDIBIS;
+using NewLMS.UMKM.Data.Dto.RFSANDIBIS;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSANDIBIS.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSANDIBIS.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSANDIBIS.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSANDIBIS.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSANDIBI
+namespace NewLMS.UMKM.API.Controllers.RFSANDIBI
 {
     public class RFSANDIBIController : BaseController
     {

@@ -1,98 +1,98 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahaYangDihindaris;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypeYangDihindaris;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisUsahaYangDihindaris.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisUsahaYangDihindaris.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RfCompanyTypeYangDihindaris.Commands;
+using NewLMS.UMKM.MediatR.Features.RfCompanyTypeYangDihindaris.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisUsahaYangDihindari
+namespace NewLMS.UMKM.API.Controllers.RfCompanyTypeYangDihindari
 {
-    public class RFJenisUsahaYangDihindariController : BaseController
+    public class RfCompanyTypeYangDihindariController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFJenisUsahaYangDihindari
+        /// RfCompanyTypeYangDihindari
         /// </summary>
         /// <param name="mediator"></param>
-        public RFJenisUsahaYangDihindariController(IMediator mediator)
+        public RfCompanyTypeYangDihindariController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFJenisUsahaYangDihindari By Id
+        /// Get RfCompanyTypeYangDihindari By Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet("get/{Id}", Name = "GetRFJenisUsahaYangDihindariById")]
-        [Produces("application/json", "application/xml", Type = typeof(RFJenisUsahaYangDihindariResponseDto))]
-        public async Task<IActionResult> GetRFJenisUsahaYangDihindariById(string StatusJenisUsaha_Code)
+        [HttpGet("get/{Id}", Name = "GetRfCompanyTypeYangDihindariById")]
+        [Produces("application/json", "application/xml", Type = typeof(RfCompanyTypeYangDihindariResponseDto))]
+        public async Task<IActionResult> GetRfCompanyTypeYangDihindariById(string StatusJenisUsaha_Code)
         {
-            var getGenderQuery = new RFJenisUsahaYangDihindariGetQuery { StatusJenisUsaha_Code = StatusJenisUsaha_Code };
+            var getGenderQuery = new RfCompanyTypeYangDihindariGetQuery { StatusJenisUsaha_Code = StatusJenisUsaha_Code };
             var result = await _mediator.Send(getGenderQuery);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFJenisUsahaYangDihindari
+        /// Get RfCompanyTypeYangDihindari
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFJenisUsahaYangDihindariList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFJenisUsahaYangDihindariResponseDto>>))]
-        public async Task<IActionResult> GetRFJenisUsahaYangDihindariList(RFJenisUsahaYangDihindarisGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfCompanyTypeYangDihindariList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfCompanyTypeYangDihindariResponseDto>>))]
+        public async Task<IActionResult> GetRfCompanyTypeYangDihindariList(RfCompanyTypeYangDihindarisGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFJenisUsahaYangDihindari
+        /// Post New RfCompanyTypeYangDihindari
         /// </summary>
-        /// <param name="postRFJenisUsahaYangDihindari"></param>
+        /// <param name="postRfCompanyTypeYangDihindari"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFJenisUsahaYangDihindari")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFJenisUsahaYangDihindariResponseDto>))]
-        public async Task<IActionResult> AddRFJenisUsahaYangDihindari(RFJenisUsahaYangDihindariPostCommand postRFJenisUsahaYangDihindari)
+        [HttpPost("post", Name = "AddRfCompanyTypeYangDihindari")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCompanyTypeYangDihindariResponseDto>))]
+        public async Task<IActionResult> AddRfCompanyTypeYangDihindari(RfCompanyTypeYangDihindariPostCommand postRfCompanyTypeYangDihindari)
         {
-            var result = await _mediator.Send(postRFJenisUsahaYangDihindari);
+            var result = await _mediator.Send(postRfCompanyTypeYangDihindari);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFJenisUsahaYangDihindariById", new { id = result.Data.Id }, result.Data);
+            return CreatedAtAction("GetRfCompanyTypeYangDihindariById", new { id = result.Data.Id }, result.Data);
         }
 
         /// <summary>
-        /// Put Edit RFJenisUsahaYangDihindari
+        /// Put Edit RfCompanyTypeYangDihindari
         /// </summary>
         /// <param name="Id"></param>
-        /// <param name="putRFJenisUsahaYangDihindari"></param>
+        /// <param name="putRfCompanyTypeYangDihindari"></param>
         /// <returns></returns>
-        [HttpPut("put/{Id}", Name = "EditRFJenisUsahaYangDihindari")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFJenisUsahaYangDihindariResponseDto>))]
-        public async Task<IActionResult> EditRFJenisUsahaYangDihindari([FromRoute] string StatusJenisUsaha_Code, [FromBody] RFJenisUsahaYangDihindariPutCommand putRFJenisUsahaYangDihindari)
+        [HttpPut("put/{Id}", Name = "EditRfCompanyTypeYangDihindari")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCompanyTypeYangDihindariResponseDto>))]
+        public async Task<IActionResult> EditRfCompanyTypeYangDihindari([FromRoute] string StatusJenisUsaha_Code, [FromBody] RfCompanyTypeYangDihindariPutCommand putRfCompanyTypeYangDihindari)
         {
-            putRFJenisUsahaYangDihindari.StatusJenisUsaha_Code = StatusJenisUsaha_Code;
-            var result = await _mediator.Send(putRFJenisUsahaYangDihindari);
+            putRfCompanyTypeYangDihindari.StatusJenisUsaha_Code = StatusJenisUsaha_Code;
+            var result = await _mediator.Send(putRfCompanyTypeYangDihindari);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFJenisUsahaYangDihindari
+        /// Delete RfCompanyTypeYangDihindari
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{Id}", Name = "DeleteRFJenisUsahaYangDihindari")]
+        [HttpDelete("delete/{Id}", Name = "DeleteRfCompanyTypeYangDihindari")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFJenisUsahaYangDihindari([FromRoute] string StatusJenisUsaha_Code, [FromBody] RFJenisUsahaYangDihindariDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfCompanyTypeYangDihindari([FromRoute] string StatusJenisUsaha_Code, [FromBody] RfCompanyTypeYangDihindariDeleteCommand deleteCommand)
         {
             deleteCommand.StatusJenisUsaha_Code = StatusJenisUsaha_Code;
             return Ok(await _mediator.Send(deleteCommand));

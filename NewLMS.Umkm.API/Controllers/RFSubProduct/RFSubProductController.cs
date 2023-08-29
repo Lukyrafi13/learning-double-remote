@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSubProducts;
+using NewLMS.UMKM.Data.Dto.RFSubProducts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSubProducts.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSubProducts.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSubProducts.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSubProducts.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSubProduct
+namespace NewLMS.UMKM.API.Controllers.RFSubProduct
 {
     public class RFSubProductController : BaseController
     {

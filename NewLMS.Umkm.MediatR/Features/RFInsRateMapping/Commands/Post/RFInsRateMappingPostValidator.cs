@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFInsRateMappings;
+using NewLMS.UMKM.Data.Dto.RFInsRateMappings;
 
-namespace NewLMS.Umkm.MediatR.Features.RFInsRateMappings.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFInsRateMappings.Commands
 {
     public class RFInsRateMappingPostValidator : AbstractValidator<RFInsRateMappingPostCommand>
     {

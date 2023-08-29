@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.Disbursements
+namespace NewLMS.UMKM.Data.Dto.Disbursements
 {
     public class DisbursementTableResponse
     {

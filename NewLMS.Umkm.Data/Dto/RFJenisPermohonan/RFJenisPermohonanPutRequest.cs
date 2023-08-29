@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisPermohonans
+namespace NewLMS.UMKM.Data.Dto.RfAppTypes
 {
-    public class RFJenisPermohonanPutRequestDto : RFJenisPermohonanPostRequestDto
+    public class RfAppTypePutRequestDto : RfAppTypePostRequestDto
     {
         
         public Guid Id { get; set; }

@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFJenisPermohonans
+namespace NewLMS.UMKM.Data.Dto.RfAppTypes
 {
-    public class RFGenderRequestDto
+    public class RfGenderRequestDto
     {
     }
 }

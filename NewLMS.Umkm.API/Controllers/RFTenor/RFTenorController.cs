@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFTenors;
+using NewLMS.UMKM.Data.Dto.RFTenors;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFTenors.Commands;
-using NewLMS.Umkm.MediatR.Features.RFTenors.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFTenors.Commands;
+using NewLMS.UMKM.MediatR.Features.RFTenors.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFTenor
+namespace NewLMS.UMKM.API.Controllers.RFTenor
 {
     public class RFTenorController : BaseController
     {

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFApprTanahLokasis;
+using NewLMS.UMKM.Data.Dto.RFApprTanahLokasis;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFApprTanahLokasis.Commands;
-using NewLMS.Umkm.MediatR.Features.RFApprTanahLokasis.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFApprTanahLokasis.Commands;
+using NewLMS.UMKM.MediatR.Features.RFApprTanahLokasis.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFApprTanahLokasi
+namespace NewLMS.UMKM.API.Controllers.RFApprTanahLokasi
 {
     public class RFApprTanahLokasiController : BaseController
     {

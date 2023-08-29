@@ -1,7 +1,7 @@
 // using FluentValidation;
-// using NewLMS.Umkm.Data.Dto.Tenors;
+// using NewLMS.UMKM.Data.Dto.Tenors;
 
-// namespace NewLMS.Umkm.MediatR.Features.Tenors.Commands
+// namespace NewLMS.UMKM.MediatR.Features.Tenors.Commands
 // {
 //     public class TenorPostValidator : AbstractValidator<TenorPostCommand>
 //     {

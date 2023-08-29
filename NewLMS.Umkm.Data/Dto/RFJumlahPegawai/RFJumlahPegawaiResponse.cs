@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFJumlahPegawais
+namespace NewLMS.UMKM.Data.Dto.RFJumlahPegawais
 {
     public class RFJumlahPegawaiResponseDto
     {

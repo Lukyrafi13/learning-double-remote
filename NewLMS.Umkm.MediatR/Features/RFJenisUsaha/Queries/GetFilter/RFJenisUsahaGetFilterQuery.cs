@@ -1,47 +1,47 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisUsahas.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypes.Queries
 {
-    public class RFJenisUsahasGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFJenisUsahaResponseDto>>>
+    public class RfCompanyTypesGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfCompanyTypeResponseDto>>>
     {
     }
 
-    public class GetFilterRFJenisUsahaQueryHandler : IRequestHandler<RFJenisUsahasGetFilterQuery, PagedResponse<IEnumerable<RFJenisUsahaResponseDto>>>
+    public class GetFilterRfCompanyTypeQueryHandler : IRequestHandler<RfCompanyTypesGetFilterQuery, PagedResponse<IEnumerable<RfCompanyTypeResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFJenisUsaha> _RFJenisUsaha;
+        private IGenericRepositoryAsync<RfCompanyType> _RfCompanyType;
         private readonly IMapper _mapper;
 
-        public GetFilterRFJenisUsahaQueryHandler(IGenericRepositoryAsync<RFJenisUsaha> RFJenisUsaha, IMapper mapper)
+        public GetFilterRfCompanyTypeQueryHandler(IGenericRepositoryAsync<RfCompanyType> RfCompanyType, IMapper mapper)
         {
-            _RFJenisUsaha = RFJenisUsaha;
+            _RfCompanyType = RfCompanyType;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFJenisUsahaResponseDto>>> Handle(RFJenisUsahasGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfCompanyTypeResponseDto>>> Handle(RfCompanyTypesGetFilterQuery request, CancellationToken cancellationToken)
         {
-            var data = await _RFJenisUsaha.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFJenisUsahaResponseDto>>(data.Results);
-            IEnumerable<RFJenisUsahaResponseDto> dataVm;
-            var listResponse = new List<RFJenisUsahaResponseDto>();
+            var data = await _RfCompanyType.GetPagedReponseAsync(request);
+            // var dataVm = _mapper.Map<IEnumerable<RfCompanyTypeResponseDto>>(data.Results);
+            IEnumerable<RfCompanyTypeResponseDto> dataVm;
+            var listResponse = new List<RfCompanyTypeResponseDto>();
 
             foreach (var res in data.Results)
             {
-                var response = _mapper.Map<RFJenisUsahaResponseDto>(res);
+                var response = _mapper.Map<RfCompanyTypeResponseDto>(res);
 
                 listResponse.Add(response);
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFJenisUsahaResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfCompanyTypeResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

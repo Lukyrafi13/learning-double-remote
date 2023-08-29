@@ -1,7 +1,7 @@
 ﻿using Bjb.DigitalBisnis.SLIK.Interfaces;
 using Bjb.DigitalBisnis.SLIK.Models.GetResult;
 using MediatR;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Commands
+namespace NewLMS.UMKM.MediatR.Features.Tests.Commands
 {
     public class GetSlikIndividualCommand : SlikGetResultRequest,IRequest<ServiceResponse<SlikGetIndividualResultResponse>>
     {

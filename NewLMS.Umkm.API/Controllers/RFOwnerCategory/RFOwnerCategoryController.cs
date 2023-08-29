@@ -1,98 +1,98 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFOwnerCategories;
+using NewLMS.UMKM.Data.Dto.RFOwnerCategories;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFOwnerCategories.Commands;
-using NewLMS.Umkm.MediatR.Features.RFOwnerCategories.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFOwnerCategories.Commands;
+using NewLMS.UMKM.MediatR.Features.RFOwnerCategories.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFOwnerCategory
+namespace NewLMS.UMKM.API.Controllers.RfOwnerCategory
 {
-    public class RFOwnerCategoryController : BaseController
+    public class RfOwnerCategoryController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFOwnerCategory
+        /// RfOwnerCategory
         /// </summary>
         /// <param name="mediator"></param>
-        public RFOwnerCategoryController(IMediator mediator)
+        public RfOwnerCategoryController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFOwnerCategory By OwnCode
+        /// Get RfOwnerCategory By OwnCode
         /// </summary>
         /// <param name="OwnCode"></param>
         /// <returns></returns>
-        [HttpGet("get/{OwnCode}", Name = "GetRFOwnerCategoryByOwnCode")]
-        [Produces("application/json", "application/xml", Type = typeof(RFOwnerCategoryResponseDto))]
-        public async Task<IActionResult> GetRFOwnerCategoryByOwnCode(string OwnCode)
+        [HttpGet("get/{OwnCode}", Name = "GetRfOwnerCategoryByOwnCode")]
+        [Produces("application/json", "application/xml", Type = typeof(RfOwnerCategoryResponseDto))]
+        public async Task<IActionResult> GetRfOwnerCategoryByOwnCode(string OwnCode)
         {
-            var query = new RFOwnerCategoryGetByOwnCodeQuery { OwnCode = OwnCode };
+            var query = new RfOwnerCategoryGetByOwnCodeQuery { OwnCode = OwnCode };
             var result = await _mediator.Send(query);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFOwnerCategory By OwnCode
+        /// Get RfOwnerCategory By OwnCode
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFOwnerCategoryList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFOwnerCategoryResponseDto>>))]
-        public async Task<IActionResult> GetRFOwnerCategoryList(RFOwnerCategoriesGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfOwnerCategoryList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfOwnerCategoryResponseDto>>))]
+        public async Task<IActionResult> GetRfOwnerCategoryList(RFOwnerCategoriesGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFOwnerCategory
+        /// Post New RfOwnerCategory
         /// </summary>
-        /// <param name="postRFOwnerCategory"></param>
+        /// <param name="postRfOwnerCategory"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFOwnerCategory")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFOwnerCategoryResponseDto>))]
-        public async Task<IActionResult> AddRFOwnerCategory(RFOwnerCategoryPostCommand postRFOwnerCategory)
+        [HttpPost("post", Name = "AddRfOwnerCategory")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfOwnerCategoryResponseDto>))]
+        public async Task<IActionResult> AddRfOwnerCategory(RfOwnerCategoryPostCommand postRfOwnerCategory)
         {
-            var result = await _mediator.Send(postRFOwnerCategory);
+            var result = await _mediator.Send(postRfOwnerCategory);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFOwnerCategoryByOwnCode", new { id = result.Data.OwnCode }, result.Data);
+            return CreatedAtAction("GetRfOwnerCategoryByOwnCode", new { id = result.Data.OwnCode }, result.Data);
         }
 
         /// <summary>
-        /// Put Edit RFOwnerCategory
+        /// Put Edit RfOwnerCategory
         /// </summary>
         /// <param name="OwnCode"></param>
-        /// <param name="putRFOwnerCategory"></param>
+        /// <param name="putRfOwnerCategory"></param>
         /// <returns></returns>
-        [HttpPut("put/{OwnCode}", Name = "EditRFOwnerCategory")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFOwnerCategoryResponseDto>))]
-        public async Task<IActionResult> EditRFOwnerCategory([FromRoute] string OwnCode, [FromBody] RFOwnerCategoryPutCommand putRFOwnerCategory)
+        [HttpPut("put/{OwnCode}", Name = "EditRfOwnerCategory")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfOwnerCategoryResponseDto>))]
+        public async Task<IActionResult> EditRfOwnerCategory([FromRoute] string OwnCode, [FromBody] RfOwnerCategoryPutCommand putRfOwnerCategory)
         {
-            putRFOwnerCategory.OwnCode = OwnCode;
-            var result = await _mediator.Send(putRFOwnerCategory);
+            putRfOwnerCategory.OwnCode = OwnCode;
+            var result = await _mediator.Send(putRfOwnerCategory);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFOwnerCategory
+        /// Delete RfOwnerCategory
         /// </summary>
         /// <param name="OwnCode"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{OwnCode}", Name = "DeleteRFOwnerCategory")]
+        [HttpDelete("delete/{OwnCode}", Name = "DeleteRfOwnerCategory")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFOwnerCategory([FromRoute] string OwnCode, [FromBody]RFOwnerCategoryDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfOwnerCategory([FromRoute] string OwnCode, [FromBody]RfOwnerCategoryDeleteCommand deleteCommand)
         {
             deleteCommand.OwnCode = OwnCode;
             return Ok(await _mediator.Send(deleteCommand));

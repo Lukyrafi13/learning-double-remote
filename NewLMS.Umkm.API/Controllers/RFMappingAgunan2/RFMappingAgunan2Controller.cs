@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFMappingAgunan2s;
+using NewLMS.UMKM.Data.Dto.RFMappingAgunan2s;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFMappingAgunan2s.Commands;
-using NewLMS.Umkm.MediatR.Features.RFMappingAgunan2s.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFMappingAgunan2s.Commands;
+using NewLMS.UMKM.MediatR.Features.RFMappingAgunan2s.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFMappingAgunan2
+namespace NewLMS.UMKM.API.Controllers.RFMappingAgunan2
 {
     public class RFMappingAgunan2Controller : BaseController
     {

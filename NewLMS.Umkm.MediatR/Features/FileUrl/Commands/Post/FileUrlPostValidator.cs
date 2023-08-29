@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.FileUrls;
+using NewLMS.UMKM.Data.Dto.FileUrls;
 
-namespace NewLMS.Umkm.MediatR.Features.FileUrls.Commands
+namespace NewLMS.UMKM.MediatR.Features.FileUrls.Commands
 {
     public class FileUrlPostValidator : AbstractValidator<FileUrlPostCommand>
     {

@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.ProspectStageLogss
+namespace NewLMS.UMKM.Data.Dto.ProspectStageLogss
 {
     public class ProspectStageLogsResponseDto
     {

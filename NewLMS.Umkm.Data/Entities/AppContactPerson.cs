@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class AppContactPerson : BaseEntity
     {
@@ -14,11 +14,11 @@ namespace NewLMS.Umkm.Data
         public RFRelationCol Hubungan { get; set; }
         public string NomorHandphone { get; set; }
         public string AlamatEmail { get; set; }
-        [ForeignKey("RFGenderId")]
-        public RFGender JenisKelamin { get; set; }
+        [ForeignKey("RfGenderId")]
+        public RfGender JenisKelamin { get; set; }
 
         public Guid AppId { get; set; }
         public Guid? RFRelationColId { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfGenderId { get; set; }
     }
 }

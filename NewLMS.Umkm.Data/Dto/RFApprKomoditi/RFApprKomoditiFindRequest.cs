@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFApprKomoditis
+namespace NewLMS.UMKM.Data.Dto.RFApprKomoditis
 {
     public class RFApprKomoditiFindRequestDto
     {

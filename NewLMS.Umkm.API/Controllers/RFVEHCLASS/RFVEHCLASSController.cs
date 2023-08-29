@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFVEHCLASSs;
+using NewLMS.UMKM.Data.Dto.RFVEHCLASSs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFVEHCLASSs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFVEHCLASSs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFVEHCLASSs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFVEHCLASSs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFVEHCLASS
+namespace NewLMS.UMKM.API.Controllers.RFVEHCLASS
 {
     public class RFVEHCLASSController : BaseController
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSifatKredits;
+using NewLMS.UMKM.Data.Dto.RFSifatKredits;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSifatKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSifatKredits.Commands
 {
     public class RFSifatKreditPostValidator : AbstractValidator<RFSifatKreditPostCommand>
     {

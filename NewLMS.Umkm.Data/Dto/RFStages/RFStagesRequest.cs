@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFStagess
+namespace NewLMS.UMKM.Data.Dto.RFStagess
 {
     public class RFStagesRequestDto
     {

@@ -1,15 +1,12 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.Prospects;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
-using System.Threading;
-using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
-using System.Collections.Generic;
+using NewLMS.UMKM.Data.Dto.Prospects;
+using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Net;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
+namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
 {
     public class ProspectsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<ProspectResponseDto>>>
     {
@@ -29,24 +26,19 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
         public async Task<PagedResponse<IEnumerable<ProspectResponseDto>>> Handle(ProspectsGetFilterQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[] {
-                "JenisProduk",
-                "TipeDebitur",
-                "JenisKelamin",
-                "JenisPermohonanKredit",
-                "KodePos",
-                "Status",
-                "SektorEkonomi",
-                "SubSektorEkonomi",
-                "SubSubSektorEkonomi",
-                "Kategori",
-                "KodeDinas",
-                "Stage",
-                "KodePosUsaha",
-                "KodePosTempat",
-                "KelompokBidangUsaha",
-                "JenisUsaha",
-                "ProspectStageLogs",
-                "ProspectStageLogs.RFStages",
+                "RfCompanyGroup",
+                "RfCompanyStatus",
+                "RfCompanyType",
+                "RfBranch",
+                "RfProduct",
+                "RfGender",
+                "RfSectorLBU3",
+                "RfOwnerCategory",
+                "RfZipCode",
+                "RfPlaceZipCode",
+                "RfCompanyZipCode",
+                "RfAppType",
+                "RfTargetStatus",
             };
             var data = await _prospect.GetPagedReponseAsync(request, includes);
             // var dataVm = _mapper.Map<IEnumerable<ProspectResponseDto>>(data.Results);

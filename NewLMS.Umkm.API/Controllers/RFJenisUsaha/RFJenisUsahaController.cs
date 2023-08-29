@@ -1,98 +1,98 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisUsahas;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisUsahas.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisUsahas.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RfCompanyTypes.Commands;
+using NewLMS.UMKM.MediatR.Features.RfCompanyTypes.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisUsaha
+namespace NewLMS.UMKM.API.Controllers.RfCompanyType
 {
-    public class RFJenisUsahaController : BaseController
+    public class RfCompanyTypeController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFJenisUsaha
+        /// RfCompanyType
         /// </summary>
         /// <param name="mediator"></param>
-        public RFJenisUsahaController(IMediator mediator)
+        public RfCompanyTypeController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFJenisUsaha By Id
+        /// Get RfCompanyType By Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet("get/{Id}", Name = "GetRFJenisUsahaById")]
-        [Produces("application/json", "application/xml", Type = typeof(RFJenisUsahaResponseDto))]
-        public async Task<IActionResult> GetRFJenisUsahaById(string ANL_CODE)
+        [HttpGet("get/{Id}", Name = "GetRfCompanyTypeById")]
+        [Produces("application/json", "application/xml", Type = typeof(RfCompanyTypeResponseDto))]
+        public async Task<IActionResult> GetRfCompanyTypeById(string ANL_CODE)
         {
-            var getGenderQuery = new RFJenisUsahaGetQuery { ANL_CODE = ANL_CODE };
+            var getGenderQuery = new RfCompanyTypeGetQuery { ANL_CODE = ANL_CODE };
             var result = await _mediator.Send(getGenderQuery);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFJenisUsaha
+        /// Get RfCompanyType
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFJenisUsahaList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFJenisUsahaResponseDto>>))]
-        public async Task<IActionResult> GetRFJenisUsahaList(RFJenisUsahasGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfCompanyTypeList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfCompanyTypeResponseDto>>))]
+        public async Task<IActionResult> GetRfCompanyTypeList(RfCompanyTypesGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFJenisUsaha
+        /// Post New RfCompanyType
         /// </summary>
-        /// <param name="postRFJenisUsaha"></param>
+        /// <param name="postRfCompanyType"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFJenisUsaha")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFJenisUsahaResponseDto>))]
-        public async Task<IActionResult> AddRFJenisUsaha(RFJenisUsahaPostCommand postRFJenisUsaha)
+        [HttpPost("post", Name = "AddRfCompanyType")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCompanyTypeResponseDto>))]
+        public async Task<IActionResult> AddRfCompanyType(RfCompanyTypePostCommand postRfCompanyType)
         {
-            var result = await _mediator.Send(postRFJenisUsaha);
+            var result = await _mediator.Send(postRfCompanyType);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFJenisUsahaById", new { id = result.Data.Id }, result.Data);
+            return CreatedAtAction("GetRfCompanyTypeById", new { id = result.Data.Id }, result.Data);
         }
 
         /// <summary>
-        /// Put Edit RFJenisUsaha
+        /// Put Edit RfCompanyType
         /// </summary>
         /// <param name="Id"></param>
-        /// <param name="putRFJenisUsaha"></param>
+        /// <param name="putRfCompanyType"></param>
         /// <returns></returns>
-        [HttpPut("put/{Id}", Name = "EditRFJenisUsaha")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFJenisUsahaResponseDto>))]
-        public async Task<IActionResult> EditRFJenisUsaha([FromRoute] string ANL_CODE, [FromBody] RFJenisUsahaPutCommand putRFJenisUsaha)
+        [HttpPut("put/{Id}", Name = "EditRfCompanyType")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCompanyTypeResponseDto>))]
+        public async Task<IActionResult> EditRfCompanyType([FromRoute] string ANL_CODE, [FromBody] RfCompanyTypePutCommand putRfCompanyType)
         {
-            putRFJenisUsaha.ANL_CODE = ANL_CODE;
-            var result = await _mediator.Send(putRFJenisUsaha);
+            putRfCompanyType.ANL_CODE = ANL_CODE;
+            var result = await _mediator.Send(putRfCompanyType);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFJenisUsaha
+        /// Delete RfCompanyType
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{Id}", Name = "DeleteRFJenisUsaha")]
+        [HttpDelete("delete/{Id}", Name = "DeleteRfCompanyType")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFJenisUsaha([FromRoute] string ANL_CODE, [FromBody] RFJenisUsahaDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfCompanyType([FromRoute] string ANL_CODE, [FromBody] RfCompanyTypeDeleteCommand deleteCommand)
         {
             deleteCommand.ANL_CODE = ANL_CODE;
             return Ok(await _mediator.Send(deleteCommand));

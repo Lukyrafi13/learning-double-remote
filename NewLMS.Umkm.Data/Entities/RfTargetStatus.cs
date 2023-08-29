@@ -1,0 +1,14 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NewLMS.UMKM.Data
+{
+    public class RfTargetStatus : BaseEntity
+    {
+        public Guid Id { get; set; }
+        public string StatusCode { get; set; }
+        public string StatusDesc { get; set; }
+        public bool Active { get; set; }
+       
+    }
+}

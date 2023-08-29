@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data.Dto
+namespace NewLMS.UMKM.Data.Dto
 {
     public class SimpleResponse
     {

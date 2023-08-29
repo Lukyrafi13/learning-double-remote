@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 
-namespace NewLMS.Umkm.Data.Dto.PrescreeningDokumens
+namespace NewLMS.UMKM.Data.Dto.PrescreeningDokumens
 {
     public class PrescreeningDokumenPostRequestDto
     {

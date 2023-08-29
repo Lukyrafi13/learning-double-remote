@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFLinkages;
+using NewLMS.UMKM.Data.Dto.RFLinkages;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFLinkages.Commands;
-using NewLMS.Umkm.MediatR.Features.RFLinkages.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFLinkages.Commands;
+using NewLMS.UMKM.MediatR.Features.RFLinkages.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFLinkage
+namespace NewLMS.UMKM.API.Controllers.RFLinkage
 {
     public class RFLinkageController : BaseController
     {

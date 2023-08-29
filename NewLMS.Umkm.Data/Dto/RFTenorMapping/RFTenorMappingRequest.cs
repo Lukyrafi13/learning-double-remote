@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFTenorMappings
+namespace NewLMS.UMKM.Data.Dto.RFTenorMappings
 {
     public class RFTenorMappingRequestDto
     {

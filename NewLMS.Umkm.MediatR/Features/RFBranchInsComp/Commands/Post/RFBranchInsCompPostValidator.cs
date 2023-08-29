@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFBranchInsComps;
+using NewLMS.UMKM.Data.Dto.RFBranchInsComps;
 
-namespace NewLMS.Umkm.MediatR.Features.RFBranchInsComps.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFBranchInsComps.Commands
 {
     public class RFBranchInsCompPostValidator : AbstractValidator<RFBranchInsCompPostCommand>
     {

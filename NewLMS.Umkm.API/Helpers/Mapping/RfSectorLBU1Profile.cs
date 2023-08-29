@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU1s;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU1s;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 {
-    public class RFSectorLBU1Profile : Profile
+    public class RfSectorLBU1Profile : Profile
     {
-        public RFSectorLBU1Profile()
+        public RfSectorLBU1Profile()
         {
-            CreateMap<RFSectorLBU1, RFSectorLBU1Response>();
-            CreateMap<RFSectorLBU1PostRequest, RFSectorLBU1>();
-            CreateMap<RFSectorLBU1PutRequest, RFSectorLBU1>();
-            CreateMap<RFSectorLBU1DeleteRequest, RFSectorLBU1>();
+            CreateMap<RfSectorLBU1, RfSectorLBU1Response>();
+            CreateMap<RfSectorLBU1PostRequest, RfSectorLBU1>();
+            CreateMap<RfSectorLBU1PutRequest, RfSectorLBU1>();
+            CreateMap<RfSectorLBU1DeleteRequest, RfSectorLBU1>();
         }
     }
 }

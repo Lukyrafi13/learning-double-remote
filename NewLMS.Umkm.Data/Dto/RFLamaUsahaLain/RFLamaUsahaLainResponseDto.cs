@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFLamaUsahaLains
+namespace NewLMS.UMKM.Data.Dto.RFLamaUsahaLains
 {
     public class RFLamaUsahaLainResponseDto : BaseResponse
     {

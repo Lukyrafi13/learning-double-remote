@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisAktas;
+using NewLMS.UMKM.Data.Dto.RFJenisAktas;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisAktas.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisAktas.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFJenisAktas.Commands;
+using NewLMS.UMKM.MediatR.Features.RFJenisAktas.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisAkta
+namespace NewLMS.UMKM.API.Controllers.RFJenisAkta
 {
     public class RFJenisAktaController : BaseController
     {

@@ -1,50 +1,50 @@
-using AutoMapper;
-using MediatR;
-using NewLMS.Umkm.Data.Dto.SlikRequests;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
+// using AutoMapper;
+// using MediatR;
+// using NewLMS.UMKM.Data.Dto.SlikRequests;
+// using NewLMS.UMKM.Data;
+// using NewLMS.UMKM.Helper;
+// using NewLMS.UMKM.Repository.GenericRepository;
+// using System;
+// using System.Threading;
+// using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.SlikRequests.Queries
-{
-    public class SlikRequestSummaryGetQuery : SlikRequestFind, IRequest<ServiceResponse<SlikRequestSummaryResponse>>
-    {
-    }
+// namespace NewLMS.UMKM.MediatR.Features.SlikRequests.Queries
+// {
+//     public class SlikRequestSummaryGetQuery : SlikRequestFind, IRequest<ServiceResponse<SlikRequestSummaryResponse>>
+//     {
+//     }
 
-    public class SlikRequestSummaryGetQueryHandler : IRequestHandler<SlikRequestSummaryGetQuery, ServiceResponse<SlikRequestSummaryResponse>>
-    {
-        private IGenericRepositoryAsync<SlikRequest> _SlikRequest;
-        private readonly IMapper _mapper;
+//     public class SlikRequestSummaryGetQueryHandler : IRequestHandler<SlikRequestSummaryGetQuery, ServiceResponse<SlikRequestSummaryResponse>>
+//     {
+//         private IGenericRepositoryAsync<SlikRequest> _SlikRequest;
+//         private readonly IMapper _mapper;
 
-        public SlikRequestSummaryGetQueryHandler(IGenericRepositoryAsync<SlikRequest> SlikRequest, IMapper mapper)
-        {
-            _SlikRequest = SlikRequest;
-            _mapper = mapper;
-        }
-        public async Task<ServiceResponse<SlikRequestSummaryResponse>> Handle(SlikRequestSummaryGetQuery request, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var includes = new string[]{
-                    "App",
-                    "SlikHistoryKredits",
-                    "SlikHistoryKredits.RfSandiBIApplicationTypeClass",
-                    "SlikHistoryKredits.RfCreditType",
-                };
+//         public SlikRequestSummaryGetQueryHandler(IGenericRepositoryAsync<SlikRequest> SlikRequest, IMapper mapper)
+//         {
+//             _SlikRequest = SlikRequest;
+//             _mapper = mapper;
+//         }
+//         public async Task<ServiceResponse<SlikRequestSummaryResponse>> Handle(SlikRequestSummaryGetQuery request, CancellationToken cancellationToken)
+//         {
+//             try
+//             {
+//                 var includes = new string[]{
+//                     "App",
+//                     "SlikHistoryKredits",
+//                     "SlikHistoryKredits.RfSandiBIApplicationTypeClass",
+//                     "SlikHistoryKredits.RfCreditType",
+//                 };
 
-                var data = await _SlikRequest.GetByIdAsync(request.Id, "Id", includes);
-                if (data == null)
-                    return ServiceResponse<SlikRequestSummaryResponse>.Return404("Data SlikRequest not found");
-                var response = _mapper.Map<SlikRequestSummaryResponse>(data);
-                return ServiceResponse<SlikRequestSummaryResponse>.ReturnResultWith200(response);
-            }
-            catch (Exception ex)
-            {
-                return ServiceResponse<SlikRequestSummaryResponse>.ReturnException(ex);
-            }
-        }
-    }
-}
+//                 var data = await _SlikRequest.GetByIdAsync(request.Id, "Id", includes);
+//                 if (data == null)
+//                     return ServiceResponse<SlikRequestSummaryResponse>.Return404("Data SlikRequest not found");
+//                 var response = _mapper.Map<SlikRequestSummaryResponse>(data);
+//                 return ServiceResponse<SlikRequestSummaryResponse>.ReturnResultWith200(response);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return ServiceResponse<SlikRequestSummaryResponse>.ReturnException(ex);
+//             }
+//         }
+//     }
+// }

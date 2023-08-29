@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFDocuments;
+using NewLMS.UMKM.Data.Dto.RFDocuments;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFDocuments.Commands;
-using NewLMS.Umkm.MediatR.Features.RFDocuments.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFDocuments.Commands;
+using NewLMS.UMKM.MediatR.Features.RFDocuments.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFDocument
+namespace NewLMS.UMKM.API.Controllers.RFDocument
 {
     public class RFDocumentController : BaseController
     {

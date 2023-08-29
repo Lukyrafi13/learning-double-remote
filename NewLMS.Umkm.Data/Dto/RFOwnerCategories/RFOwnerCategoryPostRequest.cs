@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFOwnerCategories
+namespace NewLMS.UMKM.Data.Dto.RFOwnerCategories
 {
-    public class RFOwnerCategoryPostRequestDto
+    public class RfOwnerCategoryPostRequestDto
     {
         public string OwnCode { get; set; }
         public string OwnDesc { get; set; }

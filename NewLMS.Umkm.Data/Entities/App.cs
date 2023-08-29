@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class App : BaseEntity
     {
@@ -17,12 +17,12 @@ namespace NewLMS.Umkm.Data
         public string AplikasiId { get; set; }
         [ForeignKey("DebiturId")]
         public Debitur Debitur { get; set; }
-        [ForeignKey("RFProductId")]
-        public RFProduct JenisProduk { get; set; }
+        [ForeignKey("RfProductId")]
+        public RfProduct JenisProduk { get; set; }
         [ForeignKey("ProspectId")]
         public Prospect Prospect { get; set; }
-        [ForeignKey("RFOwnerCategoryId")]
-        public RFOwnerCategory TipeDebitur { get; set; }
+        [ForeignKey("RfOwnerCategoryId")]
+        public RfOwnerCategory TipeDebitur { get; set; }
 
         // Credit Scoring
         [ForeignKey("RFSCOReputasiTempatTinggalId")]
@@ -61,8 +61,8 @@ namespace NewLMS.Umkm.Data
         public string NomorTelpon { get; set; }
         // public Guid? KewarganegaraanId { get; set; }
         public string Alamat { get; set; }
-        [ForeignKey("RFZipCodeId")]
-        public RFZipCode KodePos { get; set; }
+        [ForeignKey("RfZipCodeId")]
+        public RfZipCode KodePos { get; set; }
         public string Kelurahan { get; set; }
         public string Kecamatan { get; set; }
         public string KabupatenKota { get; set; }
@@ -89,8 +89,8 @@ namespace NewLMS.Umkm.Data
         public string AlamatKontakDarurat { get; set; }
         public string RTKontakDarurat { get; set; }
         public string RWKontakDarurat { get; set; }
-        [ForeignKey("RFZipCodeKontakDaruratId")]
-        public RFZipCode KodePosKontakDarurat { get; set; }
+        [ForeignKey("RfZipCodeKontakDaruratId")]
+        public RfZipCode KodePosKontakDarurat { get; set; }
         public string KelurahanKontakDarurat { get; set; }
         public string KecamatanKontakDarurat { get; set; }
         public string KabupatenKotaKontakDarurat { get; set; }
@@ -110,8 +110,8 @@ namespace NewLMS.Umkm.Data
         public string AlamatPasangan { get; set; }
         public string RTPasangan { get; set; }
         public string RWPasangan { get; set; }
-        [ForeignKey("RFZipCodePasanganId")]
-        public RFZipCode KodePosPasangan { get; set; }
+        [ForeignKey("RfZipCodePasanganId")]
+        public RfZipCode KodePosPasangan { get; set; }
         public string KelurahanPasangan { get; set; }
         public string KecamatanPasangan { get; set; }
         public string KabupatenKotaPasangan { get; set; }
@@ -154,8 +154,8 @@ namespace NewLMS.Umkm.Data
         public RFEDUCATION PendidikanTerakhirKetua { get; set; }
         public string NoTelpKetua { get; set; }
         public string AlamatKetua { get; set; }
-        [ForeignKey("RFZipCodeKetuaId")]
-        public RFZipCode KodePosKetua { get; set; }
+        [ForeignKey("RfZipCodeKetuaId")]
+        public RfZipCode KodePosKetua { get; set; }
         public string KelurahanKetua { get; set; }
         public string KecamatanKetua { get; set; }
         public string KabupatenKotaKetua { get; set; }
@@ -174,8 +174,8 @@ namespace NewLMS.Umkm.Data
         public string NoTelpBendahara { get; set; }
         public RFEDUCATION PendidikanTerakhirBendahara { get; set; }
         public string AlamatBendahara { get; set; }
-        [ForeignKey("RFZipCodeBendaharaId")]
-        public RFZipCode KodePosBendahara { get; set; }
+        [ForeignKey("RfZipCodeBendaharaId")]
+        public RfZipCode KodePosBendahara { get; set; }
         public string KelurahanBendahara { get; set; }
         public string KecamatanBendahara { get; set; }
         public string KabupatenKotaBendahara { get; set; }
@@ -204,7 +204,7 @@ namespace NewLMS.Umkm.Data
         // etc
         public string SumberData { get; set; }
         [ForeignKey("RfBranchesId")]
-        public RfBranches BookingOffice { get; set; }
+        public RfBranch BookingOffice { get; set; }
         [ForeignKey("RFPilihanPemutusId")]
         public RFPilihanPemutus PilihanPemutus { get; set; }
         public string NamaAO { get; set; }
@@ -214,12 +214,11 @@ namespace NewLMS.Umkm.Data
         // Other stage
         public SlikRequest SlikRequest {get; set; }
 
-        public int Age => Prospect?.AgeStage("2.0")??-1;
 
         // Foreign keys
         public Guid? DebiturId { get; set; }
-        public Guid? RFProductId { get; set; }
-        public Guid? RFOwnerCategoryId { get; set; }
+        public Guid? RfProductId { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
         public Guid? RFSCOReputasiTempatTinggalId { get; set; }
         public Guid? RFSCOTingkatKebutuhanId { get; set; }
         public Guid? RFSCOCaraTransaksiId { get; set; }
@@ -231,22 +230,22 @@ namespace NewLMS.Umkm.Data
         public Guid? RFSCORiwayatKreditBJBId { get; set; }
         public Guid? RFSCOScoringAgunanId { get; set; }
         public Guid? RFSCOSaldoRekRataId { get; set; }
-        public int? RFZipCodeId { get; set; }
+        public int? RfZipCodeId { get; set; }
         public Guid? RFEducationId { get; set; }
         public Guid? RFMaritalId { get; set; }
         public Guid? RFJobId { get; set; }
         public Guid? RFHomestaId { get; set; }
-        public int? RFZipCodeKontakDaruratId { get; set; }
+        public int? RfZipCodeKontakDaruratId { get; set; }
         public Guid? RFJobPasanganId { get; set; }
-        public int? RFZipCodePasanganId { get; set; }
+        public int? RfZipCodePasanganId { get; set; }
         public string? RfBranchesId { get; set; }
         public Guid? ProspectId { get; set; }
         public Guid? RFMaritalKetuaId { get; set; }
         public Guid? RFEducationKetuaId { get; set; }
-        public int? RFZipCodeKetuaId { get; set; }
+        public int? RfZipCodeKetuaId { get; set; }
         public Guid? RFMaritalBendaharaId { get; set; }
         public Guid? RFEducationBendaharaId { get; set; }
-        public int? RFZipCodeBendaharaId { get; set; }
+        public int? RfZipCodeBendaharaId { get; set; }
         public Guid? RFPilihanPemutusId { get; set; }
         // public Guid? RFSiklusUsahaId { get; set; }
         public Guid? RFSiklusUsahaPokokId { get; set; }

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFPolaPengembalians
+namespace NewLMS.UMKM.Data.Dto.RFPolaPengembalians
 {
     public class RFPolaPengembalianPostRequestDto
     {

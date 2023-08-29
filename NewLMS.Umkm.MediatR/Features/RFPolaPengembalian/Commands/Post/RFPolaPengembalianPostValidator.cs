@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFPolaPengembalians;
+using NewLMS.UMKM.Data.Dto.RFPolaPengembalians;
 
-namespace NewLMS.Umkm.MediatR.Features.RFPolaPengembalians.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFPolaPengembalians.Commands
 {
     public class RFPolaPengembalianPostValidator : AbstractValidator<RFPolaPengembalianPostCommand>
     {

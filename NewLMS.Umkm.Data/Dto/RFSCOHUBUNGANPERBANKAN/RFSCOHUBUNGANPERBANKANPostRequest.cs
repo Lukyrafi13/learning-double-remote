@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFSCOHUBUNGANPERBANKANs
+namespace NewLMS.UMKM.Data.Dto.RFSCOHUBUNGANPERBANKANs
 {
     public class RFSCOHUBUNGANPERBANKANPostRequestDto
     {

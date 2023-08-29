@@ -1,38 +1,38 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKategoris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCategorys;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKategoris.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCategorys.Queries
 {
-    public class RFKategorisGetByKategoriCodeQuery : RFKategoriFindRequestDto, IRequest<ServiceResponse<RFKategoriResponseDto>>
+    public class RfCategorysGetByKategoriCodeQuery : RfCategoryFindRequestDto, IRequest<ServiceResponse<RfCategoryResponseDto>>
     {
     }
 
-    public class GetByIdRFKategoriQueryHandler : IRequestHandler<RFKategorisGetByKategoriCodeQuery, ServiceResponse<RFKategoriResponseDto>>
+    public class GetByIdRfCategoryQueryHandler : IRequestHandler<RfCategorysGetByKategoriCodeQuery, ServiceResponse<RfCategoryResponseDto>>
     {
-        private IGenericRepositoryAsync<RFKategori> _RFKategori;
+        private IGenericRepositoryAsync<RfCategory> _RfCategory;
         private readonly IMapper _mapper;
 
-        public GetByIdRFKategoriQueryHandler(IGenericRepositoryAsync<RFKategori> RFKategori, IMapper mapper)
+        public GetByIdRfCategoryQueryHandler(IGenericRepositoryAsync<RfCategory> RfCategory, IMapper mapper)
         {
-            _RFKategori = RFKategori;
+            _RfCategory = RfCategory;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFKategoriResponseDto>> Handle(RFKategorisGetByKategoriCodeQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCategoryResponseDto>> Handle(RfCategorysGetByKategoriCodeQuery request, CancellationToken cancellationToken)
         {
 
-            var data = await _RFKategori.GetByIdAsync(request.KategoriCode, "KategoriCode");
+            var data = await _RfCategory.GetByIdAsync(request.KategoriCode, "KategoriCode");
 
-            var response = _mapper.Map<RFKategoriResponseDto>(data);
+            var response = _mapper.Map<RfCategoryResponseDto>(data);
             
-            return ServiceResponse<RFKategoriResponseDto>.ReturnResultWith200(response);
+            return ServiceResponse<RfCategoryResponseDto>.ReturnResultWith200(response);
         }
     }
 }

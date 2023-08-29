@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Prescreenings
+namespace NewLMS.UMKM.Data.Dto.Prescreenings
 {
     public class PrescreeningFind
     {

@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.FileUrls;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.FileUrls;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.FileUrls.Queries
+namespace NewLMS.UMKM.MediatR.Features.FileUrls.Queries
 {
     public class FileUrlGetQuery : FileUrlFindRequestDto, IRequest<ServiceResponse<FileUrlResponseDto>>
     {

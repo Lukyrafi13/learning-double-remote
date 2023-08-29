@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFKepemilikanUsahas
+namespace NewLMS.UMKM.Data.Dto.RFKepemilikanUsahas
 {
     public class RFKepemilikanUsahaResponseDto : BaseResponse
     {

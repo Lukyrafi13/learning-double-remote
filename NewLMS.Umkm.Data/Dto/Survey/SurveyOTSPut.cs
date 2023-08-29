@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.Surveys
+namespace NewLMS.UMKM.Data.Dto.Surveys
 {
     public class SurveyOTSPut
     {
@@ -24,9 +24,9 @@ namespace NewLMS.Umkm.Data.Dto.Surveys
         public string KesimpulanHasil { get; set; }
 
         public Guid? RFRelationSurveyId { get; set; }
-        public Guid? RFOwnerCategoryId { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
         public Guid? RFOwnerOTSId { get; set; }
         public Guid? RFBidangUsahaKURId { get; set; }
-        public int? RFZipCodeId { get; set; }
+        public int? RfZipCodeId { get; set; }
     }
 }

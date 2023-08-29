@@ -1,38 +1,38 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFJenisPermohonans;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfAppTypes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisPermohonans.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfAppTypes.Queries
 {
-    public class RFJenisPermohonansGetByIdQuery : RFJenisPermohonanFindRequestDto, IRequest<ServiceResponse<RFJenisPermohonanResponseDto>>
+    public class RfAppTypesGetByIdQuery : RfAppTypeFindRequestDto, IRequest<ServiceResponse<RfAppTypeResponseDto>>
     {
     }
 
-    public class GetByIdRFJenisPermohonanQueryHandler : IRequestHandler<RFJenisPermohonansGetByIdQuery, ServiceResponse<RFJenisPermohonanResponseDto>>
+    public class GetByIdRfAppTypeQueryHandler : IRequestHandler<RfAppTypesGetByIdQuery, ServiceResponse<RfAppTypeResponseDto>>
     {
-        private IGenericRepositoryAsync<RFJenisPermohonan> _rfJenisPermohonan;
+        private IGenericRepositoryAsync<RfAppType> _rfJenisPermohonan;
         private readonly IMapper _mapper;
 
-        public GetByIdRFJenisPermohonanQueryHandler(IGenericRepositoryAsync<RFJenisPermohonan> rfJenisPermohonan, IMapper mapper)
+        public GetByIdRfAppTypeQueryHandler(IGenericRepositoryAsync<RfAppType> rfJenisPermohonan, IMapper mapper)
         {
             _rfJenisPermohonan = rfJenisPermohonan;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFJenisPermohonanResponseDto>> Handle(RFJenisPermohonansGetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfAppTypeResponseDto>> Handle(RfAppTypesGetByIdQuery request, CancellationToken cancellationToken)
         {
 
             var data = await _rfJenisPermohonan.GetByIdAsync(request.Id, "Id");
 
-            var response = _mapper.Map<RFJenisPermohonanResponseDto>(data);
+            var response = _mapper.Map<RfAppTypeResponseDto>(data);
             
-            return ServiceResponse<RFJenisPermohonanResponseDto>.ReturnResultWith200(response);
+            return ServiceResponse<RfAppTypeResponseDto>.ReturnResultWith200(response);
         }
     }
 }

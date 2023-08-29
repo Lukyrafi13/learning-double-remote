@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFDocumentAgunans
+namespace NewLMS.UMKM.Data.Dto.RFDocumentAgunans
 {
     public class RFDocumentAgunanFindRequestDto
     {

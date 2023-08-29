@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 
-namespace NewLMS.Umkm.Data.Dto.SurveyFileUploads
+namespace NewLMS.UMKM.Data.Dto.SurveyFileUploads
 {
     public class SurveyFileUploadPostRequestDto
     {

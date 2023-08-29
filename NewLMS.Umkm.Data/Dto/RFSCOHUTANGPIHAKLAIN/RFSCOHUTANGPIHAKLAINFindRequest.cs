@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSCOHUTANGPIHAKLAINs
+namespace NewLMS.UMKM.Data.Dto.RFSCOHUTANGPIHAKLAINs
 {
     public class RFSCOHUTANGPIHAKLAINFindRequestDto
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFMappingAgunan2s;
+using NewLMS.UMKM.Data.Dto.RFMappingAgunan2s;
 
-namespace NewLMS.Umkm.MediatR.Features.RFMappingAgunan2s.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFMappingAgunan2s.Commands
 {
     public class RFMappingAgunan2PostValidator : AbstractValidator<RFMappingAgunan2PostCommand>
     {

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFRelationSurveys;
+using NewLMS.UMKM.Data.Dto.RFRelationSurveys;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFRelationSurveys.Commands;
-using NewLMS.Umkm.MediatR.Features.RFRelationSurveys.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFRelationSurveys.Commands;
+using NewLMS.UMKM.MediatR.Features.RFRelationSurveys.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFRelationSurvey
+namespace NewLMS.UMKM.API.Controllers.RFRelationSurvey
 {
     public class RFRelationSurveyController : BaseController
     {

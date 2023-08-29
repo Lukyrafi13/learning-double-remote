@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.Umkm.Domain.Dwh.Context;
-using NewLMS.Umkm.Domain.Dwh.Services;
+using NewLMS.UMKM.Domain.Dwh.Context;
+using NewLMS.UMKM.Domain.Dwh.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Domain.Dwh
+namespace NewLMS.UMKM.Domain.Dwh
 {
     public static class ServiceRegistration
     {

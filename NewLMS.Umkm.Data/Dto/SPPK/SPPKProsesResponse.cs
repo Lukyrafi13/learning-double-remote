@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SPPKs
+namespace NewLMS.UMKM.Data.Dto.SPPKs
 {
     public class SPPKProsesResponse
     {

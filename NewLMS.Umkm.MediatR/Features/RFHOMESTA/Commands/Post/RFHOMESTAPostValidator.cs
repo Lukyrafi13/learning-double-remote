@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFHOMESTAs;
+using NewLMS.UMKM.Data.Dto.RFHOMESTAs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFHOMESTAs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFHOMESTAs.Commands
 {
     public class RFHOMESTAPostValidator : AbstractValidator<RFHOMESTAPostCommand>
     {

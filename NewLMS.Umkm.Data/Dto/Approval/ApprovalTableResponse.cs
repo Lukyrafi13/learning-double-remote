@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.Approvals
+namespace NewLMS.UMKM.Data.Dto.Approvals
 {
     public class ApprovalTableResponse
     {

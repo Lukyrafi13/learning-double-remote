@@ -3,19 +3,19 @@
 // using System.Threading;
 // using System.Threading.Tasks;
 // using MediatR;
-// using NewLMS.Umkm.Helper;
+// using NewLMS.UMKM.Helper;
 // using System.IO;
 // using DocumentFormat.OpenXml.Packaging;
-// using NewLMS.Umkm.Repository.GenericRepository;
-// using NewLMS.Umkm.Data.Entities;
+// using NewLMS.UMKM.Repository.GenericRepository;
+// using NewLMS.UMKM.Data.Entities;
 // using System;
 // using Microsoft.Extensions.Configuration;
 // using DocumentFormat.OpenXml.Wordprocessing;
 // using System.Linq;
 // using System.Reflection.Emit;
-// using NewLMS.Umkm.Data.Dto.Analisas;
+// using NewLMS.UMKM.Data.Dto.Analisas;
 
-// namespace NewLMS.Umkm.MediatR.Features.Analisas.Commands
+// namespace NewLMS.UMKM.MediatR.Features.Analisas.Commands
 // {
 //     public class AnalisaGenerateWordMAKCommand : IRequest<ServiceResponse<string>>
 //     {
@@ -124,9 +124,9 @@
 //         {
 //             var includeDebtor = new string[]
 //             {
-//                 "RFSectorLBU1",
-//                 "RFSectorLBU2",
-//                 "RFSectorLBU3",
+//                 "RfSectorLBU1",
+//                 "RfSectorLBU2",
+//                 "RfSectorLBU3",
 //                 "RFCompanyTypes"
 //             };
 
@@ -244,9 +244,9 @@
 //                 {"{tanggal}", DateNow},
 //                 {"{namaNasabah}",debt?.CompanyName == null ? "[no data]" : debt?.CompanyName},
 //                 {"{bidangUsaha}",debt?.RFCompanyTypes?.CompanyTypeName == null ? "[no data]" : debt?.RFCompanyTypes.CompanyTypeName},
-//                 {"{sektorEkonomi}",debt?.RFSectorLBU1?.Description == null ? "[no data]" : debt?.RFSectorLBU1?.Description},
-//                 {"{subsektorEkonomi}", debt?.RFSectorLBU2?.Description == null ? "[no data]" : debt?.RFSectorLBU2.Description},
-//                 {"{subsubsektorEkonomi}",debt?.RFSectorLBU3?.Description == null ? "[no data]" : debt?.RFSectorLBU3.Description},
+//                 {"{sektorEkonomi}",debt?.RfSectorLBU1?.Description == null ? "[no data]" : debt?.RfSectorLBU1?.Description},
+//                 {"{subsektorEkonomi}", debt?.RfSectorLBU2?.Description == null ? "[no data]" : debt?.RfSectorLBU2.Description},
+//                 {"{subsubsektorEkonomi}",debt?.RfSectorLBU3?.Description == null ? "[no data]" : debt?.RfSectorLBU3.Description},
 //                 {"{grupUsaha}",debt?.RFCompanyTypes?.CompanyTypeName == null ? "[no data]" : debt?.RFCompanyTypes.CompanyTypeName},
 //                 {"{jenisPengajuan}",creditApp?.LoanFacilities?.RFCreditApplicationTypes?.CreditApplicationTypeName == null ? "[no data]" : creditApp?.LoanFacilities?.RFCreditApplicationTypes?.CreditApplicationTypeName},
 //                 {"{fasilitas}", creditApp?.LoanFacilities?.RFCreditSubProducts?.RFCreditProducts?.CreditProductName == null ? "[no data]" : creditApp?.LoanFacilities?.RFCreditSubProducts?.RFCreditProducts?.CreditProductName},

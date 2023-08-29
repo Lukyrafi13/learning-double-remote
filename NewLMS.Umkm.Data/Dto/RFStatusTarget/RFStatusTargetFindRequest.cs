@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFStatusTargets
+namespace NewLMS.UMKM.Data.Dto.RfTargetStatuss
 {
-    public class RFStatusTargetFindRequestDto
+    public class RfTargetStatusFindRequestDto
     {
         public string StatusCode { get; set; }
     }

@@ -1,11 +1,11 @@
 ﻿using MockQueryable.Moq;
 using Moq;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.Repository.GenericRepository;
-using NewLMS.Umkm.Domain.Dwh.Services;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.UMKM.Domain.Dwh.Services;
 
-namespace NewLMS.Umkm.Testing.Mocks
+namespace NewLMS.UMKM.Testing.Mocks
 {
     public static class MockDwhServiceRepository
     {

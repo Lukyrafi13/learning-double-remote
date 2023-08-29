@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFAspekPemasarans
+namespace NewLMS.UMKM.Data.Dto.RFAspekPemasarans
 {
     public class RFAspekPemasaranPutRequestDto : RFAspekPemasaranPostRequestDto
     {

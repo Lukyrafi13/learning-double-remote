@@ -1,46 +1,46 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKategoris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCategorys;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKategoris.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCategorys.Queries
 {
-    public class RFKategorisGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFKategoriResponseDto>>>
+    public class RfCategorysGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfCategoryResponseDto>>>
     {
     }
 
-    public class GetFilterRFKategoriQueryHandler : IRequestHandler<RFKategorisGetFilterQuery, PagedResponse<IEnumerable<RFKategoriResponseDto>>>
+    public class GetFilterRfCategoryQueryHandler : IRequestHandler<RfCategorysGetFilterQuery, PagedResponse<IEnumerable<RfCategoryResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFKategori> _RFKategori;
+        private IGenericRepositoryAsync<RfCategory> _RfCategory;
         private readonly IMapper _mapper;
 
-        public GetFilterRFKategoriQueryHandler(IGenericRepositoryAsync<RFKategori> RFKategori, IMapper mapper)
+        public GetFilterRfCategoryQueryHandler(IGenericRepositoryAsync<RfCategory> RfCategory, IMapper mapper)
         {
-            _RFKategori = RFKategori;
+            _RfCategory = RfCategory;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFKategoriResponseDto>>> Handle(RFKategorisGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfCategoryResponseDto>>> Handle(RfCategorysGetFilterQuery request, CancellationToken cancellationToken)
         {
-            var data = await _RFKategori.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFKategoriResponseDto>>(data.Results);
-            IEnumerable<RFKategoriResponseDto> dataVm;
-            var listResponse = new List<RFKategoriResponseDto>();
+            var data = await _RfCategory.GetPagedReponseAsync(request);
+            // var dataVm = _mapper.Map<IEnumerable<RfCategoryResponseDto>>(data.Results);
+            IEnumerable<RfCategoryResponseDto> dataVm;
+            var listResponse = new List<RfCategoryResponseDto>();
 
             foreach (var result in data.Results){
-                var response = _mapper.Map<RFKategoriResponseDto>(result);
+                var response = _mapper.Map<RfCategoryResponseDto>(result);
 
                 listResponse.Add(response);
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFKategoriResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfCategoryResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

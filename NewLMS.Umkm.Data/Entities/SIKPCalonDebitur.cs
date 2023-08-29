@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class SIKPCalonDebitur : BaseEntity
     {
@@ -11,24 +11,24 @@ namespace NewLMS.Umkm.Data
         public App App { get; set; }
 
         // Data IDE
-        [ForeignKey("RFOwnerCategoryId")]
-        public RFOwnerCategory TipeDebitur { get; set; }
-        [ForeignKey("RFSectorLBU1Code")]
-        public RFSectorLBU1 SektorEkonomi { get; set; }
-        [ForeignKey("RFSectorLBU2Code")]
-        public RFSectorLBU2 SubSektorEkonomi { get; set; }
-        [ForeignKey("RFSectorLBU3Code")]
-        public RFSectorLBU3 SubSubSektorEkonomi { get; set; }
-        [ForeignKey("RFGenderId")]
-        public RFGender JenisKelamin { get; set; }
+        [ForeignKey("RfOwnerCategoryId")]
+        public RfOwnerCategory TipeDebitur { get; set; }
+        [ForeignKey("RfSectorLBU1Code")]
+        public RfSectorLBU1 SektorEkonomi { get; set; }
+        [ForeignKey("RfSectorLBU2Code")]
+        public RfSectorLBU2 SubSektorEkonomi { get; set; }
+        [ForeignKey("RfSectorLBU3Code")]
+        public RfSectorLBU3 SubSubSektorEkonomi { get; set; }
+        [ForeignKey("RfGenderId")]
+        public RfGender JenisKelamin { get; set; }
         [ForeignKey("RFMaritalId")]
         public RFMARITAL StatusPernikahan { get; set; }
         [ForeignKey("RFEducationId")]
         public RFEDUCATION PendidikanTerakhir { get; set; }
         [ForeignKey("RFJobId")]
         public RFJOB DataPekerjaan { get; set; }
-        [ForeignKey("RFZipCodeId")]
-        public RFZipCode KodePos { get; set; }
+        [ForeignKey("RfZipCodeId")]
+        public RfZipCode KodePos { get; set; }
         public string NoCIF { get; set; }
         public string NoKTP { get; set; }
         public string NPWP { get; set; }
@@ -41,8 +41,8 @@ namespace NewLMS.Umkm.Data
         public string Propinsi { get; set; }
 
         // Data Usaha
-        [ForeignKey("RFZipCodeUsahaId")]
-        public RFZipCode KodePosUsaha { get; set; }
+        [ForeignKey("RfZipCodeUsahaId")]
+        public RfZipCode KodePosUsaha { get; set; }
         [ForeignKey("RFLinkageUsahaId")]
         public RFLinkage Linkage { get; set; }
         public DateTime? TanggalMulaiUsaha { get; set; }
@@ -60,19 +60,18 @@ namespace NewLMS.Umkm.Data
         public bool? StatusSubsidi { get; set; }
         public double? SubsidiSebelumnya { get; set; }
 
-        public int Age => App?.Prospect?.AgeStage("3")??-1;
 
         // Data IDE SKIP
-        [ForeignKey("RFGenderSIKPId")]
-        public RFGender JenisKelaminSIKP { get; set; }
+        [ForeignKey("RfGenderSIKPId")]
+        public RfGender JenisKelaminSIKP { get; set; }
         [ForeignKey("RFMaritalSIKPId")]
         public RFMARITAL StatusPernikahanSIKP { get; set; }
         [ForeignKey("RFEducationSIKPId")]
         public RFEDUCATION PendidikanTerakhirSIKP { get; set; }
         [ForeignKey("RFJobSIKPId")]
         public RFJOB DataPekerjaanSIKP { get; set; }
-        [ForeignKey("RFZipCodeSIKPId")]
-        public RFZipCode KodePosSIKP { get; set; }
+        [ForeignKey("RfZipCodeSIKPId")]
+        public RfZipCode KodePosSIKP { get; set; }
         public string NoRegistrasiSIKP { get; set; }
         public string NoKTPSIKP { get; set; }
         public string NPWPSIKP { get; set; }
@@ -87,8 +86,8 @@ namespace NewLMS.Umkm.Data
 
 
         // Data Usaha SIKP
-        [ForeignKey("RFZipCodeUsahaSIKPId")]
-        public RFZipCode KodePosUsahaSIKP { get; set; }
+        [ForeignKey("RfZipCodeUsahaSIKPId")]
+        public RfZipCode KodePosUsahaSIKP { get; set; }
         [ForeignKey("RFLinkageUsahaSIKPId")]
         public RFLinkage LinkageSIKP { get; set; }
         public DateTime? TanggalMulaiUsahaSIKP { get; set; }
@@ -112,23 +111,23 @@ namespace NewLMS.Umkm.Data
 
         // Foreign Keys
         public Guid AppId { get; set; }
-        public Guid? RFOwnerCategoryId { get; set; }
-        public string? RFSectorLBU1Code { get; set; }
-        public string? RFSectorLBU2Code { get; set; }
-        public string? RFSectorLBU3Code { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid? RfOwnerCategoryId { get; set; }
+        public string? RfSectorLBU1Code { get; set; }
+        public string? RfSectorLBU2Code { get; set; }
+        public string? RfSectorLBU3Code { get; set; }
+        public Guid? RfGenderId { get; set; }
         public Guid? RFMaritalId { get; set; }
         public Guid? RFEducationId { get; set; }
         public Guid? RFJobId { get; set; }
-        public int? RFZipCodeId { get; set; }
-        public int? RFZipCodeUsahaId { get; set; }
+        public int? RfZipCodeId { get; set; }
+        public int? RfZipCodeUsahaId { get; set; }
         public Guid? RFLinkageUsahaId { get; set; }
-        public Guid? RFGenderSIKPId { get; set; }
+        public Guid? RfGenderSIKPId { get; set; }
         public Guid? RFMaritalSIKPId { get; set; }
         public Guid? RFEducationSIKPId { get; set; }
         public Guid? RFJobSIKPId { get; set; }
-        public int? RFZipCodeSIKPId { get; set; }
-        public int? RFZipCodeUsahaSIKPId { get; set; }
+        public int? RfZipCodeSIKPId { get; set; }
+        public int? RfZipCodeUsahaSIKPId { get; set; }
         public Guid? RFLinkageUsahaSIKPId { get; set; }
     }
 }

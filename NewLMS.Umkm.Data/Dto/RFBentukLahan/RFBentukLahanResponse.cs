@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFBentukLahans
+namespace NewLMS.UMKM.Data.Dto.RFBentukLahans
 {
     public class RFBentukLahanResponseDto
     {

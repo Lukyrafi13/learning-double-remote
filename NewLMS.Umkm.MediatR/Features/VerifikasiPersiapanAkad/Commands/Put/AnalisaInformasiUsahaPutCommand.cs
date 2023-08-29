@@ -1,15 +1,15 @@
 // using AutoMapper;
 // using MediatR;
-// using NewLMS.Umkm.Data.Dto.Analisas;
-// using NewLMS.Umkm.Data;
-// using NewLMS.Umkm.Helper;
-// using NewLMS.Umkm.Repository.GenericRepository;
+// using NewLMS.UMKM.Data.Dto.Analisas;
+// using NewLMS.UMKM.Data;
+// using NewLMS.UMKM.Helper;
+// using NewLMS.UMKM.Repository.GenericRepository;
 // using System;
 // using System.Threading;
 // using System.Threading.Tasks;
 // using System.Net;
 
-// namespace NewLMS.Umkm.MediatR.Features.Analisas.Commands
+// namespace NewLMS.UMKM.MediatR.Features.Analisas.Commands
 // {
 //     public class AnalisaInformasiUsahaPutCommand : AnalisaInformasiUsahaPut, IRequest<ServiceResponse<AnalisaInformasiUsahaResponse>>
 //     {
@@ -47,8 +47,8 @@
 //                 existingAnalisa.SurveyId = request.SurveyId;
 //                 existingAnalisa.RFLokasiUsahaId = request.RFLokasiUsahaId;
 //                 existingAnalisa.RFJenisTempatUsahaId = request.RFJenisTempatUsahaId;
-//                 existingAnalisa.RFKelompokUsahaId = request.RFKelompokUsahaId;
-//                 existingAnalisa.RFJenisUsahaId = request.RFJenisUsahaId;
+//                 existingAnalisa.RfCompanyGroupId = request.RfCompanyGroupId;
+//                 existingAnalisa.RfCompanyTypeId = request.RfCompanyTypeId;
 //                 existingAnalisa.RFLokasiTempatUsahaId = request.RFLokasiTempatUsahaId;
 //                 existingAnalisa.RFBuktiKepemilikanId = request.RFBuktiKepemilikanId;
 //                 existingAnalisa.RFAspekPemasaranId = request.RFAspekPemasaranId;

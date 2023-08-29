@@ -1,33 +1,33 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFGenders;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfGenders;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFGenders.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfGenders.Commands
 {
-    public class RFGenderDeleteCommand : RFGenderFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfGenderDeleteCommand : RfGenderFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
 
     }
 
-    public class DeleteRFGenderCommandHandler : IRequestHandler<RFGenderDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfGenderCommandHandler : IRequestHandler<RfGenderDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFGender> _rfGender;
+        private readonly IGenericRepositoryAsync<RfGender> _rfGender;
         private readonly IMapper _mapper;
 
-        public DeleteRFGenderCommandHandler(IGenericRepositoryAsync<RFGender> rfGender, IMapper mapper)
+        public DeleteRfGenderCommandHandler(IGenericRepositoryAsync<RfGender> rfGender, IMapper mapper)
         {
             _rfGender = rfGender;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFGenderDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfGenderDeleteCommand request, CancellationToken cancellationToken)
         {
             var rfGender = await _rfGender.GetByIdAsync(request.GenderCode, "GenderCode");
             rfGender.IsDeleted = true;

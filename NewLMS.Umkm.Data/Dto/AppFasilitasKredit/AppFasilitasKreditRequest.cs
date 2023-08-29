@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.AppFasilitasKredits
+namespace NewLMS.UMKM.Data.Dto.AppFasilitasKredits
 {
     public class AppFasilitasKreditRequestDto
     {

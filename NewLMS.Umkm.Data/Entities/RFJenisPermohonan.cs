@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
-    public class RFJenisPermohonan : BaseEntity
+    public class RfAppType : BaseEntity
     {
         [Key]
         [Required]
 		public Guid Id { get; set; }
-		public string JenisPermohonan { get; set; }
+		public string Type { get; set; }
 	}
 }

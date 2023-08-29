@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
-    public class RFSectorLBU3 : BaseEntity
+    public class RfSectorLBU3 : BaseEntity
     {
         [Key]
         public string Code { get; set; }
@@ -15,10 +15,10 @@ namespace NewLMS.Umkm.Data
         public string Description { get; set; }
         public string CoreCode { get; set; }
         public string CategoryCode { get; set; }
-        [ForeignKey(nameof(RFSectorLBU2))]
-        public string RFSectorLBU2Code { get; set; }
+        [ForeignKey(nameof(RfSectorLBU2))]
+        public string RfSectorLBU2Code { get; set; }
         public bool IsShowing { get; set; }
-        public virtual RFSectorLBU2 RFSectorLBU2 { get; set; }
+        public virtual RfSectorLBU2 RfSectorLBU2 { get; set; }
         public virtual ICollection<Prospect> Prospects { get; set; }
     }
 }

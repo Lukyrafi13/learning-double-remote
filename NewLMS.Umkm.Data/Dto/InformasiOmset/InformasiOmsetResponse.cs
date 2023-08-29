@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.InformasiOmsets
+namespace NewLMS.UMKM.Data.Dto.InformasiOmsets
 {
     public class InformasiOmsetResponseDto
     {

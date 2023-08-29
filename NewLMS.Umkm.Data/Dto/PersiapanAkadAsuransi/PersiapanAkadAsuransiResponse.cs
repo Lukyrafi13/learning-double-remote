@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.PersiapanAkadAsuransis
+namespace NewLMS.UMKM.Data.Dto.PersiapanAkadAsuransis
 {
     public class PersiapanAkadAsuransiResponseDto
     {

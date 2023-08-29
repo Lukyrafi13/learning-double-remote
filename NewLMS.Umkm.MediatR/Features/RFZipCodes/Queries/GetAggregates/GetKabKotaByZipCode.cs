@@ -1,42 +1,42 @@
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Queries
 {
-    public class GetKabKotaByZipCode : IRequest<ServiceResponse<IEnumerable<RFZipCodeKabKotaResponse>>>
+    public class GetKabKotaByZipCode : IRequest<ServiceResponse<IEnumerable<RfZipCodeKabKotaResponse>>>
     {
         public string ZipCode { get; set; }
 
     }
-    public class GetKabKotaByZipCodeHandler : IRequestHandler<GetKabKotaByZipCode, ServiceResponse<IEnumerable<RFZipCodeKabKotaResponse>>>
+    public class GetKabKotaByZipCodeHandler : IRequestHandler<GetKabKotaByZipCode, ServiceResponse<IEnumerable<RfZipCodeKabKotaResponse>>>
     {
-        IGenericRepositoryAsync<RFZipCode> _rfZipCode;
+        IGenericRepositoryAsync<RfZipCode> _rfZipCode;
 
-        public GetKabKotaByZipCodeHandler(IGenericRepositoryAsync<RFZipCode> rfZipCode)
+        public GetKabKotaByZipCodeHandler(IGenericRepositoryAsync<RfZipCode> rfZipCode)
         {
             _rfZipCode = rfZipCode;
         }
-        public async Task<ServiceResponse<IEnumerable<RFZipCodeKabKotaResponse>>> Handle(GetKabKotaByZipCode request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<IEnumerable<RfZipCodeKabKotaResponse>>> Handle(GetKabKotaByZipCode request, CancellationToken cancellationToken)
         {
-            List<RFZipCodeKabKotaResponse> finaldata = new List<RFZipCodeKabKotaResponse>();
+            List<RfZipCodeKabKotaResponse> finaldata = new List<RfZipCodeKabKotaResponse>();
             var data = await _rfZipCode.GetListByPredicate(x => x.ZipCode == request.ZipCode);
             var dataMap = data.Select(x => new { x.KodeKabKota, x.Kota }).DistinctBy(x => x.Kota).OrderBy(i => i.Kota).ToList();
             foreach (var dataVm in dataMap)
             {
-                finaldata.Add(new RFZipCodeKabKotaResponse
+                finaldata.Add(new RfZipCodeKabKotaResponse
                 {
                     kodeKabKota = dataVm.KodeKabKota,
                     Kota = dataVm.Kota,
                 });
             }
-            return ServiceResponse<IEnumerable<RFZipCodeKabKotaResponse>>.ReturnResultWith200(finaldata);
+            return ServiceResponse<IEnumerable<RfZipCodeKabKotaResponse>>.ReturnResultWith200(finaldata);
 
         }
     }

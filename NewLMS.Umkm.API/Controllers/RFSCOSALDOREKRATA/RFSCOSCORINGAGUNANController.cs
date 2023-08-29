@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCOSALDOREKRATAs;
+using NewLMS.UMKM.Data.Dto.RFSCOSALDOREKRATAs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCOSALDOREKRATAs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCOSALDOREKRATAs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCOSALDOREKRATAs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCOSALDOREKRATAs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCOSALDOREKRATA
+namespace NewLMS.UMKM.API.Controllers.RFSCOSALDOREKRATA
 {
     public class RFSCOSALDOREKRATAController : BaseController
     {

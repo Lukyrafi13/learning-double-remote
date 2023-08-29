@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFKodeDinass;
+using NewLMS.UMKM.Data.Dto.RFKodeDinass;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKodeDinass.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFKodeDinass.Commands
 {
     public class RFKodeDinasPostValidator : AbstractValidator<RFKodeDinasPostCommand>
     {

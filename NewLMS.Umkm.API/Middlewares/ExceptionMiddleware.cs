@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using NewLMS.Umkm.MediatR.Exceptions;
-namespace NewLMS.Umkm.API.Middlewares
+using NewLMS.UMKM.MediatR.Exceptions;
+namespace NewLMS.UMKM.API.Middlewares
 {
     public class ExceptionMiddleware
     {
@@ -41,7 +41,7 @@ namespace NewLMS.Umkm.API.Middlewares
                         responseModel.Errors = new System.Collections.Generic.List<string> { error.Message };
                         _logger.LogError(message);
                         break;
-                    case NewLMS.Umkm.MediatR.Exceptions.ValidationException e:
+                    case NewLMS.UMKM.MediatR.Exceptions.ValidationException e:
                         response.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                         responseModel.StatusCode = (int)HttpStatusCode.BadRequest;
                         responseModel.Errors = e.Errors;

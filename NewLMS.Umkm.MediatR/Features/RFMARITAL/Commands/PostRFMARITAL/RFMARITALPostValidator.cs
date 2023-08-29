@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFMARITALs;
+using NewLMS.UMKM.Data.Dto.RFMARITALs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFMARITALs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFMARITALs.Commands
 {
     public class RFMARITALPostValidator : AbstractValidator<RFMARITALSPostCommand>
     {

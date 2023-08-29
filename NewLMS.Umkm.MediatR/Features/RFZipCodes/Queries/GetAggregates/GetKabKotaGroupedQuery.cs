@@ -1,40 +1,40 @@
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Queries
 {
-    public class GetKabKotaGroupedQuery : IRequest<ServiceResponse<IEnumerable<RFZipCodeKabKotaGroupedResponse>>>
+    public class GetKabKotaGroupedQuery : IRequest<ServiceResponse<IEnumerable<RfZipCodeKabKotaGroupedResponse>>>
     {
     }
-    public class GetKabKotaGroupedQueryHandler : IRequestHandler<GetKabKotaGroupedQuery, ServiceResponse<IEnumerable<RFZipCodeKabKotaGroupedResponse>>>
+    public class GetKabKotaGroupedQueryHandler : IRequestHandler<GetKabKotaGroupedQuery, ServiceResponse<IEnumerable<RfZipCodeKabKotaGroupedResponse>>>
     {
-        IGenericRepositoryAsync<RFZipCode> _rfZipCode;
+        IGenericRepositoryAsync<RfZipCode> _rfZipCode;
 
-        public GetKabKotaGroupedQueryHandler(IGenericRepositoryAsync<RFZipCode> rfZipCode)
+        public GetKabKotaGroupedQueryHandler(IGenericRepositoryAsync<RfZipCode> rfZipCode)
         {
             _rfZipCode = rfZipCode;
         }
-        public async Task<ServiceResponse<IEnumerable<RFZipCodeKabKotaGroupedResponse>>> Handle(GetKabKotaGroupedQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<IEnumerable<RfZipCodeKabKotaGroupedResponse>>> Handle(GetKabKotaGroupedQuery request, CancellationToken cancellationToken)
         {
-            List<RFZipCodeKabKotaGroupedResponse> finaldata = new List<RFZipCodeKabKotaGroupedResponse>();
+            List<RfZipCodeKabKotaGroupedResponse> finaldata = new List<RfZipCodeKabKotaGroupedResponse>();
             var data = await _rfZipCode.GetListByPredicate(x => true);
             var dataMap = data.Select(x => (x.Kota, x.Provinsi)).DistinctBy(x => x.Kota);
             foreach (var dataVm in dataMap)
             {
-                finaldata.Add(new RFZipCodeKabKotaGroupedResponse
+                finaldata.Add(new RfZipCodeKabKotaGroupedResponse
                 {
                     KabupatenKota = dataVm.Kota,
                     Provinsi = dataVm.Provinsi,
                 });
             }
-            return ServiceResponse<IEnumerable<RFZipCodeKabKotaGroupedResponse>>.ReturnResultWith200(finaldata);
+            return ServiceResponse<IEnumerable<RfZipCodeKabKotaGroupedResponse>>.ReturnResultWith200(finaldata);
         }
     }
 }

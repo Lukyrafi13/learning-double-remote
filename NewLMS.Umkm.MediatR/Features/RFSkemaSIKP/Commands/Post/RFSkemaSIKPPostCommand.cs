@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSkemaSIKPs;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFSkemaSIKPs;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSkemaSIKPs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSkemaSIKPs.Commands
 {
     public class RFSkemaSIKPPostCommand : RFSkemaSIKPPostRequestDto, IRequest<ServiceResponse<RFSkemaSIKPResponseDto>>
     {

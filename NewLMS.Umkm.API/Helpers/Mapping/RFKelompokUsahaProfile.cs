@@ -1,17 +1,17 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RFKelompokUsahaProfile : Profile
+    public class RfCompanyGroupProfile : Profile
     {
-        public RFKelompokUsahaProfile()
+        public RfCompanyGroupProfile()
         {
-            CreateMap<RFKelompokUsahaPostRequestDto, RFKelompokUsaha>();
-            CreateMap<RFKelompokUsahaPutRequestDto, RFKelompokUsaha>();
-            CreateMap<RFKelompokUsahaResponseDto, RFKelompokUsaha>().ReverseMap();
+            CreateMap<RfCompanyGroupPostRequestDto, RfCompanyGroup>();
+            CreateMap<RfCompanyGroupPutRequestDto, RfCompanyGroup>();
+            CreateMap<RfCompanyGroupResponseDto, RfCompanyGroup>().ReverseMap();
         }
     }
 }

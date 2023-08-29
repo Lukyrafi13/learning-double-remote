@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using NewLMS.Umkm.Data.Entities;
+using NewLMS.UMKM.Data.Entities;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 {
     public static class MapperConfig
     {
@@ -9,7 +9,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new RFGenderProfile());
+                mc.AddProfile(new RfGenderProfile());
                 mc.AddProfile(new RFSCOREPUTASITEMPATTINGGALProfile());
                 mc.AddProfile(new RFSCOHUBUNGANPERBANKANProfile());
                 mc.AddProfile(new RFSCOMUTASIPERBULANProfile());
@@ -24,12 +24,12 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new RFJOBProfile());
                 mc.AddProfile(new DebiturProfile());
                 mc.AddProfile(new ProspectProfile());
-                mc.AddProfile(new RFSectorLBU1Profile());
-                mc.AddProfile(new RFSectorLBU2Profile());
-                mc.AddProfile(new RFSectorLBU3Profile());
-                mc.AddProfile(new RFZipCodeProfile());
-                mc.AddProfile(new RFJenisPermohonanProfile());
-                mc.AddProfile(new RFKategoriProfile());
+                mc.AddProfile(new RfSectorLBU1Profile());
+                mc.AddProfile(new RfSectorLBU2Profile());
+                mc.AddProfile(new RfSectorLBU3Profile());
+                mc.AddProfile(new RfZipCodeProfile());
+                mc.AddProfile(new RfAppTypeProfile());
+                mc.AddProfile(new RfCategoryProfile());
                 mc.AddProfile(new RFKodeDinasProfile());
                 mc.AddProfile(new RFColLateralBCProfile());
                 mc.AddProfile(new RFDocumentProfile());
@@ -55,7 +55,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new RFAspekPemasaranProfile());
                 mc.AddProfile(new RFCaraPengikatanProfile());
                 mc.AddProfile(new RFDecisionSKProfile());
-                mc.AddProfile(new RFKelompokUsahaProfile());
+                mc.AddProfile(new RfCompanyGroupProfile());
                 mc.AddProfile(new RFLokasiTempatUsahaProfile());
                 mc.AddProfile(new RfBranchesProfile());
                 mc.AddProfile(new RFSubProductTenorProfile());
@@ -65,9 +65,9 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new RFRelationSurveyProfile());
                 mc.AddProfile(new AppProfile());
                 mc.AddProfile(new AppKeyPersonProfile());
-                mc.AddProfile(new RFJenisUsahaProfile());
+                mc.AddProfile(new RfCompanyTypeProfile());
                 mc.AddProfile(new AppAgunanProfile());
-                mc.AddProfile(new RFJenisUsahaMapProfile());
+                mc.AddProfile(new RfCompanyTypeMapProfile());
                 mc.AddProfile(new RFRejectProfile());
                 mc.AddProfile(new AppContactPersonProfile());
                 mc.AddProfile(new RFNegaraPenempatanProfile());
@@ -111,7 +111,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new SPPKProfile());
                 mc.AddProfile(new RFAlamatUsahaSamaDenganAplikasiProfile());
                 mc.AddProfile(new RFDebiturMemilikiUsahaLainProfile());
-                mc.AddProfile(new RFJenisUsahaYangDihindariProfile());
+                mc.AddProfile(new RfCompanyTypeYangDihindariProfile());
                 mc.AddProfile(new RFJenisLinkAgeProfile());
                 mc.AddProfile(new AnalisaPinjamanDariBankProfile());
                 mc.AddProfile(new AnalisaFasilitasProfile());

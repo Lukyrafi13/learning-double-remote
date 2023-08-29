@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFVehModels;
+using NewLMS.UMKM.Data.Dto.RFVehModels;
 
-namespace NewLMS.Umkm.MediatR.Features.RFVehModels.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFVehModels.Commands
 {
     public class RFVehModelPostValidator : AbstractValidator<RFVehModelPostCommand>
     {

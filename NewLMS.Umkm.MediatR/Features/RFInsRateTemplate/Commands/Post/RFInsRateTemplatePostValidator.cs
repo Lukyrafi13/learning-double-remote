@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFInsRateTemplates;
+using NewLMS.UMKM.Data.Dto.RFInsRateTemplates;
 
-namespace NewLMS.Umkm.MediatR.Features.RFInsRateTemplates.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFInsRateTemplates.Commands
 {
     public class RFInsRateTemplatePostValidator : AbstractValidator<RFInsRateTemplatePostCommand>
     {

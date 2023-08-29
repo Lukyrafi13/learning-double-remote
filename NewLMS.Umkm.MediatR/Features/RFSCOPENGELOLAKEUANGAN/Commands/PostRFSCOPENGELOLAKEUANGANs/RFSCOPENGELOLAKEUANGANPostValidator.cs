@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOPENGELOLAKEUANGANs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOPENGELOLAKEUANGANs.Commands
 {
     public class RFSCOPENGELOLAKEUANGANPostValidator : AbstractValidator<RFSCOPENGELOLAKEUANGANPostCommand>
     {

@@ -1,12 +1,12 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppIDEPutRequestDto
     {
         public Guid Id { get; set; }
 
-        public Guid RFProductId { get; set; }
-        public Guid RFOwnerCategoryId { get; set; }
+        public Guid RfProductId { get; set; }
+        public Guid RfOwnerCategoryId { get; set; }
         public bool? SiklusUsaha { get; set; }
         public int? SiklusUsahaMonth { get; set; }
 		// SCO

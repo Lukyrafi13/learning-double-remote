@@ -2,15 +2,15 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class AppFasilitasKredit : BaseEntity
     {
         public Guid Id { get; set; }
         [ForeignKey("AppId")]
         public App App { get; set; }
-        [ForeignKey("RFJenisPermohonanKreditId")]
-        public RFJenisPermohonan JenisPermohonanKredit { get; set; }
+        [ForeignKey("RfAppTypeKreditId")]
+        public RfAppType JenisPermohonanKredit { get; set; }
         [ForeignKey("RFLoanPurposeId")]
         public RFLoanPurpose TujuanKredit { get; set; }    
         [ForeignKey("RFSubProductId")]
@@ -28,23 +28,23 @@ namespace NewLMS.Umkm.Data
         public float AngsuranPokok { get; set; }
         public float AngsuranBunga { get; set; }
         public float Angsuran => AngsuranPokok + AngsuranBunga;
-        [ForeignKey("RFSectorLBU1Code")]
-        public RFSectorLBU1 SektorEkonomiLBU { get; set; }
-        [ForeignKey("RFSectorLBU2Code")]
-        public RFSectorLBU2 SubSektorEkonomiLBU { get; set; }
-        [ForeignKey("RFSectorLBU3Code")]
-        public RFSectorLBU3 SubSubSektorEkonomiLBU { get; set; }
+        [ForeignKey("RfSectorLBU1Code")]
+        public RfSectorLBU1 SektorEkonomiLBU { get; set; }
+        [ForeignKey("RfSectorLBU2Code")]
+        public RfSectorLBU2 SubSektorEkonomiLBU { get; set; }
+        [ForeignKey("RfSectorLBU3Code")]
+        public RfSectorLBU3 SubSubSektorEkonomiLBU { get; set; }
         
         public Guid AppId { get; set; }
-        public Guid RFJenisPermohonanKreditId { get; set; }
+        public Guid RfAppTypeKreditId { get; set; }
         public Guid RFLoanPurposeId { get; set; }
         public Guid RFSubProductId { get; set; }
         public Guid? RFNegaraPenempatanId { get; set; }
         public Guid RFTenorId { get; set; }
         public Guid RFSifatKreditId { get; set; }
-        public string RFSectorLBU1Code { get; set; }
-        public string RFSectorLBU2Code { get; set; }
-        public string RFSectorLBU3Code { get; set; }
+        public string RfSectorLBU1Code { get; set; }
+        public string RfSectorLBU2Code { get; set; }
+        public string RfSectorLBU3Code { get; set; }
         
     }
 }

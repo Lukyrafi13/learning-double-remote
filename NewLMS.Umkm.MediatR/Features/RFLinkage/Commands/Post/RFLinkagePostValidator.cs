@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFLinkages;
+using NewLMS.UMKM.Data.Dto.RFLinkages;
 
-namespace NewLMS.Umkm.MediatR.Features.RFLinkages.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFLinkages.Commands
 {
     public class RFLinkagePostValidator : AbstractValidator<RFLinkagePostCommand>
     {

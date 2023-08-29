@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFKodeDinass;
+using NewLMS.UMKM.Data.Dto.RFKodeDinass;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFKodeDinass.Commands;
-using NewLMS.Umkm.MediatR.Features.RFKodeDinass.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFKodeDinass.Commands;
+using NewLMS.UMKM.MediatR.Features.RFKodeDinass.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFKodeDinas
+namespace NewLMS.UMKM.API.Controllers.RFKodeDinas
 {
     public class RFKodeDinasController : BaseController
     {

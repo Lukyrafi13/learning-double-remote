@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypes
 {
-    public class RFJenisUsahaFindRequestDto
+    public class RfCompanyTypeFindRequestDto
     {
         public string ANL_CODE { get; set; }
 

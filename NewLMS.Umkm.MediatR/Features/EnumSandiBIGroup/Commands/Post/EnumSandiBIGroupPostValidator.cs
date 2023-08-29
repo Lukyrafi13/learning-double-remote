@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.EnumSandiBIGroups;
+using NewLMS.UMKM.Data.Dto.EnumSandiBIGroups;
 
-namespace NewLMS.Umkm.MediatR.Features.EnumSandiBIGroups.Commands
+namespace NewLMS.UMKM.MediatR.Features.EnumSandiBIGroups.Commands
 {
     public class EnumSandiBIGroupPostValidator : AbstractValidator<EnumSandiBIGroupPostCommand>
     {

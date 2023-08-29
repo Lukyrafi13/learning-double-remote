@@ -1,6 +1,6 @@
-namespace NewLMS.Umkm.Data.Dto.RFKategoris
+namespace NewLMS.UMKM.Data.Dto.RfCategorys
 {
-    public class RFKategoriRequestDto
+    public class RfCategoryRequestDto
     {
     }
 }

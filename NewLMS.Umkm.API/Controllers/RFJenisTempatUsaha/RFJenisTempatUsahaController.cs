@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisTempatUsahas;
+using NewLMS.UMKM.Data.Dto.RFJenisTempatUsahas;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisTempatUsahas.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisTempatUsahas.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFJenisTempatUsahas.Commands;
+using NewLMS.UMKM.MediatR.Features.RFJenisTempatUsahas.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisTempatUsaha
+namespace NewLMS.UMKM.API.Controllers.RFJenisTempatUsaha
 {
     public class RFJenisTempatUsahaController : BaseController
     {

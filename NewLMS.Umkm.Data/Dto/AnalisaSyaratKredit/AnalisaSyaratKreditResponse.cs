@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.AnalisaSyaratKredits
+namespace NewLMS.UMKM.Data.Dto.AnalisaSyaratKredits
 {
     public class AnalisaSyaratKreditResponseDto
     {

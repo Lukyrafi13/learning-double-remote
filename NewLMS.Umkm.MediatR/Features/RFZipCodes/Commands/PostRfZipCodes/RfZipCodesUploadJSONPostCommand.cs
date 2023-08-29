@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -12,19 +12,19 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
 {
     public interface IRfZipCodesUploadJSON
     {
         Task<bool> UploadJSON(IFormFile JSONFile);
     }
 
-    public class RFZipCodeJSON
+    public class RfZipCodeJSON
     {
-        public RFZipCodeEntity[] RECORDS { get; set; }
+        public RfZipCodeEntity[] RECORDS { get; set; }
     }
 
-    public class RFZipCodeEntity
+    public class RfZipCodeEntity
     {
         public string ZIP_CODE { get; set; }
         public string SEQ { get; set; }
@@ -50,12 +50,12 @@ namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
 
     public class RfZipCodesUploadJSON : IRfZipCodesUploadJSON
     {
-        private readonly IGenericRepositoryAsync<RFZipCode> _RFZipCode;
+        private readonly IGenericRepositoryAsync<RfZipCode> _RfZipCode;
         private readonly IMapper _mapper;
 
-        public RfZipCodesUploadJSON(IGenericRepositoryAsync<RFZipCode> rfZipCode, IMapper mapper)
+        public RfZipCodesUploadJSON(IGenericRepositoryAsync<RfZipCode> rfZipCode, IMapper mapper)
         {
-            _RFZipCode = rfZipCode;
+            _RfZipCode = rfZipCode;
             _mapper = mapper;
         }
 
@@ -64,12 +64,12 @@ namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
 
             using var sr = new StreamReader(JSONFile.OpenReadStream(), Encoding.UTF8);
             string content = await sr.ReadToEndAsync();
-            var zipCodeJSON = JsonConvert.DeserializeObject<RFZipCodeJSON>(content);
+            var zipCodeJSON = JsonConvert.DeserializeObject<RfZipCodeJSON>(content);
 
             var i = 0;
 
-            var listZipCode = new List<RFZipCode>();
-            var listExistingZipCode = new List<RFZipCode>();
+            var listZipCode = new List<RfZipCode>();
+            var listExistingZipCode = new List<RfZipCode>();
 
             foreach (var zipCode in zipCodeJSON.RECORDS)
             {
@@ -77,13 +77,13 @@ namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
                 i++;
                 var existing = true;
 
-                var ZipCode = await _RFZipCode.GetByIdAsync(i, "id");
+                var ZipCode = await _RfZipCode.GetByIdAsync(i, "id");
 
                 if (ZipCode == null)
                 {
                     existing = false;
 
-                    ZipCode = new RFZipCode();
+                    ZipCode = new RfZipCode();
                 }
 
                 ZipCode.ZipCode = zipCode.ZIP_CODE;
@@ -111,8 +111,8 @@ namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
                 }
             }
 
-            await _RFZipCode.UpdateRangeAsync(listExistingZipCode);
-            await _RFZipCode.AddRangeAsync(listZipCode);
+            await _RfZipCode.UpdateRangeAsync(listExistingZipCode);
+            await _RfZipCode.AddRangeAsync(listZipCode);
 
             return true;
         }

@@ -1,4 +1,4 @@
-﻿namespace NewLMS.Umkm.Data.Dto.AppSettingJson
+﻿namespace NewLMS.UMKM.Data.Dto.AppSettingJson
 {
     public static class AppSettingJsonDto
     {

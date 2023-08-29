@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisLinkAges
+namespace NewLMS.UMKM.Data.Dto.RFJenisLinkAges
 {
     public class RFJenisLinkAgeFindRequestDto
     {

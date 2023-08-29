@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.SIKPHistorys
+namespace NewLMS.UMKM.Data.Dto.SIKPHistorys
 {
     public class SIKPHistoryPutRequestDto : SIKPHistoryPostRequestDto
     {

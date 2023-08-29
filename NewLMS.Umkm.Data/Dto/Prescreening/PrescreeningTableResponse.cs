@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.Prescreenings
+namespace NewLMS.UMKM.Data.Dto.Prescreenings
 {
     public class PrescreeningTableResponse
     {
@@ -12,7 +12,7 @@ namespace NewLMS.Umkm.Data.Dto.Prescreenings
         public int Age { get; set; }
 
         public App App { get; set; }
-        public RFZipCode KodePos { get; set; }
+        public RfZipCode KodePos { get; set; }
         public SlikRequest SlikRequest { get; set; }
 
         public List<RFColLateralBC> ListJenisAgunan { get; set; }

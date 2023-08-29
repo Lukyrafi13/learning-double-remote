@@ -1,34 +1,34 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
 {
-    public class RFZipCodePostCommand : RFZipCodePostRequest, IRequest<ServiceResponse<RFZipCode>>
+    public class RfZipCodePostCommand : RfZipCodePostRequest, IRequest<ServiceResponse<RfZipCode>>
     {
     }
 
-    public class PostRFZipCodeCommandHandler : IRequestHandler<RFZipCodePostCommand, ServiceResponse<RFZipCode>>
+    public class PostRfZipCodeCommandHandler : IRequestHandler<RfZipCodePostCommand, ServiceResponse<RfZipCode>>
     {
-        private readonly IGenericRepositoryAsync<RFZipCode> _RFZipCode;
+        private readonly IGenericRepositoryAsync<RfZipCode> _RfZipCode;
         private readonly IMapper _mapper;
 
-        public PostRFZipCodeCommandHandler(IGenericRepositoryAsync<RFZipCode> rfZipCode, IMapper mapper)
+        public PostRfZipCodeCommandHandler(IGenericRepositoryAsync<RfZipCode> rfZipCode, IMapper mapper)
         {
-            _RFZipCode = rfZipCode;
+            _RfZipCode = rfZipCode;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFZipCode>> Handle(RFZipCodePostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfZipCode>> Handle(RfZipCodePostCommand request, CancellationToken cancellationToken)
         {
-            var RFZipCode = _mapper.Map<RFZipCode>(request);
-            await _RFZipCode.AddAsync(RFZipCode);
-            return ServiceResponse<RFZipCode>.ReturnResultWith200(RFZipCode);
+            var RfZipCode = _mapper.Map<RfZipCode>(request);
+            await _RfZipCode.AddAsync(RfZipCode);
+            return ServiceResponse<RfZipCode>.ReturnResultWith200(RfZipCode);
         }
     }
 }

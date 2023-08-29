@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.EnumSandiBITypes
+namespace NewLMS.UMKM.Data.Dto.EnumSandiBITypes
 {
     public class EnumSandiBITypePutRequestDto : EnumSandiBITypePostRequestDto
     {

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFApprTingkatKesuburans
+namespace NewLMS.UMKM.Data.Dto.RFApprTingkatKesuburans
 {
     public class RFApprTingkatKesuburanPostRequestDto
     {

@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFSCOSALDOREKRATAs
+namespace NewLMS.UMKM.Data.Dto.RFSCOSALDOREKRATAs
 {
     public class RFSCOSALDOREKRATAPostRequestDto
     {

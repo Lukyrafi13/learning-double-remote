@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Data.Dto.RFJOBs;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Dto.RFJOBs;
+using NewLMS.UMKM.Repository.GenericRepository;
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJOBs.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFJOBs.Queries
 {
     public class GetByIdRFJOBQuery : RFJOBFindRequestDto, IRequest<ServiceResponse<RFJOBResponseDto>>
     {

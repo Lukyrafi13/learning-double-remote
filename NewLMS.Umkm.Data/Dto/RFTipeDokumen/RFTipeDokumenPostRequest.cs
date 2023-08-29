@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFTipeDokumens
+namespace NewLMS.UMKM.Data.Dto.RFTipeDokumens
 {
     public class RFTipeDokumenPostRequestDto
     {

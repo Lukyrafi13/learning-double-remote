@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFGenders
+namespace NewLMS.UMKM.Data.Dto.RfGenders
 {
-    public class RFGenderPutRequestDto
+    public class RfGenderPutRequestDto
     {
         
         public string GenderCode { get; set; }

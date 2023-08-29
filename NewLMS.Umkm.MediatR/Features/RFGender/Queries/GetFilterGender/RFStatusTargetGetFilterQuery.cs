@@ -1,40 +1,40 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFGenders;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfGenders;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFGenders.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfGenders.Queries
 {
-    public class RFGendersGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFGenderResponseDto>>>
+    public class RfGendersGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfGenderResponseDto>>>
     {
     }
 
-    public class GetFilterRFGenderQueryHandler : IRequestHandler<RFGendersGetFilterQuery, PagedResponse<IEnumerable<RFGenderResponseDto>>>
+    public class GetFilterRfGenderQueryHandler : IRequestHandler<RfGendersGetFilterQuery, PagedResponse<IEnumerable<RfGenderResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFGender> _rfGender;
+        private IGenericRepositoryAsync<RfGender> _rfGender;
         private readonly IMapper _mapper;
 
-        public GetFilterRFGenderQueryHandler(IGenericRepositoryAsync<RFGender> rfGender, IMapper mapper)
+        public GetFilterRfGenderQueryHandler(IGenericRepositoryAsync<RfGender> rfGender, IMapper mapper)
         {
             _rfGender = rfGender;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFGenderResponseDto>>> Handle(RFGendersGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfGenderResponseDto>>> Handle(RfGendersGetFilterQuery request, CancellationToken cancellationToken)
         {
             var data = await _rfGender.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFGenderResponseDto>>(data.Results);
-            IEnumerable<RFGenderResponseDto> dataVm;
-            var listResponse = new List<RFGenderResponseDto>();
+            // var dataVm = _mapper.Map<IEnumerable<RfGenderResponseDto>>(data.Results);
+            IEnumerable<RfGenderResponseDto> dataVm;
+            var listResponse = new List<RfGenderResponseDto>();
 
             foreach (var gender in data.Results){
-                var response = new RFGenderResponseDto();
+                var response = new RfGenderResponseDto();
                 
                 response.Id = gender.Id;
                 response.GenderCode = gender.GenderCode;
@@ -48,7 +48,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFGenders.Queries
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFGenderResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfGenderResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

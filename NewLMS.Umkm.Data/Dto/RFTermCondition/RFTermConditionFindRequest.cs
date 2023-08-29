@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFTermConditions
+namespace NewLMS.UMKM.Data.Dto.RFTermConditions
 {
     public class RFTermConditionFindRequestDto
     {        

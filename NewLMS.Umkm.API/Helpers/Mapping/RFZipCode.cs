@@ -1,17 +1,17 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RFZipCodeProfile : Profile
+    public class RfZipCodeProfile : Profile
     {
-        public RFZipCodeProfile()
+        public RfZipCodeProfile()
         {
-            CreateMap<RFZipCode, RFZipCodeResponse>().ReverseMap();
-            CreateMap<RFZipCodePostRequest, RFZipCode>();
-            CreateMap<RFZipCodePutRequest, RFZipCode>();
+            CreateMap<RfZipCode, RfZipCodeResponse>().ReverseMap();
+            CreateMap<RfZipCodePostRequest, RfZipCode>();
+            CreateMap<RfZipCodePutRequest, RfZipCode>();
         }
     }
 }

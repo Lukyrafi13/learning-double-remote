@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSANDIBIS;
+using NewLMS.UMKM.Data.Dto.RFSANDIBIS;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSANDIBIS.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSANDIBIS.Commands
 {
     public class RFSANDIBIPostValidator : AbstractValidator<RFSANDIBIPostCommand>
     {

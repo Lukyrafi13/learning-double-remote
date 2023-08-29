@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisAsuransis;
+using NewLMS.UMKM.Data.Dto.RFJenisAsuransis;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisAsuransis.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisAsuransis.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFJenisAsuransis.Commands;
+using NewLMS.UMKM.MediatR.Features.RFJenisAsuransis.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisAsuransi
+namespace NewLMS.UMKM.API.Controllers.RFJenisAsuransi
 {
     public class RFJenisAsuransiController : BaseController
     {

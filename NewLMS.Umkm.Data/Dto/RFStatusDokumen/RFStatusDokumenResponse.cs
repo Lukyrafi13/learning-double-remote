@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFStatusDokumens
+namespace NewLMS.UMKM.Data.Dto.RFStatusDokumens
 {
     public class RFStatusDokumenResponseDto
     {

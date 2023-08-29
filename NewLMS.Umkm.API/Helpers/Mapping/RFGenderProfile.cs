@@ -1,17 +1,17 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFGenders;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RfGenders;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RFGenderProfile : Profile
+    public class RfGenderProfile : Profile
     {
-        public RFGenderProfile()
+        public RfGenderProfile()
         {
-            CreateMap<RFGenderPostRequestDto, RFGender>();
-            CreateMap<RFGenderPutRequestDto, RFGender>();
-            CreateMap<RFGenderResponseDto, RFGender>().ReverseMap();
+            CreateMap<RfGenderPostRequestDto, RfGender>();
+            CreateMap<RfGenderPutRequestDto, RfGender>();
+            CreateMap<RfGenderResponseDto, RfGender>().ReverseMap();
         }
     }
 }

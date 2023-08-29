@@ -2,7 +2,7 @@
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Linq;
 
-namespace NewLMS.Umkm.API.Filters
+namespace NewLMS.UMKM.API.Filters
 {
     public class ReApplyOptionalRouteParameterOperationFilter : IOperationFilter
     {

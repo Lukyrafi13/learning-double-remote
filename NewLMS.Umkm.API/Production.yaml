@@ -6,7 +6,7 @@
         dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'
     }
     # $Env:ASPNETCORE_ENVIRONMENT = "Development"
-    # dotnet ef database update -c UserContext -p NewLMS.Umkm.Domain -s NewLMS.Umkm.API
+    # dotnet ef database update -c UserContext -p NewLMS.UMKM.Domain -s NewLMS.UMKM.API
     stages 
     {
         stage('Checkout Stage') 
@@ -20,7 +20,7 @@
         {
           steps 
           {
-            bat "dotnet restore NewLMS.Umkm.sln"
+            bat "dotnet restore NewLMS.UMKM.sln"
           }
         }
         stage("Release Stage") 
@@ -84,7 +84,7 @@
               sshPublisher(publishers: [sshPublisherDesc(configName: 'NEWLMS248', transfers: [
                 sshTransfer(
                 cleanRemote: true, 
-                excludes: '**/NewLMS.Umkm.API/bin/Release/net6.0/publish/appsettings.Production.json', 
+                excludes: '**/NewLMS.UMKM.API/bin/Release/net6.0/publish/appsettings.Production.json', 
                 execCommand: '', 
                 execTimeout: 120000, 
                 flatten: false, 
@@ -93,8 +93,8 @@
                 patternSeparator: '[, ]+', 
                 remoteDirectory: '/', 
                 remoteDirectorySDF: false, 
-                removePrefix: 'NewLMS.Umkm.API/bin/Release/net6.0/publish/', 
-                sourceFiles:  '**/NewLMS.Umkm.API/bin/Release/net6.0/publish/*', 
+                removePrefix: 'NewLMS.UMKM.API/bin/Release/net6.0/publish/', 
+                sourceFiles:  '**/NewLMS.UMKM.API/bin/Release/net6.0/publish/*', 
                 useSftpForExec: true)], 
                 usePromotionTimestamp: false, 
                 useWorkspaceInPromotion: false, 
@@ -109,7 +109,7 @@
               sshPublisher(publishers: [sshPublisherDesc(configName: 'NEWLMS249', transfers: [
                 sshTransfer(
                 cleanRemote: true, 
-                excludes: '**/NewLMS.Umkm.API/bin/Release/net6.0/publish/appsettings.Production.json', 
+                excludes: '**/NewLMS.UMKM.API/bin/Release/net6.0/publish/appsettings.Production.json', 
                 execCommand: '', 
                 execTimeout: 120000, 
                 flatten: false, 
@@ -118,8 +118,8 @@
                 patternSeparator: '[, ]+', 
                 remoteDirectory: '/', 
                 remoteDirectorySDF: false, 
-                removePrefix: 'NewLMS.Umkm.API/bin/Release/net6.0/publish/', 
-                sourceFiles:  '**/NewLMS.Umkm.API/bin/Release/net6.0/publish/*', 
+                removePrefix: 'NewLMS.UMKM.API/bin/Release/net6.0/publish/', 
+                sourceFiles:  '**/NewLMS.UMKM.API/bin/Release/net6.0/publish/*', 
                 useSftpForExec: true)], 
                 usePromotionTimestamp: false, 
                 useWorkspaceInPromotion: false, 

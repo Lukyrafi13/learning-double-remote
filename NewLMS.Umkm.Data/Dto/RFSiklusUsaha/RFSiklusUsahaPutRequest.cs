@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFSiklusUsahas
+namespace NewLMS.UMKM.Data.Dto.RFSiklusUsahas
 {
     public class RFSiklusUsahaPutRequestDto : RFSiklusUsahaPostRequestDto
     {

@@ -1,9 +1,9 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.MSearchs;
-// using NewLMS.Umkm.Data.Dto.SlikRequestDuplikasis;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.MSearchs;
+// using NewLMS.UMKM.Data.Dto.SlikRequestDuplikasis;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
     public class SlikRequestDuplikasiProfile : Profile

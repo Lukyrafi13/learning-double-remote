@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RFTipeKredits;
 
-namespace NewLMS.Umkm.MediatR.Features.RFTipeKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands
 {
     public class RFTipeKreditPostValidator : AbstractValidator<RFTipeKreditPostCommand>
     {

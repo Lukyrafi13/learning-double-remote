@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Common.GenericRespository
+namespace NewLMS.UMKM.Common.GenericRespository
 {
     public class RequestFilterParameter
     {

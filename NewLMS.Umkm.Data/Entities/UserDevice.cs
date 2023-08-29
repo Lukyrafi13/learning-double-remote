@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data.Entities
+namespace NewLMS.UMKM.Data.Entities
 {
     public class UserDevice : BaseEntity
     {

@@ -1,12 +1,12 @@
-using FluentValidation;
-using NewLMS.Umkm.Data.Dto.AnalisaPinjamanDariBanks;
+// using FluentValidation;
+// using NewLMS.UMKM.Data.Dto.AnalisaPinjamanDariBanks;
 
-namespace NewLMS.Umkm.MediatR.Features.AnalisaPinjamanDariBanks.Commands
-{
-    public class AnalisaPinjamanDariBankPostValidator : AbstractValidator<AnalisaPinjamanDariBankPostCommand>
-    {
-        public AnalisaPinjamanDariBankPostValidator(){
-            // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
-        }
-    }
-}
+// namespace NewLMS.UMKM.MediatR.Features.AnalisaPinjamanDariBanks.Commands
+// {
+//     public class AnalisaPinjamanDariBankPostValidator : AbstractValidator<AnalisaPinjamanDariBankPostCommand>
+//     {
+//         public AnalisaPinjamanDariBankPostValidator(){
+//             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
+//         }
+//     }
+// }

@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFJenisDuplikasis
+namespace NewLMS.UMKM.Data.Dto.RFJenisDuplikasis
 {
     public class RFJenisDuplikasiPostRequestDto
     {

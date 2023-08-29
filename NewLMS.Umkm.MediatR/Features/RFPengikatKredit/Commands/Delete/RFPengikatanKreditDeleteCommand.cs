@@ -1,13 +1,13 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFPengikatanKredits;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RFPengikatanKredits;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFPengikatanKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFPengikatanKredits.Commands
 {
     public class RFPengikatanKreditDeleteCommand : RFPengikatanKreditFindRequestDto, IRequest<ServiceResponse<Unit>>
     {

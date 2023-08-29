@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Hosting;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.Helper;
 using System.Threading;
 using System.Threading.Tasks;
 using TechRedemption.UIM.Interfaces;
 using TechRedemption.UIM.Models;
 
-namespace NewLMS.Umkm.MediatR.Features.Tests.Commands
+namespace NewLMS.UMKM.MediatR.Features.Tests.Commands
 {
     public class LoginViaUIMCommand : IRequest<ServiceResponse<UIMNGResponse>>
     {

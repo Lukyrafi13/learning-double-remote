@@ -1,45 +1,45 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU1s;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU1s;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU1s.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfSectorLBU1s.Queries
 {
-    public class RFSectorLBU1GetByIdQuery : IRequest<ServiceResponse<RFSectorLBU1Response>>
+    public class RfSectorLBU1GetByIdQuery : IRequest<ServiceResponse<RfSectorLBU1Response>>
     {
         public string Code { get; set; }
     }
 
-    public class GetByIdRFSectorLBU1QueryHandler : IRequestHandler<RFSectorLBU1GetByIdQuery, ServiceResponse<RFSectorLBU1Response>>
+    public class GetByIdRfSectorLBU1QueryHandler : IRequestHandler<RfSectorLBU1GetByIdQuery, ServiceResponse<RfSectorLBU1Response>>
     {
-        private IGenericRepositoryAsync<RFSectorLBU1> _rfSectorLBU1;
+        private IGenericRepositoryAsync<RfSectorLBU1> _rfSectorLBU1;
         private readonly IMapper _mapper;
 
-        public GetByIdRFSectorLBU1QueryHandler(IGenericRepositoryAsync<RFSectorLBU1> rfSectorLBU1, IMapper mapper)
+        public GetByIdRfSectorLBU1QueryHandler(IGenericRepositoryAsync<RfSectorLBU1> rfSectorLBU1, IMapper mapper)
         {
             _rfSectorLBU1 = rfSectorLBU1;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFSectorLBU1Response>> Handle(RFSectorLBU1GetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfSectorLBU1Response>> Handle(RfSectorLBU1GetByIdQuery request, CancellationToken cancellationToken)
         {
             try
             {
                 var data = await _rfSectorLBU1.GetByIdAsync(request.Code, "Code");
                 if (data == null)
-                    return ServiceResponse<RFSectorLBU1Response>.Return404("Data RFSectorLBU1 not found");
-                var dataVm = _mapper.Map<RFSectorLBU1Response>(data);
-                return ServiceResponse<RFSectorLBU1Response>.ReturnResultWith200(dataVm);
+                    return ServiceResponse<RfSectorLBU1Response>.Return404("Data RfSectorLBU1 not found");
+                var dataVm = _mapper.Map<RfSectorLBU1Response>(data);
+                return ServiceResponse<RfSectorLBU1Response>.ReturnResultWith200(dataVm);
             }
             catch (Exception ex)
             {
 
-                return ServiceResponse<RFSectorLBU1Response>.ReturnException(ex);
+                return ServiceResponse<RfSectorLBU1Response>.ReturnException(ex);
             }
 
         }

@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOREPUTASITEMPATTINGGALs;
+using NewLMS.UMKM.Data.Dto.RFSCOREPUTASITEMPATTINGGALs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOREPUTASITEMPATTINGGALs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOREPUTASITEMPATTINGGALs.Commands
 {
     public class RFSCOREPUTASITEMPATTINGGALPostValidator : AbstractValidator<RFSCOREPUTASITEMPATTINGGALPostCommand>
     {

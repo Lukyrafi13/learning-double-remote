@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFBanks;
+using NewLMS.UMKM.Data.Dto.RFBanks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFBanks.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFBanks.Commands
 {
     public class RFBankPostValidator : AbstractValidator<RFBankPostCommand>
     {

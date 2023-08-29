@@ -1,9 +1,9 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisPermohonans
+namespace NewLMS.UMKM.Data.Dto.RfAppTypes
 {
-    public class RFJenisPermohonanPostRequestDto
+    public class RfAppTypePostRequestDto
     {
-        public string JenisPermohonan { get; set; }
+        public string Type { get; set; }
     }
 }

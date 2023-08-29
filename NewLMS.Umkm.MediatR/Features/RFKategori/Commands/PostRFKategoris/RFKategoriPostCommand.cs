@@ -1,49 +1,49 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKategoris;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCategorys;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKategoris.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCategorys.Commands
 {
-    public class RFKategoriPostCommand : RFKategoriPostRequestDto, IRequest<ServiceResponse<RFKategoriResponseDto>>
+    public class RfCategoryPostCommand : RfCategoryPostRequestDto, IRequest<ServiceResponse<RfCategoryResponseDto>>
     {
 
     }
-    public class PostRFKategoriCommandHandler : IRequestHandler<RFKategoriPostCommand, ServiceResponse<RFKategoriResponseDto>>
+    public class PostRfCategoryCommandHandler : IRequestHandler<RfCategoryPostCommand, ServiceResponse<RfCategoryResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFKategori> _RFKategori;
+        private readonly IGenericRepositoryAsync<RfCategory> _RfCategory;
         private readonly IMapper _mapper;
 
-        public PostRFKategoriCommandHandler(IGenericRepositoryAsync<RFKategori> RFKategori, IMapper mapper)
+        public PostRfCategoryCommandHandler(IGenericRepositoryAsync<RfCategory> RfCategory, IMapper mapper)
         {
-            _RFKategori = RFKategori;
+            _RfCategory = RfCategory;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFKategoriResponseDto>> Handle(RFKategoriPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCategoryResponseDto>> Handle(RfCategoryPostCommand request, CancellationToken cancellationToken)
         {
 
             try
             {
-                var RFKategori = _mapper.Map<RFKategori>(request);
+                var RfCategory = _mapper.Map<RfCategory>(request);
 
-                var returnedRfStatusTarget = await _RFKategori.AddAsync(RFKategori, callSave: false);
+                var returnedRfStatusTarget = await _RfCategory.AddAsync(RfCategory, callSave: false);
 
-                // var response = _mapper.Map<RFKategoriResponseDto>(returnedRfStatusTarget);
-                var response = _mapper.Map<RFKategoriResponseDto>(returnedRfStatusTarget);
+                // var response = _mapper.Map<RfCategoryResponseDto>(returnedRfStatusTarget);
+                var response = _mapper.Map<RfCategoryResponseDto>(returnedRfStatusTarget);
 
-                await _RFKategori.SaveChangeAsync();
-                return ServiceResponse<RFKategoriResponseDto>.ReturnResultWith200(response);
+                await _RfCategory.SaveChangeAsync();
+                return ServiceResponse<RfCategoryResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFKategoriResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfCategoryResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.Umkm.Data.Dto.ReviewPersiapanAkads
+namespace NewLMS.UMKM.Data.Dto.ReviewPersiapanAkads
 {
     public class ReviewPersiapanAkadTableResponse
     {

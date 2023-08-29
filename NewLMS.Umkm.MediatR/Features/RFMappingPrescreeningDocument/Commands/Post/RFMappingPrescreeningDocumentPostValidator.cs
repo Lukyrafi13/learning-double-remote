@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFMappingPrescreeningDocuments;
+using NewLMS.UMKM.Data.Dto.RFMappingPrescreeningDocuments;
 
-namespace NewLMS.Umkm.MediatR.Features.RFMappingPrescreeningDocuments.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFMappingPrescreeningDocuments.Commands
 {
     public class RFMappingPrescreeningDocumentPostValidator : AbstractValidator<RFMappingPrescreeningDocumentPostCommand>
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.Analisas
+namespace NewLMS.UMKM.Data.Dto.Analisas
 {
     public class AnalisaHasilRekomendasiResponse : AnalisaHasilRekomendasiPut
     {

@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFZipCodes;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
 
-namespace NewLMS.Umkm.MediatR.Features.RFZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
 {
-    public class RFZipCodePostValidator : AbstractValidator<RFZipCodePostRequest>
+    public class RfZipCodePostValidator : AbstractValidator<RfZipCodePostRequest>
     {
-        public RFZipCodePostValidator()
+        public RfZipCodePostValidator()
         {
             RuleFor(c => c.Id).NotEmpty().WithMessage("Id is required");
             RuleFor(c => c.ZipCode).NotEmpty().WithMessage("ZipCode is required");

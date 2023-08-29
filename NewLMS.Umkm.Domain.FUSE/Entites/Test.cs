@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data;
+using NewLMS.UMKM.Data;
 
-namespace NewLMS.Umkm.Domain.FUSE.Entites
+namespace NewLMS.UMKM.Domain.FUSE.Entites
 {
     public class Test : BaseEntity
     {

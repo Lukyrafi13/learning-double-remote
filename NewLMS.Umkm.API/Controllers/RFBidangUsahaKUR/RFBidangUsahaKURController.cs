@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFBidangUsahaKURs;
+using NewLMS.UMKM.Data.Dto.RFBidangUsahaKURs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFBidangUsahaKURs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFBidangUsahaKURs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFBidangUsahaKURs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFBidangUsahaKURs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFBidangUsahaKUR
+namespace NewLMS.UMKM.API.Controllers.RFBidangUsahaKUR
 {
     public class RFBidangUsahaKURController : BaseController
     {

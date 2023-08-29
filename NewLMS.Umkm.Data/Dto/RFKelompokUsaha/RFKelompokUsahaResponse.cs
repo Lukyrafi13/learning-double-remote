@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFKelompokUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyGroups
 {
-    public class RFKelompokUsahaResponseDto
+    public class RfCompanyGroupResponseDto
     {
         public Guid Id { get; set; }
         public string ANL_CODE { get; set;}

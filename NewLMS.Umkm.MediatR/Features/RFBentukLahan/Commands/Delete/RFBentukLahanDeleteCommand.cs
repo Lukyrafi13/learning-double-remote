@@ -1,13 +1,13 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFBentukLahans;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFBentukLahans;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFBentukLahans.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFBentukLahans.Commands
 {
     public class RFBentukLahanDeleteCommand : RFBentukLahanFindRequestDto, IRequest<ServiceResponse<Unit>>
     {

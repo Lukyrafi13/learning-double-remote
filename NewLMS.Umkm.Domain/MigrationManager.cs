@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NewLMS.Umkm.Domain.Context;
+using NewLMS.UMKM.Domain.Context;
 
-namespace NewLMS.Umkm.Domain
+namespace NewLMS.UMKM.Domain
 {
 	public static class MigrationManager
 	{

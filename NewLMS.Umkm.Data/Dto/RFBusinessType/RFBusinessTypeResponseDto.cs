@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFBusinessTypes
+namespace NewLMS.UMKM.Data.Dto.RFBusinessTypes
 {
     public class RFBusinessTypeResponseDto : BaseResponse
     {

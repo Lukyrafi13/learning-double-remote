@@ -1,8 +1,8 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFKepemilikanUsahas;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RFKepemilikanUsahas;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
     public class RFKepemilikanUsahaProfile : Profile

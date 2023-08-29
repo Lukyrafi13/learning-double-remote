@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSkemaSIKPs;
+using NewLMS.UMKM.Data.Dto.RFSkemaSIKPs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSkemaSIKPs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSkemaSIKPs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSkemaSIKPs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSkemaSIKPs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSkemaSIKP
+namespace NewLMS.UMKM.API.Controllers.RFSkemaSIKP
 {
     public class RFSkemaSIKPController : BaseController
     {

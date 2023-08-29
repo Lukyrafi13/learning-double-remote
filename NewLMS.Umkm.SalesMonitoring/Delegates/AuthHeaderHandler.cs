@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using NewLMS.Umkm.Maps.Models;
+using NewLMS.UMKM.Maps.Models;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace NewLMS.Umkm.Maps.Delegates
+namespace NewLMS.UMKM.Maps.Delegates
 {
     public class AuthHeaderHandler : DelegatingHandler
     {

@@ -1,17 +1,17 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.SIKP2.Models;
-using NewLMS.Umkm.SIKP2.Interfaces;
-using NewLMS.Umkm.SIKP.Interfaces;
+using NewLMS.UMKM.SIKP2.Models;
+using NewLMS.UMKM.SIKP2.Interfaces;
+using NewLMS.UMKM.SIKP.Interfaces;
 using System.Linq;
 
-namespace NewLMS.Umkm.MediatR.Features.SIKP.Queries
+namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
 {
     public class SIKPGetRateAkadQuery : RateAkadRequestModel, IRequest<ServiceResponse<RateAkadResponseModel>>
     {

@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFSkemaSIKPs
+namespace NewLMS.UMKM.Data.Dto.RFSkemaSIKPs
 {
     public class RFSkemaSIKPRequestDto
     {

@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFJenisUsahas
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypes
 {
-    public class RFJenisUsahaPutRequestDto : RFJenisUsahaPostRequestDto
+    public class RfCompanyTypePutRequestDto : RfCompanyTypePostRequestDto
     {
     }
 }

@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SIKPHistoryDetails
+namespace NewLMS.UMKM.Data.Dto.SIKPHistoryDetails
 {
     public class SIKPHistoryDetailResponseDto
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Data.Dto.RFSectorLBU1s
+namespace NewLMS.UMKM.Data.Dto.RfSectorLBU1s
 {
-    public class RFSectorLBU1Response : BaseResponse
+    public class RfSectorLBU1Response : BaseResponse
     {
         public string Code { get; set; }
         public string Description { get; set; }

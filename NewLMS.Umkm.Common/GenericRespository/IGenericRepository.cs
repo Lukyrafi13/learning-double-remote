@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Common.GenericRespository
+namespace NewLMS.UMKM.Common.GenericRespository
 {
     public interface IGenericRepository<TC>
         where TC : class

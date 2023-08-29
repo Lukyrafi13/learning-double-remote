@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.SIKP2.Models;
-using NewLMS.Umkm.SIKP.Models;
-using NewLMS.Umkm.MediatR.Features.SIKP.Queries;
-using NewLMS.Umkm.MediatR.Features.SIKP.Queries.Commands;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.SIKP2.Models;
+using NewLMS.UMKM.SIKP.Models;
+using NewLMS.UMKM.MediatR.Features.SIKP.Queries;
+using NewLMS.UMKM.MediatR.Features.SIKP.Queries.Commands;
 
-namespace NewLMS.Umkm.API.Controllers.SIKPService
+namespace NewLMS.UMKM.API.Controllers.SIKPService
 {
     public class SIKPServiceController : BaseController
     {

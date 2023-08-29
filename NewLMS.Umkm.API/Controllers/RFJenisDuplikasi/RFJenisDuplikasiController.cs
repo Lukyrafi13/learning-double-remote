@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFJenisDuplikasis;
+using NewLMS.UMKM.Data.Dto.RFJenisDuplikasis;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFJenisDuplikasis.Commands;
-using NewLMS.Umkm.MediatR.Features.RFJenisDuplikasis.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFJenisDuplikasis.Commands;
+using NewLMS.UMKM.MediatR.Features.RFJenisDuplikasis.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFJenisDuplikasi
+namespace NewLMS.UMKM.API.Controllers.RFJenisDuplikasi
 {
     public class RFJenisDuplikasiController : BaseController
     {

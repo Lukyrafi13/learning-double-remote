@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.Umkm.Maps.Delegates;
-using NewLMS.Umkm.Maps.Interfaces;
-using NewLMS.Umkm.Maps.Models;
-using NewLMS.Umkm.Maps.Services;
+using NewLMS.UMKM.Maps.Delegates;
+using NewLMS.UMKM.Maps.Interfaces;
+using NewLMS.UMKM.Maps.Models;
+using NewLMS.UMKM.Maps.Services;
 using Refit;
 using System.Reflection;
 using System.Text.Json;
 
-namespace NewLMS.Umkm.Maps
+namespace NewLMS.UMKM.Maps
 {
     public static class ServiceRegistration
     {

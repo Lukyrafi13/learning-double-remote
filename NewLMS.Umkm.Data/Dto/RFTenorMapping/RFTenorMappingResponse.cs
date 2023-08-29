@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFTenorMappings
+namespace NewLMS.UMKM.Data.Dto.RFTenorMappings
 {
     public class RFTenorMappingResponseDto
     {
@@ -7,6 +7,6 @@ namespace NewLMS.Umkm.Data.Dto.RFTenorMappings
         public string TNCode { get; set; }
         public string SiklusCode { get; set; }
         public string ProductId { get; set; }
-        public RFProduct Product { get; set; }
+        public RfProduct Product { get; set; }
     }
 }

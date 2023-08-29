@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using FluentValidation;
 using MediatR;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.MediatR.Features.Prospects.Commands.PostProspects;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.Prospects.Commands.PostProspects;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.Test.Prospects.Commands;
+namespace NewLMS.UMKM.Test.Prospects.Commands;
 using static Testing;
 using Assert = NUnit.Framework.Assert;
 

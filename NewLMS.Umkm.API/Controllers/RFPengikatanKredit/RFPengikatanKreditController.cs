@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFPengikatanKredits;
+using NewLMS.UMKM.Data.Dto.RFPengikatanKredits;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.MediatR.Features.RFPengikatanKredits.Queries;
-using NewLMS.Umkm.MediatR.Features.RFPengikatanKredits.Commands;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.RFPengikatanKredits.Queries;
+using NewLMS.UMKM.MediatR.Features.RFPengikatanKredits.Commands;
 
-namespace NewLMS.Umkm.API.Controllers.RFPengikatanKredit
+namespace NewLMS.UMKM.API.Controllers.RFPengikatanKredit
 {
     public class RFPengikatanKreditController : BaseController
     {

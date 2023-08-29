@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFInsRateMappings
+namespace NewLMS.UMKM.Data.Dto.RFInsRateMappings
 {
     public class RFInsRateMappingResponseDto
     {

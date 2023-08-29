@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFJenisLinkAges;
+using NewLMS.UMKM.Data.Dto.RFJenisLinkAges;
 
-namespace NewLMS.Umkm.MediatR.Features.RFJenisLinkAges.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFJenisLinkAges.Commands
 {
     public class RFJenisLinkAgePostValidator : AbstractValidator<RFJenisLinkAgePostCommand>
     {

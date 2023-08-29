@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFPilihanPemutuss;
+using NewLMS.UMKM.Data.Dto.RFPilihanPemutuss;
 
-namespace NewLMS.Umkm.MediatR.Features.RFPilihanPemutuss.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFPilihanPemutuss.Commands
 {
     public class RFPilihanPemutusPostValidator : AbstractValidator<RFPilihanPemutusPostCommand>
     {

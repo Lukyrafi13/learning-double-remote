@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.RFLokasiUsahas
+namespace NewLMS.UMKM.Data.Dto.RFLokasiUsahas
 {
     public class RFLokasiUsahaPutRequestDto : RFLokasiUsahaPostRequestDto
     {

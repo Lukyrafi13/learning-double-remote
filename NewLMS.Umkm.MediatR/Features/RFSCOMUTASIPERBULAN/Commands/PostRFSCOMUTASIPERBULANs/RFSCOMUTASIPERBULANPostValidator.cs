@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOMUTASIPERBULANs;
+using NewLMS.UMKM.Data.Dto.RFSCOMUTASIPERBULANs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOMUTASIPERBULANs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOMUTASIPERBULANs.Commands
 {
     public class RFSCOMUTASIPERBULANPostValidator : AbstractValidator<RFSCOMUTASIPERBULANPostCommand>
     {

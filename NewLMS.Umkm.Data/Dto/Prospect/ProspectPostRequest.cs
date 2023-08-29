@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.Prospects
+namespace NewLMS.UMKM.Data.Dto.Prospects
 {
     public class ProspectPostRequestDto
     {
@@ -13,18 +13,18 @@ namespace NewLMS.Umkm.Data.Dto.Prospects
         public string AlamatTempat { get; set; }
         public int KodePosTempatId { get; set; }
         public string KelurahanTempat { get; set; }
-        public Guid RFJenisPermohonanId { get; set; }
+        public Guid RfAppTypeId { get; set; }
         public string Alasan { get; set; }
         public double PerkiraanPengajuan { get; set; }
         public DateTime TanggalProspect { get; set; }
-        public Guid RFProductId { get; set; }
-        public Guid RFOwnerCategoryId { get; set; }
-        public Guid? RFGenderId { get; set; }
+        public Guid RfProductId { get; set; }
+        public Guid RfOwnerCategoryId { get; set; }
+        public Guid? RfGenderId { get; set; }
         public Guid RFStatusId { get; set; }
-        public string RFSectorLBU1Code { get; set; }
-        public string RFSectorLBU2Code { get; set; }
-        public string RFSectorLBU3Code { get; set; }
-        public Guid RFKategoriId { get; set; }
+        public string RfSectorLBU1Code { get; set; }
+        public string RfSectorLBU2Code { get; set; }
+        public string RfSectorLBU3Code { get; set; }
+        public Guid RfCategoryId { get; set; }
         public Guid? RFKodeDinasId { get; set; }
         public string NamaAO { get; set; }
         public string KodeCabang { get; set; }
@@ -39,9 +39,9 @@ namespace NewLMS.Umkm.Data.Dto.Prospects
         public string KecamatanUsaha { get; set; }
         public string KabupatenKotaUsaha { get; set; }
         public string PropinsiUsaha { get; set; }
-        public int? RFZipCodeUsahaId { get; set; }
-        public Guid? RFKelompokUsahaId { get; set; }
-        public Guid? RFJenisUsahaId { get; set; }
+        public int? RfZipCodeUsahaId { get; set; }
+        public Guid? RfCompanyGroupId { get; set; }
+        public Guid? RfCompanyTypeId { get; set; }
         public string JenisUsahaLain { get; set; }
     }
 }

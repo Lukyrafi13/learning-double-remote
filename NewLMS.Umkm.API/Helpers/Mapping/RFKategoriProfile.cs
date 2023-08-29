@@ -1,17 +1,17 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFKategoris;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RfCategorys;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RFKategoriProfile : Profile
+    public class RfCategoryProfile : Profile
     {
-        public RFKategoriProfile()
+        public RfCategoryProfile()
         {
-            CreateMap<RFKategoriPostRequestDto, RFKategori>();
-            CreateMap<RFKategoriPutRequestDto, RFKategori>();
-            CreateMap<RFKategoriResponseDto, RFKategori>().ReverseMap();
+            CreateMap<RfCategoryPostRequestDto, RfCategory>();
+            CreateMap<RfCategoryPutRequestDto, RfCategory>();
+            CreateMap<RfCategoryResponseDto, RfCategory>().ReverseMap();
         }
     }
 }

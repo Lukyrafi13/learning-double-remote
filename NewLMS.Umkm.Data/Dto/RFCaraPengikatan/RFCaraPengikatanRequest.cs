@@ -1,4 +1,4 @@
-namespace NewLMS.Umkm.Data.Dto.RFCaraPengikatans
+namespace NewLMS.UMKM.Data.Dto.RFCaraPengikatans
 {
     public class RFCaraPengikatanRequestDto
     {

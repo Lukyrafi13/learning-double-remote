@@ -1,4 +1,4 @@
-﻿namespace NewLMS.Umkm.Data
+﻿namespace NewLMS.UMKM.Data
 {
     public enum ObjectState
     {

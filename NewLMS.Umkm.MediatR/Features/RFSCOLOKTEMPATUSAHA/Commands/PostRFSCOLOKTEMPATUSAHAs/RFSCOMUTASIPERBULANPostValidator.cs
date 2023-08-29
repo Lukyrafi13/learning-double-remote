@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFSCOLOKTEMPATUSAHAs;
+using NewLMS.UMKM.Data.Dto.RFSCOLOKTEMPATUSAHAs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSCOLOKTEMPATUSAHAs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFSCOLOKTEMPATUSAHAs.Commands
 {
     public class RFSCOLOKTEMPATUSAHAPostValidator : AbstractValidator<RFSCOLOKTEMPATUSAHAPostCommand>
     {

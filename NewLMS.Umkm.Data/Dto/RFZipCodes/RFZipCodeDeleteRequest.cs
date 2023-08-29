@@ -1,6 +1,6 @@
-﻿namespace NewLMS.Umkm.Data.Dto.RFZipCodes
+﻿namespace NewLMS.UMKM.Data.Dto.RfZipCodes
 {
-    public class RFZipCodeDeleteRequest
+    public class RfZipCodeDeleteRequest
     {
         public string ZipCode { get; set; }
     }

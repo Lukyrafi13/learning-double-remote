@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace NewLMS.Umkm.Data
+namespace NewLMS.UMKM.Data
 {
     public class Analisa : BaseEntity
     {
@@ -24,10 +24,10 @@ namespace NewLMS.Umkm.Data
         [ForeignKey("RFJenisTempatUsahaId")]
         public RFJenisTempatUsaha JenisTempatUsaha { get; set; }
         public string PerijinanYangDimiliki { get; set; }
-        [ForeignKey("RFKelompokUsahaId")]
-        public RFKelompokUsaha KelompokBidangUsaha { get; set; }
-        [ForeignKey("RFJenisUsahaId")]
-        public RFJenisUsaha JenisUsaha { get; set; }
+        [ForeignKey("RfCompanyGroupId")]
+        public RfCompanyGroup KelompokBidangUsaha { get; set; }
+        [ForeignKey("RfCompanyTypeId")]
+        public RfCompanyType JenisUsaha { get; set; }
         [ForeignKey("RFLokasiTempatUsahaId")]
         public RFLokasiTempatUsaha LokasiTempatUsaha { get; set; }
         [ForeignKey("RFKepemilikanTUId")]
@@ -116,7 +116,7 @@ namespace NewLMS.Umkm.Data
         [ForeignKey("RFPolaPengembalianAngsuranId")]
         public RFPolaPengembalian PolaPengembalianKredit { get; set; }
         [ForeignKey("RFBranchesCode")]
-        public RfBranches BookingOffice { get; set; }
+        public RfBranch BookingOffice { get; set; }
         [ForeignKey("SlikRequestId")]
         public SlikRequest SlikRequest { get; set; }
         public double? Provisi { get; set; }
@@ -158,7 +158,6 @@ namespace NewLMS.Umkm.Data
         public double? SBDKMikro => HPDKMikro + BOMikro + MKMikro;
         public double? SBDKKPR => HPDKKPR + BOKPR + MKKPR;
         public double? SBDKNonKPR => HPDKNonKPR + BONonKPR + MKNonKPR;
-        public int Age => App?.Prospect?.AgeStage("5.0")??-1;
 
         public ICollection<AnalisaFasilitas> AnalisaFasilitass { get; set; }
         public ICollection<AnalisaPinjamanDariBank> AnalisaPinjamanDariBanks { get; set; }
@@ -179,8 +178,8 @@ namespace NewLMS.Umkm.Data
         public Guid? SurveyId { get; set; }
         public Guid? RFLokasiUsahaId { get; set; }
         public Guid? RFJenisTempatUsahaId { get; set; }
-        public Guid? RFKelompokUsahaId { get; set; }
-        public Guid? RFJenisUsahaId { get; set; }
+        public Guid? RfCompanyGroupId { get; set; }
+        public Guid? RfCompanyTypeId { get; set; }
         public Guid? RFLokasiTempatUsahaId { get; set; }
         public Guid? RFKepemilikanTUId { get; set; }
         public Guid? RFBuktiKepemilikanId { get; set; }

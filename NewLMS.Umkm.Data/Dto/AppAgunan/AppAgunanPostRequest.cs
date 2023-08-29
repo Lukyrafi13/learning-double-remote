@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.AppAgunans
+namespace NewLMS.UMKM.Data.Dto.AppAgunans
 {
     public class AppAgunanPostRequestDto
     {
@@ -91,8 +91,8 @@ namespace NewLMS.Umkm.Data.Dto.AppAgunans
         public Guid? RFRelationColId { get; set; }
         public Guid? RFMaritalId { get; set; }
         public Guid? RFJenisAktaId { get; set; }
-        public int? RFZipCodeId { get; set; }
-        public int? RFZipCodeAgunanId { get; set; }
-        public int? RFZipCodePasanganId { get; set; }
+        public int? RfZipCodeId { get; set; }
+        public int? RfZipCodeAgunanId { get; set; }
+        public int? RfZipCodePasanganId { get; set; }
     }
 }

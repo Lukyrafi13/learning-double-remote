@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFSCORiwayatKreditBJBs;
+using NewLMS.UMKM.Data.Dto.RFSCORiwayatKreditBJBs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFSCORiwayatKreditBJBs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFSCORiwayatKreditBJBs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFSCORiwayatKreditBJBs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFSCORiwayatKreditBJBs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFSCORiwayatKreditBJB
+namespace NewLMS.UMKM.API.Controllers.RFSCORiwayatKreditBJB
 {
     public class RFSCORiwayatKreditBJBController : BaseController
     {

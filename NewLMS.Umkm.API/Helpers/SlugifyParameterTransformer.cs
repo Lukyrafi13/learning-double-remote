@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
 using System.Text.RegularExpressions;
 
-namespace NewLMS.Umkm.API.Helpers
+namespace NewLMS.UMKM.API.Helpers
 {
     public class SlugifyParameterTransformer : IOutboundParameterTransformer
     {

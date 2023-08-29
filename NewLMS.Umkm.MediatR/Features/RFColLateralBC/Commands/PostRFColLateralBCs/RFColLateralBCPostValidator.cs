@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFColLateralBCs;
+using NewLMS.UMKM.Data.Dto.RFColLateralBCs;
 
-namespace NewLMS.Umkm.MediatR.Features.RFColLateralBCs.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Commands
 {
     public class RFColLateralBCPostValidator : AbstractValidator<RFColLateralBCPostCommand>
     {

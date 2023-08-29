@@ -6,13 +6,13 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Data.Dto.RFVEHICLETYPEs;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.MediatR.Features.RFVEHICLETYPEss.Commands;
-using NewLMS.Umkm.MediatR.Features.RFVEHICLETYPEss.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Dto.RFVEHICLETYPEs;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.RFVEHICLETYPEss.Commands;
+using NewLMS.UMKM.MediatR.Features.RFVEHICLETYPEss.Queries;
 
-namespace NewLMS.Umkm.API.Controllers.RFVEHICLETYPE
+namespace NewLMS.UMKM.API.Controllers.RFVEHICLETYPE
 {
     public class RFVEHICLETYPEController : BaseController
     {

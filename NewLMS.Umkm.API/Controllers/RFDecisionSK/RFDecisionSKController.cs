@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Data.Dto.RFDecisionSKs;
+using NewLMS.UMKM.Data.Dto.RFDecisionSKs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Umkm.MediatR.Features.RFDecisionSKs.Commands;
-using NewLMS.Umkm.MediatR.Features.RFDecisionSKs.Queries;
-using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Helper;
+using NewLMS.UMKM.MediatR.Features.RFDecisionSKs.Commands;
+using NewLMS.UMKM.MediatR.Features.RFDecisionSKs.Queries;
+using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Helper;
 
-namespace NewLMS.Umkm.API.Controllers.RFDecisionSK
+namespace NewLMS.UMKM.API.Controllers.RFDecisionSK
 {
     public class RFDecisionSKController : BaseController
     {

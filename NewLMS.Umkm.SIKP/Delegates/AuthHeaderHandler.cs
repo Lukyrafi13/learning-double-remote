@@ -1,10 +1,10 @@
 ﻿// using Microsoft.Extensions.Configuration;
 // using Microsoft.Extensions.Options;
-// using NewLMS.Umkm.SIKP.Models;
+// using NewLMS.UMKM.SIKP.Models;
 // using System.Net.Http.Headers;
 // using System.Text;
 
-// namespace NewLMS.Umkm.SIKP.Delegates
+// namespace NewLMS.UMKM.SIKP.Delegates
 // {
 //     public class AuthHeaderHandler : DelegatingHandler
 //     {

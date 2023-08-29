@@ -1,30 +1,30 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSectorLBU2s;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU2s;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU2s.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfSectorLBU2s.Commands
 {
-    public class RFSectorLBU2DeleteCommand : RFSectorLBU2DeleteRequest, IRequest<ServiceResponse<Unit>>
+    public class RfSectorLBU2DeleteCommand : RfSectorLBU2DeleteRequest, IRequest<ServiceResponse<Unit>>
     {
     }
 
-    public class DeleteRFSectorLBU2CommandHandler : IRequestHandler<RFSectorLBU2DeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfSectorLBU2CommandHandler : IRequestHandler<RfSectorLBU2DeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFSectorLBU2> _rfSectorLbu2;
+        private readonly IGenericRepositoryAsync<RfSectorLBU2> _rfSectorLbu2;
         private readonly IMapper _mapper;
 
-        public DeleteRFSectorLBU2CommandHandler(IGenericRepositoryAsync<RFSectorLBU2> rfSectorLbu2, IMapper mapper)
+        public DeleteRfSectorLBU2CommandHandler(IGenericRepositoryAsync<RfSectorLBU2> rfSectorLbu2, IMapper mapper)
         {
             _rfSectorLbu2 = rfSectorLbu2;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFSectorLBU2DeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfSectorLBU2DeleteCommand request, CancellationToken cancellationToken)
         {
             var rfSectorLbu2 = await _rfSectorLbu2.GetByIdAsync(request.Code, "Code");
             rfSectorLbu2.IsDeleted = true;

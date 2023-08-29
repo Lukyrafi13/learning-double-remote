@@ -1,7 +1,7 @@
 ﻿using Hangfire.Annotations;
 using Hangfire.Dashboard;
 
-namespace NewLMS.Umkm.API.Filters
+namespace NewLMS.UMKM.API.Filters
 {
     public class HangfireAuthorizeFilter : IDashboardAuthorizationFilter
     {

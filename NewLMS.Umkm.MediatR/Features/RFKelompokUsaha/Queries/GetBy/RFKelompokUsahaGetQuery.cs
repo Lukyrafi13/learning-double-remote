@@ -1,42 +1,42 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFKelompokUsahas;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfCompanyGroups;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.RFKelompokUsahas.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCompanyGroups.Queries
 {
-    public class RFKelompokUsahaGetQuery : RFKelompokUsahaFindRequestDto, IRequest<ServiceResponse<RFKelompokUsahaResponseDto>>
+    public class RfCompanyGroupGetQuery : RfCompanyGroupFindRequestDto, IRequest<ServiceResponse<RfCompanyGroupResponseDto>>
     {
     }
 
-    public class RFKelompokUsahaGetQueryHandler : IRequestHandler<RFKelompokUsahaGetQuery, ServiceResponse<RFKelompokUsahaResponseDto>>
+    public class RfCompanyGroupGetQueryHandler : IRequestHandler<RfCompanyGroupGetQuery, ServiceResponse<RfCompanyGroupResponseDto>>
     {
-        private IGenericRepositoryAsync<RFKelompokUsaha> _RFKelompokUsaha;
+        private IGenericRepositoryAsync<RfCompanyGroup> _RfCompanyGroup;
         private readonly IMapper _mapper;
 
-        public RFKelompokUsahaGetQueryHandler(IGenericRepositoryAsync<RFKelompokUsaha> RFKelompokUsaha, IMapper mapper)
+        public RfCompanyGroupGetQueryHandler(IGenericRepositoryAsync<RfCompanyGroup> RfCompanyGroup, IMapper mapper)
         {
-            _RFKelompokUsaha = RFKelompokUsaha;
+            _RfCompanyGroup = RfCompanyGroup;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<RFKelompokUsahaResponseDto>> Handle(RFKelompokUsahaGetQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCompanyGroupResponseDto>> Handle(RfCompanyGroupGetQuery request, CancellationToken cancellationToken)
         {
             try
             {
-                var data = await _RFKelompokUsaha.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
+                var data = await _RfCompanyGroup.GetByIdAsync(request.ANL_CODE, "ANL_CODE");
                 if (data == null)
-                    return ServiceResponse<RFKelompokUsahaResponseDto>.Return404("Data RFKelompokUsaha not found");
-                var response = _mapper.Map<RFKelompokUsahaResponseDto>(data);
-                return ServiceResponse<RFKelompokUsahaResponseDto>.ReturnResultWith200(response);
+                    return ServiceResponse<RfCompanyGroupResponseDto>.Return404("Data RfCompanyGroup not found");
+                var response = _mapper.Map<RfCompanyGroupResponseDto>(data);
+                return ServiceResponse<RfCompanyGroupResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFKelompokUsahaResponseDto>.ReturnException(ex);
+                return ServiceResponse<RfCompanyGroupResponseDto>.ReturnException(ex);
             }
         }
     }

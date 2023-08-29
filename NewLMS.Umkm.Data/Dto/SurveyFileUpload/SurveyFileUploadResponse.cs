@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.SurveyFileUploads
+namespace NewLMS.UMKM.Data.Dto.SurveyFileUploads
 {
     public class SurveyFileUploadResponseDto
     {

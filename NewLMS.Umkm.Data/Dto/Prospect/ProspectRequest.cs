@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.Umkm.Data.Dto.Deniturs
+namespace NewLMS.UMKM.Data.Dto.Deniturs
 {
     public class DeniturRequestDto
     {

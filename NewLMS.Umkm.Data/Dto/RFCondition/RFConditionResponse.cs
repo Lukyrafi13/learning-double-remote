@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFConditions
+namespace NewLMS.UMKM.Data.Dto.RFConditions
 {
     public class RFConditionResponseDto
     {

@@ -1,6 +1,6 @@
-﻿namespace NewLMS.Umkm.Data.Dto.RFSectorLBU3s
+﻿namespace NewLMS.UMKM.Data.Dto.RfSectorLBU3s
 {
-    public class RFSectorLBU3PutRequest : RFSectorLBU3PostRequest
+    public class RfSectorLBU3PutRequest : RfSectorLBU3PostRequest
     {
     }
 }

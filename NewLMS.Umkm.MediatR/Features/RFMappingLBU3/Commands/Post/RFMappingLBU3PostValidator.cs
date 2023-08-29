@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.Umkm.Data.Dto.RFMappingLBU3s;
+using NewLMS.UMKM.Data.Dto.RFMappingLBU3s;
 
-namespace NewLMS.Umkm.MediatR.Features.RFMappingLBU3s.Commands
+namespace NewLMS.UMKM.MediatR.Features.RFMappingLBU3s.Commands
 {
     public class RFMappingLBU3PostValidator : AbstractValidator<RFMappingLBU3PostCommand>
     {

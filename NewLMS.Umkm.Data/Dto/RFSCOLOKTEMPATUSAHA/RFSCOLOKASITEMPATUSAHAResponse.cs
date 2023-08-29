@@ -1,5 +1,5 @@
 using System;
-namespace NewLMS.Umkm.Data.Dto.RFSCOLOKTEMPATUSAHAs
+namespace NewLMS.UMKM.Data.Dto.RFSCOLOKTEMPATUSAHAs
 {
     public class RFSCOLOKTEMPATUSAHAResponseDto
     {

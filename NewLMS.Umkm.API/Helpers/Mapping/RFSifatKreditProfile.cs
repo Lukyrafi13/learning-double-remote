@@ -1,8 +1,8 @@
 using AutoMapper;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Dto.RFSifatKredits;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RFSifatKredits;
 
-namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
     public class RFSifatKreditProfile : Profile

@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFSANDIBIS;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RFSANDIBIS;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFSANDIBIS.Queries
+namespace NewLMS.UMKM.MediatR.Features.RFSANDIBIS.Queries
 {
     public class RFSANDIBISGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFSANDIBIResponseDto>>>
     {

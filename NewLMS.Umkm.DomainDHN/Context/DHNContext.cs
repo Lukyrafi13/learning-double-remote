@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NewLMS.Umkm.DomainDHN.Entities;
+using NewLMS.UMKM.DomainDHN.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.DomainDHN.Context
+namespace NewLMS.UMKM.DomainDHN.Context
 {
     public class DHNContext : DbContext
     {

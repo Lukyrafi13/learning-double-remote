@@ -1,37 +1,37 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.RFGenders;
-using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.UMKM.Data.Dto.RfGenders;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.Umkm.MediatR.Features.RFGenders.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfGenders.Commands
 {
-    public class RFGenderPostCommand : RFGenderPostRequestDto, IRequest<ServiceResponse<RFGenderResponseDto>>
+    public class RfGenderPostCommand : RfGenderPostRequestDto, IRequest<ServiceResponse<RfGenderResponseDto>>
     {
 
     }
-    public class PostRFGenderCommandHandler : IRequestHandler<RFGenderPostCommand, ServiceResponse<RFGenderResponseDto>>
+    public class PostRfGenderCommandHandler : IRequestHandler<RfGenderPostCommand, ServiceResponse<RfGenderResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFGender> _rfGender;
+        private readonly IGenericRepositoryAsync<RfGender> _rfGender;
         private readonly IMapper _mapper;
 
-        public PostRFGenderCommandHandler(IGenericRepositoryAsync<RFGender> rfGender, IMapper mapper)
+        public PostRfGenderCommandHandler(IGenericRepositoryAsync<RfGender> rfGender, IMapper mapper)
         {
             _rfGender = rfGender;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFGenderResponseDto>> Handle(RFGenderPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfGenderResponseDto>> Handle(RfGenderPostCommand request, CancellationToken cancellationToken)
         {
 
             try
             {
-                var rfGender = new RFGender();
+                var rfGender = new RfGender();
 
                 rfGender.Active = true;
                 rfGender.GenderCode = request.GenderCode;
@@ -42,8 +42,8 @@ namespace NewLMS.Umkm.MediatR.Features.RFGenders.Commands
 
                 var returnedRfStatusTarget = await _rfGender.AddAsync(rfGender, callSave: false);
 
-                // var response = _mapper.Map<RFGenderResponseDto>(returnedRfStatusTarget);
-                var response = new RFGenderResponseDto();
+                // var response = _mapper.Map<RfGenderResponseDto>(returnedRfStatusTarget);
+                var response = new RfGenderResponseDto();
                 
                 response.Id = returnedRfStatusTarget.Id;
                 response.GenderCode = returnedRfStatusTarget.GenderCode;
@@ -54,11 +54,11 @@ namespace NewLMS.Umkm.MediatR.Features.RFGenders.Commands
                 response.Active = returnedRfStatusTarget.Active;
 
                 await _rfGender.SaveChangeAsync();
-                return ServiceResponse<RFGenderResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfGenderResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFGenderResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfGenderResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }
