@@ -40,15 +40,15 @@ namespace NewLMS.UMKM.API.Controllers.RfCompanyTypeMap
         }
 
         /// <summary>
-        /// Get RfCompanyType By RfCompanyGroup KELOMPOK_CODE
+        /// Get RfCompanyType By RfCompanyGroup GroupCode
         /// </summary>
-        /// <param name="KELOMPOK_CODE"></param>
+        /// <param name="GroupCode"></param>
         /// <returns></returns>
-        [HttpGet("jenis-by-kelompok/get/{KELOMPOK_CODE}", Name = "GetRfCompanyTypeByKelompokCode")]
+        [HttpGet("jenis-by-kelompok/get/{GroupCode}", Name = "GetRfCompanyTypeByKelompokCode")]
         [Produces("application/json", "application/xml", Type = typeof(IEnumerable<RfCompanyTypeByKelompokResponse>))]
-        public async Task<IActionResult> GetRfCompanyTypeByKelompokCode(string KELOMPOK_CODE)
+        public async Task<IActionResult> GetRfCompanyTypeByKelompokCode(string GroupCode)
         {
-            var getSCOQuery = new RfCompanyTypeByKelompokCodeQuery { KELOMPOK_CODE = KELOMPOK_CODE };
+            var getSCOQuery = new RfCompanyTypeByKelompokCodeQuery { GroupCode = GroupCode };
             var result = await _mediator.Send(getSCOQuery);
             return ReturnFormattedResponse(result);
         }

@@ -5,13 +5,13 @@ using NewLMS.UMKM.Data.Dto.RfBranches;
 namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RfBranchesProfile : Profile
+    public class RfBranchProfile : Profile
     {
-        public RfBranchesProfile()
+        public RfBranchProfile()
         {
-            CreateMap<RfBranches, RfBranchesResponseDto>().ReverseMap();
-            CreateMap<RfBranchesPostRequestDto, RfBranches>();
-            CreateMap<RfBranchesPutRequestDto, RfBranches>();
+            CreateMap<RfBranch, RfBranchResponseDto>().ReverseMap();
+            CreateMap<RfBranchPostRequestDto, RfBranch>();
+            CreateMap<RfBranchPutRequestDto, RfBranch>();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RfZipCodeProfile());
                 mc.AddProfile(new RfAppTypeProfile());
                 mc.AddProfile(new RfCategoryProfile());
-                mc.AddProfile(new RFKodeDinasProfile());
+                mc.AddProfile(new RfServiceCodeProfile());
                 mc.AddProfile(new RFColLateralBCProfile());
                 mc.AddProfile(new RFDocumentProfile());
                 mc.AddProfile(new RFDocumentAgunanProfile());
@@ -57,7 +57,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFDecisionSKProfile());
                 mc.AddProfile(new RfCompanyGroupProfile());
                 mc.AddProfile(new RFLokasiTempatUsahaProfile());
-                mc.AddProfile(new RfBranchesProfile());
+                mc.AddProfile(new RfBranchProfile());
                 mc.AddProfile(new RFSubProductTenorProfile());
                 mc.AddProfile(new RFVehicleTypeListProfile());
                 mc.AddProfile(new RFStagesProfile());

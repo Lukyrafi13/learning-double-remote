@@ -71,56 +71,56 @@ namespace NewLMS.UMKM.API.Controllers.Prospect
 
         
 
-        /// <summary>
-        /// Process Prospect
-        /// </summary>
-        /// <param name="postProsesProspect"></param>
-        /// <returns></returns>
-        [HttpPost("proses", Name = "ProsesProspect")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
-        public async Task<IActionResult> ProsesProspect(ProspectProsesCommand postProsesProspect)
-        {
-            var result = await _mediator.Send(postProsesProspect);
-            if (!result.Success)
-            {
-                return ReturnFormattedResponse(result);
-            }
-            return Ok(result);
-        }
+        // /// <summary>
+        // /// Process Prospect
+        // /// </summary>
+        // /// <param name="postProsesProspect"></param>
+        // /// <returns></returns>
+        // [HttpPost("proses", Name = "ProsesProspect")]
+        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
+        // public async Task<IActionResult> ProsesProspect(ProspectProsesCommand postProsesProspect)
+        // {
+        //     var result = await _mediator.Send(postProsesProspect);
+        //     if (!result.Success)
+        //     {
+        //         return ReturnFormattedResponse(result);
+        //     }
+        //     return Ok(result);
+        // }
 
-        /// <summary>
-        /// Process Prospect
-        /// </summary>
-        /// <param name="postProsesUlangProspect"></param>
-        /// <returns></returns>
-        [HttpPost("proses/ulang", Name = "ProsesUlangProspect")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
-        public async Task<IActionResult> ProsesUlangProspect(ProspectProsesUlangCommand postProsesUlangProspect)
-        {
-            var result = await _mediator.Send(postProsesUlangProspect);
-            if (!result.Success)
-            {
-                return ReturnFormattedResponse(result);
-            }
-            return Ok(result);
-        }
+        // /// <summary>
+        // /// Process Prospect
+        // /// </summary>
+        // /// <param name="postProsesUlangProspect"></param>
+        // /// <returns></returns>
+        // [HttpPost("proses/ulang", Name = "ProsesUlangProspect")]
+        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
+        // public async Task<IActionResult> ProsesUlangProspect(ProspectProsesUlangCommand postProsesUlangProspect)
+        // {
+        //     var result = await _mediator.Send(postProsesUlangProspect);
+        //     if (!result.Success)
+        //     {
+        //         return ReturnFormattedResponse(result);
+        //     }
+        //     return Ok(result);
+        // }
 
-        /// <summary>
-        /// Tidak Process Prospect
-        /// </summary>
-        /// <param name="postTidakProsesProspect"></param>
-        /// <returns></returns>
-        [HttpPost("tidak-proses", Name = "TidakProsesProspect")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
-        public async Task<IActionResult> TidakProsesProspect(ProspectTidakProsesCommand postTidakProsesProspect)
-        {
-            var result = await _mediator.Send(postTidakProsesProspect);
-            if (!result.Success)
-            {
-                return ReturnFormattedResponse(result);
-            }
-            return Ok(result);
-        }
+        // /// <summary>
+        // /// Tidak Process Prospect
+        // /// </summary>
+        // /// <param name="postTidakProsesProspect"></param>
+        // /// <returns></returns>
+        // [HttpPost("tidak-proses", Name = "TidakProsesProspect")]
+        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
+        // public async Task<IActionResult> TidakProsesProspect(ProspectTidakProsesCommand postTidakProsesProspect)
+        // {
+        //     var result = await _mediator.Send(postTidakProsesProspect);
+        //     if (!result.Success)
+        //     {
+        //         return ReturnFormattedResponse(result);
+        //     }
+        //     return Ok(result);
+        // }
 
         /// <summary>
         /// Put Edit Prospect

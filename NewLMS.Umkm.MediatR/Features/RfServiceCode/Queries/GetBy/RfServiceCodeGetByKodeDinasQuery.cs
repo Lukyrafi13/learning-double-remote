@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.RfServiceCodes.Queries
 {
-    public class RfServiceCodesGetByKodeDinasQuery : RfServiceCodeFindRequestDto, IRequest<ServiceResponse<RfServiceCodeResponseDto>>
+    public class RfServiceCodesGetByServiceCodeQuery : RfServiceCodeFindRequestDto, IRequest<ServiceResponse<RfServiceCodeResponseDto>>
     {
     }
 
-    public class GetByIdRfServiceCodeQueryHandler : IRequestHandler<RfServiceCodesGetByKodeDinasQuery, ServiceResponse<RfServiceCodeResponseDto>>
+    public class GetByIdRfServiceCodeQueryHandler : IRequestHandler<RfServiceCodesGetByServiceCodeQuery, ServiceResponse<RfServiceCodeResponseDto>>
     {
         private IGenericRepositoryAsync<RfServiceCode> _RfServiceCode;
         private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfServiceCodes.Queries
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RfServiceCodeResponseDto>> Handle(RfServiceCodesGetByKodeDinasQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfServiceCodeResponseDto>> Handle(RfServiceCodesGetByServiceCodeQuery request, CancellationToken cancellationToken)
         {
 
             var data = await _RfServiceCode.GetByIdAsync(request.ServiceCode, "ServiceCode");

@@ -35,7 +35,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfCompanyTypeMaps.Queries
                     return ServiceResponse<RfCompanyTypeMapResponseDto>.Return404("Data RfCompanyTypeMap not found");
                 var response = _mapper.Map<RfCompanyTypeMapResponseDto>(data);
 
-                var jenisUsaha = await _RfCompanyType.GetByIdAsync(response.ANL_CODE, "ANL_CODE");
+                var jenisUsaha = await _RfCompanyType.GetByIdAsync(response.AnlCode, "AnlCode");
 
                 if (jenisUsaha != null){
                     // response.ANL_DESC = jenisUsaha.ANL_DESC;

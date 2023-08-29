@@ -33,11 +33,11 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<EmailSMTPSetting> EmailSMTPSettings { get; set; }
         public virtual DbSet<UserDevice> UserDevices { get; set; }
         public virtual DbSet<ThridParty> ThridParties { get; set; }
-        public DbSet<RfProduct> RfProducts { get; set; }
-        public DbSet<RfOwnerCategory> RFOwnerCategories { get; set; }
-        public DbSet<RfGender> RfGenders { get; set; }
-        public DbSet<RfTargetStatus> RfTargetStatuses { get; set; }
-        public DbSet<Prospect> Prospects { get; set; }
+        // public DbSet<RfProduct> RfProducts { get; set; }
+        // public DbSet<RfOwnerCategory> RFOwnerCategories { get; set; }
+        // public DbSet<RfGender> RfGenders { get; set; }
+        // public DbSet<RfTargetStatus> RfTargetStatuses { get; set; }
+        // public DbSet<Prospect> Prospects { get; set; }
         // public DbSet<Debitur> Debiturs { get; set; }
         // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         // public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
@@ -64,7 +64,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public virtual DbSet<RfAppType> RfAppTypes { get; set; }
         // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
         // public virtual DbSet<RfCategory> RfCategories { get; set; }
-        // public virtual DbSet<RFKodeDinas> RFKodeDinass { get; set; }
+        // public virtual DbSet<RFKodeDinas> RfServiceCodes { get; set; }
         // public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         // public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
         // public DbSet<RFDocument> RFDocuments { get; set; }

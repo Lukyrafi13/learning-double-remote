@@ -34,7 +34,7 @@ namespace NewLMS.UMKM.API.Controllers.RfTargetStatus
         [Produces("application/json", "application/xml", Type = typeof(RfTargetStatusResponseDto))]
         public async Task<IActionResult> GetRfTargetStatusByStatusCode(string StatusCode)
         {
-            var getStatusTargetQuery = new RfTargetStatusesGetByStatusCodeQuery { StatusCode = StatusCode };
+            var getStatusTargetQuery = new RfTargetStatusGetByStatusCodeQuery { StatusCode = StatusCode };
             var result = await _mediator.Send(getStatusTargetQuery);
             return ReturnFormattedResponse(result);
         }
@@ -46,7 +46,7 @@ namespace NewLMS.UMKM.API.Controllers.RfTargetStatus
         /// <returns></returns>
         [HttpPost("get", Name = "GetRfTargetStatusList")]
         [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfTargetStatusResponseDto>>))]
-        public async Task<IActionResult> GetRfTargetStatusList(RfTargetStatusesGetFilterQuery filterQuery)
+        public async Task<IActionResult> GetRfTargetStatusList(RfTargetStatusGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);

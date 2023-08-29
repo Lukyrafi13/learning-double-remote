@@ -2,7 +2,7 @@
 using NewLMS.UMKM.Repository.GenericRepository;
 using NewLMS.UMKM.Domain.FUSE.GenericRepositoryFuse;
 // using NewLMS.UMKM.Domain.Services;
-using NewLMS.UMKM.MediatR.Features.SlikRequestDuplikasis.Commands;
+// using NewLMS.UMKM.MediatR.Features.SlikRequestDuplikasis.Commands;
 using NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands;
 
 namespace NewLMS.UMKM.Api.Helpers
@@ -11,7 +11,7 @@ namespace NewLMS.UMKM.Api.Helpers
     {
         public static void AddDependencyInjection(this IServiceCollection services)
         {
-            services.AddScoped<IDuplicationCheckTask, DuplicationCheckTask>();
+            // services.AddScoped<IDuplicationCheckTask, DuplicationCheckTask>();
             services.AddScoped<IRfZipCodesUploadJSON, RfZipCodesUploadJSON>();
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
             services.AddTransient(typeof(IGenericRepositoryFuseAsync<>), typeof(GenericRepositoryFuseAsync<>));
