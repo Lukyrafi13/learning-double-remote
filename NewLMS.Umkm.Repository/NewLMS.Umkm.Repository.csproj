@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Bjb.DigitalBisnis.CurrentUser" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NewLMS.Umkm.Common\NewLMS.Umkm.Common.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Data\NewLMS.Umkm.Data.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.DomainDWH\NewLMS.Umkm.Domain.Dwh.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Domain\NewLMS.Umkm.Domain.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Helper\NewLMS.Umkm.Helper.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using NewLMS.Umkm.Data.Dto.RFCaraPengikatans;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using NewLMS.Umkm.MediatR.Features.RFCaraPengikatans.Commands;
+using NewLMS.Umkm.MediatR.Features.RFCaraPengikatans.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Helper;
+
+namespace NewLMS.Umkm.API.Controllers.RFCaraPengikatan
+{
+    public class RFCaraPengikatanController : BaseController
+    {
+        public IMediator _mediator { get; set; }
+
+        /// <summary>
+        /// RFCaraPengikatan
+        /// </summary>
+        /// <param name="mediator"></param>
+        public RFCaraPengikatanController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        /// <summary>
+        /// Get RFCaraPengikatan By Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet("get/{Id}", Name = "GetRFCaraPengikatanById")]
+        [Produces("application/json", "application/xml", Type = typeof(RFCaraPengikatanResponseDto))]
+        public async Task<IActionResult> GetRFCaraPengikatanById(string PK_CODE)
+        {
+            var getGenderQuery = new RFCaraPengikatanGetQuery { PK_CODE = PK_CODE };
+            var result = await _mediator.Send(getGenderQuery);
+            return ReturnFormattedResponse(result);
+        }
+
+        /// <summary>
+        /// Get RFCaraPengikatan
+        /// </summary>
+        /// <param name="filterQuery"></param>
+        /// <returns></returns>
+        [HttpPost("get", Name = "GetRFCaraPengikatanList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFCaraPengikatanResponseDto>>))]
+        public async Task<IActionResult> GetRFCaraPengikatanList(RFCaraPengikatansGetFilterQuery filterQuery)
+        {
+            var result = await _mediator.Send(filterQuery);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Post New RFCaraPengikatan
+        /// </summary>
+        /// <param name="postRFCaraPengikatan"></param>
+        /// <returns></returns>
+        [HttpPost("post", Name = "AddRFCaraPengikatan")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFCaraPengikatanResponseDto>))]
+        public async Task<IActionResult> AddRFCaraPengikatan(RFCaraPengikatanPostCommand postRFCaraPengikatan)
+        {
+            var result = await _mediator.Send(postRFCaraPengikatan);
+            if (!result.Success)
+            {
+                return ReturnFormattedResponse(result);
+            }
+            return CreatedAtAction("GetRFCaraPengikatanById", new { id = result.Data.Id }, result.Data);
+        }
+
+        /// <summary>
+        /// Put Edit RFCaraPengikatan
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="putRFCaraPengikatan"></param>
+        /// <returns></returns>
+        [HttpPut("put/{Id}", Name = "EditRFCaraPengikatan")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFCaraPengikatanResponseDto>))]
+        public async Task<IActionResult> EditRFCaraPengikatan([FromRoute] string PK_CODE, [FromBody] RFCaraPengikatanPutCommand putRFCaraPengikatan)
+        {
+            putRFCaraPengikatan.PK_CODE = PK_CODE;
+            var result = await _mediator.Send(putRFCaraPengikatan);
+            return ReturnFormattedResponse(result);
+        }
+
+        /// <summary>
+        /// Delete RFCaraPengikatan
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="deleteCommand"></param>
+        /// <returns></returns>
+        [HttpDelete("delete/{Id}", Name = "DeleteRFCaraPengikatan")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
+        public async Task<IActionResult> DeleteRFCaraPengikatan([FromRoute] string PK_CODE, [FromBody] RFCaraPengikatanDeleteCommand deleteCommand)
+        {
+            deleteCommand.PK_CODE = PK_CODE;
+            return Ok(await _mediator.Send(deleteCommand));
+        }
+    }
+}

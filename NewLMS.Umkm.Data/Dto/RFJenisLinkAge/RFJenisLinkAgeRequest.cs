@@ -1,0 +1,8 @@
+using System;
+
+namespace NewLMS.Umkm.Data.Dto.RFJenisLinkAges
+{
+    public class RFJenisLinkAgeRequestDto
+    {
+    }
+}

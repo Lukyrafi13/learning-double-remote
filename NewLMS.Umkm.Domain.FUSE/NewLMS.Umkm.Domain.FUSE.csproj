@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		    <PackageReference Include="Bjb.DigitalBisnis.SLIK" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Context\" />
+		<None Remove="Entities\" />
+		<None Remove="Models\" />
+		<None Remove="Services\" />
+		<None Remove="Migrations\" />
+		<None Remove="GenericRepository\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Context\" />
+		<Folder Include="Entities\" />
+		<Folder Include="Models\" />
+		<Folder Include="Services\" />
+		<Folder Include="Migrations\" />
+		<Folder Include="GenericRepository\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NewLMS.Umkm.Data\NewLMS.Umkm.Data.csproj" />
+		<ProjectReference Include="..\NewLMS.Umkm.Common\NewLMS.Umkm.Common.csproj" />
+		<ProjectReference Include="..\NewLMS.Umkm.Repository\NewLMS.Umkm.Repository.csproj" />
+	</ItemGroup>
+</Project>
