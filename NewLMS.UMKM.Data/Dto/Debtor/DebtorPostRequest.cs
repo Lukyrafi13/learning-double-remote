@@ -4,9 +4,7 @@ namespace NewLMS.UMKM.Data.Dto.Debtors
     public class DebtorPostRequestDto
     {
         public string NoIdentity { get; set; }
-		public string Fullname => FirstName + " " + LastName;
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public string Fullname { get; set; }
         public Guid RfGenderId { get; set; }
         public string PlaceOfBirth { get; set; }
         public DateTime? DateOfBirth { get; set; }

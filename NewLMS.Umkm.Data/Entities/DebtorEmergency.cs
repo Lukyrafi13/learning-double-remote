@@ -21,10 +21,17 @@ namespace NewLMS.UMKM.Data
         public string District { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
+        
+        [ForeignKey(nameof(RfZipCode))]
+        public int? RfZipCodeId { get; set; }
 
         [MaxLength(16)]
         [ForeignKey(nameof(Debtor))]
         public string DebtorId { get; set; }
+
+        public Debtor Debtor { get; set; }
+        public RfZipCode RfZipCode { get; set; }
+
 
 	}
 }

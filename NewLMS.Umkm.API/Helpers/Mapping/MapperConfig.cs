@@ -24,7 +24,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFSCOHUTANGPIHAKLAINProfile());
                 mc.AddProfile(new RFSCOCARATRANSAKSIProfile());
                 mc.AddProfile(new RFJOBProfile());
-                // mc.AddProfile(new DebiturProfile());
+                mc.AddProfile(new DebtorProfile());
+                mc.AddProfile(new DebtorCoupleProfile());
+                mc.AddProfile(new DebtorEmergencyProfile());
                 mc.AddProfile(new ProspectProfile());
                 mc.AddProfile(new RfSectorLBU1Profile());
                 mc.AddProfile(new RfSectorLBU2Profile());
@@ -62,8 +64,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RfBranchProfile());
                 mc.AddProfile(new RFSubProductTenorProfile());
                 mc.AddProfile(new RFVehicleTypeListProfile());
-                // mc.AddProfile(new RFStageProfile());
-                // mc.AddProfile(new ProspectStageLogsProfile());
+                mc.AddProfile(new RfStageProfile());
+                mc.AddProfile(new LoanApplicationStageLogsProfile());
                 mc.AddProfile(new RFRelationSurveyProfile());
                 // mc.AddProfile(new AppProfile());
                 // mc.AddProfile(new AppKeyPersonProfile());
