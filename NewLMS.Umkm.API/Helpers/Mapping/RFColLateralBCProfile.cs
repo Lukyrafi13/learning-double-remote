@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Dto.RFColLateralBCs
+using NewLMS.UMKM.Data.Dto.RFColLateralBCs;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {

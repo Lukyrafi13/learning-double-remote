@@ -8,6 +8,7 @@ using NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Commands;
 using NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Queries;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Data.Dto.RFColLateralBCs;
 
 namespace NewLMS.UMKM.API.Controllers.RFColLateralBC
 {
