@@ -49,7 +49,7 @@ namespace NewLMS.UMKM.Data
         public RFSCOSALDOREKRATA SaldoRekRata { get; set; }
         [ForeignKey("RFSiklusUsahaId")]
         public int? SiklusUsahaMonth { get; set; }
-        public RFSiklusUsahaPokok SiklusUsahaPokok { get; set; }
+        public RfBusinessPrimaryCycle SiklusUsahaPokok { get; set; }
         public bool? SiklusUsaha { get; set; }
 
         public string NamaCustomer { get; set; }

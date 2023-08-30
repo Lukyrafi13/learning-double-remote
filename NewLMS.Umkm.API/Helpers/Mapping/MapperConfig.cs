@@ -94,9 +94,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFLamaUsahaLainProfile());
                 mc.AddProfile(new RFKepemilikanUsahaProfile());
                 mc.AddProfile(new RFMappingLBU3Profile());
-                mc.AddProfile(new RFSiklusUsahaProfile());
+                mc.AddProfile(new RfBusinessPrimaryCiclusProfile());
                 mc.AddProfile(new RFOwnerOTSProfile());
-                mc.AddProfile(new RFSiklusUsahaPokokProfile());
                 mc.AddProfile(new SCJabatanProfile());
                 mc.AddProfile(new RFPengikatanKreditProfile());
                 mc.AddProfile(new RFMappingPrescreeningDocumentProfile());

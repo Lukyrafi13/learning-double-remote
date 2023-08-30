@@ -1,0 +1,125 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\LoanApplicationComplienceSheets\Commands\DeleteSandiBIs\**" />
+    <Compile Remove="Features\RfColPledges\**" />
+    <Compile Remove="Features\SubmittedFacilities\Commands\AssignProspects\**" />
+    <Compile Remove="Parameters\**" />
+    <EmbeddedResource Remove="Features\LoanApplicationComplienceSheets\Commands\DeleteSandiBIs\**" />
+    <EmbeddedResource Remove="Features\RfColPledges\**" />
+    <EmbeddedResource Remove="Features\SubmittedFacilities\Commands\AssignProspects\**" />
+    <EmbeddedResource Remove="Parameters\**" />
+    <None Remove="Features\LoanApplicationComplienceSheets\Commands\DeleteSandiBIs\**" />
+    <None Remove="Features\RfColPledges\**" />
+    <None Remove="Features\SubmittedFacilities\Commands\AssignProspects\**" />
+    <None Remove="Parameters\**" />
+    <None Remove="Features\RfStages\" />
+    <None Remove="Features\RfStages\Queries\" />
+    <None Remove="Features\RfStages\Queries\RfStageFilter\" />
+    <None Remove="Features\Prospects\Commands\CancelProspect\" />
+    <None Remove="Features\Provinces\" />
+    <None Remove="Features\Cities\" />
+    <None Remove="Features\Districts\" />
+    <None Remove="Features\SubDistrict\" />
+    <None Remove="Features\LoanApplications\Queries\GetLoanApplicationsBasicManrisk\" />
+    <None Remove="Features\v2\TrackingKGBInstant\" />
+    <None Remove="Features\v2\TrackingKGBInstant\Queries\" />
+    <None Remove="Features\RfSubProducts\Queries\GetByProgramSubProducts\" />
+    <None Remove="Features\RfProducts\Queries\GetByProgramProducts\" />
+    <None Remove="Features\Documents\Queries\GetDocumentDigitalSignIn\" />
+    <None Remove="Features\RfGracePeriods\" />
+    <None Remove="Features\RfGracePeriods\Queries\" />
+    <None Remove="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
+    <None Remove="Features\LoanApplications\Queries\GetLoanApplicationDisbursement\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Bjb.DigitalBisnis.FcmNotification" Version="1.0.4" />
+    <PackageReference Include="Bjb.DigitalBisnis.SLIK" Version="6.0.3" />
+    <PackageReference Include="Bjb.UIM.Api" Version="1.0.5" />
+    <PackageReference Include="Bjb.Util.GeneratePdf" Version="1.0.2" />
+    <PackageReference Include="Canducci.GeneratePassword" Version="2.0.0" />
+    <PackageReference Include="Canducci.GeneratePassword.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="ClosedXML" Version="0.96.0" />
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.31" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.31" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bjb.DigitalBisnis.CoreBanking\Bjb.DigitalBisnis.CoreBanking.csproj" />
+    <ProjectReference Include="..\Bjb.DigitalBisnis.DigiloanAPI\Bjb.DigitalBisnis.DigiloanAPI.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Common\NewLMS.UMKM.Common.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Data\NewLMS.UMKM.Data.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.DomainDHN\NewLMS.UMKM.DomainDHN.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.DomainDWH\NewLMS.UMKM.Domain.Dwh.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Domain\NewLMS.UMKM.Domain.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Helper\NewLMS.UMKM.Helper.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Repository\NewLMS.UMKM.Repository.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.SalesMonitoring\NewLMS.UMKM.Maps.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.SIKP2\NewLMS.UMKM.SIKP2.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.SIKP\NewLMS.UMKM.SIKP.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Scoring\NewLMS.UMKM.Scoring.csproj" />
+    <ProjectReference Include="..\NewLMS.UMKM.Domain.FUSE\NewLMS.UMKM.Domain.FUSE.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\BranchInsurance\Queries\" />
+    <Folder Include="Features\ExternalAccounts\Commands\" />
+    <Folder Include="Features\LoanApplicationApprovals\Commands\" />
+    <Folder Include="Features\LoanApplicationTermCredits\Commands\DeleteLoanApplicationTermCredits\" />
+    <Folder Include="Features\LoanApplicationTermCredits\Commands\PostLoanApplicationTermCredits\" />
+    <Folder Include="Features\Prospects\Commands\AssignProspects\" />
+    <Folder Include="Features\RfJobGrades\Commands\" />
+    <Folder Include="Features\RfColTypePledges\Commands\DeleteRfDocumentTypes\" />
+    <Folder Include="Features\RfColTypePledges\Commands\PostRfDocumentTypes\" />
+    <Folder Include="Features\RfColTypePledges\Commands\PutRfDocumentTypes\" />
+    <Folder Include="Features\RfPledgeTypes\Commands\DeleteRfDocumentTypes\" />
+    <Folder Include="Features\RfPledgeTypes\Commands\PostRfDocumentTypes\" />
+    <Folder Include="Features\RfPledgeTypes\Commands\PutRfDocumentTypes\" />
+    <Folder Include="Features\RfPledges\Commands\DeleteRfDocumentTypes\" />
+    <Folder Include="Features\RfPledges\Commands\PostRfDocumentTypes\" />
+    <Folder Include="Features\RfPledges\Commands\PutRfDocumentTypes\" />
+    <Folder Include="Features\RfDocumentTypes\Commands\DeleteRfDocumentTypes\" />
+    <Folder Include="Features\RfDocumentTypes\Commands\PostRfDocumentTypes\" />
+    <Folder Include="Features\RfDocumentTypes\Commands\PutRfDocumentTypes\" />
+    <Folder Include="Features\RfSandiBIs\Commands\DeleteRfSandiBIs\" />
+    <Folder Include="Features\RfSandiBIGroups\Commands\DeleteRfSandiBIGroups\" />
+    <Folder Include="Features\SandiBIs\Commands\DeleteSandiBIs\" />
+    <Folder Include="Features\SCUsers\Queries\GetByIdSCUser\" />
+    <Folder Include="Features\SCUserGroups\Queries\GetByIdSCUserGroup\" />
+    <Folder Include="Features\SCJabatan\Queries\GetByIdSCJabatan\" />
+    <Folder Include="Features\ThridParties\Commands\" />
+    <Folder Include="Features\UserByRole\Queries\GetManagerOperational\" />
+    <Folder Include="Features\UserDevices\Queries\" />
+    <Folder Include="Features\RfStages\" />
+    <Folder Include="Features\RfStages\Queries\" />
+    <Folder Include="Features\RfStages\Queries\RfStageFilter\" />
+    <Folder Include="Features\Prospects\Commands\CancelProspect\" />
+    <Folder Include="Features\Provinces\" />
+    <Folder Include="Features\Cities\" />
+    <Folder Include="Features\Districts\" />
+    <Folder Include="Features\SubDistrict\" />
+    <Folder Include="Features\LoanApplications\Queries\GetLoanApplicationsBasicManrisk\" />
+    <Folder Include="Features\v2\TrackingKGBInstant\" />
+    <Folder Include="Features\v2\TrackingKGBInstant\Queries\" />
+    <Folder Include="Features\RfSubProducts\Queries\GetByProgramSubProducts\" />
+    <Folder Include="Features\RfProducts\Queries\GetByProgramProducts\" />
+    <Folder Include="Features\Documents\Queries\GetDocumentDigitalSignIn\" />
+    <Folder Include="Features\RfGracePeriods\" />
+    <Folder Include="Features\RfGracePeriods\Queries\" />
+    <Folder Include="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
+    <Folder Include="Features\LoanApplications\Queries\GetLoanApplicationDisbursement\" />
+  </ItemGroup>
+
+</Project>
