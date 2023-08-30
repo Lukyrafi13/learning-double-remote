@@ -71,7 +71,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFMARITAL> RFMARITALs { get; set; }
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHANs { get; set; }
         // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
-        // public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
+        public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         // public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
         // public DbSet<RFDocument> RFDocuments { get; set; }
         // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
