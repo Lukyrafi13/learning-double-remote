@@ -40,9 +40,9 @@ namespace NewLMS.UMKM.Data
         public Guid? RfEducationId {get; set;}
         public Guid? RfJobId {get; set;}
         public Guid? RfMaritalId {get; set;}
-        public string NomorAktaNikah { get; set; }
-        public DateTime? TanggalAktaNikah { get; set; }
-        public string PembuatAktaNikah { get; set; }
+        public string MarriageCertificateNumber { get; set; }
+        public DateTime? MarriageCertificateDate { get; set; }
+        public string MarriageCertificateIssuer { get; set; }
 
         public LoanApplication LoanApplication { get; set; }
         public RfZipCode RfZipCode { get; set; }

@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
-    public class AppPemohonPeroranganResponse : AppPemohonPerorangan
+    public class LoanApplicationPemohonPeroranganResponse : LoanApplicationPemohonPerorangan
     {
         public RFEDUCATION PendidikanTerakhir { get; set; }
         public RFMARITAL StatusPerkawinan { get; set; }

@@ -52,7 +52,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<LoanApplication> LoanApplications { get; set; }
         // public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
         // public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
-        // public DbSet<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
+        public DbSet<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
         // public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
         public DbSet<Debtor> Debtors { get; set; }
         public DbSet<DebtorCouple> DebtorCouples { get; set; }
