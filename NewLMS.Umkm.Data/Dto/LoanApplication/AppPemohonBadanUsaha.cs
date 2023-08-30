@@ -3,40 +3,43 @@ namespace NewLMS.UMKM.Data.Dto.Apps
 {
     public class AppPemohonBadanUsaha
     {
-        public Guid Id { get; set; }
-        public string NamaCustomer { get; set; }
-        public string NomorTelpon { get; set; }
-        public string Alamat { get; set; }
-        public int RfZipCodeId { get; set; }
-        public string Kelurahan { get; set; }
-        public string Kecamatan { get; set; }
-        public string KabupatenKota { get; set; }
-        public string Propinsi { get; set; }
-        public string NamaKontakDarurat { get; set; }
-        public string NoTelpKontakDarurat { get; set; }
-        public string AlamatKontakDarurat { get; set; }
-        public int? RfZipCodeKontakDaruratId { get; set; }
-        public string KelurahanKontakDarurat { get; set; }
-        public string KecamatanKontakDarurat { get; set; }
-        public string KabupatenKotaKontakDarurat { get; set; }
-        public string PropinsiKontakDarurat { get; set; }
-
         
-        public string NomorAktaPendirian { get; set; }
-        public DateTime? TanggalAktaPendirian { get; set; }
-        public string NomorPendaftaran { get; set; }
-        public DateTime? TanggalSK { get; set; }
-        public string PerubahanAktaTerakhir { get; set; }
-        public DateTime? TanggalAkta { get; set; }
-        public string NomorSIUP { get; set; }
-        public DateTime? TanggalSIUP { get; set; }
-        public string NomorTDP { get; set; }
-        public DateTime? TanggalTDP { get; set; }
-        public DateTime? TanggalJatuhTempoTDP { get; set; }
-        public string NomorSKDP { get; set; }
-        public DateTime? TanggalSKDP { get; set; }
-        public DateTime? TanggalJatuhTempoSK { get; set; }
-        public string NPWP { get; set; }
+        public Guid Id {get; set;}
+        public int RfCompanyStatusId {get; set;}
+		public string CompanyName { get; set; }
+		public string Phone { get; set; }
+        public string Address { get; set; }
+        public int RfZipCodeId { get; set; }
+        public string Neighborhoods { get; set; }
+        public string District { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        
+        // Contact Person
+        public string ContactPersonName { get; set; }
+        public string ContactPersonPhone { get; set; }        
+        public string ContactPersonAddress { get; set; }
+        public int RfContactPersonZipCodeId { get; set; }
+        public string ContactPersonNeighborhoods { get; set; }
+        public string ContactPersonDistrict { get; set; }
+        public string ContactPersonCity { get; set; }
+        public string ContactPersonProvince { get; set; }
+        
+        // Legality
+        public string DeedOfEstablishmentNumber { get; set; }
+        public DateTime? DeedOfEstablishmentDate { get; set; }
+        public string RegistrationNumber { get; set; }
+        public DateTime? SKDate { get; set; }
+        public string LatestDeedOfChanges { get; set; }
+        public DateTime? DeedDate { get; set; }
+        public string SIUPNumber { get; set; }
+        public DateTime? SIUPDate { get; set; }
+        public string TDPNumber { get; set; }
+        public DateTime? TDPExpiryDate { get; set; }
+        public DateTime? TDPDate { get; set; }
+        public string SKDPNumber { get; set; }
+        public DateTime? SKDPExpiryDate { get; set; }
+        public DateTime? SKDPDate { get; set; }
 
     }
 }

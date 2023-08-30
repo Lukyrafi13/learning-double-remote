@@ -107,7 +107,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 var zipCode = await _zipCode.GetByIdAsync(request.ZipCodeId, "Id");
                 var PlaceZipCode = await _zipCode.GetByIdAsync(request.PlaceZipCodeId, "Id");
 
-                var prospect = await _prospect.GetByIdAsync(request.Id, "Id");
+                var prospect = await _prospect.GetByPredicate(x=>x.Id.ToString() == request.Id);
 
                 prospect.Fullname = request.Fullname;
                 prospect.RfProductId = request.RfProductId;
