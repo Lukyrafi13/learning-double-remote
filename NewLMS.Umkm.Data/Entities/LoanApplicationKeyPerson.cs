@@ -7,8 +7,8 @@ namespace NewLMS.UMKM.Data
     public class LoanApplicationKeyPerson : BaseEntity
     {
         public Guid Id { get; set; }        
-        [ForeignKey("LoanApplicationId")]
-        public LoanApplication LoanApplication { get; set; }
+        public Guid LoanApplicationId { get; set; }
+
         public string Fullname { get; set; }
         public string PlaceOfBirth { get; set; }
         public DateTime? DateOfBirth { get; set; }
@@ -18,22 +18,20 @@ namespace NewLMS.UMKM.Data
         public DateTime? IdentityExpiredDate { get; set; }
         public bool? IdentityLifeTime { get; set; }
         public string NPWP { get; set; }
-        // [ForeignKey("RFEducationId")]
+        [ForeignKey("RFEducationId")]
         public Guid? RfEducationId { get; set; }
-        // [ForeignKey("RFMaritalId")]
+        [ForeignKey("RFMaritalId")]
         public Guid? RfMaritalId { get; set; }
         public string Address { get; set; }
-        // [ForeignKey("RfZipCodeId")]
+        [ForeignKey("RfZipCodeId")]
         public Guid? RfZipCode { get; set; }
         public string Neighborhoods { get; set; }
         public string District { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
+        public int? RfZipCodeId { get; set; }
 
-
-        // public Guid LoanApplicationId { get; set; }
-        // public Guid? RFEducationId { get; set; }
-        // public Guid? RFMaritalId { get; set; }
-        // public int? RfZipCodeId { get; set; }
+        [ForeignKey("LoanApplicationId")]
+        public LoanApplication LoanApplication { get; set; }
     }
 }

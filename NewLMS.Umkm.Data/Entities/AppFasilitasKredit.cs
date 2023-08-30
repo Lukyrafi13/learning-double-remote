@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data
 {
-    public class LoanLoanApplicationlicationCreditFacility : BaseEntity
+    public class LoanApplicationCreditFacility : BaseEntity
     {
         public Guid Id { get; set; }
         [ForeignKey("LoanApplicationId")]
