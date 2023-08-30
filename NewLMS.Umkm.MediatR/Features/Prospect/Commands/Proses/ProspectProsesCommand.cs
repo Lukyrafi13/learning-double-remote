@@ -80,8 +80,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
                         // Create Debitur
                         var Debitur = new Debtor{
-                            FirstName = prospect.FirstName,
-                            LastName = prospect.LastName,
+                            Fullname = prospect.Fullname,
                             NoIdentity = prospect.NoIdentity,
                             DateOfBirth = prospect.DateOfBirth,
                             PlaceOfBirth = prospect.PlaceOfBirth,

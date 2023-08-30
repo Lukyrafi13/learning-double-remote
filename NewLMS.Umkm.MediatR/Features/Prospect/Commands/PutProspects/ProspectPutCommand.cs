@@ -112,8 +112,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
                 var prospect = await _prospect.GetByIdAsync(request.Id, "Id");
 
-                prospect.FirstName = request.FirstName;
-                prospect.LastName = request.LastName;
+                prospect.Fullname = request.Fullname;
                 prospect.RfProductId = request.RfProductId;
                 prospect.RfOwnerCategoryId = request.RfOwnerCategoryId;
                 prospect.RfCategoryId = request.RfCategoryId;
