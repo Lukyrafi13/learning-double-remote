@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230830030012_AddRfBusinesPrimaryCycles")]
+    partial class AddRfBusinesPrimaryCycles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -823,10 +825,10 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CycleCode")
+                    b.Property<string>("CyclusCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CycleDesc")
+                    b.Property<string>("CyclusDesc")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("DeletedBy")
@@ -888,65 +890,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RfCategories");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RFColLateralBC", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("BeaGroup")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Building")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ColCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColcatCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CoreCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Land")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RFColLateralBCs");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfCompanyGroup", b =>
@@ -1128,71 +1071,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.ToTable("RfGenders");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.RFJOB", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("ACTIVE")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CORE_CODE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("JOBSCR_TYPE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_CODE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_CODESIKP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_DESC")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_DESCSIKP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_TYPE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("OTHER")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PRODUCTID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("SENSITIVE")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RFJOB");
-                });
-
             modelBuilder.Entity("NewLMS.UMKM.Data.RfOwnerCategory", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1235,106 +1113,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RfOwnerCategories");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RfParameter", b =>
-                {
-                    b.Property<int>("ParameterId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ParameterId"), 1L, 1);
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ParameterId");
-
-                    b.ToTable("RfParameters");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RfParameterDetail", b =>
-                {
-                    b.Property<int>("ParameterDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ParameterDetailId"), 1L, 1);
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CoreCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParameterId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ParameterDetailId");
-
-                    b.HasIndex("ParameterId");
-
-                    b.ToTable("RfParameterDetails");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfProduct", b =>
@@ -2389,17 +2167,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Navigation("RfZipCode");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.RfParameterDetail", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.RfParameter", "RfParameter")
-                        .WithMany("RfParameterDetails")
-                        .HasForeignKey("ParameterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RfParameter");
-                });
-
             modelBuilder.Entity("NewLMS.UMKM.Data.RfSectorLBU2", b =>
                 {
                     b.HasOne("NewLMS.UMKM.Data.RfSectorLBU1", "RfSectorLBU1")
@@ -2547,11 +2314,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RfParameter", b =>
-                {
-                    b.Navigation("RfParameterDetails");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfSectorLBU1", b =>

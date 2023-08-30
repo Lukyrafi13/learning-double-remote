@@ -18,7 +18,7 @@ namespace NewLMS.UMKM.Data.Dto.Apps
         public RFSCOSCORINGAGUNAN ScoringAgunan { get; set; }
         public RFSCOSALDOREKRATA SaldoRekRata { get; set; }
         public RfBranch BookingOffice { get; set; }
-        public RFSiklusUsahaPokok SiklusUsahaPokok { get; set; }
+        public RfBusinessPrimaryCycle SiklusUsahaPokok { get; set; }
         // public RFSiklusUsaha SiklusUsahaMonth { get; set; }
     }
 }

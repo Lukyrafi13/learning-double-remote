@@ -128,8 +128,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFBusinessType> RFBusinessTypes { get; set; }
         // public DbSet<RFBidangUsahaKUR> RFBidangUsahaKURs { get; set; }
         // public DbSet<RFMappingLBU3> RFMappingLBU3s { get; set; }
-        // public DbSet<RFSiklusUsaha> RFSiklusUsahas { get; set; }
-        // public DbSet<RFSiklusUsahaPokok> RFSiklusUsahaPokoks { get; set; }
+        public DbSet<RfBusinessPrimaryCycle> RfBusinessPrimaryCycles { get; set; }
         // public DbSet<SCJabatan> SCJabatans { get; set; }
         // public DbSet<RFMappingPrescreeningDocument> RFMappingPrescreeningDocuments { get; set; }
         // public DbSet<SurveyBuyer> SurveyBuyers { get; set; }

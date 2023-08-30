@@ -117,7 +117,7 @@
 //         }
 //         string rootDir => "Directory" switch
 //         {
-//             "Directory" => _appConfig.GetValue<string>("UmkmStorage:Directory"),
+//             "Directory" => _appConfig.GetValue<string>("UMKMStorage:Directory"),
 //             _ => throw new NotSupportedException()
 //         };
 //         public async Task<ServiceResponse<string>> Handle(AnalisaGenerateWordMAKCommand request, CancellationToken cancellationToken)
