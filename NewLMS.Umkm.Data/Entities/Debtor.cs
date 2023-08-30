@@ -18,6 +18,7 @@ namespace NewLMS.UMKM.Data
 		public string Fullname => FirstName + " " + LastName;
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
+		public string CIF { get; set; }
         [ForeignKey(nameof(RfGender))]
         public Guid RfGenderId { get; set; }
         public string PlaceOfBirth { get; set; }
