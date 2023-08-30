@@ -76,7 +76,7 @@ namespace NewLMS.UMKM.API
                 .EnableSensitiveDataLogging();
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
-            services.AddBaseMvcApiExtension(Configuration, typeof(Startup), "LMS Umkm Web API");
+            services.AddBaseMvcApiExtension(Configuration, typeof(Startup), "LMS UMKM Web API");
             services.AddSingleton(MapperConfig.GetMapperConfigs());
             services.AddDependencyInjection();
             services.AddSignalR();

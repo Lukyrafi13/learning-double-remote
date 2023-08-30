@@ -7,7 +7,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
-using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycle;
+using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycles;
 
 namespace NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycles.Commands
 {

@@ -1,16 +1,16 @@
 // using System;
 // using System.Collections.Generic;
 // using System.Threading.Tasks;
-// using NewLMS.Umkm.Data.Dto.InformasiOmsets;
+// using NewLMS.UMKM.Data.Dto.InformasiOmsets;
 // using MediatR;
 // using Microsoft.AspNetCore.Authorization;
 // using Microsoft.AspNetCore.Mvc;
-// using NewLMS.Umkm.MediatR.Features.InformasiOmsets.Commands;
-// using NewLMS.Umkm.MediatR.Features.InformasiOmsets.Queries;
-// using NewLMS.Umkm.Common.GenericRespository;
-// using NewLMS.Umkm.Helper;
+// using NewLMS.UMKM.MediatR.Features.InformasiOmsets.Commands;
+// using NewLMS.UMKM.MediatR.Features.InformasiOmsets.Queries;
+// using NewLMS.UMKM.Common.GenericRespository;
+// using NewLMS.UMKM.Helper;
 
-// namespace NewLMS.Umkm.API.Controllers.InformasiOmset
+// namespace NewLMS.UMKM.API.Controllers.InformasiOmset
 // {
 //     public class InformasiOmsetController : BaseController
 //     {

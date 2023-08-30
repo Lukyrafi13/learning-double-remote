@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycle;
+using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycles;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;

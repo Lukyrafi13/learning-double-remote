@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycle;
+using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycles;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycle.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycles.Commands
 {
     public class RfBusinessPrimaryCiclePostCommand : RfBusinessPrimaryCiclusPostRequestDto, IRequest<ServiceResponse<RfBusinessPrimaryCicleResponseDto>>
     {

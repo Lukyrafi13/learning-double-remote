@@ -1,16 +1,16 @@
 // using AutoMapper;
 // using MediatR;
-// using NewLMS.Umkm.Data.Dto.SlikRequestDuplikasis;
-// using NewLMS.Umkm.Data;
-// using NewLMS.Umkm.Repository.GenericRepository;
+// using NewLMS.UMKM.Data.Dto.SlikRequestDuplikasis;
+// using NewLMS.UMKM.Data;
+// using NewLMS.UMKM.Repository.GenericRepository;
 // using System.Threading;
 // using System.Threading.Tasks;
-// using NewLMS.Umkm.Common.GenericRespository;
+// using NewLMS.UMKM.Common.GenericRespository;
 // using System.Collections.Generic;
 // using System.Net;
-// using NewLMS.Umkm.Data.Dto.MSearchs;
+// using NewLMS.UMKM.Data.Dto.MSearchs;
 
-// namespace NewLMS.Umkm.MediatR.Features.SlikRequestDuplikasis.Queries
+// namespace NewLMS.UMKM.MediatR.Features.SlikRequestDuplikasis.Queries
 // {
 //     public class SlikRequestDuplikasisGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<MSearchResponse>>>
 //     {

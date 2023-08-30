@@ -1,7 +1,7 @@
 using FluentValidation;
-using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycle;
+using NewLMS.UMKM.Data.Dto.RfBusinessPrimaryCycles;
 
-namespace NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycle.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycles.Commands
 {
     public class RfBusinessPrimaryCyclePostValidator : AbstractValidator<RfBusinessPrimaryCiclePostCommand>
     {
