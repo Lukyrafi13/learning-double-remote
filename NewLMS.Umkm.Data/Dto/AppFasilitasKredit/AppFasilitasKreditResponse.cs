@@ -4,7 +4,7 @@ namespace NewLMS.UMKM.Data.Dto.AppFasilitasKredits
     public class AppFasilitasKreditResponseDto
     {
         public Guid Id { get; set; }
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public RfAppType JenisPermohonanKredit { get; set; }
         public RFLoanPurpose TujuanKredit { get; set; }    
         public RFSubProduct LoanType { get; set; }

@@ -56,7 +56,7 @@
 //             _prescreening = prescreening;
 //         }
 
-//         public async Task<ServiceResponse<AppProsesResponseDto>> ProsesKeSLIK(App App, AppProsesSLIKCommand request, AppProsesResponseDto response, List<AppAgunan> agunans)
+//         public async Task<ServiceResponse<AppProsesResponseDto>> ProsesKeSLIK(LoanApplication LoanApplication, AppProsesSLIKCommand request, AppProsesResponseDto response, List<AppAgunan> agunans)
 //         {
 //             var SlikRequest = await _SlikRequest.GetByPredicate(x => x.AppId == request.Id);
 
@@ -283,7 +283,7 @@
 
 //             return ServiceResponse<AppProsesResponseDto>.ReturnResultWith200(response);
 //         }
-//         public async Task<ServiceResponse<AppProsesResponseDto>> ProsesKePrescreening(App App, AppProsesSLIKCommand request, AppProsesResponseDto response)
+//         public async Task<ServiceResponse<AppProsesResponseDto>> ProsesKePrescreening(LoanApplication LoanApplication, AppProsesSLIKCommand request, AppProsesResponseDto response)
 //         {
 //             var prescreening = await _prescreening.GetByPredicate(x=> x.AppId == App.Id);
 

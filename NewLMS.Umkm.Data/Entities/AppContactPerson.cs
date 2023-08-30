@@ -8,7 +8,7 @@ namespace NewLMS.UMKM.Data
     {
         public Guid Id { get; set; }        
         [ForeignKey("AppId")]
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public string Nama { get; set; }
         [ForeignKey("RFRelationColId")]
         public RFRelationCol Hubungan { get; set; }

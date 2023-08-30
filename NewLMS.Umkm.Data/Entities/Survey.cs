@@ -9,8 +9,8 @@ namespace NewLMS.UMKM.Data
     {
         public Guid Id { get; set; }
 
-        [ForeignKey("AppId")]
-        public App App { get; set; }
+        [ForeignKey("LoanApplicationId")]
+        public LoanApplication LoanApplication { get; set; }
         [ForeignKey("RFRelationSurveyId")]
         public RFRelationSurvey HubunganDebitur { get; set; }
         [ForeignKey("RfOwnerCategoryId")]
@@ -69,7 +69,7 @@ namespace NewLMS.UMKM.Data
         public bool? MasukRadiusCabang { get; set; }
         public bool? UsahaMilikSendiri { get; set; }
 
-        public Guid AppId { get; set; }
+        public Guid LoanApplicationId { get; set; }
         public Guid? RFRelationSurveyId { get; set; }
         public Guid? RfOwnerCategoryId { get; set; }
         public Guid? RFOwnerOTSId { get; set; }

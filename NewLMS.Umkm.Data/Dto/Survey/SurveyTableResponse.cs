@@ -10,6 +10,6 @@ namespace NewLMS.UMKM.Data.Dto.Surveys
         public string StatusSLIK { get; set; }
         public int Age { get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
     }
 }

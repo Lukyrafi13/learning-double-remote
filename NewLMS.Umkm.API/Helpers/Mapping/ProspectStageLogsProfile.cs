@@ -1,15 +1,15 @@
 using AutoMapper;
 using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Dto.ProspectStageLogss;
+using NewLMS.UMKM.Data.Dto.LoanApplicationStageLogss;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class ProspectStageLogsProfile : Profile
+    public class LoanApplicationStageLogsProfile : Profile
     {
-        public ProspectStageLogsProfile()
+        public LoanApplicationStageLogsProfile()
         {
-            CreateMap<ProspectStageLogs, ProspectStageLogsResponseDto>().ReverseMap();
+            CreateMap<LoanApplicationStageLogs, LoanApplicationStageLogsResponseDto>().ReverseMap();
         }
     }
 }

@@ -4,7 +4,7 @@ namespace NewLMS.UMKM.Data.Dto.AppKeyPersons
     public class AppKeyPersonResponseDto
     {
         public Guid Id { get; set; }        
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public string Nama { get; set; }
         public string TempatLahir { get; set; }
         public DateTime? TanggalLahir { get; set; }

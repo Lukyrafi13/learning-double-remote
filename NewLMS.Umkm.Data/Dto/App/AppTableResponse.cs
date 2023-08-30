@@ -13,6 +13,6 @@ namespace NewLMS.UMKM.Data.Dto.Apps
         public string Aging { get; set; }
         public int Age { get; set; }
         public string SumberData { get; set; }
-        public RFStages Stage { get; set; }
+        public RfStage Stage { get; set; }
     }
 }

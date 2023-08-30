@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data
 {
-    public class AppFasilitasKredit : BaseEntity
+    public class LoanLoanApplicationlicationCreditFacility : BaseEntity
     {
         public Guid Id { get; set; }
-        [ForeignKey("AppId")]
-        public App App { get; set; }
-        [ForeignKey("RfAppTypeKreditId")]
+        [ForeignKey("LoanApplicationId")]
+        public LoanApplication LoanApplication { get; set; }
+        [ForeignKey("RfLoanApplicationTypeKreditId")]
         public RfAppType JenisPermohonanKredit { get; set; }
         [ForeignKey("RFLoanPurposeId")]
         public RFLoanPurpose TujuanKredit { get; set; }    
@@ -35,8 +35,8 @@ namespace NewLMS.UMKM.Data
         [ForeignKey("RfSectorLBU3Code")]
         public RfSectorLBU3 SubSubSektorEkonomiLBU { get; set; }
         
-        public Guid AppId { get; set; }
-        public Guid RfAppTypeKreditId { get; set; }
+        public Guid LoanApplicationId { get; set; }
+        public Guid RfLoanApplicationTypeKreditId { get; set; }
         public Guid RFLoanPurposeId { get; set; }
         public Guid RFSubProductId { get; set; }
         public Guid? RFNegaraPenempatanId { get; set; }

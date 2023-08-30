@@ -10,6 +10,6 @@ namespace NewLMS.UMKM.Data.Dto.SlikRequests
 
         public ICollection<SlikRequestObject> SlikRequestObjects { get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
     }
 }

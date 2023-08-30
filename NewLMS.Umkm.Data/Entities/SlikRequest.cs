@@ -11,8 +11,8 @@ namespace NewLMS.UMKM.Data
         [Required]
         public Guid Id { get; set; }
 
-        [ForeignKey(nameof(App))]
-        public Guid AppId { get; set; }
+        [ForeignKey(nameof(LoanApplication))]
+        public Guid LoanApplicationId { get; set; }
 
         [ForeignKey(nameof(Branch))]
         public string BranchCode { get; set; }
@@ -26,7 +26,7 @@ namespace NewLMS.UMKM.Data
         public double TotalOtherUses => GetTotal("other");
         public double TotalWorkingCapital => GetTotal("working");
         public DateTime? InquiryDate { get; set; }
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public RfBranch Branch { get; set; }
         public ICollection<SlikHistoryKredit> SlikHistoryKredits { get; set; }
         public ICollection<SlikRequestObject> SlikRequestObjects { get; set; }

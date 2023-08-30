@@ -9,8 +9,8 @@ namespace NewLMS.UMKM.Data
         public Guid Id { get; set; }
         [ForeignKey("AnalisaId")]
         public Analisa Analisa { get; set; }
-        [ForeignKey("AppFasilitasKreditId")]
-        public AppFasilitasKredit AppFasilitasKredit { get; set; }
+        // [ForeignKey("AppFasilitasKreditId")]
+        // public AppFasilitasKredit AppFasilitasKredit { get; set; }
         [ForeignKey("RFSandiBIGolonganId")]
         public RFSANDIBI GolonganDebitur { get; set; }
         [ForeignKey("RFSandiBIHubunganId")]

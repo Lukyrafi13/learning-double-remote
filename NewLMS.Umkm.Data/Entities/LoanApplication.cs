@@ -15,6 +15,7 @@ namespace NewLMS.UMKM.Data
         [MaxLength(20)]
 
         public string LoanApplicationId { get; set; }
+        [ForeignKey(nameof(Prospect))]
         public Guid? ProspectId { get; set; }
 
         [ForeignKey(nameof(RfOwnerCategory))]
@@ -31,9 +32,9 @@ namespace NewLMS.UMKM.Data
         public Guid CompanyEntityGuid { get; set; }
 
         // Other stage
-        public SlikRequest SlikRequest {get; set; }
         public RfOwnerCategory RfOwnerCategory {get; set; }
         public Debtor Debtor {get; set; }
+        public Prospect Prospect {get; set; }
         public CompanyEntity CompanyEntity {get; set; }
         public RfStage LatestStage => getCurrentStage();
 

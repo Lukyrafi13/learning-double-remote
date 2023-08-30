@@ -8,7 +8,7 @@ namespace NewLMS.UMKM.Data
         public Guid Id { get; set; }
         
         [ForeignKey("AppId")]
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         [ForeignKey("PrescreeningId")]
         public Prescreening Prescreening { get; set; }
         [ForeignKey("SurveyId")]

@@ -1,16 +1,16 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.ProspectStageLogss
+namespace NewLMS.UMKM.Data.Dto.LoanApplicationStageLogss
 {
-    public class ProspectStageLogsResponseDto
+    public class LoanApplicationStageLogsResponseDto
     {
         public Guid LoanApplicationStageLogId { get; set; }
 
-        public Guid ProspectId { get; set; }
-        public Prospect Prospect { get; set; }
+        public Guid LoanApplicationId { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public Guid? RFRejectId { get; set; }
 
         public int StageId { get; set; }
-        public RFStages RFStages { get; set; }
+        public RfStage RFStages { get; set; }
         public RFReject Alasan { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
