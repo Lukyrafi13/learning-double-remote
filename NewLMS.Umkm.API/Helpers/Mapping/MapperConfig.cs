@@ -156,6 +156,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new InformasiOmsetProfile());
                 mc.AddProfile(new ApprovalHistoryProfile());
                 mc.AddProfile(new SPPKFileUploadProfile());
+                mc.AddProfile(new RfCompanyStatusProfile());
                 
                 #region RfParameter
                 mc.AddProfile(new RfParameterProfile());
