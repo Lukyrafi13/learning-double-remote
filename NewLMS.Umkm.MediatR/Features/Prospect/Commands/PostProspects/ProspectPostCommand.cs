@@ -23,10 +23,9 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
         private readonly IGenericRepositoryAsync<RfProduct> _product;
         private readonly IGenericRepositoryAsync<RfZipCode> _zipCode;
         private readonly IGenericRepositoryAsync<RfGender> _gender;
-        private readonly IGenericRepositoryAsync<RfAppType> _AppType;
+        private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParamterDetail;
         private readonly IGenericRepositoryAsync<RfTargetStatus> _statusTarget;
         private readonly IGenericRepositoryAsync<RfSectorLBU3> _subSubSector;
-        private readonly IGenericRepositoryAsync<RfCompanyGroup> _kelUsaha;
         private readonly IGenericRepositoryAsync<RfCompanyType> _CompanyType;
         private readonly IGenericRepositoryAsync<RfBranch> _Branch;
         private readonly IMapper _mapper;
@@ -38,10 +37,9 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 IGenericRepositoryAsync<RfProduct> product,
                 IGenericRepositoryAsync<RfZipCode> zipCode,
                 IGenericRepositoryAsync<RfGender> gender,
-                IGenericRepositoryAsync<RfAppType> AppType,
+                IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
                 IGenericRepositoryAsync<RfTargetStatus> statusTarget,
                 IGenericRepositoryAsync<RfSectorLBU3> subSubSector,
-                IGenericRepositoryAsync<RfCompanyGroup> kelUsaha,
                 IGenericRepositoryAsync<RfCompanyType> CompanyType,
                 IGenericRepositoryAsync<RfBranch> Branch,
                 IMapper mapper
@@ -52,10 +50,9 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
             _product = product;
             _zipCode = zipCode;
             _gender = gender;
-            _AppType = AppType;
+            _rfParamterDetail = rfParameterDetail;
             _statusTarget = statusTarget;
             _subSubSector = subSubSector;
-            _kelUsaha = kelUsaha;
             _CompanyType = CompanyType;
             _Branch = Branch;
             _mapper = mapper;
@@ -78,11 +75,11 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 response.Success = false;
                 return response;
             }
-            if((await _AppType.GetCountByPredicate(x => x.Id == request.RfAppTypeId)) == 0){
+            /*if((await _rfParamterDetail.GetCountByPredicate(x => x.ParameterDetailId == request.RfAppTypeId)) == 0){
                 var response = ServiceResponse<ProspectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "RfAppType tidak ditemukan, pastikan Id sudah sesuai");
                 response.Success = false;
                 return response;
-            }
+            }*/
             if((await _statusTarget.GetCountByPredicate(x => x.Active && x.Id == request.RfTargetStatusId)) == 0){
                 var response = ServiceResponse<ProspectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "RfTargetStatusTarget tidak ditemukan, pastikan Id sudah sesuai");
                 response.Success = false;
@@ -98,7 +95,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 response.Success = false;
                 return response;
             }
-            if((await _AppType.GetCountByPredicate(x => x.Id == request.RfAppTypeId)) == 0){
+            if((await _rfParamterDetail.GetCountByPredicate(x => x.ParameterDetailId == request.RfAppTypeId)) == 0){
                 var response = ServiceResponse<ProspectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "RfAppType tidak ditemukan, pastikan Id sudah sesuai");
                 response.Success = false;
                 return response;
@@ -129,6 +126,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 // Autogenerate Id
                 var prospectId = request.BranchId+"-"+product.ProductType+"-"+DateTime.Now.ToString("yy")+DateTime.Now.ToString("MM")+"-"+(countDataProspect+1).ToString("D4");
 
+                prospect.ProspectId = prospectId;
                 prospect.Fullname = request.Fullname;
                 prospect.RfProductId = request.RfProductId;
                 prospect.RfOwnerCategoryId = request.RfOwnerCategoryId;
@@ -142,7 +140,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                     prospect.RfCompanyStatusId = request.RfCompanyStatusId;
                     if (product.ProductType.ToUpper() != "KRG"){
 
-                        if((await _kelUsaha.GetCountByPredicate(x => x.Active && x.Id == request.RfCompanyGroupId)) == 0){
+                        if((await _rfParamterDetail.GetCountByPredicate(x => x.Active && x.ParameterDetailId == request.RfCompanyGroupId)) == 0){
                             var responseVal = ServiceResponse<ProspectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "RfKelompokUsahaId tidak ditemukan, pastikan Id sudah sesuai");
                             responseVal.Success = false;
                             return responseVal;
@@ -169,8 +167,9 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                     }
                     
                     prospect.RfGenderId = request.RfGenderId;
-                    
-                    if((await _zipCode.GetCountByPredicate(x => x.Active && x.Id == request.CompanyZipCodeId)) == 0){
+
+                    if ((await _zipCode.GetCountByPredicate(x => x.Active && x.Id == request.CompanyZipCodeId)) == 0)
+                    {
                         var responseVal = ServiceResponse<ProspectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "RfZipcode tidak ditemukan, pastikan kode pos sudah sesuai");
                         responseVal.Success = false;
                         return responseVal;
@@ -209,7 +208,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
                 // Target
                 prospect.RfAppTypeId = request.RfAppTypeId;
-                prospect.RfTargetStatusId = request.RfTargetStatusId;
+                prospect.RfTargetStatusId = request.RfTargetStatusId;   
                 prospect.RfSectorLBU3Code = request.RfSectorLBU3Code;
                 prospect.Reason = request.Reason;
                 prospect.TargetPladfond = request.TargetPladfond;

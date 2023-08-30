@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230830103029_rfVeh")]
+    partial class rfVeh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -611,17 +613,17 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<string>("Reason")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RfAppTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("RfAppTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("RfCategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("RfCompanyGroupId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("RfCompanyGroupId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("RfCompanyStatusId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("RfCompanyStatusId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("RfCompanyTypeId")
                         .HasColumnType("uniqueidentifier");
@@ -803,50 +805,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasKey("Code");
 
                     b.ToTable("RfBranches");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RfBusinessPrimaryCycle", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CoreCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CycleCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CycleDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RfBusinessPrimaryCycles");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfCategory", b =>
@@ -2584,7 +2542,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "RfAppType")
+                    b.HasOne("NewLMS.UMKM.Data.RfAppType", "RfAppType")
                         .WithMany()
                         .HasForeignKey("RfAppTypeId");
 
@@ -2592,11 +2550,11 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("RfCategoryId");
 
-                    b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "RfCompanyGroup")
+                    b.HasOne("NewLMS.UMKM.Data.RfCompanyGroup", "RfCompanyGroup")
                         .WithMany()
                         .HasForeignKey("RfCompanyGroupId");
 
-                    b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "RfCompanyStatus")
+                    b.HasOne("NewLMS.UMKM.Data.RfCompanyStatus", "RfCompanyStatus")
                         .WithMany()
                         .HasForeignKey("RfCompanyStatusId");
 

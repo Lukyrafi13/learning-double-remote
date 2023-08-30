@@ -62,9 +62,10 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RfStage> RfStages { get; set; }
         public DbSet<RfParameter> RfParameters { get; set; }
         public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
-        // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
-        // public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
-        // public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; }
+        // public DbSet<Debitur> Debiturs { get; set; }
+        public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
+        public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
+        public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; }
         // public DbSet<RFSCOREPUTASITEMPATTINGGAL> RFSCOREPUTASITEMPATTINGGAL { get; set; }
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHAN { get; set; }
         // public DbSet<RFSCOCARATRANSAKSI> RFSCOCARATRANSAKSI { get; set; }
@@ -75,7 +76,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFSCOMUTASIPERBULAN> RFSCOMUTASIPERBULAN { get; set; }
         // public DbSet<RFSCOSALDOREKRATA> RFSCOSALDOREKRATA { get; set; }
         // public DbSet<RFSCOSCORINGAGUNAN> RFSCOSCORINGAGUNAN { get; set; }
-        // public DbSet<RFEDUCATION> RFEDUCATION { get; set; }
+        public DbSet<RFEDUCATION> RFEDUCATION { get; set; }
         // public DbSet<RFHOMESTA> RFHOMESTA { get; set; }
         public DbSet<RFJOB> RFJOB { get; set; }
         // public DbSet<RFMARITAL> RFMARITALs { get; set; }
@@ -91,13 +92,14 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFTenor> RFTenors { get; set; }
         // public DbSet<RFTenorMapping> RFTenorMappings { get; set; }
         // public DbSet<RFSifatKredit> RFSifatKredits { get; set; }
-        // public DbSet<RFVehModel> RFVehModels { get; set; }
+        public DbSet<RFVehModel> RFVehModels { get; set; }
         // public DbSet<RFJenisKendaraanAgunan> RFJenisKendaraanAgunans { get; set; }
         // public DbSet<RFBuktiKepemilikan> RFBuktiKepemilikans { get; set; }
         // public DbSet<RFDecisionSK> RFDecisionSKs { get; set; }
         // public DbSet<RFLokasiTempatUsaha> RFLokasiTempatUsahas { get; set; }
         // public DbSet<RFSubProductTenor> RFSubProductTenors { get; set; }
-        // public DbSet<RFVehicleTypeList> RFVehicleTypeLists { get; set; }
+        public DbSet<RFVehicleTypeList> RFVehicleTypeLists { get; set; }
+        // public virtual DbSet<App> Apps { get; set; }
         // public virtual DbSet<AppKeyPerson> AppKeyPersons { get; set; }
         // public virtual DbSet<AppContactPerson> AppContactPersons { get; set; }
         // public DbSet<RFJenisTempatUsaha> RFJenisTempatUsahas { get; set; }
