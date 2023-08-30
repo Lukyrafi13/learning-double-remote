@@ -4,36 +4,36 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data
 {
-    public class AppKeyPerson : BaseEntity
+    public class LoanApplicationKeyPerson : BaseEntity
     {
         public Guid Id { get; set; }        
-        [ForeignKey("AppId")]
-        public App App { get; set; }
-        public string Nama { get; set; }
-        public string TempatLahir { get; set; }
-        public DateTime? TanggalLahir { get; set; }
-        public string Jabatan { get; set; }
-        public string NoKTP { get; set; }
-        public string NomorTelpon { get; set; }
-        public DateTime? MasaBerlakuKTP { get; set; }
-        public bool? SeumurHidup { get; set; }
+        [ForeignKey("LoanApplicationId")]
+        public LoanApplication LoanApplication { get; set; }
+        public string Fullname { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string JobPosition { get; set; }
+        public string NoIdentity { get; set; }
+        public string Phone { get; set; }
+        public DateTime? IdentityExpiredDate { get; set; }
+        public bool? IdentityLifeTime { get; set; }
         public string NPWP { get; set; }
-        [ForeignKey("RFEducationId")]
-        public RFEDUCATION PendidikanTerakhir { get; set; }
-        [ForeignKey("RFMaritalId")]
-        public RFMARITAL Status { get; set; }
-        public string Alamat { get; set; }
-        [ForeignKey("RfZipCodeId")]
-        public RfZipCode KodePos { get; set; }
-        public string Kelurahan { get; set; }
-        public string Kecamatan { get; set; }
-        public string KabupatenKota { get; set; }
-        public string Propinsi { get; set; }
+        // [ForeignKey("RFEducationId")]
+        public Guid? RfEducationId { get; set; }
+        // [ForeignKey("RFMaritalId")]
+        public Guid? RfMaritalId { get; set; }
+        public string Address { get; set; }
+        // [ForeignKey("RfZipCodeId")]
+        public Guid? RfZipCode { get; set; }
+        public string Neighborhoods { get; set; }
+        public string District { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
 
 
-        public Guid AppId { get; set; }
-        public Guid? RFEducationId { get; set; }
-        public Guid? RFMaritalId { get; set; }
-        public int? RfZipCodeId { get; set; }
+        // public Guid LoanApplicationId { get; set; }
+        // public Guid? RFEducationId { get; set; }
+        // public Guid? RFMaritalId { get; set; }
+        // public int? RfZipCodeId { get; set; }
     }
 }
