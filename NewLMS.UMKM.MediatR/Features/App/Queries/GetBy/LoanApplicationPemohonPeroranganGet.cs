@@ -36,48 +36,29 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Queries
 
             var existingLoanApplication = await _LoanApplication.GetByIdAsync(request.Id, "Id");
 
-                var debtor = await _Debtor.GetByPredicate(x=>x.LoanApplicationGuid == request.Id);
+            var debtor = await _Debtor.GetByPredicate(x => x.LoanApplicationGuid == request.Id);
 
-                if(debtor == null){
-                    return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, "Debtor not found");
-                }
+            if (debtor == null)
+            {
+                return ServiceResponse<LoanApplicationPemohonPeroranganResponse>.ReturnFailed((int)HttpStatusCode.BadRequest, "Debtor not found");
+            }
 
-                if (request.Debtor != null){
-                    debtor = _mapper.Map(request.Debtor, debtor);
-                    await _Debtor.UpdateAsync(debtor);
-                    existingLoanApplication.Debtor = debtor;
-                }
+            var response = new LoanApplicationPemohonPeroranganResponse();
 
-                if (request.DebtorCouple != null){
-                    var debtorCouple = await _DebtorCouple.GetByPredicate(x=>x.DebtorCoupleId == debtor.NoIdentity);
-                    var IsNew = debtorCouple == null;
-                    if (IsNew){
-                        debtorCouple = new DebtorCouple();
-                    }
-                    debtorCouple = _mapper.Map(request.DebtorCouple, debtorCouple);
+            response.DebtorResponse = debtor;
 
-                    if (IsNew){
-                        await _DebtorCouple.AddAsync(debtorCouple);
-                    }else{
-                        await _DebtorCouple.UpdateAsync(debtorCouple);
-                    }
+            var debtorCouple = await _DebtorCouple.GetByPredicate(x => x.DebtorCoupleId == debtor.NoIdentity);
 
-                }
+            if (debtorCouple != null)
+            {
+                response.DebtorCoupleResponse = debtorCouple;
+            }
 
-                if (request.DebtorEmergency != null){
-                    var debtorEmergency = await _DebtorEmergency.GetByPredicate(x=>x.DebtorId == debtor.NoIdentity);
-                    var IsNew = debtorEmergency == null;
-                    if (IsNew){
-                        debtorEmergency = new DebtorEmergency();
-                    }
-                    debtorEmergency = _mapper.Map(request.DebtorCouple, debtorEmergency);
-
-                    if (IsNew){
-                        await _DebtorEmergency.AddAsync(debtorEmergency);
-                    }else{
-                        await _DebtorEmergency.UpdateAsync(debtorEmergency);
-                    }
-                }
+            var debtorEmergency = await _DebtorEmergency.GetByPredicate(x => x.DebtorId == debtor.NoIdentity);
+            if (debtorEmergency != null)
+            {
+                response.DebtorEmergencyResponse = debtorEmergency;
+            }
 
             return ServiceResponse<LoanApplicationPemohonPeroranganResponse>.ReturnResultWith200(response);
         }
