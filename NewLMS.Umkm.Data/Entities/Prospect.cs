@@ -29,7 +29,7 @@ namespace NewLMS.UMKM.Data
         public Guid? RfGenderId { get; set; }
 
         [ForeignKey(nameof(RfCompanyStatus))]
-        public Guid? RfCompanyStatusId { get; set; }
+        public int? RfCompanyStatusId { get; set; }
 
         #endregion
 
@@ -95,13 +95,13 @@ namespace NewLMS.UMKM.Data
         #region Product And Loan
         [ForeignKey(nameof(RfProduct))]
         public Guid? RfProductId { get; set; }
-        
+
         #endregion
 
         #region Target
-        
+
         [ForeignKey(nameof(RfAppType))]
-        public Guid? RfAppTypeId { get; set; }
+        public int? RfAppTypeId { get; set; }
         [ForeignKey(nameof(RfTargetStatus))]
         public Guid? RfTargetStatusId { get; set; }
         [ForeignKey(nameof(RfSectorLBU3))]
@@ -137,7 +137,7 @@ namespace NewLMS.UMKM.Data
 
         #region Company Data - Company
         [ForeignKey(nameof(RfCompanyGroup))]
-        public Guid? RfCompanyGroupId { get; set; }
+        public int? RfCompanyGroupId { get; set; }
         [ForeignKey(nameof(RfCompanyType))]
         public Guid? RfCompanyTypeId { get; set; }
         public string OtherCompanyType { get; set; }
@@ -147,8 +147,8 @@ namespace NewLMS.UMKM.Data
         public string DataSource { get; set; }
         #endregion
 
-        public RfCompanyGroup RfCompanyGroup { get; set; }
-        public RfCompanyStatus RfCompanyStatus { get; set; }
+        public RfParameterDetail RfCompanyGroup { get; set; }
+        public RfParameterDetail RfCompanyStatus { get; set; }
         public RfCompanyType RfCompanyType { get; set; }
 
         public RfBranch RfBranch { get; set; }
@@ -160,7 +160,7 @@ namespace NewLMS.UMKM.Data
         public RfZipCode RfZipCode { get; set; }
         public RfZipCode RfPlaceZipCode { get; set; }
         public RfZipCode RfCompanyZipCode { get; set; }
-        public RfAppType RfAppType { get; set; }
+        public RfParameterDetail RfAppType { get; set; }
         public RfTargetStatus RfTargetStatus { get; set; }
         public RfCategory RfCategory { get; set; }
         public RfServiceCode RfServiceCode { get; set; }
