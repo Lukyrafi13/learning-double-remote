@@ -347,6 +347,16 @@ namespace NewLMS.UMKM.Domain.Context
                     .OnDelete(DeleteBehavior.NoAction);
             });
 
+            
+
+            builder.Entity<CompanyEntity>(b =>
+            {
+                b.HasOne(e => e.RfZipCode)
+                    .WithMany()
+                    .HasForeignKey(ur => ur.RfZipCodeId)
+                    .OnDelete(DeleteBehavior.NoAction);
+            });
+
             // builder.Entity<Debitur>(b =>
             // {
             //     b.HasOne(e => e.JenisKelamin)
