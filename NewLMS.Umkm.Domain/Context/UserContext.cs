@@ -49,6 +49,8 @@ namespace NewLMS.UMKM.Domain.Context
         public virtual DbSet<RfCategory> RfCategories { get; set; }
         public virtual DbSet<RfServiceCode> RfServiceCodes { get; set; }
         public DbSet<Prospect> Prospects { get; set; }
+        public DbSet<RfParameter> RfParameters { get; set; }
+        public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
         // public DbSet<Debitur> Debiturs { get; set; }
         // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         // public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
