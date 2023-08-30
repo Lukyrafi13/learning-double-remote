@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230830083131_addCollateral")]
+    partial class addCollateral
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1082,71 +1084,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RfGenders");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RFJOB", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("ACTIVE")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CORE_CODE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("JOBSCR_TYPE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_CODE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_CODESIKP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_DESC")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_DESCSIKP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JOB_TYPE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("OTHER")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PRODUCTID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("SENSITIVE")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RFJOB");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfOwnerCategory", b =>

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Dto.RFColLateralBCs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +8,7 @@ using NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Commands;
 using NewLMS.UMKM.MediatR.Features.RFColLateralBCs.Queries;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Data.Dto.RFColLateralBCs;
 
 namespace NewLMS.UMKM.API.Controllers.RFColLateralBC
 {

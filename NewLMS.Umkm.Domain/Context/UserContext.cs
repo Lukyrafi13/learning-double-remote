@@ -60,6 +60,8 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
         public DbSet<CompanyEntity> CompanyEntities { get; set; }
         public DbSet<RfStage> RfStages { get; set; }
+        public DbSet<RfParameter> RfParameters { get; set; }
+        public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
         // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         // public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
         // public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; }
@@ -75,11 +77,11 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFSCOSCORINGAGUNAN> RFSCOSCORINGAGUNAN { get; set; }
         // public DbSet<RFEDUCATION> RFEDUCATION { get; set; }
         // public DbSet<RFHOMESTA> RFHOMESTA { get; set; }
-        // public DbSet<RFJOB> RFJOB { get; set; }
+        public DbSet<RFJOB> RFJOB { get; set; }
         // public DbSet<RFMARITAL> RFMARITALs { get; set; }
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHANs { get; set; }
         // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
-        // public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
+        public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         // public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
         // public DbSet<RFDocument> RFDocuments { get; set; }
         // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
