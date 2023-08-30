@@ -9,6 +9,7 @@ using NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycles.Commands;
 using NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCycles.Queries;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.RfBusinessPrimaryCiclus.Queries;
 
 namespace NewLMS.UMKM.API.Controllers.RfBusinessPrimaryCycles
 {
