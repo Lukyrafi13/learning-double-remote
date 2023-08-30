@@ -117,7 +117,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                         var CompanyEntity = new CompanyEntity{
                             CompanyName = prospect.CompanyName,
                             Phone = prospect.PhoneNumber,
-                            RfCompanyStatusId = prospect.RfCompanyStatusId,
+                            RfCompanyStatusId = (int)prospect.RfCompanyStatusId,
                             Address = prospect.Address,
                             Neighborhoods = prospect.Neighborhoods,
                             District = prospect.District,
