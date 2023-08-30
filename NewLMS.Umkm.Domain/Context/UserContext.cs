@@ -54,8 +54,8 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<Debitur> Debiturs { get; set; }
         // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         // public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
-        // public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; }
-        // public DbSet<RFSCOREPUTASITEMPATTINGGAL> RFSCOREPUTASITEMPATTINGGAL { get; set; }
+        // public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; } parameter
+        // public DbSet<RFSCOREPUTASITEMPATTINGGAL> RFSCOREPUTASITEMPATTINGGAL { get; set; } 
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHAN { get; set; }
         // public DbSet<RFSCOCARATRANSAKSI> RFSCOCARATRANSAKSI { get; set; }
         // public DbSet<RFSCOPENGELOLAKEUANGAN> RFSCOPENGELOLAKEUANGAN { get; set; }
@@ -66,7 +66,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFSCOSALDOREKRATA> RFSCOSALDOREKRATA { get; set; }
         // public DbSet<RFSCOSCORINGAGUNAN> RFSCOSCORINGAGUNAN { get; set; }
         // public DbSet<RFEDUCATION> RFEDUCATION { get; set; }
-        // public DbSet<RFHOMESTA> RFHOMESTA { get; set; }
+        // public DbSet<RFHOMESTA> RFHOMESTA { get; set; } parameter
         public DbSet<RFJOB> RFJOB { get; set; }
         // public DbSet<RFMARITAL> RFMARITALs { get; set; }
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHANs { get; set; }
