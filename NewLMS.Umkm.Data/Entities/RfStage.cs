@@ -1,21 +1,20 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NewLMS.UMKM.Data
 {
-    public class RFStages : BaseEntity
+    public class RfStage : BaseEntity
     {
         [Key]
         [Required]
-        public int StageId { get; set; }
-        [MaxLength(50)]
+        public Guid StageId { get; set; }
+        [MaxLength(5)]
         public string Code { get; set; }
-
-        [MaxLength(150)]
         public string Description { get; set; }
         public int GroupStage { get; set; }
-
-        [MaxLength(50)]
+        public int GroupStageDigiloan { get; set; }
         public string GroupName { get; set; }
+        public bool IsShowInTracking { get; set; }
 
 
     }

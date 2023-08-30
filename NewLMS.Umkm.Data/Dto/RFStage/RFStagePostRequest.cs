@@ -1,8 +1,7 @@
-namespace NewLMS.UMKM.Data.Dto.RFStagess
+namespace NewLMS.UMKM.Data.Dto.RfStages
 {
-    public class RFStagesPostRequestDto
+    public class RfStagePostRequestDto
     {
-        public int StageId { get; set; }
         public string Code { get; set; }
 
         public string Description { get; set; }

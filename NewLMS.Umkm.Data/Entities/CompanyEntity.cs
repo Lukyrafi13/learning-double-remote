@@ -8,12 +8,12 @@ namespace NewLMS.UMKM.Data
     public class CompanyEntity : BaseEntity
     {
         [Key]
-        [Required]
-        public string NoIdentity { get; set; }
+        public Guid Id {get; set;}
+        public Guid? RfCompanyStatusId {get; set;}
 		public string CompanyName { get; set; }
 		public string Phone { get; set; }
         public string Address { get; set; }
-        public Guid RfZipCodeId { get; set; }
+        public int RfZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
         public string District { get; set; }
         public string City { get; set; }
@@ -22,7 +22,7 @@ namespace NewLMS.UMKM.Data
         // Contact Person
         public string ContactPersonName { get; set; }
         public string ContactPersonPhone { get; set; }        public string ContactPersonAddress { get; set; }
-        public Guid RfContactPersonZipCodeId { get; set; }
+        public int RfContactPersonZipCodeId { get; set; }
         public string ContactPersonNeighborhoods { get; set; }
         public string ContactPersonDistrict { get; set; }
         public string ContactPersonCity { get; set; }

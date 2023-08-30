@@ -10,9 +10,10 @@ namespace NewLMS.UMKM.Data
         public Guid Id { get; set; }
 
         public string CompanyName { get; set; }
-        public string Adress { get; set; }
-        public string FullAdress { get; set; }
-        public Guid RfZipCodeId { get; set; }
+        public string Address { get; set; }
+        public string FullAddress { get; set; }
+        [ForeignKey(nameof(RfZipCode))]
+        public int RfZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
         public string District { get; set; }
         public string City { get; set; }
@@ -22,6 +23,9 @@ namespace NewLMS.UMKM.Data
         [MaxLength(16)]
         [ForeignKey(nameof(Debtor))]
         public string DebtorId { get; set; }
+
+        public RfZipCode RfZipCode { get; set; }
+        public Debtor Debtor { get; set; }
 
 	}
 }

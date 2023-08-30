@@ -71,22 +71,22 @@ namespace NewLMS.UMKM.API.Controllers.Prospect
 
         
 
-        // /// <summary>
-        // /// Process Prospect
-        // /// </summary>
-        // /// <param name="postProsesProspect"></param>
-        // /// <returns></returns>
-        // [HttpPost("proses", Name = "ProsesProspect")]
-        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
-        // public async Task<IActionResult> ProsesProspect(ProspectProsesCommand postProsesProspect)
-        // {
-        //     var result = await _mediator.Send(postProsesProspect);
-        //     if (!result.Success)
-        //     {
-        //         return ReturnFormattedResponse(result);
-        //     }
-        //     return Ok(result);
-        // }
+        /// <summary>
+        /// Process Prospect
+        /// </summary>
+        /// <param name="postProsesProspect"></param>
+        /// <returns></returns>
+        [HttpPost("proses", Name = "ProsesProspect")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectProsesResponseDto>))]
+        public async Task<IActionResult> ProsesProspect(ProspectProsesCommand postProsesProspect)
+        {
+            var result = await _mediator.Send(postProsesProspect);
+            if (!result.Success)
+            {
+                return ReturnFormattedResponse(result);
+            }
+            return Ok(result);
+        }
 
         // /// <summary>
         // /// Process Prospect

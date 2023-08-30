@@ -37,7 +37,9 @@ namespace NewLMS.UMKM.Data
         public string NoIdentity { get; set; }
 
         [MaxLength(80)]
-        public string Fullname { get; set; }
+        public string Fullname => FirstName + " " + LastName;
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 

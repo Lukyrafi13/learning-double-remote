@@ -1,156 +1,209 @@
-// using AutoMapper;
-// using MediatR;
-// using NewLMS.UMKM.Data.Dto.Prospects;
-// using NewLMS.UMKM.Data;
-// using NewLMS.UMKM.Helper;
-// using NewLMS.UMKM.Repository.GenericRepository;
-// using System;
-// using System.Threading;
-// using System.Threading.Tasks;
-// using System.Net;
+using AutoMapper;
+using MediatR;
+using NewLMS.UMKM.Data.Dto.Prospects;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Net;
 
-// namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
-// {
-//     public class ProspectProsesCommand : ProspectFindRequestDto, IRequest<ServiceResponse<ProspectProsesResponseDto>>
-//     {
-//         public string NamaUser { get; set; }
-//     }
-//     public class ProspectProsesCommandHandler : IRequestHandler<ProspectProsesCommand, ServiceResponse<ProspectProsesResponseDto>>
-//     {
-//         private readonly IGenericRepositoryAsync<Prospect> _prospect;
-//         private readonly IGenericRepositoryAsync<App> _app;
-//         private readonly IGenericRepositoryAsync<RFStages> _stages;
-//         private readonly IGenericRepositoryAsync<ProspectStageLogs> _stageLogs;
-//         private readonly IMapper _mapper;
+namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
+{
+    public class ProspectProsesCommand : ProspectFindRequestDto, IRequest<ServiceResponse<ProspectProsesResponseDto>>
+    {
+        public string NamaUser { get; set; }
+    }
+    public class ProspectProsesCommandHandler : IRequestHandler<ProspectProsesCommand, ServiceResponse<ProspectProsesResponseDto>>
+    {
+        private readonly IGenericRepositoryAsync<Prospect> _prospect;
+        private readonly IGenericRepositoryAsync<LoanApplication> _LoanApplication;
+        private readonly IGenericRepositoryAsync<RfStage> _stages;
+        private readonly IGenericRepositoryAsync<Debtor> _Debtor;
+        private readonly IGenericRepositoryAsync<DebtorCompany> _DebtorCompany;
+        private readonly IGenericRepositoryAsync<CompanyEntity> _CompanyEntity;
+        private readonly IGenericRepositoryAsync<LoanApplicationStageLogs> _stageLogs;
+        private readonly IMapper _mapper;
 
-//         public ProspectProsesCommandHandler(
-//                 IGenericRepositoryAsync<Prospect> prospect,
-//                 IGenericRepositoryAsync<App> app,
-//                 IGenericRepositoryAsync<RFStages> stages,
-//                 IGenericRepositoryAsync<ProspectStageLogs> stageLogs,
-//                 IMapper mapper
-//             )
-//         {
-//             _prospect = prospect;
-//             _app = app;
-//             _stages = stages;
-//             _stageLogs = stageLogs;
-//             _mapper = mapper;
-//         }
+        public ProspectProsesCommandHandler(
+                IGenericRepositoryAsync<Prospect> prospect,
+                IGenericRepositoryAsync<LoanApplication> LoanApplication,
+                IGenericRepositoryAsync<RfStage> stages,
+                IGenericRepositoryAsync<Debtor> Debtor,
+                IGenericRepositoryAsync<DebtorCompany> DebtorCompany,
+                IGenericRepositoryAsync<CompanyEntity> CompanyEntity,
+                IGenericRepositoryAsync<LoanApplicationStageLogs> stageLogs,
+                IMapper mapper
+            )
+        {
+            _prospect = prospect;
+            _LoanApplication = LoanApplication;
+            _stages = stages;
+            _stageLogs = stageLogs;
+            _Debtor = Debtor;
+            _DebtorCompany = DebtorCompany;
+            _CompanyEntity = CompanyEntity;
+            _mapper = mapper;
+        }
 
-//         public async Task<ServiceResponse<ProspectProsesResponseDto>> Handle(ProspectProsesCommand request, CancellationToken cancellationToken)
-//         {
-            
-//             try
-//             {
-//                 var prospect = await _prospect.GetByIdAsync(Guid.Parse(request.Id), "Id", 
-//                     new string[] {
-//                         "JenisProduk",
-//                         "TipeDebitur",
-//                         "JenisKelamin",
-//                         "JenisPermohonanKredit",
-//                         "KodePos",
-//                         "Status",
-//                         "SektorEkonomi",
-//                         "SubSektorEkonomi",
-//                         "SubSubSektorEkonomi",
-//                         "Kategori",
-//                         "KodeDinas",
-//                         "Stage"
-//                     }
-//                 );
-//                 if (prospect == null){
-//                     var failResp = ServiceResponse<ProspectProsesResponseDto>.Return404("Data Prospect not found");
-//                     failResp.Success = false;
-//                     return failResp;
-//                 }
+        public async Task<ServiceResponse<ProspectProsesResponseDto>> Handle(ProspectProsesCommand request, CancellationToken cancellationToken)
+        {
 
-//                 // Assign New App
-//                 var app = new App();
-//                 var countDataApp = await _app.GetCountByPredicate(x =>
-//                             x.CreatedDate.Year == DateTime.Now.Year
-//                             && x.CreatedDate.Month == DateTime.Now.Month
-//                             );
-                
-//                 var appId = prospect.KodeCabang+"-"+prospect.JenisProduk.ProductType+"-"+DateTime.Now.ToString("yy")+DateTime.Now.ToString("MM")+"-"+(countDataApp+1).ToString("D4");
+            try
+            {
+                var prospect = await _prospect.GetByIdAsync(Guid.Parse(request.Id), "Id",
+                    new string[] {
+                        "RfProduct",
+                        "RfOwnerCategory",
+                    }
+                );
+                if (prospect == null)
+                {
+                    var failResp = ServiceResponse<ProspectProsesResponseDto>.Return404("Data Prospect not found");
+                    failResp.Success = false;
+                    return failResp;
+                }
+                var newLoanApp = false;
 
-//                 app.AplikasiId = appId;
-//                 app.DebiturId = prospect.DebiturId;
-//                 app.RfProductId = prospect.RfProductId;
-//                 app.ProspectId = prospect.Id;
-//                 app.RfOwnerCategoryId = prospect.RfOwnerCategoryId;
-                
-//                 app.NamaCustomer = prospect.NamaCustomer;
-//                 app.NomorTelpon = prospect.NomorTelpon;
-//                 app.Alamat = prospect.Alamat;
-//                 app.RfZipCodeId = prospect.RfZipCodeId;
-//                 app.Kelurahan = prospect.Kelurahan;
-//                 app.Kecamatan = prospect.Kecamatan;
-//                 app.KabupatenKota = prospect.KabupatenKota;
-//                 app.Propinsi = prospect.Propinsi;
-//                 app.SumberData = prospect.SumberData;
-//                 app.NamaAO = prospect.NamaAO;
-//                 app.KodeCabang = prospect.KodeCabang;
-//                 app.NamaCabang = prospect.NamaCabang;
-                
-//                 app.TempatLahir = prospect.TempatLahir;
-//                 app.TanggalLahir = prospect.TanggalLahir;
-//                 app.NomorKTP = prospect.NomorKTP;
-                
-//                 // Change prospect status
-//                 var stageFound = await _stages.GetByPredicate(x=> x.Code == "2.0");
-//                 var previousStage = await _stages.GetByPredicate(x=> x.Code == "1.0");
-                
-//                 if (prospect.Stage.Code == "2.0"){
-//                     var failResp = ServiceResponse<ProspectProsesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "Prospect sudah diproses sebelumnya");
-//                     failResp.Success = false;
-//                     return failResp;
-//                 }
+                var LoanApplication = await _LoanApplication.GetByPredicate(x => x.ProspectId == prospect.Id);
 
-//                 if (prospect.Stage.Code == "0.0"){
-//                     var failResp = ServiceResponse<ProspectProsesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "Prospect sudah ditolak sebelumnya");
-//                     failResp.Success = false;
-//                     return failResp;
-//                 }
-                
-//                 prospect.RFPreviousStagesId = previousStage.StageId;
-//                 prospect.PreviousStage = previousStage;
-//                 prospect.RFStagesId = stageFound.StageId;
-//                 prospect.Stage = stageFound;
-                
-//                 await _prospect.UpdateAsync(prospect);
+                if (LoanApplication == null)
+                {
+                    newLoanApp = true;
 
-//                 // Update prospect History
-//                 var oldLog = await _stageLogs.GetByPredicate(x=> x.ProspectId == prospect.Id && x.StageId == previousStage.StageId);
-//                 oldLog.ModifiedDate = DateTime.Now;
-//                 oldLog.ExecutedDate = DateTime.Now.ToLocalTime();
+                    // Assign New LoanApplication
+                    LoanApplication = new LoanApplication();
+                    
+                    if(prospect.RfOwnerCategory.OwnCode == "01"){
 
-//                 await _stageLogs.UpdateAsync(oldLog);
+                        // Create Debitur
+                        var Debitur = new Debtor{
+                            FirstName = prospect.FirstName,
+                            LastName = prospect.LastName,
+                            NoIdentity = prospect.NoIdentity,
+                            DateOfBirth = prospect.DateOfBirth,
+                            PlaceOfBirth = prospect.PlaceOfBirth,
+                            Phone = prospect.PhoneNumber,
+                            Address = prospect.Address,
+                            Province = prospect.Province,
+                            City = prospect.City,
+                            District = prospect.District,
+                            Neighborhoods = prospect.Neighborhoods,
+                            RfZipCodeId = prospect.ZipCodeId,
+                        };
 
-//                 var newLog = new ProspectStageLogs();
-//                 newLog.ProspectId = prospect.Id;
-//                 newLog.StageId = stageFound.StageId;
-//                 newLog.ExecutedBy = request.NamaUser;
+                        Debitur = await _Debtor.AddAsync(Debitur);
 
-//                 await _stageLogs.AddAsync(newLog);
+                        // Create Debitor Company
+                        var DebiturCompany = new DebtorCompany{
+                            CompanyName = prospect.CompanyName,
+                            Address = prospect.CompanyAddress,
+                            FullAddress = prospect.CompanyFullAddress,
+                            RfZipCodeId = prospect.CompanyZipCodeId,
+                            Neighborhoods = prospect.Neighborhoods,
+                            District = prospect.District,
+                            City = prospect.City,
+                            Province = prospect.Province,
+                            DebtorId = prospect.NoIdentity,
+                        };
 
-//                 var newApp = await _app.AddAsync(app);
+                        DebiturCompany = await _DebtorCompany.AddAsync(DebiturCompany);
 
-//                 var response = new ProspectProsesResponseDto();
+                        LoanApplication.NoIdentity = Debitur.NoIdentity;
+                        
+                    }
+                    if(prospect.RfOwnerCategory.OwnCode == "02"){
+                        var CompanyEntity = new CompanyEntity{
+                            CompanyName = prospect.CompanyName,
+                            Phone = prospect.PhoneNumber,
+                            RfCompanyStatusId = prospect.RfCompanyStatusId,
+                            Address = prospect.Address,
+                            Neighborhoods = prospect.Neighborhoods,
+                            District = prospect.District,
+                            City = prospect.City,
+                            Province = prospect.Province,
+                            RfZipCodeId = prospect.ZipCodeId,
+                        };
 
-//                 response.AppId = newApp.Id;
-//                 response.ProspectId = prospect.Id;
-//                 response.Stage = stageFound.Description;
-//                 response.Message = "Prospect berhasil diproses ke IDE";
+                        CompanyEntity = await _CompanyEntity.AddAsync(CompanyEntity);
 
-//                 return ServiceResponse<ProspectProsesResponseDto>.ReturnResultWith200(response);
-//             }
-//             catch (Exception ex)
-//             {
-//                 var response = ServiceResponse<ProspectProsesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
-//                 response.Success = false;
-//                 return response;
-//             }
-//         }
-//     }
-// }
+                        LoanApplication.CompanyEntityGuid = CompanyEntity.Id;
+                    }
+                    
+                    var countDataApp = await _LoanApplication.GetCountByPredicate(x =>
+                                x.CreatedDate.Year == DateTime.Now.Year
+                                && x.CreatedDate.Month == DateTime.Now.Month
+                                );
+
+                    var LoanApplicationId = prospect.BranchId + "-" + prospect.RfProduct.ProductType + "-" + DateTime.Now.ToString("yy") + DateTime.Now.ToString("MM") + "-" + (countDataApp + 1).ToString("D4");
+
+                    LoanApplication.LoanApplicationId = LoanApplicationId;
+                    LoanApplication.DataSource = prospect.DataSource;
+                    LoanApplication.ProspectId = prospect.Id;
+                    LoanApplication.RfOwnerCategoryId = prospect.RfOwnerCategoryId;
+
+                    
+                    LoanApplication = await _LoanApplication.AddAsync(LoanApplication);
+                }
+
+                // Change prospect status
+                var stageFound = await _stages.GetByPredicate(x => x.Code == "2.0");
+                var previousStage = await _stages.GetByPredicate(x => x.Code == "1.0");
+
+                if (LoanApplication.LatestStage?.Code == "2.0")
+                {
+                    var failResp = ServiceResponse<ProspectProsesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "Prospect sudah diproses sebelumnya");
+                    failResp.Success = false;
+                    return failResp;
+                }
+
+                if (LoanApplication.LatestStage?.Code == "0.0")
+                {
+                    var failResp = ServiceResponse<ProspectProsesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, "Prospect sudah ditolak sebelumnya");
+                    failResp.Success = false;
+                    return failResp;
+                }
+
+                // Update prospect History
+                var oldLog = (await _stageLogs.GetListByPredicate(x => x.LoanApplicationId == LoanApplication.Id && x.StageId == previousStage.StageId))?
+                .OrderBy(x=>x.CreatedBy)?.ToList()?.Last();
+                oldLog ??= new LoanApplicationStageLogs(){
+                        LoanApplicationId = LoanApplication.Id,
+                        StageId = previousStage.StageId,
+                    };
+                oldLog.ModifiedDate = DateTime.Now;
+                oldLog.ExecutedDate = DateTime.Now.ToLocalTime();
+                oldLog.TargetStage = stageFound.StageId;
+                oldLog.BackStaged = false;
+                oldLog.Aging = (newLoanApp? ((DateTime)oldLog.ExecutedDate - prospect.CreatedDate).Days : ((DateTime)oldLog.ExecutedDate - oldLog.CreatedDate).Days) + " HARI";
+
+                await _stageLogs.UpdateAsync(oldLog);
+
+                var newLog = new LoanApplicationStageLogs
+                {
+                    LoanApplicationId = prospect.Id,
+                    StageId = stageFound.StageId
+                };
+
+                await _stageLogs.AddAsync(newLog);
+
+                var response = new ProspectProsesResponseDto();
+
+                response.AppId = LoanApplication.Id;
+                response.ProspectId = prospect.Id;
+                response.Stage = stageFound.Description;
+                response.Message = "Prospect berhasil diproses ke IDE";
+
+                return ServiceResponse<ProspectProsesResponseDto>.ReturnResultWith200(response);
+            }
+            catch (Exception ex)
+            {
+                var response = ServiceResponse<ProspectProsesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.Success = false;
+                return response;
+            }
+        }
+    }
+}

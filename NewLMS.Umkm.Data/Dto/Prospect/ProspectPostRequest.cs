@@ -21,8 +21,8 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         #region Debitur
         public string NoIdentity { get; set; }
-
-        public string Fullname { get; set; }
+        public string FirstName { get; set; }
+		public string LastName { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 

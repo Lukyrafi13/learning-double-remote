@@ -129,7 +129,8 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 // Autogenerate Id
                 var prospectId = request.BranchId+"-"+product.ProductType+"-"+DateTime.Now.ToString("yy")+DateTime.Now.ToString("MM")+"-"+(countDataProspect+1).ToString("D4");
 
-                prospect.Fullname = request.Fullname;
+                prospect.FirstName = request.FirstName;
+                prospect.LastName = request.LastName;
                 prospect.RfProductId = request.RfProductId;
                 prospect.RfOwnerCategoryId = request.RfOwnerCategoryId;
                 prospect.RfCategoryId = request.RfCategoryId;

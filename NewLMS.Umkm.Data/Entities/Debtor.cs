@@ -10,7 +10,14 @@ namespace NewLMS.UMKM.Data
         [Key]
         [Required]
         public string NoIdentity { get; set; }
-		public string Fullname { get; set; }
+        
+        
+        [ForeignKey(nameof(LoanApplication))]
+        public Guid? LoanApplicationGuid { get; set; }
+
+		public string Fullname => FirstName + " " + LastName;
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
         public Guid RfGenderId { get; set; }
         public string PlaceOfBirth { get; set; }
         public DateTime? DateOfBirth { get; set; }
@@ -18,7 +25,8 @@ namespace NewLMS.UMKM.Data
         public bool? IdentityLifetime { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        public Guid RfZipCodeId { get; set; }
+        [ForeignKey(nameof(RfZipCode))]
+        public int RfZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
         public string District { get; set; }
         public string City { get; set; }
@@ -34,6 +42,9 @@ namespace NewLMS.UMKM.Data
         public string NomorAktaNikah { get; set; }
         public DateTime? TanggalAktaNikah { get; set; }
         public string PembuatAktaNikah { get; set; }
+
+        public LoanApplication LoanApplication { get; set; }
+        public RfZipCode RfZipCode { get; set; }
 
 	}
 }

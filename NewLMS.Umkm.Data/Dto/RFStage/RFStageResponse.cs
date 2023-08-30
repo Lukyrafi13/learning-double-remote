@@ -1,9 +1,9 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.RFStagess
+namespace NewLMS.UMKM.Data.Dto.RfStages
 {
-    public class RFStagesResponseDto
+    public class RfStageResponseDto
     {
-        public int StageId { get; set; }
+        public Guid StageId { get; set; }
         public string Code { get; set; }
 
         public string Description { get; set; }
