@@ -18,6 +18,7 @@ namespace NewLMS.UMKM.Data
 		public string Fullname => FirstName + " " + LastName;
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
+        [ForeignKey(nameof(RfGender))]
         public Guid RfGenderId { get; set; }
         public string PlaceOfBirth { get; set; }
         public DateTime? DateOfBirth { get; set; }
@@ -45,6 +46,7 @@ namespace NewLMS.UMKM.Data
 
         public LoanApplication LoanApplication { get; set; }
         public RfZipCode RfZipCode { get; set; }
+        public RfGender RfGender { get; set; }
 
 	}
 }

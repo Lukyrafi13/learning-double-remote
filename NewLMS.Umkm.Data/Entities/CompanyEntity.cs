@@ -9,10 +9,12 @@ namespace NewLMS.UMKM.Data
     {
         [Key]
         public Guid Id {get; set;}
+        [ForeignKey(nameof(RfCompanyStatus))]
         public Guid? RfCompanyStatusId {get; set;}
 		public string CompanyName { get; set; }
 		public string Phone { get; set; }
         public string Address { get; set; }
+        [ForeignKey(nameof(RfZipCode))]
         public int RfZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
         public string District { get; set; }
@@ -21,7 +23,9 @@ namespace NewLMS.UMKM.Data
         
         // Contact Person
         public string ContactPersonName { get; set; }
-        public string ContactPersonPhone { get; set; }        public string ContactPersonAddress { get; set; }
+        public string ContactPersonPhone { get; set; }        
+        public string ContactPersonAddress { get; set; }
+        [ForeignKey(nameof(RfZipCodeContactPerson))]
         public int RfContactPersonZipCodeId { get; set; }
         public string ContactPersonNeighborhoods { get; set; }
         public string ContactPersonDistrict { get; set; }
@@ -44,7 +48,9 @@ namespace NewLMS.UMKM.Data
         public DateTime? SKDPExpiryDate { get; set; }
         public DateTime? SKDPDate { get; set; }
 
-
+        public RfCompanyStatus RfCompanyStatus { get; set; }
+        public RfZipCode RfZipCodeContactPerson { get; set; }
+        public RfZipCode RfZipCode { get; set; }
 
 	}
 }

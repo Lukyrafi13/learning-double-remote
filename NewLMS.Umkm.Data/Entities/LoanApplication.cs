@@ -29,7 +29,7 @@ namespace NewLMS.UMKM.Data
         public string NoIdentity { get; set; }
         
         [ForeignKey(nameof(CompanyEntity))]
-        public Guid CompanyEntityGuid { get; set; }
+        public Guid? CompanyEntityGuid { get; set; }
 
         // Other stage
         public RfOwnerCategory RfOwnerCategory {get; set; }

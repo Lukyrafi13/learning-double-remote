@@ -50,16 +50,16 @@ namespace NewLMS.UMKM.Domain.Context
         public virtual DbSet<RfServiceCode> RfServiceCodes { get; set; }
         public DbSet<Prospect> Prospects { get; set; }
         public DbSet<LoanApplication> LoanApplications { get; set; }
-        public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
-        public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
-        public DbSet<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
-        public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
+        // public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
+        // public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
+        // public DbSet<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
+        // public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
         public DbSet<Debtor> Debtors { get; set; }
         public DbSet<DebtorCouple> DebtorCouples { get; set; }
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
         public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
         public DbSet<CompanyEntity> CompanyEntities { get; set; }
-        public DbSet<RfStage> RfStages { get; set; }
+        // public DbSet<RfStage> RfStages { get; set; }
         public DbSet<RfParameter> RfParameters { get; set; }
         public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
         // public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
