@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using NewLMS.Umkm.API.Helpers.Mapping;
+using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
@@ -154,6 +156,11 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new InformasiOmsetProfile());
                 mc.AddProfile(new ApprovalHistoryProfile());
                 mc.AddProfile(new SPPKFileUploadProfile());
+                
+                #region RfParameter
+                mc.AddProfile(new RfParameterProfile());
+                mc.AddProfile(new RfParameterDetailProfile());
+                #endregion
 
             });
             return mappingConfig.CreateMapper();
