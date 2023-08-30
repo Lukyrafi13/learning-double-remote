@@ -12,8 +12,8 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20230830130737_CompanyEntityZipCode")]
-    partial class CompanyEntityZipCode
+    [Migration("20230830131338_AddLoanAppEntities")]
+    partial class AddLoanAppEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
