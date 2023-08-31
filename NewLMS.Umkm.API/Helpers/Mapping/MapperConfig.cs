@@ -82,7 +82,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFStatusDokumenProfile());
                 mc.AddProfile(new FileDokumenProfile());
                 mc.AddProfile(new PrescreeningDokumenProfile());
-                // mc.AddProfile(new AppFasilitasKreditProfile());
+                mc.AddProfile(new LoanApplicationCreditFacilityProfile());
                 mc.AddProfile(new SurveyProfile());
                 mc.AddProfile(new SurveySupplierProfile());
                 mc.AddProfile(new SurveyBuyerProfile());
