@@ -1,98 +1,98 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands;
-using NewLMS.UMKM.MediatR.Features.RFTipeKredits.Queries;
+using NewLMS.UMKM.MediatR.Features.RfCreditTypes.Commands;
+using NewLMS.UMKM.MediatR.Features.RfCreditTypes.Queries;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Helper;
 
-namespace NewLMS.UMKM.API.Controllers.RFTipeKredit
+namespace NewLMS.UMKM.API.Controllers.RfCreditType
 {
-    public class RFTipeKreditController : BaseController
+    public class RfCreditTypeController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// RFTipeKredit
+        /// RfCreditType
         /// </summary>
         /// <param name="mediator"></param>
-        public RFTipeKreditController(IMediator mediator)
+        public RfCreditTypeController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Get RFTipeKredit By Code
+        /// Get RfCreditType By Code
         /// </summary>
         /// <param name="Code"></param>
         /// <returns></returns>
-        [HttpGet("get/{Code}", Name = "GetRFTipeKreditByCode")]
-        [Produces("application/json", "application/xml", Type = typeof(RFTipeKreditResponseDto))]
-        public async Task<IActionResult> GetRFTipeKreditByCode(string Code)
+        [HttpGet("get/{Code}", Name = "GetRfCreditTypeByCode")]
+        [Produces("application/json", "application/xml", Type = typeof(RfCreditTypeResponseDto))]
+        public async Task<IActionResult> GetRfCreditTypeByCode(string Code)
         {
-            var getSCOQuery = new RFTipeKreditGetQuery { Code = Code };
+            var getSCOQuery = new RfCreditTypeGetQuery { Code = Code };
             var result = await _mediator.Send(getSCOQuery);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Get RFTipeKredit
+        /// Get RfCreditType
         /// </summary>
         /// <param name="filterQuery"></param>
         /// <returns></returns>
-        [HttpPost("get", Name = "GetRFTipeKreditList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFTipeKreditResponseDto>>))]
-        public async Task<IActionResult> GetRFTipeKreditList(RFTipeKreditsGetFilterQuery filterQuery)
+        [HttpPost("get", Name = "GetRfCreditTypeList")]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RfCreditTypeResponseDto>>))]
+        public async Task<IActionResult> GetRfCreditTypeList(RfCreditTypesGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
             return Ok(result);
         }
 
         /// <summary>
-        /// Post New RFTipeKredit
+        /// Post New RfCreditType
         /// </summary>
-        /// <param name="postRFTipeKredit"></param>
+        /// <param name="postRfCreditType"></param>
         /// <returns></returns>
-        [HttpPost("post", Name = "AddRFTipeKredit")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFTipeKreditResponseDto>))]
-        public async Task<IActionResult> AddRFTipeKredit(RFTipeKreditPostCommand postRFTipeKredit)
+        [HttpPost("post", Name = "AddRfCreditType")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCreditTypeResponseDto>))]
+        public async Task<IActionResult> AddRfCreditType(RfCreditTypePostCommand postRfCreditType)
         {
-            var result = await _mediator.Send(postRFTipeKredit);
+            var result = await _mediator.Send(postRfCreditType);
             if (!result.Success)
             {
                 return ReturnFormattedResponse(result);
             }
-            return CreatedAtAction("GetRFTipeKreditByCode", new { Code = result.Data.Code }, result.Data);
+            return CreatedAtAction("GetRfCreditTypeByCode", new { Code = result.Data.Code }, result.Data);
         }
 
         /// <summary>
-        /// Put Edit RFTipeKredit
+        /// Put Edit RfCreditType
         /// </summary>
         /// <param name="Code"></param>
-        /// <param name="putRFTipeKredit"></param>
+        /// <param name="putRfCreditType"></param>
         /// <returns></returns>
-        [HttpPut("put/{Code}", Name = "EditRFTipeKredit")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFTipeKreditResponseDto>))]
-        public async Task<IActionResult> EditRFTipeKredit([FromRoute] string Code, [FromBody] RFTipeKreditPutCommand putRFTipeKredit)
+        [HttpPut("put/{Code}", Name = "EditRfCreditType")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RfCreditTypeResponseDto>))]
+        public async Task<IActionResult> EditRfCreditType([FromRoute] string Code, [FromBody] RfCreditTypePutCommand putRfCreditType)
         {
-            putRFTipeKredit.Code = Code;
-            var result = await _mediator.Send(putRFTipeKredit);
+            putRfCreditType.Code = Code;
+            var result = await _mediator.Send(putRfCreditType);
             return ReturnFormattedResponse(result);
         }
 
         /// <summary>
-        /// Delete RFTipeKredit
+        /// Delete RfCreditType
         /// </summary>
         /// <param name="Code"></param>
         /// <param name="deleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{Code}", Name = "DeleteRFTipeKredit")]
+        [HttpDelete("delete/{Code}", Name = "DeleteRfCreditType")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> DeleteRFTipeKredit([FromRoute] string Code, [FromBody]RFTipeKreditDeleteCommand deleteCommand)
+        public async Task<IActionResult> DeleteRfCreditType([FromRoute] string Code, [FromBody]RfCreditTypeDeleteCommand deleteCommand)
         {
             deleteCommand.Code = Code;
             return Ok(await _mediator.Send(deleteCommand));

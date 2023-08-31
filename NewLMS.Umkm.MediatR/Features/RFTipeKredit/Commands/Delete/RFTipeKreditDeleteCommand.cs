@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -9,28 +9,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCreditTypes.Commands
 {
-    public class RFTipeKreditDeleteCommand : RFTipeKreditFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfCreditTypeDeleteCommand : RfCreditTypeFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class DeleteRFTipeKreditCommandHandler : IRequestHandler<RFTipeKreditDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfCreditTypeCommandHandler : IRequestHandler<RfCreditTypeDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFTipeKredit> _RFTipeKredit;
+        private readonly IGenericRepositoryAsync<RfCreditType> _RfCreditType;
         private readonly IMapper _mapper;
 
-        public DeleteRFTipeKreditCommandHandler(IGenericRepositoryAsync<RFTipeKredit> RFTipeKredit, IMapper mapper){
-            _RFTipeKredit = RFTipeKredit;
+        public DeleteRfCreditTypeCommandHandler(IGenericRepositoryAsync<RfCreditType> RfCreditType, IMapper mapper){
+            _RfCreditType = RfCreditType;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFTipeKreditDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfCreditTypeDeleteCommand request, CancellationToken cancellationToken)
         {
-            var rFProduct = await _RFTipeKredit.GetByIdAsync(request.Code, "Code");
+            var rFProduct = await _RfCreditType.GetByIdAsync(request.Code, "Code");
             rFProduct.IsDeleted = true;
-            await _RFTipeKredit.UpdateAsync(rFProduct);
+            await _RfCreditType.UpdateAsync(rFProduct);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

@@ -60,10 +60,9 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
         public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
         public DbSet<CompanyEntity> CompanyEntities { get; set; }
-        // public DbSet<RfStage> RfStages { get; set; }
+        public DbSet<RfStage> RfStages { get; set; }
         public DbSet<RfParameter> RfParameters { get; set; }
         public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
-        // public DbSet<Debitur> Debiturs { get; set; }
         public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
         public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; }
@@ -73,7 +72,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
         public DbSet<RFDocument> RFDocuments { get; set; }
-        // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
+        public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
         public DbSet<RFMappingAgunan2> RFMappingAgunan2s { get; set; }
         // public DbSet<RFRelationCol> RFRelationCols { get; set; }
         /*public DbSet<RFSubProduct> RFSubProducts { get; set; }*/
@@ -147,9 +146,9 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<VerifikasiPersiapanAkad> VerifikasiPersiapanAkads { get; set; }
         // public DbSet<ReviewPersiapanAkad> ReviewPersiapanAkads { get; set; }
         // public DbSet<PersiapanAkadAsuransi> PersiapanAkadAsuransis { get; set; }
-        // public DbSet<RFTipeKredit> RFTipeKredits { get; set; }
+        public DbSet<RfCreditType> RfCreditTypes { get; set; }
         // public DbSet<RFBank> RFBanks { get; set; }
-        // public DbSet<RFCondition> RFConditions { get; set; }
+        public DbSet<RFCondition> RFConditions { get; set; }
         // public DbSet<RFCSBPDetail> RFCSBPDetails { get; set; }
         // public DbSet<RFCSBPHeader> RFCSBPHeaders { get; set; }
         // public DbSet<Disbursement> Disbursements { get; set; }
@@ -334,14 +333,6 @@ namespace NewLMS.UMKM.Domain.Context
                     .HasForeignKey(ur => ur.RfZipCodeId)
                     .OnDelete(DeleteBehavior.NoAction);
             });
-
-            // builder.Entity<Debitur>(b =>
-            // {
-            //     b.HasOne(e => e.JenisKelamin)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.RfGenderId)
-            //         .OnDelete(DeleteBehavior.NoAction);
-            // });
 
             builder.Entity<RFSubProduct>(b =>
             {
@@ -637,20 +628,20 @@ namespace NewLMS.UMKM.Domain.Context
             //     .HasDefaultValue(false);
             // });
 
-            // builder.Entity<RFTipeKredit>(b =>
-            // {
-            //     b.Property(b => b.Id)
-            //     .HasDefaultValueSql("NEWID()");
+            builder.Entity<RfCreditType>(b =>
+            {
+                b.Property(b => b.Id)
+                .HasDefaultValueSql("NEWID()");
 
-            //     b.Property(b => b.CreatedBy)
-            //     .HasDefaultValue(Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465"));
+                b.Property(b => b.CreatedBy)
+                .HasDefaultValue(Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465"));
 
-            //     b.Property(b => b.CreatedDate)
-            //     .HasDefaultValueSql("GETDATE()");
+                b.Property(b => b.CreatedDate)
+                .HasDefaultValueSql("GETDATE()");
 
-            //     b.Property(b => b.IsDeleted)
-            //     .HasDefaultValue(false);
-            // });
+                b.Property(b => b.IsDeleted)
+                .HasDefaultValue(false);
+            });
 
             // builder.Entity<RFInsRateMapping>(b =>
             // {

@@ -48,6 +48,7 @@ namespace NewLMS.UMKM.Data
         public RfStage LatestStage => getCurrentStage();
 
         public ICollection<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
+        public LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
 
         public RfStage getCurrentStage(){
             RfStage result = null;

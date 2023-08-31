@@ -3130,7 +3130,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.ToTable("RFTenorMappings");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.RFTipeKredit", b =>
+            modelBuilder.Entity("NewLMS.UMKM.Data.RfCreditType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -3168,7 +3168,7 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RFTipeKredit");
+                    b.ToTable("RfCreditType");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RFVEHCLASS", b =>
@@ -3761,7 +3761,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<Guid?>("RFSandiBIEconomySectorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("RFTipeKreditId")
+                    b.Property<Guid?>("RfCreditTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SLIKNoIdentity")
@@ -3795,7 +3795,7 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasIndex("RFSandiBIEconomySectorId");
 
-                    b.HasIndex("RFTipeKreditId");
+                    b.HasIndex("RfCreditTypeId");
 
                     b.HasIndex("SlikObjectTypeId");
 
@@ -5056,9 +5056,9 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("RFSandiBIEconomySectorId");
 
-                    b.HasOne("NewLMS.UMKM.Data.RFTipeKredit", "RfCreditType")
+                    b.HasOne("NewLMS.UMKM.Data.RfCreditType", "RfCreditType")
                         .WithMany()
-                        .HasForeignKey("RFTipeKreditId");
+                        .HasForeignKey("RfCreditTypeId");
 
                     b.HasOne("NewLMS.UMKM.Data.SlikObjectType", "SlikObjectType")
                         .WithMany()

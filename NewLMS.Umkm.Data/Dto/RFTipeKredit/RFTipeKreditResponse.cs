@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.RFTipeKredits
+namespace NewLMS.UMKM.Data.Dto.RfCreditTypes
 {
-    public class RFTipeKreditResponseDto
+    public class RfCreditTypeResponseDto
     {
         public Guid Id { get; set; }
         public string Code { get; set; }

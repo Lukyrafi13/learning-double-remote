@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -8,38 +8,38 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCreditTypes.Queries
 {
-    public class RFTipeKreditGetQuery : RFTipeKreditFindRequestDto, IRequest<ServiceResponse<RFTipeKreditResponseDto>>
+    public class RfCreditTypeGetQuery : RfCreditTypeFindRequestDto, IRequest<ServiceResponse<RfCreditTypeResponseDto>>
     {
     }
 
-    public class RFTipeKreditGetQueryHandler : IRequestHandler<RFTipeKreditGetQuery, ServiceResponse<RFTipeKreditResponseDto>>
+    public class RfCreditTypeGetQueryHandler : IRequestHandler<RfCreditTypeGetQuery, ServiceResponse<RfCreditTypeResponseDto>>
     {
-        private IGenericRepositoryAsync<RFTipeKredit> _RFTipeKredit;
+        private IGenericRepositoryAsync<RfCreditType> _RfCreditType;
         private readonly IMapper _mapper;
 
-        public RFTipeKreditGetQueryHandler(IGenericRepositoryAsync<RFTipeKredit> RFTipeKredit, IMapper mapper)
+        public RfCreditTypeGetQueryHandler(IGenericRepositoryAsync<RfCreditType> RfCreditType, IMapper mapper)
         {
-            _RFTipeKredit = RFTipeKredit;
+            _RfCreditType = RfCreditType;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<RFTipeKreditResponseDto>> Handle(RFTipeKreditGetQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCreditTypeResponseDto>> Handle(RfCreditTypeGetQuery request, CancellationToken cancellationToken)
         {
             try
             {
                 var includes = new string[]{
                 };
 
-                var data = await _RFTipeKredit.GetByIdAsync(request.Code, "Code");
+                var data = await _RfCreditType.GetByIdAsync(request.Code, "Code");
                 if (data == null)
-                    return ServiceResponse<RFTipeKreditResponseDto>.Return404("Data RFTipeKredit not found");
-                var response = _mapper.Map<RFTipeKreditResponseDto>(data);
-                return ServiceResponse<RFTipeKreditResponseDto>.ReturnResultWith200(response);
+                    return ServiceResponse<RfCreditTypeResponseDto>.Return404("Data RfCreditType not found");
+                var response = _mapper.Map<RfCreditTypeResponseDto>(data);
+                return ServiceResponse<RfCreditTypeResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFTipeKreditResponseDto>.ReturnException(ex);
+                return ServiceResponse<RfCreditTypeResponseDto>.ReturnException(ex);
             }
         }
     }

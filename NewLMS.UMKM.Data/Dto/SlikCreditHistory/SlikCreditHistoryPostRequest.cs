@@ -20,7 +20,7 @@ namespace NewLMS.UMKM.Data.Dto.SlikCreditHistorys
         public DateTime? StuckDate { get; set; }
         public Guid? RFSandiBICollectibilityId { get; set; }
         public bool SLIKStatus { get; set; }
-        public Guid? RFTipeKreditId { get; set; }
+        public Guid? RfCreditTypeId { get; set; }
         public bool IsRobo { get; set; }
         public int? SlikObjectTypeId { get; set; }
         public bool? BelumMemilikiSLIK { get; set; }

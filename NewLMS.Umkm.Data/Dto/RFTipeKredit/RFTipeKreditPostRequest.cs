@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.RFTipeKredits
+namespace NewLMS.UMKM.Data.Dto.RfCreditTypes
 {
-    public class RFTipeKreditPostRequestDto
+    public class RfCreditTypePostRequestDto
     {
         public string Code { get; set; }
         public string Description { get; set; }

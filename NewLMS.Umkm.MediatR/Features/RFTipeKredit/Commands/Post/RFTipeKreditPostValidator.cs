@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 
-namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCreditTypes.Commands
 {
-    public class RFTipeKreditPostValidator : AbstractValidator<RFTipeKreditPostCommand>
+    public class RfCreditTypePostValidator : AbstractValidator<RfCreditTypePostCommand>
     {
-        public RFTipeKreditPostValidator(){
+        public RfCreditTypePostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

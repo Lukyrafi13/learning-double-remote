@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.RFTipeKredits
+namespace NewLMS.UMKM.Data.Dto.RfCreditTypes
 {
-    public class RFTipeKreditRequestDto
+    public class RfCreditTypeRequestDto
     {
     }
 }

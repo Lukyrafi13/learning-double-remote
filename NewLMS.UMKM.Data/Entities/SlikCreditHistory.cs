@@ -48,7 +48,7 @@ namespace NewLMS.UMKM.Data
         public bool SLIKStatus { get; set; }
 
         [ForeignKey(nameof(RfCreditType))]
-        public Guid? RFTipeKreditId { get; set; }
+        public Guid? RfCreditTypeId { get; set; }
 
         public bool IsRobo { get; set; }
 
@@ -57,7 +57,7 @@ namespace NewLMS.UMKM.Data
         public bool? BelumMemilikiSLIK { get; set; }
         public string Bank { get; set; }
 
-        public RFTipeKredit RfCreditType { get; set; }
+        public RfCreditType RfCreditType { get; set; }
         public RFSANDIBI RfSandiBIEconomySectorClass { get; set; }
         public RFSANDIBI RfSandiBIBehaviourClass { get; set; }
         public RFSANDIBI RfSandiBIApplicationTypeClass { get; set; }

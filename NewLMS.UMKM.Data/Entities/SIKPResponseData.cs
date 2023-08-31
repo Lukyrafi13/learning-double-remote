@@ -7,7 +7,7 @@ namespace NewLMS.UMKM.Data
     {
         public Guid Id { get; set; }
 
-        [ForeignKey("AppId")]
+        [ForeignKey("LoanApplicationId")]
         public LoanApplication LoanApplication { get; set; }
 
         // Data IDE
@@ -110,7 +110,7 @@ namespace NewLMS.UMKM.Data
         public string MessageValidasi { get; set; }
 
         // Foreign Keys
-        public Guid AppId { get; set; }
+        public Guid LoanApplicationId { get; set; }
         public Guid? RfOwnerCategoryId { get; set; }
         public string? RfSectorLBU1Code { get; set; }
         public string? RfSectorLBU2Code { get; set; }

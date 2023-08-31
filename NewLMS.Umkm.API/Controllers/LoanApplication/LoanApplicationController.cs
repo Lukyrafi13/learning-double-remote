@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using MediatR;
 using System;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
+using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries.GetInbox;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 
 namespace NewLMS.UMKM.API.Controllers.LoanApplication
 {
@@ -28,16 +30,16 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplication
         {
             _mediator = mediator;
         }
-        // /// <summary>
-        // /// Get LoanApplication Inbox
-        // /// </summary>
-        // /// <returns></returns>
-        // [HttpGet("get-loanapplication-inbox/{Page}/{Length}")]
-        // [ProducesResponseType(type: typeof(ServiceResponse<AppInboxResponse>), statusCode: StatusCodes.Status200OK)]
-        // public async Task<IActionResult> GetLoanApplicationInbox([FromRoute] GetAppInboxQuery command)
-        // {
-        //     return Ok(await Mediator.Send(command));
-        // }
+        /// <summary>
+        /// Get LoanApplication Inbox
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("get-loanapplication-inbox/{Page}/{Length}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<AppInboxResponse>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetLoanApplicationInbox([FromRoute] GetAppInboxQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
 
         /// <summary>
         /// Get IDE
@@ -52,18 +54,18 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplication
             return ReturnFormattedResponse(result);
         }
         
-        // /// <summary>
-        // /// Get App Validation
-        // /// </summary>
-        // /// <param name="Id"></param>
-        // /// <returns></returns>
-        // [HttpGet("validate/{Id}", Name = "GetAppValidation")]
-        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        // public async Task<IActionResult> GetAppValidation(Guid Id)
-        // {
-        //     var result = await _mediator.Send(new AppValidateCommand{ Id = Id });
-        //     return ReturnFormattedResponse(result);
-        // }
+        /// <summary>
+        /// Get App Validation
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet("validate/{Id}", Name = "GetAppValidation")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
+        public async Task<IActionResult> GetAppValidation(Guid Id)
+        {
+            var result = await _mediator.Send(new LoanApplicationValidateCommand{ Id = Id });
+            return ReturnFormattedResponse(result);
+        }
         
         // /// <summary>
         // /// Get Pilihan Pemutus
@@ -169,18 +171,18 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplication
         //     return ReturnFormattedResponse(result);
         // }
 
-        // /// <summary>
-        // /// Proses SLIK App
-        // /// </summary>
-        // /// <param name="prosesSLIKApp"></param>
-        // /// <returns></returns>
-        // [HttpPost("proses/slik", Name = "ProsesSLIKApp")]
-        // [Produces("application/json", "application/xml", Type = typeof(AppProsesResponseDto))]
-        // public async Task<IActionResult> ProsesSLIKApp(AppProsesSLIKCommand prosesSLIKApp)
-        // {
-        //     var result = await _mediator.Send(prosesSLIKApp);
-        //     return ReturnFormattedResponse(result);
-        // }
+        /// <summary>
+        /// Proses SLIK App
+        /// </summary>
+        /// <param name="prosesSLIKApp"></param>
+        /// <returns></returns>
+        [HttpPost("proses/slik", Name = "ProsesSLIKApp")]
+        [Produces("application/json", "application/xml", Type = typeof(LoanApplicationProsesResponseDto))]
+        public async Task<IActionResult> ProsesSLIKLoanApplication(LoanApplicationProsesSLIKCommand prosesSLIKApp)
+        {
+            var result = await _mediator.Send(prosesSLIKApp);
+            return ReturnFormattedResponse(result);
+        }
 
         // /// <summary>
         // /// Tidak Process App

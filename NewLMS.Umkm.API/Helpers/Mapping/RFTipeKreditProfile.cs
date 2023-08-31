@@ -1,17 +1,17 @@
 using AutoMapper;
 using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 
 {
-    public class RFTipeKreditProfile : Profile
+    public class RfCreditTypeProfile : Profile
     {
-        public RFTipeKreditProfile()
+        public RfCreditTypeProfile()
         {
-            CreateMap<RFTipeKreditPostRequestDto, RFTipeKredit>();
-            CreateMap<RFTipeKreditPutRequestDto, RFTipeKredit>();
-            CreateMap<RFTipeKreditResponseDto, RFTipeKredit>().ReverseMap();
+            CreateMap<RfCreditTypePostRequestDto, RfCreditType>();
+            CreateMap<RfCreditTypePutRequestDto, RfCreditType>();
+            CreateMap<RfCreditTypeResponseDto, RfCreditType>().ReverseMap();
         }
     }
 }

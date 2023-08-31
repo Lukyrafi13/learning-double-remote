@@ -1,7 +1,7 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
-    public class AppValidateResponse
+    public class LoanApplicationValidateResponse
     {
         public Guid Id { get; set; }
         public bool Valid { get; set; }
