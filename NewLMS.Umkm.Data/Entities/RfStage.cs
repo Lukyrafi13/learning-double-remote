@@ -14,7 +14,7 @@ namespace NewLMS.UMKM.Data
         public int GroupStage { get; set; }
         public int? GroupStageDigiloan { get; set; }
         public string GroupName { get; set; }
-        public bool IsShowInTracking { get; set; }
+        public bool? IsShowInTracking { get; set; }
 
 
     }
