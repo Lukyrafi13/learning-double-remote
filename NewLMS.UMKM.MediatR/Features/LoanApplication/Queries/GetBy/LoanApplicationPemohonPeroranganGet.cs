@@ -43,9 +43,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Queries
                 return ServiceResponse<LoanApplicationPemohonPeroranganResponse>.ReturnFailed((int)HttpStatusCode.BadRequest, "Debtor not found");
             }
 
-            var response = new LoanApplicationPemohonPeroranganResponse();
-
-            response.DebtorResponse = debtor;
+            var response = new LoanApplicationPemohonPeroranganResponse
+            {
+                DebtorResponse = debtor
+            };
 
             var debtorCouple = await _DebtorCouple.GetByPredicate(x => x.DebtorCoupleId == debtor.NoIdentity);
 

@@ -12,8 +12,8 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20230830130737_CompanyEntityZipCode")]
-    partial class CompanyEntityZipCode
+    [Migration("20230831023937_LoanAppsEntity")]
+    partial class LoanAppsEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -176,6 +176,9 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<string>("LatestDeedOfChanges")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("LoanApplicationGuid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
 
@@ -232,6 +235,8 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LoanApplicationGuid");
+
                     b.HasIndex("RfCompanyStatusId");
 
                     b.HasIndex("RfContactPersonZipCodeId");
@@ -244,7 +249,8 @@ namespace NewLMS.UMKM.Domain.Migrations
             modelBuilder.Entity("NewLMS.UMKM.Data.Debtor", b =>
                 {
                     b.Property<string>("NoIdentity")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -3149,6 +3155,12 @@ namespace NewLMS.UMKM.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.CompanyEntity", b =>
                 {
+                    b.HasOne("NewLMS.UMKM.Data.LoanApplication", "LoanApplication")
+                        .WithMany()
+                        .HasForeignKey("LoanApplicationGuid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "RfCompanyStatus")
                         .WithMany()
                         .HasForeignKey("RfCompanyStatusId")
@@ -3166,6 +3178,8 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .HasForeignKey("RfZipCodeId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("LoanApplication");
 
                     b.Navigation("RfCompanyStatus");
 

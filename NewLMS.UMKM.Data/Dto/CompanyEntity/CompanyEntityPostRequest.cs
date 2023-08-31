@@ -1,11 +1,11 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.CompanyEntities
 {
-    public class AppPemohonBadanUsaha
+    public class CompanyEntityPostRequestDto
     {
-        
         public Guid Id {get; set;}
         public int RfCompanyStatusId {get; set;}
+        public Guid LoanApplicationGuid {get; set;}
 		public string CompanyName { get; set; }
 		public string Phone { get; set; }
         public string Address { get; set; }
@@ -40,6 +40,5 @@ namespace NewLMS.UMKM.Data.Dto.Apps
         public string SKDPNumber { get; set; }
         public DateTime? SKDPExpiryDate { get; set; }
         public DateTime? SKDPDate { get; set; }
-
     }
 }

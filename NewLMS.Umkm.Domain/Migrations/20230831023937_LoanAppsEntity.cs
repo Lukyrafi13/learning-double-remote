@@ -5,16 +5,65 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewLMS.UMKM.Domain.Migrations
 {
-    public partial class AddLoanAppEntities : Migration
+    public partial class LoanAppsEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "RFMARITAL",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MR_CODE = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MR_DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CORE_CODE = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ACTIVE = table.Column<bool>(type: "bit", nullable: false),
+                    MR_CODESIKP = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MR_DESCSIKP = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RFMARITAL", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RfStage",
+                columns: table => new
+                {
+                    StageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GroupStage = table.Column<int>(type: "int", nullable: false),
+                    GroupStageDigiloan = table.Column<int>(type: "int", nullable: false),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsShowInTracking = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RfStage", x => x.StageId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "CompanyEntities",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RfCompanyStatusId = table.Column<int>(type: "int", nullable: false),
+                    LoanApplicationGuid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -72,56 +121,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                         name: "FK_CompanyEntities_RfZipCodes_RfZipCodeId",
                         column: x => x.RfZipCodeId,
                         principalTable: "RfZipCodes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RFMARITAL",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MR_CODE = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MR_DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CORE_CODE = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ACTIVE = table.Column<bool>(type: "bit", nullable: false),
-                    MR_CODESIKP = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MR_DESCSIKP = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RFMARITAL", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RfStage",
-                columns: table => new
-                {
-                    StageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Code = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GroupStage = table.Column<int>(type: "int", nullable: false),
-                    GroupStageDigiloan = table.Column<int>(type: "int", nullable: false),
-                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsShowInTracking = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RfStage", x => x.StageId);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -237,7 +237,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                 name: "Debtors",
                 columns: table => new
                 {
-                    NoIdentity = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    NoIdentity = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
                     LoanApplicationGuid = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Fullname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RfGenderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -396,6 +396,11 @@ namespace NewLMS.UMKM.Domain.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_CompanyEntities_LoanApplicationGuid",
+                table: "CompanyEntities",
+                column: "LoanApplicationGuid");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CompanyEntities_RfCompanyStatusId",
                 table: "CompanyEntities",
                 column: "RfCompanyStatusId");
@@ -511,6 +516,14 @@ namespace NewLMS.UMKM.Domain.Migrations
                 column: "TargetStage");
 
             migrationBuilder.AddForeignKey(
+                name: "FK_CompanyEntities_LoanApplications_LoanApplicationGuid",
+                table: "CompanyEntities",
+                column: "LoanApplicationGuid",
+                principalTable: "LoanApplications",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
                 name: "FK_DebtorCompanies_Debtors_DebtorId",
                 table: "DebtorCompanies",
                 column: "DebtorId",
@@ -543,8 +556,12 @@ namespace NewLMS.UMKM.Domain.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_LoanApplications_Debtors_NoIdentity",
-                table: "LoanApplications");
+                name: "FK_CompanyEntities_LoanApplications_LoanApplicationGuid",
+                table: "CompanyEntities");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Debtors_LoanApplications_LoanApplicationGuid",
+                table: "Debtors");
 
             migrationBuilder.DropTable(
                 name: "DebtorCompanies");
@@ -562,16 +579,16 @@ namespace NewLMS.UMKM.Domain.Migrations
                 name: "RfStage");
 
             migrationBuilder.DropTable(
-                name: "Debtors");
-
-            migrationBuilder.DropTable(
                 name: "LoanApplications");
 
             migrationBuilder.DropTable(
-                name: "RFMARITAL");
+                name: "CompanyEntities");
 
             migrationBuilder.DropTable(
-                name: "CompanyEntities");
+                name: "Debtors");
+
+            migrationBuilder.DropTable(
+                name: "RFMARITAL");
         }
     }
 }

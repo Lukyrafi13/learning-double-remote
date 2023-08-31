@@ -11,6 +11,8 @@ namespace NewLMS.UMKM.Data
         public Guid Id {get; set;}
         [ForeignKey(nameof(RfCompanyStatus))]
         public int RfCompanyStatusId {get; set;}
+        [ForeignKey(nameof(LoanApplication))]
+        public Guid LoanApplicationGuid {get; set;}
 		public string CompanyName { get; set; }
 		public string Phone { get; set; }
         public string Address { get; set; }
@@ -48,6 +50,7 @@ namespace NewLMS.UMKM.Data
         public DateTime? SKDPExpiryDate { get; set; }
         public DateTime? SKDPDate { get; set; }
 
+        public LoanApplication LoanApplication { get; set; }
         public RfParameterDetail RfCompanyStatus { get; set; }
         public RfZipCode RfZipCodeContactPerson { get; set; }
         public RfZipCode RfZipCode { get; set; }

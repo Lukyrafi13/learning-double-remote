@@ -9,6 +9,7 @@ namespace NewLMS.UMKM.Data
     {
         [Key]
         [Required]
+        [MaxLength(16)]
         public string NoIdentity { get; set; }
         
         

@@ -103,6 +103,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                 //     await _LoanApplicationFasilitasKredit.UpdateRangeAsync(updateListFasilitas);
                 // }
 
+                await _LoanApplicationCreditScoring.UpdateAsync(CreditScoring);
                 await _LoanApplication.UpdateAsync(existingLoanApplication);
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }

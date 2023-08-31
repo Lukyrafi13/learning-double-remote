@@ -91,18 +91,18 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplication
             return ReturnFormattedResponse(result);
         }
 
-        // /// <summary>
-        // /// Get Data Pemohon Badan Usaha
-        // /// </summary>
-        // /// <param name="Id"></param>
-        // /// <returns></returns>
-        // [HttpGet("pemohon/badan-usaha/get/{Id}", Name = "GetAppPemohonBadanUsaha")]
-        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        // public async Task<IActionResult> GetAppPemohonBadanUsaha(Guid Id)
-        // {
-        //     var result = await _mediator.Send(new AppPemohonBadanUsahaGet{ Id = Id });
-        //     return ReturnFormattedResponse(result);
-        // }
+        /// <summary>
+        /// Get Data Pemohon Badan Usaha
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet("pemohon/badan-usaha/get/{Id}", Name = "GetAppPemohonBadanUsaha")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
+        public async Task<IActionResult> GetAppPemohonBadanUsaha(Guid Id)
+        {
+            var result = await _mediator.Send(new LoanApplicationPemohonBadanUsahaGet{ Id = Id });
+            return ReturnFormattedResponse(result);
+        }
 
         // /// <summary>
         // /// Get Data Gudang
@@ -244,20 +244,20 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplication
             return Ok(result);
         }
 
-        // /// <summary>
-        // /// Put Update Data Pemohon Badan Usaha
-        // /// </summary>
-        // /// <param name="Id"></param>
-        // /// <param name="putDataPemohon"></param>
-        // /// <returns></returns>
-        // [HttpPut("pemohon/badan-usaha/update/{Id}", Name = "EditAppPemohonBadanUsaha")]
-        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        // public async Task<IActionResult> EditAppPemohonBadanUsaha([FromRoute] Guid Id, [FromBody] AppPemohonBadanUsahaPutCommand putDataPemohon)
-        // {
-        //     putDataPemohon.Id = Id;
-        //     var result = await _mediator.Send(putDataPemohon);
-        //     return Ok(result);
-        // }
+        /// <summary>
+        /// Put Update Data Pemohon Badan Usaha
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="putDataPemohon"></param>
+        /// <returns></returns>
+        [HttpPut("pemohon/badan-usaha/update/{Id}", Name = "EditAppPemohonBadanUsaha")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
+        public async Task<IActionResult> EditAppPemohonBadanUsaha([FromRoute] Guid Id, [FromBody] LoanApplicationPemohonBadanUsahaPutCommand putDataPemohon)
+        {
+            putDataPemohon.Id = Id;
+            var result = await _mediator.Send(putDataPemohon);
+            return Ok(result);
+        }
 
         // /// <summary>
         // /// Put Update Data Pemohon Gapoktan/Koperasi
