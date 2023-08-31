@@ -85,9 +85,9 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
         public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
-        // public DbSet<RFDocument> RFDocuments { get; set; }
+        public DbSet<RFDocument> RFDocuments { get; set; }
         // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
-        // public DbSet<RFMappingAgunan2> RFMappingAgunan2s { get; set; }
+        public DbSet<RFMappingAgunan2> RFMappingAgunan2s { get; set; }
         // public DbSet<RFRelationCol> RFRelationCols { get; set; }
         /*public DbSet<RFSubProduct> RFSubProducts { get; set; }*/
         public DbSet<RFTenor> RFTenors { get; set; }
