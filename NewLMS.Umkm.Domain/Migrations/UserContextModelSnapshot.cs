@@ -2035,6 +2035,53 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.ToTable("RFJOB");
                 });
 
+            modelBuilder.Entity("NewLMS.UMKM.Data.RFLoanPurpose", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CORE_CODE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LP_CODE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LP_DESC")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MAXPROD")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RFLoanPurpose");
+                });
+
             modelBuilder.Entity("NewLMS.UMKM.Data.RFMARITAL", b =>
                 {
                     b.Property<Guid>("Id")
@@ -2080,9 +2127,12 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("WITHSPOUSE")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
-                    b.ToTable("RFMARITAL");
+                    b.ToTable("RFMARITALs");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfOwnerCategory", b =>
@@ -2227,6 +2277,56 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasIndex("ParameterId");
 
                     b.ToTable("RfParameterDetails");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.RFPlacementCountry", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CoreCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double?>("Kurs")
+                        .HasColumnType("float");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("ShowKUR")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RfPlacementCountries");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfProduct", b =>
@@ -2821,6 +2921,106 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.ToTable("RFVehModels");
                 });
+
+                    modelBuilder.Entity("NewLMS.UMKM.Data.RFTenor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CoreCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Due")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("ISTBO")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("ManDocNo")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("Mandatory")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TNCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TNDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Tenor")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RFTenors");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.RFTenorMapping", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+                        b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+                        b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SiklusCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TNCode").HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+                    b.ToTable("RFTenorMappings");
+                });
+                    
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfZipCode", b =>
                 {

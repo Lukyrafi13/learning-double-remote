@@ -12,7 +12,7 @@ using NewLMS.UMKM.Helper;
 
 namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
 {
-    public class RFNegaraPenempatanController : BaseController
+    public class RFPlacementCountryController : BaseController
     {
         public IMediator _mediator { get; set; }
 
@@ -20,7 +20,7 @@ namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
         /// RFNegaraPenempatan
         /// </summary>
         /// <param name="mediator"></param>
-        public RFNegaraPenempatanController(IMediator mediator)
+        public RFPlacementCountryController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -31,7 +31,7 @@ namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
         /// <param name="NegaraCode"></param>
         /// <returns></returns>
         [HttpGet("get/{NegaraCode}", Name = "GetRFNegaraPenempatanByCode")]
-        [Produces("application/json", "application/xml", Type = typeof(RFNegaraPenempatanResponseDto))]
+        [Produces("application/json", "application/xml", Type = typeof(RFPlacementCountryResponseDto))]
         public async Task<IActionResult> GetRFNegaraPenempatanByCode(string NegaraCode)
         {
             var getSCOQuery = new RFNegaraPenempatanGetQuery { NegaraCode = NegaraCode };
@@ -45,7 +45,7 @@ namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
         /// <param name="filterQuery"></param>
         /// <returns></returns>
         [HttpPost("get", Name = "GetRFNegaraPenempatanList")]
-        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFNegaraPenempatanResponseDto>>))]
+        [Produces("application/json", "application/xml", Type = typeof(PagedResponse<IEnumerable<RFPlacementCountryResponseDto>>))]
         public async Task<IActionResult> GetRFNegaraPenempatanList(RFNegaraPenempatansGetFilterQuery filterQuery)
         {
             var result = await _mediator.Send(filterQuery);
@@ -58,7 +58,7 @@ namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
         /// <param name="postRFNegaraPenempatan"></param>
         /// <returns></returns>
         [HttpPost("post", Name = "AddRFNegaraPenempatan")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFNegaraPenempatanResponseDto>))]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFPlacementCountryResponseDto>))]
         public async Task<IActionResult> AddRFNegaraPenempatan(RFNegaraPenempatanPostCommand postRFNegaraPenempatan)
         {
             var result = await _mediator.Send(postRFNegaraPenempatan);
@@ -76,7 +76,7 @@ namespace NewLMS.UMKM.API.Controllers.RFNegaraPenempatan
         /// <param name="putRFNegaraPenempatan"></param>
         /// <returns></returns>
         [HttpPut("put/{NegaraCode}", Name = "EditRFNegaraPenempatan")]
-        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFNegaraPenempatanResponseDto>))]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<RFPlacementCountryResponseDto>))]
         public async Task<IActionResult> EditRFNegaraPenempatan([FromRoute] string NegaraCode, [FromBody] RFNegaraPenempatanPutCommand putRFNegaraPenempatan)
         {
             putRFNegaraPenempatan.NegaraCode = NegaraCode;

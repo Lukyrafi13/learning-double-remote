@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data
 {
-    public class RFNegaraPenempatan : BaseEntity
+    public class RFPlacementCountry : BaseEntity
     {
         public Guid Id { get; set; }
         public string NegaraCode { get; set; }

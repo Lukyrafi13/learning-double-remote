@@ -79,18 +79,18 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RFEDUCATION> RFEDUCATION { get; set; }
         // public DbSet<RFHOMESTA> RFHOMESTA { get; set; }
         public DbSet<RFJOB> RFJOB { get; set; }
-        // public DbSet<RFMARITAL> RFMARITALs { get; set; }
+        public DbSet<RFMARITAL> RFMARITALs { get; set; }
         // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHANs { get; set; }
         // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
         public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
-        // public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
+        public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
         // public DbSet<RFDocument> RFDocuments { get; set; }
         // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
         // public DbSet<RFMappingAgunan2> RFMappingAgunan2s { get; set; }
         // public DbSet<RFRelationCol> RFRelationCols { get; set; }
-        // public DbSet<RFSubProduct> RFSubProducts { get; set; }
-        // public DbSet<RFTenor> RFTenors { get; set; }
-        // public DbSet<RFTenorMapping> RFTenorMappings { get; set; }
+        /*public DbSet<RFSubProduct> RFSubProducts { get; set; }*/
+        public DbSet<RFTenor> RFTenors { get; set; }
+        public DbSet<RFTenorMapping> RFTenorMappings { get; set; }
         // public DbSet<RFSifatKredit> RFSifatKredits { get; set; }
         public DbSet<RFVehModel> RFVehModels { get; set; }
         // public DbSet<RFJenisKendaraanAgunan> RFJenisKendaraanAgunans { get; set; }
@@ -112,7 +112,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFOwnerOTS> RFOwnerOTSs { get; set; }
         // public DbSet<RfCompanyTypeMap> RfCompanyTypeMaps { get; set; }
         // public DbSet<RFReject> RFRejects { get; set; }
-        // public DbSet<RFNegaraPenempatan> RFNegaraPenempatans { get; set; }
+        public DbSet<RFPlacementCountry> RfPlacementCountries { get; set; }
         // public DbSet<Prescreening> Prescreenings { get; set; }
         // public DbSet<FileDokumen> FileDokumens { get; set; }
         // public DbSet<PrescreeningDokumen> PrescreeningDokumens { get; set; }
@@ -365,15 +365,15 @@ namespace NewLMS.UMKM.Domain.Context
             //         .OnDelete(DeleteBehavior.NoAction);
             // });
 
-            // builder.Entity<RFSubProduct>(b =>
-            // {
-            //     b.HasOne(e => e.Product)
-            //         .WithMany()
-            //         .HasForeignKey(rc => rc.ProductId)
-            //         .HasPrincipalKey(rc => rc.ProductId)
-            //         .IsRequired(false)
-            //         .OnDelete(DeleteBehavior.NoAction);
-            // });
+            /*builder.Entity<RFSubProduct>(b =>
+            {
+                 b.HasOne(e => e.Product)
+                     .WithMany()
+                     .HasForeignKey(rc => rc.ProductId)
+                     .HasPrincipalKey(rc => rc.ProductId)
+                     .IsRequired(false)
+                    .OnDelete(DeleteBehavior.NoAction);
+            });*/
 
             // builder.Entity<ProspectStageLogs>(b =>
             // {

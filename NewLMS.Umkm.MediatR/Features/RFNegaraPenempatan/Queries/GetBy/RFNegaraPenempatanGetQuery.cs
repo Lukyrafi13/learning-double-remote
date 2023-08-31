@@ -10,33 +10,33 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Queries
 {
-    public class RFNegaraPenempatanGetQuery : RFNegaraPenempatanFindRequestDto, IRequest<ServiceResponse<RFNegaraPenempatanResponseDto>>
+    public class RFNegaraPenempatanGetQuery : RFPlacementCountryFindRequestDto, IRequest<ServiceResponse<RFPlacementCountryResponseDto>>
     {
     }
 
-    public class RFNegaraPenempatanGetQueryHandler : IRequestHandler<RFNegaraPenempatanGetQuery, ServiceResponse<RFNegaraPenempatanResponseDto>>
+    public class RFNegaraPenempatanGetQueryHandler : IRequestHandler<RFNegaraPenempatanGetQuery, ServiceResponse<RFPlacementCountryResponseDto>>
     {
-        private IGenericRepositoryAsync<RFNegaraPenempatan> _RFNegaraPenempatan;
+        private IGenericRepositoryAsync<RFPlacementCountry> _RFNegaraPenempatan;
         private readonly IMapper _mapper;
 
-        public RFNegaraPenempatanGetQueryHandler(IGenericRepositoryAsync<RFNegaraPenempatan> RFNegaraPenempatan, IMapper mapper)
+        public RFNegaraPenempatanGetQueryHandler(IGenericRepositoryAsync<RFPlacementCountry> RFNegaraPenempatan, IMapper mapper)
         {
             _RFNegaraPenempatan = RFNegaraPenempatan;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<RFNegaraPenempatanResponseDto>> Handle(RFNegaraPenempatanGetQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RFPlacementCountryResponseDto>> Handle(RFNegaraPenempatanGetQuery request, CancellationToken cancellationToken)
         {
             try
             {
                 var data = await _RFNegaraPenempatan.GetByIdAsync(request.NegaraCode, "NegaraCode");
                 if (data == null)
-                    return ServiceResponse<RFNegaraPenempatanResponseDto>.Return404("Data RFNegaraPenempatan not found");
-                var response = _mapper.Map<RFNegaraPenempatanResponseDto>(data);
-                return ServiceResponse<RFNegaraPenempatanResponseDto>.ReturnResultWith200(response);
+                    return ServiceResponse<RFPlacementCountryResponseDto>.Return404("Data RFNegaraPenempatan not found");
+                var response = _mapper.Map<RFPlacementCountryResponseDto>(data);
+                return ServiceResponse<RFPlacementCountryResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFNegaraPenempatanResponseDto>.ReturnException(ex);
+                return ServiceResponse<RFPlacementCountryResponseDto>.ReturnException(ex);
             }
         }
     }
