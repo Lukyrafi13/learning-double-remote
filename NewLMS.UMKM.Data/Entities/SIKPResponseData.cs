@@ -1,21 +1,33 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NewLMS.UMKM.Data
 {
-    public class SIKPCalonDebiturResponseDto
-    {        
+    public class SIKPResponseData : BaseEntity
+    {
         public Guid Id { get; set; }
 
+        [ForeignKey("AppId")]
         public LoanApplication LoanApplication { get; set; }
 
         // Data IDE
+        [ForeignKey("RfOwnerCategoryId")]
         public RfOwnerCategory TipeDebitur { get; set; }
+        [ForeignKey("RfSectorLBU1Code")]
         public RfSectorLBU1 SektorEkonomi { get; set; }
+        [ForeignKey("RfSectorLBU2Code")]
         public RfSectorLBU2 SubSektorEkonomi { get; set; }
+        [ForeignKey("RfSectorLBU3Code")]
         public RfSectorLBU3 SubSubSektorEkonomi { get; set; }
+        [ForeignKey("RfGenderId")]
         public RfGender JenisKelamin { get; set; }
+        [ForeignKey("RFMaritalId")]
         public RFMARITAL StatusPernikahan { get; set; }
+        [ForeignKey("RFEducationId")]
         public RFEDUCATION PendidikanTerakhir { get; set; }
+        [ForeignKey("RFJobId")]
         public RFJOB DataPekerjaan { get; set; }
+        [ForeignKey("RfZipCodeId")]
         public RfZipCode KodePos { get; set; }
         public string NoCIF { get; set; }
         public string NoKTP { get; set; }
@@ -29,7 +41,9 @@ namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
         public string Propinsi { get; set; }
 
         // Data Usaha
+        [ForeignKey("RfZipCodeUsahaId")]
         public RfZipCode KodePosUsaha { get; set; }
+        [ForeignKey("RFLinkageUsahaId")]
         public RFLinkage Linkage { get; set; }
         public DateTime? TanggalMulaiUsaha { get; set; }
         public string AlamatUsaha { get; set; }
@@ -47,12 +61,16 @@ namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
         public double? SubsidiSebelumnya { get; set; }
 
 
-
         // Data IDE SKIP
+        [ForeignKey("RfGenderSIKPId")]
         public RfGender JenisKelaminSIKP { get; set; }
+        [ForeignKey("RFMaritalSIKPId")]
         public RFMARITAL StatusPernikahanSIKP { get; set; }
+        [ForeignKey("RFEducationSIKPId")]
         public RFEDUCATION PendidikanTerakhirSIKP { get; set; }
+        [ForeignKey("RFJobSIKPId")]
         public RFJOB DataPekerjaanSIKP { get; set; }
+        [ForeignKey("RfZipCodeSIKPId")]
         public RfZipCode KodePosSIKP { get; set; }
         public string NoRegistrasiSIKP { get; set; }
         public string NoKTPSIKP { get; set; }
@@ -68,7 +86,9 @@ namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
 
 
         // Data Usaha SIKP
+        [ForeignKey("RfZipCodeUsahaSIKPId")]
         public RfZipCode KodePosUsahaSIKP { get; set; }
+        [ForeignKey("RFLinkageUsahaSIKPId")]
         public RFLinkage LinkageSIKP { get; set; }
         public DateTime? TanggalMulaiUsahaSIKP { get; set; }
         public string AlamatUsahaSIKP { get; set; }
@@ -109,6 +129,5 @@ namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
         public int? RfZipCodeSIKPId { get; set; }
         public int? RfZipCodeUsahaSIKPId { get; set; }
         public Guid? RFLinkageUsahaSIKPId { get; set; }
-
     }
 }

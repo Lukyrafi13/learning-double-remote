@@ -89,7 +89,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new SurveyFileUploadProfile());
                 mc.AddProfile(new SIKPHistoryProfile());
                 mc.AddProfile(new SIKPHistoryDetailProfile());
-                mc.AddProfile(new SIKPCalonDebiturProfile());
+                mc.AddProfile(new SIKPResponseDataProfile());
                 mc.AddProfile(new SlikRequestProfile());
                 mc.AddProfile(new SlikRequestObjectProfile());
                 mc.AddProfile(new RFPilihanPemutusProfile());

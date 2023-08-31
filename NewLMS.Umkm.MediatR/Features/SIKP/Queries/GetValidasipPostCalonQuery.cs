@@ -11,7 +11,7 @@ using NewLMS.UMKM.SIKP.Models;
 using NewLMS.UMKM.SIKP2.Interfaces;
 using NewLMS.UMKM.SIKP.Interfaces;
 using System.Collections.Generic;
-using NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs;
+using NewLMS.UMKM.Data.Dto.SIKPResponseDatas;
 
 namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
 {
@@ -43,8 +43,8 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
         public string UraianAgunan { get; set; }
         public string IsSubsidized { get; set; }
         public string SubsidiSebelumnya { get; set; }
-        public Guid SIKPCalonDebiturId { get; set; }
-        public SIKPCalonDebiturValidasiPutRequestDto SIKPPutCalonDebitur { get; set; }
+        public Guid SIKPResponseDataId { get; set; }
+        public SIKPResponseDataValidasiPutRequestDto SIKPPutCalonDebitur { get; set; }
     }
     public class ValidasiPostCalonResponseModel
     {
@@ -64,7 +64,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
         private IGenericRepositoryAsync<RfSectorLBU1> _Sektor;
         private IGenericRepositoryAsync<RfSectorLBU2> _SubSektor;
         private IGenericRepositoryAsync<RfSectorLBU3> _SubSubSektor;
-        private IGenericRepositoryAsync<SIKPCalonDebitur> _SIKPCalonDebitur;
+        private IGenericRepositoryAsync<SIKPResponseData> _SIKPResponseData;
         private IGenericRepositoryAsync<RfGender> _RfGender;
         private IGenericRepositoryAsync<RFMARITAL> _RFMARITAL;
         private IGenericRepositoryAsync<RFEDUCATION> _RFEDUCATION;
@@ -78,7 +78,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
             IGenericRepositoryAsync<RfSectorLBU1> Sektor,
             IGenericRepositoryAsync<RfSectorLBU2> SubSektor,
             IGenericRepositoryAsync<RfSectorLBU3> SubSubSektor,
-            IGenericRepositoryAsync<SIKPCalonDebitur> SIKPCalonDebitur,
+            IGenericRepositoryAsync<SIKPResponseData> SIKPResponseData,
             IGenericRepositoryAsync<RfGender> RfGender,
             IGenericRepositoryAsync<RFMARITAL> RFMARITAL,
             IGenericRepositoryAsync<RFEDUCATION> RFEDUCATION,
@@ -91,7 +91,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
             _Sektor = Sektor;
             _SubSektor = SubSektor;
             _SubSubSektor = SubSubSektor;
-            _SIKPCalonDebitur = SIKPCalonDebitur;
+            _SIKPResponseData = SIKPResponseData;
             _RfGender = RfGender;
             _RFMARITAL = RFMARITAL;
             _RFEDUCATION = RFEDUCATION;
@@ -248,14 +248,14 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
                 response.Message = "Calon Debitur Valid";
 
                 // Simpan data debitur
-                var SIKPCalonDebitur = await _SIKPCalonDebitur.GetByIdAsync(request.SIKPCalonDebiturId);
+                var SIKPResponseData = await _SIKPResponseData.GetByIdAsync(request.SIKPResponseDataId);
 
                 // Kalo put calondebitur ada
                 if (request.SIKPPutCalonDebitur != null)
                 {
-                    SIKPCalonDebitur = _mapper.Map(request.SIKPPutCalonDebitur, SIKPCalonDebitur);
+                    SIKPResponseData = _mapper.Map(request.SIKPPutCalonDebitur, SIKPResponseData);
 
-                    await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
+                    await _SIKPResponseData.UpdateAsync(SIKPResponseData);
                 }
 
                 var dataPlafon = await _SIKPService.GetPlafon(request.NIK);
@@ -276,8 +276,8 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
                 {
                     // Validasi calon debitur
                     response = ValidasiCalonDebitur(response);
-                    SIKPCalonDebitur.Valid = response.Valid;
-                    SIKPCalonDebitur.MessageValidasi = response.Message;
+                    SIKPResponseData.Valid = response.Valid;
+                    SIKPResponseData.MessageValidasi = response.Message;
                 }
 
                 // Update data SIKP
@@ -292,48 +292,48 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
                     var RFLinkage = await _RFLinkage.GetByIdAsync(dataCalonDebitur.data.is_linkage, "SIKPCode");
 
                     // IDE
-                    SIKPCalonDebitur.NoRegistrasiSIKP = dataCalonDebitur.data.nmr_registry;
-                    SIKPCalonDebitur.NoKTPSIKP = dataCalonDebitur.data.nik;
-                    SIKPCalonDebitur.NPWPSIKP = dataCalonDebitur.data.npwp;
-                    SIKPCalonDebitur.NamaDebiturSIKP = dataCalonDebitur.data.nama;
-                    SIKPCalonDebitur.TanggalLahirSIKP = DateTime.Parse(dataCalonDebitur.data.tgl_lahir);
-                    SIKPCalonDebitur.AlamatSIKP = dataCalonDebitur.data.alamat;
-                    SIKPCalonDebitur.KelurahanSIKP = RfZipCode.Kelurahan;
-                    SIKPCalonDebitur.KecamatanSIKP = RfZipCode.Kecamatan;
-                    SIKPCalonDebitur.KabupatenKotaSIKP = RfZipCode.KodeKabKota;
-                    SIKPCalonDebitur.PropinsiSIKP = RfZipCode.Provinsi;
+                    SIKPResponseData.NoRegistrasiSIKP = dataCalonDebitur.data.nmr_registry;
+                    SIKPResponseData.NoKTPSIKP = dataCalonDebitur.data.nik;
+                    SIKPResponseData.NPWPSIKP = dataCalonDebitur.data.npwp;
+                    SIKPResponseData.NamaDebiturSIKP = dataCalonDebitur.data.nama;
+                    SIKPResponseData.TanggalLahirSIKP = DateTime.Parse(dataCalonDebitur.data.tgl_lahir);
+                    SIKPResponseData.AlamatSIKP = dataCalonDebitur.data.alamat;
+                    SIKPResponseData.KelurahanSIKP = RfZipCode.Kelurahan;
+                    SIKPResponseData.KecamatanSIKP = RfZipCode.Kecamatan;
+                    SIKPResponseData.KabupatenKotaSIKP = RfZipCode.KodeKabKota;
+                    SIKPResponseData.PropinsiSIKP = RfZipCode.Provinsi;
 
-                    SIKPCalonDebitur.RfGenderSIKPId = RfGender.Id;
-                    SIKPCalonDebitur.RFMaritalSIKPId = RFMarital.Id;
-                    SIKPCalonDebitur.RFEducationSIKPId = RFEducation.Id;
-                    SIKPCalonDebitur.RFJobSIKPId = RFJob.Id;
-                    SIKPCalonDebitur.RfZipCodeSIKPId = RfZipCode.Id;
+                    SIKPResponseData.RfGenderSIKPId = RfGender.Id;
+                    SIKPResponseData.RFMaritalSIKPId = RFMarital.Id;
+                    SIKPResponseData.RFEducationSIKPId = RFEducation.Id;
+                    SIKPResponseData.RFJobSIKPId = RFJob.Id;
+                    SIKPResponseData.RfZipCodeSIKPId = RfZipCode.Id;
 
                     // Usaha
-                    SIKPCalonDebitur.TanggalMulaiUsahaSIKP = DateTime.Parse(dataCalonDebitur.data.mulai_usaha);
-                    SIKPCalonDebitur.AlamatUsahaSIKP = dataCalonDebitur.data.alamat_usaha;
-                    SIKPCalonDebitur.KelurahanUsahaSIKP = RfZipCode.Kelurahan;
-                    SIKPCalonDebitur.KecamatanUsahaSIKP = RfZipCode.Kecamatan;
-                    SIKPCalonDebitur.KabupatenKotaUsahaSIKP = RfZipCode.KodeKabKota;
-                    SIKPCalonDebitur.PropinsiUsahaSIKP = RfZipCode.Provinsi;
-                    SIKPCalonDebitur.IzinUsahaSIKP = dataCalonDebitur.data.ijin_usaha;
-                    SIKPCalonDebitur.ModalUsahaSIKP = double.Parse(dataCalonDebitur.data.modal_usaha);
-                    SIKPCalonDebitur.JumlahKreditSIKP = double.Parse(dataCalonDebitur.data.jml_kredit);
-                    SIKPCalonDebitur.NoHPSIKP = dataCalonDebitur.data.no_hp;
-                    SIKPCalonDebitur.AgunanSIKP = dataCalonDebitur.data.uraian_agunan;
-                    SIKPCalonDebitur.JumlahPekerjaSIKP = int.Parse(dataCalonDebitur.data.jml_pekerja);
-                    SIKPCalonDebitur.StatusSubsidiSIKP = dataCalonDebitur.data.is_subsidized == "1";
-                    SIKPCalonDebitur.SubsidiSebelumnyaSIKP = double.Parse(dataCalonDebitur.data.subsidi_sebelumnya ?? "0");
+                    SIKPResponseData.TanggalMulaiUsahaSIKP = DateTime.Parse(dataCalonDebitur.data.mulai_usaha);
+                    SIKPResponseData.AlamatUsahaSIKP = dataCalonDebitur.data.alamat_usaha;
+                    SIKPResponseData.KelurahanUsahaSIKP = RfZipCode.Kelurahan;
+                    SIKPResponseData.KecamatanUsahaSIKP = RfZipCode.Kecamatan;
+                    SIKPResponseData.KabupatenKotaUsahaSIKP = RfZipCode.KodeKabKota;
+                    SIKPResponseData.PropinsiUsahaSIKP = RfZipCode.Provinsi;
+                    SIKPResponseData.IzinUsahaSIKP = dataCalonDebitur.data.ijin_usaha;
+                    SIKPResponseData.ModalUsahaSIKP = double.Parse(dataCalonDebitur.data.modal_usaha);
+                    SIKPResponseData.JumlahKreditSIKP = double.Parse(dataCalonDebitur.data.jml_kredit);
+                    SIKPResponseData.NoHPSIKP = dataCalonDebitur.data.no_hp;
+                    SIKPResponseData.AgunanSIKP = dataCalonDebitur.data.uraian_agunan;
+                    SIKPResponseData.JumlahPekerjaSIKP = int.Parse(dataCalonDebitur.data.jml_pekerja);
+                    SIKPResponseData.StatusSubsidiSIKP = dataCalonDebitur.data.is_subsidized == "1";
+                    SIKPResponseData.SubsidiSebelumnyaSIKP = double.Parse(dataCalonDebitur.data.subsidi_sebelumnya ?? "0");
 
-                    SIKPCalonDebitur.RfZipCodeUsahaSIKPId = RfZipCode.Id;
-                    SIKPCalonDebitur.RFLinkageUsahaSIKPId = RFLinkage.Id;
+                    SIKPResponseData.RfZipCodeUsahaSIKPId = RfZipCode.Id;
+                    SIKPResponseData.RFLinkageUsahaSIKPId = RFLinkage.Id;
 
-                    await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
+                    await _SIKPResponseData.UpdateAsync(SIKPResponseData);
                 }
 
                 if (response.Valid == false)
                 {
-                    await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
+                    await _SIKPResponseData.UpdateAsync(SIKPResponseData);
                     return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnResultWith200(response);
                 }
 
@@ -341,13 +341,13 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
                 if (response.PlafonResponse.data != null)
                 {
                     response = await ValidasiLimit(request, response);
-                    SIKPCalonDebitur.Valid = response.Valid;
-                    SIKPCalonDebitur.MessageValidasi = response.Message;
+                    SIKPResponseData.Valid = response.Valid;
+                    SIKPResponseData.MessageValidasi = response.Message;
                 }
 
                 if (response.Valid == false)
                 {
-                    await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
+                    await _SIKPResponseData.UpdateAsync(SIKPResponseData);
                     return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnResultWith200(response);
                 }
 
@@ -393,9 +393,9 @@ namespace NewLMS.UMKM.MediatR.Features.SIKP.Queries
                     response.Message = "Calon debitur belum terdaftar di SIKP";
                 }
 
-                SIKPCalonDebitur.Valid = response.Valid;
-                SIKPCalonDebitur.MessageValidasi = response.Message;
-                await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
+                SIKPResponseData.Valid = response.Valid;
+                SIKPResponseData.MessageValidasi = response.Message;
+                await _SIKPResponseData.UpdateAsync(SIKPResponseData);
 
                 return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnResultWith200(response);
             }
