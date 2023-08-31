@@ -7,8 +7,9 @@ namespace NewLMS.UMKM.Data
     public class LoanApplicationCollateral : BaseEntity
     {
         public Guid Id { get; set; }
-        [ForeignKey("AppId")]
-        public LoanApplication LoanApplication { get; set; }
+        [ForeignKey(nameof(LoanApplication))]
+        public Guid? LoanApplicationGuid { get; set; }
+        
         public string DocumentNumber { get; set; }
         public DateTime? DocumentPublishedDate { get; set; }
         public DateTime? DocumentExpiryDate { get; set; }
@@ -24,8 +25,10 @@ namespace NewLMS.UMKM.Data
         public string MeasurementLetterNumber { get; set; }
         public string SituationPictureMasurementLetterNumber { get; set; }
         public string CollateralAddress { get; set; }
-        [ForeignKey("RfZipCodeCollateralId")]
-        public RfZipCode CollateralZipCode { get; set; }
+        
+        [ForeignKey(nameof(RfZipCodeCollateral))]
+        public int? CollateralZipCodeId { get; set; }
+        
         public string CollateralNeighborhoods { get; set; }
         public string CollateralDistrict { get; set; }
         public string CollateralCity { get; set; }
@@ -62,8 +65,10 @@ namespace NewLMS.UMKM.Data
         public DateTime? IdentityExpiryDate { get; set; }
         public bool? IdentityLifetime { get; set; }
         public string OwnerAddress { get; set; }
-        [ForeignKey("RfZipCodeId")]
-        public RfZipCode RfZipCode { get; set; }
+        
+        [ForeignKey(nameof(RfZipCode))]
+        public int? RfZipCodeId { get; set; }
+        
         public string OwnerNeighborhoods { get; set; }
         public string OwnerDistrict { get; set; }
         public string OwnerCity { get; set; }
@@ -74,15 +79,16 @@ namespace NewLMS.UMKM.Data
         public string EmergencyContactPhone { get; set; }
 
         // Pasangan
-        public string NamaCouple { get; set; }
-        public string TempatLahirCouple { get; set; }
-        public DateTime? TanggalLahirCouple { get; set; }
+        public string CoupleName { get; set; }
+        public string BirthOfPlaceCouple { get; set; }
+        public DateTime? BithOfDateCouple { get; set; }
         public string CoupleNoIdentity { get; set; }
         public DateTime? CoupleIdentityExpiryDate { get; set; }
         public bool? CoupleIdentityLifetime { get; set; }
         public string CoupleAdress { get; set; }
-        [ForeignKey("RfZipCodeCoupleId")]
-        public RfZipCode RfZipCodeCouple { get; set; }
+        
+        [ForeignKey(nameof(RfZipCodeCouple))]
+        public int? RfZipCodeIdCouple { get; set; }
         public string CoupleNeighborhoods { get; set; }
         public string CoupleDistrict { get; set; }
         public string CoupleCity { get; set; }
@@ -90,18 +96,53 @@ namespace NewLMS.UMKM.Data
         public string CoupleNPWP { get; set; }
         public string CouplePekerjaan { get; set; }
 
+        [ForeignKey(nameof(RfAppType))]
         public Guid AppId { get; set; }
-        public Guid? RFMappingAgunan2Id { get; set; }
-        public Guid? RFJenisKendaraanAgunanId { get; set; }
+        
+        [ForeignKey(nameof(RFMappingAgunan2))]
+        public Guid? RfMappingCollateralId { get; set; }
+
+        [ForeignKey(nameof(ParamVehTypeCollateral))]
+        public int? VehTypeCollateralId { get; set; }
+        
+        [ForeignKey(nameof(RFDocument))]
         public Guid? RFDocumentId { get; set; }
+        
+        [ForeignKey(nameof(RFVEHMAKER))]
         public Guid? RFVehMakerId { get; set; }
+        
+        [ForeignKey(nameof(RFVEHCLASS))]
         public Guid? RFVehClassId { get; set; }
+        
+        [ForeignKey(nameof(RFVehModel))]
         public Guid? RFVehModelId { get; set; }
-        public Guid? RFRelationColId { get; set; }
-        public Guid? RFMaritalId { get; set; }
-        public Guid? RFJenisAktaId { get; set; }
-        public int? RfZipCodeCollateralId { get; set; }
-        public int? RfZipCodeId { get; set; }
-        public int? RfZipCodeCoupleId { get; set; }
+        
+        [ForeignKey(nameof(ParamRealationCol))]
+        public int? RelationColId { get; set; }
+        
+        [ForeignKey(nameof(ParamMarital))]
+        public int? MaritalId { get; set; }
+        
+        [ForeignKey(nameof(ParamDeedType))]
+        public int? DeedTypeId { get; set; }
+        
+        //public int? RfZipCodeCollateralId { get; set; }
+        //public int? RfZipCodeId { get; set; }
+        //public int? RfZipCodeCoupleId { get; set; }
+
+        public RfAppType RfAppType { get; set; }
+        public RFMappingAgunan2 RFMappingAgunan2 { get; set; }
+        public RfParameterDetail ParamVehTypeCollateral { get; set; }
+        public LoanApplication LoanApplication { get; set; }
+        public RfZipCode RfZipCode { get; set; }
+        public RfZipCode RfZipCodeCollateral { get; set; }
+        public RfZipCode RfZipCodeCouple { get; set; }
+        public RFDocument RFDocument { get; set; }
+        public RFVEHMAKER RFVEHMAKER { get; set; }
+        public RFVEHCLASS RFVEHCLASS { get; set; }
+        public RFVehModel RFVehModel { get; set; }
+        public RfParameterDetail ParamMarital { get; set; }
+        public RfParameterDetail ParamDeedType { get; set; }
+        public RfParameterDetail ParamRealationCol { get; set; }
     }
 }
