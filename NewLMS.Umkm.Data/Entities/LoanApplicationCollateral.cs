@@ -123,8 +123,8 @@ namespace NewLMS.UMKM.Data
         [ForeignKey(nameof(ParamMarital))]
         public int? MaritalId { get; set; }
         
-        [ForeignKey(nameof(ParamMarital))]
-        public int? DeedId { get; set; }
+        [ForeignKey(nameof(ParamDeedType))]
+        public int? DeedTypeId { get; set; }
         
         //public int? RfZipCodeCollateralId { get; set; }
         //public int? RfZipCodeId { get; set; }
