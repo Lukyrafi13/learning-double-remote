@@ -11,17 +11,17 @@ using System.Net;
 
 namespace NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Commands
 {
-    public class RFNegaraPenempatanDeleteCommand : RFNegaraPenempatanFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RFNegaraPenempatanDeleteCommand : RFPlacementCountryFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
     public class DeleteRFNegaraPenempatanCommandHandler : IRequestHandler<RFNegaraPenempatanDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFNegaraPenempatan> _RFNegaraPenempatan;
+        private readonly IGenericRepositoryAsync<RFPlacementCountry> _RFNegaraPenempatan;
         private readonly IMapper _mapper;
 
-        public DeleteRFNegaraPenempatanCommandHandler(IGenericRepositoryAsync<RFNegaraPenempatan> RFNegaraPenempatan, IMapper mapper){
+        public DeleteRFNegaraPenempatanCommandHandler(IGenericRepositoryAsync<RFPlacementCountry> RFNegaraPenempatan, IMapper mapper){
             _RFNegaraPenempatan = RFNegaraPenempatan;
             _mapper = mapper;
         }

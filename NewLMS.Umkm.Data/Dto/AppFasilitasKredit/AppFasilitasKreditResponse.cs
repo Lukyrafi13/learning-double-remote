@@ -8,7 +8,7 @@ namespace NewLMS.UMKM.Data.Dto.AppFasilitasKredits
         public RfAppType JenisPermohonanKredit { get; set; }
         public RFLoanPurpose TujuanKredit { get; set; }    
         public RFSubProduct LoanType { get; set; }
-        public RFNegaraPenempatan NegaraPenempatan { get; set; }
+        public RFPlacementCountry NegaraPenempatan { get; set; }
         public float PlafondYangDiajukan { get; set; }
         public RFTenor TenorKredit { get; set;}
         public string TujuanPenggunaan { get; set; }

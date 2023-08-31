@@ -1,6 +1,6 @@
 namespace NewLMS.UMKM.Data.Dto.RFNegaraPenempatans
 {
-    public class RFNegaraPenempatanPostRequestDto
+    public class RFPlacementCountryPostRequestDto
     {
         public string NegaraCode { get; set; }
         public string NegaraDesc { get; set; }

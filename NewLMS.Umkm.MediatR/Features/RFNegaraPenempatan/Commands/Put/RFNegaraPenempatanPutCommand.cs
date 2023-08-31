@@ -11,21 +11,21 @@ using System.Net;
 
 namespace NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Commands
 {
-    public class RFNegaraPenempatanPutCommand : RFNegaraPenempatanPutRequestDto, IRequest<ServiceResponse<RFNegaraPenempatanResponseDto>>
+    public class RFNegaraPenempatanPutCommand : RFPlacementCountryPutRequestDto, IRequest<ServiceResponse<RFPlacementCountryResponseDto>>
     {
     }
 
-    public class PutRFNegaraPenempatanCommandHandler : IRequestHandler<RFNegaraPenempatanPutCommand, ServiceResponse<RFNegaraPenempatanResponseDto>>
+    public class PutRFNegaraPenempatanCommandHandler : IRequestHandler<RFNegaraPenempatanPutCommand, ServiceResponse<RFPlacementCountryResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFNegaraPenempatan> _RFNegaraPenempatan;
+        private readonly IGenericRepositoryAsync<RFPlacementCountry> _RFNegaraPenempatan;
         private readonly IMapper _mapper;
 
-        public PutRFNegaraPenempatanCommandHandler(IGenericRepositoryAsync<RFNegaraPenempatan> RFNegaraPenempatan, IMapper mapper){
+        public PutRFNegaraPenempatanCommandHandler(IGenericRepositoryAsync<RFPlacementCountry> RFNegaraPenempatan, IMapper mapper){
             _RFNegaraPenempatan = RFNegaraPenempatan;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFNegaraPenempatanResponseDto>> Handle(RFNegaraPenempatanPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RFPlacementCountryResponseDto>> Handle(RFNegaraPenempatanPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
@@ -39,13 +39,13 @@ namespace NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Commands
                 
                 await _RFNegaraPenempatan.UpdateAsync(existingRFNegaraPenempatan);
 
-                var response = _mapper.Map<RFNegaraPenempatanResponseDto>(existingRFNegaraPenempatan);
+                var response = _mapper.Map<RFPlacementCountryResponseDto>(existingRFNegaraPenempatan);
 
-                return ServiceResponse<RFNegaraPenempatanResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RFPlacementCountryResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFNegaraPenempatanResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RFPlacementCountryResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

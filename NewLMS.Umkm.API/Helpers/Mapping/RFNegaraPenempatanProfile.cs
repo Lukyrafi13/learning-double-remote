@@ -9,9 +9,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
     {
         public RFNegaraPenempatanProfile()
         {
-            CreateMap<RFNegaraPenempatan, RFNegaraPenempatanResponseDto>().ReverseMap();
-            CreateMap<RFNegaraPenempatanPostRequestDto, RFNegaraPenempatan>();
-            CreateMap<RFNegaraPenempatanPutRequestDto, RFNegaraPenempatan>();
+            CreateMap<RFPlacementCountry, RFPlacementCountryResponseDto>().ReverseMap();
+            CreateMap<RFPlacementCountryPostRequestDto, RFPlacementCountry>();
+            CreateMap<RFPlacementCountryPutRequestDto, RFPlacementCountry>();
         }
     }
 }

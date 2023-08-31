@@ -11,39 +11,39 @@ using System.Net;
 
 namespace NewLMS.UMKM.MediatR.Features.RFNegaraPenempatans.Commands
 {
-    public class RFNegaraPenempatanPostCommand : RFNegaraPenempatanPostRequestDto, IRequest<ServiceResponse<RFNegaraPenempatanResponseDto>>
+    public class RFNegaraPenempatanPostCommand : RFPlacementCountryPostRequestDto, IRequest<ServiceResponse<RFPlacementCountryResponseDto>>
     {
 
     }
-    public class PostRFNegaraPenempatanCommandHandler : IRequestHandler<RFNegaraPenempatanPostCommand, ServiceResponse<RFNegaraPenempatanResponseDto>>
+    public class PostRFNegaraPenempatanCommandHandler : IRequestHandler<RFNegaraPenempatanPostCommand, ServiceResponse<RFPlacementCountryResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFNegaraPenempatan> _RFNegaraPenempatan;
+        private readonly IGenericRepositoryAsync<RFPlacementCountry> _RFNegaraPenempatan;
         private readonly IMapper _mapper;
 
-        public PostRFNegaraPenempatanCommandHandler(IGenericRepositoryAsync<RFNegaraPenempatan> RFNegaraPenempatan, IMapper mapper)
+        public PostRFNegaraPenempatanCommandHandler(IGenericRepositoryAsync<RFPlacementCountry> RFNegaraPenempatan, IMapper mapper)
         {
             _RFNegaraPenempatan = RFNegaraPenempatan;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFNegaraPenempatanResponseDto>> Handle(RFNegaraPenempatanPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RFPlacementCountryResponseDto>> Handle(RFNegaraPenempatanPostCommand request, CancellationToken cancellationToken)
         {
 
             try
             {
-                var RFNegaraPenempatan = _mapper.Map<RFNegaraPenempatan>(request);
+                var RFNegaraPenempatan = _mapper.Map<RFPlacementCountry>(request);
 
                 var returnedRFNegaraPenempatan = await _RFNegaraPenempatan.AddAsync(RFNegaraPenempatan, callSave: false);
 
                 // var response = _mapper.Map<RFNegaraPenempatanResponseDto>(returnedRFNegaraPenempatan);
-                var response = _mapper.Map<RFNegaraPenempatanResponseDto>(returnedRFNegaraPenempatan);
+                var response = _mapper.Map<RFPlacementCountryResponseDto>(returnedRFNegaraPenempatan);
 
                 await _RFNegaraPenempatan.SaveChangeAsync();
-                return ServiceResponse<RFNegaraPenempatanResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RFPlacementCountryResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFNegaraPenempatanResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RFPlacementCountryResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

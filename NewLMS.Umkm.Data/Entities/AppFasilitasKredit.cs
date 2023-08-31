@@ -16,7 +16,7 @@ namespace NewLMS.UMKM.Data
         [ForeignKey("RFSubProductId")]
         public RFSubProduct LoanType { get; set; }  
         [ForeignKey("RFNegaraPenempatanId")]
-        public RFNegaraPenempatan NegaraPenempatan { get; set; }
+        public RFPlacementCountry NegaraPenempatan { get; set; }
         public float PlafondYangDiajukan { get; set; }
         [ForeignKey("RFTenorId")]
         public RFTenor TenorKredit { get; set;}
