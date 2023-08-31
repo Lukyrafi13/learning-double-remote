@@ -1,11 +1,11 @@
 using FluentValidation;
-using NewLMS.UMKM.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RfStages;
 
-namespace NewLMS.UMKM.MediatR.Features.RFStagess.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfStages.Commands
 {
-    public class RFStagesPostValidator : AbstractValidator<RFStagesPostCommand>
+    public class RfStagePostValidator : AbstractValidator<RfStagePostCommand>
     {
-        public RFStagesPostValidator(){
+        public RfStagePostValidator(){
             // RuleFor(c => c.).NotEmpty().WithMessage("NoIdentity is required");
         }
     }

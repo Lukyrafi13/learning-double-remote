@@ -9,7 +9,7 @@ namespace NewLMS.UMKM.Data.Dto.ReviewPersiapanAkads
 
         public int Age {get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public Prescreening Prescreening { get; set; }
         public Survey Survey { get; set; }
         public SPPK SPPK { get; set; }

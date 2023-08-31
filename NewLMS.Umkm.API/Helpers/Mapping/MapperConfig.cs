@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.API.Helpers.Mapping;
+using NewLMS.UMKM.API.Helpers.MLoanApplicationing;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Entities;
 
@@ -24,7 +25,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFSCOHUTANGPIHAKLAINProfile());
                 mc.AddProfile(new RFSCOCARATRANSAKSIProfile());
                 mc.AddProfile(new RFJOBProfile());
-                mc.AddProfile(new DebiturProfile());
+                mc.AddProfile(new DebtorProfile());
+                mc.AddProfile(new DebtorCoupleProfile());
+                mc.AddProfile(new DebtorEmergencyProfile());
                 mc.AddProfile(new ProspectProfile());
                 mc.AddProfile(new RfSectorLBU1Profile());
                 mc.AddProfile(new RfSectorLBU2Profile());
@@ -62,13 +65,13 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RfBranchProfile());
                 mc.AddProfile(new RFSubProductTenorProfile());
                 mc.AddProfile(new RFVehicleTypeListProfile());
-                mc.AddProfile(new RFStagesProfile());
-                mc.AddProfile(new ProspectStageLogsProfile());
+                mc.AddProfile(new RfStageProfile());
+                mc.AddProfile(new LoanApplicationStageLogsProfile());
                 mc.AddProfile(new RFRelationSurveyProfile());
-                mc.AddProfile(new AppProfile());
-                mc.AddProfile(new AppKeyPersonProfile());
+                mc.AddProfile(new LoanApplicationProfile());
+                mc.AddProfile(new LoanApplicationKeyPersonProfile());
                 mc.AddProfile(new RfCompanyTypeProfile());
-                mc.AddProfile(new AppAgunanProfile());
+                // mc.AddProfile(new AppAgunanProfile());
                 mc.AddProfile(new RfCompanyTypeMapProfile());
                 mc.AddProfile(new RFRejectProfile());
                 mc.AddProfile(new AppContactPersonProfile());
@@ -79,7 +82,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFStatusDokumenProfile());
                 mc.AddProfile(new FileDokumenProfile());
                 mc.AddProfile(new PrescreeningDokumenProfile());
-                mc.AddProfile(new AppFasilitasKreditProfile());
+                mc.AddProfile(new LoanApplicationCreditFacilityProfile());
                 mc.AddProfile(new SurveyProfile());
                 mc.AddProfile(new SurveySupplierProfile());
                 mc.AddProfile(new SurveyBuyerProfile());
@@ -96,9 +99,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RFLamaUsahaLainProfile());
                 mc.AddProfile(new RFKepemilikanUsahaProfile());
                 mc.AddProfile(new RFMappingLBU3Profile());
-                mc.AddProfile(new RFSiklusUsahaProfile());
+                mc.AddProfile(new RfBusinessPrimaryCiclusProfile());
                 mc.AddProfile(new RFOwnerOTSProfile());
-                mc.AddProfile(new RFSiklusUsahaPokokProfile());
                 mc.AddProfile(new SCJabatanProfile());
                 mc.AddProfile(new RFPengikatanKreditProfile());
                 mc.AddProfile(new RFMappingPrescreeningDocumentProfile());

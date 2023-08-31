@@ -12,7 +12,7 @@ namespace NewLMS.UMKM.Data.Dto.Surveys
         public double? HPPNilai { get; set; }
         public double? BiayaRumahTanggaTertinggi { get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public RFKepemilikanUsaha KepemilikanTempatUsaha { get; set; }
         public RFLamaUsahaLain LamaMenempatiLokasi { get; set; }
     }

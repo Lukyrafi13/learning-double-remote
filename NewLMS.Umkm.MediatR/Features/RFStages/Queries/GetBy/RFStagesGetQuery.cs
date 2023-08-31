@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RfStages;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -8,35 +8,35 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RFStagess.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfStages.Queries
 {
-    public class RFStagesGetQuery : RFStagesFindRequestDto, IRequest<ServiceResponse<RFStagesResponseDto>>
+    public class RfStageGetQuery : RfStageFindRequestDto, IRequest<ServiceResponse<RfStageResponseDto>>
     {
     }
 
-    public class RFStagesGetQueryHandler : IRequestHandler<RFStagesGetQuery, ServiceResponse<RFStagesResponseDto>>
+    public class RfStageGetQueryHandler : IRequestHandler<RfStageGetQuery, ServiceResponse<RfStageResponseDto>>
     {
-        private IGenericRepositoryAsync<RFStages> _RFStages;
+        private IGenericRepositoryAsync<RfStage> _RfStage;
         private readonly IMapper _mapper;
 
-        public RFStagesGetQueryHandler(IGenericRepositoryAsync<RFStages> RFStages, IMapper mapper)
+        public RfStageGetQueryHandler(IGenericRepositoryAsync<RfStage> RfStage, IMapper mapper)
         {
-            _RFStages = RFStages;
+            _RfStage = RfStage;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<RFStagesResponseDto>> Handle(RFStagesGetQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfStageResponseDto>> Handle(RfStageGetQuery request, CancellationToken cancellationToken)
         {
             try
             {
-                var data = await _RFStages.GetByIdAsync(request.StageId, "StageId");
+                var data = await _RfStage.GetByIdAsync(request.StageId, "StageId");
                 if (data == null)
-                    return ServiceResponse<RFStagesResponseDto>.Return404("Data RFStages not found");
-                var response = _mapper.Map<RFStagesResponseDto>(data);
-                return ServiceResponse<RFStagesResponseDto>.ReturnResultWith200(response);
+                    return ServiceResponse<RfStageResponseDto>.Return404("Data RfStage not found");
+                var response = _mapper.Map<RfStageResponseDto>(data);
+                return ServiceResponse<RfStageResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFStagesResponseDto>.ReturnException(ex);
+                return ServiceResponse<RfStageResponseDto>.ReturnException(ex);
             }
         }
     }

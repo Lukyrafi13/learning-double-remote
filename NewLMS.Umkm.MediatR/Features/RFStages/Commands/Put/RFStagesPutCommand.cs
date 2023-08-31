@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RfStages;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -9,42 +9,42 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFStagess.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfStages.Commands
 {
-    public class RFStagesPutCommand : RFStagesPutRequestDto, IRequest<ServiceResponse<RFStagesResponseDto>>
+    public class RfStagePutCommand : RfStagePutRequestDto, IRequest<ServiceResponse<RfStageResponseDto>>
     {
     }
 
-    public class PutRFStagesCommandHandler : IRequestHandler<RFStagesPutCommand, ServiceResponse<RFStagesResponseDto>>
+    public class PutRfStageCommandHandler : IRequestHandler<RfStagePutCommand, ServiceResponse<RfStageResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFStages> _RFStages;
+        private readonly IGenericRepositoryAsync<RfStage> _RfStage;
         private readonly IMapper _mapper;
 
-        public PutRFStagesCommandHandler(IGenericRepositoryAsync<RFStages> RFStages, IMapper mapper){
-            _RFStages = RFStages;
+        public PutRfStageCommandHandler(IGenericRepositoryAsync<RfStage> RfStage, IMapper mapper){
+            _RfStage = RfStage;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFStagesResponseDto>> Handle(RFStagesPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfStageResponseDto>> Handle(RfStagePutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFStages = await _RFStages.GetByIdAsync(request.StageId, "StageId");
-                existingRFStages.StageId = request.StageId;
-                existingRFStages.Code = request.Code;
-                existingRFStages.Description = request.Description;
-                existingRFStages.GroupStage = request.GroupStage;
-                existingRFStages.GroupName = request.GroupName;
+                var existingRfStage = await _RfStage.GetByIdAsync(request.StageId, "StageId");
+                existingRfStage.StageId = request.StageId;
+                existingRfStage.Code = request.Code;
+                existingRfStage.Description = request.Description;
+                existingRfStage.GroupStage = request.GroupStage;
+                existingRfStage.GroupName = request.GroupName;
                 
-                await _RFStages.UpdateAsync(existingRFStages);
+                await _RfStage.UpdateAsync(existingRfStage);
 
-                var response = _mapper.Map<RFStagesResponseDto>(existingRFStages);
+                var response = _mapper.Map<RfStageResponseDto>(existingRfStage);
 
-                return ServiceResponse<RFStagesResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfStageResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFStagesResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfStageResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

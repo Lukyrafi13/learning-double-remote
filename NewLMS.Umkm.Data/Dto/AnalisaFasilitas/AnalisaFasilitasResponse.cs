@@ -6,7 +6,7 @@ namespace NewLMS.UMKM.Data.Dto.AnalisaFasilitass
     {
         public Guid Id { get; set; }
         public Analisa Analisa { get; set; }
-        public AppFasilitasKredit AppFasilitasKredit { get; set; }
+        // public AppFasilitasKredit AppFasilitasKredit { get; set; }
         public RFTenor JangkaWaktu { get; set; }
         public RFSubProduct SkimKredit { get; set; }
         

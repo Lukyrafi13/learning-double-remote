@@ -7,6 +7,6 @@ namespace NewLMS.UMKM.Data.Dto.SlikRequests
         public double TotalLimitSlik {get; set;}
         public double TotalOtherUses {get; set;}
         public double TotalWorkingCapital {get; set;}
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
     }
 }

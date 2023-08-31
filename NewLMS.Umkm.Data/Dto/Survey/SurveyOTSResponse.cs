@@ -6,7 +6,7 @@ namespace NewLMS.UMKM.Data.Dto.Surveys
     {
         public Guid AppId { get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public RFRelationSurvey HubunganDebitur { get; set; }
         public RfOwnerCategory BentukBadanUsaha { get; set; }
         public RFOwnerOTS StatusTempatUsaha { get; set; }

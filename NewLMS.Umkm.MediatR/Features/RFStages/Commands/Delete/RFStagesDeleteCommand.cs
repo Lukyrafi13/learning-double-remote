@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RfStages;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -9,28 +9,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFStagess.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfStages.Commands
 {
-    public class RFStagesDeleteCommand : RFStagesFindRequestDto, IRequest<ServiceResponse<Unit>>
+    public class RfStageDeleteCommand : RfStageFindRequestDto, IRequest<ServiceResponse<Unit>>
     {
         
     }
 
-    public class DeleteRFStagesCommandHandler : IRequestHandler<RFStagesDeleteCommand, ServiceResponse<Unit>>
+    public class DeleteRfStageCommandHandler : IRequestHandler<RfStageDeleteCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<RFStages> _RFStages;
+        private readonly IGenericRepositoryAsync<RfStage> _RfStage;
         private readonly IMapper _mapper;
 
-        public DeleteRFStagesCommandHandler(IGenericRepositoryAsync<RFStages> RFStages, IMapper mapper){
-            _RFStages = RFStages;
+        public DeleteRfStageCommandHandler(IGenericRepositoryAsync<RfStage> RfStage, IMapper mapper){
+            _RfStage = RfStage;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(RFStagesDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(RfStageDeleteCommand request, CancellationToken cancellationToken)
         {
-            var rFProduct = await _RFStages.GetByIdAsync(request.StageId, "StageId");
+            var rFProduct = await _RfStage.GetByIdAsync(request.StageId, "StageId");
             rFProduct.IsDeleted = true;
-            await _RFStages.UpdateAsync(rFProduct);
+            await _RfStage.UpdateAsync(rFProduct);
             return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
         }
     }

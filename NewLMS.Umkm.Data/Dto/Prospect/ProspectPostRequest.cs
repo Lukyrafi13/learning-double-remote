@@ -5,7 +5,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
     {
         #region Account Office
 
-        public string ProspectId { get; set; }
+        //public string ProspectId { get; set; }
 
         public string AccountOfficer { get; set; }
 
@@ -15,13 +15,12 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         public Guid? RfGenderId { get; set; }
 
-        public Guid? RfCompanyStatusId { get; set; }
+        public int? RfCompanyStatusId { get; set; }
 
         #endregion
 
         #region Debitur
         public string NoIdentity { get; set; }
-
         public string Fullname { get; set; }
 
         public DateTime DateOfBirth { get; set; }
@@ -68,7 +67,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         #endregion
 
         #region Target
-        public Guid? RfAppTypeId { get; set; }
+        public int? RfAppTypeId { get; set; }
         public Guid? RfTargetStatusId { get; set; }
         public string RfSectorLBU3Code { get; set; }
         public Guid? RfCategoryId { get; set; }
@@ -94,7 +93,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         #endregion
 
         #region Company Data - Company
-        public Guid? RfCompanyGroupId { get; set; }
+        public int? RfCompanyGroupId { get; set; }
         public Guid? RfCompanyTypeId { get; set; }
         public string OtherCompanyType { get; set; }
         #endregion

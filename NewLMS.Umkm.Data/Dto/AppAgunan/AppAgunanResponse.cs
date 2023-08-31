@@ -4,7 +4,7 @@ namespace NewLMS.UMKM.Data.Dto.AppAgunans
     public class AppAgunanResponseDto : BaseResponse
     {
         public Guid Id { get; set; }
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public RFMappingAgunan2 JenisJaminan { get; set; }
         public RFDocument DokumenKepemilikan { get; set; }
         public string NomorDokumen { get; set; }

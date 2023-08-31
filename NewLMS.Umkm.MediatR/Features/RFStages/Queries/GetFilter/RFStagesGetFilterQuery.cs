@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFStagess;
+using NewLMS.UMKM.Data.Dto.RfStages;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
@@ -9,38 +9,38 @@ using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFStagess.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfStages.Queries
 {
-    public class RFStagessGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFStagesResponseDto>>>
+    public class RfStageGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfStageResponseDto>>>
     {
     }
 
-    public class GetFilterRFStagesQueryHandler : IRequestHandler<RFStagessGetFilterQuery, PagedResponse<IEnumerable<RFStagesResponseDto>>>
+    public class GetFilterRfStageQueryHandler : IRequestHandler<RfStageGetFilterQuery, PagedResponse<IEnumerable<RfStageResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFStages> _RFStages;
+        private IGenericRepositoryAsync<RfStage> _RfStage;
         private readonly IMapper _mapper;
 
-        public GetFilterRFStagesQueryHandler(IGenericRepositoryAsync<RFStages> RFStages, IMapper mapper)
+        public GetFilterRfStageQueryHandler(IGenericRepositoryAsync<RfStage> RfStage, IMapper mapper)
         {
-            _RFStages = RFStages;
+            _RfStage = RfStage;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFStagesResponseDto>>> Handle(RFStagessGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfStageResponseDto>>> Handle(RfStageGetFilterQuery request, CancellationToken cancellationToken)
         {
-            var data = await _RFStages.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFStagesResponseDto>>(data.Results);
-            IEnumerable<RFStagesResponseDto> dataVm;
-            var listResponse = new List<RFStagesResponseDto>();
+            var data = await _RfStage.GetPagedReponseAsync(request);
+            // var dataVm = _mapper.Map<IEnumerable<RfStageResponseDto>>(data.Results);
+            IEnumerable<RfStageResponseDto> dataVm;
+            var listResponse = new List<RfStageResponseDto>();
 
             foreach (var res in data.Results){
-                var response = _mapper.Map<RFStagesResponseDto>(res);
+                var response = _mapper.Map<RfStageResponseDto>(res);
 
                 listResponse.Add(response);
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFStagesResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfStageResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };

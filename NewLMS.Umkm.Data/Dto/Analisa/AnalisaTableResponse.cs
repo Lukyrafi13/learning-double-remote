@@ -8,7 +8,7 @@ namespace NewLMS.UMKM.Data.Dto.Analisas
         public Guid Id { get; set; }
         public int Age { get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public Prescreening Prescreening { get; set; }
         public Survey Survey { get; set; }
         public SlikRequest SlikRequest { get; set; }

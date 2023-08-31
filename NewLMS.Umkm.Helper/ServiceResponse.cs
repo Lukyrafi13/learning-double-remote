@@ -34,7 +34,9 @@ namespace NewLMS.UMKM.Helper
         public string Message { get; set; }
         public static ServiceResponse<T> ReturnException(Exception ex)
         {
-            return new ServiceResponse<T>(ex);
+            return new ServiceResponse<T>(ex){
+                Success = false
+            };
         }
 
         public static ServiceResponse<T> ReturnFailed(int statusCode, List<string> errors)

@@ -5,7 +5,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
     {        
         public Guid Id { get; set; }
 
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
 
         // Data IDE
         public RfOwnerCategory TipeDebitur { get; set; }

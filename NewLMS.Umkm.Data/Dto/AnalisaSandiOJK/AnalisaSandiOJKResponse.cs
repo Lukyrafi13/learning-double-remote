@@ -5,7 +5,7 @@ namespace NewLMS.UMKM.Data.Dto.AnalisaSandiOJKs
     {
         public Guid Id { get; set; }
         public Analisa Analisa { get; set; }
-        public AppFasilitasKredit AppFasilitasKredit { get; set; }
+        // public AppFasilitasKredit AppFasilitasKredit { get; set; }
         public RFSANDIBI GolonganDebitur { get; set; }
         public RFSANDIBI HubunganDenganBank { get; set; }
         public RFSANDIBI StatusDebitur { get; set; }

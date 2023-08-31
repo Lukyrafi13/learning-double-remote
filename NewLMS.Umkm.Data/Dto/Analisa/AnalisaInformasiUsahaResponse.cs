@@ -13,7 +13,7 @@ namespace NewLMS.UMKM.Data.Dto.Analisas
         public RFAspekPemasaran AspekPemasaran { get; set; }
         public RFJumlahPegawai JumlahPegawaiTetap { get; set; }
         public RFJumlahPegawai JumlahPegawaiHarian { get; set; }
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public Prescreening Prescreening { get; set; }
         public Survey Survey { get; set; }
 

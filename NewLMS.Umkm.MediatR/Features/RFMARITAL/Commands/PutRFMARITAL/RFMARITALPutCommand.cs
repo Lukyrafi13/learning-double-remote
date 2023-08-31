@@ -33,7 +33,7 @@ namespace NewLMS.UMKM.MediatR.Features.RFMARITALs.Commands
                 existingRFMARITAL.MR_CODE = request.MR_CODE;
                 existingRFMARITAL.MR_DESC = request.MR_DESC;
                 existingRFMARITAL.CORE_CODE = request.CORE_CODE;
-                existingRFMARITAL.WITHSPOUSE = request.WITHSPOUSE;
+                // existingRFMARITAL.WITHSPOUSE = request.WITHSPOUSE;
                 existingRFMARITAL.ACTIVE = request.ACTIVE;
                 existingRFMARITAL.MR_CODESIKP = request.MR_CODESIKP;
                 existingRFMARITAL.MR_DESCSIKP = request.MR_DESCSIKP;

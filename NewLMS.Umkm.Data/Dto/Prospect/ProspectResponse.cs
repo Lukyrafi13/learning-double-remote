@@ -18,7 +18,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         public Guid? RfGenderId { get; set; }
 
-        public Guid? RfCompanyStatusId { get; set; }
+        public int? RfCompanyStatusId { get; set; }
 
         #endregion
 
@@ -71,7 +71,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         #region Target
         
-        public Guid? RfAppTypeId { get; set; }
+        public int? RfAppTypeId { get; set; }
         public Guid? RfTargetStatusId { get; set; }
         public string RfSectorLBU3Code { get; set; }
         public Guid? RfCategoryId { get; set; }
@@ -98,7 +98,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         #region Company Data - Company
         public Guid? RfCompanyGroupId { get; set; }
-        public Guid? RfCompanyTypeId { get; set; }
+        public int? RfCompanyTypeId { get; set; }
         public string OtherCompanyType { get; set; }
         #endregion
 
@@ -106,8 +106,8 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public string DataSource { get; set; }
         #endregion
 
-        public RfCompanyGroup RfCompanyGroup { get; set; }
-        public RfCompanyStatus RfCompanyStatus { get; set; }
+        public RfParameterDetail RfCompanyGroup { get; set; }
+        public RfParameterDetail RfCompanyStatus { get; set; }
         public RfCompanyType RfCompanyType { get; set; }
         public RfBranch RfBranch { get; set; }
         public RfProduct RfProduct { get; set; }
@@ -117,7 +117,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public RfZipCode RfZipCode { get; set; }
         public RfZipCode RfPlaceZipCode { get; set; }
         public RfZipCode RfCompanyZipCode { get; set; }
-        public RfAppType RfAppType { get; set; }
+        public RfParameterDetail RfAppType { get; set; }
         public RfTargetStatus RfTargetStatus { get; set; }
         public RfCategory RfCategory { get; set; }
         public RfServiceCode RfServiceCode { get; set; }

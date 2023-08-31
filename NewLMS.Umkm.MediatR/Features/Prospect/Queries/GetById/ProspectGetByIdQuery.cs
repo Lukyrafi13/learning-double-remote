@@ -28,7 +28,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
         {
             try
             {
-                var prospect = await _prospect.GetByIdAsync(request.Id, "Id", 
+                var prospect = await _prospect.GetByPredicate(x=>x.Id.ToString() == request.Id, 
                     new string[] {
                         "RfCompanyGroup",
                         "RfCompanyStatus",

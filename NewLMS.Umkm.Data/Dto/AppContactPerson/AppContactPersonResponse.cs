@@ -4,7 +4,7 @@ namespace NewLMS.UMKM.Data.Dto.AppContactPersons
     public class AppContactPersonResponseDto
     {
         public Guid Id { get; set; }
-        public App App { get; set; }
+        public LoanApplication LoanApplication { get; set; }
         public string Nama { get; set; }
         public RFRelationCol Hubungan { get; set; }
         public string NomorHandphone { get; set; }

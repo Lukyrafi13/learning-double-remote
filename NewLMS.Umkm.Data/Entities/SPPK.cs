@@ -7,8 +7,8 @@ namespace NewLMS.UMKM.Data
     {
         public Guid Id { get; set; }
 
-        [ForeignKey("AppId")]
-        public App App { get; set; }
+        [ForeignKey("LoanApplicationId")]
+        public LoanApplication LoanApplication { get; set; }
 
         [ForeignKey("AnalisaId")]
         public Analisa Analisa { get; set; }
@@ -80,7 +80,7 @@ namespace NewLMS.UMKM.Data
         public string NamaPejabatMKK4 { get; set; }
         public string NamaPejabatMKK5 { get; set; }
 
-        public Guid AppId { get; set; }
+        public Guid LoanApplicationId { get; set; }
         public Guid? AnalisaId { get; set; }
 
         // Halaman Utama
