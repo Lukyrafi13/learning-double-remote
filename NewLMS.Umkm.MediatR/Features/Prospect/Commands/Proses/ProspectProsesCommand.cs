@@ -166,8 +166,9 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 }
 
                 // Update prospect History
-                var oldLog = (await _stageLogs.GetListByPredicate(x => x.LoanApplicationId == LoanApplication.Id && x.StageId == previousStage.StageId))?
-                .OrderBy(x=>x.CreatedBy)?.ToList()?.Last();
+                var logList = await _stageLogs.GetListByPredicate(x => x.LoanApplicationId == LoanApplication.Id && x.StageId == previousStage.StageId);
+                var oldLog = logList == null? null :
+                logList.OrderBy(x=>x.CreatedBy)?.ToList()?.Last();
                 oldLog ??= new LoanApplicationStageLogs(){
                         LoanApplicationId = LoanApplication.Id,
                         StageId = previousStage.StageId,
