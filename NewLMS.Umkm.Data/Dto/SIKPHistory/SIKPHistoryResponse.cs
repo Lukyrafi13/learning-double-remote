@@ -13,6 +13,6 @@ namespace NewLMS.UMKM.Data.Dto.SIKPHistorys
         public double? LimitAktif { get; set; }
         public string? RfSectorLBU3Code { get; set; }
         public string InquiryCode { get; set; }
-        public RfSectorLBU3 SubSubSektorEkonomiLBU { get; set; }
+        public RfSectorLBU3 SubSubSector { get; set; }
     }
 }
