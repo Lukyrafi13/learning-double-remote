@@ -15,13 +15,13 @@ using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
 
 namespace NewLMS.UMKM.API.Controllers.LoanApplication
 {
-    [Authorize]
+    // [Authorize]
     public class LoanApplicationController : BaseController
     {
         public IMediator _mediator { get; set; }
 
         /// <summary>
-        /// App
+        /// Loan Application
         /// </summary>
         /// <param name="mediator"></param>
         public LoanApplicationController(IMediator mediator)
@@ -130,18 +130,18 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplication
         //     return ReturnFormattedResponse(result);
         // }
 
-        // /// <summary>
-        // /// Get List Data Tabel App
-        // /// </summary>
-        // /// <param name="postListTable"></param>
-        // /// <returns></returns>
-        // [HttpPost("app/list", Name = "GetListAppTable")]
-        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        // public async Task<IActionResult> GetListAppTable(AppTableGetFilterQuery postListTable)
-        // {
-        //     var result = await _mediator.Send(postListTable);
-        //     return Ok(result);
-        // }
+        /// <summary>
+        /// Get List Data Tabel App
+        /// </summary>
+        /// <param name="postListTable"></param>
+        /// <returns></returns>
+        [HttpPost("app/list", Name = "GetListAppTable")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
+        public async Task<IActionResult> GetListAppTable(LoanApplicationTableGetFilterQuery postListTable)
+        {
+            var result = await _mediator.Send(postListTable);
+            return Ok(result);
+        }
 
         // /// <summary>
         // /// Proses App
