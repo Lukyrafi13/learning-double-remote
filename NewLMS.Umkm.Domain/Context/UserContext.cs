@@ -67,42 +67,15 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RFVEHMAKER> RFVEHMAKER { get; set; }
         public DbSet<RFVEHCLASS> RFVEHCLASS { get; set; }
         public DbSet<RFVEHICLETYPEs> RFVEHICLETYPEs { get; set; }
-        // public DbSet<RFSCOREPUTASITEMPATTINGGAL> RFSCOREPUTASITEMPATTINGGAL { get; set; }
-        // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHAN { get; set; }
-        // public DbSet<RFSCOCARATRANSAKSI> RFSCOCARATRANSAKSI { get; set; }
-        // public DbSet<RFSCOPENGELOLAKEUANGAN> RFSCOPENGELOLAKEUANGAN { get; set; }
-        // public DbSet<RFSCOHUTANGPIHAKLAIN> RFSCOHUTANGPIHAKLAIN { get; set; }
-        // public DbSet<RFSCOLOKTEMPATUSAHA> RFSCOLOKTEMPATUSAHA { get; set; }
-        // public DbSet<RFSCOHUBUNGANPERBANKAN> RFSCOHUBUNGANPERBANKAN { get; set; }
-        // public DbSet<RFSCOMUTASIPERBULAN> RFSCOMUTASIPERBULAN { get; set; }
-        // public DbSet<RFSCOSALDOREKRATA> RFSCOSALDOREKRATA { get; set; }
-        // public DbSet<RFSCOSCORINGAGUNAN> RFSCOSCORINGAGUNAN { get; set; }
         public DbSet<RFEDUCATION> RFEDUCATION { get; set; }
-        // public DbSet<RFHOMESTA> RFHOMESTA { get; set; }
         public DbSet<RFJOB> RFJOB { get; set; }
         public DbSet<RFMARITAL> RFMARITALs { get; set; }
-        // public DbSet<RFSCOTINGKATKEBUTUHAN> RFSCOTINGKATKEBUTUHANs { get; set; }
-        // public DbSet<RFSCORiwayatKreditBJB> RFSCORiwayatKreditBJBs { get; set; }
         public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
-        // public DbSet<RFDocument> RFDocuments { get; set; }
-        // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
-        // public DbSet<RFMappingAgunan2> RFMappingAgunan2s { get; set; }
-        // public DbSet<RFRelationCol> RFRelationCols { get; set; }
-        /*public DbSet<RFSubProduct> RFSubProducts { get; set; }*/
         public DbSet<RFTenor> RFTenors { get; set; }
         public DbSet<RFTenorMapping> RFTenorMappings { get; set; }
-        // public DbSet<RFSifatKredit> RFSifatKredits { get; set; }
         public DbSet<RFVehModel> RFVehModels { get; set; }
-        // public DbSet<RFJenisKendaraanAgunan> RFJenisKendaraanAgunans { get; set; }
-        // public DbSet<RFBuktiKepemilikan> RFBuktiKepemilikans { get; set; }
-        // public DbSet<RFDecisionSK> RFDecisionSKs { get; set; }
-        // public DbSet<RFLokasiTempatUsaha> RFLokasiTempatUsahas { get; set; }
-        // public DbSet<RFSubProductTenor> RFSubProductTenors { get; set; }
         public DbSet<RFVehicleTypeList> RFVehicleTypeLists { get; set; }
-        // public virtual DbSet<App> Apps { get; set; }
-        // public virtual DbSet<AppKeyPerson> AppKeyPersons { get; set; }
-        // public virtual DbSet<AppContactPerson> AppContactPersons { get; set; }
         // public DbSet<RFJenisTempatUsaha> RFJenisTempatUsahas { get; set; }
         // public DbSet<RFJumlahPegawai> RFJumlahPegawais { get; set; }
         // public DbSet<RFAspekPemasaran> RFAspekPemasarans { get; set; }
@@ -121,8 +94,8 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFStatusDokumen> RFStatusDokumens { get; set; }
         // public DbSet<FileUrl> FileUrls { get; set; }
         // public DbSet<Survey> Surveys { get; set; }
-        // public DbSet<SIKPHistory> SIKPHistorys { get; set; }
-        // public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
+        public DbSet<SIKPHistory> SIKPHistories { get; set; }
+        public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
         // public DbSet<SIKPCalonDebitur> SIKPCalonDebiturs { get; set; }
         // public DbSet<SlikRequest> SlikRequests { get; set; }
         // public DbSet<SlikObjectType> SlikObjectTypes { get; set; }
