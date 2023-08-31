@@ -30,9 +30,9 @@
 //             {
 //                 var includes = new string[]{
 //                     "App",
-//                     "SlikHistoryKredits",
-//                     "SlikHistoryKredits.RfSandiBIApplicationTypeClass",
-//                     "SlikHistoryKredits.RfCreditType",
+//                     "SlikCreditHistorys",
+//                     "SlikCreditHistorys.RfSandiBIApplicationTypeClass",
+//                     "SlikCreditHistorys.RfCreditType",
 //                 };
 
 //                 var data = await _SlikRequest.GetByIdAsync(request.Id, "Id", includes);

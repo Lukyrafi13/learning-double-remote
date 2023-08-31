@@ -97,8 +97,8 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         #endregion
 
         #region Company Data - Company
-        public Guid? RfCompanyGroupId { get; set; }
-        public int? RfCompanyTypeId { get; set; }
+        public int? RfCompanyGroupId { get; set; }
+        public Guid? RfCompanyTypeId { get; set; }
         public string OtherCompanyType { get; set; }
         #endregion
 

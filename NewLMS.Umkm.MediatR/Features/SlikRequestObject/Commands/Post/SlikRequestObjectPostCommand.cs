@@ -1,50 +1,50 @@
-// using AutoMapper;
-// using MediatR;
-// using NewLMS.UMKM.Data.Dto.SlikRequestObjects;
-// using NewLMS.UMKM.Data;
-// using NewLMS.UMKM.Helper;
-// using NewLMS.UMKM.Repository.GenericRepository;
-// using System;
-// using System.Threading;
-// using System.Threading.Tasks;
-// using System.Net;
+using AutoMapper;
+using MediatR;
+using NewLMS.UMKM.Data.Dto.SlikRequestObjects;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Net;
 
-// namespace NewLMS.UMKM.MediatR.Features.SlikRequestObjects.Commands
-// {
-//     public class SlikRequestObjectPostCommand : SlikRequestObjectPostRequestDto, IRequest<ServiceResponse<SlikRequestObjectResponseDto>>
-//     {
+namespace NewLMS.UMKM.MediatR.Features.SlikRequestObjects.Commands
+{
+    public class SlikRequestObjectPostCommand : SlikRequestObjectPostRequestDto, IRequest<ServiceResponse<SlikRequestObjectResponseDto>>
+    {
 
-//     }
-//     public class SlikRequestObjectPostCommandHandler : IRequestHandler<SlikRequestObjectPostCommand, ServiceResponse<SlikRequestObjectResponseDto>>
-//     {
-//         private readonly IGenericRepositoryAsync<SlikRequestObject> _SlikRequestObject;
-//         private readonly IMapper _mapper;
+    }
+    public class SlikRequestObjectPostCommandHandler : IRequestHandler<SlikRequestObjectPostCommand, ServiceResponse<SlikRequestObjectResponseDto>>
+    {
+        private readonly IGenericRepositoryAsync<SlikRequestObject> _SlikRequestObject;
+        private readonly IMapper _mapper;
 
-//         public SlikRequestObjectPostCommandHandler(IGenericRepositoryAsync<SlikRequestObject> SlikRequestObject, IMapper mapper)
-//         {
-//             _SlikRequestObject = SlikRequestObject;
-//             _mapper = mapper;
-//         }
+        public SlikRequestObjectPostCommandHandler(IGenericRepositoryAsync<SlikRequestObject> SlikRequestObject, IMapper mapper)
+        {
+            _SlikRequestObject = SlikRequestObject;
+            _mapper = mapper;
+        }
 
-//         public async Task<ServiceResponse<SlikRequestObjectResponseDto>> Handle(SlikRequestObjectPostCommand request, CancellationToken cancellationToken)
-//         {
+        public async Task<ServiceResponse<SlikRequestObjectResponseDto>> Handle(SlikRequestObjectPostCommand request, CancellationToken cancellationToken)
+        {
 
-//             try
-//             {
-//                 var SlikRequestObject = _mapper.Map<SlikRequestObject>(request);
+            try
+            {
+                var SlikRequestObject = _mapper.Map<SlikRequestObject>(request);
 
-//                 var returnedSlikRequestObject = await _SlikRequestObject.AddAsync(SlikRequestObject, callSave: false);
+                var returnedSlikRequestObject = await _SlikRequestObject.AddAsync(SlikRequestObject, callSave: false);
 
-//                 // var response = _mapper.Map<SlikRequestObjectResponseDto>(returnedSlikRequestObject);
-//                 var response = _mapper.Map<SlikRequestObjectResponseDto>(returnedSlikRequestObject);
+                // var response = _mapper.Map<SlikRequestObjectResponseDto>(returnedSlikRequestObject);
+                var response = _mapper.Map<SlikRequestObjectResponseDto>(returnedSlikRequestObject);
 
-//                 await _SlikRequestObject.SaveChangeAsync();
-//                 return ServiceResponse<SlikRequestObjectResponseDto>.ReturnResultWith200(response);
-//             }
-//             catch (Exception ex)
-//             {
-//                 return ServiceResponse<SlikRequestObjectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
-//             }
-//         }
-//     }
-// }
+                await _SlikRequestObject.SaveChangeAsync();
+                return ServiceResponse<SlikRequestObjectResponseDto>.ReturnResultWith200(response);
+            }
+            catch (Exception ex)
+            {
+                return ServiceResponse<SlikRequestObjectResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+            }
+        }
+    }
+}

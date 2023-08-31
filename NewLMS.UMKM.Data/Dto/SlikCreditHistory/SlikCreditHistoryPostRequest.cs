@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.SlikHistoryKredits
+namespace NewLMS.UMKM.Data.Dto.SlikCreditHistorys
 {
-    public class SlikHistoryKreditPostRequestDto
+    public class SlikCreditHistoryPostRequestDto
     {
         public Guid SlikRequestId { get; set; }
         public string SLIKNoIdentity { get; set; }

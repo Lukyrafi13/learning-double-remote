@@ -102,9 +102,9 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<SIKPHistory> SIKPHistories { get; set; }
         public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
         // public DbSet<SIKPResponseData> SIKPResponseDatas { get; set; }
-        // public DbSet<SlikRequest> SlikRequests { get; set; }
-        // public DbSet<SlikObjectType> SlikObjectTypes { get; set; }
-        // public DbSet<SlikRequestObject> SlikRequestObjects { get; set; }
+        public DbSet<SlikRequest> SlikRequests { get; set; }
+        public DbSet<SlikObjectType> SlikObjectTypes { get; set; }
+        public DbSet<SlikRequestObject> SlikRequestObjects { get; set; }
         // public DbSet<RFPilihanPemutus> RFPilihanPemutuss { get; set; }
         // public DbSet<RFBusinessType> RFBusinessTypes { get; set; }
         // public DbSet<RFBidangUsahaKUR> RFBidangUsahaKURs { get; set; }
@@ -142,7 +142,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFInsRateTemplate> RFInsRateTemplates { get; set; }
         // public DbSet<RFInsCompany> RFInsCompanys { get; set; }
         // public DbSet<RFBranchInsComp> RFBranchInsComps { get; set; }
-        // public DbSet<SlikHistoryKredit> SlikHistoryKredits { get; set; }
+        public DbSet<SlikCreditHistory> SlikCreditHistorys { get; set; }
         // public DbSet<PersiapanAkad> PersiapanAkads { get; set; }
         // public DbSet<VerifikasiPersiapanAkad> VerifikasiPersiapanAkads { get; set; }
         // public DbSet<ReviewPersiapanAkad> ReviewPersiapanAkads { get; set; }
@@ -735,6 +735,21 @@ namespace NewLMS.UMKM.Domain.Context
             //     b.Property(b => b.IsDeleted)
             //     .HasDefaultValue(false);
             // });
+
+            builder.Entity<RfStage>(b =>
+            {
+                b.Property(b => b.StageId)
+                .HasDefaultValueSql("NEWID()");
+
+                b.Property(b => b.CreatedBy)
+                .HasDefaultValue(Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465"));
+
+                b.Property(b => b.CreatedDate)
+                .HasDefaultValueSql("GETDATE()");
+
+                b.Property(b => b.IsDeleted)
+                .HasDefaultValue(false);
+            });
 
             builder.Entity<User>().ToTable("Users");
             builder.Entity<Role>().ToTable("Roles");

@@ -17,7 +17,7 @@ namespace NewLMS.UMKM.Data
         [ForeignKey(nameof(Branch))]
         public string BranchCode { get; set; }
         public string Comment { get; set; }
-        public bool? MembacaDanMemahami { get; set; }
+        public bool? ReadAndUnderstand { get; set; }
         public int ProcessStatus { get; set; }
         public DateTime? ProcessDate { get; set; }
         public byte AdminVerified { get; set; }
@@ -28,36 +28,32 @@ namespace NewLMS.UMKM.Data
         public DateTime? InquiryDate { get; set; }
         public LoanApplication LoanApplication { get; set; }
         public RfBranch Branch { get; set; }
-        public ICollection<SlikHistoryKredit> SlikHistoryKredits { get; set; }
+        public ICollection<SlikCreditHistory> SlikCreditHistories { get; set; }
         public ICollection<SlikRequestObject> SlikRequestObjects { get; set; }
-
-        public bool? IsCheckingError { get; set; }
-        public string CheckingErrorMessage { get; set; }
-        public int? StatusCheckingDuplikasi { get; set; }
 
         private double GetTotal(string type)
         {
             var totalOtherUses = 0.00;
             var totalWorkingCapitals = 0.00;
             var totalCreditCard = 0.00;
-            foreach (var SlikHistoryKredit in SlikHistoryKredits??new List<SlikHistoryKredit>())
+            foreach (var SlikCreditHistory in SlikCreditHistories??new List<SlikCreditHistory>())
             {
-                if (SlikHistoryKredit.RfCreditType.Code == "P05")
+                if (SlikCreditHistory.RfCreditType.Code == "P05")
                 {
-                    totalCreditCard += SlikHistoryKredit.PlafondLimit;
+                    totalCreditCard += SlikCreditHistory.PlafondLimit;
                 }
                 else
                 {
-                    if (SlikHistoryKredit.RfSandiBIApplicationTypeClass?.BI_CODE == "1" &&
-                SlikHistoryKredit.RfSandiBIApplicationTypeClass?.BI_GROUP == "09")
+                    if (SlikCreditHistory.RfSandiBIApplicationTypeClass?.BI_CODE == "1" &&
+                SlikCreditHistory.RfSandiBIApplicationTypeClass?.BI_GROUP == "09")
                     {
-                        totalWorkingCapitals += SlikHistoryKredit.PlafondLimit;
+                        totalWorkingCapitals += SlikCreditHistory.PlafondLimit;
 
                     }
-                    else if (SlikHistoryKredit.RfSandiBIApplicationTypeClass?.BI_CODE != null &&
-                SlikHistoryKredit.RfSandiBIApplicationTypeClass?.BI_GROUP != null)
+                    else if (SlikCreditHistory.RfSandiBIApplicationTypeClass?.BI_CODE != null &&
+                SlikCreditHistory.RfSandiBIApplicationTypeClass?.BI_GROUP != null)
                     {
-                        totalOtherUses += SlikHistoryKredit.PlafondLimit;
+                        totalOtherUses += SlikCreditHistory.PlafondLimit;
 
                     }
                 }

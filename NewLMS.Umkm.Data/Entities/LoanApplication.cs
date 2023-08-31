@@ -30,12 +30,21 @@ namespace NewLMS.UMKM.Data
         
         [ForeignKey(nameof(CompanyEntity))]
         public Guid? CompanyEntityGuid { get; set; }
+        [ForeignKey(nameof(BookingOffice))]
+        public string RfBranchId { get; set; }
+        [ForeignKey(nameof(RfDecisionMakerId))]
+        public int? RfDecisionMakerId { get; set; }
+        [ForeignKey(nameof(User))]
+        public Guid? OwnerId { get; set; }
 
         // Other stage
         public RfOwnerCategory RfOwnerCategory {get; set; }
         public Debtor Debtor {get; set; }
         public Prospect Prospect {get; set; }
         public CompanyEntity CompanyEntity {get; set; }
+        public RfBranch BookingOffice {get; set; }
+        public RfParameterDetail DecisionMaker {get; set; }
+        public User User {get; set; }
         public RfStage LatestStage => getCurrentStage();
 
         public ICollection<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }

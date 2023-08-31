@@ -1,26 +1,19 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
-    public class AppTableResponse
+    public class LoanApplicationTableResponse
     {
         public Guid Id { get; set; }
         
-
-        public string LoanApplicationId { get; set; }
-        public Guid? ProspectId { get; set; }
-
-        public Guid? RfOwnerCategoryId { get; set; }
-
-        // etc
-        public string DataSource { get; set; }
-
-        public string NoIdentity { get; set; }
-        
-        public Guid? CompanyEntityGuid { get; set; }
-        public RfOwnerCategory RfOwnerCategory {get; set; }
-        public Debtor Debtor {get; set; }
-        public Prospect Prospect {get; set; }
-        public CompanyEntity CompanyEntity {get; set; }
-        public RfStage LatestStage {get; set; }
+        public string AplikasiId { get; set; }
+        public string CustomerName { get; set; }
+        public string BookingOffice { get; set; }
+        public string NamaAO { get; set; }
+        public string ProductLengkap { get; set; }
+        public string Product { get; set; }
+        public string Aging { get; set; }
+        public int Age { get; set; }
+        public string SumberData { get; set; }
+        public RfStage Stage { get; set; }
     }
 }
