@@ -96,7 +96,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<Survey> Surveys { get; set; }
         public DbSet<SIKPHistory> SIKPHistories { get; set; }
         public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
-        // public DbSet<SIKPCalonDebitur> SIKPCalonDebiturs { get; set; }
+        // public DbSet<SIKPResponseData> SIKPResponseDatas { get; set; }
         // public DbSet<SlikRequest> SlikRequests { get; set; }
         // public DbSet<SlikObjectType> SlikObjectTypes { get; set; }
         // public DbSet<SlikRequestObject> SlikRequestObjects { get; set; }

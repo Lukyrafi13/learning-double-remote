@@ -1,8 +1,8 @@
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.SIKPCalonDebiturs
+namespace NewLMS.UMKM.Data.Dto.SIKPResponseDatas
 {
-    public class SIKPCalonDebiturValidasiPostRequestDto
+    public class SIKPResponseDataPostRequestDto
     {
         public string NoCIF { get; set; }
         public string NoKTP { get; set; }
