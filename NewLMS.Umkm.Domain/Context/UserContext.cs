@@ -731,6 +731,21 @@ namespace NewLMS.UMKM.Domain.Context
             //     .HasDefaultValue(false);
             // });
 
+            builder.Entity<RfStage>(b =>
+            {
+                b.Property(b => b.StageId)
+                .HasDefaultValueSql("NEWID()");
+
+                b.Property(b => b.CreatedBy)
+                .HasDefaultValue(Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465"));
+
+                b.Property(b => b.CreatedDate)
+                .HasDefaultValueSql("GETDATE()");
+
+                b.Property(b => b.IsDeleted)
+                .HasDefaultValue(false);
+            });
+
             builder.Entity<User>().ToTable("Users");
             builder.Entity<Role>().ToTable("Roles");
             builder.Entity<RoleClaim>().ToTable("RoleClaims");

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230831075235_RfStageDefaultGuid")]
+    partial class RfStageDefaultGuid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2738,7 +2740,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<int>("GroupStage")
                         .HasColumnType("int");
 
-                    b.Property<int?>("GroupStageDigiloan")
+                    b.Property<int>("GroupStageDigiloan")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
@@ -2746,7 +2748,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<bool?>("IsShowInTracking")
+                    b.Property<bool>("IsShowInTracking")
                         .HasColumnType("bit");
 
                     b.Property<Guid?>("ModifiedBy")

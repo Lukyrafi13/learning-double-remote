@@ -12,9 +12,9 @@ namespace NewLMS.UMKM.Data
         public string Code { get; set; }
         public string Description { get; set; }
         public int GroupStage { get; set; }
-        public int GroupStageDigiloan { get; set; }
+        public int? GroupStageDigiloan { get; set; }
         public string GroupName { get; set; }
-        public bool IsShowInTracking { get; set; }
+        public bool? IsShowInTracking { get; set; }
 
 
     }
