@@ -54,6 +54,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
         public DbSet<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
         public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
+        public DbSet<LoanApplicationCreditFacility> LoanApplicationCreditFacilities { get; set; }
         public DbSet<Debtor> Debtors { get; set; }
         public DbSet<DebtorCouple> DebtorCouples { get; set; }
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
@@ -152,7 +153,6 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RfCompanyTypeYangDihindari> RfCompanyTypeYangDihindaris { get; set; }
         // public DbSet<RFJenisLinkAge> RFJenisLinkAges { get; set; }
         // public DbSet<AnalisaPinjamanDariBank> AnalisaPinjamanDariBanks { get; set; }
-        // public DbSet<AnalisaFasilitas> AnalisaFasilitass { get; set; }
         // public DbSet<RFSANDIBI> RFSANDIBIS { get; set; }
         // public DbSet<EnumSandiBIGroup> EnumSandiBIGroups { get; set; }
         // public DbSet<EnumSandiBIType> EnumSandiBITypes { get; set; }
@@ -365,7 +365,7 @@ namespace NewLMS.UMKM.Domain.Context
             //         .OnDelete(DeleteBehavior.NoAction);
             // });
 
-            /*builder.Entity<RFSubProduct>(b =>
+            builder.Entity<RFSubProduct>(b =>
             {
                  b.HasOne(e => e.Product)
                      .WithMany()
@@ -373,7 +373,7 @@ namespace NewLMS.UMKM.Domain.Context
                      .HasPrincipalKey(rc => rc.ProductId)
                      .IsRequired(false)
                     .OnDelete(DeleteBehavior.NoAction);
-            });*/
+            });
 
             // builder.Entity<ProspectStageLogs>(b =>
             // {

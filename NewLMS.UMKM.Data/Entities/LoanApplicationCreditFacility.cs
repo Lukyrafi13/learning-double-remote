@@ -14,7 +14,7 @@ namespace NewLMS.UMKM.Data
         public float PrimaryInstallment { get; set; }
         public float InterestInstallment { get; set; }
         public float Installment => PrimaryInstallment + InterestInstallment;
-        [ForeignKey(nameof(SubSubSector))]
+        [ForeignKey(nameof(LoanApplication))]
         public Guid LoanApplicationId { get; set; }
         [ForeignKey(nameof(RfAppType))]
         public int? RfAppTypeId { get; set; }
@@ -27,7 +27,7 @@ namespace NewLMS.UMKM.Data
         [ForeignKey(nameof(CreditTenor))]
         public Guid? RFTenorId { get; set; }
         [ForeignKey(nameof(CreditBehavior))]
-        public Guid? RFCreditBehaviorId { get; set; }
+        public int? RFCreditBehaviorId { get; set; }
         [ForeignKey(nameof(Sector))]
         public string RfSectorLBU1Code { get; set; }
         [ForeignKey(nameof(SubSector))]
