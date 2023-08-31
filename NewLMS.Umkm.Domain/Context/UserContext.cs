@@ -51,7 +51,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<Prospect> Prospects { get; set; }
         public DbSet<LoanApplication> LoanApplications { get; set; }
         public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
-        // public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
+        public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
         public DbSet<LoanApplicationStageLogs> LoanApplicationStageLogs { get; set; }
         public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
         public DbSet<LoanApplicationCreditFacility> LoanApplicationCreditFacilities { get; set; }
@@ -72,6 +72,11 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RFMARITAL> RFMARITALs { get; set; }
         public DbSet<RFColLateralBC> RFColLateralBCs { get; set; }
         public DbSet<RFLoanPurpose> RFLoanPurpose { get; set; }
+        public DbSet<RFDocument> RFDocuments { get; set; }
+        // public DbSet<RFDocumentAgunan> RFDocumentAgunans { get; set; }
+        public DbSet<RFMappingAgunan2> RFMappingAgunan2s { get; set; }
+        // public DbSet<RFRelationCol> RFRelationCols { get; set; }
+        /*public DbSet<RFSubProduct> RFSubProducts { get; set; }*/
         public DbSet<RFTenor> RFTenors { get; set; }
         public DbSet<RFTenorMapping> RFTenorMappings { get; set; }
         public DbSet<RFVehModel> RFVehModels { get; set; }
