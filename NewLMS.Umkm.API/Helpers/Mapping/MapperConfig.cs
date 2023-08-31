@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.API.Helpers.Mapping;
+using NewLMS.UMKM.API.Helpers.MLoanApplicationing;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Entities;
 
@@ -67,8 +68,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new RfStageProfile());
                 mc.AddProfile(new LoanApplicationStageLogsProfile());
                 mc.AddProfile(new RFRelationSurveyProfile());
-                // mc.AddProfile(new AppProfile());
-                // mc.AddProfile(new AppKeyPersonProfile());
+                mc.AddProfile(new LoanApplicationProfile());
+                mc.AddProfile(new LoanApplicationKeyPersonProfile());
                 mc.AddProfile(new RfCompanyTypeProfile());
                 // mc.AddProfile(new AppAgunanProfile());
                 mc.AddProfile(new RfCompanyTypeMapProfile());
