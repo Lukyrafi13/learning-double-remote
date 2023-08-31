@@ -32,7 +32,7 @@
 //         private readonly IGenericRepositoryAsync<SlikRequestObject> _slikRequestObjects;
 //         private readonly IGenericRepositoryAsync<RFSANDIBI> _rfSandiBI;
 //         private readonly IGenericRepositoryAsync<RFBank> _rfBank;
-//         private readonly IGenericRepositoryAsync<SlikHistoryKredit> _loanApplicationCreditHistory;
+//         private readonly IGenericRepositoryAsync<SlikCreditHistory> _loanApplicationCreditHistory;
 //         private readonly IGenericRepositoryAsync<RFTipeKredit> _rfCreditType;
 //         private readonly IGenericRepositoryAsync<RFCondition> _rfCondition;
 //         private readonly UserContext _userContext;
@@ -41,7 +41,7 @@
 //             , IGenericRepositoryAsync<SlikRequestObject> slikRequestObjects
 //             , IGenericRepositoryAsync<RFSANDIBI> rfSandiBI
 //             , IGenericRepositoryAsync<RFBank> rfBank
-//             , IGenericRepositoryAsync<SlikHistoryKredit> loanApplicationCreditHistory
+//             , IGenericRepositoryAsync<SlikCreditHistory> loanApplicationCreditHistory
 //             , UserContext userContext
 //             , IGenericRepositoryAsync<RFTipeKredit> rfCreditType
 //             , IGenericRepositoryAsync<RFCondition> rfCondition
@@ -219,7 +219,7 @@
 //                         }
 
 
-//                         SlikHistoryKredit creditHistory = new SlikHistoryKredit
+//                         SlikCreditHistory creditHistory = new SlikCreditHistory
 //                         {
 //                             SLIKNoIdentity = dataPokorDebitur.NoIdentitas,
 //                             DebtorName = dataPokorDebitur.NamaDebitur,

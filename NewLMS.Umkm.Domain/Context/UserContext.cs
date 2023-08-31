@@ -97,9 +97,9 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<SIKPHistory> SIKPHistories { get; set; }
         public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
         // public DbSet<SIKPResponseData> SIKPResponseDatas { get; set; }
-        // public DbSet<SlikRequest> SlikRequests { get; set; }
-        // public DbSet<SlikObjectType> SlikObjectTypes { get; set; }
-        // public DbSet<SlikRequestObject> SlikRequestObjects { get; set; }
+        public DbSet<SlikRequest> SlikRequests { get; set; }
+        public DbSet<SlikObjectType> SlikObjectTypes { get; set; }
+        public DbSet<SlikRequestObject> SlikRequestObjects { get; set; }
         // public DbSet<RFPilihanPemutus> RFPilihanPemutuss { get; set; }
         // public DbSet<RFBusinessType> RFBusinessTypes { get; set; }
         // public DbSet<RFBidangUsahaKUR> RFBidangUsahaKURs { get; set; }
@@ -137,7 +137,7 @@ namespace NewLMS.UMKM.Domain.Context
         // public DbSet<RFInsRateTemplate> RFInsRateTemplates { get; set; }
         // public DbSet<RFInsCompany> RFInsCompanys { get; set; }
         // public DbSet<RFBranchInsComp> RFBranchInsComps { get; set; }
-        // public DbSet<SlikHistoryKredit> SlikHistoryKredits { get; set; }
+        public DbSet<SlikCreditHistory> SlikCreditHistorys { get; set; }
         // public DbSet<PersiapanAkad> PersiapanAkads { get; set; }
         // public DbSet<VerifikasiPersiapanAkad> VerifikasiPersiapanAkads { get; set; }
         // public DbSet<ReviewPersiapanAkad> ReviewPersiapanAkads { get; set; }
