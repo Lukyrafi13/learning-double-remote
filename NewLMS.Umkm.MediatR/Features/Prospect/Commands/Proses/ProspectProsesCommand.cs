@@ -71,7 +71,6 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
                 if (LoanApplication == null)
                 {
-                    newLoanApp = true;
 
                     // Assign New LoanApplication
                     LoanApplication = new LoanApplication();
@@ -167,8 +166,11 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
                 // Update prospect History
                 var logList = await _stageLogs.GetListByPredicate(x => x.LoanApplicationId == LoanApplication.Id && x.StageId == previousStage.StageId);
-                var oldLog = logList == null? null :
+                var oldLog = logList.Count == 0? null :
                 logList.OrderBy(x=>x.CreatedBy)?.ToList()?.Last();
+                
+                newLoanApp = oldLog == null;
+                
                 oldLog ??= new LoanApplicationStageLogs(){
                         LoanApplicationId = LoanApplication.Id,
                         StageId = previousStage.StageId,
@@ -179,11 +181,15 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 oldLog.BackStaged = false;
                 oldLog.Aging = (newLoanApp? ((DateTime)oldLog.ExecutedDate - prospect.CreatedDate).Days : ((DateTime)oldLog.ExecutedDate - oldLog.CreatedDate).Days) + " HARI";
 
+                if (newLoanApp){
+                    await _stageLogs.AddAsync(oldLog);
+                }
+                
                 await _stageLogs.UpdateAsync(oldLog);
 
                 var newLog = new LoanApplicationStageLogs
                 {
-                    LoanApplicationId = prospect.Id,
+                    LoanApplicationId = LoanApplication.Id,
                     StageId = stageFound.StageId
                 };
 
