@@ -99,7 +99,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                             CompanyName = prospect.CompanyName,
                             Address = prospect.CompanyAddress,
                             FullAddress = prospect.CompanyFullAddress,
-                            RfZipCodeId = prospect.CompanyZipCodeId,
+                            RfZipCodeId = prospect.CompanyZipCodeId ?? 0,
                             Neighborhoods = prospect.Neighborhoods,
                             District = prospect.District,
                             City = prospect.City,

@@ -132,7 +132,7 @@ namespace NewLMS.UMKM.Data
         public string CompanyNeighborhoods { get; set; }
         
         [ForeignKey(nameof(RfCompanyZipCode))]
-        public int CompanyZipCodeId { get; set; }
+        public int? CompanyZipCodeId { get; set; }
         #endregion
 
         #region Company Data - Company
