@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -9,40 +9,40 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCreditTypes.Commands
 {
-    public class RFTipeKreditPutCommand : RFTipeKreditPutRequestDto, IRequest<ServiceResponse<RFTipeKreditResponseDto>>
+    public class RfCreditTypePutCommand : RfCreditTypePutRequestDto, IRequest<ServiceResponse<RfCreditTypeResponseDto>>
     {
     }
 
-    public class PutRFTipeKreditCommandHandler : IRequestHandler<RFTipeKreditPutCommand, ServiceResponse<RFTipeKreditResponseDto>>
+    public class PutRfCreditTypeCommandHandler : IRequestHandler<RfCreditTypePutCommand, ServiceResponse<RfCreditTypeResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFTipeKredit> _RFTipeKredit;
+        private readonly IGenericRepositoryAsync<RfCreditType> _RfCreditType;
         private readonly IMapper _mapper;
 
-        public PutRFTipeKreditCommandHandler(IGenericRepositoryAsync<RFTipeKredit> RFTipeKredit, IMapper mapper)
+        public PutRfCreditTypeCommandHandler(IGenericRepositoryAsync<RfCreditType> RfCreditType, IMapper mapper)
         {
-            _RFTipeKredit = RFTipeKredit;
+            _RfCreditType = RfCreditType;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFTipeKreditResponseDto>> Handle(RFTipeKreditPutCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCreditTypeResponseDto>> Handle(RfCreditTypePutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existingRFTipeKredit = await _RFTipeKredit.GetByIdAsync(request.Code, "Code");
+                var existingRfCreditType = await _RfCreditType.GetByIdAsync(request.Code, "Code");
                 
-                existingRFTipeKredit = _mapper.Map<RFTipeKreditPutRequestDto, RFTipeKredit>(request, existingRFTipeKredit);
+                existingRfCreditType = _mapper.Map<RfCreditTypePutRequestDto, RfCreditType>(request, existingRfCreditType);
                 
-                await _RFTipeKredit.UpdateAsync(existingRFTipeKredit);
+                await _RfCreditType.UpdateAsync(existingRfCreditType);
 
-                var response = _mapper.Map<RFTipeKreditResponseDto>(existingRFTipeKredit);
+                var response = _mapper.Map<RfCreditTypeResponseDto>(existingRfCreditType);
 
-                return ServiceResponse<RFTipeKreditResponseDto>.ReturnResultWith200(response);
+                return ServiceResponse<RfCreditTypeResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFTipeKreditResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfCreditTypeResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

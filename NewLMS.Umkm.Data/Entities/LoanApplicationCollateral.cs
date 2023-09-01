@@ -80,8 +80,8 @@ namespace NewLMS.UMKM.Data
 
         // Pasangan
         public string CoupleName { get; set; }
-        public string BirthOfPlaceCouple { get; set; }
-        public DateTime? BithOfDateCouple { get; set; }
+        public string CouplePlaceOfBirth { get; set; }
+        public DateTime? CoupleDateOfBirth { get; set; }
         public string CoupleNoIdentity { get; set; }
         public DateTime? CoupleIdentityExpiryDate { get; set; }
         public bool? CoupleIdentityLifetime { get; set; }
@@ -120,8 +120,8 @@ namespace NewLMS.UMKM.Data
         [ForeignKey(nameof(ParamRealationCol))]
         public int? RelationColId { get; set; }
         
-        [ForeignKey(nameof(ParamMarital))]
-        public int? MaritalId { get; set; }
+        [ForeignKey(nameof(RfMarital))]
+        public Guid? RfMaritalId { get; set; }
         
         [ForeignKey(nameof(ParamDeedType))]
         public int? DeedTypeId { get; set; }
@@ -141,7 +141,7 @@ namespace NewLMS.UMKM.Data
         public RFVEHMAKER RFVEHMAKER { get; set; }
         public RFVEHCLASS RFVEHCLASS { get; set; }
         public RFVehModel RFVehModel { get; set; }
-        public RfParameterDetail ParamMarital { get; set; }
+        public RFMARITAL RfMarital { get; set; }
         public RfParameterDetail ParamDeedType { get; set; }
         public RfParameterDetail ParamRealationCol { get; set; }
     }

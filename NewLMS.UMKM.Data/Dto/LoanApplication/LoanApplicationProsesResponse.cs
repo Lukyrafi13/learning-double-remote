@@ -1,9 +1,9 @@
 using System;
-namespace NewLMS.UMKM.Data.Dto.Apps
+namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
-    public class AppProsesResponseDto
+    public class LoanApplicationProsesResponseDto
     {
-        public Guid? AppId { get; set; }
+        public Guid? LoanApplicationId { get; set; }
         public Guid? SLIKId { get; set; }
         public Guid? SIKPId { get; set; }
         public Guid? PrescreeningId { get; set; }

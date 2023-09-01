@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
@@ -9,41 +9,41 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfCreditTypes.Commands
 {
-    public class RFTipeKreditPostCommand : RFTipeKreditPostRequestDto, IRequest<ServiceResponse<RFTipeKreditResponseDto>>
+    public class RfCreditTypePostCommand : RfCreditTypePostRequestDto, IRequest<ServiceResponse<RfCreditTypeResponseDto>>
     {
 
     }
-    public class RFTipeKreditPostCommandHandler : IRequestHandler<RFTipeKreditPostCommand, ServiceResponse<RFTipeKreditResponseDto>>
+    public class RfCreditTypePostCommandHandler : IRequestHandler<RfCreditTypePostCommand, ServiceResponse<RfCreditTypeResponseDto>>
     {
-        private readonly IGenericRepositoryAsync<RFTipeKredit> _RFTipeKredit;
+        private readonly IGenericRepositoryAsync<RfCreditType> _RfCreditType;
         private readonly IMapper _mapper;
 
-        public RFTipeKreditPostCommandHandler(IGenericRepositoryAsync<RFTipeKredit> RFTipeKredit, IMapper mapper)
+        public RfCreditTypePostCommandHandler(IGenericRepositoryAsync<RfCreditType> RfCreditType, IMapper mapper)
         {
-            _RFTipeKredit = RFTipeKredit;
+            _RfCreditType = RfCreditType;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<RFTipeKreditResponseDto>> Handle(RFTipeKreditPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<RfCreditTypeResponseDto>> Handle(RfCreditTypePostCommand request, CancellationToken cancellationToken)
         {
 
             try
             {
-                var RFTipeKredit = _mapper.Map<RFTipeKredit>(request);
+                var RfCreditType = _mapper.Map<RfCreditType>(request);
 
-                var returnedRFTipeKredit = await _RFTipeKredit.AddAsync(RFTipeKredit, callSave: false);
+                var returnedRfCreditType = await _RfCreditType.AddAsync(RfCreditType, callSave: false);
 
-                // var response = _mapper.Map<RFTipeKreditResponseDto>(returnedRFTipeKredit);
-                var response = _mapper.Map<RFTipeKreditResponseDto>(returnedRFTipeKredit);
+                // var response = _mapper.Map<RfCreditTypeResponseDto>(returnedRfCreditType);
+                var response = _mapper.Map<RfCreditTypeResponseDto>(returnedRfCreditType);
 
-                await _RFTipeKredit.SaveChangeAsync();
-                return ServiceResponse<RFTipeKreditResponseDto>.ReturnResultWith200(response);
+                await _RfCreditType.SaveChangeAsync();
+                return ServiceResponse<RfCreditTypeResponseDto>.ReturnResultWith200(response);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<RFTipeKreditResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return ServiceResponse<RfCreditTypeResponseDto>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
         }
     }

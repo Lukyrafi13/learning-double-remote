@@ -17,7 +17,7 @@ namespace NewLMS.UMKM.Data
 		public string Phone { get; set; }
         public string Address { get; set; }
         [ForeignKey(nameof(RfZipCode))]
-        public int RfZipCodeId { get; set; }
+        public int? RfZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
         public string District { get; set; }
         public string City { get; set; }
@@ -28,13 +28,14 @@ namespace NewLMS.UMKM.Data
         public string ContactPersonPhone { get; set; }        
         public string ContactPersonAddress { get; set; }
         [ForeignKey(nameof(RfZipCodeContactPerson))]
-        public int RfContactPersonZipCodeId { get; set; }
+        public int? RfContactPersonZipCodeId { get; set; }
         public string ContactPersonNeighborhoods { get; set; }
         public string ContactPersonDistrict { get; set; }
         public string ContactPersonCity { get; set; }
         public string ContactPersonProvince { get; set; }
         
         // Legality
+        public string NPWP { get; set; }
         public string DeedOfEstablishmentNumber { get; set; }
         public DateTime? DeedOfEstablishmentDate { get; set; }
         public string RegistrationNumber { get; set; }

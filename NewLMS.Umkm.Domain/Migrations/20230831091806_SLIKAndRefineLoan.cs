@@ -103,7 +103,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RFTipeKredit",
+                name: "RfCreditType",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -120,7 +120,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RFTipeKredit", x => x.Id);
+                    table.PrimaryKey("PK_RfCreditType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -199,7 +199,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                     StuckDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     RFSandiBICollectibilityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     SLIKStatus = table.Column<bool>(type: "bit", nullable: false),
-                    RFTipeKreditId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    RfCreditTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IsRobo = table.Column<bool>(type: "bit", nullable: false),
                     SlikObjectTypeId = table.Column<int>(type: "int", nullable: true),
                     BelumMemilikiSLIK = table.Column<bool>(type: "bit", nullable: true),
@@ -241,9 +241,9 @@ namespace NewLMS.UMKM.Domain.Migrations
                         principalTable: "RFSANDIBI",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_SlikCreditHistorys_RFTipeKredit_RFTipeKreditId",
-                        column: x => x.RFTipeKreditId,
-                        principalTable: "RFTipeKredit",
+                        name: "FK_SlikCreditHistorys_RfCreditType_RfCreditTypeId",
+                        column: x => x.RfCreditTypeId,
+                        principalTable: "RfCreditType",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_SlikCreditHistorys_SlikObjectTypes_SlikObjectTypeId",
@@ -348,9 +348,9 @@ namespace NewLMS.UMKM.Domain.Migrations
                 column: "RFSandiBIEconomySectorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SlikCreditHistorys_RFTipeKreditId",
+                name: "IX_SlikCreditHistorys_RfCreditTypeId",
                 table: "SlikCreditHistorys",
-                column: "RFTipeKreditId");
+                column: "RfCreditTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SlikCreditHistorys_SlikObjectTypeId",
@@ -436,7 +436,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                 name: "RFSANDIBI");
 
             migrationBuilder.DropTable(
-                name: "RFTipeKredit");
+                name: "RfCreditType");
 
             migrationBuilder.DropTable(
                 name: "FileUrl");

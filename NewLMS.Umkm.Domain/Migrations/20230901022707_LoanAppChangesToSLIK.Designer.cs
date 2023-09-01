@@ -12,8 +12,8 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20230831091806_SLIKAndRefineLoan")]
-    partial class SLIKAndRefineLoan
+    [Migration("20230901022707_LoanAppChangesToSLIK")]
+    partial class LoanAppChangesToSLIK
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -185,6 +185,9 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("NPWP")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Neighborhoods")
                         .HasColumnType("nvarchar(max)");
 
@@ -200,10 +203,10 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<int>("RfCompanyStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RfContactPersonZipCodeId")
+                    b.Property<int?>("RfContactPersonZipCodeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RfZipCodeId")
+                    b.Property<int?>("RfZipCodeId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("SIUPDate")
@@ -851,6 +854,297 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.ToTable("LoanApplications");
                 });
 
+            modelBuilder.Entity("NewLMS.UMKM.Data.LoanApplicationCollateral", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BuildingPermit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("BuildingSurfaceArea")
+                        .HasColumnType("float");
+
+                    b.Property<string>("CollateralAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralDistrict")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralDocumentCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralDocumentDistrict")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralDocumentNeighborhoods")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralDocumentProvince")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollateralNeighborhoods")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("CollateralOwnedByDebtor")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CollateralProvince")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CollateralZipCodeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CoupleAdress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoupleCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CoupleDateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CoupleDistrict")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CoupleIdentityExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("CoupleIdentityLifetime")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CoupleNPWP")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoupleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoupleNeighborhoods")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoupleNoIdentity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CouplePekerjaan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CouplePlaceOfBirth")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoupleProvince")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeedTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DocumentExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocumentNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DocumentPublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocumentPublisher")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DomicileBySTNK")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EastPerimeter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmergencyContactName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmergencyContactPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FrameNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HTRating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("IdentityExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IdentityLifetime")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LandLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("LandSurfaceArea")
+                        .HasColumnType("float");
+
+                    b.Property<Guid?>("LoanApplicationGuid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MachineNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MarketLocationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("MeasurementLetterDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MeasurementLetterNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NJOPPBBValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NorthernPerimeter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtherRelation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("OwnerDateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OwnerDistrict")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerJob")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerNPWP")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerNeighborhoods")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerNoIdentity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerPlaceOfBirth")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerProvince")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductionYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("RFDocumentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RFVehClassId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RFVehMakerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RFVehModelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("RelationColId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("RfMappingCollateralId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RfMaritalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("RfZipCodeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RfZipCodeIdCouple")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RightOwnerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SituationPictureMasurementLetterNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SouthernPerimeter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TaxObjectNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VehTypeCollateralId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("WestPerimeter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppId");
+
+                    b.HasIndex("CollateralZipCodeId");
+
+                    b.HasIndex("DeedTypeId");
+
+                    b.HasIndex("LoanApplicationGuid");
+
+                    b.HasIndex("RFDocumentId");
+
+                    b.HasIndex("RFVehClassId");
+
+                    b.HasIndex("RFVehMakerId");
+
+                    b.HasIndex("RFVehModelId");
+
+                    b.HasIndex("RelationColId");
+
+                    b.HasIndex("RfMappingCollateralId");
+
+                    b.HasIndex("RfMaritalId");
+
+                    b.HasIndex("RfZipCodeId");
+
+                    b.HasIndex("RfZipCodeIdCouple");
+
+                    b.HasIndex("VehTypeCollateralId");
+
+                    b.ToTable("LoanApplicationCollaterals");
+                });
+
             modelBuilder.Entity("NewLMS.UMKM.Data.LoanApplicationCreditFacility", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1025,7 +1319,8 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LoanApplicationGuid");
+                    b.HasIndex("LoanApplicationGuid")
+                        .IsUnique();
 
                     b.HasIndex("RFSCOCaraTransaksiId");
 
@@ -1475,7 +1770,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("CompanyZipCodeId")
+                    b.Property<int?>("CompanyZipCodeId")
                         .HasColumnType("int");
 
                     b.Property<Guid>("CreatedBy")
@@ -2076,7 +2371,155 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RFCondition");
+                    b.ToTable("RFConditions");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.RfCreditType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValue(new Guid("113005de-06bc-44cb-b97f-a9c65c0c5465"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool?>("CreditAgreement")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RfCreditTypes");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.RFDocument", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CoreCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DocDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Due")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GroupCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("ISTBO")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("ManDocNo")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("Mandatory")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RFDocuments");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.RFDocumentAgunan", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ColCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RFDocumentAgunans");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RFEDUCATION", b =>
@@ -2289,6 +2732,50 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RFLoanPurpose");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.RFMappingAgunan2", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ColCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ColDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RFMappingAgunan2s");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RFMARITAL", b =>
@@ -2922,7 +3409,7 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasKey("StageId");
 
-                    b.ToTable("RfStage");
+                    b.ToTable("RfStages");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RFSubProduct", b =>
@@ -2983,7 +3470,7 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("RFSubProduct");
+                    b.ToTable("RFSubProducts");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfTargetStatus", b =>
@@ -3128,47 +3615,6 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RFTenorMappings");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.RfCreditType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("CreditAgreement")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RfCreditType");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RFVEHCLASS", b =>
@@ -4344,15 +4790,12 @@ namespace NewLMS.UMKM.Domain.Migrations
 
                     b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfZipCodeContactPerson")
                         .WithMany()
-                        .HasForeignKey("RfContactPersonZipCodeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RfContactPersonZipCodeId");
 
                     b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("RfZipCodeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("LoanApplication");
 
@@ -4548,6 +4991,95 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("NewLMS.UMKM.Data.LoanApplicationCollateral", b =>
+                {
+                    b.HasOne("NewLMS.UMKM.Data.RfAppType", "RfAppType")
+                        .WithMany()
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfZipCodeCollateral")
+                        .WithMany()
+                        .HasForeignKey("CollateralZipCodeId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "ParamDeedType")
+                        .WithMany()
+                        .HasForeignKey("DeedTypeId");
+
+                    b.HasOne("NewLMS.UMKM.Data.LoanApplication", "LoanApplication")
+                        .WithMany()
+                        .HasForeignKey("LoanApplicationGuid");
+
+                    b.HasOne("NewLMS.UMKM.Data.RFDocument", "RFDocument")
+                        .WithMany()
+                        .HasForeignKey("RFDocumentId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RFVEHCLASS", "RFVEHCLASS")
+                        .WithMany()
+                        .HasForeignKey("RFVehClassId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RFVEHMAKER", "RFVEHMAKER")
+                        .WithMany()
+                        .HasForeignKey("RFVehMakerId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RFVehModel", "RFVehModel")
+                        .WithMany()
+                        .HasForeignKey("RFVehModelId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "ParamRealationCol")
+                        .WithMany()
+                        .HasForeignKey("RelationColId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RFMappingAgunan2", "RFMappingAgunan2")
+                        .WithMany()
+                        .HasForeignKey("RfMappingCollateralId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RFMARITAL", "RfMarital")
+                        .WithMany()
+                        .HasForeignKey("RfMaritalId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfZipCode")
+                        .WithMany()
+                        .HasForeignKey("RfZipCodeId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfZipCodeCouple")
+                        .WithMany()
+                        .HasForeignKey("RfZipCodeIdCouple");
+
+                    b.HasOne("NewLMS.UMKM.Data.RfParameterDetail", "ParamVehTypeCollateral")
+                        .WithMany()
+                        .HasForeignKey("VehTypeCollateralId");
+
+                    b.Navigation("LoanApplication");
+
+                    b.Navigation("ParamDeedType");
+
+                    b.Navigation("ParamRealationCol");
+
+                    b.Navigation("ParamVehTypeCollateral");
+
+                    b.Navigation("RFDocument");
+
+                    b.Navigation("RFMappingAgunan2");
+
+                    b.Navigation("RFVEHCLASS");
+
+                    b.Navigation("RFVEHMAKER");
+
+                    b.Navigation("RFVehModel");
+
+                    b.Navigation("RfAppType");
+
+                    b.Navigation("RfMarital");
+
+                    b.Navigation("RfZipCode");
+
+                    b.Navigation("RfZipCodeCollateral");
+
+                    b.Navigation("RfZipCodeCouple");
+                });
+
             modelBuilder.Entity("NewLMS.UMKM.Data.LoanApplicationCreditFacility", b =>
                 {
                     b.HasOne("NewLMS.UMKM.Data.LoanApplication", "LoanApplication")
@@ -4616,8 +5148,8 @@ namespace NewLMS.UMKM.Domain.Migrations
             modelBuilder.Entity("NewLMS.UMKM.Data.LoanApplicationCreditScoring", b =>
                 {
                     b.HasOne("NewLMS.UMKM.Data.LoanApplication", "LoanApplication")
-                        .WithMany()
-                        .HasForeignKey("LoanApplicationGuid")
+                        .WithOne("LoanApplicationCreditScoring")
+                        .HasForeignKey("NewLMS.UMKM.Data.LoanApplicationCreditScoring", "LoanApplicationGuid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -4832,8 +5364,7 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfCompanyZipCode")
                         .WithMany()
                         .HasForeignKey("CompanyZipCodeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("NewLMS.UMKM.Data.RfZipCode", "RfPlaceZipCode")
                         .WithMany()
@@ -5208,6 +5739,8 @@ namespace NewLMS.UMKM.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.LoanApplication", b =>
                 {
+                    b.Navigation("LoanApplicationCreditScoring");
+
                     b.Navigation("LoanApplicationStageLogs");
                 });
 

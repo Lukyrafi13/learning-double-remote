@@ -136,7 +136,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new SlikCreditHistoryProfile());
                 mc.AddProfile(new PersiapanAkadProfile());
                 mc.AddProfile(new PersiapanAkadAsuransiProfile());
-                mc.AddProfile(new RFTipeKreditProfile());
+                mc.AddProfile(new RfCreditTypeProfile());
                 mc.AddProfile(new RFConditionProfile());
                 mc.AddProfile(new RFBankProfile());
                 mc.AddProfile(new RFCSBPDetailProfile());

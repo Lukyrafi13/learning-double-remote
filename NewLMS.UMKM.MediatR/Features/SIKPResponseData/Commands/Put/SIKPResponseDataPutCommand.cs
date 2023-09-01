@@ -60,7 +60,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPResponseDatas.Commands
                 existingSIKPResponseData.SubsidiSebelumnya = request.SubsidiSebelumnya;
 
                 // Foreign Keys
-                existingSIKPResponseData.AppId = request.AppId;
+                existingSIKPResponseData.LoanApplicationId = request.AppId;
                 existingSIKPResponseData.RfOwnerCategoryId = request.RfOwnerCategoryId;
                 existingSIKPResponseData.RfSectorLBU1Code = request.RfSectorLBU1Code;
                 existingSIKPResponseData.RfSectorLBU2Code = request.RfSectorLBU2Code;

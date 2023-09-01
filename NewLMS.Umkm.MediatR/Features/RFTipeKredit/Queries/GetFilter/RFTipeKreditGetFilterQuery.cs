@@ -1,6 +1,6 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RFTipeKredits;
+using NewLMS.UMKM.Data.Dto.RfCreditTypes;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
@@ -9,41 +9,41 @@ using NewLMS.UMKM.Common.GenericRespository;
 using System.Collections.Generic;
 using System.Net;
 
-namespace NewLMS.UMKM.MediatR.Features.RFTipeKredits.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfCreditTypes.Queries
 {
-    public class RFTipeKreditsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RFTipeKreditResponseDto>>>
+    public class RfCreditTypesGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfCreditTypeResponseDto>>>
     {
     }
 
-    public class RFTipeKreditsGetFilterQueryHandler : IRequestHandler<RFTipeKreditsGetFilterQuery, PagedResponse<IEnumerable<RFTipeKreditResponseDto>>>
+    public class RfCreditTypesGetFilterQueryHandler : IRequestHandler<RfCreditTypesGetFilterQuery, PagedResponse<IEnumerable<RfCreditTypeResponseDto>>>
     {
-        private IGenericRepositoryAsync<RFTipeKredit> _RFTipeKredit;
+        private IGenericRepositoryAsync<RfCreditType> _RfCreditType;
         private readonly IMapper _mapper;
 
-        public RFTipeKreditsGetFilterQueryHandler(IGenericRepositoryAsync<RFTipeKredit> RFTipeKredit, IMapper mapper)
+        public RfCreditTypesGetFilterQueryHandler(IGenericRepositoryAsync<RfCreditType> RfCreditType, IMapper mapper)
         {
-            _RFTipeKredit = RFTipeKredit;
+            _RfCreditType = RfCreditType;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<RFTipeKreditResponseDto>>> Handle(RFTipeKreditsGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<RfCreditTypeResponseDto>>> Handle(RfCreditTypesGetFilterQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[]{
             };
 
-            var data = await _RFTipeKredit.GetPagedReponseAsync(request);
-            // var dataVm = _mapper.Map<IEnumerable<RFTipeKreditResponseDto>>(data.Results);
-            IEnumerable<RFTipeKreditResponseDto> dataVm;
-            var listResponse = new List<RFTipeKreditResponseDto>();
+            var data = await _RfCreditType.GetPagedReponseAsync(request);
+            // var dataVm = _mapper.Map<IEnumerable<RfCreditTypeResponseDto>>(data.Results);
+            IEnumerable<RfCreditTypeResponseDto> dataVm;
+            var listResponse = new List<RfCreditTypeResponseDto>();
 
             foreach (var res in data.Results){
-                var response = _mapper.Map<RFTipeKreditResponseDto>(res);
+                var response = _mapper.Map<RfCreditTypeResponseDto>(res);
 
                 listResponse.Add(response);
             }
 
             dataVm = listResponse.ToArray();
-            return new PagedResponse<IEnumerable<RFTipeKreditResponseDto>>(dataVm, data.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<RfCreditTypeResponseDto>>(dataVm, data.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };
