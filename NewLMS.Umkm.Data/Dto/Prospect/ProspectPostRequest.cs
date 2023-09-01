@@ -101,5 +101,6 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         #region ETC
         public string DataSource { get; set; }
         #endregion
+        public bool ProcessStatus { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageLogss.Queries
         {
             var includes = new string[] {
                 "LoanApplication",
-                "LoanApplication.RfProduct",
+                //"LoanApplication.RfProduct",
                 "LoanApplication.RfOwnerCategories",
                 "RFStages",
                 "LoanApplicationStageLogs",

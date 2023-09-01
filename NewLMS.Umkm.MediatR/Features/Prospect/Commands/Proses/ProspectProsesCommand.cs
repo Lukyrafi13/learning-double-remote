@@ -65,6 +65,10 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                     failResp.Success = false;
                     return failResp;
                 }
+
+                prospect.ProcessStatus = true;
+                await _prospect.UpdateAsync(prospect);
+
                 var newLoanApp = false;
 
                 var LoanApplication = await _LoanApplication.GetByPredicate(x => x.ProspectId == prospect.Id);

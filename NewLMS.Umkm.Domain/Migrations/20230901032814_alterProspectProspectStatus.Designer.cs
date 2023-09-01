@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.UMKM.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230901032814_alterProspectProspectStatus")]
+    partial class alterProspectProspectStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1845,13 +1847,13 @@ namespace NewLMS.UMKM.Domain.Migrations
                     b.Property<int>("PlaceZipCodeId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("ProcessStatus")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ProspectId")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<bool>("ProspectStatus")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Province")
                         .HasMaxLength(50)
