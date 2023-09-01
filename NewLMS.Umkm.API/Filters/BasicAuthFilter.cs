@@ -1,15 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http.Headers;
-using System.Text;
 using System;
-using System.Net;
-using Microsoft.Extensions.DependencyInjection;
 using MediatR;
-using Microsoft.Extensions.Configuration;
 using NewLMS.UMKM.MediatR.Exceptions;
 using NewLMS.UMKM.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret;
-using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.API.Filters
 {

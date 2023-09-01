@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands
 {
     public class RfZipCodeDeleteCommand : RfZipCodeDeleteRequest, IRequest<ServiceResponse<Unit>>
     {

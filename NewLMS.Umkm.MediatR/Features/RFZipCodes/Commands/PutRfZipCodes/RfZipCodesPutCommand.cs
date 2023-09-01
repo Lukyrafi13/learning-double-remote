@@ -7,7 +7,7 @@ using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands
 {
     public class RfZipCodePutCommand : RfZipCodePutRequest, IRequest<ServiceResponse<Unit>>
     {

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Queries
+namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Queries
 {
     public class GetProvinsiZipCode : IRequest<ServiceResponse<IEnumerable<RfZipCodeProvinsiResponse>>>
     {

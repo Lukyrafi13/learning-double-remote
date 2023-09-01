@@ -3,7 +3,7 @@ using NewLMS.UMKM.Repository.GenericRepository;
 using NewLMS.UMKM.Domain.FUSE.GenericRepositoryFuse;
 // using NewLMS.UMKM.Domain.Services;
 // using NewLMS.UMKM.MediatR.Features.SlikRequestDuplikasis.Commands;
-using NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands;
+using NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands;
 
 namespace NewLMS.UMKM.Api.Helpers
 {

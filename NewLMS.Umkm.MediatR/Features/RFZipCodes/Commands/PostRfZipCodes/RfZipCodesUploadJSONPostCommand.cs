@@ -12,7 +12,7 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands
 {
     public interface IRfZipCodesUploadJSON
     {

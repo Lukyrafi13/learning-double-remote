@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipcodes.Commands
+namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands
 {
     public class RfZipCodeDeleteValidator : AbstractValidator<RfZipCodeDeleteRequest>
     {
