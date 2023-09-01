@@ -3,7 +3,7 @@ using NewLMS.UMKM.Data;
 
 namespace NewLMS.UMKM.Data.Dto.Prospects
 {
-    public class ProspectResponseDto
+    public class ProspectResponseDto : BaseResponse
     {
         #region Account Office
         public Guid Id { get; set; }
@@ -105,6 +105,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         #region ETC
         public string DataSource { get; set; }
         #endregion
+        public bool ProcessStatus { get; set; }
 
         public RfParameterDetail RfCompanyGroup { get; set; }
         public RfParameterDetail RfCompanyStatus { get; set; }

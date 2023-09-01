@@ -146,6 +146,7 @@ namespace NewLMS.UMKM.Data
         #region ETC
         public string DataSource { get; set; }
         #endregion
+        public bool ProcessStatus { get; set; }
 
         public RfParameterDetail RfCompanyGroup { get; set; }
         public RfParameterDetail RfCompanyStatus { get; set; }
