@@ -28,8 +28,6 @@
     <None Remove="Features\LoanApplications\Queries\GetLoanApplicationsBasicManrisk\" />
     <None Remove="Features\v2\TrackingKGBInstant\" />
     <None Remove="Features\v2\TrackingKGBInstant\Queries\" />
-    <None Remove="Features\RfSubProducts\Queries\GetByProgramSubProducts\" />
-    <None Remove="Features\RfProducts\Queries\GetByProgramProducts\" />
     <None Remove="Features\Documents\Queries\GetDocumentDigitalSignIn\" />
     <None Remove="Features\RfGracePeriods\" />
     <None Remove="Features\RfGracePeriods\Queries\" />

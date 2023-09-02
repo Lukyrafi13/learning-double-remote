@@ -12,7 +12,7 @@ namespace NewLMS.UMKM.Data.Dto.RfTransportationType
         public string TransportationTypeDesc { get; set; }
     }
 
-    public class RfTransportationSimpleResponse
+    public class RfTransportationTypeSimpleResponse
     {
         public string TransportationTypeCode { get; set; }
         public string TransportationTypeDesc { get; set; }
