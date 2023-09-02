@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NewLMS.UMKM.Data.Dto.RfTransportationType
+{
+    public class RfTransportationTypeResponse : BaseResponse
+    {
+        public string TransportationTypeCode { get; set; }
+        public string TransportationTypeDesc { get; set; }
+    }
+
+    public class RfTransportationSimpleResponse
+    {
+        public string TransportationTypeCode { get; set; }
+        public string TransportationTypeDesc { get; set; }
+    }
+}
