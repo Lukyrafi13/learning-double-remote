@@ -1,14 +1,13 @@
 using AutoMapper;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Queries
 {

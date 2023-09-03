@@ -2,12 +2,12 @@
 using MediatR;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Queries
 {

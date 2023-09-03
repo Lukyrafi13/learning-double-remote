@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.UMKM.Data.Entities
 {
     public class RfSectorLBU3 : BaseEntity
     {

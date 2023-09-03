@@ -16,8 +16,12 @@ using NewLMS.UMKM.Data.Dto.RfEducation;
 using NewLMS.UMKM.Data.Dto.RfGenders;
 using NewLMS.UMKM.Data.Dto.RfJob;
 using NewLMS.UMKM.Data.Dto.RfLinkAge;
+using NewLMS.UMKM.Data.Dto.RfBranches;
 using NewLMS.UMKM.Data.Dto.RfLinkAgeType;
 using NewLMS.UMKM.Data.Dto.RfLoanPurpose;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU1s;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU2s;
+using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 using NewLMS.UMKM.Data.Dto.RfMappingCollateral;
 using NewLMS.UMKM.Data.Dto.RfMappingTenor;
 using NewLMS.UMKM.Data.Dto.RfMarital;
@@ -31,6 +35,7 @@ using NewLMS.UMKM.Data.Dto.RfVehClass;
 using NewLMS.UMKM.Data.Dto.RfVehMaker;
 using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfVehType;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
@@ -51,9 +56,17 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<RfEducation, RfEducationResponse>();
             CreateMap<RfEducation, RfEducationSimpleResponse>();
 
+            //RfBranch
+            CreateMap<RfBranch, RfBranchResponse>();
+
             //RfMarital
             CreateMap<RfMarital, RfMaritalResponse>();
             CreateMap<RfMarital, RfMaritalSimpleResponse>();
+
+            //RfSectorLBU
+            CreateMap<RfSectorLBU1, RfSectorLBU1Response>();
+            CreateMap<RfSectorLBU2, RfSectorLBU2Response>();
+            CreateMap<RfSectorLBU3, RfSectorLBU3Response>();
 
             //RfJob
             CreateMap<RfJob, RfJobResponse>()
@@ -192,6 +205,11 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<RfParameterDetail, RfParameterDetailResponse>()
                 .ForMember(d => d.RfParameter, s => s.MapFrom(d => d.RfParameter));
             CreateMap<RfParameterDetail, RfParameterDetailSimpleResponse>();
+
+            //RfZipCode
+            CreateMap<RfZipCode, RfZipCodeResponse>().ReverseMap();
+            CreateMap<RfZipCodePostRequest, RfZipCode>();
+            CreateMap<RfZipCodePutRequest, RfZipCode>();
         }
     }
 }

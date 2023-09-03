@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;

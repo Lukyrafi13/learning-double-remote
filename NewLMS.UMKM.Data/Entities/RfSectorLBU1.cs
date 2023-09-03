@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.UMKM.Data.Entities
 {
     public class RfSectorLBU1 : BaseEntity
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.UMKM.Data.Entities
 {
     public class RfZipCode : BaseEntity
     {
