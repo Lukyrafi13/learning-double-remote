@@ -35,62 +35,62 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region Debitur
-        public string NoIdentity { get; set; }
+        public string? NoIdentity { get; set; }
 
         [MaxLength(80)]
-        public string Fullname { get; set; }
+        public string? Fullname { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
-        public string PlaceOfBirth { get; set; }
+        public string? PlaceOfBirth { get; set; }
 
         [MaxLength(16)]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [MaxLength(50)]
-        public string SourceApplication { get; set; }
+        public string? SourceApplication { get; set; }
         #endregion
 
         #region Alamat Debitur
         [MaxLength(450)]
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         [MaxLength(50)]
-        public string Province { get; set; }
+        public string? Province { get; set; }
 
         [MaxLength(50)]
-        public string City { get; set; }
+        public string? City { get; set; }
 
         [MaxLength(50)]
-        public string District { get; set; }
+        public string? District { get; set; }
 
         [MaxLength(50)]
-        public string Neighborhoods { get; set; }
+        public string? Neighborhoods { get; set; }
 
         [ForeignKey(nameof(RfZipCode))]
-        public int ZipCodeId { get; set; }
+        public int? ZipCodeId { get; set; }
         #endregion
 
         #region PlaceAddress
-        public bool SameAsIdentity { get; set; }
+        public bool? SameAsIdentity { get; set; }
 
         [MaxLength(450)]
-        public string PlaceAddress { get; set; }
+        public string? PlaceAddress { get; set; }
 
         [MaxLength(50)]
-        public string PlaceProvince { get; set; }
+        public string? PlaceProvince { get; set; }
 
         [MaxLength(50)]
-        public string PlaceCity { get; set; }
+        public string? PlaceCity { get; set; }
 
         [MaxLength(50)]
-        public string PlaceDistrict { get; set; }
+        public string? PlaceDistrict { get; set; }
 
         [MaxLength(50)]
-        public string PlaceNeighborhoods { get; set; }
+        public string? PlaceNeighborhoods { get; set; }
 
         [ForeignKey(nameof(RfPlaceZipCode))]
-        public int PlaceZipCodeId { get; set; }
+        public int? PlaceZipCodeId { get; set; }
         #endregion
 
         #region Product And Loan
@@ -115,20 +115,20 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region Company Data - Personal
-        public string CompanyName { get; set; }
-        public string CompanyAddress { get; set; }
-        public string CompanyFullAddress { get; set; }
+        public string? CompanyName { get; set; }
+        public string? CompanyAddress { get; set; }
+        public string? CompanyFullAddress { get; set; }
         [MaxLength(50)]
-        public string CompanyProvince { get; set; }
+        public string? CompanyProvince { get; set; }
 
         [MaxLength(50)]
-        public string CompanyCity { get; set; }
+        public string? CompanyCity { get; set; }
 
         [MaxLength(50)]
-        public string CompanyDistrict { get; set; }
+        public string? CompanyDistrict { get; set; }
 
         [MaxLength(50)]
-        public string CompanyNeighborhoods { get; set; }
+        public string? CompanyNeighborhoods { get; set; }
 
         [ForeignKey(nameof(RfCompanyZipCode))]
         public int? CompanyZipCodeId { get; set; }
@@ -142,7 +142,7 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region ETC
-        public string DataSource { get; set; } = "NewLMS";
+        public string? DataSource { get; set; } = "NewLMS";
         #endregion
         public EnumProspectStatus Status { get; set; } = EnumProspectStatus.Draft;
 
