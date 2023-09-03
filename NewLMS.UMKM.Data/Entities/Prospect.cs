@@ -23,13 +23,13 @@ namespace NewLMS.UMKM.Data.Entities
         public string BranchId { get; set; }
 
         [ForeignKey(nameof(RfOwnerCategory))]
-        public Guid? RfOwnerCategoryId { get; set; }
+        public int? OwnerCategoryId { get; set; }
 
         [ForeignKey(nameof(RfGender))]
-        public Guid? RfGenderId { get; set; }
+        public string? GenderId { get; set; }
 
         [ForeignKey(nameof(RfCompanyStatus))]
-        public int? RfCompanyStatusId { get; set; }
+        public int? CompanyStatusId { get; set; }
 
         #endregion
 
@@ -94,20 +94,20 @@ namespace NewLMS.UMKM.Data.Entities
 
         #region Product And Loan
         [ForeignKey(nameof(RfProduct))]
-        public Guid? RfProductId { get; set; }
+        public string? ProductId { get; set; }
 
         #endregion
 
         #region Target
 
         [ForeignKey(nameof(RfApplicationType))]
-        public int? RfAppTypeId { get; set; }
+        public int? ApplicationTypeId { get; set; }
         [ForeignKey(nameof(RfSectorLBU3))]
-        public string RfSectorLBU3Code { get; set; }
+        public string? SectorLBU3Code { get; set; }
         [ForeignKey(nameof(RfCategory))]
-        public Guid? RfCategoryId { get; set; }
+        public int? CategoryId { get; set; }
         [ForeignKey(nameof(RfServiceCode))]
-        public Guid? RfServiceCodeId { get; set; }
+        public string? ServiceCodeId { get; set; }
         public string Reason { get; set; }
         public double? TargetPladfond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }
@@ -135,10 +135,9 @@ namespace NewLMS.UMKM.Data.Entities
 
         #region Company Data - Company
         [ForeignKey(nameof(RfCompanyGroup))]
-        public int? RfCompanyGroupId { get; set; }
+        public int? CompanyGroupId { get; set; }
         [ForeignKey(nameof(RfCompanyType))]
-        public Guid? RfCompanyTypeId { get; set; }
-        public string OtherCompanyType { get; set; }
+        public int? CompanyTypeId { get; set; }
         #endregion
 
         #region ETC

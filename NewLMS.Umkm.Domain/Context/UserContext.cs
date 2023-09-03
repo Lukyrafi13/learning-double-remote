@@ -33,6 +33,7 @@ namespace NewLMS.UMKM.Domain.Context
         public virtual DbSet<UserDevice> UserDevices { get; set; }
         public virtual DbSet<ThridParty> ThridParties { get; set; }
         public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
+        public DbSet<Prospect> Prospects { get; set; }
 
         #region References
         public DbSet<RfStage> RfStages { get; set; }
