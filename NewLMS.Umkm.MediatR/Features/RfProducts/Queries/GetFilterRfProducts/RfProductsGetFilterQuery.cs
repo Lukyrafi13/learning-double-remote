@@ -2,15 +2,12 @@
 using MediatR;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Repository.GenericRepository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Dto.RfProduct;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Data.Dto.RfProducts;
 
 namespace NewLMS.UMKM.MediatR.Features.RfProducts.Queries.GetFilterRfProducts
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfProduct;
+using NewLMS.UMKM.Data.Dto.RfProducts;
 using NewLMS.UMKM.MediatR.Features.RfProducts.Queries.GetFilterRfProducts;
 using System.Collections.Generic;
 using System.Threading.Tasks;

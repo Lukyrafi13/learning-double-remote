@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NewLMS.UMKM.Data.Enums;
 
 namespace NewLMS.UMKM.Data.Entities
 {
@@ -109,7 +110,7 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfServiceCode))]
         public string? ServiceCodeId { get; set; }
         public string Reason { get; set; }
-        public double? TargetPladfond { get; set; }
+        public long? TargetPlafond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }
         #endregion
 
@@ -141,9 +142,9 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region ETC
-        public string DataSource { get; set; }
+        public string DataSource { get; set; } = "NewLMS";
         #endregion
-        public bool ProcessStatus { get; set; }
+        public EnumProspectStatus Status { get; set; }
 
         public RfParameterDetail RfCompanyGroup { get; set; }
         public RfParameterDetail RfCompanyStatus { get; set; }

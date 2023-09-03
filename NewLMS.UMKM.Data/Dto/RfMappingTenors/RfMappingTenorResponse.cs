@@ -1,11 +1,6 @@
-﻿using NewLMS.UMKM.Data.Dto.RfProduct;
+﻿using NewLMS.UMKM.Data.Dto.RfProducts;
 using NewLMS.UMKM.Data.Dto.RfTenor;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.Data.Dto.RfMappingTenor
 {

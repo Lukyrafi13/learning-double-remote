@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfGender;
+using NewLMS.UMKM.Data.Dto.RfGenders;
 using NewLMS.UMKM.MediatR.Features.RfGenders.Queries.GetFilterRfGenders;
 using System.Collections.Generic;
 using System.Threading.Tasks;

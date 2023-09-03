@@ -354,9 +354,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<int>("PlaceZipCodeId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("ProcessStatus")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
@@ -385,8 +382,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<double?>("TargetPladfond")
-                        .HasColumnType("float");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("TargetPlafond")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("ZipCodeId")
                         .HasColumnType("int");
