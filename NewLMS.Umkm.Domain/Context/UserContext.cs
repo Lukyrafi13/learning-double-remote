@@ -59,7 +59,6 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfMappingCollateral> RfMappingCollaterals { get; set; }
         public DbSet<RfMappingTenor> RfMappingTenors { get; set; }
         public DbSet<RfMarital> RfMaritals { get; set; }
-        public DbSet<RfOwnerCategory> RfOwnerCategories { get; set; }
         public DbSet<RfParameter> RfParameters { get; set; }
         public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
         public DbSet<RfPlacementCountry> RfPlacementCountries { get; set; }
@@ -67,7 +66,6 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfRelationCol> RfRelationCols { get; set; }
         public DbSet<RfScPosition> RfScPositions { get; set; }
         public DbSet<RfSubProduct> RfSubProducts { get; set; }
-        public DbSet<RfTargetStatus> RfTargetStatuses { get; set; }
         public DbSet<RfTenor> RfTenors { get; set; }
         public DbSet<RfTransportationType> RfTransportationTypes { get; set; }
         public DbSet<RfVehClass> RfVehClasss { get; set; }
