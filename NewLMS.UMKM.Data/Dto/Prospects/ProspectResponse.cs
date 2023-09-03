@@ -130,4 +130,13 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public RfZipCodeResponse RfCompanyZipCode { get; set; }
         public RfInstituteCodeResponse RfServiceCode { get; set; }
     }
+
+    public class ProspectTableResponse : BaseResponse
+    {
+        public Guid Id { get; set; }
+        public string ProspectId { get; set; }
+        public string Fullname { get; set; }
+        public RfProductSimpleResponse RfProduct { get; set; }
+        public string DataSource { get; set; }
+    }
 }

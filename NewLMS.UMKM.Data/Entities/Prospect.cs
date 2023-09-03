@@ -144,23 +144,23 @@ namespace NewLMS.UMKM.Data.Entities
         #region ETC
         public string DataSource { get; set; } = "NewLMS";
         #endregion
-        public EnumProspectStatus Status { get; set; }
+        public EnumProspectStatus Status { get; set; } = EnumProspectStatus.Draft;
 
-        public RfParameterDetail RfCompanyGroup { get; set; }
-        public RfParameterDetail RfCompanyStatus { get; set; }
-        public RfParameterDetail RfOwnerCategory { get; set; }
-        public RfParameterDetail RfCompanyType { get; set; }
-        public RfParameterDetail RfCategory { get; set; }
-        public RfParameterDetail RfApplicationType { get; set; }
+        public virtual RfParameterDetail RfCompanyStatus { get; set; }
+        public virtual RfParameterDetail RfCompanyGroup { get; set; }
+        public virtual RfParameterDetail RfOwnerCategory { get; set; }
+        public virtual RfParameterDetail RfCompanyType { get; set; }
+        public virtual RfParameterDetail RfCategory { get; set; }
+        public virtual RfParameterDetail RfApplicationType { get; set; }
 
-        public RfBranch RfBranch { get; set; }
-        public RfProduct RfProduct { get; set; }
-        public RfGender RfGender { get; set; }
+        public virtual RfBranch RfBranch { get; set; }
+        public virtual RfProduct RfProduct { get; set; }
+        public virtual RfGender RfGender { get; set; }
 
-        public RfSectorLBU3 RfSectorLBU3 { get; set; }
-        public RfZipCode RfZipCode { get; set; }
-        public RfZipCode RfPlaceZipCode { get; set; }
-        public RfZipCode RfCompanyZipCode { get; set; }
-        public RfInstituteCode RfServiceCode { get; set; }
+        public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }
+        public virtual RfZipCode RfZipCode { get; set; }
+        public virtual RfZipCode RfPlaceZipCode { get; set; }
+        public virtual RfZipCode RfCompanyZipCode { get; set; }
+        public virtual RfInstituteCode RfServiceCode { get; set; }
     }
 }

@@ -8,6 +8,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {
+                mc.AddProfile(new ReferenceProfile());
+                mc.AddProfile(new ProspectProfile());
 
             });
             return mappingConfig.CreateMapper();

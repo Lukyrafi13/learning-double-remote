@@ -5,7 +5,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
     public class ProspectPostRequest
     {
         public string Fullname { get; set; }
-        public string CompanyStatus { get; set; }
+        public int CompanyStatusId { get; set; }
         public string PhoneNumber { get; set; }
         public string Addrress { get; set; }
         public int ZipCodeId { get; set; }
@@ -14,9 +14,8 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public long TargetPlafond { get; set; }
         public DateTime EstimateProcessDate { get; set; }
         public string ProductId { get; set; }
-        public string OwnerCategoryId { get; set; }
+        public int OwnerCategoryId { get; set; }
         public string GenderId { get; set; }
-        public string StatusId { get; set; }
         public string SectorLBU1Code { get; set; }
         public string SectorLBU2Code { get; set; }
         public string SectorLBU3Code { get; set; }
@@ -38,8 +37,9 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public string CompanyDistrict { get; set; }
         public string CompanyProvince { get; set; }
         public int CompanyZipCodeId { get; set; }
-        public Guid CompanyGroupId { get; set; }
-        public Guid CompanyTypeId { get; set; }
+        public int CompanyGroupId { get; set; }
+        public int CompanyTypeId { get; set; }
         public string Reason { get; set; }
+        public string DataSource { get; set; }
     }
 }

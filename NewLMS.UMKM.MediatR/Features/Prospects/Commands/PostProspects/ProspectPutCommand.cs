@@ -9,15 +9,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 using NewLMS.UMKM.Data.Entities;
+using ClosedXML.Excel.CalcEngine.Exceptions;
 
 namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
 {
-    public class ProspectPostCommand : ProspectPostRequest, IRequest<ServiceResponse<Unit>>
+    public class ProspectPutCommand : ProspectPutRequest, IRequest<ServiceResponse<Unit>>
     {
 
     }
-    public class PostProspectCommandHandler : IRequestHandler<ProspectPostCommand, ServiceResponse<Unit>>
+    public class PutProspectCommandHandler : IRequestHandler<ProspectPutCommand, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<Prospect> _prospect;
         private readonly IGenericRepositoryAsync<RfProduct> _product;
@@ -29,7 +30,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
         private readonly IMapper _mapper;
 
 
-        public PostProspectCommandHandler(
+        public PutProspectCommandHandler(
                 IGenericRepositoryAsync<Prospect> prospect,
                 IGenericRepositoryAsync<RfZipCode> zipCode,
                 IGenericRepositoryAsync<RfProduct> product,
@@ -49,14 +50,24 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
             _product = product;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(ProspectPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(ProspectPutCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var product = await _product.GetByIdAsync(request.ProductId, "ProductId");
+                var prospectIncludes = new string[]
+                {
+                    "RfProduct"
+                };
+                var prospect = await _prospect.GetByIdAsync(request.Id, "Id", prospectIncludes)
+                    ?? throw new NullReferenceException("Data Prospect tidak ditemukan.");
+
+                var product = await _product.GetByIdAsync(request.ProductId, "ProductId")
+                    ?? throw new NullReferenceException("Data Produk tidak ditemukan.");
 
                 var countDataProspect = await _prospect.GetCountByPredicate(x =>
-                            x.CreatedDate.Year == DateTime.Now.Year
+                            x.BranchId == request.BranchId
+                            && x.RfProduct.ProductType == product.ProductType
+                            && x.CreatedDate.Year == DateTime.Now.Year
                             && x.CreatedDate.Month == DateTime.Now.Month
                             );
                 // Build ProspectId
@@ -68,11 +79,10 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                             + DateTime.Now.ToString("MM")
                             + "-"
                             + (countDataProspect + 1).ToString("D4");
-
-                var prospect = _mapper.Map<Prospect>(request);
                 prospect.ProspectId = prospectId;
+                prospect = _mapper.Map<ProspectPutRequest, Prospect>(request, prospect);
 
-                await _prospect.AddAsync(prospect);
+                await _prospect.UpdateAsync(prospect);
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }
             catch (Exception ex)
