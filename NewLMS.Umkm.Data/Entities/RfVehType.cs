@@ -11,7 +11,7 @@ namespace NewLMS.UMKM.Data.Entities
     {
         [Key]
         [Required]
-        public int VehCode { get; set; }
+        public string VehCode { get; set; }
         public string VehDesc { get; set; }
         public int CoreCode { get; set; }
         public bool Active { get; set; }

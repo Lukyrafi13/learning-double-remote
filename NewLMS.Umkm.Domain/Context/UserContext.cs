@@ -33,7 +33,50 @@ namespace NewLMS.UMKM.Domain.Context
         public virtual DbSet<UserDevice> UserDevices { get; set; }
         public virtual DbSet<ThridParty> ThridParties { get; set; }
         public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
+
+        #region References
         public DbSet<RfStage> RfStages { get; set; }
+        public DbSet<RfApplicationType> RfApplicationTypes { get; set; }
+        public DbSet<RfBusinessFieldKUR> RfBusinessFieldKURs { get; set; }
+        public DbSet<RfBusinessLocation> RfBusinessLocations { get; set; }
+        public DbSet<RfBusinessOwnership> RfBusinessOwnerships { get; set; }
+        public DbSet<RfBusinessPlaceLocation> RfBusinessPlaceLocations { get; set; }
+        public DbSet<RfBusinessPlaceOwnership> RfBusinessPlaceOwnerships { get; set; }
+        public DbSet<RfBusinessPlaceType> RfBusinessPlaceTypes { get; set; }
+        public DbSet<RfBusinessType> RfBusinessTypes { get; set; }
+        public DbSet<RfCollateralBC> RfCollateralBCs { get; set; }
+        public DbSet<RfCreditNature> RfCreditNatures { get; set; }
+        public DbSet<RfDecisionLeterType> RfDecisionLeterTypes { get; set; }
+        public DbSet<RfDecisionLetter> RfDecisionLetters { get; set; }
+        public DbSet<RfDocument> RfDocuments { get; set; }
+        public DbSet<RfDocumentCollateral> RfDocumentCollaterals { get; set; }
+        public DbSet<RfEducation> RfEducations { get; set; }
+        public DbSet<RfGender> RfGenders { get; set; }
+        public DbSet<RfJob> RfJobs { get; set; }
+        public DbSet<RfLinkAge> RfLinkAges { get; set; }
+        public DbSet<RfLinkAgeType> RfLinkAgeTypes { get; set; }
+        public DbSet<RfLoanPurpose> RfLoanPurposes { get; set; }
+        public DbSet<RfMappingCollateral> RfMappingCollaterals { get; set; }
+        public DbSet<RfMappingTenor> RfMappingTenors { get; set; }
+        public DbSet<RfMarital> RfMaritals { get; set; }
+        public DbSet<RfOwnerCategory> RfOwnerCategories { get; set; }
+        public DbSet<RfParameter> RfParameters { get; set; }
+        public DbSet<RfParameterDetail> RfParameterDetails { get; set; }
+        public DbSet<RfPlacementCountry> RfPlacementCountries { get; set; }
+        public DbSet<RfProduct> RfProducts { get; set; }
+        public DbSet<RfRelationCol> RfRelationCols { get; set; }
+        public DbSet<RfScPosition> RfScPositions { get; set; }
+        public DbSet<RfSubProduct> RfSubProducts { get; set; }
+        public DbSet<RfTargetStatus> RfTargetStatuses { get; set; }
+        public DbSet<RfTenor> RfTenors { get; set; }
+        public DbSet<RfTransportationType> RfTransportationTypes { get; set; }
+        public DbSet<RfVehClass> RfVehClasss { get; set; }
+        public DbSet<RfVehCountry> RfVehCountries { get; set; }
+        public DbSet<RfVehMaker> RfVehMakers { get; set; }
+        public DbSet<RfVehModel> RfVehModels { get; set; }
+        public DbSet<RfVehType> RfVehTypes { get; set; }
+        #endregion
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
