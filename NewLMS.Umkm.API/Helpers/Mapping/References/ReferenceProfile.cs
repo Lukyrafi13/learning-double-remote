@@ -65,8 +65,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
 
             //RfSectorLBU
             CreateMap<RfSectorLBU1, RfSectorLBU1Response>();
-            CreateMap<RfSectorLBU2, RfSectorLBU2Response>();
-            CreateMap<RfSectorLBU3, RfSectorLBU3Response>();
+            CreateMap<RfSectorLBU2, RfSectorLBU2Response>()
+                .ForMember(d => d.RfSectorLBU1, s => s.MapFrom(d => d.RfSectorLBU1));
+            CreateMap<RfSectorLBU3, RfSectorLBU3Response>()
+                .ForMember(d => d.RfSectorLBU2, s => s.MapFrom(d => d.RfSectorLBU2));
 
             //RfJob
             CreateMap<RfJob, RfJobResponse>()
