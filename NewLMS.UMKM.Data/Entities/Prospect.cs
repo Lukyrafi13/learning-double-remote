@@ -47,8 +47,6 @@ namespace NewLMS.UMKM.Data.Entities
         [MaxLength(16)]
         public string? PhoneNumber { get; set; }
 
-        [MaxLength(50)]
-        public string? SourceApplication { get; set; }
         #endregion
 
         #region Alamat Debitur
