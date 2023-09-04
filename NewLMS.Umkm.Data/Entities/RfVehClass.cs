@@ -21,10 +21,14 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfVehModel))]
         public string VehModelCode { get; set; }
 
+        [ForeignKey(nameof(RfVehMaker))]
+        public string VehMakerCode { get; set; }
+
         public string CoreCode { get; set; }
         public bool Active { get; set; }
 
         public virtual RfVehType RfVehType { get; set; }
         public virtual RfVehModel RfVehModel { get; set; }
+        public virtual RfVehMaker RfVehMaker { get; set; }
     }
 }
