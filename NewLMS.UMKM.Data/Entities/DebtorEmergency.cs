@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data
 {
-    public class DebtorCompany : BaseEntity
+    public class DebtorEmergency : BaseEntity
     {
         [Key]
         [Required]
@@ -15,6 +15,7 @@ namespace NewLMS.UMKM.Data
         public string City { get; set; }
         public string District { get; set; }
         public string Neighborhoods { get; set; }
+
 
         [ForeignKey(nameof(RfZipCode))]
         public int ZipCodeId { get; set; }

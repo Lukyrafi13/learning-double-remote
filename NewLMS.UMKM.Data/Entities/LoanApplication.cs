@@ -24,36 +24,42 @@ namespace NewLMS.UMKM.Data
 
         [ForeignKey(nameof(Stage))]
         public Guid StageId { get; set; }
-        public int Status { get; set; }
+        public EnumLoanApplicationStatus Status { get; set; }
         // etc
         public string DataSource { get; set; }
 
         [ForeignKey(nameof(DebtorCompany))]
-        public string DebtorCompanyId { get; set; }
+        public Guid? DebtorCompanyId { get; set; }
 
-        [ForeignKey(nameof(RfParameterDetail))]
-        public string OwnerCategoryId { get; set; }
+        [ForeignKey(nameof(Debtor))]
+        public Guid? DebtorId { get; set; }
 
-        [ForeignKey(nameof(RfParameterDetail))]
-        public int? DecisionMakerId { get; set; }
-        [ForeignKey(nameof(User))]
-        public string OwnerId { get; set; }
+        [ForeignKey(nameof(RfOwnerCategory))]
+        public int OwnerCategoryId { get; set; }
+
+        [ForeignKey(nameof(DecisionMaker))]
+        public Guid? DecisionMakerId { get; set; }
+        
+        [ForeignKey(nameof(Owner))]
+        public Guid OwnerId { get; set; }
 
         // Other stage
+        public virtual User Owner { get; set; }
+        public virtual User DecisionMaker { get; set; }
+
+        public virtual RfParameterDetail RfOwnerCategory { get; set; }
+        
         public virtual Debtor Debtor { get; set; }
-        public virtual Prospect Prospect { get; set; }
-        public virtual RfBranch Branch { get; set; }
-        public virtual RfProduct Product { get; set; }
-        public virtual RfSectorLBU3 SectorLBU3 { get; set; }
-        public virtual RfSubProduct SubProduct { get; set; }
-
-        public virtual RfParameterDetail DecisionMaker { get; set; }
-        public virtual RfParameterDetail OwnerCategory { get; set; }
-        public virtual User User { get; set; }
-        public virtual RfStage Stage { get; set; }
-
-        // public virtual SLIKRequest SLIKRequest { get; set; }
         public virtual DebtorCompany DebtorCompany { get; set; }
+        public virtual Prospect Prospect { get; set; }
+
+        public virtual RfBranch BookingOffice { get; set; }
+        public virtual RfBranch RfBranch { get; set; }
+        public virtual RfProduct RfProduct { get; set; }
+        public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }
+        public virtual RfSubProduct RfSubProduct { get; set; }
+        public virtual RfStage RfStage { get; set; }
+
 
         public virtual ICollection<LoanApplicationStageLog> LoanApplicationStageLogs { get; set; }
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }

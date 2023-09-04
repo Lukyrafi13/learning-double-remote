@@ -1,6 +1,6 @@
 namespace NewLMS.UMKM.Data.Enums
 {
-    public enum EnumProspectStatus
+    public enum EnumLoanApplicationStatus
     {
         Draft,
         Processed,

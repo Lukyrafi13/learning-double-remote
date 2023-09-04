@@ -111,8 +111,9 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         #region ETC
         public string DataSource { get; set; }
-        #endregion
         public bool ProcessStatus { get; set; }
+        public string OtherCompanyType { get; set; }
+        #endregion
 
         public RfParameterDetailResponse RfCompanyGroup { get; set; }
         public RfParameterDetailResponse RfCompanyStatus { get; set; }
