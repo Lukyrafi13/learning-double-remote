@@ -30,7 +30,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU3s.Queries
         {
             try
             {
-                var includes = new string[] { "RFSectorLBU2", "RFSectorLBU2.RFSectorLBU1" };
+                var includes = new string[] { "RfSectorLBU2", "RfSectorLBU2.RfSectorLBU1" };
                 var data = await _rfSectorLBU3.GetByIdAsync(request.Code, "Code", includes);
                 if (data == null)
                     return ServiceResponse<RfSectorLBU3Response>.Return404("Data RFSectorLBU3 not found");

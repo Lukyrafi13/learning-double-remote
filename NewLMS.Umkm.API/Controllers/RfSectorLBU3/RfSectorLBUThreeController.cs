@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 using NewLMS.UMKM.Helper;
-using NewLMS.Umkm.MediatR.Features.RFSectorLBU3s.Commands;
 using NewLMS.Umkm.MediatR.Features.RFSectorLBU3s.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,7 +10,7 @@ using MediatR;
 
 namespace NewLMS.UMKM.API.Controllers.RfSectorLBU3
 {
-    public class RfSectorLBU3Controller : BaseController
+    public class RfSectorLBUThreeController : BaseController
     {
         [HttpPost("Get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<RfSectorLBU3Response>>), statusCode: StatusCodes.Status200OK)]
@@ -31,7 +30,7 @@ namespace NewLMS.UMKM.API.Controllers.RfSectorLBU3
         {
             return Ok(await Mediator.Send(command));
         }
-
+/*
         /// <summary>
         /// Post RFSectorLBU2
         /// </summary>
@@ -67,6 +66,6 @@ namespace NewLMS.UMKM.API.Controllers.RfSectorLBU3
         public async Task<IActionResult> Delete([FromBody] RFSectorLBU3DeleteCommand command)
         {
             return Ok(await Mediator.Send(command));
-        }
+        }*/
     }
 }

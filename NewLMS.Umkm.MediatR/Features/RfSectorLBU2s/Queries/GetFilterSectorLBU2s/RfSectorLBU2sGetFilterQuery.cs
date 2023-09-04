@@ -28,7 +28,7 @@ namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU2s.Queries
 
         public async Task<PagedResponse<IEnumerable<RfSectorLBU2Response>>> Handle(RFSectorLBU2GetFilterQuery request, CancellationToken cancellationToken)
         {
-            var includes = new string[] { "RFSectorLBU1" };
+            var includes = new string[] { "RfSectorLBU1" };
             var data = await _rfSectorLBU2.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<RfSectorLBU2Response>>(data.Results);
             return new PagedResponse<IEnumerable<RfSectorLBU2Response>>(dataVm, data.Info, request.Page, request.Length)

@@ -11,7 +11,7 @@ using MediatR;
 
 namespace NewLMS.UMKM.API.Controllers.RfSectorLBU2
 {
-    public class RfSectorLBU2Controller : BaseController
+    public class RfSectorLBUTwoController : BaseController
     {
         [HttpPost("Get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<RfSectorLBU2Response>>), statusCode: StatusCodes.Status200OK)]
@@ -31,7 +31,7 @@ namespace NewLMS.UMKM.API.Controllers.RfSectorLBU2
         {
             return Ok(await Mediator.Send(command));
         }
-
+/*
         [HttpPost("Post")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> Post(RFSectorLBU2PostCommand command)
@@ -62,6 +62,6 @@ namespace NewLMS.UMKM.API.Controllers.RfSectorLBU2
         public async Task<IActionResult> Delete([FromBody] RFSectorLBU2DeleteCommand command)
         {
             return Ok(await Mediator.Send(command));
-        }
+        }*/
     }
 }
