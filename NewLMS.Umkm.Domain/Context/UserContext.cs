@@ -34,6 +34,7 @@ namespace NewLMS.UMKM.Domain.Context
         public virtual DbSet<ThridParty> ThridParties { get; set; }
         public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
         public DbSet<Prospect> Prospects { get; set; }
+        public DbSet<RfCompanyType> RfCompanyTypes { get; set; }
 
         #region References
         public DbSet<RfStage> RfStages { get; set; }
