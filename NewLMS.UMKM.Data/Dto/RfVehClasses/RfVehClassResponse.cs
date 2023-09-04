@@ -1,4 +1,5 @@
-﻿using NewLMS.UMKM.Data.Dto.RfVehModel;
+﻿using NewLMS.UMKM.Data.Dto.RfVehMaker;
+using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfVehType;
 using NewLMS.UMKM.Data.Entities;
 using System;
@@ -16,6 +17,7 @@ namespace NewLMS.UMKM.Data.Dto.RfVehClass
         public string VehClassDesc { get; set; }
         public RfVehTypeSimpleResponse RfVehType { get; set; }
         public RfVehModelSimplelResponse RfVehModel { get; set; }
+        public RfVehMakerSimpleResponse RfVehMaker { get; set; }
         public string CoreCode { get; set; }
         public bool Active { get; set; }
     }

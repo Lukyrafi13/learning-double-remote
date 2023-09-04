@@ -1,4 +1,5 @@
-﻿using NewLMS.UMKM.Data.Dto.RfVehCountry;
+﻿using NewLMS.UMKM.Data.Dto.RfCollateralBC;
+using NewLMS.UMKM.Data.Dto.RfVehCountry;
 using NewLMS.UMKM.Data.Dto.RfVehType;
 using NewLMS.UMKM.Data.Entities;
 using System;
@@ -16,6 +17,7 @@ namespace NewLMS.UMKM.Data.Dto.RfVehMaker
         public string VehmakerDesc { get; set; }
         public RfVehTypeSimpleResponse RfVehType { get; set; }
         public RfVehCountrySimpleResponse RfVehCountry { get; set; }
+        public RfCollateralBCResponse RfCollateralBC { get; set; }
         public string CoreCode { get; set; }
         public bool Active { get; set; }
     }

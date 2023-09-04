@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230904084212_AlterRfVehMakerrfVehClass")]
+    partial class AlterRfVehMakerrfVehClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -305,9 +307,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("GenderId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool?>("IdCardAddress")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -383,6 +382,10 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Property<string>("ServiceCodeId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SourceApplication")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -3302,7 +3305,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("SectorLBU3Code");
 
-                    b.HasOne("NewLMS.UMKM.Data.RfInstituteCode", "RfInstituteCode")
+                    b.HasOne("NewLMS.UMKM.Data.RfInstituteCode", "RfServiceCode")
                         .WithMany()
                         .HasForeignKey("ServiceCodeId");
 
@@ -3326,8 +3329,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("RfGender");
 
-                    b.Navigation("RfInstituteCode");
-
                     b.Navigation("RfOwnerCategory");
 
                     b.Navigation("RfPlaceZipCode");
@@ -3335,6 +3336,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfProduct");
 
                     b.Navigation("RfSectorLBU3");
+
+                    b.Navigation("RfServiceCode");
 
                     b.Navigation("RfZipCode");
                 });

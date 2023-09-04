@@ -37,6 +37,9 @@ using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfVehType;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
+using NewLMS.UMKM.Data.Dto.RfVehCountry;
 using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
@@ -126,16 +129,22 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<RfCreditNature, RfCreditNatureResponse>();
             CreateMap<RfCreditNature, RfCreditNatureSimpleResponse>();
 
+            //RfVehCountry
+            CreateMap<RfVehCountry, RfVehCountryResponse>();
+            CreateMap<RfVehCountry, RfVehCountrySimpleResponse>();
+
             //RfVehMaker
             CreateMap<RfVehMaker, RfVehMakerResponse>()
                 .ForMember(d => d.RfVehType, s => s.MapFrom(d => d.RfVehType))
-                .ForMember(d => d.RfVehCountry, s => s.MapFrom(d => d.RfVehCountry));
+                .ForMember(d => d.RfVehCountry, s => s.MapFrom(d => d.RfVehCountry))
+                .ForMember(d => d.RfCollateralBC, s => s.MapFrom(d => d.RfCollateralBC));
             CreateMap<RfVehMaker, RfVehMakerSimpleResponse>();
 
             //RfVehClass
             CreateMap<RfVehClass, RfVehClassResponse>()
                 .ForMember(d => d.RfVehType, s => s.MapFrom(d => d.RfVehType))
-                .ForMember(d => d.RfVehModel, s => s.MapFrom(d => d.RfVehModel));
+                .ForMember(d => d.RfVehModel, s => s.MapFrom(d => d.RfVehModel))
+                .ForMember(d => d.RfVehMaker, s => s.MapFrom(d => d.RfVehMaker));
             CreateMap<RfVehClass, RfVehClassSimpleResponse>();
 
             //RfVehType
@@ -217,6 +226,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             //RfCompanyType
             CreateMap<RfCompanyType, RfCompanyTypeResponse>()
                 .ForMember(d => d.ParamCompanyGroup, s => s.MapFrom(d => d.ParamCompanyGroup));
+
+            //RfInstituteCode
+            CreateMap<RfInstituteCode, RfInstituteCodeResponse>();
         }
     }
 }

@@ -34,6 +34,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehClasses.Queries.GetFilterRfVehClasse
             var includes = new string[] {
                 "RfVehType",
                 "RfVehModel",
+                "RfVehMaker",
             };
             var data = await _rfVehClass.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<RfVehClassResponse>>(data.Results);
