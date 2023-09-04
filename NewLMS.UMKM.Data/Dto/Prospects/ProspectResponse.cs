@@ -6,6 +6,7 @@ using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
 using NewLMS.UMKM.Data.Dto.RfProducts;
 using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
 
 namespace NewLMS.UMKM.Data.Dto.Prospects
 {
@@ -116,13 +117,13 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public RfParameterDetailResponse RfCompanyGroup { get; set; }
         public RfParameterDetailResponse RfCompanyStatus { get; set; }
         public RfParameterDetailResponse RfOwnerCategory { get; set; }
-        public RfParameterDetailResponse RfCompanyType { get; set; }
         public RfParameterDetailResponse RfCategory { get; set; }
         public RfParameterDetailResponse RfApplicationType { get; set; }
 
         public RfBranchResponse RfBranch { get; set; }
         public RfProductResponse RfProduct { get; set; }
         public RfGenderResponse RfGender { get; set; }
+        public RfCompanyTypeResponse RfCompanyType { get; set; }
 
         public RfSectorLBU3Response RfSectorLBU3 { get; set; }
         public RfZipCodeResponse RfZipCode { get; set; }
