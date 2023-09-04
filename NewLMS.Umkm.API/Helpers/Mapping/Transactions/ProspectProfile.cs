@@ -13,7 +13,11 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<ProspectPostRequest, Prospect>();
             CreateMap<ProspectPutRequest, Prospect>();
             CreateMap<Prospect, ProspectResponse>()
-                .ForMember(d => d.RfProduct, s => s.MapFrom(s => s.RfProduct));
+                .ForMember(d => d.RfProduct, s => s.MapFrom(s => s.RfProduct))
+                .ForMember(d => d.RfApplicationType, s => s.MapFrom(s => s.RfApplicationType))
+                .ForMember(d => d.RfInstituteCode, s => s.MapFrom(s => s.RfInstituteCode))
+                .ForMember(d => d.RfCompanyType, s => s.MapFrom(s => s.RfCompanyType))
+                .ForMember(d => d.RfCategory, s => s.MapFrom(s => s.RfCategory));
 
             CreateMap<Prospect, ProspectTableResponse>()
                 .ForMember(d => d.RfProduct, s => s.MapFrom(s => s.RfProduct));

@@ -19,13 +19,13 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         public string AccountOfficer { get; set; }
 
-        public string BranchId { get; set; }
+        // public string BranchId { get; set; }
 
-        public int? OwnerCategoryId { get; set; }
+        // public int? OwnerCategoryId { get; set; }
 
-        public string? GenderId { get; set; }
+        // public string? GenderId { get; set; }
 
-        public int? CompanyStatusId { get; set; }
+        // public int? CompanyStatusId { get; set; }
 
         #endregion
 
@@ -40,21 +40,20 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         public string PhoneNumber { get; set; }
 
-        public string SourceApplication { get; set; }
         #endregion
 
         #region Alamat Debitur
         public string Address { get; set; }
 
-        public string Province { get; set; }
+        // public string Province { get; set; }
 
-        public string City { get; set; }
+        // public string City { get; set; }
 
-        public string District { get; set; }
+        // public string District { get; set; }
 
-        public string Neighborhoods { get; set; }
+        // public string Neighborhoods { get; set; }
 
-        public int ZipCodeId { get; set; }
+        // public int ZipCodeId { get; set; }
         #endregion
 
         #region PlaceAddress
@@ -62,30 +61,30 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
 
         public string PlaceAddress { get; set; }
 
-        public string PlaceProvince { get; set; }
+        // public string PlaceProvince { get; set; }
 
-        public string PlaceCity { get; set; }
+        // public string PlaceCity { get; set; }
 
-        public string PlaceDistrict { get; set; }
+        // public string PlaceDistrict { get; set; }
 
-        public string PlaceNeighborhoods { get; set; }
+        // public string PlaceNeighborhoods { get; set; }
 
-        public int PlaceZipCodeId { get; set; }
+        // public int PlaceZipCodeId { get; set; }
         #endregion
 
         #region Product And Loan
-        public string? ProductId { get; set; }
+        // public string? ProductId { get; set; }
 
         #endregion
 
         #region Target
 
-        public int? ApplicationTypeId { get; set; }
+        // public int? ApplicationTypeId { get; set; }
         public string? SectorLBU3Code { get; set; }
-        public int? CategoryId { get; set; }
-        public string? ServiceCodeId { get; set; }
+        // public int? CategoryId { get; set; }
+        // public string? RfInstituteCodeId { get; set; }
         public string Reason { get; set; }
-        public double? TargetPladfond { get; set; }
+        public double? TargetPlafond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }
         #endregion
 
@@ -105,8 +104,8 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         #endregion
 
         #region Company Data - Company
-        public int? CompanyGroupId { get; set; }
-        public int? CompanyTypeId { get; set; }
+        // public int? CompanyGroupId { get; set; }
+        // public int? CompanyTypeId { get; set; }
         #endregion
 
         #region ETC
@@ -129,7 +128,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public RfZipCodeResponse RfZipCode { get; set; }
         public RfZipCodeResponse RfPlaceZipCode { get; set; }
         public RfZipCodeResponse RfCompanyZipCode { get; set; }
-        public RfInstituteCodeResponse RfServiceCode { get; set; }
+        public RfInstituteCodeResponse RfInstituteCode { get; set; }
     }
 
     public class ProspectTableResponse : BaseResponse

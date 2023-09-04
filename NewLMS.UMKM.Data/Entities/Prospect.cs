@@ -107,7 +107,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string? SectorLBU3Code { get; set; }
         [ForeignKey(nameof(RfCategory))]
         public int? CategoryId { get; set; }
-        [ForeignKey(nameof(RfServiceCode))]
+        [ForeignKey(nameof(RfInstituteCode))]
         public string? ServiceCodeId { get; set; }
         public string Reason { get; set; }
         public long? TargetPlafond { get; set; }
@@ -162,6 +162,6 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfZipCode RfZipCode { get; set; }
         public virtual RfZipCode RfPlaceZipCode { get; set; }
         public virtual RfZipCode RfCompanyZipCode { get; set; }
-        public virtual RfInstituteCode RfServiceCode { get; set; }
+        public virtual RfInstituteCode RfInstituteCode { get; set; }
     }
 }
