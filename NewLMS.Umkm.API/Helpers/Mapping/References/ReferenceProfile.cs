@@ -37,6 +37,7 @@ using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfVehType;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Data.Dto.RfCompanyType;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {
@@ -212,6 +213,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<RfZipCode, RfZipCodeResponse>().ReverseMap();
             CreateMap<RfZipCodePostRequest, RfZipCode>();
             CreateMap<RfZipCodePutRequest, RfZipCode>();
+
+            //RfCompanyType
+            CreateMap<RfCompanyType, RfCompanyTypeResponse>()
+                .ForMember(d => d.ParamCompanyGroup, s => s.MapFrom(d => d.ParamCompanyGroup));
         }
     }
 }
