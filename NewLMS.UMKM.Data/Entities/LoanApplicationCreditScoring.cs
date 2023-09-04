@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.Data
 {
@@ -12,39 +13,51 @@ namespace NewLMS.UMKM.Data
 
         // Turunan Prospect
         [ForeignKey(nameof(LoanApplication))]
-        public Guid LoanApplicationGuid { get; set; }
+        public Guid LoanApplicationId { get; set; }
 
         // Credit Scoring
-        public int? BusinessCycleMonth { get; set; }
-        // [ForeignKey(nameof(RfBusinessPrimaryCycle))]
-        public Guid? RfBusinessPrimaryCycleId { get; set; }
-        public bool? BusinessCycle { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoResidentialReputationId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoBankRelationId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoBJBCreditHistoryId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoTransacMethodId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoAverageAccBalanceId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoNeedLEvelId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoFinanceManagerId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoBusinesLocationId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoOtherPartysDebtId { get; set; }
+        [ForeignKey(nameof(RfParameterDetail))]
+        public int ScoCollateralId { get; set; }
 
         // Foreign keys
         // [ForeignKey(nameof(RFSCOReputasiTempatTinggal))]
-        public int? RFSCOReputasiTempatTinggalId { get; set; }
+        public virtual RfParameterDetail ScoResidentialReputation { get; set; }
         // [ForeignKey(nameof(RFSCOTingkatKebutuhan))]
-        public int? RFSCOTingkatKebutuhanId { get; set; }
+        public virtual RfParameterDetail ScoBankRelation { get; set; }
         // [ForeignKey(nameof(RFSCOCaraTransaksi))]
-        public int? RFSCOCaraTransaksiId { get; set; }
+        public virtual RfParameterDetail ScoBJBCreditHistory { get; set; }
         // [ForeignKey(nameof(RFSCOPengelolaKeuangan))]
-        public int? RFSCOPengelolaKeuanganId { get; set; }
+        public virtual RfParameterDetail ScoTransacMethod { get; set; }
         // [ForeignKey(nameof(RFSCOHutangPihakLain))]
-        public int? RFSCOHutangPihakLainId { get; set; }
+        public virtual RfParameterDetail ScoAverageAccBalance { get; set; }
         // [ForeignKey(nameof(RFSCOLokTempatUsaha))]
-        public int? RFSCOLokTempatUsahaId { get; set; }
+        public virtual RfParameterDetail ScoNeedLEvel { get; set; }
         // [ForeignKey(nameof(RFSCOHubunganPerbankan))]
-        public int? RFSCOHubunganPerbankanId { get; set; }
+        public virtual RfParameterDetail ScoFinanceManager { get; set; }
         // [ForeignKey(nameof(RFSCOMutasiPerBulan))]
-        public int? RFSCOMutasiPerBulanId { get; set; }
+        public virtual RfParameterDetail ScoBusinesLocation { get; set; }
         // [ForeignKey(nameof(RFSCORiwayatKreditBJB))]
-        public int? RFSCORiwayatKreditBJBId { get; set; }
+        public virtual RfParameterDetail ScoOtherPartysDebt { get; set; }
         // [ForeignKey(nameof(RFSCOScoringAgunan))]
-        public int? RFSCOScoringAgunanId { get; set; }
+        public virtual RfParameterDetail ScoCollateral { get; set; }
         // [ForeignKey(nameof(RFSCOSaldoRekRata))]
-        public int? RFSCOSaldoRekRataId { get; set; }
-
-
-
     }
 }

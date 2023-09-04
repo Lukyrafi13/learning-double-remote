@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data
 {
-    public class CompanyEntity : BaseEntity
+    public class DebtorCompany : BaseEntity
     {
+        [Key]
+        [Required]
         public Guid Id { get; set; }
         public string CompId { get; set; }
         public string CompName { get; set; }

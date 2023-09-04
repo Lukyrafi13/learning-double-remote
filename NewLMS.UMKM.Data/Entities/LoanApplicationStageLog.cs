@@ -24,7 +24,7 @@ namespace NewLMS.UMKM.Data.Entities
 
         [ForeignKey(nameof(RfStageTarget))]
         public Guid? TargetStage { get; set; }
-        public string? Aging { get; set; }
+        public string Aging { get; set; }
         public bool? BackStaged { get; set; }
 
         public virtual LoanApplication LoanApplication { get; set; }
