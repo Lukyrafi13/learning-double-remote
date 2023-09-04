@@ -7,7 +7,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public string Fullname { get; set; }
         public int CompanyStatusId { get; set; }
         public string PhoneNumber { get; set; }
-        public string Addrress { get; set; }
+        public string Address { get; set; }
         public int ZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
         public int ApplicationType { get; set; }

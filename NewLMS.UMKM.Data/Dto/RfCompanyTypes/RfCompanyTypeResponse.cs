@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfCompanyType
+namespace NewLMS.UMKM.Data.Dto.RfCompanyTypes
 {
     public class RfCompanyTypeResponse : BaseResponse
     {

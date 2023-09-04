@@ -1,7 +1,6 @@
 using AutoMapper;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
@@ -13,11 +12,11 @@ using NewLMS.UMKM.Data.Entities;
 namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 
 {
-    public class ProspectPostCommand : ProspectPostRequest, IRequest<ServiceResponse<Unit>>
+    public class ProspectPostCommand : ProspectPostRequest, IRequest<ServiceResponse<Guid>>
     {
 
     }
-    public class PostProspectCommandHandler : IRequestHandler<ProspectPostCommand, ServiceResponse<Unit>>
+    public class PostProspectCommandHandler : IRequestHandler<ProspectPostCommand, ServiceResponse<Guid>>
     {
         private readonly IGenericRepositoryAsync<Prospect> _prospect;
         private readonly IGenericRepositoryAsync<RfProduct> _product;
@@ -49,7 +48,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
             _product = product;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(ProspectPostCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Guid>> Handle(ProspectPostCommand request, CancellationToken cancellationToken)
         {
             try
             {
@@ -73,11 +72,11 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 prospect.ProspectId = prospectId;
 
                 await _prospect.AddAsync(prospect);
-                return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
+                return ServiceResponse<Guid>.ReturnResultWith200(prospect.Id);
             }
             catch (Exception ex)
             {
-                var response = ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                var response = ServiceResponse<Guid>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
                 response.Success = false;
                 return response;
             }
