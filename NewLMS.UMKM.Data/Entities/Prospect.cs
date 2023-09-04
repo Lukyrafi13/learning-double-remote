@@ -144,6 +144,7 @@ namespace NewLMS.UMKM.Data.Entities
         #region ETC
         public string? DataSource { get; set; } = "NewLMS";
         public string? OtherCompanyType { get; set; }
+        public bool? IdCardAddress { get; set; }
         #endregion
         public EnumProspectStatus Status { get; set; } = EnumProspectStatus.Draft;
 
