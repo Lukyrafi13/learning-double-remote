@@ -22,7 +22,7 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("post")]
-        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(type: typeof(ServiceResponse<Guid>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> Post(ProspectPostCommand command)
         {
             return Ok(await Mediator.Send(command));
@@ -66,16 +66,30 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
         /// <summary>
         /// Edit Prospect
         /// </summary>
-        /// <param name="ProspectPutRequest"></param>
+        /// <param name="ProspectPutCommand"></param>
         /// <returns></returns>
-        [HttpPut("put", Name = "command")]
+        [HttpPut("put", Name = "ProspectPutCommand")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> Put([FromBody] ProspectPutCommand command)
+        public async Task<IActionResult> Put([FromBody] ProspectPutCommand prospectPutCommand)
         {
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(prospectPutCommand);
 
             return ReturnFormattedResponse(result);
         }
+
+        /// <summary>
+        /// Delete Prospect
+        /// </summary>
+        /// <param name="ProspectDeleteCommand"></param>
+        /// <returns></returns>
+        [HttpPut("put", Name = "command")]
+        [HttpDelete("{Id}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> Delete(ProspectDeleteCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
 
 
         // /// <summary>
