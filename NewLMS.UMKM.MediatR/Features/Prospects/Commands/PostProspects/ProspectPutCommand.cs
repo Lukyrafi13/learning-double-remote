@@ -58,7 +58,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 {
                     "RfProduct"
                 };
-                var prospect = await _prospect.GetByIdAsync(Guid.Parse(request.Id), "Id", prospectIncludes)
+                var prospect = await _prospect.GetByIdAsync(request.Id, "Id", prospectIncludes)
                     ?? throw new NullReferenceException("Data Prospect tidak ditemukan.");
 
                 var product = await _product.GetByIdAsync(request.ProductId, "ProductId")
