@@ -16,7 +16,7 @@ namespace NewLMS.UMKM.Data
         public string NoIdentity { get; set; }
         public string IdentityDueDate { get; set; }
         public bool LifetimeIdentity { get; set; } = false;
-        public string NPWP { get; set; }
+        public string? NPWP { get; set; }
         public string Address { get; set; }
         public string Province { get; set; }
         public string City { get; set; }
@@ -25,7 +25,7 @@ namespace NewLMS.UMKM.Data
 
         [ForeignKey(nameof(RfZipCode))]
         public int ZipCodeId { get; set; }
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [ForeignKey(nameof(RfMaritalStatus))]
         public string MaritalStatusCode { get; set; }
