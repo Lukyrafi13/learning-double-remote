@@ -1,10 +1,10 @@
 namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
 {
-    // public class ProspectProsesCommand : ProspectFindRequestDto, IRequest<ServiceResponse<ProspectProsesResponseDto>>
+    // public class ProspectProcessCommand : ProspectFindRequestDto, IRequest<ServiceResponse<ProspectProsesResponseDto>>
     // {
     //     public string NamaUser { get; set; }
     // }
-    // public class ProspectProsesCommandHandler : IRequestHandler<ProspectProsesCommand, ServiceResponse<ProspectProsesResponseDto>>
+    // public class ProspectProcessCommandHandler : IRequestHandler<ProspectProcessCommand, ServiceResponse<ProspectProsesResponseDto>>
     // {
     //     private readonly IGenericRepositoryAsync<Prospect> _prospect;
     //     private readonly IGenericRepositoryAsync<LoanApplication> _LoanApplication;
@@ -15,7 +15,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
     //     private readonly IGenericRepositoryAsync<LoanApplicationStageLogs> _stageLogs;
     //     private readonly IMapper _mapper;
 
-    //     public ProspectProsesCommandHandler(
+    //     public ProspectProcessCommandHandler(
     //             IGenericRepositoryAsync<Prospect> prospect,
     //             IGenericRepositoryAsync<LoanApplication> LoanApplication,
     //             IGenericRepositoryAsync<RfStage> stages,
@@ -36,7 +36,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
     //         _mapper = mapper;
     //     }
 
-    //     public async Task<ServiceResponse<ProspectProsesResponseDto>> Handle(ProspectProsesCommand request, CancellationToken cancellationToken)
+    //     public async Task<ServiceResponse<ProspectProsesResponseDto>> Handle(ProspectProcessCommand request, CancellationToken cancellationToken)
     //     {
 
     //         try

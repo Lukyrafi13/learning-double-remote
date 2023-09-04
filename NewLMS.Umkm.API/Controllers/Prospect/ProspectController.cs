@@ -63,6 +63,21 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
             return Ok(result);
         }
 
+        /// <summary>
+        /// Edit Prospect
+        /// </summary>
+        /// <param name="ProspectPutRequest"></param>
+        /// <returns></returns>
+        [HttpPut("put", Name = "command")]
+        [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
+        public async Task<IActionResult> Put([FromBody] ProspectPutCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return ReturnFormattedResponse(result);
+        }
+
+
         // /// <summary>
         // /// Post New Prospect
         // /// </summary>

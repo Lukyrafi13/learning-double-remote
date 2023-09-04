@@ -38,8 +38,9 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public string CompanyProvince { get; set; }
         public int CompanyZipCodeId { get; set; }
         public int CompanyGroupId { get; set; }
-        public int CompanyTypeId { get; set; }
+        public string CompanyTypeId { get; set; }
         public string Reason { get; set; }
         public string DataSource { get; set; }
+        public string OtherCompanyType { get; set; }
     }
 }
