@@ -2145,12 +2145,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("VehCode")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("VehMakerCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("VehModelCode")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VehClassCode");
 
                     b.HasIndex("VehCode");
+
+                    b.HasIndex("VehMakerCode");
 
                     b.HasIndex("VehModelCode");
 
@@ -2205,6 +2210,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<string>("CollateralCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("CoreCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -2239,6 +2247,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VehMakerCode");
+
+                    b.HasIndex("CollateralCode");
 
                     b.HasIndex("VehCode");
 
@@ -3478,9 +3488,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("VehCode");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfVehMaker", "RfVehMaker")
+                        .WithMany()
+                        .HasForeignKey("VehMakerCode");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfVehModel", "RfVehModel")
                         .WithMany()
                         .HasForeignKey("VehModelCode");
+
+                    b.Navigation("RfVehMaker");
 
                     b.Navigation("RfVehModel");
 
@@ -3489,6 +3505,10 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfVehMaker", b =>
                 {
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfCollateralBC", "RfCollateralBC")
+                        .WithMany()
+                        .HasForeignKey("CollateralCode");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfVehType", "RfVehType")
                         .WithMany()
                         .HasForeignKey("VehCode");
@@ -3496,6 +3516,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfVehCountry", "RfVehCountry")
                         .WithMany()
                         .HasForeignKey("VehCountryCode");
+
+                    b.Navigation("RfCollateralBC");
 
                     b.Navigation("RfVehCountry");
 

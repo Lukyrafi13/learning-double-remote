@@ -21,10 +21,14 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfVehCountry))]
         public string VehCountryCode { get; set; }
 
+        [ForeignKey(nameof(RfCollateralBC))]
+        public string CollateralCode { get; set; }
+
         public string CoreCode { get; set; }
         public bool Active { get; set; }
 
         public virtual RfVehType RfVehType { get; set; }
         public virtual RfVehCountry RfVehCountry { get; set; }
+        public virtual RfCollateralBC RfCollateralBC { get; set; }
     }
 }

@@ -34,6 +34,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehMakers.Queries.GetFilterRfVehMakers
             var includes = new string[] {
                 "RfVehType",
                 "RfVehCountry",
+                "RfCollateralBC",
             };
             var data = await _rfVehMaker.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<RfVehMakerResponse>>(data.Results);
