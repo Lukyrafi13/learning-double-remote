@@ -36,6 +36,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                         "RfBranch",
                         "RfProduct",
                         "RfGender",
+                        "RfCategory",
                         "RfSectorLBU3.RfSectorLBU2.RfSectorLBU1",
                         "RfOwnerCategory",
                         "RfZipCode",

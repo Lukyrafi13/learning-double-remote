@@ -10,7 +10,7 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public string Address { get; set; }
         public int ZipCodeId { get; set; }
         public string Neighborhoods { get; set; }
-        public int ApplicationType { get; set; }
+        public int ApplicationTypeId { get; set; }
         public long TargetPlafond { get; set; }
         public DateTime EstimateProcessDate { get; set; }
         public string ProductId { get; set; }
