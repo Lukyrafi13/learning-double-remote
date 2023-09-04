@@ -138,21 +138,22 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfCompanyGroup))]
         public int? CompanyGroupId { get; set; }
         [ForeignKey(nameof(RfCompanyType))]
-        public int? CompanyTypeId { get; set; }
+        public string? CompanyTypeId { get; set; }
         #endregion
 
         #region ETC
         public string? DataSource { get; set; } = "NewLMS";
+        public string? OtherCompanyType { get; set; }
         #endregion
         public EnumProspectStatus Status { get; set; } = EnumProspectStatus.Draft;
 
         public virtual RfParameterDetail RfCompanyStatus { get; set; }
         public virtual RfParameterDetail RfCompanyGroup { get; set; }
         public virtual RfParameterDetail RfOwnerCategory { get; set; }
-        public virtual RfParameterDetail RfCompanyType { get; set; }
         public virtual RfParameterDetail RfCategory { get; set; }
         public virtual RfParameterDetail RfApplicationType { get; set; }
 
+        public virtual RfCompanyType RfCompanyType { get; set; }
         public virtual RfBranch RfBranch { get; set; }
         public virtual RfProduct RfProduct { get; set; }
         public virtual RfGender RfGender { get; set; }

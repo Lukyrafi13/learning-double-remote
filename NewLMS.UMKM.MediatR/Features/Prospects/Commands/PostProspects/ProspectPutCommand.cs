@@ -58,28 +58,30 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 {
                     "RfProduct"
                 };
-                var prospect = await _prospect.GetByIdAsync(request.Id, "Id", prospectIncludes)
+                var prospect = await _prospect.GetByIdAsync(Guid.Parse(request.Id), "Id", prospectIncludes)
                     ?? throw new NullReferenceException("Data Prospect tidak ditemukan.");
 
                 var product = await _product.GetByIdAsync(request.ProductId, "ProductId")
                     ?? throw new NullReferenceException("Data Produk tidak ditemukan.");
 
-                var countDataProspect = await _prospect.GetCountByPredicate(x =>
-                            x.BranchId == request.BranchId
-                            && x.RfProduct.ProductType == product.ProductType
-                            && x.CreatedDate.Year == DateTime.Now.Year
-                            && x.CreatedDate.Month == DateTime.Now.Month
-                            );
-                // Build ProspectId
-                var prospectId = request.BranchId
-                            + "-"
-                            + product.ProductType
-                            + "-"
-                            + DateTime.Now.ToString("yy")
-                            + DateTime.Now.ToString("MM")
-                            + "-"
-                            + (countDataProspect + 1).ToString("D4");
-                prospect.ProspectId = prospectId;
+                // Build ProspectId If Product Changed
+                if (prospect.BranchId != request.BranchId)
+                {
+                    var countDataProspect = await _prospect.GetCountByPredicate(x =>
+                                x.BranchId == request.BranchId
+                                && x.RfProduct.ProductType == product.ProductType
+                                && x.CreatedDate.Year == DateTime.Now.Year
+                                && x.CreatedDate.Month == DateTime.Now.Month
+                                );
+                    prospect.ProspectId = request.BranchId
+                                + "-"
+                                + product.ProductType
+                                + "-"
+                                + DateTime.Now.ToString("yy")
+                                + DateTime.Now.ToString("MM")
+                                + "-"
+                                + (countDataProspect + 1).ToString("D4");
+                }
                 prospect = _mapper.Map<ProspectPutRequest, Prospect>(request, prospect);
 
                 await _prospect.UpdateAsync(prospect);
