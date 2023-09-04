@@ -37,7 +37,6 @@ using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfVehType;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Data.Dto.RfCompanyType;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
 using NewLMS.UMKM.Data.Dto.RfVehCountry;
