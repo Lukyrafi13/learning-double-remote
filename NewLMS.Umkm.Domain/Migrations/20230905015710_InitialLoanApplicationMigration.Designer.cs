@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230905015710_InitialLoanApplicationMigration")]
+    partial class InitialLoanApplicationMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -540,12 +542,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("BookingOfficeCode")
                         .HasColumnType("nvarchar(4)");
 
-                    b.Property<int?>("BusinessCycleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BusinessCycleMonth")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
@@ -573,9 +569,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool?>("IsBusinessCycle")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -596,9 +589,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<Guid?>("ProspectId")
                         .IsRequired()
                         .HasColumnType("uniqueidentifier");
@@ -606,7 +596,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("RfBranchCode")
                         .HasColumnType("nvarchar(4)");
 
+                    b.Property<string>("RfProductProductId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("RfSectorLBU3Code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RfSubProductSubProductId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("StageId")
@@ -619,8 +615,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("BookingOfficeCode");
 
-                    b.HasIndex("BusinessCycleId");
-
                     b.HasIndex("DebtorCompanyId");
 
                     b.HasIndex("DebtorId");
@@ -631,13 +625,15 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.HasIndex("ProductId");
-
                     b.HasIndex("ProspectId");
 
                     b.HasIndex("RfBranchCode");
 
+                    b.HasIndex("RfProductProductId");
+
                     b.HasIndex("RfSectorLBU3Code");
+
+                    b.HasIndex("RfSubProductSubProductId");
 
                     b.HasIndex("StageId");
 
@@ -1251,7 +1247,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("DataSource")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DateOfBirth")
+                    b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("DeletedBy")
@@ -4300,10 +4296,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("BookingOfficeCode");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfBusinessCycle")
-                        .WithMany()
-                        .HasForeignKey("BusinessCycleId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.DebtorCompany", "DebtorCompany")
                         .WithMany()
                         .HasForeignKey("DebtorCompanyId");
@@ -4328,10 +4320,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.Prospect", "Prospect")
                         .WithMany()
                         .HasForeignKey("ProspectId")
@@ -4342,9 +4330,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("RfBranchCode");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
+                        .WithMany()
+                        .HasForeignKey("RfProductProductId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("RfSectorLBU3Code");
+
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfSubProduct", "RfSubProduct")
+                        .WithMany()
+                        .HasForeignKey("RfSubProductSubProductId");
 
                     b.HasOne("NewLMS.UMKM.Data.RfStage", "RfStage")
                         .WithMany()
@@ -4366,8 +4362,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("RfBranch");
 
-                    b.Navigation("RfBusinessCycle");
-
                     b.Navigation("RfOwnerCategory");
 
                     b.Navigation("RfProduct");
@@ -4375,6 +4369,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfSectorLBU3");
 
                     b.Navigation("RfStage");
+
+                    b.Navigation("RfSubProduct");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCollateral", b =>

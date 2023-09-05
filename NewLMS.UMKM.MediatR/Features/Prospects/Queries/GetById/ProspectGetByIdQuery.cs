@@ -41,7 +41,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                         "RfZipCode",
                         "RfPlaceZipCode",
                         "RfCompanyZipCode",
-                        "RfApplicationTypea"
+                        "RfApplicationType"
                     };
                 var data = await _prospect.GetByIdAsync(request.Id, "Id", prospectIncludes);
                 if (data == null)

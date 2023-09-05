@@ -38,6 +38,10 @@ namespace NewLMS.UMKM.Data.Entities
         public Guid? DebtorEmergencyId { get; set; }
 
 
+        [ForeignKey(nameof(RfProduct))]
+        public string ProductId { get; set; }
+
+
         [ForeignKey(nameof(RfOwnerCategory))]
         public int OwnerCategoryId { get; set; }
 
@@ -47,10 +51,18 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(Owner))]
         public Guid OwnerId { get; set; }
 
+        public bool? IsBusinessCycle { get; set; }
+
+        [ForeignKey(nameof(RfBusinessCycle))]
+        public int? BusinessCycleId { get; set; }
+        public int? BusinessCycleMonth { get; set; }
+
+
         public virtual User Owner { get; set; }
         public virtual User DecisionMaker { get; set; }
 
         public virtual RfParameterDetail RfOwnerCategory { get; set; }
+        public virtual RfParameterDetail RfBusinessCycle { get; set; }
 
         public virtual Debtor Debtor { get; set; }
         public virtual DebtorCompany DebtorCompany { get; set; }
@@ -60,7 +72,6 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfBranch RfBranch { get; set; }
         public virtual RfProduct RfProduct { get; set; }
         public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }
-        public virtual RfSubProduct RfSubProduct { get; set; }
         public virtual RfStage RfStage { get; set; }
 
 
@@ -69,7 +80,5 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual ICollection<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; } = new List<LoanApplicationKeyPerson>();
         public virtual ICollection<LoanApplicationFacility> LoanApplicationFacilities { get; set; } = new List<LoanApplicationFacility>();
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
-
-
     }
 }

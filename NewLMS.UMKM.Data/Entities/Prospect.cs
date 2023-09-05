@@ -40,7 +40,7 @@ namespace NewLMS.UMKM.Data.Entities
         [MaxLength(80)]
         public string? Fullname { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         public string? PlaceOfBirth { get; set; }
 
@@ -107,7 +107,7 @@ namespace NewLMS.UMKM.Data.Entities
         public int? CategoryId { get; set; }
         [ForeignKey(nameof(RfInstituteCode))]
         public string? ServiceCodeId { get; set; }
-        public string Reason { get; set; }
+        public string? Reason { get; set; }
         public long? TargetPlafond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }
         #endregion

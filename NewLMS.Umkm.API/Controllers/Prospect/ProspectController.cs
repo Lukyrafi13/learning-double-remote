@@ -67,11 +67,11 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
         /// <summary>
         /// Edit Prospect
         /// </summary>
-        /// <param name="ProspectPutCommand"></param>
+        /// <param name="prospectPutCommand"></param>
         /// <returns></returns>
-        [HttpPut("put", Name = "ProspectPutCommand")]
+        [HttpPut("")]
         [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<Unit>))]
-        public async Task<IActionResult> Put([FromBody] ProspectPutCommand prospectPutCommand)
+        public async Task<IActionResult> EditProspect([FromBody] ProspectPutCommand prospectPutCommand)
         {
             var result = await _mediator.Send(prospectPutCommand);
 
@@ -83,8 +83,7 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
         /// </summary>
         /// <param name="ProspectDeleteCommand"></param>
         /// <returns></returns>
-        [HttpPut("put", Name = "command")]
-        [HttpDelete("{Id}")]
+        [HttpDelete("")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> Delete(ProspectDeleteCommand command)
         {
