@@ -1271,9 +1271,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<int?>("ResidenceStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RfHomestaParameterDetailId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ZipCodeId")
                         .HasColumnType("int");
 
@@ -1288,8 +1285,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("MaritalStatusId");
 
                     b.HasIndex("ResidenceStatusId");
-
-                    b.HasIndex("RfHomestaParameterDetailId");
 
                     b.HasIndex("ZipCodeId");
 
@@ -1313,9 +1308,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DebtorEmergencyId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("DeletedBy")
                         .HasColumnType("uniqueidentifier");
@@ -1347,12 +1339,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("Province")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ZipCodeId")
+                    b.Property<int?>("ZipCodeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DebtorEmergencyId");
 
                     b.HasIndex("ZipCodeId");
 
@@ -1500,7 +1490,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("BookingOfficeCode")
+                    b.Property<string>("BookingBranchId")
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<string>("BranchId")
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<int?>("BusinessCycleId")
@@ -1566,9 +1559,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("RfBranchCode")
-                        .HasColumnType("nvarchar(4)");
-
                     b.Property<string>("RfSectorLBU3Code")
                         .HasColumnType("nvarchar(450)");
 
@@ -1580,7 +1570,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingOfficeCode");
+                    b.HasIndex("BookingBranchId");
+
+                    b.HasIndex("BranchId");
 
                     b.HasIndex("BusinessCycleId");
 
@@ -1595,8 +1587,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ProductId");
 
                     b.HasIndex("ProspectId");
-
-                    b.HasIndex("RfBranchCode");
 
                     b.HasIndex("RfSectorLBU3Code");
 
@@ -1793,9 +1783,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("RfEducationEducationCode")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("RfHomestaParameterDetailId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ZipCodeId")
                         .HasColumnType("int");
 
@@ -1810,8 +1797,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ResidenceStatusId");
 
                     b.HasIndex("RfEducationEducationCode");
-
-                    b.HasIndex("RfHomestaParameterDetailId");
 
                     b.HasIndex("ZipCodeId");
 
@@ -3131,11 +3116,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfGenders");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfInstalmentType", b =>
+            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfInstallmentType", b =>
                 {
-                    b.Property<Guid>("InstalmentTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("InstallmentTypeCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -3149,7 +3133,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("InstalmentTypeDesc")
+                    b.Property<string>("InstallmentTypeDesc")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -3161,9 +3145,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("InstalmentTypeId");
+                    b.HasKey("InstallmentTypeCode");
 
-                    b.ToTable("RfInstalmentTypes");
+                    b.ToTable("RfInstallmentTypes");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfJob", b =>
@@ -5239,10 +5223,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("ResidenceStatusId");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfHomesta")
-                        .WithMany()
-                        .HasForeignKey("RfHomestaParameterDetailId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -5250,8 +5230,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfEducation");
 
                     b.Navigation("RfGender");
-
-                    b.Navigation("RfHomesta");
 
                     b.Navigation("RfJob");
 
@@ -5264,17 +5242,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCompany", b =>
                 {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.DebtorEmergency", "DebtorEmergency")
-                        .WithMany()
-                        .HasForeignKey("DebtorEmergencyId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
-                        .HasForeignKey("ZipCodeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DebtorEmergency");
+                        .HasForeignKey("ZipCodeId");
 
                     b.Navigation("RfZipCode");
                 });
@@ -5292,9 +5262,13 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
                 {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "BookingOffice")
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "RfBookingBranch")
                         .WithMany()
-                        .HasForeignKey("BookingOfficeCode");
+                        .HasForeignKey("BookingBranchId");
+
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "RfBranch")
+                        .WithMany()
+                        .HasForeignKey("BranchId");
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfBusinessCycle")
                         .WithMany()
@@ -5328,10 +5302,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "RfBranch")
-                        .WithMany()
-                        .HasForeignKey("RfBranchCode");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("RfSectorLBU3Code");
@@ -5342,8 +5312,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BookingOffice");
-
                     b.Navigation("Debtor");
 
                     b.Navigation("DebtorCompany");
@@ -5351,6 +5319,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("DecisionMaker");
 
                     b.Navigation("Prospect");
+
+                    b.Navigation("RfBookingBranch");
 
                     b.Navigation("RfBranch");
 
@@ -5412,10 +5382,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("RfEducationEducationCode");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfHomesta")
-                        .WithMany()
-                        .HasForeignKey("RfHomestaParameterDetailId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
@@ -5427,8 +5393,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfEducation");
 
                     b.Navigation("RfGender");
-
-                    b.Navigation("RfHomesta");
 
                     b.Navigation("RfJob");
 

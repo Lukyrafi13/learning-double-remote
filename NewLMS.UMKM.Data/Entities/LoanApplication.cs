@@ -56,6 +56,12 @@ namespace NewLMS.UMKM.Data.Entities
         public int? BusinessCycleId { get; set; }
         public int? BusinessCycleMonth { get; set; }
 
+        [ForeignKey(nameof(RfBranch))]
+        public string BranchId { get; set; }
+
+        [ForeignKey(nameof(RfBookingBranch))]
+        public string BookingBranchId { get; set; }
+
 
         public virtual User DecisionMaker { get; set; }
 
@@ -66,7 +72,7 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual DebtorCompany DebtorCompany { get; set; }
         public virtual Prospect Prospect { get; set; }
 
-        public virtual RfBranch BookingOffice { get; set; }
+        public virtual RfBranch RfBookingBranch { get; set; }
         public virtual RfBranch RfBranch { get; set; }
         public virtual RfProduct RfProduct { get; set; }
         public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }

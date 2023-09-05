@@ -95,7 +95,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfVehModel> RfVehModels { get; set; }
         public DbSet<RfVehType> RfVehTypes { get; set; }
         public DbSet<RfBranch> RfBranches { get; set; }
-        public DbSet<RfInstalmentType> RfInstalmentTypes { get; set; }
+        public DbSet<RfInstallmentType> RfInstallmentTypes { get; set; }
         public DbSet<RfCondition> RfConditions { get; set; }
         public DbSet<RfCreditType> RfCreditTypes { get; set; }
         public DbSet<RfSandiBI> RfSandiBIs { get; set; }

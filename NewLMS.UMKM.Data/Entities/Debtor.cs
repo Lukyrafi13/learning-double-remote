@@ -57,9 +57,6 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfGender RfGender { get; set; }
         public virtual RfEducation RfEducation { get; set; }
         public virtual RfMarital RfMarital { get; set; }
-        public virtual RfParameterDetail RfHomesta { get; set; }
-
-
     }
 }
 

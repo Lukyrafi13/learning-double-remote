@@ -8,6 +8,7 @@ using MediatR;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Dto.Prospects;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Data.Enums;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 
@@ -37,8 +38,8 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 IGenericRepositoryAsync<DebtorCompany> debtorCompany,
                 IGenericRepositoryAsync<LoanApplicationStageLog> stageLogs,
                 IMapper mapper,
-				ICurrentUserService userInfoToken
-			)
+                ICurrentUserService userInfoToken
+            )
         {
             _prospect = prospect;
             _loanApplication = loanApplication;
@@ -56,12 +57,39 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
             try
             {
                 var prospectIncludes = new string[] {
-                    "RfOwnerCategory"
+                    "RfOwnerCategory",
+                    "RfProduct"
                 };
-                var prospect = await _prospect.GetByIdAsync(request.Id, "Id");
 
-                Debtor? debtor;
-                DebtorCompany? debtorCompany;
+                //TODO: Refine building ID logic
+                var countDataLoan = await _loanApplication.GetCountByPredicate(x =>
+                            x.CreatedDate.Year == DateTime.Now.Year
+                            && x.CreatedDate.Month == DateTime.Now.Month
+                            );
+                var prospect = await _prospect.GetByIdAsync(request.Id, "Id", prospectIncludes);
+                var loanApplicationId = prospect.BranchId
+                            + "-"
+                            + prospect.RfProduct.ProductType
+                            + "-"
+                            + DateTime.Now.ToString("yy")
+                            + DateTime.Now.ToString("MM")
+                            + "-"
+                            + (countDataLoan + 1).ToString("D4");
+                var loanApplication = new LoanApplication()
+                {
+                    Id = Guid.NewGuid(),
+                    BranchId = prospect.BranchId,
+                    DataSource = prospect.DataSource,
+                    ProspectId = prospect.Id,
+                    LoanApplicationId = loanApplicationId,
+                    ProductId = prospect.ProductId,
+                    Status = EnumLoanApplicationStatus.Draft,
+                    StageId = Guid.Parse("1FBE4B9F-1B6C-4056-9054-7BBA1AE614E2"),
+                    OwnerCategoryId = prospect.OwnerCategoryId ?? 1
+                };
+
+                Debtor debtor = new();
+                DebtorCompany debtorCompany = new();
 
                 if (prospect.RfOwnerCategory.Code == "001") // Perorangan
                 {
@@ -80,6 +108,9 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                         PhoneNumber = prospect.PhoneNumber,
                     };
                     await _debtor.AddAsync(debtor);
+
+                    loanApplication.DebtorCompanyId = null;
+                    loanApplication.DebtorId = debtor.Id;
                 }
                 else if (prospect.RfOwnerCategory.Code == "002") // Badan Usaha
                 {
@@ -87,16 +118,15 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                     {
                         Id = Guid.NewGuid(),
                         Name = prospect.CompanyName,
-                        PhoneNumber = prospect.PhoneNumber,
-                        Address = prospect.CompanyAddress,
-                        Province = prospect.CompanyProvince,
-                        City = prospect.CompanyCity,
-                        District = prospect.CompanyDistrict,
-                        Neighborhoods = prospect.CompanyNeighborhoods,
-                        ZipCodeId = prospect.CompanyZipCodeId ?? 0,
+                        PhoneNumber = prospect.PhoneNumber
                     };
                     await _debtorCompany.AddAsync(debtorCompany);
+
+                    loanApplication.DebtorId = null;
+                    loanApplication.DebtorCompanyId = debtorCompany.Id;
                 }
+
+                await _loanApplication.AddAsync(loanApplication);
 
                 return ServiceResponse<Guid>.ReturnResultWith200(Guid.NewGuid());
             }
