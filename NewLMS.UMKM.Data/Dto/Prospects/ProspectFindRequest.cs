@@ -2,8 +2,8 @@ using System;
 
 namespace NewLMS.UMKM.Data.Dto.Prospects
 {
-    public class ProspectFindRequestDto
+    public class ProspectFindRequest
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

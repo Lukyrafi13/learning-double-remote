@@ -10,7 +10,7 @@ using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
 {
-    public class ProspectsGetByIdQuery : ProspectFindRequestDto, IRequest<ServiceResponse<ProspectResponse>>
+    public class ProspectsGetByIdQuery : ProspectFindRequest, IRequest<ServiceResponse<ProspectResponse>>
     {
     }
 
@@ -28,8 +28,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
         {
             try
             {
-                var prospect = await _prospect.GetByPredicate(x => x.Id.ToString() == request.Id,
-                    new string[] {
+                var prospectIncludes = new string[] {
                         "RfCompanyGroup",
                         "RfCompanyStatus",
                         "RfCompanyType",
@@ -42,15 +41,14 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                         "RfZipCode",
                         "RfPlaceZipCode",
                         "RfCompanyZipCode",
-                        "RfApplicationType",
-                    }
-                );
-                if (prospect == null)
+                        "RfApplicationTypea"
+                    };
+                var data = await _prospect.GetByIdAsync(request.Id, "Id", prospectIncludes);
+                if (data == null)
                     return ServiceResponse<ProspectResponse>.ReturnResultWith204();
+                var dataVm = _mapper.Map<ProspectResponse>(data);
 
-                var response = _mapper.Map<ProspectResponse>(prospect);
-
-                return ServiceResponse<ProspectResponse>.ReturnResultWith200(response);
+                return ServiceResponse<ProspectResponse>.ReturnResultWith200(dataVm);
             }
             catch (Exception ex)
             {

@@ -14,6 +14,7 @@ namespace NewLMS.UMKM.Domain.Context
         {
 
         }
+        #region Base Entities
         public override DbSet<User> Users { get; set; }
         public override DbSet<Role> Roles { get; set; }
         public override DbSet<UserClaim> UserClaims { get; set; }
@@ -31,12 +32,30 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<EmailTemplate> EmailTemplates { get; set; }
         public DbSet<EmailSMTPSetting> EmailSMTPSettings { get; set; }
         public virtual DbSet<UserDevice> UserDevices { get; set; }
+        #endregion
+
+
         public virtual DbSet<ThridParty> ThridParties { get; set; }
-        public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
+
+        #region Transactions
         public DbSet<Prospect> Prospects { get; set; }
-        public DbSet<RfCompanyType> RfCompanyTypes { get; set; }
+        public DbSet<LoanApplication> LoanApplications { get; set; }
+        public DbSet<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; }
+        public DbSet<LoanApplicationCollateralOwner> LoanApplicationCollateralOwners { get; set; }
+        public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
+        public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
+        public DbSet<LoanApplicationFacility> LoanApplicationFacilities { get; set; }
+        public DbSet<LoanApplicationStageLog> LoanApplicationStageLogs { get; set; }
+        public DbSet<Debtor> Debtors { get; set; }
+        public DbSet<DebtorCompany> DebtorCompanies { get; set; }
+        public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
+        public DbSet<CompanyLegal> CompanyLegals { get; set; }
+
+        #endregion
 
         #region References
+        public virtual DbSet<RfZipCode> RfZipCodes { get; set; }
+        public DbSet<RfCompanyType> RfCompanyTypes { get; set; }
         public DbSet<RfStage> RfStages { get; set; }
         public DbSet<RfApplicationType> RfApplicationTypes { get; set; }
         public DbSet<RfBusinessFieldKUR> RfBusinessFieldKURs { get; set; }
