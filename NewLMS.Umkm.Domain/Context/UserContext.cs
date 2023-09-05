@@ -49,7 +49,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<Debtor> Debtors { get; set; }
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
         public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
-        public DbSet<CompanyLegal> CompanyLegals { get; set; }
+        public DbSet<DebtorCompanyLegal> DebtorCompanyLegals { get; set; }
 
         #endregion
 

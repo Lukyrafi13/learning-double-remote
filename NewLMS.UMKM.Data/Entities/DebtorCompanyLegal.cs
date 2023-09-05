@@ -4,9 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data.Entities
 {
-    public class CompanyLegal : BaseEntity
+    public class DebtorCompanyLegal : BaseEntity
     {
         [Key]
+        [ForeignKey(nameof(DebtorCompany))]
         [Required]
         public Guid Id { get; set; }
         public string EstablishmentDeedNumber { get; set; }
