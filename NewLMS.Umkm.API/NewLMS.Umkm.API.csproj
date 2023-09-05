@@ -54,6 +54,7 @@
 	  <PackageReference Include="Bjb.DigitalBisnis.Consul" Version="1.0.1" />
 		<PackageReference Include="Bjb.DigitalBisnis.HealthCheck" Version="1.0.0" />
 	  <PackageReference Include="Bjb.DigitalBisnis.BaseMvcApi" Version="1.0.2" />
+	  <PackageReference Include="Bjb.DigitalBisnis.CurrentUser" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>

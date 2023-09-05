@@ -48,8 +48,7 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(DecisionMaker))]
         public Guid? DecisionMakerId { get; set; }
 
-        [ForeignKey(nameof(Owner))]
-        public Guid OwnerId { get; set; }
+        public Guid? OwnerId { get; set; }
 
         public bool? IsBusinessCycle { get; set; }
 
@@ -58,7 +57,6 @@ namespace NewLMS.UMKM.Data.Entities
         public int? BusinessCycleMonth { get; set; }
 
 
-        public virtual User Owner { get; set; }
         public virtual User DecisionMaker { get; set; }
 
         public virtual RfParameterDetail RfOwnerCategory { get; set; }
