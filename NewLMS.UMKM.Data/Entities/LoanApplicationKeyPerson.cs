@@ -1,8 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NewLMS.UMKM.Data.Entities;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.UMKM.Data.Entities
 {
     public class LoanApplicationKeyPerson : BaseEntity
     {
@@ -27,14 +28,15 @@ namespace NewLMS.UMKM.Data
         public int ZipCodeId { get; set; }
         public string? PhoneNumber { get; set; }
 
-        [ForeignKey(nameof(RfMaritalStatus))]
-        public string MaritalStatusCode { get; set; }
+        [ForeignKey(nameof(RfMarital))]
+        public string MaritalStatusId { get; set; }
 
         [ForeignKey(nameof(RfEducation))]
-        public string EducationnCode
+        public string EducationId { get; set; }
 
 
         public virtual RfEducation RfEducation { get; set; }
+        public virtual RfMarital RfMarital { get; set; }
         public virtual RfZipCode RfZipCode { get; set; }
     }
 }

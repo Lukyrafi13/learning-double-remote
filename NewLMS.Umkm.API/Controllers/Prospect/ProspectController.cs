@@ -44,7 +44,7 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
         /// <returns></returns>
         [HttpGet("get/{Id}", Name = "GetProspectById")]
         [Produces("application/json", "application/xml", Type = typeof(ProspectResponse))]
-        public async Task<IActionResult> GetProspectById(string Id)
+        public async Task<IActionResult> GetProspectById(Guid Id)
         {
             var getStatusTargetQuery = new ProspectsGetByIdQuery { Id = Id };
             var result = await _mediator.Send(getStatusTargetQuery);

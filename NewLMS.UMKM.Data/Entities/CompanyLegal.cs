@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.UMKM.Data.Entities
 {
     public class CompanyLegal : BaseEntity
     {
@@ -23,6 +23,6 @@ namespace NewLMS.UMKM.Data
         public DateTime SKDueDate { get; set; }
         public DateTime DeedDate { get; set; }
         public string SKDPNumber { get; set; }
-        public DateTime SKDPNumber { get; set; }
+        public DateTime SKDPDate { get; set; }
     }
 }

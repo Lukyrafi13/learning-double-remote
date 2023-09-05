@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.UMKM.Data.Entities
 {
     public class DebtorEmergency : BaseEntity
     {
@@ -21,7 +21,6 @@ namespace NewLMS.UMKM.Data
         public int ZipCodeId { get; set; }
         public string PhoneNumber { get; set; }
 
-        public virtual DebtorEmergency DebtorEmergency { get; set; }
         public virtual RfZipCode RfZipCode { get; set; }
     }
 }
