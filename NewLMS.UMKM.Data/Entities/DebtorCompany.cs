@@ -20,7 +20,6 @@ namespace NewLMS.UMKM.Data.Entities
         public int ZipCodeId { get; set; }
         public string PhoneNumber { get; set; }
 
-        public virtual DebtorEmergency DebtorEmergency { get; set; }
         public virtual RfZipCode RfZipCode { get; set; }
     }
 }
