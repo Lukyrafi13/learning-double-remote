@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230905032130_addRfInstalmentType")]
+    partial class addRfInstalmentType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2194,7 +2196,12 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("InstalmentTypeId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("RfInstalmentTypes");
                 });
@@ -4793,6 +4800,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfCollateralBC");
 
                     b.Navigation("RfDocument");
+                });
+
+            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfInstalmentType", b =>
+                {
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("RfProduct");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfJob", b =>
