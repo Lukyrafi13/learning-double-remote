@@ -41,6 +41,7 @@ using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
 using NewLMS.UMKM.Data.Dto.RfVehCountry;
 using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
+using NewLMS.UMKM.Data.Dto.RfInstallmentTypes;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewLMS.UMKM.Data.Dto.RfInstallmentTypes
+﻿namespace NewLMS.UMKM.Data.Dto.RfInstallmentTypes
 {
     public class RfInstallmentTypeResponse : BaseResponse
     {

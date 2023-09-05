@@ -4,11 +4,8 @@ using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.RfInstallmentTypes;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Repository.GenericRepository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

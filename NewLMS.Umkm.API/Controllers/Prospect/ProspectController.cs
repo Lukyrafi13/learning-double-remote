@@ -83,30 +83,23 @@ namespace NewLMS.UMKM.API.Controllers.RfTenor
         /// </summary>
         /// <param name="ProspectDeleteCommand"></param>
         /// <returns></returns>
-        [HttpDelete("")]
+        [HttpDelete("{Id}")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> Delete(ProspectDeleteCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
 
-
-
-        // /// <summary>
-        // /// Post New Prospect
-        // /// </summary>
-        // /// <param name="postProspect"></param>
-        // /// <returns></returns>
-        // [HttpPost("post", Name = "AddProspect")]
-        // [Produces("application/json", "application/xml", Type = typeof(ServiceResponse<ProspectResponseDto>))]
-        // public async Task<IActionResult> AddProspect(ProspectPostCommand postProspect)
-        // {
-        //     var result = await _mediator.Send(postProspect);
-        //     if (!result.Success)
-        //     {
-        //         return ReturnFormattedResponse(result);
-        //     }
-        //     return CreatedAtAction("GetProspectById", new { id = result.Data.Id }, result.Data);
-        // }
+        /// <summary>
+        /// Process Prospect
+        /// </summary>
+        /// <param name="ProspectProcessCommand"></param>
+        /// <returns></returns>
+        [HttpPost("process", Name = "command")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> Process(ProspectProcessCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }
