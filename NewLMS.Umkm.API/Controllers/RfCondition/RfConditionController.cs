@@ -11,7 +11,7 @@ namespace NewLMS.UMKM.API.Controllers.RfCondition
     public class RfConditionController : BaseController
     {
         /// <summary>
-        /// GetFilter RfCompanyType
+        /// GetFilter RfCondition
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
