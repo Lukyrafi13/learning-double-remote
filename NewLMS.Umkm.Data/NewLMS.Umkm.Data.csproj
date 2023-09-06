@@ -16,6 +16,8 @@
     <None Remove="Dto\LoanApplicationCollaterals\" />
     <None Remove="Dto\LoanApplicationCollateralOwners\" />
     <None Remove="Dto\LoanApplicationFacilities\" />
+    <None Remove="Dto\DebtorCouple\" />
+    <None Remove="Dto\LoanApplicationCreditScorings\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -43,5 +45,7 @@
     <Folder Include="Dto\LoanApplicationCollaterals\" />
     <Folder Include="Dto\LoanApplicationCollateralOwners\" />
     <Folder Include="Dto\LoanApplicationFacilities\" />
+    <Folder Include="Dto\DebtorCouple\" />
+    <Folder Include="Dto\LoanApplicationCreditScorings\" />
   </ItemGroup>
 </Project>

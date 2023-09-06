@@ -11,6 +11,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
 		{
 			CreateMap<DebtorCompany, DebtorCompanyResponse>();
 			CreateMap<DebtorCompanyLegal, DebtorCompanyLegalResponse>();
+			CreateMap<DebtorCompanyRequest, DebtorCompany>();
 		}
 	}
 }
