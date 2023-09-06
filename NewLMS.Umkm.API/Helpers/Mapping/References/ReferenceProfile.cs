@@ -42,6 +42,10 @@ using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
 using NewLMS.UMKM.Data.Dto.RfVehCountry;
 using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
 using NewLMS.UMKM.Data.Dto.RfInstallmentTypes;
+using NewLMS.UMKM.Data.Dto.RfCondition;
+using NewLMS.UMKM.Data.Dto.RfCreditType;
+using NewLMS.UMKM.Data.Dto.RfSandiBI;
+using NewLMS.UMKM.Data.Dto.RfSandiBIGroup;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {
@@ -230,6 +234,28 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
 
             //RfInstituteCode
             CreateMap<RfInstituteCode, RfInstituteCodeResponse>();
+
+            //RfInstalmentType
+            CreateMap<RfInstalmentType, RfInstallmentTypeResponse>();
+            CreateMap<RfInstalmentType, RfInstallmentTypeSimpleResponse>();
+
+            //RfCondition
+            CreateMap<RfCondition, RfConditionResponse>();
+            CreateMap<RfCondition, RfConditionSimpleResponse>();
+
+            //RfCreditType
+            CreateMap<RfCreditType, RfCreditTypeResponse>();
+            CreateMap<RfCreditType, RfCreditTypeSimpleResponse>();
+
+            //RfSandiBI
+            CreateMap<RfSandiBI, RfSandiBIResponse>()
+                .ForMember(d => d.RfSandiBIGroup, s => s.MapFrom(d => d.RfSandiBIGroup));
+            CreateMap<RfSandiBI, RfSandiBIMinResponse>();
+            CreateMap<RfSandiBI, RfSandiBISimpleResponse>()
+                .ForMember(d => d.RfSandiBIGroup, s => s.MapFrom(d => d.RfSandiBIGroup));
+
+            //RfSandiBIGroup
+            CreateMap<RfSandiBIGroup, RfSandiBIGroupResponse>();
         }
     }
 }

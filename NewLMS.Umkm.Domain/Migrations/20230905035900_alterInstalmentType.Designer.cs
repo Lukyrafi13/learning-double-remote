@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230905035900_alterInstalmentType")]
+    partial class alterInstalmentType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,6 +210,83 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("EmailTemplates");
                 });
 
+            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.CompanyLegal", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EstablishmentDeedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EstablishmentDeedNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LatestDeedChange")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NPWP")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegisterNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SIUPDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SIUPNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SKDPDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SKDPNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SKDueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SKNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TDPDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("TDPDueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TDPNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CompanyLegals");
+                });
+
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Debtor", b =>
                 {
                     b.Property<Guid>("Id")
@@ -308,6 +387,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<int?>("ResidenceStatusId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("RfHomestaParameterDetailId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ZipCodeId")
                         .HasColumnType("int");
 
@@ -322,6 +404,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("MaritalStatusId");
 
                     b.HasIndex("ResidenceStatusId");
+
+                    b.HasIndex("RfHomestaParameterDetailId");
 
                     b.HasIndex("ZipCodeId");
 
@@ -345,6 +429,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DebtorEmergencyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("DeletedBy")
                         .HasColumnType("uniqueidentifier");
@@ -376,91 +463,16 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("Province")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ZipCodeId")
+                    b.Property<int>("ZipCodeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DebtorEmergencyId");
+
                     b.HasIndex("ZipCodeId");
 
                     b.ToTable("DebtorCompanies");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCompanyLegal", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("EstablishmentDeedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EstablishmentDeedNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LatestDeedChange")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NPWP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RegisterNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SIUPDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SIUPNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SKDPDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SKDPNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SKDueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SKNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("TDPDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("TDPDueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TDPNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DebtorCompanyLegals");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorEmergency", b =>
@@ -527,17 +539,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("BookingBranchId")
+                    b.Property<string>("BookingOfficeCode")
                         .HasColumnType("nvarchar(4)");
-
-                    b.Property<string>("BranchId")
-                        .HasColumnType("nvarchar(4)");
-
-                    b.Property<int?>("BusinessCycleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BusinessCycleMonth")
-                        .HasColumnType("int");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -566,9 +569,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool?>("IsBusinessCycle")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -586,17 +586,23 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<int>("OwnerCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("OwnerId")
+                    b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid?>("ProspectId")
                         .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("RfBranchCode")
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<string>("RfProductProductId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("RfSectorLBU3Code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RfSubProductSubProductId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("StageId")
@@ -607,11 +613,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingBranchId");
-
-                    b.HasIndex("BranchId");
-
-                    b.HasIndex("BusinessCycleId");
+                    b.HasIndex("BookingOfficeCode");
 
                     b.HasIndex("DebtorCompanyId");
 
@@ -621,11 +623,17 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("OwnerCategoryId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("OwnerId");
 
                     b.HasIndex("ProspectId");
 
+                    b.HasIndex("RfBranchCode");
+
+                    b.HasIndex("RfProductProductId");
+
                     b.HasIndex("RfSectorLBU3Code");
+
+                    b.HasIndex("RfSubProductSubProductId");
 
                     b.HasIndex("StageId");
 
@@ -820,6 +828,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("RfEducationEducationCode")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("RfHomestaParameterDetailId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ZipCodeId")
                         .HasColumnType("int");
 
@@ -834,6 +845,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ResidenceStatusId");
 
                     b.HasIndex("RfEducationEducationCode");
+
+                    b.HasIndex("RfHomestaParameterDetailId");
 
                     b.HasIndex("ZipCodeId");
 
@@ -1234,7 +1247,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("DataSource")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DateOfBirth")
+                    b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("DeletedBy")
@@ -1827,46 +1840,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfCompanyTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCondition", b =>
-                {
-                    b.Property<string>("ConditionCode")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool?>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ConditionCategory")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConditionDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ConditionCode");
-
-                    b.ToTable("RfConditions");
-                });
-
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCreditNature", b =>
                 {
                     b.Property<string>("CreditNatureCode")
@@ -1905,43 +1878,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasKey("CreditNatureCode");
 
                     b.ToTable("RfCreditNatures");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCreditType", b =>
-                {
-                    b.Property<string>("CreditTypeCode")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("CreditAgreement")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CreditTypeDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CreditTypeCode");
-
-                    b.ToTable("RfCreditTypes");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDecisionLeterType", b =>
@@ -2230,10 +2166,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfGenders");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfInstallmentType", b =>
+            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfInstalmentType", b =>
                 {
-                    b.Property<string>("InstallmentTypeCode")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("InstalmentTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -2247,7 +2184,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("InstallmentTypeDesc")
+                    b.Property<string>("InstalmentTypeDesc")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -2259,9 +2196,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("InstallmentTypeCode");
+                    b.HasKey("InstalmentTypeId");
 
-                    b.ToTable("RfInstallmentTypes");
+                    b.ToTable("RfInstalmentTypes");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfJob", b =>
@@ -2821,104 +2758,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfRelationCols");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBI", b =>
-                {
-                    b.Property<string>("RfSandiBIId")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("BICode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("BIDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BIGroup")
-                        .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
-
-                    b.Property<string>("BIType")
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<string>("CategoryCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CoreCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LBU2Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("RfSandiBIId");
-
-                    b.HasIndex("BIGroup");
-
-                    b.ToTable("RfSandiBIs");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBIGroup", b =>
-                {
-                    b.Property<string>("BIGroup")
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
-
-                    b.Property<string>("BIDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("BIGroup");
-
-                    b.ToTable("RfSandiBIGroups");
-                });
-
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfScPosition", b =>
                 {
                     b.Property<string>("ScPositionCode")
@@ -3113,64 +2952,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("RfSectorLBU2Code");
 
                     b.ToTable("RfSectorLBU3");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfStage", b =>
-                {
-                    b.Property<Guid>("StageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<string>("Code")
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValue(new Guid("113005de-06bc-44cb-b97f-a9c65c0c5465"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GroupName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GroupStage")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GroupStageDigiloan")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool?>("IsShowInTracking")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("StageId");
-
-                    b.ToTable("RfStages");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSubProduct", b =>
@@ -3947,6 +3728,64 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfInstituteCode");
                 });
 
+            modelBuilder.Entity("NewLMS.UMKM.Data.RfStage", b =>
+                {
+                    b.Property<Guid>("StageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("Code")
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValue(new Guid("113005de-06bc-44cb-b97f-a9c65c0c5465"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GroupName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GroupStage")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GroupStageDigiloan")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool?>("IsShowInTracking")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("StageId");
+
+                    b.ToTable("RfStages");
+                });
+
             modelBuilder.Entity("NewLMS.UMKM.Data.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -4435,6 +4274,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("ResidenceStatusId");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfHomesta")
+                        .WithMany()
+                        .HasForeignKey("RfHomestaParameterDetailId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -4442,6 +4285,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfEducation");
 
                     b.Navigation("RfGender");
+
+                    b.Navigation("RfHomesta");
 
                     b.Navigation("RfJob");
 
@@ -4454,9 +4299,17 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCompany", b =>
                 {
+                    b.HasOne("NewLMS.UMKM.Data.Entities.DebtorEmergency", "DebtorEmergency")
+                        .WithMany()
+                        .HasForeignKey("DebtorEmergencyId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
-                        .HasForeignKey("ZipCodeId");
+                        .HasForeignKey("ZipCodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DebtorEmergency");
 
                     b.Navigation("RfZipCode");
                 });
@@ -4474,17 +4327,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
                 {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "RfBookingBranch")
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "BookingOffice")
                         .WithMany()
-                        .HasForeignKey("BookingBranchId");
-
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "RfBranch")
-                        .WithMany()
-                        .HasForeignKey("BranchId");
-
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfBusinessCycle")
-                        .WithMany()
-                        .HasForeignKey("BusinessCycleId");
+                        .HasForeignKey("BookingOfficeCode");
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.DebtorCompany", "DebtorCompany")
                         .WithMany()
@@ -4504,9 +4349,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
+                    b.HasOne("NewLMS.UMKM.Data.User", "Owner")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.Prospect", "Prospect")
                         .WithMany()
@@ -4514,15 +4361,29 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfBranch", "RfBranch")
+                        .WithMany()
+                        .HasForeignKey("RfBranchCode");
+
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
+                        .WithMany()
+                        .HasForeignKey("RfProductProductId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("RfSectorLBU3Code");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfStage", "RfStage")
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfSubProduct", "RfSubProduct")
+                        .WithMany()
+                        .HasForeignKey("RfSubProductSubProductId");
+
+                    b.HasOne("NewLMS.UMKM.Data.RfStage", "RfStage")
                         .WithMany()
                         .HasForeignKey("StageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BookingOffice");
 
                     b.Navigation("Debtor");
 
@@ -4530,13 +4391,11 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("DecisionMaker");
 
+                    b.Navigation("Owner");
+
                     b.Navigation("Prospect");
 
-                    b.Navigation("RfBookingBranch");
-
                     b.Navigation("RfBranch");
-
-                    b.Navigation("RfBusinessCycle");
 
                     b.Navigation("RfOwnerCategory");
 
@@ -4545,6 +4404,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfSectorLBU3");
 
                     b.Navigation("RfStage");
+
+                    b.Navigation("RfSubProduct");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCollateral", b =>
@@ -4594,6 +4455,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("RfEducationEducationCode");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfHomesta")
+                        .WithMany()
+                        .HasForeignKey("RfHomestaParameterDetailId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
@@ -4605,6 +4470,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfEducation");
 
                     b.Navigation("RfGender");
+
+                    b.Navigation("RfHomesta");
 
                     b.Navigation("RfJob");
 
@@ -4786,11 +4653,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfStage", "RfStage")
+                    b.HasOne("NewLMS.UMKM.Data.RfStage", "RfStage")
                         .WithMany()
                         .HasForeignKey("StageId");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfStage", "RfStageTarget")
+                    b.HasOne("NewLMS.UMKM.Data.RfStage", "RfStageTarget")
                         .WithMany()
                         .HasForeignKey("TargetStage");
 
@@ -4978,17 +4845,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("RfParameter");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBI", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfSandiBIGroup", "RfSandiBIGroup")
-                        .WithMany()
-                        .HasForeignKey("BIGroup")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RfSandiBIGroup");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfScPosition", b =>
