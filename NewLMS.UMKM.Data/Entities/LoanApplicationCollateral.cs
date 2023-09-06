@@ -26,8 +26,9 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfZipCode))]
         public int ZipCodeId { get; set; }
 
-        public virtual LoanApplication LoanApplication { get; set; }
+        //public virtual LoanApplication LoanApplication { get; set; }
         public virtual LoanApplicationCollateralOwner LoanApplicationCollateralOwner { get; set; }
+        public virtual LoanApplication LoanApplication { get; set; }
 
         public virtual RfZipCode RfZipCode { get; set; }
     }

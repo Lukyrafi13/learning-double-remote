@@ -106,7 +106,7 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfCategory))]
         public int? CategoryId { get; set; }
         [ForeignKey(nameof(RfInstituteCode))]
-        public string? ServiceCodeId { get; set; }
+        public string? InstituteCode { get; set; }
         public string? Reason { get; set; }
         public long? TargetPlafond { get; set; }
         public DateTime? EstimateProcessDate { get; set; }

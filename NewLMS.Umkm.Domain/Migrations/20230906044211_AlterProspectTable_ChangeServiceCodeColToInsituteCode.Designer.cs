@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230906044211_AlterProspectTable_ChangeServiceCodeColToInsituteCode")]
+    partial class AlterProspectTable_ChangeServiceCodeColToInsituteCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1828,46 +1830,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfCompanyTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCondition", b =>
-                {
-                    b.Property<string>("ConditionCode")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool?>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ConditionCategory")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConditionDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ConditionCode");
-
-                    b.ToTable("RfConditions");
-                });
-
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCreditNature", b =>
                 {
                     b.Property<string>("CreditNatureCode")
@@ -1906,43 +1868,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasKey("CreditNatureCode");
 
                     b.ToTable("RfCreditNatures");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCreditType", b =>
-                {
-                    b.Property<string>("CreditTypeCode")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("CreditAgreement")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CreditTypeDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CreditTypeCode");
-
-                    b.ToTable("RfCreditTypes");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDecisionLeterType", b =>
@@ -2820,104 +2745,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasKey("RelationColCode");
 
                     b.ToTable("RfRelationCols");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBI", b =>
-                {
-                    b.Property<string>("RfSandiBIId")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("BICode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("BIDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BIGroup")
-                        .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
-
-                    b.Property<string>("BIType")
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<string>("CategoryCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CoreCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LBU2Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("RfSandiBIId");
-
-                    b.HasIndex("BIGroup");
-
-                    b.ToTable("RfSandiBIs");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBIGroup", b =>
-                {
-                    b.Property<string>("BIGroup")
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
-
-                    b.Property<string>("BIDesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("BIGroup");
-
-                    b.ToTable("RfSandiBIGroups");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfScPosition", b =>
@@ -4994,17 +4821,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("RfParameter");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBI", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfSandiBIGroup", "RfSandiBIGroup")
-                        .WithMany()
-                        .HasForeignKey("BIGroup")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RfSandiBIGroup");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfScPosition", b =>

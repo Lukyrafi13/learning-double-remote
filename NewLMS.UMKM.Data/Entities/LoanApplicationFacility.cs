@@ -38,7 +38,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string? SectorLBU3Code { get; set; }
 
 
-        public virtual LoanApplication LoanApplication { get; set; }
+        //public virtual LoanApplication LoanApplication { get; set; }
         public virtual RfParameterDetail ApplicationType { get; set; }
         public virtual RfParameterDetail NatureOfCredit { get; set; }
         public virtual RfLoanPurpose LoanPurpose { get; set; }

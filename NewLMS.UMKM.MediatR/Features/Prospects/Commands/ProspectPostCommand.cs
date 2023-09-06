@@ -72,7 +72,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 prospect.ProspectId = prospectId;
 
                 await _prospect.AddAsync(prospect);
-                return ServiceResponse<Guid>.ReturnResultWith200(prospect.Id);
+                return ServiceResponse<Guid>.ReturnResultWith201(prospect.Id);
             }
             catch (Exception ex)
             {

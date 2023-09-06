@@ -1,13 +1,11 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.UMKM.Data.Dto.DebtorCompanyLegal;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.UMKM.Data.Dto.DebtorCompany
 {
-    public class DebtorCompany : BaseEntity
-    {
-        [Key]
-        [Required]
+    public class DebtorCompanyResponse : BaseResponse
+	{
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string? Address { get; set; }
@@ -15,13 +13,11 @@ namespace NewLMS.UMKM.Data.Entities
         public string? City { get; set; }
         public string? District { get; set; }
         public string? Neighborhoods { get; set; }
-
-
-        [ForeignKey(nameof(RfZipCode))]
         public int? ZipCodeId { get; set; }
         public string? PhoneNumber { get; set; }
 
-        public virtual DebtorCompanyLegal DebtorCompanyLegal { get; set; }
-        public virtual RfZipCode RfZipCode { get; set; }
+        public virtual DebtorCompanyLegalResponse DebtorCompanyLegal { get; set; }
+        public virtual RfZipCodeResponse RfZipCode { get; set; }
     }
 }
+
