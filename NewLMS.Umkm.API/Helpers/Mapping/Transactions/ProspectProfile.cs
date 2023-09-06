@@ -21,7 +21,15 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 .ForMember(d => d.RfCategory, s => s.MapFrom(s => s.RfCategory));
 
             CreateMap<Prospect, ProspectTableResponse>()
-                .ForMember(d => d.RfProduct, s => s.MapFrom(s => s.RfProduct));
+                .ForMember(d => d.DebtorName, o =>
+                {
+                    o.MapFrom(s => s.Fullname);
+                })
+                .ForMember(d => d.OwnerCategory, o =>
+                {
+                    o.MapFrom(s => s.RfOwnerCategory.Description);
+                })
+                .ForMember(d => d.ProductName, o => o.MapFrom(s => s.RfProduct.ProductDesc));
         }
     }
 }

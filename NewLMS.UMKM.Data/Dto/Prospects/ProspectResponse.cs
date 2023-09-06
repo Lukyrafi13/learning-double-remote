@@ -137,8 +137,9 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
     {
         public Guid Id { get; set; }
         public string ProspectId { get; set; }
-        public string Fullname { get; set; }
-        public RfProductSimpleResponse RfProduct { get; set; }
+        public string DebtorName { get; set; }
+        public string ProductName { get; set; }
+        public string OwnerCategory { get; set; }
         public string DataSource { get; set; }
     }
 }

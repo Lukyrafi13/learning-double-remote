@@ -29,7 +29,8 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
         public async Task<PagedResponse<IEnumerable<ProspectTableResponse>>> Handle(ProspectsGetFilterQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[] {
-                "RfProduct"
+                "RfProduct",
+                "RfOwnerCategory"
             };
             var data = await _prospect.GetPagedReponseAsync(request, includes);
             // var dataVm = _mapper.Map<IEnumerable<TableProspectResponse>>(data.Results);
