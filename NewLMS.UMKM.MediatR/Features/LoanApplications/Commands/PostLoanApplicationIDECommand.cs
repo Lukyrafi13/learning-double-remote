@@ -1,15 +1,20 @@
 ﻿using AutoMapper;
+using DocumentFormat.OpenXml.Bibliography;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Data.Enums;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
 using NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands;
 using NewLMS.UMKM.Repository.GenericRepository;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,15 +29,27 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<LoanApplicationCreditScoring> _loanApplicationCreditScoring;
+        private readonly IGenericRepositoryAsync<Debtor> _debtor;
+        private readonly IGenericRepositoryAsync<DebtorCompany> _debtorCompany;
+        private readonly IGenericRepositoryAsync<DebtorCompanyLegal> _debtorCompanyLegal;
+        private readonly IGenericRepositoryAsync<DebtorEmergency> _debtorEmergency;
         private readonly IMapper _mapper;
 
         public PostLoanApplicationIDECommandHandler(
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<LoanApplicationCreditScoring> loanApplicationCreditScoring,
+            IGenericRepositoryAsync<Debtor> debtor,
+            IGenericRepositoryAsync<DebtorCompany> debtorCompany,
+            IGenericRepositoryAsync<DebtorCompanyLegal> debtorCompanyLegal,
+            IGenericRepositoryAsync<DebtorEmergency> debtorEmergency,
             IMapper mapper)
         {
             _loanApplication = loanApplication;
             _loanApplicationCreditScoring = loanApplicationCreditScoring;
+            _debtor = debtor;
+            _debtorCompany = debtorCompany;
+            _debtorCompanyLegal = debtorCompanyLegal;
+            _debtorEmergency = debtorEmergency;
             _mapper = mapper;
         }
 
@@ -60,47 +77,90 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
 
                             await _loanApplication.UpdateAsync(data);
 
-                            //Credit Scoring
-                            var creditScoringData = await _loanApplicationCreditScoring.GetByPredicate(
+                            //Credit Scoring jika Tipe Debitur Perorangan
+                            if(data.OwnerCategoryId == 1 || request.InitialData.OwnerCategoryId == 1)
+                            {
+                                var creditScoringData = await _loanApplicationCreditScoring.GetByPredicate(
                                 x => x.Id == request.Id);
 
-                            if (creditScoringData == null)
-                            {
-                                var newCreditScoringData = new LoanApplicationCreditScoring
+                                if (creditScoringData == null)
                                 {
-                                    Id = request.Id,
-                                    ScoResidentialReputationId = request.CreditScoring.ScoResidentialReputationId,
-                                    ScoBankRelationId = request.CreditScoring.ScoBankRelationId,
-                                    ScoBJBCreditHistoryId = request.CreditScoring.ScoBJBCreditHistoryId,
-                                    ScoTransacMethodId = request.CreditScoring.ScoTransacMethodId,
-                                    ScoAverageAccBalanceId = request.CreditScoring.ScoAverageAccBalanceId,
-                                    ScoNeedLevelId = request.CreditScoring.ScoNeedLevelId,
-                                    ScoFinanceManagerId = request.CreditScoring.ScoFinanceManagerId,
-                                    ScoBusinesLocationId = request.CreditScoring.ScoBusinesLocationId,
-                                    ScoOtherPartyDebtId = request.CreditScoring.ScoOtherPartyDebtId,
-                                    ScoCollateralId = request.CreditScoring.ScoCollateralId,
-                                };
+                                    var creditScoringNew = _mapper.Map<LoanApplicationCreditScoringPostRequest, LoanApplicationCreditScoring>(request.CreditScoring);
+                                    creditScoringNew.Id = Guid.NewGuid();
+                                    await _loanApplicationCreditScoring.AddAsync(creditScoringNew);
+                                }
+                                else
+                                {
+                                    _mapper.Map(request.CreditScoring, creditScoringData);
+                                    await _loanApplicationCreditScoring.UpdateAsync(creditScoringData);
+                                }
+                            }
+                            break;
 
-                                await _loanApplicationCreditScoring.AddAsync(newCreditScoringData);
+                        case "data_permohonan":
+                            
+                            //Data Debtor
+                            var dataDebitur = await _debtor.GetByPredicate(x => x.Id == data.DebtorId);
+                            if (dataDebitur == null)
+                            {
+                                var dataDebiturNew = _mapper.Map<DebtorPostRequest, Debtor>(request.Debtor);
+                                dataDebiturNew.Id = Guid.NewGuid();
+
+                                await _debtor.AddAsync(dataDebiturNew);
                             }
                             else
                             {
-                                creditScoringData.ScoResidentialReputationId = request.CreditScoring.ScoResidentialReputationId;
-                                creditScoringData.ScoBankRelationId = request.CreditScoring.ScoBankRelationId;
-                                creditScoringData.ScoBJBCreditHistoryId = request.CreditScoring.ScoBJBCreditHistoryId;
-                                creditScoringData.ScoTransacMethodId = request.CreditScoring.ScoTransacMethodId;
-                                creditScoringData.ScoAverageAccBalanceId = request.CreditScoring.ScoAverageAccBalanceId;
-                                creditScoringData.ScoNeedLevelId = request.CreditScoring.ScoNeedLevelId;
-                                creditScoringData.ScoFinanceManagerId = request.CreditScoring.ScoFinanceManagerId;
-                                creditScoringData.ScoBusinesLocationId = request.CreditScoring.ScoBusinesLocationId;
-                                creditScoringData.ScoOtherPartyDebtId = request.CreditScoring.ScoOtherPartyDebtId;
-                                creditScoringData.ScoCollateralId = request.CreditScoring.ScoCollateralId;
-                            
-                                await _loanApplicationCreditScoring.UpdateAsync(creditScoringData);
+                                _mapper.Map(request.Debtor, dataDebitur);
+                                await _debtor.UpdateAsync(dataDebitur);
                             }
-                            
-                            break;
 
+                            //Data DebtorCompany
+                            var debtorCompanyNewId = Guid.NewGuid();
+                            var dataDebtorCompany = await _debtorCompany.GetByPredicate(x => x.Id == data.DebtorCompanyId);
+                            if (dataDebtorCompany == null)
+                            {
+                                var dataDebtorCompanyNew = _mapper.Map<DebtorCompanyPostRequest, DebtorCompany>(request.DebtorCompany);
+                                dataDebtorCompanyNew.Id = debtorCompanyNewId;
+
+                                await _debtorCompany.AddAsync(dataDebtorCompanyNew);
+                            }
+                            else
+                            {
+                                _mapper.Map(request.DebtorCompany, dataDebitur);
+                                await _debtor.UpdateAsync(dataDebitur);
+                            }
+
+                            //DebtorCompanyLegal
+                            var dataDebtorCompanyLegal = await _debtorCompanyLegal.GetByPredicate(x => x.Id == data.DebtorCompanyId);
+                            if (dataDebtorCompanyLegal == null)
+                            {
+                                var dataDebtorComapanyLegalNew = _mapper.Map<DebtorCompanyLegalPostRequest, DebtorCompanyLegal>(request.DebtorCompanyLegal);
+                                dataDebtorComapanyLegalNew.Id = debtorCompanyNewId;
+
+                                await _debtorCompanyLegal.AddAsync(dataDebtorComapanyLegalNew);
+                            }
+                            else
+                            {
+                                _mapper.Map(request.DebtorCompanyLegal, dataDebtorCompanyLegal);
+                                await _debtorCompanyLegal.UpdateAsync(dataDebtorCompanyLegal);
+                            }
+
+                            //Data EmergencyContact
+                            var dataDebtorEmergency = await _debtorEmergency.GetByPredicate(x => x.Id == data.DebtorEmergencyId);
+                            if (dataDebtorEmergency == null)
+                            {
+                                var debtorEmergencyNew = _mapper.Map<DebtorEmergencyPostRequest, DebtorEmergency>(request.DebtorEmergency);
+                                debtorEmergencyNew.Id = Guid.NewGuid();
+
+                                await _debtorEmergency.AddAsync(debtorEmergencyNew);
+                            }
+                            else
+                            {
+                                _mapper.Map(request.DebtorEmergency, dataDebtorEmergency);
+                                await _debtorEmergency.UpdateAsync(dataDebtorEmergency);
+                            }
+
+                            break;
 
                         default:
                             break;

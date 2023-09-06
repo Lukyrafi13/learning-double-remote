@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Folder Include="Dto\TrackingKGBInstants\" />
     <Folder Include="Dto\ProgramSubProducts\" />
+    <Folder Include="Dto\LoanApplications\" />
     <Folder Include="Dto\Debtor\" />
     <Folder Include="Dto\DebtorCompany\" />
     <Folder Include="Dto\DebtorCompanyLegal\" />
