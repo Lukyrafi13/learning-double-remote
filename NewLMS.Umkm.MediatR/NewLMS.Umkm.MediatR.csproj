@@ -25,14 +25,12 @@
     <None Remove="Features\Cities\" />
     <None Remove="Features\Districts\" />
     <None Remove="Features\SubDistrict\" />
-    <None Remove="Features\LoanApplications\Queries\GetLoanApplicationsBasicManrisk\" />
     <None Remove="Features\v2\TrackingKGBInstant\" />
     <None Remove="Features\v2\TrackingKGBInstant\Queries\" />
     <None Remove="Features\Documents\Queries\GetDocumentDigitalSignIn\" />
     <None Remove="Features\RfGracePeriods\" />
     <None Remove="Features\RfGracePeriods\Queries\" />
     <None Remove="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
-    <None Remove="Features\LoanApplications\Queries\GetLoanApplicationDisbursement\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -109,7 +107,6 @@
     <Folder Include="Features\Cities\" />
     <Folder Include="Features\Districts\" />
     <Folder Include="Features\SubDistrict\" />
-    <Folder Include="Features\LoanApplications\Queries\GetLoanApplicationsBasicManrisk\" />
     <Folder Include="Features\v2\TrackingKGBInstant\" />
     <Folder Include="Features\v2\TrackingKGBInstant\Queries\" />
     <Folder Include="Features\RfSubProducts\Queries\GetByProgramSubProducts\" />
@@ -118,7 +115,6 @@
     <Folder Include="Features\RfGracePeriods\" />
     <Folder Include="Features\RfGracePeriods\Queries\" />
     <Folder Include="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
-    <Folder Include="Features\LoanApplications\Queries\GetLoanApplicationDisbursement\" />
   </ItemGroup>
 
 </Project>

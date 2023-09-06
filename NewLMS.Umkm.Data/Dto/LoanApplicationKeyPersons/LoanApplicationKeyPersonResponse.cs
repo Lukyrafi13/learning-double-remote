@@ -1,13 +1,12 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using NewLMS.UMKM.Data.Dto.RfEducation;
+using NewLMS.UMKM.Data.Dto.RfMarital;
+using NewLMS.UMKM.Data.Dto.RfZipCodes;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons
 {
-    public class LoanApplicationKeyPerson : BaseEntity
-    {
-        [Key]
-        [Required]
+    public class LoanApplicationKeyPersonResponse : BaseResponse
+	{
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string PlaceOfBirth { get; set; }
@@ -22,20 +21,11 @@ namespace NewLMS.UMKM.Data.Entities
         public string City { get; set; }
         public string District { get; set; }
         public string Neighborhoods { get; set; }
-
-        [ForeignKey(nameof(RfZipCode))]
-        public int ZipCodeId { get; set; }
         public string? PhoneNumber { get; set; }
 
-        [ForeignKey(nameof(RfMarital))]
-        public string MaritalStatusId { get; set; }
-
-        [ForeignKey(nameof(RfEducation))]
-        public string EducationId { get; set; }
-
-
-        public virtual RfEducation RfEducation { get; set; }
-        public virtual RfMarital RfMarital { get; set; }
-        public virtual RfZipCode RfZipCode { get; set; }
+        public virtual RfEducationResponse RfEducation { get; set; }
+        public virtual RfMaritalResponse RfMarital { get; set; }
+        public virtual RfZipCodeResponse RfZipCode { get; set; }
     }
 }
+

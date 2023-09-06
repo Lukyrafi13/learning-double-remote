@@ -1,14 +1,9 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.UMKM.Data.Dto.DebtorCompanyLegal
 {
-    public class DebtorCompanyLegal : BaseEntity
+    public class DebtorCompanyLegalResponse : BaseResponse
     {
-        [Key]
-        [ForeignKey(nameof(DebtorCompany))]
-        [Required]
         public Guid Id { get; set; }
         public string EstablishmentDeedNumber { get; set; }
         public DateTime EstablishmentDeedDate { get; set; }
@@ -25,7 +20,6 @@ namespace NewLMS.UMKM.Data.Entities
         public DateTime DeedDate { get; set; }
         public string SKDPNumber { get; set; }
         public DateTime SKDPDate { get; set; }
-
-        public DebtorCompany DebtorCompany { get; set; }
     }
 }
+

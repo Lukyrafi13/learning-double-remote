@@ -117,8 +117,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                     debtorCompany = new DebtorCompany()
                     {
                         Id = Guid.NewGuid(),
-                        Name = prospect.CompanyName,
-                        PhoneNumber = prospect.PhoneNumber
+                        Name = prospect.Fullname
                     };
                     await _debtorCompany.AddAsync(debtorCompany);
 
@@ -127,8 +126,10 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 }
 
                 await _loanApplication.AddAsync(loanApplication);
+                prospect.Status = EnumProspectStatus.Processed;
+                await _prospect.UpdateAsync(prospect);
 
-                return ServiceResponse<Guid>.ReturnResultWith200(Guid.NewGuid());
+                return ServiceResponse<Guid>.ReturnResultWith201(Guid.NewGuid());
             }
             catch (Exception ex)
             {

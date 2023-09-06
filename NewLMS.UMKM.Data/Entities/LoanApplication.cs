@@ -70,6 +70,7 @@ namespace NewLMS.UMKM.Data.Entities
 
         public virtual Debtor Debtor { get; set; }
         public virtual DebtorCompany DebtorCompany { get; set; }
+        public virtual DebtorEmergency DebtorEmergency { get; set; }
         public virtual Prospect Prospect { get; set; }
 
         public virtual RfBranch RfBookingBranch { get; set; }
@@ -84,5 +85,8 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual ICollection<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; } = new List<LoanApplicationKeyPerson>();
         public virtual ICollection<LoanApplicationFacility> LoanApplicationFacilities { get; set; } = new List<LoanApplicationFacility>();
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
+
+        [NotMapped]
+        public virtual string MappingTab { get; set; }
     }
 }
