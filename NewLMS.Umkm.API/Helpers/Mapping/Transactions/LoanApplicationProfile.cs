@@ -77,6 +77,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 });
 
             CreateMap<LoanApplication, LoanApplicationIDEResponse>()
+                .ForMember(d => d.Info, o =>
+                {
+                    o.MapFrom(s => s);
+                })
                 .ForMember(d => d.InitialData, o =>
                 {
                     o.MapFrom(s => s.MappingTab == "initial_data_entry" ? s : null);
