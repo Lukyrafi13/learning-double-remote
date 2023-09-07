@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.Prospects;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 using System;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
-using System.Collections.Generic;
+using NewLMS.UMKM.MediatR.Helpers;
 
 namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
 {
@@ -31,7 +30,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
         {
             try
             {
-                var loanApplicationIncludes = GetLoanApplicationIncludes(request.Tab);
+                var loanApplicationIncludes = IncludesGenerator.GetLoanApplicationIncludes(request.Tab);
                 var data = await _loanApplication.GetByIdAsync(request.Id, "Id", loanApplicationIncludes.ToArray());
                 if (data == null)
                 {
@@ -53,74 +52,6 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
             }
         }
 
-        private static List<string> GetLoanApplicationIncludes(string tab)
-        {
-            List<string> includes = new();
-            switch (tab)
-            {
-                case "initial_data_entry":
-                    includes = new List<string>()
-                    {
-                        "LoanApplicationCreditScoring",
-                        "RfProduct",
-                        "RfOwnerCategory",
-                        "RfBusinessCycle",
-                        "RfBranch",
-                        "RfBookingBranch"
-                    };
-                    break;
-
-                case "data_permohonan":
-                    includes = new List<string>()
-                    {
-                        "Debtor.RfResidenceStatus",
-                        "Debtor.RfZipCode",
-                        "Debtor.RfJob",
-                        "Debtor.RfGender",
-                        "Debtor.RfEducation",
-                        "Debtor.RfMarital",
-                        "DebtorCompany.DebtorCompanyLegal",
-                        "DebtorCompany.DebtorCompanyLegal",
-                        "DebtorEmergency.RfZipCode",
-                    };
-                    break;
-
-                case "data_key_person":
-                    includes = new List<string>()
-                    {
-                        "LoanApplicationKeyPersons"
-                    };
-                    break;
-
-                case "data_agunan":
-                    includes = new List<string>()
-                    {
-                        "LoanApplicationCollaterals.RfZipCode",
-                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner.RfResidenceStatus",
-                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner.RfZipCode",
-                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner.RfJob",
-                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner.RfGender",
-                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner.RfEducation",
-                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner.RfMarital",
-                    };
-                    break;
-
-                case "informasi_fasilitas":
-                    includes = new List<string>()
-                    {
-                        "LoanApplicationFacilities",
-                        "LoanApplicationFacilities.ApplicationType",
-                        "LoanApplicationFacilities.NatureOfCredit",
-                        "LoanApplicationFacilities.LoanPurpose",
-                        "LoanApplicationFacilities.RfSubProduct",
-                        "LoanApplicationFacilities.RfSectorLBU3",
-                    };
-                    break;
-
-                default:
-                    break;
-            }
-            return includes;
-        }
+        
     }
 }

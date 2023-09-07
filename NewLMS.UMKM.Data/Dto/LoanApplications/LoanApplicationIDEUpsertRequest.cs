@@ -1,20 +1,21 @@
-﻿using NewLMS.UMKM.Data.Dto.Debtor;
+﻿using System;
+using NewLMS.UMKM.Data.Dto.Debtor;
 using NewLMS.UMKM.Data.Dto.DebtorCompany;
 using NewLMS.UMKM.Data.Dto.DebtorCompanyLegal;
 using NewLMS.UMKM.Data.Dto.DebtorCouple;
 using NewLMS.UMKM.Data.Dto.DebtorEmergencies;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollaterals;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings;
-using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
-using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
 
 #nullable enable
 namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
     public class LoanApplicationIDEUpsertRequest
     {
-        public LoanApplicationInitialDataEntryRequest? InitialDataEntry { get; set; }
+        public Guid AppId { get; set; }
+        public string Tab { get; set; }
+        public int OwnerCategoryId { get; set; }
+        public LoanApplicationInitialDataEntryTabUpsertRequest? InitialDataEntry { get; set; }
+        public LoanApplicationDataPermohonanTabUpsertRequest? DataPermohonan { get; set; }
     }
 
     public class LoanApplicationInitialDataEntryTabUpsertRequest
@@ -35,27 +36,27 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
 
     public class LoanApplicationDataPermohonanTabUpsertRequest
     {
-        public DebtorRequest Debtor { get; set; }
-        public DebtorCompanyRequest DebtorCompany { get; set; }
-        public DebtorCompanyLegalRequest DebtorLegalCompany { get; set; }
+        public DebtorRequest? Debtor { get; set; }
         public DebtorCoupleRequest? DebtorCouple { get; set; }
-        public DebtorEmergencyRequest DebtorEmergency { get; set; }
+        public DebtorCompanyRequest? DebtorCompany { get; set; }
+        public DebtorCompanyLegalRequest? DebtorCompanyLegal { get; set; }
+        public DebtorEmergencyRequest? DebtorEmergency { get; set; }
     }
 
-    public class LoanApplicationKeyPersonTabUpsertRequest
-    {
-        public LoanApplicationKeyPersonRequest KeyPerson { get; set; }
-    }
+    //public class LoanApplicationKeyPersonTabUpsertRequest
+    //{
+    //    public LoanApplicationKeyPersonRequest KeyPerson { get; set; }
+    //}
 
-    public class LoanApplicationDataAgunanTabUpsertRequest
-    {
-        public LoanApplicationCollateralRequest Collateral { get; set; }
-        public LoanApplicationCollateralOwnerRequest CollateralOwner { get; set; }
-    }
+    //public class LoanApplicationDataAgunanTabUpsertRequest
+    //{
+    //    public LoanApplicationCollateralRequest Collateral { get; set; }
+    //    public LoanApplicationCollateralOwnerRequest CollateralOwner { get; set; }
+    //}
 
-    public class LoanApplicationInformasiFasilitasTabUpsertRequest
-    {
-        public LoanApplicationFacilityRequest Facility { get; set; }
-    }
+    //public class LoanApplicationInformasiFasilitasTabUpsertRequest
+    //{
+    //    public LoanApplicationFacilityRequest Facility { get; set; }
+    //}
 }
 

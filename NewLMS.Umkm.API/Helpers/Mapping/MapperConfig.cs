@@ -14,9 +14,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new DebtorProfile());
                 mc.AddProfile(new DebtorCoupleProfile());
                 mc.AddProfile(new DebtorCompanyProfile());
+                mc.AddProfile(new DebtorCompanyLegalProfile());
                 mc.AddProfile(new DebtorEmergencyProfile());
                 mc.AddProfile(new LoanApplicationProfile());
-
             });
             return mappingConfig.CreateMapper();
         }

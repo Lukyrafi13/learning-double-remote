@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NewLMS.UMKM.Data.Dto.Debtor;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
@@ -39,6 +40,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 });
 
             CreateMap<DebtorRequest, Debtor>();
+            CreateMap<LoanApplicationIDEUpsertRequest, Debtor>()
+                .ConstructUsing((s, c) => c.Mapper.Map<Debtor>(s.DataPermohonan.Debtor));
+
         }
     }
 }

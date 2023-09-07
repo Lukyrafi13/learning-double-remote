@@ -1,14 +1,10 @@
 using System;
-using System.Diagnostics;
 using System.IO;
 using Elastic.Apm.SerilogEnricher;
-using Elastic.CommonSchema.Serilog;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Sinks.Elasticsearch;
-using System.Runtime.InteropServices;
 using NewLMS.UMKM.Domain;
 
 namespace NewLMS.UMKM.API
