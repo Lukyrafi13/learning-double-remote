@@ -19,5 +19,11 @@ namespace NewLMS.UMKM.Data.Dto.DebtorCompany
         public virtual DebtorCompanyLegalResponse DebtorCompanyLegal { get; set; }
         public virtual RfZipCodeResponse RfZipCode { get; set; }
     }
+
+    public class DebtorCompanySimpleResponse
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+    }
 }
 

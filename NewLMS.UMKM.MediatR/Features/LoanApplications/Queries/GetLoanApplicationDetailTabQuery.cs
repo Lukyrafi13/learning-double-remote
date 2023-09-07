@@ -44,6 +44,14 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                 }
 
                 var dataVm = _mapper.Map<LoanApplicationIDEResponse>(data);
+                if(dataVm.Info.OwnerCategoryId == 1)
+                {
+                    dataVm.Info.FullName = data.Debtor.Fullname;
+                }
+                if (dataVm.Info.OwnerCategoryId == 2)
+                {
+                    dataVm.Info.FullName = data.DebtorCompany.Name;
+                }
 
                 return ServiceResponse<LoanApplicationIDEResponse>.ReturnResultWith200(dataVm);
             }
@@ -61,12 +69,23 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                 case "initial_data_entry":
                     includes = new List<string>()
                     {
-                        "LoanApplicationCreditScoring",
+                        "LoanApplicationCreditScoring.ScoResidentialReputation",
+                        "LoanApplicationCreditScoring.ScoBankRelation",
+                        "LoanApplicationCreditScoring.ScoBJBCreditHistory",
+                        "LoanApplicationCreditScoring.ScoTransacMethod",
+                        "LoanApplicationCreditScoring.ScoAverageAccBalance",
+                        "LoanApplicationCreditScoring.ScoNeedLevel",
+                        "LoanApplicationCreditScoring.ScoFinanceManager",
+                        "LoanApplicationCreditScoring.ScoBusinesLocation",
+                        "LoanApplicationCreditScoring.ScoOtherPartyDebt",
+                        "LoanApplicationCreditScoring.ScoCollateral",
                         "RfProduct",
                         "RfOwnerCategory",
                         "RfBusinessCycle",
                         "RfBranch",
-                        "RfBookingBranch"
+                        "RfBookingBranch",
+                        "Debtor",
+                        "DebtorCompany",
                     };
                     break;
 
@@ -79,6 +98,8 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                         "Debtor.RfGender",
                         "Debtor.RfEducation",
                         "Debtor.RfMarital",
+                        "Debtor.DebtorCouple.RfZipCode",
+                        "Debtor.DebtorCouple.RfJob",
                         "DebtorCompany.DebtorCompanyLegal",
                         "DebtorCompany.DebtorCompanyLegal",
                         "DebtorEmergency.RfZipCode",

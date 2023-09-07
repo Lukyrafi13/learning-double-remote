@@ -104,8 +104,6 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
 
             CreateMap<LoanApplication, LoanApplicationBaseTabResponse>();
 
-
-
             #region Relatives
             CreateMap<LoanApplicationCollateral, LoanApplicationCollateralResponse>();
             CreateMap<LoanApplicationCollateralOwner, LoanApplicationCollateralOwnerResponse>();

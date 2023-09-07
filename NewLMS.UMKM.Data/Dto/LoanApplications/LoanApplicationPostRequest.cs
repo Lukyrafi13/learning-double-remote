@@ -76,6 +76,24 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         public string? MarriageCertificateNumber { get; set; }
         public DateTime? MarriageCertificateDate { get; set; }
         public string? MarriageCertificateIssuer { get; set; }
+        public DebtorCouplePostRequest DebtorCouple { get; set; }
+    }
+
+    public class DebtorCouplePostRequest
+    {
+        public string NoIdentity { get; set; }
+        public string Fullname { get; set; }
+        public string? NPWP { get; set; }
+        public string? PlaceOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public bool AddressSameAsDebtor { get; set; }
+        public string? Address { get; set; }
+        public string? Neighborhoods { get; set; }
+        public string? District { get; set; }
+        public string? City { get; set; }
+        public string? Province { get; set; }
+        public int? ZipCodeId { get; set; }
+        public string? JobCode { get; set; }
     }
 
     public class DebtorEmergencyPostRequest

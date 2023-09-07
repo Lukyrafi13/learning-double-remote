@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
+using System.ComponentModel.DataAnnotations.Schema;
+using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScoring;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
@@ -31,9 +33,11 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
     {
         public RfParameterDetailResponse RfOwnerCategory { get; set; }
         public RfParameterDetailResponse RfBusinessCycle { get; set; }
+        public int? BusinessCycleMonth { get; set; }
         public RfProductResponse RfProduct { get; set; }
         public RfBranchResponse RfBranch { get; set; }
         public RfBranchResponse RfBookingBranch { get; set; }
+        public LoanApplicationCreditScoringResponse? loanApplicationCreditScoring { get; set; }
     }
 
     public class LoanApplicationDataPermohonanTabResponse
@@ -80,6 +84,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         public bool IsBusinessCycle { get; set; }
         public string BranchId { get; set; }
         public string BookingBranchId { get; set; }
+        public string FullName { get; set; }
     }
 }
 
