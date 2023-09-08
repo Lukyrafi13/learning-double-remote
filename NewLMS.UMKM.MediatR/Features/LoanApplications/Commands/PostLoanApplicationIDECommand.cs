@@ -2,20 +2,12 @@
 using DocumentFormat.OpenXml.Bibliography;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Data.Enums;
 using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
-using NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands;
 using NewLMS.UMKM.Repository.GenericRepository;
 using Org.BouncyCastle.Asn1.X509;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Principal;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

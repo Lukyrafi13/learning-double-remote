@@ -47,14 +47,8 @@ namespace NewLMS.UMKM.Data.Dto.Debtor
         public RfGenderResponse RfGender { get; set; }
         public RfEducationResponse RfEducation { get; set; }
         public RfMaritalResponse RfMarital { get; set; }
-        public DebtorCoupleResponse DebtorCouple { get; set; }
-    }
 
-    public class DebtorSimpleResponse
-    {
-        public Guid Id { get; set; }
-        public string NoIdentity { get; set; }
-        public string Fullname { get; set; }
+        public DebtorCoupleResponse DebtorCouple { get; set; }
     }
 }
 

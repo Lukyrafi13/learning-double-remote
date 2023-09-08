@@ -6,13 +6,15 @@ using NewLMS.UMKM.Data.Entities;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
 {
-	public class DebtorEmergencyProfile:Profile
-	{
-		public DebtorEmergencyProfile()
-		{
-			CreateMap<DebtorEmergency, DebtorEmergencyResponse>();
-			CreateMap<DebtorEmergencyPostRequest, DebtorEmergency>();
-		}
-	}
+    public class DebtorEmergencyProfile : Profile
+    {
+        public DebtorEmergencyProfile()
+        {
+            CreateMap<DebtorEmergency, DebtorEmergencyResponse>();
+            CreateMap<DebtorEmergencyRequest, DebtorEmergency>();
+            CreateMap<LoanApplicationIDEUpsertRequest, DebtorEmergency>()
+                .ConstructUsing((s, c) => c.Mapper.Map<DebtorEmergency>(s.DataPermohonan.DebtorEmergency));
+        }
+    }
 }
 
