@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings;
 using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
 using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
@@ -104,13 +105,25 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
 
             CreateMap<LoanApplication, LoanApplicationBaseTabResponse>();
 
-
+            #region Requests
+            CreateMap<LoanApplicationDataFasilitasRequest, LoanApplication>();
+            CreateMap<LoanApplicationIDEUpsertRequest, LoanApplication>()
+                .ConstructUsing((s, c) => c.Mapper.Map<LoanApplication>(s.InitialDataEntry.DataFasilitas))
+                .ForMember(d => d.Id, o => o.MapFrom(s => s.AppId));
+            #endregion
 
             #region Relatives
             CreateMap<LoanApplicationCollateral, LoanApplicationCollateralResponse>();
+            CreateMap<LoanApplicationCreditScoring, LoanApplicationCreditScoringResponse>();
             CreateMap<LoanApplicationCollateralOwner, LoanApplicationCollateralOwnerResponse>();
             CreateMap<LoanApplicationKeyPerson, LoanApplicationKeyPersonResponse>();
             CreateMap<LoanApplicationFacility, LoanApplicationFacilityResponse>();
+
+            #region Relatives Requests
+            CreateMap<LoanApplicationCreditScoringRequest, LoanApplicationCreditScoring>();
+            CreateMap<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>()
+                .ConstructUsing((s, c) => c.Mapper.Map<LoanApplicationCreditScoring>(s.InitialDataEntry.CreditScoring));
+            #endregion
             #endregion
         }
     }

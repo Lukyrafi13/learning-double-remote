@@ -8,6 +8,7 @@ using NewLMS.UMKM.Data.Dto.RfJob;
 using NewLMS.UMKM.Data.Dto.RfGenders;
 using NewLMS.UMKM.Data.Dto.RfEducation;
 using NewLMS.UMKM.Data.Dto.RfMarital;
+using NewLMS.UMKM.Data.Dto.DebtorCouple;
 
 namespace NewLMS.UMKM.Data.Dto.Debtor
 {
@@ -46,6 +47,8 @@ namespace NewLMS.UMKM.Data.Dto.Debtor
         public RfGenderResponse RfGender { get; set; }
         public RfEducationResponse RfEducation { get; set; }
         public RfMaritalResponse RfMarital { get; set; }
+
+        public DebtorCoupleResponse DebtorCouple { get; set; }
     }
 }
 
