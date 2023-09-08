@@ -43,6 +43,14 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                 }
 
                 var dataVm = _mapper.Map<LoanApplicationIDEResponse>(data);
+                if(dataVm.Info.OwnerCategoryId == 1)
+                {
+                    dataVm.Info.FullName = data.Debtor.Fullname;
+                }
+                if (dataVm.Info.OwnerCategoryId == 2)
+                {
+                    dataVm.Info.FullName = data.DebtorCompany.Name;
+                }
 
                 return ServiceResponse<LoanApplicationIDEResponse>.ReturnResultWith200(dataVm);
             }

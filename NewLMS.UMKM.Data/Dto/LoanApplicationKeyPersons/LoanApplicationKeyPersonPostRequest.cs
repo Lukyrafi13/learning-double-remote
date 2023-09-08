@@ -1,13 +1,15 @@
-﻿using System;
-using NewLMS.UMKM.Data.Dto.RfEducation;
-using NewLMS.UMKM.Data.Dto.RfMarital;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
+﻿using NewLMS.UMKM.Data.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons
 {
-    public class LoanApplicationKeyPersonResponse : BaseResponse
-	{
-        public Guid Id { get; set; }
+    public class LoanApplicationKeyPersonPostRequest
+    {
         public Guid LoanApplicationId { get; set; }
         public string Name { get; set; }
         public string PlaceOfBirth { get; set; }
@@ -26,10 +28,5 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons
         public string? PhoneNumber { get; set; }
         public string MaritalStatusId { get; set; }
         public string EducationId { get; set; }
-
-        public RfEducationResponse RfEducation { get; set; }
-        public RfMaritalResponse RfMarital { get; set; }
-        public RfZipCodeResponse RfZipCode { get; set; }
     }
 }
-

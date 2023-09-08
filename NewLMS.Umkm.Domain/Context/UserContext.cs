@@ -100,6 +100,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfCreditType> RfCreditTypes { get; set; }
         public DbSet<RfSandiBI> RfSandiBIs { get; set; }
         public DbSet<RfSandiBIGroup> RfSandiBIGroups { get; set; }
+        public DbSet<DebtorCouple> DebtorCouples { get; set; }
         #endregion
 
 

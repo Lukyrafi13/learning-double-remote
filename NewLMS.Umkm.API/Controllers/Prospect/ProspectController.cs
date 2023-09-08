@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfTenor;
 using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.RfTernors.Queries.GetFilterRfTenors;
 using NewLMS.UMKM.Data.Dto.Prospects;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230907081540_addDebtorCouple")]
+    partial class addDebtorCouple
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1113,8 +1115,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("EducationId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime?>("IdentityDueDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("IdentityDueDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -1122,7 +1124,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<bool>("LifetimeIdentity")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("LoanApplicationId")
+                    b.Property<Guid?>("LoanApplicationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaritalStatusId")
@@ -4871,11 +4873,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("EducationId");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", "LoanApplication")
+                    b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", null)
                         .WithMany("LoanApplicationKeyPersons")
-                        .HasForeignKey("LoanApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LoanApplicationId");
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
@@ -4886,8 +4886,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasForeignKey("ZipCodeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("LoanApplication");
 
                     b.Navigation("RfEducation");
 
