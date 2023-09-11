@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230911080058_AlterLoanCollateral")]
+    partial class AlterLoanCollateral
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -684,8 +686,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("OwnerCategoryId");
 
-                    b.HasIndex("OwnerId");
-
                     b.HasIndex("ProductId");
 
                     b.HasIndex("ProspectId");
@@ -722,7 +722,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CollateralBCId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -798,8 +798,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CollateralBCId");
-
                     b.HasIndex("LoanApplicationId");
 
                     b.HasIndex("VehClassCode");
@@ -821,9 +819,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("AddressSameAsIdentity")
-                        .HasColumnType("bit");
-
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
@@ -842,8 +837,29 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("District")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("GenderId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("IdentityExpiredDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IdentityLifetime")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("JobCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("MarriageCertificateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MarriageCertificateIssuer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MarriageCertificateNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
@@ -851,50 +867,14 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MotherName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Neighborhoods")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OtherRelationCollateral")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleCity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("OwnerCoupleDateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("OwnerCoupleDistrict")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("OwnerCoupleIdentityExpiredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("OwnerCoupleIdentityLifetime")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("OwnerCoupleJob")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleNPWP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleNeighborhoods")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleNoIdentity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCouplePlaceOfBirth")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerCoupleProvince")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("NumberOfDependents")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("OwnerDateOfBirth")
                         .HasColumnType("datetime2");
@@ -909,9 +889,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("OwnerIdentityLifetime")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("OwnerIsDebtor")
                         .HasColumnType("bit");
 
                     b.Property<string>("OwnerJob")
@@ -932,25 +909,38 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("OwnerPlaceOfBirth")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Province")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RelationCollateralId")
+                    b.Property<string>("RelationCollateral")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ResidenceLiveTime")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RfZipCodeIdOwnerCouple")
+                    b.Property<int?>("ResidenceStatusId")
                         .HasColumnType("int");
+
+                    b.Property<string>("RfEducationEducationCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ZipCodeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GenderId");
+
+                    b.HasIndex("JobCode");
+
                     b.HasIndex("OwnerMaritalId");
 
-                    b.HasIndex("RelationCollateralId");
+                    b.HasIndex("ResidenceStatusId");
 
-                    b.HasIndex("RfZipCodeIdOwnerCouple");
+                    b.HasIndex("RfEducationEducationCode");
 
                     b.HasIndex("ZipCodeId");
 
@@ -1001,9 +991,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<int>("ScoFinanceManagerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ScoMonthlyMutationId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ScoNeedLevelId")
                         .HasColumnType("int");
 
@@ -1029,8 +1016,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ScoCollateralId");
 
                     b.HasIndex("ScoFinanceManagerId");
-
-                    b.HasIndex("ScoMonthlyMutationId");
 
                     b.HasIndex("ScoNeedLevelId");
 
@@ -4670,10 +4655,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.User", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -4702,8 +4683,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("DecisionMaker");
 
-                    b.Navigation("Owner");
-
                     b.Navigation("Prospect");
 
                     b.Navigation("RfBookingBranch");
@@ -4723,10 +4702,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCollateral", b =>
                 {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfCollateralBC", "RfCollateralBC")
-                        .WithMany()
-                        .HasForeignKey("CollateralBCId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany("LoanApplicationCollaterals")
                         .HasForeignKey("LoanApplicationId")
@@ -4753,8 +4728,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("LoanApplication");
 
-                    b.Navigation("RfCollateralBC");
-
                     b.Navigation("RfVehClass");
 
                     b.Navigation("RfVehMaker");
@@ -4766,23 +4739,31 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCollateralOwner", b =>
                 {
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfGender", "RfGender")
+                        .WithMany()
+                        .HasForeignKey("GenderId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
                         .WithOne("LoanApplicationCollateralOwner")
                         .HasForeignKey("NewLMS.UMKM.Data.Entities.LoanApplicationCollateralOwner", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfJob", "RfJob")
+                        .WithMany()
+                        .HasForeignKey("JobCode");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("OwnerMaritalId");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfRelationCollateral")
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfResidenceStatus")
                         .WithMany()
-                        .HasForeignKey("RelationCollateralId");
+                        .HasForeignKey("ResidenceStatusId");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCodeOwnerCouple")
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfEducation", "RfEducation")
                         .WithMany()
-                        .HasForeignKey("RfZipCodeIdOwnerCouple");
+                        .HasForeignKey("RfEducationEducationCode");
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
@@ -4792,13 +4773,17 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("LoanApplicationCollateral");
 
+                    b.Navigation("RfEducation");
+
+                    b.Navigation("RfGender");
+
+                    b.Navigation("RfJob");
+
                     b.Navigation("RfMarital");
 
-                    b.Navigation("RfRelationCollateral");
+                    b.Navigation("RfResidenceStatus");
 
                     b.Navigation("RfZipCode");
-
-                    b.Navigation("RfZipCodeOwnerCouple");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCreditScoring", b =>
@@ -4845,10 +4830,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "ScoMonthlyMutation")
-                        .WithMany()
-                        .HasForeignKey("ScoMonthlyMutationId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "ScoNeedLevel")
                         .WithMany()
                         .HasForeignKey("ScoNeedLevelId")
@@ -4886,8 +4867,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("ScoCollateral");
 
                     b.Navigation("ScoFinanceManager");
-
-                    b.Navigation("ScoMonthlyMutation");
 
                     b.Navigation("ScoNeedLevel");
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230911105656_AlterCollateralOwner")]
+    partial class AlterCollateralOwner
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -684,8 +686,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("OwnerCategoryId");
 
-                    b.HasIndex("OwnerId");
-
                     b.HasIndex("ProductId");
 
                     b.HasIndex("ProspectId");
@@ -1001,9 +1001,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<int>("ScoFinanceManagerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ScoMonthlyMutationId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ScoNeedLevelId")
                         .HasColumnType("int");
 
@@ -1029,8 +1026,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ScoCollateralId");
 
                     b.HasIndex("ScoFinanceManagerId");
-
-                    b.HasIndex("ScoMonthlyMutationId");
 
                     b.HasIndex("ScoNeedLevelId");
 
@@ -4670,10 +4665,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.User", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -4701,8 +4692,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("DebtorEmergency");
 
                     b.Navigation("DecisionMaker");
-
-                    b.Navigation("Owner");
 
                     b.Navigation("Prospect");
 
@@ -4845,10 +4834,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "ScoMonthlyMutation")
-                        .WithMany()
-                        .HasForeignKey("ScoMonthlyMutationId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "ScoNeedLevel")
                         .WithMany()
                         .HasForeignKey("ScoNeedLevelId")
@@ -4886,8 +4871,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("ScoCollateral");
 
                     b.Navigation("ScoFinanceManager");
-
-                    b.Navigation("ScoMonthlyMutation");
 
                     b.Navigation("ScoNeedLevel");
 

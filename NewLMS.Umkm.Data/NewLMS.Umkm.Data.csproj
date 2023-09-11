@@ -42,7 +42,6 @@
     <Folder Include="Dto\DebtorCompanyLegal\" />
     <Folder Include="Dto\DebtorEmergencies\" />
     <Folder Include="Dto\LoanApplicationKeyPersons\" />
-    <Folder Include="Dto\LoanApplicationCollaterals\" />
     <Folder Include="Dto\LoanApplicationCollateralOwners\" />
     <Folder Include="Dto\LoanApplicationFacilities\" />
     <Folder Include="Dto\DebtorCouple\" />
