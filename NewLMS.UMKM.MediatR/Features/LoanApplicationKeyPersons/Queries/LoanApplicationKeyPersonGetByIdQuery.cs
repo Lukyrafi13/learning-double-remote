@@ -35,9 +35,11 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationKeyPersons.Queries
             try
             {
                 var includes = new string[] {
-                    "RfEducation",
-                    "RfMarital",
+                    "LoanApplicationCollateralOwner",
                     "RfZipCode",
+                    "RfVehMaker",
+                    "RfVehClass",
+                    "RfVehModel",
                 };
                 var data = await _core.GetByPredicate(x => x.Id == request.Id,includes);
                 if (data == null)
