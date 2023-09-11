@@ -19,6 +19,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new LoanApplicationProfile());
                 mc.AddProfile(new LoanApplicationCreditScoringProfile());
                 mc.AddProfile(new LoanApplicationKeyPersonProfile());
+                mc.AddProfile(new UserProfile());
 
             });
             return mappingConfig.CreateMapper();

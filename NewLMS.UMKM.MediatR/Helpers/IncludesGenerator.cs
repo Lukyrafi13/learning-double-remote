@@ -13,19 +13,27 @@ namespace NewLMS.UMKM.MediatR.Helpers
                     includes = new List<string>()
                     {
                         "LoanApplicationCreditScoring",
-                        "RfProduct",
-                        "RfOwnerCategory",
                         "RfBusinessCycle",
+                        "RfOwnerCategory",
+                        "RfProduct",
                         "RfBranch",
                         "RfBookingBranch",
                         "Debtor",
                         "DebtorCompany",
+                        "Owner",
                     };
                     break;
 
                 case "data_permohonan":
                     includes = new List<string>()
                     {
+                        "RfOwnerCategory",
+                        "RfProduct",
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Debtor",
+                        "DebtorCompany",
+                        "Owner",
                         "Debtor.RfResidenceStatus",
                         "Debtor.RfZipCode",
                         "Debtor.RfJob",
