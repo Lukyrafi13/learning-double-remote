@@ -42,9 +42,13 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(ScoCollateral))]
         public int ScoCollateralId { get; set; }
 
+        [ForeignKey(nameof(ScoMonthlyMutation))]
+        public int? ScoMonthlyMutationId { get; set; }
+
         public virtual LoanApplication LoanApplication { get; set;}
 
         public virtual RfParameterDetail ScoResidentialReputation { get; set; }
+        public virtual RfParameterDetail ScoMonthlyMutation { get; set; }
         public virtual RfParameterDetail ScoBankRelation { get; set; }
         public virtual RfParameterDetail ScoBJBCreditHistory { get; set; }
         public virtual RfParameterDetail ScoTransacMethod { get; set; }

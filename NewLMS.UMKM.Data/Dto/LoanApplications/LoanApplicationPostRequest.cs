@@ -31,6 +31,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         // Credit Scoring
         public int ScoResidentialReputationId { get; set; }
         public int ScoBankRelationId { get; set; }
+        public int? ScoMonthlyMutationId { get; set; }
         public int ScoBJBCreditHistoryId { get; set; }
         public int ScoTransacMethodId { get; set; }
         public int ScoAverageAccBalanceId { get; set; }

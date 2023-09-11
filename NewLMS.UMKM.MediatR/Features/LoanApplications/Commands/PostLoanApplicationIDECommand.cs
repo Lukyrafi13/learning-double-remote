@@ -91,7 +91,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                                 }
                             }
 
-                            //Badan Usaha
+                            //Perubahan dari Badan Usaha ke Perorangan
                             if (data.OwnerCategoryId == 2)
                             {
                                 //Kosongkan Data Debitur
@@ -125,8 +125,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                                 await _loanApplication.UpdateAsync(data);
                             }
 
-                            //perorangan
-                                
+                            //Perubahan dari perorangan ke Badan Usaha
                             if(data.OwnerCategoryId == 1)
                             {
                                 var debtorCompanyId = data.DebtorCompanyId;

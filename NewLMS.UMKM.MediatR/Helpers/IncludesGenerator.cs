@@ -17,7 +17,9 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "RfOwnerCategory",
                         "RfBusinessCycle",
                         "RfBranch",
-                        "RfBookingBranch"
+                        "RfBookingBranch",
+                        "Debtor",
+                        "DebtorCompany",
                     };
                     break;
 
