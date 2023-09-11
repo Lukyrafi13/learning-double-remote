@@ -125,7 +125,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             //RfMappingTenor
             CreateMap<RfMappingTenor, RfMappingTenorResponse>()
                 .ForMember(d => d.RfTenor, s => s.MapFrom(d => d.RfTenor))
-                .ForMember(d => d.RfProduct, s => s.MapFrom(d => d.RfProduct));
+                .ForMember(d => d.RfProduct, s => s.MapFrom(d => d.RfProduct))
+                .ForMember(d => d.RfLoanPurpose, s => s.MapFrom(d => d.RfLoanPurpose))
+                .ForMember(d => d.ParamApplicationType, s => s.MapFrom(d => d.ParamApplicationType))
+                .ForMember(d => d.RfSubProduct, s => s.MapFrom(d => d.RfSubProduct));
             CreateMap<RfMappingTenor, RfMappingTenorSimpleResponse>()
                 .ForMember(d => d.RfTenor, s => s.MapFrom(d => d.RfTenor))
                 .ForMember(d => d.RfProduct, s => s.MapFrom(d => d.RfProduct));
