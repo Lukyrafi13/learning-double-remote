@@ -31,6 +31,9 @@ namespace NewLMS.UMKM.MediatR.Features.RfMappingTenors.Queries.GetFilterRfMappin
             var includes = new string[] {
                 "RfTenor",
                 "RfProduct",
+                "RfLoanPurpose",
+                "ParamApplicationType",
+                "RfSubProduct",
             };
             var data = await _rfMappingTenor.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<RfMappingTenorResponse>>(data.Results);
