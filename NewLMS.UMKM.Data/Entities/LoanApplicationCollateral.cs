@@ -12,6 +12,8 @@ namespace NewLMS.UMKM.Data.Entities
 
         [ForeignKey(nameof(LoanApplication))]
         public Guid LoanApplicationId { get; set; }
+        
+        [ForeignKey(nameof(RfCollateralBC))]
         public string CollateralBCId { get; set; }
         public string DocumentNumber { get; set; }
         public DateTime DocumentReleaseDate { get; set; }
@@ -25,11 +27,33 @@ namespace NewLMS.UMKM.Data.Entities
 
         [ForeignKey(nameof(RfZipCode))]
         public int ZipCodeId { get; set; }
+        public double? LanArea { get; set; }
+        public string BuildingPermit { get; set; }
+        public string NOPNumber { get; set; }
+        public string NJOPPBBNumber { get; set; }
+        public double? BuildingArea { get; set; }
+
+        [ForeignKey(nameof(RfVehMaker))]
+        public string VehMakerCode { get; set; }
+        
+        [ForeignKey(nameof(RfVehClass))]
+        public string VehClassCode { get; set; }
+        public int? YearProduction { get; set; }
+        public string MachineNumber { get; set; }
+        public string ChassisNumber { get; set; }
+        public string CityDomisili { get; set; }
+
+        [ForeignKey(nameof(RfVehModel))]
+        public string VehModelCode { get; set; }
 
         //public virtual LoanApplication LoanApplication { get; set; }
+        public virtual RfVehModel RfVehModel { get; set; }
+        public virtual RfVehClass RfVehClass { get; set; }
+        public virtual RfVehMaker RfVehMaker { get; set; }
         public virtual LoanApplicationCollateralOwner LoanApplicationCollateralOwner { get; set; }
         public virtual LoanApplication LoanApplication { get; set; }
 
         public virtual RfZipCode RfZipCode { get; set; }
+        public virtual RfCollateralBC RfCollateralBC { get; set; }
     }
 }
