@@ -3,6 +3,7 @@
     public class LoanApplicationCreditScoringRequest
     {
         public int? ScoResidentialReputationId { get; set; }
+        public int? ScoMonthlyMutationId { get; set; }
         public int? ScoBankRelationId { get; set; }
         public int? ScoBJBCreditHistoryId { get; set; }
         public int? ScoTransacMethodId { get; set; }

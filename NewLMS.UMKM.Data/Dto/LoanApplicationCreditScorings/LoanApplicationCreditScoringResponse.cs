@@ -16,8 +16,10 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings
         public int ScoBusinesLocationId { get; set; }
         public int ScoOtherPartyDebtId { get; set; }
         public int ScoCollateralId { get; set; }
+        public int? ScoMonthlyMutationId { get; set; }
 
         public RfParameterDetailResponse ScoResidentialReputation { get; set; }
+        public RfParameterDetailResponse ScoMonthlyMutation { get; set; }
         public RfParameterDetailResponse ScoBankRelation { get; set; }
         public RfParameterDetailResponse ScoBJBCreditHistory { get; set; }
         public RfParameterDetailResponse ScoTransacMethod { get; set; }

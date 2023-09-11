@@ -14,6 +14,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.ScoResidentialReputation);
                 })
+                .ForMember(d => d.ScoMonthlyMutation, o =>
+                {
+                    o.MapFrom(s => s.ScoMonthlyMutation);
+                })
                 .ForMember(d => d.ScoBankRelation, o =>
                 {
                     o.MapFrom(s => s.ScoBankRelation);
