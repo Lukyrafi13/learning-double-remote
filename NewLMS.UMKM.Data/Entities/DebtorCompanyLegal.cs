@@ -21,6 +21,7 @@ namespace NewLMS.UMKM.Data.Entities
         public DateTime TDPDate { get; set; }
         public DateTime TDPDueDate { get; set; }
         public string SKNumber { get; set; }
+        public DateTime? SKDate { get; set; }
         public DateTime SKDueDate { get; set; }
         public DateTime DeedDate { get; set; }
         public string SKDPNumber { get; set; }
