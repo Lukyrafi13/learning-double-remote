@@ -88,6 +88,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                             else
                             {
                                 creditScoring = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>(request);
+                                creditScoring.Id = loanApplication.Id;
                                 await _loanApplicationCreditScoring.UpdateAsync(creditScoring);
                             }
 
