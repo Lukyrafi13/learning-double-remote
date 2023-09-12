@@ -20,7 +20,7 @@ namespace NewLMS.UMKM.Data.Dto.Documents
 
         public RfParameterDetailSimpleResponse RfDocumentType { get; set; }
         public RfParameterDetailSimpleResponse RfDocumentStatus { get; set; }
-        public RfDocumentSimpleResponse RfDocument { get; set; }
+        public RfDocumentResponse RfDocument { get; set; }
         public ICollection<DocumentFileUrlRes> Files { get; set; }
     }
 
