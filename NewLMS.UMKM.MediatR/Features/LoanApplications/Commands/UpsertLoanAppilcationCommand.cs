@@ -65,6 +65,8 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                 var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id", includes.ToArray());
                 var ownerCategory = await _parameterDetail.GetByIdAsync(request.OwnerCategoryId, "ParameterDetailId");
 
+                var debtorCompanyId = loanApplication.DebtorCompanyId;
+
                 switch (request.Tab)
                 {
                     case "initial_data_entry":
@@ -72,7 +74,6 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                         var creditScoring = loanApplication.LoanApplicationCreditScoring;
                         if (ownerCategory.Code == "001") // Perorangan
                         {
-                            var debtorCompanyId = loanApplication.DebtorCompanyId;
                             loanApplication.DebtorCompanyId = null;
                             await _loanApplication.UpdateAsync(loanApplication);
 
@@ -148,7 +149,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
 
                             #region DebtorCouple
                             var maritalStatus = await _rfMarital.GetByIdAsync(debtor.MaritalStatusId, "MaritalCode");
-                            var debtorCouple = debtor.DebtorCouple;
+                            var debtorCouple = loanApplication.Debtor?.DebtorCouple;
 
                             if (maritalStatus.MaritalCode == "01") // Menikah
                             {
@@ -182,19 +183,22 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                             else
                             {
                                 debtorCompany = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCompany>(request);
+                                if (debtorCompanyId != null) debtorCompany.Id = debtorCompanyId ?? Guid.NewGuid();
                                 await _debtorCompany.UpdateAsync(debtorCompany);
                             }
 
-                            var debtorCompanyLegal = debtorCompany.DebtorCompanyLegal;
-                            if (debtorCompanyLegal.Id != Guid.Empty)
+                            var debtorCompanyLegal = loanApplication.DebtorCompany?.DebtorCompanyLegal;
+                            if (debtorCompanyLegal == null)
                             {
                                 debtorCompanyLegal = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCompanyLegal>(request, debtorCompanyLegal);
-                                debtorCompanyLegal.Id = Guid.NewGuid();
+                                debtorCompanyLegal.Id = debtorCompany.Id;
                                 await _debtorCompanyLegal.AddAsync(debtorCompanyLegal);
                             }
                             else
                             {
                                 debtorCompanyLegal = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCompanyLegal>(request);
+                                debtorCompanyLegal.Id = debtorCompany.Id;
+
                                 await _debtorCompanyLegal.UpdateAsync(debtorCompanyLegal);
                             }
                         }
@@ -212,6 +216,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                         {
 
                             debtorEmergency = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorEmergency>(request);
+                            debtorEmergency.Id = loanApplication.Id;
                             await _debtorEmergency.UpdateAsync(debtorEmergency);
                         }
                         #endregion
