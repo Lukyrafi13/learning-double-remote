@@ -17,6 +17,9 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(ApplicationType))]
         public int ApplicationTypeId { get; set; }
 
+        [ForeignKey(nameof(RfPlacementCountry))]
+        public string PlacementCountryCode { get; set; }
+
         [ForeignKey(nameof(LoanPurpose))]
         public string LoanPurposeId { get; set; }
 
@@ -52,5 +55,6 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfSubProduct RfSubProduct { get; set; }
         public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }
         public virtual RfTenor RfTenor { get; set; }
+        public virtual RfPlacementCountry RfPlacementCountry { get; set; }
     }
 }

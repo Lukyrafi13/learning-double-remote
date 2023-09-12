@@ -10,6 +10,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationFacilities
     {
         public Guid LoanApplicationId { get; set; }
         public int ApplicationTypeId { get; set; }
+        public string PlacementCountryCode { get; set; }
         public string LoanPurposeId { get; set; }
         public long SubmittedPlafond { get; set; }
         public string SubProductId { get; set; }
