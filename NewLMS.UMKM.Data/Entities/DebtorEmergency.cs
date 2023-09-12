@@ -22,6 +22,8 @@ namespace NewLMS.UMKM.Data.Entities
         public int ZipCodeId { get; set; }
         public string PhoneNumber { get; set; }
 
+        public virtual LoanApplication LoanApplication { get; set; }
         public virtual RfZipCode RfZipCode { get; set; }
+
     }
 }

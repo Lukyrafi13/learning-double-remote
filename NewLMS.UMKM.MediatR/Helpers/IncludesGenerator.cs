@@ -31,8 +31,6 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "RfProduct",
                         "RfBranch",
                         "RfBookingBranch",
-                        "Debtor",
-                        "DebtorCompany",
                         "Owner",
                         "Debtor.RfResidenceStatus",
                         "Debtor.RfZipCode",
@@ -40,7 +38,6 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "Debtor.RfGender",
                         "Debtor.RfEducation",
                         "Debtor.RfMarital",
-                        "DebtorCompany.DebtorCompanyLegal",
                         "DebtorCompany.DebtorCompanyLegal",
                         "DebtorEmergency.RfZipCode",
                     };

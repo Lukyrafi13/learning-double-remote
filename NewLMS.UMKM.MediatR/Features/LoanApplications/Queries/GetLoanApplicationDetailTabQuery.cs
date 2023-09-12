@@ -43,13 +43,13 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
                 }
 
                 var dataVm = _mapper.Map<LoanApplicationIDEResponse>(data);
-                if(dataVm.Info.OwnerCategoryId == 1)
+                if (dataVm.Info.OwnerCategoryId == 1)
                 {
-                    dataVm.Info.FullName = data.Debtor.Fullname;
+                    dataVm.Info.FullName = data.Debtor?.Fullname ?? null;
                 }
                 if (dataVm.Info.OwnerCategoryId == 2)
                 {
-                    dataVm.Info.FullName = data.DebtorCompany.Name;
+                    dataVm.Info.FullName = data.DebtorCompany?.Name ?? null;
                 }
 
                 return ServiceResponse<LoanApplicationIDEResponse>.ReturnResultWith200(dataVm);
@@ -60,6 +60,6 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
             }
         }
 
-        
+
     }
 }

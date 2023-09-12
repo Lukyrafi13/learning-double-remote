@@ -227,24 +227,24 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                             }
 
                             //Data EmergencyContact
-                            var dataDebtorEmergency = await _debtorEmergency.GetByPredicate(x => x.Id == data.DebtorEmergencyId);
-                            if (dataDebtorEmergency != null)
-                            {
-                                //Update Emergency Contact
-                                _mapper.Map(request.DebtorEmergency, dataDebtorEmergency);
-                                await _debtorEmergency.UpdateAsync(dataDebtorEmergency);
-                            }
-                            if (dataDebtorEmergency == null)
-                            {
-                                //Add Emergency Contact
-                                var debtorEmergencyNew = _mapper.Map<DebtorEmergencyPostRequest, DebtorEmergency>(request.DebtorEmergency);
-                                var debtorEmergencyNewId = Guid.NewGuid();
-                                debtorEmergencyNew.Id = debtorEmergencyNewId;
-                                await _debtorEmergency.AddAsync(debtorEmergencyNew);
+                            //var dataDebtorEmergency = await _debtorEmergency.GetByPredicate(x => x.Id == data.DebtorEmergencyId);
+                            //if (dataDebtorEmergency != null)
+                            //{
+                            //    //Update Emergency Contact
+                            //    _mapper.Map(request.DebtorEmergency, dataDebtorEmergency);
+                            //    await _debtorEmergency.UpdateAsync(dataDebtorEmergency);
+                            //}
+                            //if (dataDebtorEmergency == null)
+                            //{
+                            //    //Add Emergency Contact
+                            //    var debtorEmergencyNew = _mapper.Map<DebtorEmergencyPostRequest, DebtorEmergency>(request.DebtorEmergency);
+                            //    var debtorEmergencyNewId = Guid.NewGuid();
+                            //    debtorEmergencyNew.Id = debtorEmergencyNewId;
+                            //    await _debtorEmergency.AddAsync(debtorEmergencyNew);
 
-                                data.DebtorEmergencyId = debtorEmergencyNewId;
+                            //    data.DebtorEmergencyId = debtorEmergencyNewId;
 
-                            }
+                            //}
 
                             await _loanApplication.UpdateAsync(data);
                             break;

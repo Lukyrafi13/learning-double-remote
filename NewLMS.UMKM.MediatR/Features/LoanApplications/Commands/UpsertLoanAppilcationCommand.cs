@@ -65,104 +65,72 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                 var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id", includes.ToArray());
                 var ownerCategory = await _parameterDetail.GetByIdAsync(request.OwnerCategoryId, "ParameterDetailId");
 
-
-                await _loanApplication.UpdateAsync(loanApplication);
-
                 switch (request.Tab)
                 {
                     case "initial_data_entry":
-
-                        loanApplication = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplication>(request);
                         var dataFasilitas = request.InitialDataEntry.DataFasilitas;
-
+                        var creditScoring = loanApplication.LoanApplicationCreditScoring;
                         if (ownerCategory.Code == "001") // Perorangan
                         {
-                            var creditScoring = loanApplication.LoanApplicationCreditScoring;
+                            var debtorCompanyId = loanApplication.DebtorCompanyId;
+                            loanApplication.DebtorCompanyId = null;
+                            await _loanApplication.UpdateAsync(loanApplication);
 
-                            if (creditScoring == null)
+                            //DebtorCompany
+                            var debtorCompanyData = await _debtorCompany.GetByPredicate(x => x.Id == debtorCompanyId);
+                            if (debtorCompanyData != null)
                             {
-                                creditScoring = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>(request, creditScoring);
-                                creditScoring.Id = loanApplication.Id;
-                                await _loanApplicationCreditScoring.AddAsync(creditScoring);
-                            }
-                            else
-                            {
-                                creditScoring = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>(request);
-                                creditScoring.Id = loanApplication.Id;
-                                await _loanApplicationCreditScoring.UpdateAsync(creditScoring);
+                                await _debtorCompany.DeleteAsync(debtorCompanyData);
                             }
 
-                            //Perubahan dari Badan Usaha ke Perorangan
-                            if (loanApplication.OwnerCategoryId == 2)
+                            //DebtorCompanyLegal
+                            var debtorCompanyLegal = await _debtorCompanyLegal.GetByPredicate(x => x.Id == debtorCompanyId);
+                            if (debtorCompanyLegal != null)
                             {
-                                //Kosongkan Data Debitur
-                                var debtorId = loanApplication.DebtorId;
-                                loanApplication.DebtorId = null;
-                                await _loanApplication.UpdateAsync(loanApplication);
-                                var dataDebitur = await _debtor.GetByPredicate(x => x.Id == debtorId);
-                                if (dataDebitur != null)
-                                {
-                                    await _debtor.DeleteAsync(dataDebitur);
-                                }
-
-                                //Kosongkan Credit Scoring
-                                var dataCreditScoring = await _loanApplicationCreditScoring.GetByPredicate(x => x.Id == loanApplication.Id);
-                                if (dataCreditScoring != null)
-                                {
-                                    await _loanApplicationCreditScoring.DeleteAsync(dataCreditScoring);
-                                }
-
-                                //AddDebtorCompany
-                                var debtorCompanyNewId = Guid.NewGuid();
-                                var dataDebtorComapanyNew = new DebtorCompany
-                                {
-                                    Id = debtorCompanyNewId
-                                };
-                                await _debtorCompany.AddAsync(dataDebtorComapanyNew);
-
-
-
-                                loanApplication.DebtorCompanyId = debtorCompanyNewId;
-                                await _loanApplication.UpdateAsync(loanApplication);
-                            }
-
-                            //Perubahan dari perorangan ke Badan Usaha
-                            if (loanApplication.OwnerCategoryId == 1)
-                            {
-                                var debtorCompanyId = loanApplication.DebtorCompanyId;
-                                loanApplication.DebtorCompanyId = null;
-                                await _loanApplication.UpdateAsync(loanApplication);
-
-                                //AddDebtor
-                                var dataDebtorNewId = Guid.NewGuid();
-                                var dataDebtorNew = new Debtor
-                                {
-                                    Id = dataDebtorNewId
-                                };
-                                await _debtor.AddAsync(dataDebtorNew);
-                                loanApplication.DebtorId = dataDebtorNewId;
-                                await _loanApplication.UpdateAsync(loanApplication);
-
-                                //DebtorCompanyLegal
-                                var debtorCompanyLegal = await _debtorCompanyLegal.GetByPredicate(x => x.Id == debtorCompanyId);
-                                if (debtorCompanyLegal != null)
-                                {
-                                    await _debtorCompanyLegal.DeleteAsync(debtorCompanyLegal);
-                                }
-                                //DebtorCompany
-                                var debtorCompanyData = await _debtorCompany.GetByPredicate(x => x.Id == debtorCompanyId);
-                                if (debtorCompanyData != null)
-                                {
-                                    await _debtorCompany.DeleteAsync(debtorCompanyData);
-                                }
+                                await _debtorCompanyLegal.DeleteAsync(debtorCompanyLegal);
                             }
                         }
+                        else
+                        {
+                            var debtorId = loanApplication.DebtorId;
+                            var dataDebitur = loanApplication.Debtor;
+
+                            loanApplication.DebtorId = null;
+                            loanApplication.Debtor = null;
+                            loanApplication.RfOwnerCategory = null;
+
+                            await _loanApplication.UpdateAsync(loanApplication);
+
+                            // Kosongkan Credit Scoring
+                            if (creditScoring != null)
+                            {
+                                await _loanApplicationCreditScoring.DeleteAsync(creditScoring);
+                            }
+
+                            // Kosongkan Data Debitur
+                            if (dataDebitur != null)
+                            {
+                                await _debtor.DeleteAsync(dataDebitur);
+                            }
+                        }
+
+                        // Remove business cycle check
+                        if (!request.InitialDataEntry?.DataFasilitas?.IsBusinessCycle ?? false)
+                        {
+                            loanApplication.BusinessCycleId = null;
+                            loanApplication.RfBusinessCycle = null;
+                            loanApplication.BusinessCycleMonth = null;
+                        }
+
+                        loanApplication = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplication>(request, loanApplication);
+                        await _loanApplication.UpdateAsync(loanApplication);
                         break;
 
                     case "data_permohonan":
                         #region Debtor / DebtorCompany
                         var debtor = loanApplication.Debtor;
                         var debtorCompany = loanApplication.DebtorCompany;
+                        var debtorEmergency = loanApplication.DebtorEmergency;
 
                         if (ownerCategory.Code == "001") // Perorangan
                         {
@@ -232,7 +200,6 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                         #endregion
 
                         #region DebtorEmergency
-                        var debtorEmergency = loanApplication.DebtorEmergency;
 
                         if (debtorEmergency == null)
                         {

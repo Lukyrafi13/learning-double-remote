@@ -109,6 +109,12 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<LoanApplicationDataFasilitasRequest, LoanApplication>();
             CreateMap<LoanApplicationIDEUpsertRequest, LoanApplication>()
                 .ConstructUsing((s, c) => c.Mapper.Map<LoanApplication>(s.InitialDataEntry.DataFasilitas))
+                .ForMember(d => d.BookingBranchId, o => o.MapFrom(s => s.InitialDataEntry.DataFasilitas.BookingBranchId))
+                .ForMember(d => d.ProductId, o => o.MapFrom(s => s.InitialDataEntry.DataFasilitas.ProductId))
+                .ForMember(d => d.OwnerCategoryId, o => o.MapFrom(s => s.InitialDataEntry.DataFasilitas.OwnerCategoryId))
+                .ForMember(d => d.IsBusinessCycle, o => o.MapFrom(s => s.InitialDataEntry.DataFasilitas.IsBusinessCycle))
+                .ForMember(d => d.BusinessCycleId, o => o.MapFrom(s => s.InitialDataEntry.DataFasilitas.BusinessCycleId))
+                .ForMember(d => d.BusinessCycleMonth, o => o.MapFrom(s => s.InitialDataEntry.DataFasilitas.BusinessCycleMonth))
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.AppId));
             #endregion
 

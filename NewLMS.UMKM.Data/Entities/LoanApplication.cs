@@ -34,13 +34,8 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(Debtor))]
         public Guid? DebtorId { get; set; }
 
-        [ForeignKey(nameof(DebtorEmergency))]
-        public Guid? DebtorEmergencyId { get; set; }
-
-
         [ForeignKey(nameof(RfProduct))]
         public string ProductId { get; set; }
-
 
         [ForeignKey(nameof(RfOwnerCategory))]
         public int OwnerCategoryId { get; set; }
