@@ -1,6 +1,6 @@
-﻿using Bjb.DigitalBisnis.CurrentUser.Interfaces;
+﻿using AutoMapper;
+using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
-using Microsoft.Extensions.Configuration;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.FileUpload.Interfaces;
@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,7 +29,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParameterDetail;
         private readonly ICurrentUserService _userInfoToken;
-        private readonly IConfiguration _appConfig;
+        private readonly IMapper _mapper;
         private readonly IUploadService _uploadService;
 
         public DocumentsUploadCommandHandler(
@@ -39,17 +38,17 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             IGenericRepositoryAsync<FileUrl> fileUrl,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
-            IConfiguration appConfig, 
+            IMapper mapper,
             ICurrentUserService userInfoToken,
             IUploadService uploadService)
         {
             _documentRepo = documentRepo;
             _documentFileUrl = documentFileUrl;
+            _mapper = mapper;
             _fileUrl = fileUrl;
             _loanApplication = loanApplication;
             _rfParameterDetail = rfParameterDetail;
             _userInfoToken = userInfoToken;
-            _appConfig = appConfig;
             _uploadService = uploadService;
         }
 
@@ -59,21 +58,16 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             try
             {
                 var documentId = Guid.NewGuid();
-                var entity = new Document()
-                {
-                    DocumentId = command.DocumentId,
-                    LoanApplicationId = command.LoanApplicationId,
-                    DocumentType = command.DocumentType,
-                };
-
-                var documentFileUrls = new System.Collections.Generic.List<DocumentFileUrl>();
-                var fileUrls = new System.Collections.Generic.List<FileUrl>();
+                var documentRepo = _mapper.Map<Document>(command);
+                
+                var documentFileUrls = new List<DocumentFileUrl>();
+                var fileUrls = new List<FileUrl>();
 
                 if (command.Files != null)
                 {
                     var Includes = new string[]
                     {
-                       "FkRfDebtor",
+                       "Debtor",
                     };
 
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(command.LoanApplicationId, "Id", Includes);
@@ -82,7 +76,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                     {
                         var upload = _uploadService.Upload(new FileUpload.Models.UploadRequestModel
                         {
-                            Segment = "KprKkb",
+                            Segment = "UMKM",
                             DebtorName = dataLoanApplication.Debtor.Fullname,
                             DocumentName = documentType.Description,
                             File = f,
@@ -98,6 +92,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                             fileType = fileType.Replace(".", "");
                             documentFileUrls.Add(new DocumentFileUrl
                             {
+                                Id = Guid.NewGuid(),
                                 DocumentId = documentId,
                                 FileUrlId = fileUrlId,
                                 CreatedDate = DateTime.Now,
@@ -118,7 +113,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                     });
                 }
 
-                await _documentRepo.AddAsync(entity);
+                await _documentRepo.AddAsync(documentRepo);
                 if (fileUrls.Count > 0)
                 {
                     await _fileUrl.AddRangeAsync(fileUrls);

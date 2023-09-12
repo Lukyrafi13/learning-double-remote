@@ -5,9 +5,6 @@ using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34,22 +31,17 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         {
             try
             {
-                var docId = request.DocumentId;
-                var fileId = request.FileUrlId;
+                var documentFileUrl = await _documentFileUrl.GetByPredicate(c => c.FileUrlId == request.FileUrlId);
+                if (documentFileUrl != null)
+                {
+                    await _documentFileUrl.DeleteAsync(documentFileUrl);
+                }
 
-                var entity = await _documentFileUrl.GetByPredicate(c => c.FileUrlId == fileId && c.DocumentId == docId);
-                if (entity == null)
-                    return ServiceResponse<Unit>.Return404("Document File Not Found");
-
-                entity.IsDeleted = true;
-
-                var fileUrl = await _fileUrl.GetByIdAsync(fileId, "FileUrlId");
-                if (fileUrl == null)
-                    return ServiceResponse<Unit>.Return404("File Not Found");
-
-                fileUrl.IsDeleted = true;
-                await _fileUrl.UpdateAsync(fileUrl);
-
+                var fileUrl = await _fileUrl.GetByPredicate(x => x.Id == request.FileUrlId);
+                if (fileUrl != null)
+                {
+                    await _fileUrl.DeleteAsync(fileUrl);
+                }
 
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }

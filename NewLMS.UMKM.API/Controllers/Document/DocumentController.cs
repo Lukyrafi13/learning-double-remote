@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Documents.Commands;
@@ -24,7 +23,7 @@ namespace NewLMS.UMKM.API.Controllers.Document
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpGet("{DocumentId}")]
+        [HttpGet("{Id}")]
         [ProducesResponseType(type: typeof(ServiceResponse<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetById([FromRoute] DocumentsGetByIdQuery command)
         {
@@ -57,7 +56,7 @@ namespace NewLMS.UMKM.API.Controllers.Document
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpDelete("{DocumentId}/{FileUrlId}")]
+        [HttpDelete("{FileUrlId}")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteFile([FromRoute] DocumentFilesDeleteCommand command)
         {

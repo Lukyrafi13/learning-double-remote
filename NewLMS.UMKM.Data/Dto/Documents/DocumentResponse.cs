@@ -2,10 +2,6 @@
 using NewLMS.UMKM.Data.Dto.RfDocument;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.Data.Dto.Documents
 {

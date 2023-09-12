@@ -1,13 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,12 +18,13 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         private readonly IGenericRepositoryAsync<Document> _repo;
         private readonly IGenericRepositoryAsync<FileUrl> _fileUrl;
         private readonly IGenericRepositoryAsync<DocumentFileUrl> _documentUrl;
-        private readonly IMapper _mapper;
 
-        public DocumentsDeleteCommandHandler(IGenericRepositoryAsync<Document> repo, IGenericRepositoryAsync<FileUrl> fileUrl, IGenericRepositoryAsync<DocumentFileUrl> documentUrl, IMapper mapper)
+        public DocumentsDeleteCommandHandler(
+            IGenericRepositoryAsync<Document> repo, 
+            IGenericRepositoryAsync<FileUrl> fileUrl, 
+            IGenericRepositoryAsync<DocumentFileUrl> documentUrl)
         {
             _repo = repo;
-            _mapper = mapper;
             _fileUrl = fileUrl;
             _documentUrl = documentUrl;
         }
@@ -36,27 +33,27 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         {
             try
             {
-                var entity = await _repo.GetByIdAsync(request.Id, "DocumentId");
+                var entity = await _repo.GetByIdAsync(request.Id, "Id");
                 if (entity == null)
                     return ServiceResponse<Unit>.Return404("Document Not Found");
 
-                var documentUrl = await _documentUrl.GetByIdAsync(request.Id, "DocumentId");
-                if (documentUrl == null)
-                    return ServiceResponse<Unit>.Return404("DocumentURL Not Found");
+                await _repo.DeleteAsync(entity);
 
-                var fileUrl = await _fileUrl.GetByIdAsync(documentUrl.FileUrlId, "FileUrlId");
-                if (fileUrl == null)
-                    return ServiceResponse<Unit>.Return404("FileUrl Not Found");
+                var documentUrls = await _documentUrl.GetListByPredicate(x => x.DocumentId == request.Id);
+                if (documentUrls != null)
+                {
+                    foreach (var docUrl in documentUrls)
+                    {
+                        var fileUrlId = docUrl.FileUrlId;
+                        await _documentUrl.DeleteAsync(docUrl);
 
-
-                entity.IsDeleted = true;
-                documentUrl.IsDeleted = true;
-                fileUrl.IsDeleted = true;
-
-                await _documentUrl.UpdateAsync(documentUrl);
-                await _repo.UpdateAsync(entity);
-                await _fileUrl.UpdateAsync(fileUrl);
-
+                        var fileUrl = await _fileUrl.GetByPredicate(x => x.Id == fileUrlId);
+                        if (fileUrl != null)
+                        {
+                            await _fileUrl.DeleteAsync(fileUrl);
+                        }
+                    }
+                }
 
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }

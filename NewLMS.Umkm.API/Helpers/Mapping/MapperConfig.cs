@@ -23,6 +23,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new LoanApplicationCollateralOwnerProfile());
                 mc.AddProfile(new UserProfile());
                 mc.AddProfile(new LoanApplicationFacilityProfile());
+                mc.AddProfile(new DocumentProfile());
 
             });
             return mappingConfig.CreateMapper();

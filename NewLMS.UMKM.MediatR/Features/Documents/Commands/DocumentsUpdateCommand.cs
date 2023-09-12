@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
-using Microsoft.Extensions.Configuration;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.FileUpload.Interfaces;
@@ -12,7 +11,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,7 +29,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParameterDetail;
         private readonly IMapper _mapper;
         private readonly ICurrentUserService _userInfoToken;
-        private readonly IConfiguration _appConfig;
         private readonly IUploadService _uploadService;
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
 
@@ -41,7 +38,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             IGenericRepositoryAsync<FileUrl> fileUrl,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
-            IMapper mapper, IConfiguration appConfig,
+            IMapper mapper,
             ICurrentUserService userInfoToken,
             IUploadService uploadService)
         {
@@ -50,7 +47,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             _fileUrl = fileUrl;
             _userInfoToken = userInfoToken;
             _mapper = mapper;
-            _appConfig = appConfig;
             _loanApplication = loanApplication;
             _rfParameterDetail = rfParameterDetail;
             _uploadService = uploadService;
@@ -60,21 +56,22 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         {
             try
             {
-                var entity = await _documentRepo.GetByIdAsync(command.DocumentId, "DocumentId");
-                entity.DocumentId = command.DocumentId;
-                entity.LoanApplicationId = command.LoanApplicationId;
-
-                var documentFileUrls = new System.Collections.Generic.List<DocumentFileUrl>();
-                var fileUrls = new System.Collections.Generic.List<FileUrl>();
+                var entity = await _documentRepo.GetByIdAsync(command.Id, "Id");
+                if(entity != null)
+                {
+                    var documentRepo = _mapper.Map<Document>(command);
+                    await _documentRepo.UpdateAsync(documentRepo);
+                }
+                
+                var documentFileUrls = new List<DocumentFileUrl>();
+                var fileUrls = new List<FileUrl>();
 
                 if (command.Files != null)
                 {
-
                     var Includes = new string[]
                     {
                         "Debtor",
                     };
-
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(entity.LoanApplicationId, "Id", Includes);
                     var documentType = await _rfParameterDetail.GetByPredicate(x => x.ParameterDetailId == command.DocumentType);
 
@@ -82,7 +79,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                     {
                         var upload = _uploadService.Upload(new FileUpload.Models.UploadRequestModel
                         {
-                            Segment = "KprKkb",
+                            Segment = "UMKM",
                             DebtorName = dataLoanApplication.Debtor.Fullname,
                             DocumentName = documentType.Description,
                             File = f,
@@ -118,7 +115,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                     });
                 }
 
-                await _documentRepo.UpdateAsync(entity);
+                
                 if (fileUrls.Count > 0)
                 {
                     await _fileUrl.AddRangeAsync(fileUrls.ToList());

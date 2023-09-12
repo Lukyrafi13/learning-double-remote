@@ -40,5 +40,6 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfParameterDetail RfDocumentType { get; set; }
         public virtual RfParameterDetail RfDocumentStatus { get; set; }
         public virtual RfDocument RfDocument { get; set; }
+        public virtual ICollection<DocumentFileUrl> Files { get; set; }
     }
 }
