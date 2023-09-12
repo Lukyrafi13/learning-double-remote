@@ -39,6 +39,7 @@ using Bjb.DigitalBisnis.CurrentUser;
 using Bjb.DigitalBisnis.Consul;
 using Bjb.DigitalBisnis.HealthCheck;
 using NewLMS.UMKM.Data.Dto.AppSettingJson;
+using NewLMS.UMKM.FileUpload;
 
 namespace NewLMS.UMKM.API
 {
@@ -81,6 +82,7 @@ namespace NewLMS.UMKM.API
             services.AddDependencyInjection();
             services.AddSignalR();
             //services.AddConsulConfig(Configuration);
+            services.AddFileUploadAPI(Configuration);
             services.AddServiceHealthCheck(Configuration);
             services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
             services.AddSlickService(Configuration);
