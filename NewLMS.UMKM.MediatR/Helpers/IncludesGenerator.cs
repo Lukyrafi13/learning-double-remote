@@ -40,6 +40,8 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "Debtor.RfMarital",
                         "DebtorCompany.DebtorCompanyLegal",
                         "DebtorEmergency.RfZipCode",
+                        "Debtor.DebtorCouple.RfZipCode",
+                        "Debtor.DebtorCouple.RfJob",
                     };
                     break;
 

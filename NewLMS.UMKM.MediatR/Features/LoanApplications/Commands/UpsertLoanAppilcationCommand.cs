@@ -154,13 +154,14 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                             {
                                 if (debtorCouple == null)
                                 {
-                                    debtorCouple = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCouple>(request, debtorCouple);
+                                    debtorCouple = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCouple>(request);
                                     debtorCouple.Id = debtor.Id;
                                     await _debtorCouple.AddAsync(debtorCouple);
                                 }
                                 else
                                 {
                                     debtorCouple = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCouple>(request);
+                                    debtorCouple.Id = debtor.Id;
                                     await _debtorCouple.UpdateAsync(debtorCouple);
                                 }
                             }

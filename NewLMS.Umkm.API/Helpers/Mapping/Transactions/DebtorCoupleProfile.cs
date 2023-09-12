@@ -17,10 +17,6 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfJob, o =>
                 {
                     o.MapFrom(s => s.RfJob);
-                })
-                .ForMember(d => d.RfMarital, o =>
-                {
-                    o.MapFrom(s => s.RfMarital);
                 });
 
             CreateMap<DebtorCoupleRequest, DebtorCouple>();
