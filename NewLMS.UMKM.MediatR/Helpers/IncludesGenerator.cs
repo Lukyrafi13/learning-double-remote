@@ -41,6 +41,7 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "Debtor.DebtorCouple.RfZipCode",
                         "Debtor.DebtorCouple.RfJob",
                         "DebtorCompany.DebtorCompanyLegal",
+                        "DebtorCompany.RfZipCode",
                         "DebtorEmergency.RfZipCode",
                     };
                     break;
