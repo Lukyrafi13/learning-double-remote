@@ -13,10 +13,10 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationFacilities
         public string LoanPurposeId { get; set; }
         public long SubmittedPlafond { get; set; }
         public string SubProductId { get; set; }
-        public int LoanTerm { get; set; }
+        public string TenorCode { get; set; }
         public string FacilityPurpose { get; set; }
         public string InstallmentType { get; set; }
-        public string Interest { get; set; }
+        public double Interest { get; set; }
         public int NatureOfCreditId { get; set; }
         public long PrincipalInstallment { get; set; }
         public long InterestInstallment { get; set; }

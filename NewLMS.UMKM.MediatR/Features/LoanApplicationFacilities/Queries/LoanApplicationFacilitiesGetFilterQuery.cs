@@ -39,6 +39,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFacilities.Queries
                     "LoanPurpose",
                     "RfSubProduct",
                     "RfSectorLBU3",
+                    "RfTenor",
                 };
                 var data = await _core.GetPagedReponseAsync(request, includes);
                 var dataVm = _mapper.Map<IEnumerable<LoanApplicationFacilityResponse>>(data.Results);

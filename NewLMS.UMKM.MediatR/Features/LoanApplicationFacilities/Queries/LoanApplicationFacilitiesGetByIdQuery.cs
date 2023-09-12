@@ -38,6 +38,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFacilities.Queries
                     "NatureOfCredit",
                     "LoanPurpose",
                     "RfSubProduct",
+                    "RfTenor",
                     "RfSectorLBU3",
                 };
                 var data = await _core.GetByPredicate(x => x.Id == request.Id, includes);
