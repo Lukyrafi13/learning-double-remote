@@ -90,6 +90,71 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                                 creditScoring = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>(request);
                                 await _loanApplicationCreditScoring.UpdateAsync(creditScoring);
                             }
+
+                            //Perubahan dari Badan Usaha ke Perorangan
+                            if (loanApplication.OwnerCategoryId == 2)
+                            {
+                                //Kosongkan Data Debitur
+                                var debtorId = loanApplication.DebtorId;
+                                loanApplication.DebtorId = null;
+                                await _loanApplication.UpdateAsync(loanApplication);
+                                var dataDebitur = await _debtor.GetByPredicate(x => x.Id == debtorId);
+                                if (dataDebitur != null)
+                                {
+                                    await _debtor.DeleteAsync(dataDebitur);
+                                }
+
+                                //Kosongkan Credit Scoring
+                                var dataCreditScoring = await _loanApplicationCreditScoring.GetByPredicate(x => x.Id == loanApplication.Id);
+                                if (dataCreditScoring != null)
+                                {
+                                    await _loanApplicationCreditScoring.DeleteAsync(dataCreditScoring);
+                                }
+
+                                //AddDebtorCompany
+                                var debtorCompanyNewId = Guid.NewGuid();
+                                var dataDebtorComapanyNew = new DebtorCompany
+                                {
+                                    Id = debtorCompanyNewId
+                                };
+                                await _debtorCompany.AddAsync(dataDebtorComapanyNew);
+
+
+
+                                loanApplication.DebtorCompanyId = debtorCompanyNewId;
+                                await _loanApplication.UpdateAsync(loanApplication);
+                            }
+
+                            //Perubahan dari perorangan ke Badan Usaha
+                            if (loanApplication.OwnerCategoryId == 1)
+                            {
+                                var debtorCompanyId = loanApplication.DebtorCompanyId;
+                                loanApplication.DebtorCompanyId = null;
+                                await _loanApplication.UpdateAsync(loanApplication);
+
+                                //AddDebtor
+                                var dataDebtorNewId = Guid.NewGuid();
+                                var dataDebtorNew = new Debtor
+                                {
+                                    Id = dataDebtorNewId
+                                };
+                                await _debtor.AddAsync(dataDebtorNew);
+                                loanApplication.DebtorId = dataDebtorNewId;
+                                await _loanApplication.UpdateAsync(loanApplication);
+
+                                //DebtorCompanyLegal
+                                var debtorCompanyLegal = await _debtorCompanyLegal.GetByPredicate(x => x.Id == debtorCompanyId);
+                                if (debtorCompanyLegal != null)
+                                {
+                                    await _debtorCompanyLegal.DeleteAsync(debtorCompanyLegal);
+                                }
+                                //DebtorCompany
+                                var debtorCompanyData = await _debtorCompany.GetByPredicate(x => x.Id == debtorCompanyId);
+                                if (debtorCompanyData != null)
+                                {
+                                    await _debtorCompany.DeleteAsync(debtorCompanyData);
+                                }
+                            }
                         }
                         break;
 
