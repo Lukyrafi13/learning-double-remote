@@ -13,22 +13,24 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(SLIKRequest))]
         public Guid SLIKRequestId { get; set; }
 
-        public string NoIdentity { get; set; }
+        [ForeignKey(nameof(RfSLIKDebtorType))]
+        public int SLIKDebtorType { get; set; }
         public string Fullname { get; set; }
-        public string PlaceOfBirth { get; set; }
-        public DateTime DateOfBirth { get; set; }
         public string NPWP { get; set; }
-        public DateTime RequestDate { get; set; }
+        public string NoIdentity { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string PlaceOfBirth { get; set; }
         public string ApplicationStatus { get; set; }
-        public string SLIKResult { get; set; }
-        public string SIDStatus { get; set; }
+        public DateTime RequestDate { get; set; }
 
         [ForeignKey(nameof(FileUrl))]
-        public Guid? SLIKDocumentUrl { get; set; }
+        public Guid? SLIKDocumentUrlId { get; set; }
         public string KodeRefPengguna { get; set; }
         public string TujuanPermintaan { get; set; }
-        public bool? ByKesamaan { get; set; }
-        public bool? ByNoIdentitas { get; set; }
+        public string SLIKResult { get; set; }
+        public bool RoboSlik { get; set; }
+
+        public virtual RfParameterDetail RfSLIKDebtorType { get; set; }
         public virtual FileUrl FileUrl { get; set; }
         public virtual SLIKRequest SLIKRequest { get; set; }
     }
