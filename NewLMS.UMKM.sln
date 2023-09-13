@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewLMS.UMKM.SIKP", "NewLMS.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewLMS.UMKM.Domain.FUSE", "NewLMS.UMKM.Domain.FUSE\NewLMS.UMKM.Domain.FUSE.csproj", "{5563F774-5392-4C0F-8A54-71ABA7249075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLMS.UMKM.FileUpload", "FileUpload\NewLMS.UMKM.FileUpload.csproj", "{72D414C0-0592-4F51-858E-08E5EDE501D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLMS.UMKM.FileUpload", "NewLMS.Umkm.FileUpload\NewLMS.UMKM.FileUpload.csproj", "{72D414C0-0592-4F51-858E-08E5EDE501D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
