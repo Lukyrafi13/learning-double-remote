@@ -41,6 +41,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Queries
                     "RfVehMaker",
                     "RfVehClass",
                     "RfVehModel",
+                    "RfDocument",
                     "LoanApplicationCollateralOwner.RfRelationCollateral",
                     "LoanApplicationCollateralOwner.RfZipCode",
                     "LoanApplicationCollateralOwner.RfMarital",

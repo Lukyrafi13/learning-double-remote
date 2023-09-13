@@ -39,7 +39,8 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFacilities.Queries
                     "LoanPurpose",
                     "RfSubProduct",
                     "RfTenor",
-                    "RfSectorLBU3",
+                    "RfSectorLBU3.RfSectorLBU2.RfSectorLBU1",
+                    "RfPlacementCountry",
                 };
                 var data = await _core.GetByPredicate(x => x.Id == request.Id, includes);
                 if (data == null)

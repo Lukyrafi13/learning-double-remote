@@ -43,7 +43,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 .ForMember(d => d.RfBookingBranch, o =>
                 {
                     o.MapFrom(s => s.RfBookingBranch);
-                });
+                })
+                ;
 
             CreateMap<LoanApplication, LoanApplicationDataPermohonanTabResponse>()
                 .ForMember(d => d.Debtor, o =>

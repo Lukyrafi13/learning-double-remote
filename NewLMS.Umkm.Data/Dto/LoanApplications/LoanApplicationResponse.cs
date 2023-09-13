@@ -13,6 +13,7 @@ using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
 using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.UMKM.Data.Dto.Users;
+using NewLMS.UMKM.Data.Dto.Prospects;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
@@ -81,6 +82,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         public EnumLoanApplicationStatus Status { get; set; }
         public string DataSource { get; set; }
         public string ProductId { get; set; }
+        public Guid? ProspectId { get; set; }
         public int OwnerCategoryId { get; set; }
         public bool IsBusinessCycle { get; set; }
         public string BranchId { get; set; }
@@ -93,6 +95,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         public RfBranchResponse RfBookingBranch { get; set; }
         public RfProductSimpleResponse RfProduct { get; set; }
         public UserSimpleResponse Owner { get; set; }
+        public ProspectEstimatedDateResponse Prospect { get; set; }
     }
 }
 

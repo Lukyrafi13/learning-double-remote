@@ -31,6 +31,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                     o.MapFrom(s => s.RfOwnerCategory.Description);
                 })
                 .ForMember(d => d.ProductName, o => o.MapFrom(s => s.RfProduct.ProductDesc));
+
+            CreateMap<Prospect, ProspectEstimatedDateResponse>().ReverseMap();
         }
     }
 }

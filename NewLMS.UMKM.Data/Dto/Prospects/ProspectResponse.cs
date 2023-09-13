@@ -142,4 +142,10 @@ namespace NewLMS.UMKM.Data.Dto.Prospects
         public string OwnerCategory { get; set; }
         public string DataSource { get; set; }
     }
+
+    public class ProspectEstimatedDateResponse
+    {
+        public Guid Id { get; set; }
+        public DateTime? EstimateProcessDate { get; set; }
+    }
 }

@@ -47,6 +47,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<LoanApplicationFacility> LoanApplicationFacilities { get; set; }
         public DbSet<LoanApplicationStageLog> LoanApplicationStageLogs { get; set; }
         public DbSet<Debtor> Debtors { get; set; }
+        public DbSet<DebtorCouple> DebtorCouples { get; set; }
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
         public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
         public DbSet<DebtorCompanyLegal> DebtorCompanyLegals { get; set; }
@@ -105,7 +106,8 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfCreditType> RfCreditTypes { get; set; }
         public DbSet<RfSandiBI> RfSandiBIs { get; set; }
         public DbSet<RfSandiBIGroup> RfSandiBIGroups { get; set; }
-        public DbSet<DebtorCouple> DebtorCouples { get; set; }
+        public DbSet<RfDecisionMaker> RfDecisionMakers { get; set; }
+        
         #endregion
 
 

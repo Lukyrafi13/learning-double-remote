@@ -13,6 +13,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollaterals
     {
         public Guid LoanApplicationId { get; set; }
         public string CollateralBCId { get; set; }
+        public string DocumentCode { get; set; }
         public string DocumentNumber { get; set; }
         public DateTime DocumentReleaseDate { get; set; }
         public DateTime? DocumentExpireDate { get; set; }

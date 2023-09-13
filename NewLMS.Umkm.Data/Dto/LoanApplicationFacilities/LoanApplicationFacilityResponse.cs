@@ -4,6 +4,7 @@ using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 using NewLMS.UMKM.Data.Dto.RfSubProducts;
 using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
 using NewLMS.UMKM.Data.Dto.RfTenor;
+using NewLMS.UMKM.Data.Dto.RfPlacementCountry;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplicationFacilities
 {
@@ -12,6 +13,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationFacilities
         public Guid Id { get; set; }
         public Guid LoanApplicationId { get; set; }
         public int ApplicationTypeId { get; set; }
+        public string PlacementCountryCode { get; set; }
         public string LoanPurposeId { get; set; }
         public long SubmittedPlafond { get; set; }
         public string SubProductId { get; set; }
@@ -30,6 +32,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationFacilities
         public virtual RfTenorSimpleResponse RfTenor { get; set; }
         public virtual RfSubProductSimpleResponse RfSubProduct { get; set; }
         public virtual RfSectorLBU3Response RfSectorLBU3 { get; set; }
+        public virtual RfPlacementCountrySimpleResponse RfPlacementCountry { get; set; }
     }
 }
 
