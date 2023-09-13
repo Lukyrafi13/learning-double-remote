@@ -179,6 +179,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                                 debtorCompany = _mapper.Map<LoanApplicationIDEUpsertRequest, DebtorCompany>(request, debtorCompany);
                                 debtorCompany.Id = Guid.NewGuid();
                                 await _debtorCompany.AddAsync(debtorCompany);
+
+                                loanApplication.DebtorCompany = debtorCompany;
+
+                                await _loanApplication.UpdateAsync(loanApplication);
                             }
                             else
                             {
