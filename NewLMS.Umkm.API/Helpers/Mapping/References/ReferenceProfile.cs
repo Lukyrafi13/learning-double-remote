@@ -240,8 +240,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<RfInstituteCode, RfInstituteCodeResponse>();
 
             //RfInstalmentType
-            CreateMap<RfInstalmentType, RfInstallmentTypeResponse>();
-            CreateMap<RfInstalmentType, RfInstallmentTypeSimpleResponse>();
+            CreateMap<RfInstallmentType, RfInstallmentTypeResponse>();
+            CreateMap<RfInstallmentType, RfInstallmentTypeSimpleResponse>();
 
             //RfCondition
             CreateMap<RfCondition, RfConditionResponse>();
