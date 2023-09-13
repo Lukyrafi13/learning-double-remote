@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Bjb.DigitalBisnis.CurrentUser.Interfaces;
+﻿using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Data.Entities;
@@ -29,7 +28,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParameterDetail;
         private readonly ICurrentUserService _userInfoToken;
-        private readonly IMapper _mapper;
         private readonly IUploadService _uploadService;
 
         public DocumentsUploadCommandHandler(
@@ -38,13 +36,11 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             IGenericRepositoryAsync<FileUrl> fileUrl,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
-            IMapper mapper,
             ICurrentUserService userInfoToken,
             IUploadService uploadService)
         {
             _documentRepo = documentRepo;
             _documentFileUrl = documentFileUrl;
-            _mapper = mapper;
             _fileUrl = fileUrl;
             _loanApplication = loanApplication;
             _rfParameterDetail = rfParameterDetail;
@@ -58,7 +54,19 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             try
             {
                 var documentId = Guid.NewGuid();
-                var documentRepo = _mapper.Map<Document>(command);
+                var documentRepo = new Document
+                {
+                    Id = documentId,
+                    LoanApplicationId = command.LoanApplicationId,
+                    DocumentType = command.DocumentType,
+                    DocumentNo = command.DocumentNo,
+                    ExpireDate = command.ExpireDate,
+                    DocumentStatusId = command.DocumentStatusId,
+                    TBODate = command.TBODate,
+                    TBODesc = command.TBODesc,
+                    Justification = command.Justification,
+                    DocumentId = command.DocumentId,
+                };
                 
                 var documentFileUrls = new List<DocumentFileUrl>();
                 var fileUrls = new List<FileUrl>();
@@ -109,6 +117,10 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                                 FileSize = f.Length.ToString(),
                                 FileType = fileType,
                             });
+                        }
+                        else
+                        {
+                            throw new Exception("Gagal Upload");
                         }
                     });
                 }
