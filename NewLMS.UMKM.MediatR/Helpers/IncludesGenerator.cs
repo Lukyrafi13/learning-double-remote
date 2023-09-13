@@ -85,6 +85,31 @@ namespace NewLMS.UMKM.MediatR.Helpers
             }
             return includes;
         }
+
+        public static List<string> GetLoanApplicationPrescreeningIncludes(string tab)
+        {
+            List<string> includes = new();
+            switch (tab)
+            {
+                case "loanapplication_rac":
+                    includes = new List<string>()
+                    {
+                        "RfOwnerCategory",
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "RfProduct",
+                        "Owner",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationRAC",
+                    };
+                    break;
+
+                default:
+                    break;
+            }
+            return includes;
+        }
     }
 }
 

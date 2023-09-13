@@ -56,6 +56,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<FileUrl> FileUrls { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentFileUrl> DocumentFileUrls { get; set; }
+        public DbSet<LoanApplicationRAC> LoanApplicationRACs { get; set; }
 
         #endregion
 

@@ -58,6 +58,8 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfBookingBranch))]
         public string BookingBranchId { get; set; }
 
+        public bool? LoanApplicationVerified { get; set; }
+
 
         public virtual User DecisionMaker { get; set; }
         public virtual User Owner { get; set; }
@@ -82,6 +84,7 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual ICollection<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; } = new List<LoanApplicationKeyPerson>();
         public virtual ICollection<LoanApplicationFacility> LoanApplicationFacilities { get; set; } = new List<LoanApplicationFacility>();
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
+        public virtual LoanApplicationRAC LoanApplicationRAC { get; set; }
 
         [NotMapped]
         public virtual string MappingTab { get; set; }
