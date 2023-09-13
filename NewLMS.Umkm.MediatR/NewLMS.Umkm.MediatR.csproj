@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  
   <ItemGroup>
     <Compile Remove="Features\LoanApplicationComplienceSheets\Commands\DeleteSandiBIs\**" />
     <Compile Remove="Features\RfColPledges\**" />
