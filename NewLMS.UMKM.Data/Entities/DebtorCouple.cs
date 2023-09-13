@@ -1,14 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.Data.Entities
 {
-    public class DebtorCouple
+    public class DebtorCouple : BaseEntity
     {
         [Key]
         [ForeignKey(nameof(Debtor))]
@@ -37,7 +33,6 @@ namespace NewLMS.UMKM.Data.Entities
 
         public virtual RfZipCode RfZipCode { get; set; }
         public virtual RfJob RfJob { get; set; }
-        public virtual RfMarital RfMarital { get; set; }
 
         public virtual Debtor Debtor { get; set; }
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230912091547_AlterTableLoanApplicationRemoveDebtorEmergency")]
+    partial class AlterTableLoanApplicationRemoveDebtorEmergency
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -510,12 +512,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("Province")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RfMaritalMaritalCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int?>("ZipCodeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("JobCode");
+
+                    b.HasIndex("RfMaritalMaritalCode");
 
                     b.HasIndex("ZipCodeId");
 
@@ -577,159 +584,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ZipCodeId");
 
                     b.ToTable("DebtorEmergencies");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Document", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DocumentId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DocumentNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DocumentStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DocumentType")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ExpireDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Justification")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("LoanApplicationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("TBODate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TBODesc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DocumentId");
-
-                    b.HasIndex("DocumentStatusId");
-
-                    b.HasIndex("DocumentType");
-
-                    b.HasIndex("LoanApplicationId");
-
-                    b.ToTable("Documents");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DocumentFileUrl", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("DocumentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("FileUrlId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DocumentId");
-
-                    b.HasIndex("FileUrlId");
-
-                    b.ToTable("DocumentFileUrls");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.FileUrl", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileSize")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FileUrls");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
@@ -4768,6 +4622,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("JobCode");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfMarital", "RfMarital")
+                        .WithMany()
+                        .HasForeignKey("RfMaritalMaritalCode");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -4775,6 +4633,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("Debtor");
 
                     b.Navigation("RfJob");
+
+                    b.Navigation("RfMarital");
 
                     b.Navigation("RfZipCode");
                 });
@@ -4796,55 +4656,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("LoanApplication");
 
                     b.Navigation("RfZipCode");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Document", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfDocument", "RfDocument")
-                        .WithMany()
-                        .HasForeignKey("DocumentId");
-
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfDocumentStatus")
-                        .WithMany()
-                        .HasForeignKey("DocumentStatusId");
-
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfDocumentType")
-                        .WithMany()
-                        .HasForeignKey("DocumentType")
-                        .IsRequired();
-
-                    b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithMany()
-                        .HasForeignKey("LoanApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoanApplication");
-
-                    b.Navigation("RfDocument");
-
-                    b.Navigation("RfDocumentStatus");
-
-                    b.Navigation("RfDocumentType");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DocumentFileUrl", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.Document", "Document")
-                        .WithMany("Files")
-                        .HasForeignKey("DocumentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewLMS.UMKM.Data.Entities.FileUrl", "FileUrl")
-                        .WithMany()
-                        .HasForeignKey("FileUrlId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Document");
-
-                    b.Navigation("FileUrl");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
@@ -5736,11 +5547,6 @@ namespace NewLMS.Umkm.Domain.Migrations
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCompany", b =>
                 {
                     b.Navigation("DebtorCompanyLegal");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Document", b =>
-                {
-                    b.Navigation("Files");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
