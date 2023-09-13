@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230913022938_AddDocument")]
+    partial class AddDocument
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -510,12 +512,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("Province")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RfMaritalMaritalCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int?>("ZipCodeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("JobCode");
+
+                    b.HasIndex("RfMaritalMaritalCode");
 
                     b.HasIndex("ZipCodeId");
 
@@ -525,6 +532,7 @@ namespace NewLMS.Umkm.Domain.Migrations
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorEmergency", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
@@ -762,6 +770,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<Guid?>("DebtorCompanyId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("DebtorEmergencyId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("DebtorId")
                         .HasColumnType("uniqueidentifier");
 
@@ -822,6 +833,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("BusinessCycleId");
 
                     b.HasIndex("DebtorCompanyId");
+
+                    b.HasIndex("DebtorEmergencyId");
 
                     b.HasIndex("DebtorId");
 
@@ -4768,6 +4781,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("JobCode");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.RfMarital", "RfMarital")
+                        .WithMany()
+                        .HasForeignKey("RfMaritalMaritalCode");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -4776,24 +4793,18 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("RfJob");
 
+                    b.Navigation("RfMarital");
+
                     b.Navigation("RfZipCode");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorEmergency", b =>
                 {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithOne("DebtorEmergency")
-                        .HasForeignKey("NewLMS.UMKM.Data.Entities.DebtorEmergency", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("LoanApplication");
 
                     b.Navigation("RfZipCode");
                 });
@@ -4811,6 +4822,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfParameterDetail", "RfDocumentType")
                         .WithMany()
                         .HasForeignKey("DocumentType")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", "LoanApplication")
@@ -4865,6 +4877,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("DebtorCompanyId");
 
+                    b.HasOne("NewLMS.UMKM.Data.Entities.DebtorEmergency", "DebtorEmergency")
+                        .WithMany()
+                        .HasForeignKey("DebtorEmergencyId");
+
                     b.HasOne("NewLMS.UMKM.Data.Entities.Debtor", "Debtor")
                         .WithMany()
                         .HasForeignKey("DebtorId");
@@ -4906,6 +4922,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("Debtor");
 
                     b.Navigation("DebtorCompany");
+
+                    b.Navigation("DebtorEmergency");
 
                     b.Navigation("DecisionMaker");
 
@@ -5745,8 +5763,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
                 {
-                    b.Navigation("DebtorEmergency");
-
                     b.Navigation("LoanApplicationCollaterals");
 
                     b.Navigation("LoanApplicationCreditScoring");

@@ -12,6 +12,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string Url { get; set; }
         public string FileSize { get; set; }
         public string FileType { get; set; }
+        public string FileName { get; set; }
 
     }
 }

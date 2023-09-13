@@ -9,7 +9,14 @@ namespace NewLMS.UMKM.Helper
         public static int val = 0;
 
         static readonly CultureInfo culture  = new CultureInfo("id-ID");
-     
+
+        public static string getFileName(string url)
+        {
+            url = url.Replace(@"\", @"/").Replace(@"\\", @"/");
+            int pos = url.LastIndexOf("/") + 1;
+            return url.Substring(pos, url.Length - pos);
+        }
+
         public static string GetSisaGaji(int SourceOfPayment, int MonthlyInstallment)
         {
             var hasil = SourceOfPayment > 0 ? SourceOfPayment - MonthlyInstallment : 0;
