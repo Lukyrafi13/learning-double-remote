@@ -38,8 +38,9 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFacilities.Queries
                     "NatureOfCredit",
                     "LoanPurpose",
                     "RfSubProduct",
-                    "RfSectorLBU3",
+                    "RfSectorLBU3.RfSectorLBU2.RfSectorLBU1",
                     "RfTenor",
+                    "RfPlacementCountry",
                 };
                 var data = await _core.GetPagedReponseAsync(request, includes);
                 var dataVm = _mapper.Map<IEnumerable<LoanApplicationFacilityResponse>>(data.Results);

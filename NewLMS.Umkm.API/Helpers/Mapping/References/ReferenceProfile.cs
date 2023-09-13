@@ -46,6 +46,7 @@ using NewLMS.UMKM.Data.Dto.RfCondition;
 using NewLMS.UMKM.Data.Dto.RfCreditType;
 using NewLMS.UMKM.Data.Dto.RfSandiBI;
 using NewLMS.UMKM.Data.Dto.RfSandiBIGroup;
+using NewLMS.UMKM.Data.Dto.RfDecisionMakers;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {
@@ -239,8 +240,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<RfInstituteCode, RfInstituteCodeResponse>();
 
             //RfInstalmentType
-            CreateMap<RfInstalmentType, RfInstallmentTypeResponse>();
-            CreateMap<RfInstalmentType, RfInstallmentTypeSimpleResponse>();
+            CreateMap<RfInstallmentType, RfInstallmentTypeResponse>();
+            CreateMap<RfInstallmentType, RfInstallmentTypeSimpleResponse>();
 
             //RfCondition
             CreateMap<RfCondition, RfConditionResponse>();
@@ -259,6 +260,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
 
             //RfSandiBIGroup
             CreateMap<RfSandiBIGroup, RfSandiBIGroupResponse>();
+
+            //RfDecisionMaker
+            CreateMap<RfDecisionMaker, RfDecisionMakerResponse>();
+            CreateMap<RfDecisionMaker, RfDecisionMakerSimpleResponse>();
         }
     }
 }

@@ -15,6 +15,10 @@ namespace NewLMS.UMKM.Data.Entities
         
         [ForeignKey(nameof(RfCollateralBC))]
         public string CollateralBCId { get; set; }
+
+        [ForeignKey(nameof(RfDocument))]
+        public string DocumentCode { get; set; }
+
         public string DocumentNumber { get; set; }
         public DateTime DocumentReleaseDate { get; set; }
         public DateTime? DocumentExpireDate { get; set; }
@@ -44,10 +48,10 @@ namespace NewLMS.UMKM.Data.Entities
         public string CityDomisili { get; set; }
 
         [ForeignKey(nameof(RfVehModel))]
-        public string VehModelCode { get; set; }
-
-        //public virtual LoanApplication LoanApplication { get; set; }
+        public string VehModelCode { get; set; } 
+        
         public virtual RfVehModel RfVehModel { get; set; }
+        public virtual RfDocument RfDocument { get; set; }
         public virtual RfVehClass RfVehClass { get; set; }
         public virtual RfVehMaker RfVehMaker { get; set; }
         public virtual LoanApplicationCollateralOwner LoanApplicationCollateralOwner { get; set; }
