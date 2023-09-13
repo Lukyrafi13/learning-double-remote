@@ -25,6 +25,7 @@ namespace NewLMS.UMKM.Data
         public double TotalOtherUses { get; set; }
         public double TotalWorkingCapital { get; set; }
         public DateTime? InquiryDate { get; set; }
+
         public virtual LoanApplication LoanApplication { get; set; }
         public virtual RfBranch Branch { get; set; }
         public virtual ICollection<SLIKRequestDebtor> SLIKRequestDebtors { get; set; }

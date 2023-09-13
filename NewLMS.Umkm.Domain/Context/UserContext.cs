@@ -50,9 +50,11 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
         public DbSet<DebtorEmergency> DebtorEmergencies { get; set; }
         public DbSet<DebtorCompanyLegal> DebtorCompanyLegals { get; set; }
+        public DbSet<SLIKRequest> SLIKRequests { get; set; }
+        public DbSet<SLIKRequestDebtor> SLIKRequestDebtors { get; set; }
+        public DbSet<FileUrl> FileUrls { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentFileUrl> DocumentFileUrls { get; set; }
-        public DbSet<FileUrl> FileUrls { get; set; }
 
         #endregion
 
