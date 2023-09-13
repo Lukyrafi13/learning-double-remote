@@ -56,7 +56,7 @@ namespace NewLMS.UMKM.API.Controllers.Document
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpDelete("{FileUrlId}")]
+        [HttpDelete("file/{FileUrlId}")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteFile([FromRoute] DocumentFilesDeleteCommand command)
         {

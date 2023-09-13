@@ -47,17 +47,17 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Queries
 
             foreach (DocumentResponse doc in dataVm)
             {
-                var uploader = "ANONYM";
+                //var uploader = "ANONYM";
                 var Files = doc.Files.ToList();
 
                 foreach (DocumentFileUrlRes files in Files)
                 {
-                    var dataUser = await _user.GetByPredicate(x => x.Id == files.CreatedBy);
-                    if (dataUser != null)
-                    {
-                        uploader = dataUser.FirstName + " " + dataUser.LastName;
-                    }
-                    files.FileUrl.UploadBy = uploader;
+                    //var dataUser = await _user.GetByPredicate(x => x.Id == files.CreatedBy);
+                    //if (dataUser != null)
+                    //{
+                    //    uploader = dataUser.FirstName + " " + dataUser.LastName;
+                    //}
+                    //files.FileUrl.UploadBy = uploader;
                     files.FileUrl.Url = files.FileUrl.Url.Replace(@"\", @"/").Replace(@"\\", @"/");
                     files.FileUrl.FileName = files.FileUrl.Url.Split('/').Last();
                 }

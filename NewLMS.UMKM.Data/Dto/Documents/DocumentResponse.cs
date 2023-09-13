@@ -34,7 +34,7 @@ namespace NewLMS.UMKM.Data.Dto.Documents
 
     public class FileRes : BaseResponse
     {
-        public Guid FileUrlId { get; set; }
+        public Guid Id { get; set; }
         public string Url { get; set; }
         public string FileSize { get; set; }
         public string FileType { get; set; }

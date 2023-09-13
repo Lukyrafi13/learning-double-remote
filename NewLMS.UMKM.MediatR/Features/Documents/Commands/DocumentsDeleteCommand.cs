@@ -45,11 +45,10 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                     foreach (var docUrl in documentUrls)
                     {
                         var fileUrlId = docUrl.FileUrlId;
-                        await _documentUrl.DeleteAsync(docUrl);
-
                         var fileUrl = await _fileUrl.GetByPredicate(x => x.Id == fileUrlId);
                         if (fileUrl != null)
                         {
+                            await _documentUrl.DeleteAsync(docUrl);
                             await _fileUrl.DeleteAsync(fileUrl);
                         }
                     }

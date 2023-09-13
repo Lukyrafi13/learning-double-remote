@@ -9,6 +9,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using TechRedemption.UIM.Models;
 
 namespace NewLMS.UMKM.MediatR.Features.Documents.Queries
 {
@@ -49,14 +50,15 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Queries
                     return ServiceResponse<DocumentResponse>.Return404("Dokumen tidak ditemukan.");
 
                 var dataVm = _mapper.Map<DocumentResponse>(data);
-                var dataUser = await _user.GetByIdAsync(data.CreatedBy);
-                dataVm.Files.ToList().
-                ForEach(async f =>
+
+
+                //var dataUser = await _user.GetByIdAsync(data.CreatedBy);
+                foreach (var f in dataVm.Files.ToList())
                 {
-                    f.FileUrl.UploadBy = dataUser.FirstName + " " + dataUser.LastName;
+                    //f.FileUrl.UploadBy = dataUser.FirstName + " " + dataUser.LastName;
                     f.FileUrl.Url = f.FileUrl.Url.Replace(@"\", @"/");
                     f.FileUrl.FileName = f.FileUrl.Url.Split('/').Last();
-                });
+                }
 
                 return ServiceResponse<DocumentResponse>.ReturnResultWith200(dataVm);
             }

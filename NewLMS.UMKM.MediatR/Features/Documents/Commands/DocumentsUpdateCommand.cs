@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
+using DocumentFormat.OpenXml.Office2010.Word;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Data.Entities;
@@ -59,9 +60,17 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                 var entity = await _documentRepo.GetByIdAsync(command.Id, "Id");
                 if(entity != null)
                 {
-                    var documentRepo = _mapper.Map<Document>(command);
-                    await _documentRepo.UpdateAsync(documentRepo);
-                }
+                    entity.LoanApplicationId = command.LoanApplicationId;
+                    entity.DocumentType = command.DocumentType;
+                    entity.DocumentNo = command.DocumentNo;
+                    entity.ExpireDate = command.ExpireDate;
+                    entity.DocumentStatusId = command.DocumentStatusId;
+                    entity.TBODate = command.TBODate;
+                    entity.TBODesc = command.TBODesc;
+                    entity.Justification = command.Justification;
+                    entity.DocumentId = command.DocumentId;
+                };
+                await _documentRepo.UpdateAsync(entity);
                 
                 var documentFileUrls = new List<DocumentFileUrl>();
                 var fileUrls = new List<FileUrl>();
