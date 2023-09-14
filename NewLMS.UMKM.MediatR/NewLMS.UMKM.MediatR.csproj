@@ -73,7 +73,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Appraisals\Commands\" />
     <Folder Include="Features\BranchInsurance\Queries\" />
     <Folder Include="Features\ExternalAccounts\Commands\" />
     <Folder Include="Features\LoanApplicationApprovals\Commands\" />

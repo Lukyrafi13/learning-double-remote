@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.UMKM.Data.Dto.Appraisals;
 using NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
@@ -86,6 +88,31 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         [HttpPost("prescreening/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationPrescreeningResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailPrescreening(GetLoanApplicationPrescreeningTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        //Appraisal
+        /// <summary>
+        /// Get List for tables of LoanApplication ApprAsignment
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appraisal-asignment/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterApprAsignment(LoanApplicationAppraisalGetTableQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get detail ApprAsignment by Tab
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appraisal-asignment/get/detail")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprAsignmentResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDetailApprAsignment(GetLoanApplicationApprAsignmentTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
