@@ -39,6 +39,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Queries
                     "RfVehModel",
                     "RfDocument",
                     "RfTransportationType",
+                    "RfCollateralBC",
                     "LoanApplicationCollateralOwner.RfRelationCollateral",
                     "LoanApplicationCollateralOwner.RfZipCode",
                     "LoanApplicationCollateralOwner.RfMarital",
