@@ -47,6 +47,7 @@ using NewLMS.UMKM.Data.Dto.RfCreditType;
 using NewLMS.UMKM.Data.Dto.RfSandiBI;
 using NewLMS.UMKM.Data.Dto.RfSandiBIGroup;
 using NewLMS.UMKM.Data.Dto.RfDecisionMakers;
+using NewLMS.UMKM.Data.Dto.RfAppraisalKJPPMasters;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {
@@ -264,6 +265,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             //RfDecisionMaker
             CreateMap<RfDecisionMaker, RfDecisionMakerResponse>();
             CreateMap<RfDecisionMaker, RfDecisionMakerSimpleResponse>();
+
+            //RfAPpraisalKJPPMaster
+            CreateMap<RfAppraisalKJPPMaster, RfAppraisalKJPPMastersResponse>();
         }
     }
 }
