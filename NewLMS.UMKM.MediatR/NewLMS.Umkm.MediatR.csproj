@@ -32,6 +32,8 @@
     <None Remove="Features\RfGracePeriods\Queries\" />
     <None Remove="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
     <None Remove="Helpers\" />
+    <None Remove="Features\Tests\" />
+    <None Remove="Features\Tests\Commands\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -118,6 +120,8 @@
     <Folder Include="Features\RfGracePeriods\Queries\" />
     <Folder Include="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Features\Tests\" />
+    <Folder Include="Features\Tests\Commands\" />
   </ItemGroup>
 
 </Project>

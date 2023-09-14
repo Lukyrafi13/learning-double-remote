@@ -57,6 +57,9 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentFileUrl> DocumentFileUrls { get; set; }
         public DbSet<LoanApplicationRAC> LoanApplicationRACs { get; set; }
+        public DbSet<SIKP> SIKPs { get; set; }
+        public DbSet<SIKPRequest> SIKPRequests { get; set; }
+        public DbSet<SIKPResponse> SIKPResponses { get; set; }
 
         #endregion
 

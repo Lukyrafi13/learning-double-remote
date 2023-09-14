@@ -13,6 +13,7 @@ namespace NewLMS.UMKM.Data.Entities
 
         [MaxLength(16)]
         public string NoIdentity { get; set; }
+        public string CIF { get; set; }
         public string Fullname { get; set; }
 
         public string? NPWP { get; set; }
