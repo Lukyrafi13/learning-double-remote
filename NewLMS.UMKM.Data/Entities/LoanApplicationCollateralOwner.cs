@@ -23,7 +23,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string OwnerPlaceOfBirth { get; set; }
         public DateTime? OwnerDateOfBirth { get; set; }
         public bool OwnerIdentityLifetime { get; set; }
-        public DateTime OwnerIdentityExpireDate { get; set; }
+        public DateTime? OwnerIdentityExpireDate { get; set; }
         public bool AddressSameAsIdentity { get; set; }
         public string Address { get; set; }
         public string Neighborhoods { get; set; }

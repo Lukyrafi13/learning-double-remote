@@ -49,7 +49,27 @@ namespace NewLMS.UMKM.Data.Entities
 
         [ForeignKey(nameof(RfVehModel))]
         public string VehModelCode { get; set; } 
-        
+
+        public string NameMarketLocation { get; set; }
+        public string MeasurementLetterNumberImageSituation { get; set; }
+        public string MeasurementLetterNumber { get; set; }
+        public string NeigborhoodDocumentCollateral { get; set; }
+        public string DistrictDocumentCollateral { get; set; }
+        public string CityDocumentCollateral { get; set; }
+        public string ProvinceDocumentCollateral { get; set; }
+        public string NameCollateralHolder { get; set; }
+        public string LandLocation { get; set; }
+        public string RangkingHT { get; set; }
+        public DateTime? DateMeasurementLetterNumber { get; set; }
+        public string EastBoundaries { get; set; }
+        public string WestBoundaries { get; set; }
+        public string SouthBoundaries { get; set; }
+        public string NorthBoundaries { get; set; }
+
+        [ForeignKey(nameof(RfTransportationType))]
+        public string TransportationTypeCode { get; set; }
+
+
         public virtual RfVehModel RfVehModel { get; set; }
         public virtual RfDocument RfDocument { get; set; }
         public virtual RfVehClass RfVehClass { get; set; }
@@ -59,5 +79,6 @@ namespace NewLMS.UMKM.Data.Entities
 
         public virtual RfZipCode RfZipCode { get; set; }
         public virtual RfCollateralBC RfCollateralBC { get; set; }
+        public virtual RfTransportationType RfTransportationType { get; set; }
     }
 }
