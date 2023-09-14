@@ -5,9 +5,6 @@ using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -40,6 +37,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Queries
                     "RfVehClass",
                     "RfVehModel",
                     "RfDocument",
+                    "RfTransportationType",
                     "LoanApplicationCollateralOwner.RfRelationCollateral",
                     "LoanApplicationCollateralOwner.RfZipCode",
                     "LoanApplicationCollateralOwner.RfMarital",

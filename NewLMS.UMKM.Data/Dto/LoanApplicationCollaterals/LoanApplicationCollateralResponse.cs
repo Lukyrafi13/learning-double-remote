@@ -3,8 +3,8 @@ using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Dto.RfVehMaker;
 using NewLMS.UMKM.Data.Dto.RfVehClass;
 using NewLMS.UMKM.Data.Dto.RfVehModel;
-using NewLMS.UMKM.Data.Dto.RfPlacementCountry;
 using NewLMS.UMKM.Data.Dto.RfDocument;
+using NewLMS.UMKM.Data.Dto.RfTransportationType;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
 {
@@ -36,11 +36,28 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
         public string ChassisNumber { get; set; }
         public string CityDomisili { get; set; }
         public string VehModelCode { get; set; }
+        public string NameMarketLocation { get; set; }
+        public string MeasurementLetterNumberImageSituation { get; set; }
+        public string MeasurementLetterNumber { get; set; }
+        public string NeigborhoodDocumentCollateral { get; set; }
+        public string DistrictDocumentCollateral { get; set; }
+        public string CityDocumentCollateral { get; set; }
+        public string ProvinceDocumentCollateral { get; set; }
+        public string NameCollateralHolder { get; set; }
+        public string LandLocation { get; set; }
+        public string RangkingHT { get; set; }
+        public DateTime? DateMeasurementLetterNumber { get; set; }
+        public string EastBoundaries { get; set; }
+        public string WestBoundaries { get; set; }
+        public string SouthBoundaries { get; set; }
+        public string NorthBoundaries { get; set; }
+        public string TransportationTypeCode { get; set; }
         public RfZipCodeResponse RfZipCode { get; set; }
         public RfDocumentSimpleResponse RfDocument { get; set; }
         public RfVehMakerSimpleResponse RfVehMaker { get; set; }
         public RfVehClassSimpleResponse RfVehClass { get; set; }
         public RfVehModelSimplelResponse RfVehModel { get; set; }
+        public RfTransportationTypeSimpleResponse RfTransportationType { get; set; }
         public LoanApplicationCollateralOwnerResponse LoanApplicationCollateralOwner { get; set; }
     }
 }

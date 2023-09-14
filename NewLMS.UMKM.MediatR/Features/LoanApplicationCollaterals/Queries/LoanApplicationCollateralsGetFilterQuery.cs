@@ -2,15 +2,11 @@
 using MediatR;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationKeyPersons.Queries;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -42,6 +38,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Queries
                     "RfVehClass",
                     "RfVehModel",
                     "RfDocument",
+                    "RfTransportationType",
                     "LoanApplicationCollateralOwner.RfRelationCollateral",
                     "LoanApplicationCollateralOwner.RfZipCode",
                     "LoanApplicationCollateralOwner.RfMarital",
