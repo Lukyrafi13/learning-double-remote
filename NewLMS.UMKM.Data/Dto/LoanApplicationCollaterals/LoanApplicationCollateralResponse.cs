@@ -6,6 +6,7 @@ using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfDocument;
 using NewLMS.UMKM.Data.Dto.RfTransportationType;
 using NewLMS.UMKM.Data.Dto.RfCollateralBC;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
 {
@@ -62,6 +63,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
         public RfTransportationTypeSimpleResponse RfTransportationType { get; set; }
         public RfCollateralBCResponse RfCollateralBC { get; set; }
         public LoanApplicationCollateralOwnerResponse LoanApplicationCollateralOwner { get; set; }
+        public LoanApplicationResponse LoanApplication { get; set; }
     }
 }
 

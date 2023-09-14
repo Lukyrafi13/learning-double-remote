@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +8,9 @@ using NewLMS.UMKM.API.Controllers;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.Appraisals;
 using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
+using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
 
 namespace NewLMS.Komersial.API.Controllers.Appraisal
 {
@@ -25,14 +28,14 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
         {
             return Ok(await Mediator.Send(command));
         }
-/*
+
         [HttpPost("assignment")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> AssignmentPost(AppraisalPostCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
-
+*//*
         /// <summary>
         /// Appraisal SUrveyor
         /// </summary>
@@ -59,16 +62,16 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
         public async Task<IActionResult> PutByGuid(AppraisalPutCommand command)
         {
             return Ok(await Mediator.Send(command));
-        }
+        }*//*
 
-        [HttpGet("application-info/{DebtorCollateralGuid}/{LoanApplicationGuid}")]
-        [ProducesResponseType(type: typeof(ServiceResponse<AppraisalInfoResponse>), statusCode: StatusCodes.Status200OK)]
+        [HttpGet("getById/{LoanApplicationCollateralId}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<LoanApplicationCollateralResponse>), statusCode: StatusCodes.Status200OK)]
 
-        public async Task<IActionResult> getById([FromRoute] GetAppInfoDebtorCollateralQuery command)
+        public async Task<IActionResult> GetById([FromRoute] AppraisalGetByIdQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
-
+*//*
         /// <summary>
         /// Appraisal surveyor : building template
         /// </summary>
@@ -176,7 +179,7 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
         public async Task<IActionResult> getLandByApprGuid([FromRoute] GetApprLandTemplateQuery command)
         {
             return Ok(await Mediator.Send(command));
-        }*/
-
+        }
+*//*
     }
-}
+}*/
