@@ -8,6 +8,7 @@
     <Compile Remove="NewFolder\**" />
     <EmbeddedResource Remove="NewFolder\**" />
     <None Remove="NewFolder\**" />
+    <None Remove="LoanApplicationRepository\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,4 +27,7 @@
     <ProjectReference Include="..\NewLMS.UMKM.Helper\NewLMS.UMKM.Helper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="LoanApplicationRepository\" />
+  </ItemGroup>
 </Project>
