@@ -16,12 +16,12 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "RfBusinessCycle",
                         "RfOwnerCategory",
                         "RfProduct",
-                        "Prospect",
                         "RfBranch",
                         "RfBookingBranch",
                         "Debtor",
                         "DebtorCompany",
                         "Owner",
+                        "Prospect",
                     };
                     break;
 
@@ -77,6 +77,20 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "LoanApplicationFacilities.LoanPurpose",
                         "LoanApplicationFacilities.RfSubProduct",
                         "LoanApplicationFacilities.RfSectorLBU3",
+                    };
+                    break;
+
+                case "loanapplication_rac":
+                    includes = new List<string>()
+                    {
+                        "RfOwnerCategory",
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "RfProduct",
+                        "Owner",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationRAC",
                     };
                     break;
 

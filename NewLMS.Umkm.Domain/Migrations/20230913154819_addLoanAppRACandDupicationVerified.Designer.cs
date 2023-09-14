@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230913154819_addLoanAppRACandDupicationVerified")]
+    partial class addLoanAppRACandDupicationVerified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -792,9 +794,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("DuplicationsVerified")
-                        .HasColumnType("bit");
-
                     b.Property<bool?>("IsBusinessCycle")
                         .HasColumnType("bit");
 
@@ -805,6 +804,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<bool?>("LoanApplicationVerified")
+                        .HasColumnType("bit");
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
@@ -5475,8 +5477,8 @@ namespace NewLMS.Umkm.Domain.Migrations
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationRAC", b =>
                 {
                     b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithOne("LoanApplicationRAC")
-                        .HasForeignKey("NewLMS.UMKM.Data.Entities.LoanApplicationRAC", "Id")
+                        .WithMany()
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -6092,8 +6094,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("LoanApplicationFacilities");
 
                     b.Navigation("LoanApplicationKeyPersons");
-
-                    b.Navigation("LoanApplicationRAC");
 
                     b.Navigation("LoanApplicationStageLogs");
                 });
