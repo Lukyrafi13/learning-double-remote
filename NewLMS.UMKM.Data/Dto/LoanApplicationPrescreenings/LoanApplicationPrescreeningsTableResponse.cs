@@ -42,7 +42,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings
         public string BranchId { get; set; }
         public string BookingBranchId { get; set; }
         public Guid? OwnerId { get; set; }
-        public bool? LoanApplicationVerified { get; set; }
+        public bool DuplicationsVerified { get; set; }
 
         public RfParameterDetailSimpleResponse RfOwnerCategory { get; set; }
         public RfBranchResponse RfBranch { get; set; }

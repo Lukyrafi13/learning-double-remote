@@ -58,7 +58,7 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfBookingBranch))]
         public string BookingBranchId { get; set; }
 
-        public bool? LoanApplicationVerified { get; set; }
+        public bool DuplicationsVerified { get; set; }
 
 
         public virtual User DecisionMaker { get; set; }
