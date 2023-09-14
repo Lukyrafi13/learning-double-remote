@@ -1,10 +1,6 @@
 ﻿using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Entities;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings;
-using NewLMS.UMKM.Data.Dto.LoanApplicationRACs;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 
 namespace NewLMS.UMKM.Data.Dto.Appraisals
 {
@@ -46,6 +42,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
 
     public class LoanApplicationApprAsignmentResponse
     {
+        public LoanApplicationAppInfoApprResponse LoanApplicationInfo { get; set; }
         public AppraisalSimpleResponse PropertyCategory { get; set; }
         public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
     }

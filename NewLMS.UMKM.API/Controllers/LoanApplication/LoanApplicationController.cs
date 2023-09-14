@@ -92,7 +92,8 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
 
-        //Appraisal
+        //Appraisal Asignment
+
         /// <summary>
         /// Get List for tables of LoanApplication ApprAsignment
         /// </summary>
@@ -113,6 +114,18 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         [HttpPost("appraisal-asignment/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprAsignmentResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailApprAsignment(GetLoanApplicationApprAsignmentTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Appraisal Asignment
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("appraisal-asignment/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertApprAsign(UpsertLoanApplicationApprAsignmentCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

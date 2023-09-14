@@ -16,6 +16,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
             CreateMap<Appraisal, LoanApplicationAppraisalTableResponse>();
 
             CreateMap<Appraisal, LoanApplicationApprAsignmentResponse>()
+                .ForMember(d => d.LoanApplicationInfo, o =>
+                {
+                    o.MapFrom(s => s.LoanApplication);
+                })
                 .ForMember(d => d.PropertyCategory, o =>
                 {
                     o.MapFrom(s => s);

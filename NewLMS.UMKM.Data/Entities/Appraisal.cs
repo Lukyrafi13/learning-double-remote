@@ -10,6 +10,9 @@ namespace NewLMS.UMKM.Data.Entities
         [Required]
         public Guid AppraisalId { get; set; }
 
+        [ForeignKey(nameof(LoanApplication))]
+        public Guid LoanApplicationId { get; set; }
+
         [ForeignKey(nameof(LoanApplicationCollateral))]
         public Guid LoanApplicationCollateralId { get; set; }
 
@@ -25,6 +28,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string AppraisalStatus { get; set; }
 
         public virtual LoanApplicationCollateral LoanApplicationCollateral { get; set; }
+        public virtual LoanApplication LoanApplication { get; set; }
 /*        public virtual ICollection<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
         public virtual ICollection<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
         public virtual ICollection<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }
