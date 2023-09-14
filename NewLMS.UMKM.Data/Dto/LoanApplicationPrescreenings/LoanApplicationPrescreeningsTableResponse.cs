@@ -2,7 +2,6 @@
 using NewLMS.UMKM.Data.Dto.Debtor;
 using NewLMS.UMKM.Data.Dto.DebtorCompany;
 using NewLMS.UMKM.Data.Dto.LoanApplicationRACs;
-using NewLMS.UMKM.Data.Dto.Prospects;
 using NewLMS.UMKM.Data.Dto.RfBranches;
 using NewLMS.UMKM.Data.Dto.RfProducts;
 using NewLMS.UMKM.Data.Dto.Users;

@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
-using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.UMKM.Data.Dto.Users;
 using NewLMS.UMKM.Data.Dto.Prospects;
@@ -89,13 +88,14 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         public string BookingBranchId { get; set; }
         public string FullName { get; set; }
         public Guid? OwnerId { get; set; }
+        public DateTime ProspectEstimatedDate { get; set; }
 
         public RfParameterDetailSimpleResponse RfOwnerCategory { get; set; }
         public RfBranchResponse RfBranch { get; set; }
         public RfBranchResponse RfBookingBranch { get; set; }
         public RfProductSimpleResponse RfProduct { get; set; }
         public UserSimpleResponse Owner { get; set; }
-        public ProspectEstimatedDateResponse Prospect { get; set; }
+        //public ProspectEstimatedDateResponse Prospect { get; set; }
     }
 }
 

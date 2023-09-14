@@ -7,13 +7,12 @@ using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Helpers;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries
 {
-    public class GetLoanApplicationPrescreeningTabDetailQuery : LoanApplicationGetPrescreeningDetailTabRequest, IRequest<ServiceResponse<LoanApplicationPrescreeningResponse>>
+    public class GetLoanApplicationPrescreeningTabDetailQuery : LoanApplicationGetDetailTabRequest, IRequest<ServiceResponse<LoanApplicationPrescreeningResponse>>
     {
     }
 
@@ -32,7 +31,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries
         {
             try
             {
-                var loanApplicationPrescreeningIncludes = IncludesGenerator.GetLoanApplicationPrescreeningIncludes(request.Tab);
+                var loanApplicationPrescreeningIncludes = IncludesGenerator.GetLoanApplicationIncludes(request.Tab);
                 var data = await _loanApplication.GetByPredicate(x => x.Id == request.Id, loanApplicationPrescreeningIncludes.ToArray());
                 if (data == null)
                 {

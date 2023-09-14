@@ -16,12 +16,12 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "RfBusinessCycle",
                         "RfOwnerCategory",
                         "RfProduct",
-                        "Prospect",
                         "RfBranch",
                         "RfBookingBranch",
                         "Debtor",
                         "DebtorCompany",
                         "Owner",
+                        "Prospect",
                     };
                     break;
 
@@ -80,17 +80,6 @@ namespace NewLMS.UMKM.MediatR.Helpers
                     };
                     break;
 
-                default:
-                    break;
-            }
-            return includes;
-        }
-
-        public static List<string> GetLoanApplicationPrescreeningIncludes(string tab)
-        {
-            List<string> includes = new();
-            switch (tab)
-            {
                 case "loanapplication_rac":
                     includes = new List<string>()
                     {
