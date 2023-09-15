@@ -32,7 +32,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands
         {
             try
             {
-                var appraisalData = await _appraisal.GetByPredicate(x => x.LoanApplicationId == request.LoanApplicationId);
+                var appraisalData = await _appraisal.GetByPredicate(x => x.LoanApplicationCollateralId == request.LoanApplicationCollateralId);
                 if (appraisalData != null)
                 {
                     appraisalData.StageId = Guid.Parse("453019B3-7950-4AE0-8387-2973E8C274B2");//Appr Surveyor

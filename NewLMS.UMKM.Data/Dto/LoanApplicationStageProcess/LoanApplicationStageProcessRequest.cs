@@ -8,6 +8,6 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationStageProcess
 {
     public class LoanApplicationStageProcessRequest
     {
-        public Guid LoanApplicationId { get; set; }
+        public Guid LoanApplicationCollateralId { get; set; }
     }
 }
