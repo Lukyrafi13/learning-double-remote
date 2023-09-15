@@ -36,6 +36,7 @@
     <None Remove="Features\Tests\Commands\" />
     <None Remove="Features\SIKPs\" />
     <None Remove="Features\SIKPs\Queries\" />
+    <None Remove="Features\SIKPs\SIKP\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -126,6 +127,7 @@
     <Folder Include="Features\Tests\Commands\" />
     <Folder Include="Features\SIKPs\" />
     <Folder Include="Features\SIKPs\Queries\" />
+    <Folder Include="Features\SIKPs\SIKP\" />
   </ItemGroup>
 
 </Project>

@@ -29,7 +29,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
         {
             var includes = new string[]
                 {
-                    "SIKRequest"
+                    "SIKPRequest"
                 };
             var data = await _sikp.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<SIKPTableResponse>>(data.Results);
