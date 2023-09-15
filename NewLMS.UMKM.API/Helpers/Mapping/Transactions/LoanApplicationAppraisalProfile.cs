@@ -11,6 +11,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
         public LoanApplicationAppraisalProfile()
         {
             CreateMap<LoanApplicationCollateral, ApprAssignmentDataListResponse>();
+            CreateMap<LoanApplicationAppraisal, LoanApplicationApprSurveyorTableResponse>();
             CreateMap<LoanApplication, ApplicationInfoResponse>();
             CreateMap<LoanApplicationCollateral, AppraisalResponse>();
             CreateMap<LoanApplicationAppraisal, AppraisalResponse>();

@@ -75,9 +75,9 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
                 var initData = new LoanApplicationApprSurveyorTableResponse
                 {
                     LoanApplicationCollateralId = loanApplicationCollateral.Id,
-                    DocumentNumber = loanApplicationCollateral.DocumentNumber,
-                    DocumentName = loanApplicationCollateral.RfDocument.DocumentDesc,
-                    OwnerName = loanApplicationCollateral.LoanApplicationCollateralOwner.OwnerName,
+                    DocumentNumber = loanApplicationCollateral.DocumentNumber ?? "-",
+                    DocumentName = loanApplicationCollateral.RfDocument?.DocumentDesc ?? null,
+                    OwnerName = loanApplicationCollateral.LoanApplicationCollateralOwner?.OwnerName ?? null,
                 };
 
                 if (loanApplicationEntity != null)

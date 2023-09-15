@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.LoanApplicationStageProcess;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
@@ -35,7 +36,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands
                 var appraisalData = await _appraisal.GetByPredicate(x => x.LoanApplicationCollateralId == request.LoanApplicationCollateralId);
                 if (appraisalData != null)
                 {
-                    appraisalData.StageId = Guid.Parse("453019B3-7950-4AE0-8387-2973E8C274B2");//Appr Surveyor
+                    appraisalData.StageId = LMSUMKMStages.AppraisalSurveyor.StageId;//Appr Surveyor
                     await _appraisal.UpdateAsync(appraisalData);
                 }
                 else
