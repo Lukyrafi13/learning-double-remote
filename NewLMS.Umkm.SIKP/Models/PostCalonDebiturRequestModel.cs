@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace NewLMS.UMKM.SIKP.Models
+namespace NewLMS.Umkm.SIKP.Models
 {
     public class PostCalonDebiturRequestModel
     {

@@ -106,9 +106,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
                 // Create SIKP (RfProduct == KUR)
                 if (loanApplication.RfProduct.ProductType == "KUR")
                 {
-                    var sikp = new NewLMS.UMKM.Data.Entities.SIKP()
+                    var sikp = new SIKP
                     {
-                        Id = loanApplication.Id
+                        Id = loanApplication.Id,
+                        RegistrationNumber = loanApplication.LoanApplicationId
                     };
                     await _sikp.AddAsync(sikp);
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230915075045_AddSchemeToSIKPRequest")]
+    partial class AddSchemeToSIKPRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1642,108 +1644,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("StageId");
 
                     b.ToTable("LoanApplicationStages");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.ParameterGroups", b =>
-                {
-                    b.Property<Guid>("ParameterGroupGuid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("GroupDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GroupMenuName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GroupSubMenuName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ParamaterGroupCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("ParameterGroupName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ParameterGroupGuid");
-
-                    b.ToTable("ParameterGroups");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Parameters", b =>
-                {
-                    b.Property<Guid>("ParameterGuid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnOrder(0);
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit")
-                        .HasColumnOrder(4);
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ParameterGroupGuid")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnOrder(1);
-
-                    b.Property<string>("ParameterKey")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(2);
-
-                    b.Property<string>("ParameterName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(3);
-
-                    b.HasKey("ParameterGuid");
-
-                    b.HasIndex("ParameterGroupGuid");
-
-                    b.ToTable("Parameters");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Prospect", b =>
@@ -6174,17 +6074,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("ProcessedByUser");
 
                     b.Navigation("RfStage");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Parameters", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.ParameterGroups", "ParameterGroups")
-                        .WithMany()
-                        .HasForeignKey("ParameterGroupGuid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ParameterGroups");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Prospect", b =>

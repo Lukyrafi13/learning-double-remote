@@ -27,8 +27,6 @@ using Hangfire;
 using Hangfire.SqlServer;
 using NewLMS.UMKM.API.Filters;
 using NewLMS.UMKM.Maps;
-using NewLMS.UMKM.SIKP2;
-using NewLMS.UMKM.SIKP;
 using NewLMS.UMKM.Domain.FUSE;
 using NewLMS.UMKM.Domain.Context;
 using Bjb.DigitalBisnis.CoreBanking;
@@ -36,10 +34,11 @@ using NewLMS.UMKM.DomainDHN;
 using Bjb.DigitalBisnis.DigiloanAPI;
 using Bjb.DigitalBisnis.BaseMvcApi;
 using Bjb.DigitalBisnis.CurrentUser;
-using Bjb.DigitalBisnis.Consul;
 using Bjb.DigitalBisnis.HealthCheck;
 using NewLMS.UMKM.Data.Dto.AppSettingJson;
 using NewLMS.UMKM.FileUpload;
+using NewLMS.Umkm.SIKP;
+using NewLMS.Umkm.SIKP2;
 
 namespace NewLMS.UMKM.API
 {

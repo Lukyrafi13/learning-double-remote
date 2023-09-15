@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace NewLMS.UMKM.SIKP2.Models
+namespace NewLMS.Umkm.SIKP2.Models
 {
     public class RateAkadResponseModel
     {

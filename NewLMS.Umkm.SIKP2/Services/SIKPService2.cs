@@ -1,7 +1,7 @@
-﻿using NewLMS.UMKM.SIKP2.Interfaces;
-using NewLMS.UMKM.SIKP2.Models;
+﻿using NewLMS.Umkm.SIKP2.Interfaces;
+using NewLMS.Umkm.SIKP2.Models;
 
-namespace NewLMS.UMKM.SIKP2.Services
+namespace NewLMS.Umkm.SIKP2.Services
 {
     public class SIKPService2 : ISIKPService2
     {
