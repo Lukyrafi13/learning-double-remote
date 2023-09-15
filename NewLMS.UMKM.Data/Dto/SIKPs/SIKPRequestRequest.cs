@@ -1,16 +1,11 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfEducation;
-using NewLMS.UMKM.Data.Dto.RfGenders;
-using NewLMS.UMKM.Data.Dto.RfLinkAge;
-using NewLMS.UMKM.Data.Dto.RfMarital;
-using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
 
 namespace NewLMS.UMKM.Data.Dto.SIKPs
 {
-	public class SIKPRequestRequest
-	{
+    public class SIKPRequestRequest
+    {
         public string Fullname { get; set; }
+        public string Scheme { get; set; }
 
         #region Debtor
         public string DebtorNPWP { get; set; }

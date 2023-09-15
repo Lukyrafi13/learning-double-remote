@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.SIKP2.Models
+namespace NewLMS.Umkm.SIKP2.Models
 {
     public class SIKPModel
     {

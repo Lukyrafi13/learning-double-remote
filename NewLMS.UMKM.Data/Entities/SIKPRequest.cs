@@ -24,6 +24,8 @@ namespace NewLMS.UMKM.Data.Entities
         public string DebtorMaritalStatusId { get; set; }
         [ForeignKey(nameof(RfEducation))]
         public string DebtorEducationId { get; set; }
+        [ForeignKey(nameof(RfJob))]
+        public string DebtorJobId { get; set; }
         public string DebtorAddress { get; set; }
         public string DebtorProvince { get; set; }
         public string DebtorCity { get; set; }
@@ -62,6 +64,7 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfGender RfGender { get; set; }
         public virtual RfMarital RfMarital { get; set; }
         public virtual RfEducation RfEducation { get; set; }
+        public virtual RfJob RfJob { get; set; }
         public virtual RfZipCode DebtorRfZipCode { get; set; }
         public virtual RfZipCode DebtorCompanyRfZipCode { get; set; }
         public virtual RfLinkAge DebtorCompanyRfLinkage { get; set; }
