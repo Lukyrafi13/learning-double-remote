@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using NewLMS.UMKM.Data.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Emit;
 
 namespace NewLMS.UMKM.Domain.Context
 {
@@ -60,6 +58,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<SIKP> SIKPs { get; set; }
         public DbSet<SIKPRequest> SIKPRequests { get; set; }
         public DbSet<SIKPResponse> SIKPResponses { get; set; }
+        public DbSet<LoanApplicationAppraisal> LoanApplicationAppraisals { get; set; }
 
         #endregion
 
@@ -111,6 +110,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfSandiBI> RfSandiBIs { get; set; }
         public DbSet<RfSandiBIGroup> RfSandiBIGroups { get; set; }
         public DbSet<RfDecisionMaker> RfDecisionMakers { get; set; }
+        public DbSet<RfAppraisalKJPPMaster> RfAppraisalKJPPMasters { get; set; }
         
         #endregion
 

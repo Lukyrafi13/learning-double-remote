@@ -14,7 +14,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.UMKM.Data.Dto.Users;
 using NewLMS.UMKM.Data.Dto.Prospects;
-
 namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
     public class LoanApplicationResponse : BaseResponse

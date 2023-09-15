@@ -5,6 +5,8 @@ using NewLMS.UMKM.Data.Dto.RfVehClass;
 using NewLMS.UMKM.Data.Dto.RfVehModel;
 using NewLMS.UMKM.Data.Dto.RfDocument;
 using NewLMS.UMKM.Data.Dto.RfTransportationType;
+using NewLMS.UMKM.Data.Dto.RfCollateralBC;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
 {
@@ -52,13 +54,16 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
         public string SouthBoundaries { get; set; }
         public string NorthBoundaries { get; set; }
         public string TransportationTypeCode { get; set; }
+
         public RfZipCodeResponse RfZipCode { get; set; }
         public RfDocumentSimpleResponse RfDocument { get; set; }
         public RfVehMakerSimpleResponse RfVehMaker { get; set; }
         public RfVehClassSimpleResponse RfVehClass { get; set; }
         public RfVehModelSimplelResponse RfVehModel { get; set; }
         public RfTransportationTypeSimpleResponse RfTransportationType { get; set; }
+        public RfCollateralBCResponse RfCollateralBC { get; set; }
         public LoanApplicationCollateralOwnerResponse LoanApplicationCollateralOwner { get; set; }
+        public LoanApplicationResponse LoanApplication { get; set; }
     }
 }
 
