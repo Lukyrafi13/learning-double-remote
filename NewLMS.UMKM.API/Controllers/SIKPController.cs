@@ -47,14 +47,10 @@ namespace NewLMS.UMKM.API.Controllers.SIKPs
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("check/{Id}")]
+        [HttpPost("check")]
         [ProducesResponseType(type: typeof(ServiceResponse<DetailCalonDebiturResponseModel>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> CheckSIKP([FromRoute] Guid Id)
+        public async Task<IActionResult> CheckSIKP(CheckSIKPCommand command)
         {
-            var command = new CheckSIKPCommand
-            {
-                Id = Id
-            };
             return Ok(await Mediator.Send(command));
         }
     }

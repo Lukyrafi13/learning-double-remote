@@ -4,8 +4,9 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
 {
     public class SIKPRequestRequest
     {
+        public Guid Id { get; set; }
         public string Fullname { get; set; }
-        public string Scheme { get; set; }
+        public string Scheme { get; set; } = string.Empty;
 
         #region Debtor
         public string DebtorNPWP { get; set; }
@@ -15,6 +16,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public string DebtorGenderId { get; set; }
         public string DebtorMaritalStatusId { get; set; }
         public string DebtorEducationId { get; set; }
+        public string DebtorJobId { get; set; }
         public string DebtorAddress { get; set; }
         public string DebtorProvince { get; set; }
         public string DebtorCity { get; set; }
@@ -25,6 +27,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         #endregion
 
         #region DebtorCompany
+        public DateTime DebtorCompanyEstablishmentDate { get; set; }
         public string DebtorCompanyEstablishmentDeedNumber { get; set; }
         public string DebtorCompanyAddress { get; set; }
         public string DebtorCompanyProvince { get; set; }

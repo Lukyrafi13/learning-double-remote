@@ -28,9 +28,8 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
         public PostCalonDebiturResponseModel PostCalonDebiturResponse { get; set; }
     }
 
-    public class CheckSIKPCommand : IRequest<ServiceResponse<ValidasiPostCalonResponseModel>>
+    public class CheckSIKPCommand : SIKPRequestRequest, IRequest<ServiceResponse<ValidasiPostCalonResponseModel>>
     {
-        public Guid Id { get; set; }
     }
 
     public class CheckSIKPCommandHandler : IRequestHandler<CheckSIKPCommand, ServiceResponse<ValidasiPostCalonResponseModel>>
@@ -66,16 +65,17 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
 
                 var sikpIncludes = new string[]
                     {
-                    "SIKPRequest.RfSectorLBU3",
-                    "SIKPRequest.RfGender",
-                    "SIKPRequest.RfMarital",
-                    "SIKPRequest.RfEducation",
-                    "SIKPRequest.DebtorRfZipCode",
-                    "SIKPRequest.DebtorCompanyRfZipCode",
-                    "SIKPRequest.DebtorCompanyRfLinkage",
+					    "SIKPRequest.RfSectorLBU3",
+					    "SIKPRequest.RfGender",
+					    "SIKPRequest.RfMarital",
+					    "SIKPRequest.RfEducation",
+					    "SIKPRequest.DebtorRfZipCode",
+					    "SIKPRequest.DebtorCompanyRfZipCode",
+					    "SIKPRequest.DebtorCompanyRfLinkage",
                     };
                 var sikp = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
                 var sikpRequest = sikp.SIKPRequest;
+                sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request, sikpRequest);
 
                 var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikp.SIKPRequest.DebtorNoIdentity))?.data;
                 if (debtorDataResponse == null)
@@ -122,13 +122,13 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
                 if (response.PlafonResponse.data != null)
                 {
                     response = await ValidasiLimit(_mapper.Map<SIKPRequestRequest>(sikpRequest), response);
-                    debtorDataResponse.Valid = response.Valid;
-                    debtorDataResponse.MessageValidasi = response.Message;
+                    //debtorDataResponse.Valid = response.Valid;
+                    //debtorDataResponse.MessageValidasi = response.Message;
                 }
 
                 if (response.Valid == false)
                 {
-                    await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
+                    //await _SIKPCalonDebitur.UpdateAsync(SIKPCalonDebitur);
                     return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnResultWith200(response);
                 }
                 var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;

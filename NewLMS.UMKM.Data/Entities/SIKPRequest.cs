@@ -11,6 +11,7 @@ namespace NewLMS.UMKM.Data.Entities
         [Required]
         public Guid Id { get; set; }
         public string Fullname { get; set; }
+        public string Scheme { get; set; } = string.Empty;
 
         #region Debtor
         public string DebtorNPWP { get; set; }
