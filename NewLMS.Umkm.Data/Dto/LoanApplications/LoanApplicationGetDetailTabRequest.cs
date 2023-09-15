@@ -22,5 +22,11 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
     {
         public Guid LoanApplicationCollateralId { get; set; }
     }
+
+    public class LoanApplicationApprSurveyorGetDetailRequests
+    {
+        public Guid LoanApplicationCollateralId { get; set; }
+        public string Tab { get; set; }
+    }
 }
 

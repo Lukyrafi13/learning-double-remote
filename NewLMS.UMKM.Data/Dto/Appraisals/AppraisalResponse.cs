@@ -42,6 +42,16 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
         public DateTime EntryDate { get; set; }
     }
 
+    public class LoanApplicationApprSurveyorTableResponse
+    {
+        public Guid LoanApplicationGuid { get; set; }
+        public Guid LoanApplicationCollateralId { get; set; }
+        public string LoanApplicationId { get; set; }
+        public string DocumentName { get; set; }
+        public string DocumentNumber { get; set; }
+        public string OwnerName { get; set; }
+    }
+
     public class LoanApplicationApprAsignmentResponse
     {
         public LoanApplicationAppInfoApprResponse LoanApplicationInfo { get; set; }

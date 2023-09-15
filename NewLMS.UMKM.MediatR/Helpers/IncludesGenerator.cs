@@ -94,6 +94,20 @@ namespace NewLMS.UMKM.MediatR.Helpers
                     };
                     break;
 
+                case "surveyor_data_pokok_agunan":
+                    includes = new List<string>()
+                    {
+                        "RfOwnerCategory",
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "RfProduct",
+                        "Owner",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationRAC",
+                    };
+                    break;
+
                 default:
                     break;
             }

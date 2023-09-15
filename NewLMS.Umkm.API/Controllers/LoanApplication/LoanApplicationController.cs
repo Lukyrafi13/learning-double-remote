@@ -107,7 +107,7 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         }
 
         /// <summary>
-        /// Get detail ApprAsignment by Tab
+        /// Get Detail ApprAsignment by Tab
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -126,6 +126,32 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         [HttpPut("appraisal-asignment/upsert")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> UpsertApprAsign(UpsertLoanApplicationApprAsignmentCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        //Appraisal Surveyor
+         
+        /// <summary>
+        /// Get List for tables of LoanApplication ApprAsignment
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appraisal-surveyor/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationAppraisalGetTableQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get detail LoanApplication by Tab
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appraisal-surveyor/get/detail")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
         }

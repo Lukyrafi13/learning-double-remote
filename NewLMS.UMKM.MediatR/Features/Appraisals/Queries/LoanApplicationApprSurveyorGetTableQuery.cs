@@ -4,7 +4,6 @@ using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.Appraisals;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Repository.GenericRepository;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
@@ -12,33 +11,30 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
 {
-    public class LoanApplicationAppraisalGetTableQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>>
+    public class LoanApplicationApprSurveyorGetTableQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>>
     {
     }
 
-    public class LoanApplicationAppraisalGetTableQueryHandler : IRequestHandler<LoanApplicationAppraisalGetTableQuery, PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>>
+    public class LoanApplicationApprSurveyorGetTableQueryHandler : IRequestHandler<LoanApplicationApprSurveyorGetTableQuery, PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>>
     {
         private IGenericRepositoryAsync<Appraisal> _appraisal;
         private IGenericRepositoryAsync<LoanApplication> _loanApplication;
-        private IGenericRepositoryAsync<LoanApplicationFacility> _loanApplicationFacility;
         private IGenericRepositoryAsync<LoanApplicationCollateral> _loanApplicationCollateral;
         private readonly IMapper _mapper;
 
-        public LoanApplicationAppraisalGetTableQueryHandler(
-            IGenericRepositoryAsync<Appraisal> appraisal, 
-            IGenericRepositoryAsync<LoanApplication> loanApplication, 
-            IGenericRepositoryAsync<LoanApplicationFacility> loanApplicationFacility, 
-            IGenericRepositoryAsync<LoanApplicationCollateral> loanApplicationCollateral, 
+        public LoanApplicationApprSurveyorGetTableQueryHandler(
+            IGenericRepositoryAsync<Appraisal> appraisal,
+            IGenericRepositoryAsync<LoanApplication> loanApplication,
+            IGenericRepositoryAsync<LoanApplicationCollateral> loanApplicationCollateral,
             IMapper mapper)
         {
             _appraisal = appraisal;
             _loanApplication = loanApplication;
-            _loanApplicationFacility = loanApplicationFacility;
             _loanApplicationCollateral = loanApplicationCollateral;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>> Handle(LoanApplicationAppraisalGetTableQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>> Handle(LoanApplicationApprSurveyorGetTableQuery request, CancellationToken cancellationToken)
         {
             //filter by stage Analyst CR
             var filters = request.Filters;
@@ -47,7 +43,7 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
                 Field = "rfStage.StageId",
                 ComparisonOperator = "=",
                 Type = "string",
-                Value = LMSUMKMStages.AppraisalAsignment.StageId.ToString(),
+                Value = LMSUMKMStages.AppraisalSurveyor.StageId.ToString(),
             });
             request.Filters = filters;
 
@@ -57,7 +53,7 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
                 };
             var dataColl = await _appraisal.GetPagedReponseAsync(request, includes);
             var dataColVm = _mapper.Map<IEnumerable<AppraisalResponse>>(dataColl.Results);
-            var listData = new List<LoanApplicationAppraisalTableResponse>();
+            var listData = new List<LoanApplicationApprSurveyorTableResponse>();
             foreach (var inData in dataColVm)
             {
                 var loanApplicationGuid = inData.LoanApplicationCollateral.LoanApplicationId;
@@ -71,44 +67,29 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
                 var includesCollateral = new string[]
                 {
                     "RfCollateralBC",
+                    "RfDocument",
+                    "LoanApplicationCollateralOwner",
                 };
                 var loanApplicationCollateral = await _loanApplicationCollateral.GetByPredicate(x => x.LoanApplicationId == loanApplicationGuid, includesCollateral);
 
-                var initData = new LoanApplicationAppraisalTableResponse
+                var initData = new LoanApplicationApprSurveyorTableResponse
                 {
-                    Collateral = loanApplicationCollateral.RfCollateralBC.CollateralDesc,
-                    LoanApplicationCollateralId = loanApplicationCollateral.Id
+                    LoanApplicationCollateralId = loanApplicationCollateral.Id,
+                    DocumentNumber = loanApplicationCollateral.DocumentNumber,
+                    DocumentName = loanApplicationCollateral.RfDocument.DocumentDesc,
+                    OwnerName = loanApplicationCollateral.LoanApplicationCollateralOwner.OwnerName,
                 };
 
                 if (loanApplicationEntity != null)
                 {
                     initData.LoanApplicationGuid = loanApplicationGuid;
                     initData.LoanApplicationId = loanApplicationEntity.LoanApplicationId;
-                    if (loanApplicationEntity.OwnerCategoryId == 1)//Perorangan
-                    {
-                        initData.DebtorName = loanApplicationEntity.Debtor.Fullname;
-                    }
-                    if (loanApplicationEntity.OwnerCategoryId == 2)//Badan Usaha
-                    {
-                        initData.DebtorName = loanApplicationEntity.DebtorCompany.Name;
-                    }
-                    initData.EntryDate = loanApplicationEntity.CreatedDate;
-                }
-
-                var includesLoanFacility = new string[]
-                {
-                    "RfSubProduct",
-                };
-                var loanApplicationFacility = await _loanApplicationFacility.GetListByPredicate(x => x.LoanApplicationId == loanApplicationGuid, includesLoanFacility);
-                if (loanApplicationFacility != null && loanApplicationFacility.Count > 0)
-                {
-                    initData.CreditSubProduct = loanApplicationFacility[0].RfSubProduct.SubProductDesc;
                 }
 
                 listData.Add(initData);
             }
 
-            return new PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>(listData, dataColl.Info, request.Page, request.Length)
+            return new PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>(listData, dataColl.Info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };
