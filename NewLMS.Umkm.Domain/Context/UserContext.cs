@@ -34,6 +34,8 @@ namespace NewLMS.UMKM.Domain.Context
 
 
         public virtual DbSet<ThridParty> ThridParties { get; set; }
+        public DbSet<Parameters> Parameters { get; set; }
+        public DbSet<ParameterGroups> ParameterGroups { get; set; }
 
         #region Transactions
         public DbSet<Prospect> Prospects { get; set; }
