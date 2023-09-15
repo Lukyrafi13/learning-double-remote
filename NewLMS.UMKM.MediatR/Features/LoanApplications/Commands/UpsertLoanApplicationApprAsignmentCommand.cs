@@ -17,10 +17,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
 
     public class UpsertLoanApplicationApprAsignmentCommandHandler : IRequestHandler<UpsertLoanApplicationApprAsignmentCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<Appraisal> _appraisal;
+        private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private readonly IMapper _mapper;
 
-        public UpsertLoanApplicationApprAsignmentCommandHandler(IGenericRepositoryAsync<Appraisal> appraisal,
+        public UpsertLoanApplicationApprAsignmentCommandHandler(IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal,
         IMapper mapper)
         {
             _appraisal = appraisal;

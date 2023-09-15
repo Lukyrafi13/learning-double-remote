@@ -2,7 +2,7 @@
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
-    public class LoanApplicationAppInfoApprResponse : BaseResponse
+    public class LoanApplicationAppInfoApprResponse
     {
         public string LoanApplicationId { get; set; }
         public string SubProduct { get; set; }

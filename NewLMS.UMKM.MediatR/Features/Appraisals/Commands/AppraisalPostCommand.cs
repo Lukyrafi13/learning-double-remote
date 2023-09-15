@@ -17,10 +17,10 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Commands
 
     public class PostAppraisalCommandHandler : IRequestHandler<AppraisalPostCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<Appraisal> _appr;
+        private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appr;
         private readonly IMapper _mapper;
 
-        public PostAppraisalCommandHandler(IGenericRepositoryAsync<Appraisal> appr,
+        public PostAppraisalCommandHandler(IGenericRepositoryAsync<LoanApplicationAppraisal> appr,
         IMapper mapper)
         {
             _appr = appr;
@@ -31,7 +31,7 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Commands
         {
             try
             {
-                var apprEntity = new Appraisal
+                var apprEntity = new LoanApplicationAppraisal
                 {
                     AppraisalId = Guid.NewGuid(),
                     LoanApplicationCollateralId = request.LoanApplicationCollateralId,

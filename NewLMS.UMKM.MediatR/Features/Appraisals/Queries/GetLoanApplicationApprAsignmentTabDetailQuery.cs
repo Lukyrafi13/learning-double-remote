@@ -16,13 +16,13 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
 
     public class GetLoanApplicationApprAsignmentTabDetailQueryHandler : IRequestHandler<GetLoanApplicationApprAsignmentTabDetailQuery, ServiceResponse<LoanApplicationApprAsignmentResponse>>
     {
-        private readonly IGenericRepositoryAsync<Appraisal> _appraisal;
+        private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<LoanApplicationFacility> _loanApplicationFacility;
         private readonly IMapper _mapper;
 
         public GetLoanApplicationApprAsignmentTabDetailQueryHandler(
-            IGenericRepositoryAsync<Appraisal> appraisal, 
+            IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal, 
             IGenericRepositoryAsync<LoanApplication> loanApplication, 
             IGenericRepositoryAsync<LoanApplicationFacility> loanApplicationFacility, 
             IMapper mapper)
@@ -52,6 +52,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
                     return ServiceResponse<LoanApplicationApprAsignmentResponse>.ReturnResultWith204();
                 }
 
+                var dataVm = _mapper.Map<LoanApplicationApprAsignmentResponse>(data);
                 var loanApplicationGuid = data.LoanApplicationId;
                 var includesLoanApp = new string[]
                 {
@@ -60,18 +61,18 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
                     "DebtorCompany",
                     "DebtorCompany.DebtorCompanyLegal",
                 };
-                var loanAppData =  await _loanApplication.GetByPredicate(x => x.Id == loanApplicationGuid);
+                var loanAppData = await _loanApplication.GetByPredicate(x => x.Id == loanApplicationGuid, includesLoanApp);
                 var includesFacility = new string[]
                 {
                     "RfSubProduct",
                 };
-                var loanAppFacilityData = await _loanApplicationFacility.GetListByPredicate(x => x.LoanApplicationId == loanApplicationGuid);
+                var loanAppFacilityData = await _loanApplicationFacility.GetListByPredicate(x => x.LoanApplicationId == loanApplicationGuid, includesFacility);
+                var loanappid = loanAppData.LoanApplicationId;
 
-                var dataVm = _mapper.Map<LoanApplicationApprAsignmentResponse>(data);
                 dataVm.LoanApplicationInfo.LoanApplicationId = loanAppData.LoanApplicationId;
                 dataVm.LoanApplicationInfo.SubProduct = loanAppFacilityData[0].RfSubProduct.SubProductDesc;
                 dataVm.LoanApplicationInfo.Branch = loanAppData.RfBranch.Code + loanAppData.RfBranch.Name;
-                
+
                 if (loanAppData.OwnerCategoryId == 1)//Perorangan
                 {
                     dataVm.LoanApplicationInfo.Name = loanAppData.Debtor.Fullname;

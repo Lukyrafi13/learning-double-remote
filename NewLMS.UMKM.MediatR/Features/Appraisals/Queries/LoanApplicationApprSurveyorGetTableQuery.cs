@@ -17,13 +17,13 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
 
     public class LoanApplicationApprSurveyorGetTableQueryHandler : IRequestHandler<LoanApplicationApprSurveyorGetTableQuery, PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>>
     {
-        private IGenericRepositoryAsync<Appraisal> _appraisal;
+        private IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private IGenericRepositoryAsync<LoanApplicationCollateral> _loanApplicationCollateral;
         private readonly IMapper _mapper;
 
         public LoanApplicationApprSurveyorGetTableQueryHandler(
-            IGenericRepositoryAsync<Appraisal> appraisal,
+            IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<LoanApplicationCollateral> loanApplicationCollateral,
             IMapper mapper)

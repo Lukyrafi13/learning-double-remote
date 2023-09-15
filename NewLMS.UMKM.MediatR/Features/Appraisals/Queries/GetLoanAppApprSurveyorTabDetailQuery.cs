@@ -17,10 +17,10 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
 
     public class GetLoanAppApprSurveyorTabDetailQueryHandler : IRequestHandler<GetLoanAppApprSurveyorTabDetailQuery, ServiceResponse<LoanApplicationIDEResponse>>
     {
-        private readonly IGenericRepositoryAsync<Appraisal> _appraisal;
+        private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private readonly IMapper _mapper;
 
-        public GetLoanAppApprSurveyorTabDetailQueryHandler(IGenericRepositoryAsync<Appraisal> appraisal, IMapper mapper)
+        public GetLoanAppApprSurveyorTabDetailQueryHandler(IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal, IMapper mapper)
         {
             _appraisal = appraisal;
             _mapper = mapper;

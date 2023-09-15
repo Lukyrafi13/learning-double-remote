@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NewLMS.UMKM.Data.Entities
 {
-    public class Appraisal : BaseEntity
+    public class LoanApplicationAppraisal : BaseEntity
     {
         [Key]
         [Required]

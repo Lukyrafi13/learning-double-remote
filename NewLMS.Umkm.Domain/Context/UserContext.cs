@@ -58,7 +58,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<SIKP> SIKPs { get; set; }
         public DbSet<SIKPRequest> SIKPRequests { get; set; }
         public DbSet<SIKPResponse> SIKPResponses { get; set; }
-        public DbSet<Appraisal> Appraisals { get; set; }
+        public DbSet<LoanApplicationAppraisal> LoanApplicationAppraisals { get; set; }
 
         #endregion
 

@@ -17,11 +17,11 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands
 
     public class LoanAppStageProcessApprAsignmentCommandHandler : IRequestHandler<LoanAppStageProcessApprAsignmentCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<Appraisal> _appraisal;
+        private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private readonly IMapper _mapper;
 
         public LoanAppStageProcessApprAsignmentCommandHandler(
-            IGenericRepositoryAsync<Appraisal> appraisal, 
+            IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal, 
             IMapper mapper)
         {
             _appraisal = appraisal;

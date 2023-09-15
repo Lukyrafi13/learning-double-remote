@@ -20,12 +20,12 @@ namespace NewLMS.UMKM.MediatR.Features.RfInternalAssesments.Queries
     public class RfInternalAssesmentsGetFilterQueryHandler : IRequestHandler<RfInternalAssesmentsGetFilterQuery, PagedResponse<IEnumerable<RfInternalAssesmentsResponse>>>
     {
         private IGenericRepositoryAsync<User> _user;
-        private IGenericRepositoryAsync<Appraisal> _appraisal;
+        private IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private readonly IMapper _mapper;
 
         public RfInternalAssesmentsGetFilterQueryHandler(
             IGenericRepositoryAsync<User> user, 
-            IGenericRepositoryAsync<Appraisal> appraisal, 
+            IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal, 
             IMapper mapper)
         {
             _user = user;

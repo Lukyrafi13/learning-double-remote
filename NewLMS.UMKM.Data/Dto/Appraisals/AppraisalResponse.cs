@@ -18,7 +18,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
         public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
     }
 
-    public class AppraisalSimpleResponse : BaseResponse
+    public class AppraisalSimpleResponse
     {
         public Guid AppraisalId { get; set; }
         public Guid LoanApplicationCollateralId { get; set; }
