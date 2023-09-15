@@ -25,9 +25,12 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfMarital, o => o.MapFrom(s => s.RfMarital))
                 .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
 
-            CreateMap<NewLMS.UMKM.Data.Entities.SIKP, SIKPBaseResponse>()
+            CreateMap<Data.Entities.SIKP, SIKPBaseResponse>()
                 .ForMember(d => d.SIKPRequest, o => o.MapFrom(s => s.SIKPRequest))
                 .ForMember(d => d.SIKPResponse, o => o.MapFrom(s => s.SIKPResponse));
+
+            CreateMap<Data.Entities.SIKP, SIKPTableResponse>()
+		        .ForMember(d => d.Fullname, o => o.MapFrom(s => s.SIKPRequest.Fullname));
         }
     }
 }
