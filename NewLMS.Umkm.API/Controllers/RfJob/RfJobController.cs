@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.API.Controllers.RfJob
 {
-    public class RfJobController : BaseController
+    public class ParametersController : BaseController
     {
         /// <summary>
         /// GetFilter RfJob

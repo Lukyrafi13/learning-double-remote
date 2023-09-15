@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
 {
-    public class SIKPGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SIKPTableResponse>>>
+    public class GetParameterByNameQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SIKPTableResponse>>>
     {
     }
 
-    public class SIKPGetFilterQueryHandler : IRequestHandler<SIKPGetFilterQuery, PagedResponse<IEnumerable<SIKPTableResponse>>>
+    public class SIKPGetFilterQueryHandler : IRequestHandler<GetParameterByNameQuery, PagedResponse<IEnumerable<SIKPTableResponse>>>
     {
         private IGenericRepositoryAsync<Data.Entities.SIKP> _sikp;
         private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
             _sikp = sikp;
         }
 
-        public async Task<PagedResponse<IEnumerable<SIKPTableResponse>>> Handle(SIKPGetFilterQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<SIKPTableResponse>>> Handle(GetParameterByNameQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[]
                 {
