@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewLMS.UMKM.Data.Entities
 {
-    public class LoanApplicationApplicationStage : BaseEntity
+    public class LoanApplicationStage : BaseEntity
     {
         [Key]
         [Required]
@@ -12,6 +12,9 @@ namespace NewLMS.UMKM.Data.Entities
 
         [ForeignKey(nameof(LoanApplication))]
         public Guid LoanApplicationId { get; set; }
+
+        [ForeignKey(nameof(RfStage))]
+        public Guid StageId { get; set; }
 
         [ForeignKey(nameof(OwnerRoleId))]
         public Guid OwnerRoleId { get; set; }
@@ -26,6 +29,7 @@ namespace NewLMS.UMKM.Data.Entities
         public Guid? ProcessedBy { get; set; }
 
         public LoanApplication LoanApplication { get; set; }
+        public RfStage RfStage { get; set; }
         public Role OwnerRole { get; set; }
         public User? OwnerUser { get; set; }
         public User? ProcessedByUser { get; set; }

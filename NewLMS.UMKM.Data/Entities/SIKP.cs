@@ -14,6 +14,8 @@ namespace NewLMS.UMKM.Data.Entities
         public string RegistrationNumber { get; set; }
 
         public virtual LoanApplication LoanApplication { get; set; }
+        public virtual SIKPRequest SIKPRequest { get; set; }
+        public virtual SIKPResponse SIKPResponse { get; set; }
     }
 }
 

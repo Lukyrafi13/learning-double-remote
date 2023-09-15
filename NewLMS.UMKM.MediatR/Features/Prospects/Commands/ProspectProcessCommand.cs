@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
-using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Constants;
 using NewLMS.UMKM.Data.Dto.Prospects;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Data.Enums;
@@ -25,7 +25,7 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
         private readonly IGenericRepositoryAsync<RfStage> _stages;
         private readonly IGenericRepositoryAsync<Debtor> _debtor;
         private readonly IGenericRepositoryAsync<DebtorCompany> _debtorCompany;
-        private readonly IGenericRepositoryAsync<LoanApplicationStageLog> _stageLogs;
+        private readonly IGenericRepositoryAsync<LoanApplicationStage> _loanApplicationStage;
         private readonly ICurrentUserService _userInfoToken;
 
         private readonly IMapper _mapper;
@@ -36,19 +36,19 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 IGenericRepositoryAsync<RfStage> stages,
                 IGenericRepositoryAsync<Debtor> debtor,
                 IGenericRepositoryAsync<DebtorCompany> debtorCompany,
-                IGenericRepositoryAsync<LoanApplicationStageLog> stageLogs,
                 IMapper mapper,
                 ICurrentUserService userInfoToken
-            )
+,
+                IGenericRepositoryAsync<LoanApplicationStage> loanApplicationStage)
         {
             _prospect = prospect;
             _loanApplication = loanApplication;
             _stages = stages;
-            _stageLogs = stageLogs;
             _debtor = debtor;
             _debtorCompany = debtorCompany;
             _mapper = mapper;
             _userInfoToken = userInfoToken;
+            _loanApplicationStage = loanApplicationStage;
         }
 
         public async Task<ServiceResponse<Guid>> Handle(ProspectProcessCommand request, CancellationToken cancellationToken)
@@ -128,6 +128,19 @@ namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
                 await _loanApplication.AddAsync(loanApplication);
                 prospect.Status = EnumProspectStatus.Processed;
                 await _prospect.UpdateAsync(prospect);
+
+                var loanApplicationStage = new LoanApplicationStage()
+                {
+                    Id = Guid.NewGuid(),
+                    LoanApplicationId = loanApplication.Id,
+                    OwnerRoleId = Guid.Parse("CB409959-9416-4C35-9AE8-EB905C3DE1AC"),
+                    StageId = UMKMConst.Stages["InitialDateEntry"],
+                    OwnerUserId = loanApplication.CreatedBy,
+                    Processed = false,
+                    ProcessedBy = loanApplication.CreatedBy,
+                    ProcessedDate = DateTime.Now,
+                };
+                await _loanApplicationStage.AddAsync(loanApplicationStage);
 
                 return ServiceResponse<Guid>.ReturnResultWith201(Guid.NewGuid());
             }

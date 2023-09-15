@@ -34,6 +34,8 @@
     <None Remove="Helpers\" />
     <None Remove="Features\Tests\" />
     <None Remove="Features\Tests\Commands\" />
+    <None Remove="Features\SIKPs\" />
+    <None Remove="Features\SIKPs\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -122,6 +124,8 @@
     <Folder Include="Helpers\" />
     <Folder Include="Features\Tests\" />
     <Folder Include="Features\Tests\Commands\" />
+    <Folder Include="Features\SIKPs\" />
+    <Folder Include="Features\SIKPs\Queries\" />
   </ItemGroup>
 
 </Project>

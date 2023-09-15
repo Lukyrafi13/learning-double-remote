@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Data.Enums;
 
 namespace NewLMS.UMKM.Data.Entities
@@ -78,16 +75,12 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }
         public virtual RfStage RfStage { get; set; }
 
-
-        public virtual ICollection<LoanApplicationStageLog> LoanApplicationStageLogs { get; set; } = new List<LoanApplicationStageLog>();
+        public virtual ICollection<LoanApplicationStage> LoanApplicationStages { get; set; } = new List<LoanApplicationStage>();
         public virtual ICollection<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; } = new List<LoanApplicationCollateral>();
         public virtual ICollection<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; } = new List<LoanApplicationKeyPerson>();
         public virtual ICollection<LoanApplicationFacility> LoanApplicationFacilities { get; set; } = new List<LoanApplicationFacility>();
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
         public virtual LoanApplicationRAC LoanApplicationRAC { get; set; }
-
-
-        public virtual ICollection<LoanApplicationApplicationStage> LoanApplicationApplicationStages { get; set; } = new List<LoanApplicationApplicationStage>();
 
         [NotMapped]
         public virtual string MappingTab { get; set; }

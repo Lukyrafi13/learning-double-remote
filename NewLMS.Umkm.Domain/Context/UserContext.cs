@@ -45,7 +45,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
         public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
         public DbSet<LoanApplicationFacility> LoanApplicationFacilities { get; set; }
-        public DbSet<LoanApplicationStageLog> LoanApplicationStageLogs { get; set; }
+        public DbSet<LoanApplicationStage> LoanApplicationStages { get; set; }
         public DbSet<Debtor> Debtors { get; set; }
         public DbSet<DebtorCouple> DebtorCouples { get; set; }
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }

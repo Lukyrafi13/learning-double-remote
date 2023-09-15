@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using NewLMS.UMKM.Data;
+using NewLMS.UMKM.Data.Constants;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Domain.Context;
@@ -13,13 +14,15 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
 {
-    public class LoanApplicationProcessIDE : LoanApplicationProcessRequest, IRequest<ServiceResponse<Unit>>
+    public class LoanApplicationProcessIDE : IRequest<ServiceResponse<Unit>>
     {
+        public Guid AppId { get; set; }
     }
 
     public class LoanApplicationProcessIDEHandler : IRequestHandler<LoanApplicationProcessIDE, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
+        private readonly IGenericRepositoryAsync<LoanApplicationStage> _loanApplicationStage;
         private readonly IGenericRepositoryAsync<RfParameterDetail> _parameterDetail;
         private readonly IGenericRepositoryAsync<LoanApplicationCreditScoring> _loanApplicationCreditScoring;
         private readonly IGenericRepositoryAsync<RfMarital> _rfMarital;
@@ -30,6 +33,8 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
         private readonly IGenericRepositoryAsync<DebtorCompanyLegal> _debtorCompanyLegal;
         private readonly IGenericRepositoryAsync<SLIKRequest> _slikRequest;
         private readonly IGenericRepositoryAsync<SLIKRequestDebtor> _slikRequestDebtor;
+        private readonly IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> _sikp;
+        private readonly IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
         private readonly UserContext _userContext;
         private readonly IMapper _mapper;
 
@@ -45,7 +50,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
             IGenericRepositoryAsync<DebtorCompanyLegal> debtorCompanyLegal,
             IMapper mapper,
             UserContext userContext,
-            IGenericRepositoryAsync<SLIKRequest> slikRequest)
+            IGenericRepositoryAsync<SLIKRequest> slikRequest,
+            IGenericRepositoryAsync<LoanApplicationStage> loanApplicationStage,
+            IGenericRepositoryAsync<Data.Entities.SIKP> sikp,
+            IGenericRepositoryAsync<SIKPRequest> sikpRequest)
         {
             _loanApplication = loanApplication;
             _loanApplicationCreditScoring = loanApplicationCreditScoring;
@@ -59,6 +67,9 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
             _mapper = mapper;
             _userContext = userContext;
             _slikRequest = slikRequest;
+            _loanApplicationStage = loanApplicationStage;
+            _sikp = sikp;
+            _sikpRequest = sikpRequest;
         }
 
         public async Task<ServiceResponse<Unit>> Handle(LoanApplicationProcessIDE request, CancellationToken cancellationToken)
@@ -66,7 +77,23 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
             var transaction = await _userContext.Database.BeginTransactionAsync(cancellationToken);
             try
             {
-                var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id") ?? throw new NullReferenceException($"LoanApplication not found, Id: {request.AppId}");
+                var includes = new string[]
+                    {
+                        "RfOwnerCategory",
+                        "RfProduct",
+                        "Debtor.RfResidenceStatus",
+                        "Debtor.RfZipCode",
+                        "Debtor.RfJob",
+                        "Debtor.RfGender",
+                        "Debtor.RfEducation",
+                        "Debtor.RfMarital",
+                        "Debtor.DebtorCouple.RfZipCode",
+                        "Debtor.DebtorCouple.RfJob",
+                        "DebtorCompany.DebtorCompanyLegal",
+                        "DebtorCompany.RfZipCode",
+                        "DebtorEmergency.RfZipCode"
+                    };
+                var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id", includes) ?? throw new NullReferenceException($"LoanApplication not found, Id: {request.AppId}");
 
                 // Update Stage
 
@@ -76,6 +103,37 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
                     var slikRequest = await GenerateSLIKRequest(loanApplication);
                     await _slikRequest.AddAsync(slikRequest);
                 }
+                // Create SIKP (RfProduct == KUR)
+                if (loanApplication.RfProduct.ProductType == "KUR")
+                {
+                    var sikp = new NewLMS.UMKM.Data.Entities.SIKP()
+                    {
+                        Id = loanApplication.Id
+                    };
+                    await _sikp.AddAsync(sikp);
+
+                    // Create SIKP Request
+                    var sikpRequest = _mapper.Map<SIKPRequest>(loanApplication);
+                    sikpRequest.Id = sikp.Id;
+                    sikpRequest.DebtorRfZipCode = null;
+                    sikpRequest.DebtorCompanyRfZipCode = null;
+                    await _sikpRequest.AddAsync(sikpRequest);
+                }
+
+                var loanApplicationStage = new LoanApplicationStage()
+                {
+                    Id = Guid.NewGuid(),
+                    LoanApplicationId = loanApplication.Id,
+                    StageId = UMKMConst.Stages["SIKPChecking"],
+                    OwnerRoleId = Guid.Parse("CB409959-9416-4C35-9AE8-EB905C3DE1AC"),
+                    OwnerUserId = loanApplication.CreatedBy,
+                    Processed = false,
+                    ProcessedBy = loanApplication.CreatedBy,
+                    ProcessedDate = DateTime.Now,
+                };
+                await _loanApplicationStage.AddAsync(loanApplicationStage);
+                loanApplication.Status = Data.Enums.EnumLoanApplicationStatus.Processed;
+                await _loanApplication.UpdateAsync(loanApplication);
             }
             catch (Exception ex)
             {

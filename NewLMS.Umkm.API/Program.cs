@@ -39,7 +39,7 @@ namespace NewLMS.UMKM.API
             catch (Exception exception)
             {
                 Log.Error(exception, exception.Message.ToString());
-                throw new Exception(exception.Message.ToString());
+               throw new Exception(exception.Message.ToString());
             }
             finally
             {

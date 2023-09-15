@@ -7,7 +7,7 @@ namespace NewLMS.UMKM.Data.Constants
     {
         public static Dictionary<string, Guid> Stages = new()
         {
-            { "Tidak Diproses", Guid.Parse("0BEFD1A8-C24B-4D3F-8B10-3BAEE7395787") },
+            { "TidakDiproses", Guid.Parse("0BEFD1A8-C24B-4D3F-8B10-3BAEE7395787") },
 			{ "Prospect", Guid.Parse("BA81F358-A7A4-4EBF-89C9-3CDB63CE29C9") },
 			{ "InitialDateEntry", Guid.Parse("1FBE4B9F-1B6C-4056-9054-7BBA1AE614E2") },
 			{ "SIKPChecking", Guid.Parse("FD559C9B-20F6-4AB7-87D3-1E76E0712316") },
