@@ -9,8 +9,10 @@ using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands;
+using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
 using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -92,6 +94,20 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
 
+        /// <summary>
+        /// Process LoanApplication
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("ide/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> Process([FromBody] ProcessRequest request)
+        {
+            var command = new LoanApplicationProcessIDE() { AppId = request.Id };
+
+            return Ok(await Mediator.Send(command));
+        }
+
         //Appraisal Asignment
 
         /// <summary>
@@ -155,5 +171,9 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+    }
+    public class ProcessRequest
+    {
+        public Guid Id { get; set; }
     }
 }

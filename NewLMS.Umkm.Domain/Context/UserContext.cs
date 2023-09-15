@@ -43,7 +43,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<LoanApplicationCreditScoring> LoanApplicationCreditScorings { get; set; }
         public DbSet<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; }
         public DbSet<LoanApplicationFacility> LoanApplicationFacilities { get; set; }
-        public DbSet<LoanApplicationStageLog> LoanApplicationStageLogs { get; set; }
+        public DbSet<LoanApplicationStage> LoanApplicationStages { get; set; }
         public DbSet<Debtor> Debtors { get; set; }
         public DbSet<DebtorCouple> DebtorCouples { get; set; }
         public DbSet<DebtorCompany> DebtorCompanies { get; set; }
@@ -55,6 +55,9 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentFileUrl> DocumentFileUrls { get; set; }
         public DbSet<LoanApplicationRAC> LoanApplicationRACs { get; set; }
+        public DbSet<SIKP> SIKPs { get; set; }
+        public DbSet<SIKPRequest> SIKPRequests { get; set; }
+        public DbSet<SIKPResponse> SIKPResponses { get; set; }
         public DbSet<Appraisal> Appraisals { get; set; }
 
         #endregion

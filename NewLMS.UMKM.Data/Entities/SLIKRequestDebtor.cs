@@ -23,6 +23,9 @@ namespace NewLMS.UMKM.Data.Entities
         public string ApplicationStatus { get; set; }
         public DateTime RequestDate { get; set; }
 
+        public DateTime? EstablishedDate { get; set; }
+        public string EstablishedLocation { get; set; }
+
         [ForeignKey(nameof(FileUrl))]
         public Guid? SLIKDocumentUrlId { get; set; }
         public string KodeRefPengguna { get; set; }

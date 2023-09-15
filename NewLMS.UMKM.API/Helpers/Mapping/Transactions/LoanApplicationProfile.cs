@@ -126,6 +126,96 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<LoanApplicationKeyPerson, LoanApplicationKeyPersonResponse>();
             CreateMap<LoanApplicationFacility, LoanApplicationFacilityResponse>();
 
+            CreateMap<LoanApplication, SIKPRequest>()
+                .ForMember(d => d.DebtorNoIdentity, o =>
+                {
+                    o.MapFrom(s => s.Debtor.NoIdentity);
+                })
+                .ForMember(d => d.DebtorSectorLBU3Code, o =>
+                {
+                    o.MapFrom(s => s.RfSectorLBU3);
+                })
+                .ForMember(d => d.DebtorNPWP, o =>
+                {
+                    o.MapFrom(s => s.Debtor.NPWP);
+                })
+                .ForMember(d => d.Fullname, o =>
+                {
+                    o.MapFrom(s => s.Debtor.Fullname);
+                })
+                .ForMember(d => d.DateOfBirth, o =>
+                {
+                    o.MapFrom(s => s.Debtor.DateOfBirth);
+                })
+                .ForMember(d => d.DebtorGenderId, o =>
+                {
+                    o.MapFrom(s => s.Debtor.GenderId);
+                })
+                .ForMember(d => d.DebtorMaritalStatusId, o =>
+                {
+                    o.MapFrom(s => s.Debtor.MaritalStatusId);
+                })
+                .ForMember(d => d.DebtorAddress, o =>
+                {
+                    o.MapFrom(s => s.Debtor.Address);
+                })
+                .ForMember(d => d.DebtorProvince, o =>
+                {
+                    o.MapFrom(s => s.Debtor.Province);
+                })
+                .ForMember(d => d.DebtorCity, o =>
+                {
+                    o.MapFrom(s => s.Debtor.City);
+                })
+                .ForMember(d => d.DebtorDistrict, o =>
+                {
+                    o.MapFrom(s => s.Debtor.District);
+                })
+                .ForMember(d => d.DebtorNeighborhoods, o =>
+                {
+                    o.MapFrom(s => s.Debtor.Neighborhoods);
+                })
+                .ForMember(d => d.DebtorZipCode, o =>
+                {
+                    o.MapFrom(s => s.Debtor.RfZipCode.ZipCode);
+                })
+                .ForMember(d => d.DebtorZipCodeId, o =>
+                {
+                    o.MapFrom(s => s.Debtor.ZipCodeId);
+                })
+                .ForMember(d => d.DebtorCompanyEstablishmentDeedNumber, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.DebtorCompanyLegal.EstablishmentDeedDate);
+                })
+                .ForMember(d => d.DebtorCompanyAddress, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.Address);
+                })
+                .ForMember(d => d.DebtorCompanyProvince, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.Province);
+                })
+                .ForMember(d => d.DebtorCompanyCity, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.City);
+                })
+                .ForMember(d => d.DebtorDistrict, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.District);
+                })
+                .ForMember(d => d.DebtorCompanyNeighborhoods, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.Neighborhoods);
+                })
+                .ForMember(d => d.DebtorCompanyZipCode, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.RfZipCode.ZipCode);
+                })
+                .ForMember(d => d.DebtorCompanyZipCodeId, o =>
+                {
+                    o.MapFrom(s => s.DebtorCompany.ZipCodeId);
+                });
+
             #region Relatives Requests
             CreateMap<LoanApplicationCreditScoringRequest, LoanApplicationCreditScoring>();
             CreateMap<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>()
