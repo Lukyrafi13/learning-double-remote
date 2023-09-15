@@ -87,6 +87,12 @@ namespace NewLMS.UMKM.Common.GenericRespository
         public static UMKMStage Dokumen = new UMKMStage(5, Guid.Parse("B0C824D0-9D89-F851-10BA-6BDEA7A1A40F"), "2.4");
 
         public static UMKMStage Duplikasi = new UMKMStage(7, Guid.Parse("4C385A55-D011-3CB7-A309-30BDFB407B90"), "2.5");
+        
+        public static UMKMStage AppraisalAsignment = new UMKMStage(0, Guid.Parse("F6164295-F21D-41DF-8C46-089779D0D1DD"), "13.1");
+        
+        public static UMKMStage AppraisalSurveyor = new UMKMStage(0, Guid.Parse("453019B3-7950-4AE0-8387-2973E8C274B2"), "13.2");
+        
+        public static UMKMStage AppraisalApproval = new UMKMStage(0, Guid.Parse("C82E6D6F-4ECA-4B77-922C-81F268C4018F"), "13.3");
 
         public static UMKMStage Analisa = new UMKMStage(9, Guid.Parse("09B35F28-47C0-3F48-FF41-E7549C4D2BBD"), "3.0");
 
