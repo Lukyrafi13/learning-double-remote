@@ -16,11 +16,11 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
         public Guid Id { get; set; }
     }
 
-    public class GetSIKPByIdQuery : SIKPRequestRequest, IRequest<ServiceResponse<SIKPBaseResponse>>
+    public class GetParameterByCodeQuery : SIKPRequestRequest, IRequest<ServiceResponse<SIKPBaseResponse>>
     {
     }
 
-    public class GetSIKPByIdQueryHandler : IRequestHandler<GetSIKPByIdQuery, ServiceResponse<SIKPBaseResponse>>
+    public class GetSIKPByIdQueryHandler : IRequestHandler<GetParameterByCodeQuery, ServiceResponse<SIKPBaseResponse>>
     {
         private IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> _sikp;
         private readonly IMapper _mapper;
@@ -30,7 +30,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
             _mapper = mapper;
             _sikp = sikp;
         }
-        public async Task<ServiceResponse<SIKPBaseResponse>> Handle(GetSIKPByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<SIKPBaseResponse>> Handle(GetParameterByCodeQuery request, CancellationToken cancellationToken)
         {
             try
             {
