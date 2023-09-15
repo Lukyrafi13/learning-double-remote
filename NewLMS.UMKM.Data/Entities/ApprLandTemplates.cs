@@ -13,7 +13,7 @@ namespace NewLMS.UMKM.Data.Entities
         [Key]
         [Required]
         public Guid ApprLandTemplateGuid { get; set; }
-        [ForeignKey(nameof(Appraisals))]
+        [ForeignKey(nameof(LoanApplicationAppraisal))]
         public Guid AppraisalGuid { get; set; }
 
         /* Start of Obyek sub-menu */
@@ -141,7 +141,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string Remark { get; set; }
         /* End */
 
-        public virtual Appraisal Appraisals { get; set; }
+        public virtual LoanApplicationAppraisal LoanApplicationAppraisal { get; set; }
         public virtual WilayahVillages WilayahVillages { get; set; }
         public virtual Parameters EnvLocationFK { get; set; }
         public virtual Parameters EnvDensityFK { get; set; }

@@ -18,4 +18,11 @@ namespace NewLMS.UMKM.Data.Dto
         public T Id { get; set; }
         public string Description { get; set; }
     }
+
+    public class SimpleResponseWithPostCode<T>
+    {
+        public T Id { get; set; }
+        public string Description { get; set; }
+        public string PostCode { get; set; }
+    }
 }
