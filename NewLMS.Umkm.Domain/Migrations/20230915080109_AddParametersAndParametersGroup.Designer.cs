@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230915080109_AddParametersAndParametersGroup")]
+    partial class AddParametersAndParametersGroup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4442,9 +4444,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("DebtorGenderId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("DebtorJobId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("DebtorMaritalStatusId")
                         .HasColumnType("nvarchar(450)");
 
@@ -4487,9 +4486,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Scheme")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DebtorCompanyLingkageId");
@@ -4499,8 +4495,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("DebtorEducationId");
 
                     b.HasIndex("DebtorGenderId");
-
-                    b.HasIndex("DebtorJobId");
 
                     b.HasIndex("DebtorMaritalStatusId");
 
@@ -4548,9 +4542,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Property<int>("DebtorCompanyEmployee")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("DebtorCompanyEstablishmentDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("DebtorCompanyEstablishmentDeedNumber")
                         .HasColumnType("nvarchar(max)");
@@ -4638,12 +4629,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool?>("Valid")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ValidationMessage")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -6517,10 +6502,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("DebtorGenderId");
 
-                    b.HasOne("NewLMS.UMKM.Data.Entities.RfJob", "RfJob")
-                        .WithMany()
-                        .HasForeignKey("DebtorJobId");
-
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("DebtorMaritalStatusId");
@@ -6550,8 +6531,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfEducation");
 
                     b.Navigation("RfGender");
-
-                    b.Navigation("RfJob");
 
                     b.Navigation("RfMarital");
 
