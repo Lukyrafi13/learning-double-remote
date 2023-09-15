@@ -12,4 +12,10 @@ namespace NewLMS.UMKM.Data.Dto
         public string Code { get; set; }
         public string Description { get; set; }
     }
+
+    public class SimpleResponse<T>
+    {
+        public T Id { get; set; }
+        public string Description { get; set; }
+    }
 }
