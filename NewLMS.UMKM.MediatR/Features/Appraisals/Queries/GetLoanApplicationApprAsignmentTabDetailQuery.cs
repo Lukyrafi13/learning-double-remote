@@ -71,7 +71,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
 
                 dataVm.LoanApplicationInfo.LoanApplicationId = loanAppData.LoanApplicationId;
                 dataVm.LoanApplicationInfo.SubProduct = loanAppFacilityData[0].RfSubProduct.SubProductDesc;
-                dataVm.LoanApplicationInfo.Branch = loanAppData.RfBranch.Code + loanAppData.RfBranch.Name;
+                dataVm.LoanApplicationInfo.Branch = loanAppData.RfBranch.Code+  " - " + loanAppData.RfBranch.Name;
 
                 if (loanAppData.OwnerCategoryId == 1)//Perorangan
                 {
