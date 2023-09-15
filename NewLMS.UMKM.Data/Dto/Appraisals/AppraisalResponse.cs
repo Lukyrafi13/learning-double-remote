@@ -14,6 +14,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
         public string Kjpp { get; set; }
         public string PropertyCategory { get; set; }
         public string AppraisalStatus { get; set; }
+        public Guid StageId { get; set; }
         public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
     }
 
@@ -27,6 +28,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
         public string Kjpp { get; set; }
         public string PropertyCategory { get; set; }
         public string AppraisalStatus { get; set; }
+        public Guid StageId { get; set; }
     }
 
     public class LoanApplicationAppraisalTableResponse

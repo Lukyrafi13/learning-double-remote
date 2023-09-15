@@ -26,9 +26,13 @@ namespace NewLMS.UMKM.Data.Entities
         public string PropertyCategory { get; set; }
         [MaxLength(25)]
         public string AppraisalStatus { get; set; }
+        
+        [ForeignKey(nameof(RfStage))]
+        public Guid StageId { get; set; }
 
         public virtual LoanApplicationCollateral LoanApplicationCollateral { get; set; }
         public virtual LoanApplication LoanApplication { get; set; }
+        public virtual RfStage RfStage { get; set; }
 /*        public virtual ICollection<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
         public virtual ICollection<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
         public virtual ICollection<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }

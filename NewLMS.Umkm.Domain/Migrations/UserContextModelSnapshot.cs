@@ -62,7 +62,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ModifiedBy");
 
-                    b.ToTable("Actions");
+                    b.ToTable("Actions", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.AppSetting", b =>
@@ -105,7 +105,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppSettings");
+                    b.ToTable("AppSettings", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.EmailSMTPSetting", b =>
@@ -164,7 +164,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ModifiedBy");
 
-                    b.ToTable("EmailSMTPSettings");
+                    b.ToTable("EmailSMTPSettings", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.EmailTemplate", b =>
@@ -205,66 +205,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailTemplates");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Appraisal", b =>
-                {
-                    b.Property<Guid>("AppraisalId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AppraisalStatus")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Estimator")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Kjpp")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<Guid>("LoanApplicationCollateralId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PropertyCategory")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("isExternal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isInternal")
-                        .HasColumnType("bit");
-
-                    b.HasKey("AppraisalId");
-
-                    b.HasIndex("LoanApplicationCollateralId");
-
-                    b.ToTable("Appraisals");
+                    b.ToTable("EmailTemplates", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Debtor", b =>
@@ -384,7 +325,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("Debtors");
+                    b.ToTable("Debtors", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCompany", b =>
@@ -442,7 +383,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("DebtorCompanies");
+                    b.ToTable("DebtorCompanies", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCompanyLegal", b =>
@@ -521,7 +462,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DebtorCompanyLegals");
+                    b.ToTable("DebtorCompanyLegals", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorCouple", b =>
@@ -596,7 +537,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("DebtorCouples");
+                    b.ToTable("DebtorCouples", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DebtorEmergency", b =>
@@ -653,7 +594,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("DebtorEmergencies");
+                    b.ToTable("DebtorEmergencies", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Document", b =>
@@ -720,7 +661,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("LoanApplicationId");
 
-                    b.ToTable("Documents");
+                    b.ToTable("Documents", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.DocumentFileUrl", b =>
@@ -762,7 +703,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("FileUrlId");
 
-                    b.ToTable("DocumentFileUrls");
+                    b.ToTable("DocumentFileUrls", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.FileUrl", b =>
@@ -806,7 +747,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FileUrls");
+                    b.ToTable("FileUrls", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplication", b =>
@@ -919,7 +860,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("StageId");
 
-                    b.ToTable("LoanApplications");
+                    b.ToTable("LoanApplications", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCollateral", b =>
@@ -1090,7 +1031,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("LoanApplicationCollaterals");
+                    b.ToTable("LoanApplicationCollaterals", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCollateralOwner", b =>
@@ -1234,7 +1175,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("LoanApplicationCollateralOwners");
+                    b.ToTable("LoanApplicationCollateralOwners", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationCreditScoring", b =>
@@ -1320,7 +1261,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ScoTransacMethodId");
 
-                    b.ToTable("LoanApplicationCreditScorings");
+                    b.ToTable("LoanApplicationCreditScorings", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationFacility", b =>
@@ -1410,7 +1351,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("TenorCode");
 
-                    b.ToTable("LoanApplicationFacilities");
+                    b.ToTable("LoanApplicationFacilities", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationKeyPerson", b =>
@@ -1504,7 +1445,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("LoanApplicationKeyPersons");
+                    b.ToTable("LoanApplicationKeyPersons", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationRAC", b =>
@@ -1565,7 +1506,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LoanApplicationRACs");
+                    b.ToTable("LoanApplicationRACs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.LoanApplicationStageLog", b =>
@@ -1627,7 +1568,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("TargetStage");
 
-                    b.ToTable("LoanApplicationStageLogs");
+                    b.ToTable("LoanApplicationStageLogs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Prospect", b =>
@@ -1845,7 +1786,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ZipCodeId");
 
-                    b.ToTable("Prospects");
+                    b.ToTable("Prospects", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfApplicationType", b =>
@@ -1879,7 +1820,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("ApplicationTypeId");
 
-                    b.ToTable("RfApplicationTypes");
+                    b.ToTable("RfApplicationTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBranch", b =>
@@ -1957,7 +1898,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Code");
 
-                    b.ToTable("RfBranches");
+                    b.ToTable("RfBranches", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessFieldKUR", b =>
@@ -1991,7 +1932,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("BusinessFieldKURCode");
 
-                    b.ToTable("RfBusinessFieldKURs");
+                    b.ToTable("RfBusinessFieldKURs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessLocation", b =>
@@ -2025,7 +1966,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("BusinessLocationCode");
 
-                    b.ToTable("RfBusinessLocations");
+                    b.ToTable("RfBusinessLocations", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessOwnership", b =>
@@ -2059,7 +2000,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("BusinessOwnershipCode");
 
-                    b.ToTable("RfBusinessOwnerships");
+                    b.ToTable("RfBusinessOwnerships", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessPlaceLocation", b =>
@@ -2093,7 +2034,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("RfBusinessPlaceLocationCode");
 
-                    b.ToTable("RfBusinessPlaceLocations");
+                    b.ToTable("RfBusinessPlaceLocations", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessPlaceOwnership", b =>
@@ -2132,7 +2073,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("BusinessPlaceLocationCode");
 
-                    b.ToTable("RfBusinessPlaceOwnerships");
+                    b.ToTable("RfBusinessPlaceOwnerships", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessPlaceType", b =>
@@ -2166,7 +2107,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("BusinessPlaceTypeCode");
 
-                    b.ToTable("RfBusinessPlaceTypes");
+                    b.ToTable("RfBusinessPlaceTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfBusinessType", b =>
@@ -2200,7 +2141,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("BusinessTypeCode");
 
-                    b.ToTable("RfBusinessTypes");
+                    b.ToTable("RfBusinessTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCollateralBC", b =>
@@ -2255,7 +2196,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("CollateralCode");
 
-                    b.ToTable("RfCollateralBCs");
+                    b.ToTable("RfCollateralBCs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCompanyType", b =>
@@ -2294,7 +2235,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("CompanyGroupId");
 
-                    b.ToTable("RfCompanyTypes");
+                    b.ToTable("RfCompanyTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCondition", b =>
@@ -2334,7 +2275,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("ConditionCode");
 
-                    b.ToTable("RfConditions");
+                    b.ToTable("RfConditions", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCreditNature", b =>
@@ -2374,7 +2315,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("CreditNatureCode");
 
-                    b.ToTable("RfCreditNatures");
+                    b.ToTable("RfCreditNatures", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfCreditType", b =>
@@ -2411,7 +2352,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("CreditTypeCode");
 
-                    b.ToTable("RfCreditTypes");
+                    b.ToTable("RfCreditTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDecisionLeterType", b =>
@@ -2445,7 +2386,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("DecisionLeterTypeCode");
 
-                    b.ToTable("RfDecisionLeterTypes");
+                    b.ToTable("RfDecisionLeterTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDecisionLetter", b =>
@@ -2505,7 +2446,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("DecisionLeterTypeCode");
 
-                    b.ToTable("RfDecisionLetters");
+                    b.ToTable("RfDecisionLetters", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDecisionMaker", b =>
@@ -2539,7 +2480,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("DecisionMakerCode");
 
-                    b.ToTable("RfDecisionMakers");
+                    b.ToTable("RfDecisionMakers", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDocument", b =>
@@ -2594,7 +2535,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("DocumentCode");
 
-                    b.ToTable("RfDocuments");
+                    b.ToTable("RfDocuments", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfDocumentCollateral", b =>
@@ -2639,7 +2580,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("DocumentCode");
 
-                    b.ToTable("RfDocumentCollaterals");
+                    b.ToTable("RfDocumentCollaterals", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfEducation", b =>
@@ -2685,7 +2626,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("EducationCode");
 
-                    b.ToTable("RfEducations");
+                    b.ToTable("RfEducations", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfGender", b =>
@@ -2731,7 +2672,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("GenderCode");
 
-                    b.ToTable("RfGenders");
+                    b.ToTable("RfGenders", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfInstallmentType", b =>
@@ -2765,7 +2706,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("InstallmentTypeCode");
 
-                    b.ToTable("RfInstallmentTypes");
+                    b.ToTable("RfInstallmentTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfJob", b =>
@@ -2828,7 +2769,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("RfJobs");
+                    b.ToTable("RfJobs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfLinkAge", b =>
@@ -2862,7 +2803,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("LinkAgeCode");
 
-                    b.ToTable("RfLinkAges");
+                    b.ToTable("RfLinkAges", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfLinkAgeType", b =>
@@ -2896,7 +2837,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("LinkAgeTypeCode");
 
-                    b.ToTable("RfLinkAgeTypes");
+                    b.ToTable("RfLinkAgeTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfLoanPurpose", b =>
@@ -2939,7 +2880,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("LoanPurposeCode");
 
-                    b.ToTable("RfLoanPurposes");
+                    b.ToTable("RfLoanPurposes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfMappingCollateral", b =>
@@ -2984,7 +2925,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("RfMappingCollaterals");
+                    b.ToTable("RfMappingCollaterals", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfMappingTenor", b =>
@@ -3044,7 +2985,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("TenorCode");
 
-                    b.ToTable("RfMappingTenors");
+                    b.ToTable("RfMappingTenors", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfMarital", b =>
@@ -3093,7 +3034,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("MaritalCode");
 
-                    b.ToTable("RfMaritals");
+                    b.ToTable("RfMaritals", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfParameter", b =>
@@ -3136,7 +3077,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("ParameterId");
 
-                    b.ToTable("RfParameters");
+                    b.ToTable("RfParameters", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfParameterDetail", b =>
@@ -3172,7 +3113,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ParameterId");
 
-                    b.ToTable("RfParameterDetails");
+                    b.ToTable("RfParameterDetails", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfPlacementCountry", b =>
@@ -3218,7 +3159,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("PlacementCountryCode");
 
-                    b.ToTable("RfPlacementCountries");
+                    b.ToTable("RfPlacementCountries", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfProduct", b =>
@@ -3294,7 +3235,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("RfProducts");
+                    b.ToTable("RfProducts", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfRelationCol", b =>
@@ -3337,7 +3278,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("RelationColCode");
 
-                    b.ToTable("RfRelationCols");
+                    b.ToTable("RfRelationCols", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBI", b =>
@@ -3400,7 +3341,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("BIGroup");
 
-                    b.ToTable("RfSandiBIs");
+                    b.ToTable("RfSandiBIs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSandiBIGroup", b =>
@@ -3435,7 +3376,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("BIGroup");
 
-                    b.ToTable("RfSandiBIGroups");
+                    b.ToTable("RfSandiBIGroups", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfScPosition", b =>
@@ -3483,7 +3424,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("DecisionLeterCode");
 
-                    b.ToTable("RfScPositions");
+                    b.ToTable("RfScPositions", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSectorLBU1", b =>
@@ -3526,7 +3467,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Code");
 
-                    b.ToTable("RfSectorLBU1");
+                    b.ToTable("RfSectorLBU1", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSectorLBU2", b =>
@@ -3574,7 +3515,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("RfSectorLBU1Code");
 
-                    b.ToTable("RfSectorLBU2");
+                    b.ToTable("RfSectorLBU2", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSectorLBU3", b =>
@@ -3631,7 +3572,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("RfSectorLBU2Code");
 
-                    b.ToTable("RfSectorLBU3");
+                    b.ToTable("RfSectorLBU3", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfStage", b =>
@@ -3689,7 +3630,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("StageId");
 
-                    b.ToTable("RfStages");
+                    b.ToTable("RfStages", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfSubProduct", b =>
@@ -3748,7 +3689,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("RfSubProducts");
+                    b.ToTable("RfSubProducts", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfTenor", b =>
@@ -3808,7 +3749,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("RfTenors");
+                    b.ToTable("RfTenors", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfTransportationType", b =>
@@ -3842,7 +3783,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("TransportationTypeCode");
 
-                    b.ToTable("RfTransportationTypes");
+                    b.ToTable("RfTransportationTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfVehClass", b =>
@@ -3897,7 +3838,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("VehModelCode");
 
-                    b.ToTable("RfVehClasss");
+                    b.ToTable("RfVehClasss", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfVehCountry", b =>
@@ -3937,7 +3878,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("VehCountryCode");
 
-                    b.ToTable("RfVehCountries");
+                    b.ToTable("RfVehCountries", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfVehMaker", b =>
@@ -3992,7 +3933,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("VehCountryCode");
 
-                    b.ToTable("RfVehMakers");
+                    b.ToTable("RfVehMakers", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfVehModel", b =>
@@ -4032,7 +3973,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("VehModelCode");
 
-                    b.ToTable("RfVehModels");
+                    b.ToTable("RfVehModels", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfVehType", b =>
@@ -4072,7 +4013,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("VehCode");
 
-                    b.ToTable("RfVehTypes");
+                    b.ToTable("RfVehTypes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.RfZipCode", b =>
@@ -4157,7 +4098,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RfZipCodes");
+                    b.ToTable("RfZipCodes", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.SLIKRequestDebtor", b =>
@@ -4237,7 +4178,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("SLIKRequestId");
 
-                    b.ToTable("SLIKRequestDebtors");
+                    b.ToTable("SLIKRequestDebtors", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.UserDevice", b =>
@@ -4285,7 +4226,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserDevices");
+                    b.ToTable("UserDevices", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.LoginAudit", b =>
@@ -4320,7 +4261,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LoginAudits");
+                    b.ToTable("LoginAudits", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.LogSendCallbackThirdParty", b =>
@@ -4365,7 +4306,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ThridPartyName");
 
-                    b.ToTable("LogSendCallbackThirdParty");
+                    b.ToTable("LogSendCallbackThirdParty", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.NLog", b =>
@@ -4404,7 +4345,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("NLog");
+                    b.ToTable("NLog", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Page", b =>
@@ -4450,7 +4391,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("ModifiedBy");
 
-                    b.ToTable("Pages");
+                    b.ToTable("Pages", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.PageAction", b =>
@@ -4500,7 +4441,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("PageId");
 
-                    b.ToTable("PageActions");
+                    b.ToTable("PageActions", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.RfInstituteCode", b =>
@@ -4543,7 +4484,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("ServiceCode");
 
-                    b.ToTable("RfInstituteCode");
+                    b.ToTable("RfInstituteCode", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Role", b =>
@@ -4703,7 +4644,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("BranchCode");
 
-                    b.ToTable("SLIKRequests");
+                    b.ToTable("SLIKRequests", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.ThridParty", b =>
@@ -4750,7 +4691,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("Name");
 
-                    b.ToTable("ThridParties");
+                    b.ToTable("ThridParties", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.User", b =>
@@ -4936,7 +4877,7 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasKey("UserId", "IPAddress");
 
-                    b.ToTable("UserAllowedIPs");
+                    b.ToTable("UserAllowedIPs", (string)null);
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.UserClaim", b =>
@@ -5076,17 +5017,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("DeletedByUser");
 
                     b.Navigation("ModifiedByUser");
-                });
-
-            modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Appraisal", b =>
-                {
-                    b.HasOne("NewLMS.UMKM.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
-                        .WithMany()
-                        .HasForeignKey("LoanApplicationCollateralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoanApplicationCollateral");
                 });
 
             modelBuilder.Entity("NewLMS.UMKM.Data.Entities.Debtor", b =>
