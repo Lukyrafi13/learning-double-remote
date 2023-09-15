@@ -1,12 +1,13 @@
-﻿using NewLMS.UMKM.SIKP.Models;
+﻿using NewLMS.Umkm.SIKP.Models;
 
-namespace NewLMS.UMKM.SIKP.Interfaces
+namespace NewLMS.Umkm.SIKP.Interfaces
 {
     public interface ISIKPService
     {
-        Task<CalonDebiturResponseModel> GetCalonDebitur(string nik);
-        Task<PlafonResponseModel> GetPlafon(string nik);
-        Task<LimitAkadResponseModel> GetLimitAkadSkemaSektor(LimitAkadRequestModel requestModel);
-        Task<PostCalonDebiturResponseModel> PostCalonDebitur(PostCalonDebiturRequestModel postCalonDebitur);
+        Task<CalonDebiturResponseModelHeader> GetCalonDebitur(string nik);
+        Task<PlafonResponseModelHeader> GetPlafon(string nik);
+        Task<LimitAkadResponseModelHeader> GetLimitAkadSkemaSektor(LimitAkadRequestModel requestModel);
+        Task<PostCalonDebiturResponseModelHeader> PostCalonDebitur(PostCalonDebiturRequestModel postCalonDebitur);
+        Task<RateAkadResponseModelHeader> GetRateAkad(RateAkadRequestModel request);
     }
 }

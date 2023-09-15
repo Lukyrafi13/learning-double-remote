@@ -2,7 +2,7 @@
 
 namespace NewLMS.Umkm.SIKP.Models
 {
-    public class LimitAkadResponseModelHeader
+    public class RateAkadResponseModelHeader
     {
         [JsonPropertyName("isSuccessStatusCode")]
         public bool isSuccessStatusCode { get; set; }
@@ -13,36 +13,28 @@ namespace NewLMS.Umkm.SIKP.Models
         [JsonPropertyName("error")]
         public string? error { get; set; }
         [JsonPropertyName("data")]
-        public LimitAkadResponseModel? data { get; set; }
+        public RateAkadResponseModel? data { get; set; }
     }
-    public class LimitAkadResponseModel
+    public class RateAkadResponseModel
     {
         [JsonPropertyName("error")]
         public bool error { get; set; }
         [JsonPropertyName("code")]
-        public string? code { get; set; }
+        public string code { get; set; }
+        public string code_inquiry_calon { get; set; }
         [JsonPropertyName("status_code")]
-        public string? status_code { get; set; }
+        public int status_code { get; set; }
         [JsonPropertyName("message")]
-        public string? message { get; set; }
+        public string message { get; set; }
         [JsonPropertyName("data")]
-        public DetailLimitAkadResponseModel? data { get; set; }
+        public List<DetailRateAkadResponseModel> data { get; set; }
     }
-    public class DetailLimitAkadResponseModel
+    public class DetailRateAkadResponseModel
     {
+        [JsonPropertyName("nik")]
         public string nik { get; set; }
         [JsonPropertyName("skema")]
         public string skema { get; set; }
-        [JsonPropertyName("sektor")]
-        public string sektor { get; set; }
-        [JsonPropertyName("count_akad")]
-        public string count_akad { get; set; }
-        [JsonPropertyName("count_akad_ini")]
-        public string count_akad_ini { get; set; }
-        [JsonPropertyName("max_count_akad")]
-        public string max_count_akad { get; set; }
-        [JsonPropertyName("max_sum_akad")]
-        public string max_sum_akad { get; set; }
         [JsonPropertyName("total_limit_default")]
         public string total_limit_default { get; set; }
         [JsonPropertyName("total_limit")]
@@ -51,7 +43,17 @@ namespace NewLMS.Umkm.SIKP.Models
         public string limit_aktif_default { get; set; }
         [JsonPropertyName("limit_aktif")]
         public string limit_aktif { get; set; }
+        [JsonPropertyName("count_akad")]
+        public string count_akad { get; set; }
         [JsonPropertyName("kode_bank")]
         public string kode_bank { get; set; }
+        [JsonPropertyName("sisa_akad")]
+        public int sisa_akad { get; set; }
+        [JsonPropertyName("max_akad")]
+        public int max_akad { get; set; }
+        [JsonPropertyName("rate")]
+        public double rate { get; set; }
+        public int sisaWaktuBooking { get; set; }
+        public int sisaHari { get; set; }
     }
 }

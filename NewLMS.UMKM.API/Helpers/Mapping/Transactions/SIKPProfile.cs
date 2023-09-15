@@ -31,6 +31,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
 
             CreateMap<Data.Entities.SIKP, SIKPTableResponse>()
 		        .ForMember(d => d.Fullname, o => o.MapFrom(s => s.SIKPRequest.Fullname));
+            //CreateMap<SIKPRequest, SIKPRequestRequest>();
+            CreateMap<SIKPRequestRequest, SIKPRequest>();
         }
     }
 }

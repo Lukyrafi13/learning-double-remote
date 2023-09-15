@@ -12,6 +12,9 @@ namespace NewLMS.UMKM.Data.Entities
         public Guid Id { get; set; }
         public string Fullname { get; set; }
 
+        public bool? Valid { get; set; }
+        public string ValidationMessage { get; set; }
+
         #region Debtor
         public string DebtorNPWP { get; set; }
         public string DebtorNoIdentity { get; set; }
@@ -35,6 +38,7 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region DebtorCompany
+        public DateTime DebtorCompanyEstablishmentDate { get; set; }
         public string DebtorCompanyEstablishmentDeedNumber { get; set; }
         public string DebtorCompanyAddress { get; set; }
         public string DebtorCompanyProvince { get; set; }
