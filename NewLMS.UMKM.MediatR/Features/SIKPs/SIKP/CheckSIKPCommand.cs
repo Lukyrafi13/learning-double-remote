@@ -189,7 +189,7 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
                     kode_kabkota = sikpRequest.DebtorRfZipCode?.KodeKabupaten ?? "",
                     kode_pos = sikpRequest.DebtorRfZipCode?.ZipCode ?? "",
                     npwp = sikpRequest.DebtorNPWP?.Substring(0, 15) ?? "",
-                    mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate.ToString("ddMMyyyy") ?? "",
+                    mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate?.ToString("ddMMyyyy") ?? "",
                     alamat_usaha = sikpRequest.DebtorCompanyAddress ?? "",
                     ijin_usaha = sikpRequest.DebtorCompanyPermit ?? "",
                     modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),

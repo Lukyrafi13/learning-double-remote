@@ -38,7 +38,7 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region DebtorCompany
-        public DateTime DebtorCompanyEstablishmentDate { get; set; }
+        public DateTime? DebtorCompanyEstablishmentDate { get; set; }
         public string DebtorCompanyAddress { get; set; }
         public string DebtorCompanyProvince { get; set; }
         public string DebtorCompanyCity { get; set; }

@@ -11,7 +11,6 @@ namespace NewLMS.UMKM.Data.Entities
         [Required]
         public Guid Id { get; set; }
         public string Fullname { get; set; }
-
         public bool? Valid { get; set; }
         public string ValidationMessage { get; set; }
 
@@ -40,7 +39,7 @@ namespace NewLMS.UMKM.Data.Entities
         #endregion
 
         #region DebtorCompany
-        public DateTime DebtorCompanyEstablishmentDate { get; set; }
+        public DateTime? DebtorCompanyEstablishmentDate { get; set; }
         public string DebtorCompanyAddress { get; set; }
         public string DebtorCompanyProvince { get; set; }
         public string DebtorCompanyCity { get; set; }
@@ -55,7 +54,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string DebtorCompanyCollaterals { get; set; }
         public int DebtorCompanyEmployee { get; set; }
         [ForeignKey(nameof(DebtorCompanyRfLinkage))]
-        public string DebtorCompanyLingkageId { get; set; }
+        public string? DebtorCompanyLingkageId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion

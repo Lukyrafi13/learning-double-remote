@@ -10,7 +10,6 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(LoanApplication))]
         [Required]
         public Guid Id { get; set; }
-
         public string RegistrationNumber { get; set; }
 
         public virtual LoanApplication LoanApplication { get; set; }
