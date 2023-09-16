@@ -31,7 +31,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         #endregion
 
         #region DebtorCompany
-        public string DebtorCompanyEstablishmentDeedNumber { get; set; }
+        public DateTime? DebtorCompanyEstablishmentDate { get; set; }
         public string DebtorCompanyAddress { get; set; }
         public string DebtorCompanyProvince { get; set; }
         public string DebtorCompanyCity { get; set; }
