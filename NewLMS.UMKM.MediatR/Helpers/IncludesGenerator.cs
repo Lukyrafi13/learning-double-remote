@@ -71,6 +71,7 @@ namespace NewLMS.UMKM.MediatR.Helpers
                 case "informasi_fasilitas":
                     includes = new List<string>()
                     {
+                        "Prospect",
                         "Owner",
                         "RfOwnerCategory",
                         "RfProduct",

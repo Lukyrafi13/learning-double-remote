@@ -13,7 +13,7 @@ namespace NewLMS.UMKM.Data.Entities
         [Key]
         [Required]
         public Guid ApprWorkPaperShopApartmentSummaryGuid { get; set; }
-        [ForeignKey(nameof(Appraisals))]
+        [ForeignKey(nameof(LoanApplicationAppraisal))]
         public Guid AppraisalGuid { get; set; }
 
         /* WEIGHT */
