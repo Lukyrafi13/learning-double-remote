@@ -15,7 +15,6 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
         public bool? ObjectStatus { get; set; }         // New
         public string Inhabited { get; set; }           // New
         public string CollateralOwner { get; set; }     // New
-
         public Guid? Pondation { get; set; }            // Update
         public Guid? Wall { get; set; }                 // Update
         public Guid? Floor { get; set; }                // Update

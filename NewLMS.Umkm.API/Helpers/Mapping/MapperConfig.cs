@@ -29,6 +29,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new SIKPProfile());
                 mc.AddProfile(new LoanApplicationAppraisalProfile());
                 mc.AddProfile(new ParameterProfile());
+                mc.AddProfile(new ApprBuildingTemplateProfile());
+                mc.AddProfile(new ApprBuildingFloorDetailProfile());
+                mc.AddProfile(new ApprBuildingFloorProfile());
+                mc.AddProfile(new ApprLandTemplateProfile());
             });
             return mappingConfig.CreateMapper();
         }
