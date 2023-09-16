@@ -22,6 +22,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public string DebtorMaritalStatusId { get; set; }
         public string DebtorEducationId { get; set; }
         public string DebtorAddress { get; set; }
+        public string DebtorJobId { get; set; }
         public string DebtorProvince { get; set; }
         public string DebtorCity { get; set; }
         public string DebtorDistrict { get; set; }

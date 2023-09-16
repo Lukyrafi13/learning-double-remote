@@ -24,6 +24,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.DebtorCompanyRfZipCode, o => o.MapFrom(s => s.DebtorCompanyRfZipCode))
                 .ForMember(d => d.RfEducation, o => o.MapFrom(s => s.RfEducation))
                 .ForMember(d => d.RfGender, o => o.MapFrom(s => s.RfGender))
+                .ForMember(d => d.RfJob, o => o.MapFrom(s => s.RfJob))
                 .ForMember(d => d.RfMarital, o => o.MapFrom(s => s.RfMarital))
                 .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
 

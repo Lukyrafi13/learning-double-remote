@@ -5,6 +5,7 @@ using NewLMS.UMKM.Data.Dto.RfEducation;
 using NewLMS.UMKM.Data.Dto.RfMarital;
 using NewLMS.UMKM.Data.Dto.RfGenders;
 using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
+using NewLMS.UMKM.Data.Dto.RfJob;
 
 namespace NewLMS.UMKM.Data.Dto.SIKPs
 {
@@ -19,6 +20,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public string DebtorSectorLBU3Code { get; set; }
         public string DebtorGenderId { get; set; }
         public string DebtorMaritalStatusId { get; set; }
+        public string DebtorJobId { get; set; }
         public string DebtorEducationId { get; set; }
         public string DebtorAddress { get; set; }
         public string DebtorProvince { get; set; }
@@ -49,7 +51,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
 
-
+        public virtual RfJobResponse RfJob { get; set; }
         public virtual RfSectorLBU3Response RfSectorLBU3 { get; set; }
         public virtual RfGenderResponse RfGender { get; set; }
         public virtual RfMaritalResponse RfMarital { get; set; }
