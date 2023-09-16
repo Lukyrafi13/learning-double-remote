@@ -73,7 +73,8 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalWorkPapers.Commands
                         sumScore += liquidation?.LiquidationScore == null ? 0 : (double)liquidation?.LiquidationScore;
                     }
 
-                    foreach (var condition in mCondition)
+                    //Uncommand this
+                    /*foreach (var condition in mCondition)
                     {
                         var checkCondition = _dbContext
                             .MLiquidationCondition
@@ -86,7 +87,7 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalWorkPapers.Commands
                             selected = condition;
                             break;
                         }
-                    }
+                    }*/
                 }
 
                 switch (request.WorkPaperTypeId)
