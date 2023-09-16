@@ -68,6 +68,19 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<ApprBuildingFloors> ApprBuildingFloors { get; set; }
         public DbSet<ApprBuildingFloorDetails> ApprBuildingFloorDetails { get; set; }
         public DbSet<ApprLandTemplates> ApprLandTemplates { get; set; }
+        public DbSet<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
+        public DbSet<ApprWorkPaperLandBuildings> ApprWorkPaperLandBuildings { get; set; }
+        public DbSet<ApprLiquidation> ApprLiquidations { get; set; }
+        public DbSet<MLiquidationItem> MLiquidationItems { get; set; }
+        public DbSet<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }
+        public DbSet<ApprMachineTemplate> ApprMachineTemplates { get; set; }
+        public DbSet<ApprWorkPaperMachineCost> ApprWorkPaperMachineCost { get; set; }
+        public DbSet<ApprWorkPaperMachineMarkets> ApprWorkPaperMachineMarkets { get; set; }
+        public DbSet<ApprWorkPaperShopApartmentSummaries> ApprWorkPaperShopApartmentSummaries { get; set; }
+        public DbSet<ApprWorkPaperShopApartments> ApprWorkPaperShopApartments { get; set; }
+        public DbSet<ApprWorkPaperVehicleSummaries> ApprWorkPaperVehicleSummaries { get; set; }
+        public DbSet<ApprWorkPaperVehicles> ApprWorkPaperVehicles { get; set; }
+        public DbSet<ApprVehicleTemplate> ApprVehicleTemplate { get; set; }
 
         #endregion
 
@@ -131,6 +144,47 @@ namespace NewLMS.UMKM.Domain.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<MLiquidation>().HasKey(x => new { x.TypeId });
+            builder.Entity<MLiquidationCondition>(b =>
+            {
+                b.HasKey(x => new { x.TypeId, x.ConditionId });
+                b.HasOne(s => s.MLiquidation)
+                .WithMany(c => c.MLiquidationConditions)
+                .HasForeignKey(s => new { s.TypeId });
+            });
+
+            builder.Entity<MLiquidationItem>(b =>
+            {
+                b.HasKey(s => new { s.TypeId, s.ItemId });
+                b.HasOne(s => s.MLiquidation)
+                .WithMany(c => c.MLiquidationItems)
+                .HasForeignKey(s => new { s.TypeId });
+            });
+
+            builder.Entity<MLiquidationOption>(b =>
+            {
+                b.HasKey(s => new { s.OptionId });
+                b.HasOne(s => s.MLiquidationItem)
+                .WithMany(c => c.MLiquidationOptions)
+                .HasForeignKey(s => new { s.TypeId, s.ItemId });
+            });
+
+            builder.Entity<ApprLiquidation>(b =>
+            {
+                b.HasOne(s => s.MLiquidationItem)
+                .WithMany(c => c.ApprLiquidations)
+                .HasForeignKey(s => new { s.LiquidationType, s.LiquidationItem });
+
+                b.HasOne(s => s.MLiquidationOption)
+                .WithMany(c => c.ApprLiquidations)
+                .HasForeignKey(s => new { s.LiquidationOption });
+            });
+
+            builder.Entity<ApprWorkPaperLandBuildings>().HasIndex(p => new { p.ApprWorkPaperLandBuildingSummaryGuid, p.DataNumber }).IsUnique();
+            builder.Entity<ApprWorkPaperMachineMarkets>().HasIndex(p => new { p.ApprWorkPaperMachineMarketSummaryGuid, p.DataNumber }).IsUnique();
+            builder.Entity<ApprWorkPaperShopApartments>().HasIndex(p => new { p.ApprWorkPaperShopApartmentSummaryGuid, p.DataNumber }).IsUnique();
+            builder.Entity<ApprWorkPaperVehicles>().HasIndex(p => new { p.ApprWorkPaperVehicleSummaryGuid, p.DataNumber }).IsUnique();
 
             builder.Entity<User>(b =>
             {
