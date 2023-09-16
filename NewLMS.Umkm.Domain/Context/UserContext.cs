@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
 namespace NewLMS.UMKM.Domain.Context
 {
@@ -36,6 +37,8 @@ namespace NewLMS.UMKM.Domain.Context
         public virtual DbSet<ThridParty> ThridParties { get; set; }
         public DbSet<Parameters> Parameters { get; set; }
         public DbSet<ParameterGroups> ParameterGroups { get; set; }
+        public DbSet<GeneratedFiles> GeneratedFiles { get; set; }
+        public DbSet<GeneratedFileGroups> GeneratedFileGroups { get; set; }
 
         #region Transactions
         public DbSet<Prospect> Prospects { get; set; }
@@ -113,7 +116,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfSandiBIGroup> RfSandiBIGroups { get; set; }
         public DbSet<RfDecisionMaker> RfDecisionMakers { get; set; }
         public DbSet<RfAppraisalKJPPMaster> RfAppraisalKJPPMasters { get; set; }
-        
+
         #endregion
 
 
