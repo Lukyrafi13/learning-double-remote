@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -17,61 +17,6 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
 
     public class AppraisalController : BaseController
     {
-        /// <summary>
-        /// Appraisal Assignment
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        [HttpPost("inbox-assignment")]
-        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<ApprAssignmentDataListResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(GetApprAssignmentInboxQuery command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-
-        [HttpPost("assignment")]
-        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> AssignmentPost(AppraisalPostCommand command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-*//*
-        /// <summary>
-        /// Appraisal SUrveyor
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        [HttpPost("inbox-surveyor")]
-        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<ApprSurveyorDataListResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> SurveyorGet(GetApprSurveyorInboxQuery command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-
-        [HttpGet("{AppraisalGuid}")]
-        [ProducesResponseType(type: typeof(ServiceResponse<AppraisalResponse>), statusCode: StatusCodes.Status200OK)]
-
-        public async Task<IActionResult> GetByGuid([FromRoute] GetAppraisalQuery command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-
-        [HttpPut("{AppraisalGuid}")]
-        [ProducesResponseType(type: typeof(ServiceResponse<AppraisalResponse>), statusCode: StatusCodes.Status200OK)]
-
-        public async Task<IActionResult> PutByGuid(AppraisalPutCommand command)
-        {
-            return Ok(await Mediator.Send(command));
-        }*//*
-
-        [HttpGet("getById/{LoanApplicationCollateralId}")]
-        [ProducesResponseType(type: typeof(ServiceResponse<LoanApplicationCollateralResponse>), statusCode: StatusCodes.Status200OK)]
-
-        public async Task<IActionResult> GetById([FromRoute] AppraisalGetByIdQuery command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-*//*
         /// <summary>
         /// Appraisal surveyor : building template
         /// </summary>
@@ -180,6 +125,6 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
         {
             return Ok(await Mediator.Send(command));
         }
-*//*
+
     }
-}*/
+}
