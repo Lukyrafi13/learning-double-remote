@@ -12,7 +12,7 @@ using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
 
-namespace NewLMS.Komersial.API.Controllers.Appraisal
+namespace NewLMS.UMKM.API.Controllers.Appraisal
 {
 
     public class AppraisalController : BaseController
