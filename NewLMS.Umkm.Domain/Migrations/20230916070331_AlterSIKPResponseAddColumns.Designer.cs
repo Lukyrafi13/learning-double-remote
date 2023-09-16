@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.UMKM.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.UMKM.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230916070331_AlterSIKPResponseAddColumns")]
+    partial class AlterSIKPResponseAddColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4466,7 +4468,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("DebtorZipCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DebtorZipCodeId")
+                    b.Property<int>("DebtorZipCodeId")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("DeletedBy")
@@ -4621,7 +4623,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("DebtorZipCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DebtorZipCodeId")
+                    b.Property<int>("DebtorZipCodeId")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("DeletedBy")
@@ -6536,7 +6538,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "DebtorRfZipCode")
                         .WithMany()
-                        .HasForeignKey("DebtorZipCodeId");
+                        .HasForeignKey("DebtorZipCodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.SIKP", "SIKP")
                         .WithOne("SIKPRequest")
@@ -6595,7 +6599,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.RfZipCode", "DebtorRfZipCode")
                         .WithMany()
-                        .HasForeignKey("DebtorZipCodeId");
+                        .HasForeignKey("DebtorZipCodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("NewLMS.UMKM.Data.Entities.SIKP", "SIKP")
                         .WithOne("SIKPResponse")

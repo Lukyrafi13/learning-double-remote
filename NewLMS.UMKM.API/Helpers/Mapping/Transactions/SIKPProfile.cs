@@ -37,21 +37,21 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.Fullname, o => o.MapFrom(s => s.SIKPRequest.Fullname));
             CreateMap<SIKPRequestRequest, SIKPRequest>();
 
-            CreateMap<DetailCalonDebiturResponseModel, SIKPResponse>()
-                .ForMember(d => d.DateOfBirth, o => o.MapFrom(s => s.tgl_lahir))
-                .ForMember(d => d.DebtorAddress, o => o.MapFrom(s => s.alamat))
-                .ForMember(d => d.Fullname, o => o.MapFrom(s => s.nama))
-                .ForMember(d => d.DebtorNoIdentity, o => o.MapFrom(s => s.nik))
-                .ForMember(d => d.DebtorNPWP, o => o.MapFrom(s => s.npwp))
-                .ForMember(d => d.DebtorCompanySubisdyStatus, o => o.MapFrom(s => s.is_subsidized))
-                .ForMember(d => d.DebtorCompanyPreviousSubsidy, o => o.MapFrom(s => s.subsidi_sebelumnya))
-                .ForMember(d => d.DebtorCompanyCreditValue, o => o.MapFrom(s => s.jml_kredit))
-                .ForMember(d => d.DebtorCompanyEmployee, o => o.MapFrom(s => s.jml_pekerja))
-                .ForMember(d => d.DebtorZipCode, o => o.MapFrom(s => s.kode_pos))
-                .ForMember(d => d.DebtorCompanyPhone, o => o.MapFrom(s => s.no_hp))
-                .ForMember(d => d.DebtorCompanyCollaterals, o => o.MapFrom(s => s.uraian_agunan))
-                .ForMember(d => d.DebtorCompanyAddress, o => o.MapFrom(s => s.alamat_usaha))
-		;
+            CreateMap<CalonDebiturResponseModel, SIKPResponse>()
+                .ForMember(d => d.DateOfBirth, o => o.MapFrom(s => s.data.tgl_lahir))
+                .ForMember(d => d.DebtorAddress, o => o.MapFrom(s => s.data.alamat))
+                .ForMember(d => d.Fullname, o => o.MapFrom(s => s.data.nama))
+                .ForMember(d => d.DebtorNoIdentity, o => o.MapFrom(s => s.data.nik))
+                .ForMember(d => d.DebtorNPWP, o => o.MapFrom(s => s.data.npwp))
+                .ForMember(d => d.DebtorCompanySubisdyStatus, o => o.MapFrom(s => s.data.is_subsidized == "1" ? true : false))
+                .ForMember(d => d.DebtorCompanyPreviousSubsidy, o => o.MapFrom(s => s.data.subsidi_sebelumnya))
+                .ForMember(d => d.DebtorCompanyCreditValue, o => o.MapFrom(s => s.data.jml_kredit))
+                .ForMember(d => d.DebtorCompanyEmployee, o => o.MapFrom(s => s.data.jml_pekerja))
+                .ForMember(d => d.DebtorZipCode, o => o.MapFrom(s => s.data.kode_pos))
+                .ForMember(d => d.DebtorCompanyPhone, o => o.MapFrom(s => s.data.no_hp))
+                .ForMember(d => d.DebtorCompanyCollaterals, o => o.MapFrom(s => s.data.uraian_agunan))
+                .ForMember(d => d.DebtorCompanyAddress, o => o.MapFrom(s => s.data.alamat_usaha))
+        ;
         }
     }
 }
