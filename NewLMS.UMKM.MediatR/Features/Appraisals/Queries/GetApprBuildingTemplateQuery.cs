@@ -46,7 +46,8 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
                 "YardConditionFK",
                 "FenceFK",
                 "ApprBuildingFloors",
-                "Appraisals.DebtorCollaterals.Debtors"
+                "LoanApplicationAppraisal.LoanApplication.Debtor",
+                "LoanApplicationAppraisal.LoanApplication.DebtorCompany"
             });
             var dataVm = _mapper.Map<ApprBuildingTemplateResponse>(data);
 
