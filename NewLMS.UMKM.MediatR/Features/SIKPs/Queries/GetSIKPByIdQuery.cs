@@ -35,7 +35,9 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
             try
             {
                 var sikpIncludes = new string[] {
-                        "SIKPRequest.RfSectorLBU3",
+					    "LoanApplication.RfOwnerCategory",
+                        "LoanApplication.Debtor.RfJob",
+                        "SIKPRequest.RfSectorLBU3.RfSectorLBU2.RfSectorLBU1",
 						"SIKPRequest.RfGender",
 						"SIKPRequest.RfMarital",
 						"SIKPRequest.RfEducation",

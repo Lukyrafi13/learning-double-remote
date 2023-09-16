@@ -71,6 +71,22 @@ namespace NewLMS.UMKM.MediatR.Helpers
                 case "informasi_fasilitas":
                     includes = new List<string>()
                     {
+                        "Owner",
+                        "RfOwnerCategory",
+                        "RfProduct",
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Debtor.RfResidenceStatus",
+                        "Debtor.RfZipCode",
+                        "Debtor.RfJob",
+                        "Debtor.RfGender",
+                        "Debtor.RfEducation",
+                        "Debtor.RfMarital",
+                        "Debtor.DebtorCouple.RfZipCode",
+                        "Debtor.DebtorCouple.RfJob",
+                        "DebtorCompany.DebtorCompanyLegal",
+                        "DebtorCompany.RfZipCode",
+                        "DebtorEmergency.RfZipCode",
                         "LoanApplicationFacilities",
                         "LoanApplicationFacilities.ApplicationType",
                         "LoanApplicationFacilities.NatureOfCredit",

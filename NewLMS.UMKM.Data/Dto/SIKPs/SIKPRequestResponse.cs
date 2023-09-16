@@ -5,11 +5,12 @@ using NewLMS.UMKM.Data.Dto.RfMarital;
 using NewLMS.UMKM.Data.Dto.RfEducation;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using NewLMS.UMKM.Data.Dto.RfLinkAge;
+using NewLMS.UMKM.Data.Dto.RfJob;
 
 namespace NewLMS.UMKM.Data.Dto.SIKPs
 {
     public class SIKPRequestResponse : BaseResponse
-	{
+    {
         public string Fullname { get; set; }
 
         #region Debtor
@@ -49,6 +50,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
 
+        public virtual RfJobResponse RfJob { get; set; }
         public virtual RfSectorLBU3Response RfSectorLBU3 { get; set; }
         public virtual RfGenderResponse RfGender { get; set; }
         public virtual RfMaritalResponse RfMarital { get; set; }

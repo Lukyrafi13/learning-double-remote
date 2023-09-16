@@ -1,7 +1,5 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Entities;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 
 namespace NewLMS.UMKM.Data.Dto.SIKPs
 {
@@ -11,6 +9,9 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public string RegistrationNumber { get; set; }
         public SIKPRequestResponse SIKPRequest { get; set; }
         public SIKPResponseResponse SIKPResponse { get; set; }
+        public string CIF { get; set; }
+
+        public RfParameterDetailResponse RfOwnerCategory { get; set; }
     }
 
     public class SIKPTableResponse : BaseResponse
