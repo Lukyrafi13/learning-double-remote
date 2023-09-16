@@ -3,6 +3,7 @@ using MediatR;
 using NewLMS.Umkm.SIKP.Interfaces;
 using NewLMS.Umkm.SIKP.Models;
 using NewLMS.UMKM.Data.Dto.SIKPs;
+using NewLMS.UMKM.Data.Dto.Tests;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes;
@@ -123,17 +124,25 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
                     var rfLinkAge = await _rfParameterDetail.GetByPredicate(x => x.LinkAgeCode == debtorDataResponse.data.is_linkage);
 
                     // Map from SIKP service response
-                    sikpResponse = _mapper.Map<SIKPResponse>(debtorDataResponse);
-                    if (sikpResponse == null)
+                    sikpResponse = _mapper.Map<CalonDebiturResponseModel, SIKPResponse>(debtorDataResponse, sikpResponse);
+                    if (sikpResponse.Id == Guid.Empty)
+                    {
+                        sikpResponse.Id = sikp.Id;
                         await _sikpResponse.AddAsync(sikpResponse);
+                    }
+
 
                     sikpResponse.DebtorGenderId = rfGender.GenderCode;
                     sikpResponse.DebtorMaritalStatusId = rfMarital.MaritalCode;
                     sikpResponse.DebtorJobId = rfJob.JobCode;
                     sikpResponse.DebtorEducationId = rfEducation.EducationCode;
+                    sikpResponse.DebtorCompanyLingkageId = rfLinkAge.LinkAgeCode;
                     sikpResponse.DebtorZipCode = rfZipCode.ZipCode;
                     sikpResponse.DebtorZipCodeId = rfZipCode.Id;
-                    sikpResponse.DebtorCompanyLingkageId = rfLinkAge.LinkAgeCode;
+                    sikpResponse.DebtorProvince = rfZipCode.Provinsi;
+                    sikpResponse.DebtorCity = rfZipCode.Kota;
+                    sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
+                    sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
 
                     response.CalonDebiturResponse = debtorDataResponse;
 
@@ -195,6 +204,15 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
                 };
 
                 var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
+                if (sikpCheck.error)
+                {
+                    response.Valid = false;
+                    response.Message = sikpCheck.message;
+                }
+
+                sikpResponse.Valid = response.Valid;
+                sikpResponse.ValidationMessage = response.Message;
+                await _sikpResponse.UpdateAsync(sikpResponse);
 
                 return new ServiceResponse<ValidasiPostCalonResponseModel>
                 {

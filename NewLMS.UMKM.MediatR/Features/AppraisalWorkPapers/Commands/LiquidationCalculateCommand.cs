@@ -75,17 +75,17 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalWorkPapers.Commands
 
                     foreach (var condition in mCondition)
                     {
-                        var checkCondition = _dbContext
-                            .MLiquidationCondition
-                            .FromSqlRaw(
-                                "select * from [MLiquidationCondition] where TypeId = {0} and {1} " + condition.Condition, request.LiquidationType, sumScore
-                            ).FirstOrDefault();
+                        //var checkCondition = _dbContext
+                        //    .MLiquidationCondition
+                        //    .FromSqlRaw(
+                        //        "select * from [MLiquidationCondition] where TypeId = {0} and {1} " + condition.Condition, request.LiquidationType, sumScore
+                        //    ).FirstOrDefault();
 
-                        if (checkCondition != null)
-                        {
-                            selected = condition;
-                            break;
-                        }
+                        //if (checkCondition != null)
+                        //{
+                        //    selected = condition;
+                        //    break;
+                        //}
                     }
                 }
 

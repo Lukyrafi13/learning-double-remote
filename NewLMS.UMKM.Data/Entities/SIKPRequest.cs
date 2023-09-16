@@ -18,15 +18,15 @@ namespace NewLMS.UMKM.Data.Entities
         public string DebtorNoIdentity { get; set; }
         public DateTime DateOfBirth { get; set; }
         [ForeignKey(nameof(RfSectorLBU3))]
-        public string DebtorSectorLBU3Code { get; set; }
+        public string? DebtorSectorLBU3Code { get; set; }
         [ForeignKey(nameof(RfGender))]
-        public string DebtorGenderId { get; set; }
+        public string? DebtorGenderId { get; set; }
         [ForeignKey(nameof(RfMarital))]
-        public string DebtorMaritalStatusId { get; set; }
+        public string? DebtorMaritalStatusId { get; set; }
         [ForeignKey(nameof(RfEducation))]
-        public string DebtorEducationId { get; set; }
+        public string? DebtorEducationId { get; set; }
         [ForeignKey(nameof(RfJob))]
-        public string DebtorJobId { get; set; }
+        public string? DebtorJobId { get; set; }
         public string DebtorAddress { get; set; }
         public string DebtorProvince { get; set; }
         public string DebtorCity { get; set; }
@@ -34,7 +34,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string DebtorNeighborhoods { get; set; }
         public string DebtorZipCode { get; set; }
         [ForeignKey(nameof(DebtorRfZipCode))]
-        public int DebtorZipCodeId { get; set; }
+        public int? DebtorZipCodeId { get; set; }
         #endregion
 
         #region DebtorCompany
@@ -61,14 +61,14 @@ namespace NewLMS.UMKM.Data.Entities
 
 
         public virtual SIKP SIKP { get; set; }
-        public virtual RfSectorLBU3 RfSectorLBU3 { get; set; }
-        public virtual RfGender RfGender { get; set; }
-        public virtual RfMarital RfMarital { get; set; }
-        public virtual RfEducation RfEducation { get; set; }
-        public virtual RfJob RfJob { get; set; }
-        public virtual RfZipCode DebtorRfZipCode { get; set; }
-        public virtual RfZipCode DebtorCompanyRfZipCode { get; set; }
-        public virtual RfLinkAge DebtorCompanyRfLinkage { get; set; }
+        public virtual RfSectorLBU3? RfSectorLBU3 { get; set; }
+        public virtual RfGender? RfGender { get; set; }
+        public virtual RfMarital? RfMarital { get; set; }
+        public virtual RfEducation? RfEducation { get; set; }
+        public virtual RfJob? RfJob { get; set; }
+        public virtual RfZipCode? DebtorRfZipCode { get; set; }
+        public virtual RfZipCode? DebtorCompanyRfZipCode { get; set; }
+        public virtual RfLinkAge? DebtorCompanyRfLinkage { get; set; }
 
     }
 }
