@@ -184,10 +184,6 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 {
                     o.MapFrom(s => s.Debtor.ZipCodeId);
                 })
-                .ForMember(d => d.DebtorCompanyEstablishmentDeedNumber, o =>
-                {
-                    o.MapFrom(s => s.DebtorCompany.DebtorCompanyLegal.EstablishmentDeedDate);
-                })
                 .ForMember(d => d.DebtorCompanyAddress, o =>
                 {
                     o.MapFrom(s => s.DebtorCompany.Address);
