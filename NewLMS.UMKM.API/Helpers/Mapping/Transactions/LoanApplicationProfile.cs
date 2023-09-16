@@ -105,6 +105,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 });
 
             CreateMap<LoanApplication, LoanApplicationBaseTabResponse>();
+		;
 
             #region Requests
             CreateMap<LoanApplicationDataFasilitasRequest, LoanApplication>();
