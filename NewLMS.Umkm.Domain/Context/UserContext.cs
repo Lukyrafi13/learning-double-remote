@@ -64,6 +64,10 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<SIKPRequest> SIKPRequests { get; set; }
         public DbSet<SIKPResponse> SIKPResponses { get; set; }
         public DbSet<LoanApplicationAppraisal> LoanApplicationAppraisals { get; set; }
+        public DbSet<ApprBuildingTemplates> ApprBuildingTemplates { get; set; }
+        public DbSet<ApprBuildingFloors> ApprBuildingFloors { get; set; }
+        public DbSet<ApprBuildingFloorDetails> ApprBuildingFloorDetails { get; set; }
+        public DbSet<ApprLandTemplates> ApprLandTemplates { get; set; }
 
         #endregion
 
@@ -116,6 +120,10 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<RfSandiBIGroup> RfSandiBIGroups { get; set; }
         public DbSet<RfDecisionMaker> RfDecisionMakers { get; set; }
         public DbSet<RfAppraisalKJPPMaster> RfAppraisalKJPPMasters { get; set; }
+        public DbSet<WilayahProvinces> WilayahProvinces { get; set; }
+        public DbSet<WilayahRegencies> WilayahRegencies { get; set; }
+        public DbSet<WilayahDistricts> WilayahDistricts { get; set; }
+        public DbSet<WilayahVillages> WilayahVillages { get; set; }
 
         #endregion
 
