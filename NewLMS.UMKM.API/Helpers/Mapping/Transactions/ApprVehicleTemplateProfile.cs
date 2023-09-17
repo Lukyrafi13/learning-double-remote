@@ -9,6 +9,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
         public ApprVehicleTemplateProfile()
         {
             CreateMap<ApprVehicleTemplate, ApprVehicleTemplateResponse>();
+            CreateMap<ApprVehicleTemplatePostRequest, ApprVehicleTemplate>();
         }
     }
 }
