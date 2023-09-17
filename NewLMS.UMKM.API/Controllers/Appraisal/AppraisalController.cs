@@ -12,12 +12,22 @@ using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.UMKM.Data.Dto.AppraisalProductiveLands;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 
 namespace NewLMS.UMKM.API.Controllers.Appraisal
 {
 
     public class AppraisalController : BaseController
     {
+        [HttpGet("surveyor/application-info/{AppraisalGuid}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<LoanApplicationAppInfoApprSurveyorResponse>), statusCode: StatusCodes.Status200OK)]
+
+        public async Task<IActionResult> getApprLoanAppInfo([FromRoute] GetAppInfoLoanApplicationCollateralQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+
         /// <summary>
         /// Appraisal surveyor : building template
         /// </summary>
