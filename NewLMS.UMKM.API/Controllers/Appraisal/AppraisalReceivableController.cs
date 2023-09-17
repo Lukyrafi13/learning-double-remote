@@ -1,22 +1,20 @@
-/*using System;
+using System;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Komersial.Helper;
-using System.Collections.Generic;
-using NewLMS.Komersial.Common.GenericRespository;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PostApprReceivableVerifications;
-using NewLMS.Komersial.Data.Dto.AppraisalReceivable;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Queries.AppReceivableVerificationGetQuery;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PutApprReceivableVerifications;
+using NewLMS.UMKM.API.Controllers;
+using NewLMS.UMKM.Data.Dto.AppraisalReceivable;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
+using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
 
 namespace NewLMS.Komersial.API.Controllers.Appraisal
 {
-	
-	public class AppraisalReceivableController : BaseController
-	{
-		/// <summary>
+
+    public class AppraisalReceivableController : BaseController
+    {
+        /// <summary>
         /// Appraisal surveyor : Receivable
         /// </summary>
         /// <param name="command"></param>
@@ -43,6 +41,6 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
             return Ok(await Mediator.Send(command));
         }
 
-        
-	}
-}*/
+
+    }
+}

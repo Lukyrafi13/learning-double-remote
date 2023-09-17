@@ -81,6 +81,9 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<ApprWorkPaperVehicleSummaries> ApprWorkPaperVehicleSummaries { get; set; }
         public DbSet<ApprWorkPaperVehicles> ApprWorkPaperVehicles { get; set; }
         public DbSet<ApprVehicleTemplate> ApprVehicleTemplate { get; set; }
+        public DbSet<ApprChecklistReview> ApprChecklistReviews { get; set; }
+        public DbSet<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
+        public DbSet<ApprVehicleNote> ApprVehicleNotes { get; set; }
 
         #endregion
 

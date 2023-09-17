@@ -36,6 +36,11 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new ApprLandTemplateProfile());
                 mc.AddProfile(new AppraisalWorkPaperProfile());
                 mc.AddProfile(new WilayahProfile());
+                mc.AddProfile(new ApprChecklistReviewProfile());
+                mc.AddProfile(new ApprMachineTemplateProfile());
+                mc.AddProfile(new ApprReceivableVerificationProfile());
+                mc.AddProfile(new ApprVehicleNoteProfile());
+                mc.AddProfile(new ApprVehicleTemplateProfile());
             });
             return mappingConfig.CreateMapper();
         }

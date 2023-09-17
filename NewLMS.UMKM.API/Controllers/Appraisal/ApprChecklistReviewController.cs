@@ -1,20 +1,19 @@
-/*using System;
+using System;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Komersial.Helper;
-using NewLMS.Komersial.Data.Dto.ApprChecklistReviews;
-using NewLMS.Komersial.MediatR.Features.ApprChecklistReviews.Commands.PostApprChecklistReviews;
-using NewLMS.Komersial.MediatR.Features.ApprChecklistReviews.Commands.PutApprChecklistReviews;
-using NewLMS.Komersial.MediatR.Features.ApprChecklistReviews.Queries.GetByAppraisalQuery;
+using NewLMS.UMKM.Data.Dto.ApprChecklistReviews;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.ApprChecklistReviews.Commands;
+using NewLMS.UMKM.MediatR.Features.ApprChecklistReviews.Queries;
 
-namespace NewLMS.Komersial.API.Controllers.Appraisal
+namespace NewLMS.UMKM.API.Controllers.Appraisal
 {
-	
-	public class ApprChecklistReviewController : BaseController
-	{
-		/// <summary>
+
+    public class ApprChecklistReviewController : BaseController
+    {
+        /// <summary>
         /// Appraisal checklist review
         /// </summary>
         /// <param name="command"></param>
@@ -43,5 +42,5 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
         }
 
 
-	}
-}*/
+    }
+}

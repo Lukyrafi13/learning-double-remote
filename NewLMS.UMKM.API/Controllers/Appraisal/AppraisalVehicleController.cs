@@ -1,32 +1,20 @@
-/*using System;
+using System;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.Komersial.Helper;
-using System.Collections.Generic;
-using NewLMS.Komersial.Common.GenericRespository;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PostApprBuildingFloors;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.DeleteApprBuildingFloors;
-using NewLMS.Komersial.Data.Dto.Appraisals;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PutApprBuildingFloors;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Queries.AppBuildingFloorGetQuery;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Queries.AppBuildingTemplateGetQuery;
-using NewLMS.Komersial.Data.Dto.LoanApplicationDto;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PostApprVehicleTemplates;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Queries.AppVehicleTemplateGetQuery;
-using NewLMS.Komersial.Data.Dto.AppraisalVehicle;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PostApprVehicleNotes;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.PutApprVehicleNotes;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Commands.DeleteApprVehicleNotes;
-using NewLMS.Komersial.MediatR.Features.Appraisals.Queries.AppVehicleNoteGetQuery;
+using NewLMS.UMKM.API.Controllers;
+using NewLMS.UMKM.Data.Dto.AppraisalVehicle;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
+using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
 
 namespace NewLMS.Komersial.API.Controllers.Appraisal
 {
-	
-	public class AppraisalVehicleController : BaseController
-	{
-		/// <summary>
+
+    public class AppraisalVehicleController : BaseController
+    {
+        /// <summary>
         /// Appraisal surveyor : vehicle template
         /// </summary>
         /// <param name="command"></param>
@@ -81,7 +69,7 @@ namespace NewLMS.Komersial.API.Controllers.Appraisal
             return Ok(await Mediator.Send(command));
         }
 
-        
 
-	}
-}*/
+
+    }
+}
