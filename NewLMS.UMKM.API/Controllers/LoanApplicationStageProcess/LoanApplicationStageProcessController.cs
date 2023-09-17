@@ -10,13 +10,61 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplicationStageProcess
     public class LoanApplicationStageProcessController : BaseController
     {
         /// <summary>
-        /// Process Appraisal Asignment
+        /// Appraisal Asignment to Surveyor
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("appr-asignment/process")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
-        public async Task<IActionResult> Post(LoanAppStageProcessApprAsignmentCommand command)
+        public async Task<IActionResult> ApprAsignmentProcess(LoanAppStageProcessApprAsignmentCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Appraisal Surveyor to Approval
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appr-surveyor/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprSurveyorProcess(ProcessApprSurveyorCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Appraisal Surveyor Back to IDE
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appr-surveyor/back-to-ide")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprSurveyorBackToIDE(LoanAppStageBackApprSurveyorCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Appraisal Approval to Analyst
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appr-approval/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprApprovalProcess(ProcessApprApprovalCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Appraisal Approval Back To Surveyor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appr-approval/back-to-surveyor")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprBackToSurveyor(BackToSurveyorApprApprovalCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

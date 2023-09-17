@@ -76,7 +76,7 @@ namespace NewLMS.UMKM.Common.GenericRespository
 
         public static UMKMStage ProspectHistory = new UMKMStage(1, Guid.Parse("815844CD-1BE0-2B85-21CF-6F41ECCA82E6"), "0.0");
 
-        public static UMKMStage InitialData = new UMKMStage(0, Guid.Parse("D605AAA1-DB9F-75E0-23F5-9686012CE684"), "1.0");
+        public static UMKMStage InitialData = new UMKMStage(0, Guid.Parse("1FBE4B9F-1B6C-4056-9054-7BBA1AE614E2"), "2.0");
 
         public static UMKMStage SLIKRequest = new UMKMStage(0, Guid.Parse("B5B1D55C-C1E0-E0BF-E8DF-4B4A5A873F10"), "2.1");
 
@@ -94,7 +94,7 @@ namespace NewLMS.UMKM.Common.GenericRespository
         
         public static UMKMStage AppraisalApproval = new UMKMStage(0, Guid.Parse("C82E6D6F-4ECA-4B77-922C-81F268C4018F"), "13.3");
 
-        public static UMKMStage Analisa = new UMKMStage(9, Guid.Parse("09B35F28-47C0-3F48-FF41-E7549C4D2BBD"), "3.0");
+        public static UMKMStage Analisa = new UMKMStage(0, Guid.Parse("DD78F449-A938-4FA9-89A4-5A525BEA1389"), "5.0");
 
         public static UMKMStage Review = new UMKMStage(11, Guid.Parse("55EAB4A7-025C-4F4B-B465-51F892EEE356"), "4.0");
 
