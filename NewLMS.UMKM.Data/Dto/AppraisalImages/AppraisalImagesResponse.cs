@@ -8,11 +8,12 @@ namespace NewLMS.UMKM.Data.Dto.AppraisalImages
     public class AppraisalImagesResponse : BaseResponse
     {
         public Guid Id { get; set; }
+        public Guid LoanApplicationId { get; set; }
         public Guid AppraisalGuid { get; set; }
         public int DocumentType { get; set; }
         public string Title { get; set; }
 
         public RfParameterDetailSimpleResponse RfDocumentType { get; set; }
-        public DocumentFileUrlRes Files { get; set; }
+        public ICollection<DocumentFileUrlRes> Files { get; set; }
     }
 }

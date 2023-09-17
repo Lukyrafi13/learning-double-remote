@@ -43,11 +43,13 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
                     return ServiceResponse<AppraisalImagesResponse>.Return404("Dokumen tidak ditemukan.");
 
                 var dataVm = _mapper.Map<AppraisalImagesResponse>(data);
-
-                //var dataUser = await _user.GetByIdAsync(data.CreatedBy);
-                //f.FileUrl.UploadBy = dataUser.FirstName + " " + dataUser.LastName;
-                dataVm.Files.FileUrl.Url = dataVm.Files.FileUrl.Url.Replace(@"\", @"/");
-                dataVm.Files.FileUrl.FileName = dataVm.Files.FileUrl.Url.Split('/').Last();
+                
+                foreach (var f in dataVm.Files.ToList())
+                {
+                    //f.FileUrl.UploadBy = dataUser.FirstName + " " + dataUser.LastName;
+                    f.FileUrl.Url = f.FileUrl.Url.Replace(@"\", @"/");
+                    f.FileUrl.FileName = f.FileUrl.Url.Split('/').Last();
+                }
 
                 return ServiceResponse<AppraisalImagesResponse>.ReturnResultWith200(dataVm);
             }

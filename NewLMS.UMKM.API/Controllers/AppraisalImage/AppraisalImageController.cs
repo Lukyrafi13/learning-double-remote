@@ -18,14 +18,14 @@ namespace NewLMS.UMKM.API.Controllers.AppraisalImage
     {
         [HttpPost("Get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalImagesResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get([FromBody] DocumentsGetFilterQuery command)
+        public async Task<IActionResult> Get([FromBody] GetFilterAppraisalImagesQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
 
         [HttpGet("{Id}")]
         [ProducesResponseType(type: typeof(ServiceResponse<AppraisalImagesResponse>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetById([FromRoute] GetByIdAppraisalImagesQueryHandler command)
+        public async Task<IActionResult> GetById([FromRoute] GetByIdAppraisalImagesQuery command)
         {
             return Ok(await Mediator.Send(command));
         }

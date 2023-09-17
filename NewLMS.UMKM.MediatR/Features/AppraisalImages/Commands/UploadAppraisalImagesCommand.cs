@@ -6,11 +6,8 @@ using NewLMS.UMKM.FileUpload.Interfaces;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -57,10 +54,12 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
 
             try
             {
+                var loanApplicationAppraisal = await _loanApplicationAppraisal.GetByPredicate(x => x.AppraisalId == command.AppraisalGuid);
                 var documentId = Guid.NewGuid();
                 var documentRepo = new Document
                 {
                     Id = documentId,
+                    LoanApplicationId = loanApplicationAppraisal.LoanApplicationId,
                     AppraisalGuid = command.AppraisalGuid,
                     DocumentType = command.DocumentType,
                     Title = command.Title,
@@ -74,15 +73,24 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
                     var Includes = new string[]
                     {
                        "Debtor",
+                       "DebtorCompany",
                     };
-                    var loanApplicationAppraisal = await _loanApplicationAppraisal.GetByPredicate(x => x.AppraisalId == command.AppraisalGuid);
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(loanApplicationAppraisal.LoanApplicationId, "Id", Includes);
                     var documentType = await _rfParameterDetail.GetByPredicate(x => x.ParameterDetailId == command.DocumentType);
+                    var debtorName = "";
+                    if(dataLoanApplication.OwnerCategoryId == 1)
+                    {
+                        debtorName = dataLoanApplication.Debtor.Fullname;
+                    }
+                    if (dataLoanApplication.OwnerCategoryId == 2)
+                    {
+                        debtorName = dataLoanApplication.DebtorCompany.Name;
+                    }
 
                     var upload = _uploadService.Upload(new FileUpload.Models.UploadRequestModel
                     {
                         Segment = "UMKM",
-                        DebtorName = dataLoanApplication.Debtor.Fullname,
+                        DebtorName = debtorName,
                         DocumentName = documentType.Description,
                         File = command.Files,
                         LoanApplicationId = dataLoanApplication.LoanApplicationId,

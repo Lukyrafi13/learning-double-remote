@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Data.Dto.AppraisalImages;
+using NewLMS.UMKM.Data.Dto.Documents;
 
 namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
 {
@@ -46,9 +47,19 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
             foreach (AppraisalImagesResponse doc in dataVm)
             {
                 //var uploader = "ANONYM";
-                var files = doc.Files;
-                files.FileUrl.Url = files.FileUrl.Url.Replace(@"\", @"/").Replace(@"\\", @"/");
-                files.FileUrl.FileName = files.FileUrl.Url.Split('/').Last();
+                var Files = doc.Files.ToList();
+
+                foreach (DocumentFileUrlRes files in Files)
+                {
+                    //var dataUser = await _user.GetByPredicate(x => x.Id == files.CreatedBy);
+                    //if (dataUser != null)
+                    //{
+                    //    uploader = dataUser.FirstName + " " + dataUser.LastName;
+                    //}
+                    //files.FileUrl.UploadBy = uploader;
+                    files.FileUrl.Url = files.FileUrl.Url.Replace(@"\", @"/").Replace(@"\\", @"/");
+                    files.FileUrl.FileName = files.FileUrl.Url.Split('/').Last();
+                }
             }
 
             return new PagedResponse<IEnumerable<AppraisalImagesResponse>>(dataVm, data.Info, request.Page, request.Length)

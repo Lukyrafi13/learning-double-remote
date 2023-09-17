@@ -11,12 +11,23 @@ using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.UMKM.Data.Dto.AppraisalProductiveLands;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 
 namespace NewLMS.UMKM.API.Controllers.Appraisal
 {
 
     public class AppraisalController : BaseController
     {
+        [HttpGet("surveyor/application-info/{AppraisalGuid}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<LoanApplicationAppInfoApprSurveyorResponse>), statusCode: StatusCodes.Status200OK)]
+
+        public async Task<IActionResult> getApprLoanAppInfo([FromRoute] GetAppInfoLoanApplicationCollateralQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+
         /// <summary>
         /// Appraisal surveyor : building template
         /// </summary>
@@ -126,5 +137,27 @@ namespace NewLMS.UMKM.API.Controllers.Appraisal
             return Ok(await Mediator.Send(command));
         }
 
+        [HttpGet("surveyor/get/land-productive-template/{AppraisalGuid}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<ApprProductiveLandTemplateResponse>), statusCode: StatusCodes.Status200OK)]
+
+        public async Task<IActionResult> getByApprGuid([FromRoute] GetApprProductiveLandTemplateQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPost("surveyor/post/land-productive-template")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> SurveyorProductiveTemplatePost(ApprProductiveLandTemplatePostCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+
+        [HttpPut("surveyor/put/land-productive-template/{AppraisalGuid}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> SurveyorProductiveTemplatePut(ApprProductiveLandTemplatePutCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }

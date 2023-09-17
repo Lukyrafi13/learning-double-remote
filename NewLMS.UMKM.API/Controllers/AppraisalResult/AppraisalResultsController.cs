@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿/*using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Data.Dto.AppraisalResults;
@@ -20,7 +20,7 @@ namespace NewLMS.UMKM.API.Controllers.AppraisalResult
         /// </summary>
         /// <param name="LoanApplicationGuid"></param>
         /// <returns></returns>
-        /*[HttpGet("get/{LoanApplicationGuid}")]
+        *//*[HttpGet("get/{LoanApplicationGuid}")]
         [ProducesResponseType(type: typeof(ServiceResponse<AppraisalResultResponse>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromRoute] Guid LoanApplicationGuid)
         {
@@ -28,7 +28,7 @@ namespace NewLMS.UMKM.API.Controllers.AppraisalResult
             {
                 LoanApplicationGuid = LoanApplicationGuid
             }));
-        }*/
+        }*//*
 
         /// <summary>
         /// Insert dan Update Hasil Appraisal By LoanApplicationGuid
@@ -101,3 +101,4 @@ namespace NewLMS.UMKM.API.Controllers.AppraisalResult
         }
     }
 }
+*/
