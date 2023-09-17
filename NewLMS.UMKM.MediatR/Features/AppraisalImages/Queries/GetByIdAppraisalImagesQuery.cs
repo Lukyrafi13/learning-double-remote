@@ -1,0 +1,60 @@
+﻿using AutoMapper;
+using MediatR;
+using NewLMS.UMKM.Helper;
+using NewLMS.UMKM.Repository.GenericRepository;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Data.Dto.AppraisalImages;
+
+namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
+{
+    public class GetByIdAppraisalImagesQuery : IRequest<ServiceResponse<AppraisalImagesResponse>>
+    {
+        public Guid Id { get; set; }
+    }
+
+    public class GetByIdAppraisalImagesQueryHandler : IRequestHandler<GetByIdAppraisalImagesQuery, ServiceResponse<AppraisalImagesResponse>>
+    {
+        private readonly IGenericRepositoryAsync<Document> _repo;
+        private readonly IMapper _mapper;
+
+        public GetByIdAppraisalImagesQueryHandler(
+            IGenericRepositoryAsync<Document> repo,
+            IMapper mapper)
+        {
+            _repo = repo;
+            _mapper = mapper;
+        }
+
+        public async Task<ServiceResponse<AppraisalImagesResponse>> Handle(GetByIdAppraisalImagesQuery request, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var includes = new string[]{
+                    "RfDocumentType",
+                    "Files",
+                    "Files.FileUrl"
+                };
+                var data = await _repo.GetByPredicate(x => x.Id == request.Id, includes);
+                if (data == null)
+                    return ServiceResponse<AppraisalImagesResponse>.Return404("Dokumen tidak ditemukan.");
+
+                var dataVm = _mapper.Map<AppraisalImagesResponse>(data);
+
+                //var dataUser = await _user.GetByIdAsync(data.CreatedBy);
+                //f.FileUrl.UploadBy = dataUser.FirstName + " " + dataUser.LastName;
+                dataVm.Files.FileUrl.Url = dataVm.Files.FileUrl.Url.Replace(@"\", @"/");
+                dataVm.Files.FileUrl.FileName = dataVm.Files.FileUrl.Url.Split('/').Last();
+
+                return ServiceResponse<AppraisalImagesResponse>.ReturnResultWith200(dataVm);
+            }
+            catch (Exception ex)
+            {
+                return ServiceResponse<AppraisalImagesResponse>.ReturnException(ex);
+            }
+        }
+    }
+}
