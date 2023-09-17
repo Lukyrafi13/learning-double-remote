@@ -33,6 +33,12 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(RfDocument))]
         public string DocumentId { get; set; }
 
+        //For Appraisal Upload
+        [ForeignKey(nameof(LoanApplicationAppraisal))]
+        public Guid? AppraisalGuid { get; set; }
+        public string Title { get; set; }
+
+        public virtual LoanApplicationAppraisal LoanApplicationAppraisal { get; set; }
         public virtual LoanApplication LoanApplication { get; set; }
         public virtual RfParameterDetail RfDocumentType { get; set; }
         public virtual RfParameterDetail RfDocumentStatus { get; set; }
