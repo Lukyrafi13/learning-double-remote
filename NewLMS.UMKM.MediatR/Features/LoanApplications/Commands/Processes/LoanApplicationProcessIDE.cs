@@ -91,25 +91,31 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
                         "Debtor.DebtorCouple.RfJob",
                         "DebtorCompany.DebtorCompanyLegal",
                         "DebtorCompany.RfZipCode",
-                        "DebtorEmergency.RfZipCode"
+                        "DebtorEmergency.RfZipCode",
+                        "LoanApplicationCollaterals",
+                        "LoanApplicationFacilities"
                     };
                 var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id", includes) ?? throw new NullReferenceException($"LoanApplication not found, Id: {request.AppId}");
+                var skipSikp = loanApplication.RfProduct.ProductType != "KUR" || (loanApplication.RfProduct.ProductType != "KUR" && loanApplication.LoanApplicationCollaterals.Count < 1);
 
                 // Update Stage
 
                 // Create SLIKRequest (Product != KUR)
-                if (loanApplication.RfProduct.ProductType != "KUR")
+                if (skipSikp)
                 {
                     var slikRequest = await GenerateSLIKRequest(loanApplication);
                     await _slikRequest.AddAsync(slikRequest);
                 }
                 // Create SIKP (RfProduct == KUR)
-                if (loanApplication.RfProduct.ProductType == "KUR")
+                if (!skipSikp)
                 {
+                    var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
+                    var sikpRegist = $"{loanApplication.BranchId}/{sikpCount + 1:D4}/{loanApplication.CreatedDate:MM/yy}";
+
                     var sikp = new SIKP
                     {
                         Id = loanApplication.Id,
-                        RegistrationNumber = loanApplication.LoanApplicationId
+                        RegistrationNumber = sikpRegist
                     };
                     await _sikp.AddAsync(sikp);
 

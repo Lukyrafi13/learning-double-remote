@@ -19,6 +19,7 @@ namespace NewLMS.UMKM.Data.Dto.SIKPs
         public Guid Id { get; set; }
         public string Fullname { get; set; }
         public string DataSource { get; set; }
+        public string LoanApplicationId { get; set; }
     }
 }
 

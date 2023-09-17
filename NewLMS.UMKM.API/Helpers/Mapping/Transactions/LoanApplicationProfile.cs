@@ -5,6 +5,7 @@ using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
 using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Entities;
+using System.Linq;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {
@@ -105,7 +106,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 });
 
             CreateMap<LoanApplication, LoanApplicationBaseTabResponse>();
-		;
+            ;
 
             #region Requests
             CreateMap<LoanApplicationDataFasilitasRequest, LoanApplication>();
@@ -134,7 +135,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 })
                 .ForMember(d => d.DebtorSectorLBU3Code, o =>
                 {
-                    o.MapFrom(s => s.RfSectorLBU3);
+                    o.MapFrom(s => s.LoanApplicationFacilities.Count > 0 ? s.LoanApplicationFacilities.OrderByDescending(x => x.CreatedDate).FirstOrDefault().SectorLBU3Code : null);
                 })
                 .ForMember(d => d.DebtorNPWP, o =>
                 {

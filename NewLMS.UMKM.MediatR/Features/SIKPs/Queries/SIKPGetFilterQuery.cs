@@ -8,7 +8,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
+namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
 {
     public class GetParameterByNameQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SIKPTableResponse>>>
     {
@@ -29,7 +29,8 @@ namespace NewLMS.UMKM.MediatR.Features.RfVehTypes.Queries.GetFilterRfVehTypes
         {
             var includes = new string[]
                 {
-                    "SIKPRequest"
+                    "SIKPRequest",
+                    "LoanApplication"
                 };
             var data = await _sikp.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<SIKPTableResponse>>(data.Results);

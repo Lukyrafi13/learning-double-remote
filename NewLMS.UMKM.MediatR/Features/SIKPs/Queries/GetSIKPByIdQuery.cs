@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.Prospects;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
-using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Data.Dto.SIKPs;
 
 namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
