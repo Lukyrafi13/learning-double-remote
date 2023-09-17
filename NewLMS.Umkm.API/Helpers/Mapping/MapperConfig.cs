@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using NewLMS.UMKM.API.Helpers.Mapping.References;
 using NewLMS.UMKM.API.Helpers.Mapping.Transactions;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
@@ -33,6 +34,8 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new ApprBuildingFloorDetailProfile());
                 mc.AddProfile(new ApprBuildingFloorProfile());
                 mc.AddProfile(new ApprLandTemplateProfile());
+                mc.AddProfile(new AppraisalWorkPaperProfile());
+                mc.AddProfile(new WilayahProfile());
             });
             return mappingConfig.CreateMapper();
         }
