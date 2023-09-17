@@ -32,4 +32,17 @@ namespace NewLMS.UMKM.Data.Dto
         public string Description { get; set; }
         public double Score { get; set; }
     }
+
+    public class SimpleResponseWithCurrency<T>
+    {
+        public T Id { get; set; }
+        public string Description { get; set; }
+        public decimal? Currency { get; set; }
+    }
+
+    public class SimpleResponseWithRate<T>
+    {
+        public T Id { get; set; }
+        public double Rate { get; set; }
+    }
 }
