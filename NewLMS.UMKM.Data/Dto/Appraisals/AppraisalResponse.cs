@@ -34,6 +34,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
     public class LoanApplicationAppraisalTableResponse
     {
         public Guid LoanApplicationGuid { get; set; }
+        public Guid AppraisalGuid { get; set; }
         public Guid LoanApplicationCollateralId { get; set; }
         public string LoanApplicationId { get; set; }
         public string DebtorName { get; set; }
@@ -45,6 +46,7 @@ namespace NewLMS.UMKM.Data.Dto.Appraisals
     public class LoanApplicationApprSurveyorTableResponse
     {
         public Guid LoanApplicationGuid { get; set; }
+        public Guid AppraisalGuid { get; set; }
         public Guid LoanApplicationCollateralId { get; set; }
         public string LoanApplicationId { get; set; }
         public string DocumentName { get; set; }
