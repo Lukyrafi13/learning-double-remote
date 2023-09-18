@@ -14,8 +14,7 @@ namespace NewLMS.UMKM.Data.Entities
         [ForeignKey(nameof(LoanApplication))]
         public Guid LoanApplicationId { get; set; }
 
-        [ForeignKey(nameof(RfDocumentType))]
-        public int DocumentType { get; set; }
+        public string DocumentType { get; set; }
 
         public string DocumentNo { get; set; }
         
@@ -40,7 +39,6 @@ namespace NewLMS.UMKM.Data.Entities
 
         public virtual LoanApplicationAppraisal LoanApplicationAppraisal { get; set; }
         public virtual LoanApplication LoanApplication { get; set; }
-        public virtual RfParameterDetail RfDocumentType { get; set; }
         public virtual RfParameterDetail RfDocumentStatus { get; set; }
         public virtual RfDocument RfDocument { get; set; }
         public virtual ICollection<DocumentFileUrl> Files { get; set; }

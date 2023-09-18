@@ -25,7 +25,6 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
         private readonly IGenericRepositoryAsync<FileUrl> _fileUrl;
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _loanApplicationAppraisal;
-        private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParameterDetail;
         private readonly ICurrentUserService _userInfoToken;
         private readonly IUploadService _uploadService;
 
@@ -35,7 +34,6 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
             IGenericRepositoryAsync<FileUrl> fileUrl,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<LoanApplicationAppraisal> loanApplicationAppraisal,
-            IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
             ICurrentUserService userInfoToken,
             IUploadService uploadService)
         {
@@ -44,7 +42,6 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
             _fileUrl = fileUrl;
             _loanApplication = loanApplication;
             _loanApplicationAppraisal = loanApplicationAppraisal;
-            _rfParameterDetail = rfParameterDetail;
             _userInfoToken = userInfoToken;
             _uploadService = uploadService;
         }
@@ -76,7 +73,6 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
                        "DebtorCompany",
                     };
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(loanApplicationAppraisal.LoanApplicationId, "Id", Includes);
-                    var documentType = await _rfParameterDetail.GetByPredicate(x => x.ParameterDetailId == command.DocumentType);
                     var debtorName = "";
                     if(dataLoanApplication.OwnerCategoryId == 1)
                     {
@@ -91,7 +87,7 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
                     {
                         Segment = "UMKM",
                         DebtorName = debtorName,
-                        DocumentName = documentType.Description,
+                        DocumentName = command.DocumentType,
                         File = command.Files,
                         LoanApplicationId = dataLoanApplication.LoanApplicationId,
                     });

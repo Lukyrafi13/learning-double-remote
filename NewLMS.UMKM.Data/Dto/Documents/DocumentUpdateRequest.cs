@@ -9,7 +9,7 @@ namespace NewLMS.UMKM.Data.Dto.Documents
         public IList<IFormFile> Files { get; set; }
         public Guid Id { get; set; }
         public Guid LoanApplicationId { get; set; }
-        public int DocumentType { get; set; }
+        public string DocumentType { get; set; }
         public string DocumentNo { get; set; }
         public DateTime? ExpireDate { get; set; }
         public int? DocumentStatusId { get; set; }

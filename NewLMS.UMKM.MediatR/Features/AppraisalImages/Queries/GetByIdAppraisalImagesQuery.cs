@@ -34,7 +34,6 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
             try
             {
                 var includes = new string[]{
-                    "RfDocumentType",
                     "Files",
                     "Files.FileUrl"
                 };
