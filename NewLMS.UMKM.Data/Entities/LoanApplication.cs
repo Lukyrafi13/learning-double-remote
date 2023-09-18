@@ -81,6 +81,7 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual ICollection<LoanApplicationFacility> LoanApplicationFacilities { get; set; } = new List<LoanApplicationFacility>();
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
         public virtual LoanApplicationRAC LoanApplicationRAC { get; set; }
+        public virtual LoanApplicationFieldSurvey LoanApplicationFieldSurvey { get; set; }
 
         [NotMapped]
         public virtual string MappingTab { get; set; }

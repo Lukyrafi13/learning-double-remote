@@ -1,6 +1,4 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Dto.RfBusinessFieldKUR;
 using NewLMS.UMKM.Data.Dto.RfZipCodes;
 using System;

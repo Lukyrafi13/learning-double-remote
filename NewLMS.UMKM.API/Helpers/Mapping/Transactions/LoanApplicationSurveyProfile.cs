@@ -14,7 +14,12 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.LoanApplicationInfo, o =>
                 {
                     o.MapFrom(s => s ?? new LoanApplication());
-                });
+                })
+                .ForMember(d => d.LoanApplicationFieldSurvey, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFieldSurvey);
+                })
+                ;
 
 
             //App Info
@@ -54,6 +59,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.DateOfBirth, o =>
                 {
                     o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.DateOfBirth);
+                })
+                .ForMember(d => d.IsBusinessCycle, o =>
+                {
+                    o.MapFrom(s => s.IsBusinessCycle);
                 })
                 ;
 
