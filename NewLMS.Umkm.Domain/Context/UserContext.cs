@@ -84,6 +84,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<ApprChecklistReview> ApprChecklistReviews { get; set; }
         public DbSet<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
         public DbSet<ApprVehicleNote> ApprVehicleNotes { get; set; }
+        public DbSet<LoanApplicationFieldSurvey> LoanApplicationFieldSurveys { get; set; }
 
         #endregion
 
