@@ -92,7 +92,19 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         /// <returns></returns>
         [HttpPost("prescreening/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationPrescreeningResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetDetailPrescreening(GetLoanApplicationPrescreeningTabDetailQuery command)
+        public async Task<IActionResult> GetDetailPrescreening(UpsertLoanApplicationPrescreeningCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Appraisal Asignment
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("prescreening/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertPrescreening(UpsertLoanApplicationPrescreeningCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
