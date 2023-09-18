@@ -151,6 +151,20 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                         response.CalonDebiturResponse = debtorDataResponse;
 
                         await _sikpResponse.UpdateAsync(sikpResponse);
+
+                        if (debtorDataResponse.data?.nmr_registry != null)
+                        {
+                            sikp.RegistrationNumber = debtorDataResponse.data.nmr_registry;
+                            await _sikp.UpdateAsync(sikp);
+                        }
+                        else
+                        {
+                            var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
+                            var sikpRegist = $"{sikp.LoanApplication.BranchId}/{sikpCount + 1:D4}/{sikp.LoanApplication.CreatedDate:MM/yy}";
+
+                            sikp.RegistrationNumber = sikpRegist;
+                            await _sikp.UpdateAsync(sikp);
+                        }
                     }
                 }
 
@@ -179,14 +193,10 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                     sikpResponse.ValidationMessage = response.Message;
                 }
 
-                var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
-                var sikpRegist = $"{sikp.LoanApplication.BranchId}/{sikpCount + 1:D4}/{sikp.LoanApplication.CreatedDate:MM/yy}";
-
-
                 PostCalonDebiturRequestModel req = new()
                 {
                     nik = sikpRequest.DebtorNoIdentity,
-                    nmr_registry = debtorDataResponse?.data?.nmr_registry ?? sikp.RegistrationNumber ?? sikpRegist,
+                    nmr_registry = sikp.RegistrationNumber,
                     nama = sikpRequest.Fullname,
                     tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
                     jns_kelamin = sikpRequest.RfGender?.GenderCodeSIKP ?? "",

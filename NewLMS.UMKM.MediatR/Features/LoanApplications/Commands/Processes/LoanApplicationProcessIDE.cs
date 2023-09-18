@@ -109,13 +109,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
                 // Create SIKP (RfProduct == KUR)
                 if (!skipSikp)
                 {
-                    var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
-                    var sikpRegist = $"{loanApplication.BranchId}/{sikpCount + 1:D4}/{loanApplication.CreatedDate:MM/yy}";
-
                     var sikp = new SIKP
                     {
                         Id = loanApplication.Id,
-                        RegistrationNumber = sikpRegist
+                        RegistrationNumber = null
                     };
                     await _sikp.AddAsync(sikp);
 
