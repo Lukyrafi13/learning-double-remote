@@ -9,7 +9,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurveyor.Queries
+namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Queries
 {
     public class LoanApplicationSurveyGetTableQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>>
     {

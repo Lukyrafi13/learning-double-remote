@@ -134,6 +134,11 @@ namespace NewLMS.UMKM.MediatR.Helpers
                         "RfProduct",
                         "Debtor",
                         "DebtorCompany",
+                        "LoanApplicationFieldSurvey.RelationsWithDebtors",
+                        "LoanApplicationFieldSurvey.OwnerCategory",
+                        "LoanApplicationFieldSurvey.BusinessLocationStatus",
+                        "LoanApplicationFieldSurvey.BusinessFieldKUR",
+                        "LoanApplicationFieldSurvey.RfZipCode",
                     };
                     break;
 

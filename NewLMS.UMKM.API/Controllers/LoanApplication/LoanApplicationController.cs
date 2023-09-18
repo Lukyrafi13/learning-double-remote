@@ -12,7 +12,8 @@ using NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationSurveyor.Queries;
+using NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands;
+using NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Queries;
 using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
 using System;
 using System.Collections.Generic;
@@ -196,6 +197,18 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         [HttpPost("survey/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailSurveyor(GetLoanApplicationSurveyTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Surveyor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("surveyor/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertSurveyor(UpsertLoanApplicationSurveyCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
