@@ -10,6 +10,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
     {
         public SLIKProfile()
         {
+            CreateMap<SLIKRequestDebtor, SLIKRequestDebtorResponse>();
             CreateMap<SLIKRequest, SLIKRequestTableResponse>()
                 .ForMember(d => d.Branch, o => o.MapFrom(s => s.LoanApplication.RfBookingBranch))
                 .ForMember(d => d.Fullname, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory.Code == "002" ? s.LoanApplication.DebtorCompany.Name : s.LoanApplication.Debtor.Fullname))
