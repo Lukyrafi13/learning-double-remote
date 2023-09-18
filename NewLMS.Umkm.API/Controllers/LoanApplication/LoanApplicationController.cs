@@ -5,12 +5,14 @@ using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Data.Dto.Appraisals;
 using NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
+using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes;
 using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
+using NewLMS.UMKM.MediatR.Features.LoanApplicationSurveyor.Queries;
 using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
 using System;
 using System.Collections.Generic;
@@ -155,7 +157,7 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         /// <returns></returns>
         [HttpPost("appraisal-surveyor/get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationApprSurveyorGetTableQuery command)
+        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationSurveyGetTableQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
@@ -168,6 +170,32 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         [HttpPost("appraisal-surveyor/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        //Surveyor
+
+        /// <summary>
+        /// Get List for tables of LoanApplication Survey
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("survey/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterSurveyor(LoanApplicationSurveyGetTableQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get detail Survey by Tab
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("survey/get/detail")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDetailSurveyor(GetLoanApplicationSurveyTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
         }

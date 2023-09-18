@@ -93,6 +93,8 @@ namespace NewLMS.UMKM.Common.GenericRespository
         public static UMKMStage AppraisalSurveyor = new UMKMStage(0, Guid.Parse("453019B3-7950-4AE0-8387-2973E8C274B2"), "13.2");
         
         public static UMKMStage AppraisalApproval = new UMKMStage(0, Guid.Parse("C82E6D6F-4ECA-4B77-922C-81F268C4018F"), "13.3");
+        
+        public static UMKMStage Survey = new UMKMStage(0, Guid.Parse("75373BE3-EB23-4B93-8209-1ECD603FB3BA"), "4.2.3");
 
         public static UMKMStage Analisa = new UMKMStage(0, Guid.Parse("DD78F449-A938-4FA9-89A4-5A525BEA1389"), "5.0");
 

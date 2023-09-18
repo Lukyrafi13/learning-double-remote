@@ -125,6 +125,18 @@ namespace NewLMS.UMKM.MediatR.Helpers
                     };
                     break;
 
+                case "survey_ots":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                    };
+                    break;
+
                 default:
                     break;
             }
