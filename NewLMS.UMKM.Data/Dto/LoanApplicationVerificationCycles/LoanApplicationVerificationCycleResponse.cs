@@ -8,13 +8,13 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
         public Guid Id { get; set; }
 
         //Informasi Omset
-        public string BusinessLandFormCode { get; set; }
+        public int? BusinessLandFormCode { get; set; }
 
         public int? BusinessLandAreaCode { get; set; }
 
         public double LandArea { get; set; }
 
-        public double BusinessCapacityCode { get; set; }
+        public int? BusinessCapacityCode { get; set; }
 
         public double BusinessLandCapacity { get; set; }
 
