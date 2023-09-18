@@ -1,4 +1,5 @@
 ﻿using NewLMS.UMKM.Data.Dto.LoanApplications;
+using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles;
 using System;
 
 namespace NewLMS.UMKM.Data.Dto.LoanApplicationSurvey
@@ -7,6 +8,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationSurvey
     {
         public LoanApplicationAppInfoApprSurveyorResponse LoanApplicationInfo { get; set; }
         public LoanApplicationFieldSurveyResponse? LoanApplicationFieldSurvey { get; set; }
+        public LoanApplicationVerificationCyclesResponse? LoanApplicationVerificationCycles { get; set; }
     }
 
     public class LoanApplicationSurveyTabRespone

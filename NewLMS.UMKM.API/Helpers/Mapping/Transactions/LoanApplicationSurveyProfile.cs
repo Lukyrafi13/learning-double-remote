@@ -19,6 +19,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationFieldSurvey);
                 })
+                .ForMember(d => d.LoanApplicationVerificationCycles, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationVerificationCycle);
+                })
                 ;
 
 

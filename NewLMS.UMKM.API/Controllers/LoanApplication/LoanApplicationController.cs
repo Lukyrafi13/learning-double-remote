@@ -196,19 +196,19 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         /// <returns></returns>
         [HttpPost("survey/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetDetailSurveyor(GetLoanApplicationSurveyTabDetailQuery command)
+        public async Task<IActionResult> GetDetailSurvey(GetLoanApplicationSurveyTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
 
         /// <summary>
-        /// Upsert Surveyor
+        /// Upsert Survey
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPut("surveyor/upsert")]
+        [HttpPut("survey/upsert")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> UpsertSurveyor(UpsertLoanApplicationSurveyCommand command)
+        public async Task<IActionResult> UpsertSurvey(UpsertLoanApplicationSurveyCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
