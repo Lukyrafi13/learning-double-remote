@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using NewLMS.Umkm.SIKP.Interfaces;
+using NewLMS.UMKM.Data.Constants;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Dto.SIKPs;
 using NewLMS.UMKM.Data.Entities;
@@ -54,7 +55,25 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
         {
             try
             {
-                var sikp = await _sikp.GetAllAsync();
+                var sikp = await _sikp.GetByIdAsync(request.AppId, "Id", new string[] { "LoanApplication" });
+                var loanApplicationStageSLIK = new LoanApplicationStage
+                {
+                    Id = Guid.NewGuid(),
+                    StageId = UMKMConst.Stages["SLIKRequest"],
+                    OwnerRoleId = UMKMConst.Roles["AccountOfficerUMKM"],
+                    OwnerUserId = Guid.Parse(_currentUser.Id),
+                    LoanApplicationId = sikp.Id,
+                    Processed = false,
+                };
+                var loanApplicationStageAppraisal = new LoanApplicationStage
+                {
+                    Id = Guid.NewGuid(),
+                    StageId = UMKMConst.Stages["AppraisalAsignment"],
+                    OwnerRoleId = UMKMConst.Roles["Supervisor"],
+                    OwnerUserId = null,
+                    LoanApplicationId = sikp.Id,
+                    Processed = false,
+                };
                 var currentUser = _currentUser;
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }

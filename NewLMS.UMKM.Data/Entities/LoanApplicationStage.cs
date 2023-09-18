@@ -17,10 +17,10 @@ namespace NewLMS.UMKM.Data.Entities
         public Guid StageId { get; set; }
 
         [ForeignKey(nameof(OwnerRoleId))]
-        public Guid OwnerRoleId { get; set; }
+        public Guid? OwnerRoleId { get; set; }
 
         [ForeignKey(nameof(OwnerUser))]
-        public Guid OwnerUserId { get; set; }
+        public Guid? OwnerUserId { get; set; }
 
         public bool Processed { get; set; } = false;
         public DateTime? ProcessedDate { get; set; }
