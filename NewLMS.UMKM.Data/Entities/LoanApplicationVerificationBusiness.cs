@@ -1,11 +1,14 @@
-﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfBusinessPlaceOwnership;
-using System;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
+namespace NewLMS.UMKM.Data.Entities
 {
-    public class LoanApplicationVerificationCyclesResponse : BaseResponse
+    public class LoanApplicationVerificationBusiness : BaseEntity
     {
+        [Key]
+        [Required]
+        [ForeignKey(nameof(LoanApplication))]
         public Guid Id { get; set; }
 
         //Informasi Omset
@@ -14,7 +17,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
         public string NotesTurnOver { get; set; }
         public double TurnoverValueTurnOver { get; set; }
         public double AnnualSalesTurnOver { get; set; }
-        public double NetWorthTurnOver { get; set; }
+        public double NetWorthTurnOver { get; set; } 
         public string BasicConsiderationTurnOver { get; set; }
 
         //Informasi GPM
@@ -50,11 +53,15 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
         public bool BusinessLocation { get; set; }
         public bool DebtorsBusiness { get; set; }
 
+        [ForeignKey(nameof(BusinessPlaceOwnership))]
         public string BusinessOwnershipCode { get; set; }
+
+        [ForeignKey(nameof(OldBusinessLocation))]
         public int? OldBusinessLocationCode { get; set; }
 
 
-        public virtual RfBusinessPlaceOwnershipSimpleResponse BusinessPlaceOwnership { get; set; }
-        public virtual RfParameterDetailSimpleResponse OldBusinessLocation { get; set; }
+        public virtual LoanApplication LoanApplication { get; set; }
+        public virtual RfBusinessPlaceOwnership BusinessPlaceOwnership { get; set; }
+        public virtual RfParameterDetail OldBusinessLocation { get; set; }
     }
 }

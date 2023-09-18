@@ -20,14 +20,14 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<LoanApplicationFieldSurvey> _loanApplicationFieldSurvey;
-        private readonly IGenericRepositoryAsync<LoanApplicationVerificationCycle> _loanApplicationVerificationCycle;
+        private readonly IGenericRepositoryAsync<LoanApplicationVerificationBusiness> _loanApplicationVerificationCycle;
         private readonly UserContext _userContext;
         private readonly IMapper _mapper;
 
         public UpsertLoanApplicationSurveyCommandHandler(
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<LoanApplicationFieldSurvey> loanApplicationFieldSurvey,
-            IGenericRepositoryAsync<LoanApplicationVerificationCycle> loanApplicationVerificationCycle,
+            IGenericRepositoryAsync<LoanApplicationVerificationBusiness> loanApplicationVerificationCycle,
             IMapper mapper,
             UserContext userContext)
         {
@@ -66,15 +66,15 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands
                         }
                         break;
 
-                    case "survey_verifikasi_siklus":
+                    case "survey_verifikasi_business":
                         if (loanApplicationVerificationCycle != null)
                         {
-                            loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationCycles, loanApplicationVerificationCycle);
+                            loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationBusiness, loanApplicationVerificationCycle);
                             await _loanApplicationVerificationCycle.UpdateAsync(loanApplicationVerificationCycle);
                         }
                         if (loanApplicationVerificationCycle == null)
                         {
-                            loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationCycles, loanApplicationVerificationCycle);
+                            loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationBusiness, loanApplicationVerificationCycle);
                             loanApplicationVerificationCycle.Id = request.LoanApplicationGuid;
                             await _loanApplicationVerificationCycle.AddAsync(loanApplicationVerificationCycle);
                         }
