@@ -141,6 +141,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 {
                     o.MapFrom(s => s.Debtor.NPWP);
                 })
+                .ForMember(d => d.DebtorJobId, o =>
+                {
+                    o.MapFrom(s => s.Debtor.JobCode);
+                })
                 .ForMember(d => d.Fullname, o =>
                 {
                     o.MapFrom(s => s.Debtor.Fullname);
