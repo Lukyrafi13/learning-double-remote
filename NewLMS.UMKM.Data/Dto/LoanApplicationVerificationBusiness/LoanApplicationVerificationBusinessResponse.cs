@@ -1,14 +1,10 @@
-﻿using NewLMS.UMKM.Data.Entities;
+﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
+using NewLMS.UMKM.Data.Dto.RfBusinessPlaceOwnership;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
+namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationBusiness
 {
-    public class LoanApplicationVerificationCyclesPostRequest
+    public class LoanApplicationVerificationBusinessResponse : BaseResponse
     {
         public Guid Id { get; set; }
 
@@ -53,7 +49,12 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
         public bool FundedBusiness { get; set; }
         public bool BusinessLocation { get; set; }
         public bool DebtorsBusiness { get; set; }
+
         public string BusinessOwnershipCode { get; set; }
         public int? OldBusinessLocationCode { get; set; }
+
+
+        public virtual RfBusinessPlaceOwnershipSimpleResponse BusinessPlaceOwnership { get; set; }
+        public virtual RfParameterDetailSimpleResponse OldBusinessLocation { get; set; }
     }
 }
