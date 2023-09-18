@@ -83,16 +83,16 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
 
                 var sikpIncludes = new string[]
                     {
-                        "SIKPRequest",
+                        //"SIKPRequest",
                         "LoanApplication",
-                        //"SIKPRequest.RfSectorLBU3",
-                        //"SIKPRequest.RfGender",
-                        //"SIKPRequest.RfMarital",
-                        //"SIKPRequest.RfEducation",
-                        //"SIKPRequest.RfJob",
-                        //"SIKPRequest.DebtorRfZipCode",
-                        //"SIKPRequest.DebtorCompanyRfZipCode",
-                        //"SIKPRequest.DebtorCompanyRfLinkage",
+                        "SIKPRequest.RfSectorLBU3",
+                        "SIKPRequest.RfGender",
+                        "SIKPRequest.RfMarital",
+                        "SIKPRequest.RfEducation",
+                        "SIKPRequest.RfJob",
+                        "SIKPRequest.DebtorRfZipCode",
+                        "SIKPRequest.DebtorCompanyRfZipCode",
+                        "SIKPRequest.DebtorCompanyRfLinkage",
                         //"SIKPResponse",
                         "SIKPResponse.RfSectorLBU3",
                         "SIKPResponse.RfGender",
@@ -106,6 +106,11 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                 var sikp = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
                 var sikpRequest = sikp.SIKPRequest;
                 var sikpResponse = sikp.SIKPResponse;
+                if (sikpResponse == null)
+                {
+                    sikpResponse = new SIKPResponse() { Id = sikp.Id };
+                    await _sikpResponse.AddAsync(sikpResponse);
+                }
                 sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request, sikpRequest);
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
@@ -116,6 +121,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                 }
                 else
                 {
+                    response.CalonDebiturResponse = debtorDataResponse;
                     if (debtorDataResponse.code == "12")
                     {
                         // Get Rf(s)
@@ -148,8 +154,6 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                         sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
                         sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
 
-                        response.CalonDebiturResponse = debtorDataResponse;
-
                         await _sikpResponse.UpdateAsync(sikpResponse);
 
                         if (debtorDataResponse.data?.nmr_registry != null)
@@ -179,7 +183,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                 }
 
                 // Check if Skipable
-                if (response.CalonDebiturResponse.code != "07")
+                if (response.CalonDebiturResponse?.code != "07")
                 {
                     response = ValidasiCalonDebitur(response);
                     sikpResponse.Valid = response.Valid;

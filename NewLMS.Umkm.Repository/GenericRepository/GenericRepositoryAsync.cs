@@ -7,7 +7,6 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using NewLMS.UMKM.Common.GenericRespository;
 using System.Linq.Dynamic.Core;
-using NewLMS.UMKM.Data.Dto;
 using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Domain.Context;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;

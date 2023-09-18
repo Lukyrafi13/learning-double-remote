@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -37,6 +37,7 @@
     <None Remove="Features\SIKPs\" />
     <None Remove="Features\SIKPs\Queries\" />
     <None Remove="Features\SIKPs\SIKP\" />
+    <None Remove="Features\SIKPs\Commands\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -127,6 +128,11 @@
     <Folder Include="Features\SIKPs\" />
     <Folder Include="Features\SIKPs\Queries\" />
     <Folder Include="Features\SIKPs\SIKP\" />
+    <Folder Include="Features\SIKPs\Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Bjb.DigitalBisnis.CurrentUser.Interfaces" />
+    <Using Include="Bjb.DigitalBisnis.CurrentUser.Services" />
   </ItemGroup>
 
 </Project>

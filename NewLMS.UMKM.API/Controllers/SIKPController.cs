@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using NewLMS.UMKM.MediatR.Features.SIKPs.SIKP;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NewLMS.UMKM.API.Controllers.SIKPs
 {

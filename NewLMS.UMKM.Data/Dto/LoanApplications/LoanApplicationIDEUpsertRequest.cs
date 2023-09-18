@@ -14,6 +14,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
         public Guid AppId { get; set; }
         public string Tab { get; set; }
         public int OwnerCategoryId { get; set; }
+        public string? DecisionMakerCode { get; set; }
         public LoanApplicationInitialDataEntryTabUpsertRequest? InitialDataEntry { get; set; }
         public LoanApplicationDataPermohonanTabUpsertRequest? DataPermohonan { get; set; }
     }
