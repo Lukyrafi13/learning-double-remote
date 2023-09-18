@@ -68,5 +68,18 @@ namespace NewLMS.UMKM.API.Controllers.LoanApplicationStageProcess
         {
             return Ok(await Mediator.Send(command));
         }
+
+        //Survey
+        /// <summary>
+        /// Appraisal Approval to Analyst
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appr-approval/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprSurveyProcess(ProcessLoanApplicationSurvey command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }
