@@ -49,6 +49,7 @@ using NewLMS.UMKM.Data.Dto.RfSandiBIGroup;
 using NewLMS.UMKM.Data.Dto.RfDecisionMakers;
 using NewLMS.UMKM.Data.Dto.RfAppraisalKJPPMasters;
 using NewLMS.UMKM.Data.Dto.RfInternalAssesments;
+using NewLMS.UMKM.Data.Dto.RfStages;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping
 {
@@ -272,6 +273,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
 
             //RfInternalAssesment
             CreateMap<User, RfInternalAssesmentsResponse>();
+
+            //RfStage
+            CreateMap<RfStage, RfStageResponse>();
         }
     }
 }

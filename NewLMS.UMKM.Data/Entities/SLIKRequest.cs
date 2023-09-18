@@ -15,6 +15,8 @@ namespace NewLMS.UMKM.Data
 
         [ForeignKey(nameof(Branch))]
         public string BranchCode { get; set; }
+        [ForeignKey(nameof(RfStage))]
+        public Guid? StageId { get; set; }
         public string Comment { get; set; }
         public int? Status { get; set; }
         public bool? ReadAndUnderstand { get; set; }
@@ -28,6 +30,7 @@ namespace NewLMS.UMKM.Data
 
         public virtual LoanApplication LoanApplication { get; set; }
         public virtual RfBranch Branch { get; set; }
+        public virtual RfStage RfStage { get; set; }
         public virtual ICollection<SLIKRequestDebtor> SLIKRequestDebtors { get; set; }
     }
 }

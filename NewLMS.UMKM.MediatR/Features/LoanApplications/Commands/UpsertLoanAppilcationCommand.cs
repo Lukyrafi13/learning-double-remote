@@ -239,7 +239,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
                         #endregion
                         break;
 
-                    case "informaasi_fasilitas":
+                    case "informasi_fasilitas":
                         loanApplication.DecisionMakerId = request.DecisionMakerCode;
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;

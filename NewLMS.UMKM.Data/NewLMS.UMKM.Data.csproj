@@ -21,6 +21,8 @@
     <None Remove="Dto\Tests\" />
     <None Remove="Dto\SIKPs\" />
     <None Remove="Dto\Generics\" />
+    <None Remove="Dto\SLIKs\" />
+    <None Remove="Dto\RfStages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -51,5 +53,7 @@
     <Folder Include="Dto\Tests\" />
     <Folder Include="Dto\SIKPs\" />
     <Folder Include="Dto\Generics\" />
+    <Folder Include="Dto\SLIKs\" />
+    <Folder Include="Dto\RfStages\" />
   </ItemGroup>
 </Project>

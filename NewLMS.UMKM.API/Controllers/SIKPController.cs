@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NewLMS.UMKM.MediatR.Features.SIKPs.SIKP;
 using Microsoft.AspNetCore.Authorization;
+using MediatR;
 
 namespace NewLMS.UMKM.API.Controllers.SIKPs
 {
@@ -51,6 +52,19 @@ namespace NewLMS.UMKM.API.Controllers.SIKPs
         [HttpPost("check")]
         [ProducesResponseType(type: typeof(ServiceResponse<DetailCalonDebiturResponseModel>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> CheckSIKP(CheckSIKPCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Process SIKP
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost("process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> ProcessSIKP(SIKPProcessCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

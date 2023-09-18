@@ -14,6 +14,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.UMKM.Data.Dto.Users;
 using NewLMS.UMKM.Data.Dto.Prospects;
+using NewLMS.UMKM.Data.Dto.RfDecisionMakers;
+
 namespace NewLMS.UMKM.Data.Dto.LoanApplications
 {
     public class LoanApplicationResponse : BaseResponse
@@ -60,6 +62,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplications
 
     public class LoanApplicationInformasiFasilitasTabResponse
     {
+        public RfDecisionMakerResponse DeicisionMaker { get; set; }
         public List<LoanApplicationFacilityResponse> LoanApplicationFacilities { get; set; }
     }
 

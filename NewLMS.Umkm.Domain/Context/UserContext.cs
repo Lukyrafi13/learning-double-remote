@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.UMKM.Data.Dto.RfStages;
 
 namespace NewLMS.UMKM.Domain.Context
 {

@@ -1,13 +1,14 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.SIKP.Interfaces;
+using NewLMS.UMKM.Data;
 using NewLMS.UMKM.Data.Constants;
 using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.SIKPs;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Domain.Context;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,41 +22,39 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
     public class SIKPProcessCommandHandler : IRequestHandler<SIKPProcessCommand, ServiceResponse<Unit>>
     {
         private IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> _sikp;
-        private IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
-        private IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
-        private IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
-        private IGenericRepositoryAsync<RfGender> _rfGender;
-        private IGenericRepositoryAsync<RfJob> _rfJob;
-        private IGenericRepositoryAsync<RfMarital> _rfMarital;
-        private IGenericRepositoryAsync<RfEducation> _rfEducation;
-        private IGenericRepositoryAsync<RfZipCode> _rfZipCode;
-        private IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
-        private ISIKPService _sikpService;
+        private IGenericRepositoryAsync<SLIKRequest> _slikRequest;
+        private IGenericRepositoryAsync<SLIKRequestDebtor> _slikRequestDebtor;
+        private IGenericRepositoryAsync<LoanApplicationStage> _loanApplicationStage;
+        private IGenericRepositoryAsync<LoanApplicationCollateral> _loanApplicationCollateral;
+        private IGenericRepositoryAsync<LoanApplicationAppraisal> _loanApplicationAppraisal;
+        private readonly UserContext _userContext;
         private readonly ICurrentUserService _currentUser;
         private readonly IMapper _mapper;
 
-        public SIKPProcessCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> sikp, IGenericRepositoryAsync<SIKPRequest> sikpRequest, ISIKPService sikpService, IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IGenericRepositoryAsync<SIKPResponse> sikpResponse, IGenericRepositoryAsync<RfGender> rfGender, IGenericRepositoryAsync<RfJob> rfJob, IGenericRepositoryAsync<RfMarital> rfMarital, IGenericRepositoryAsync<RfEducation> rfEducation, IGenericRepositoryAsync<RfZipCode> rfZipCode, IGenericRepositoryAsync<RfLinkAge> rfLinkage, ICurrentUserService currentUser)
+        public SIKPProcessCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> sikp, ICurrentUserService currentUser, UserContext userContext, IGenericRepositoryAsync<LoanApplicationStage> loanApplicationStage, IGenericRepositoryAsync<LoanApplicationCollateral> loanApplicationCollateral, IGenericRepositoryAsync<LoanApplicationAppraisal> loanApplicationAppraisal, IGenericRepositoryAsync<SLIKRequest> slikRequest, IGenericRepositoryAsync<SLIKRequestDebtor> slikRequestDebtor)
         {
             _mapper = mapper;
             _sikp = sikp;
-            _sikpRequest = sikpRequest;
-            _sikpService = sikpService;
-            _rfSectorLBU3 = rfSectorLBU3;
-            _sikpResponse = sikpResponse;
-            _rfGender = rfGender;
-            _rfJob = rfJob;
-            _rfMarital = rfMarital;
-            _rfEducation = rfEducation;
-            _rfZipCode = rfZipCode;
-            _rfLinkage = rfLinkage;
             _currentUser = currentUser;
+            _userContext = userContext;
+            _loanApplicationStage = loanApplicationStage;
+            _loanApplicationCollateral = loanApplicationCollateral;
+            _loanApplicationAppraisal = loanApplicationAppraisal;
+            _slikRequest = slikRequest;
+            _slikRequestDebtor = slikRequestDebtor;
         }
 
         public async Task<ServiceResponse<Unit>> Handle(SIKPProcessCommand request, CancellationToken cancellationToken)
         {
+            var transaction = await _userContext.Database.BeginTransactionAsync(cancellationToken);
             try
             {
-                var sikp = await _sikp.GetByIdAsync(request.AppId, "Id", new string[] { "LoanApplication" });
+                var sikp = await _sikp.GetByIdAsync(request.AppId, "Id", new string[] {
+                    "LoanApplication.RfOwnerCategory",
+                    "LoanApplication.Debtor",
+                    "LoanApplication.DebtorCompany"
+                });
+                var loanApplicationCollaterals = await _loanApplicationCollateral.GetListByPredicate(x => x.LoanApplicationId == sikp.Id);
                 var loanApplicationStageSLIK = new LoanApplicationStage
                 {
                     Id = Guid.NewGuid(),
@@ -74,14 +73,69 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                     LoanApplicationId = sikp.Id,
                     Processed = false,
                 };
-                var currentUser = _currentUser;
-                return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
+
+                // Create Appraisals
+                foreach (LoanApplicationCollateral collateral in loanApplicationCollaterals)
+                {
+                    await _loanApplicationAppraisal.AddAsync(new LoanApplicationAppraisal
+                    {
+                        AppraisalId = Guid.NewGuid(),
+                        LoanApplicationId = collateral.LoanApplicationId,
+                        LoanApplicationCollateralId = collateral.Id,
+                        StageId = UMKMConst.Stages["AppraisalAsignment"]
+                    });
+                }
+
+                // Create SLIK
+                var slikRequest = await GenerateSLIKRequest(sikp.LoanApplication);
+                await _slikRequest.AddAsync(slikRequest);
+
+                await _loanApplicationStage.AddAsync(loanApplicationStageSLIK);
+                await _loanApplicationStage.AddAsync(loanApplicationStageAppraisal);
+
+                await transaction.CommitAsync(cancellationToken);
+                return ServiceResponse<Unit>.ReturnResultWith201(Unit.Value);
             }
             catch (Exception ex)
             {
+                await transaction.RollbackAsync(cancellationToken);
                 return ServiceResponse<Unit>.ReturnException(ex);
             }
 
+        }
+
+        private async Task<SLIKRequest> GenerateSLIKRequest(LoanApplication loanApplication)
+        {
+            var slikRequest = await _slikRequest.GetByIdAsync(loanApplication.Id, "Id", new string[] { "SLIKRequestDebtors" });
+
+            if (slikRequest != null)
+            {
+                var slikRequestDebtors = _slikRequestDebtor.GetListByPredicate(x => x.SLIKRequestId == slikRequest.Id);
+            }
+            else
+            {
+                slikRequest = new SLIKRequest()
+                {
+                    Id = loanApplication.Id,
+                    BranchCode = loanApplication.BranchId,
+                    StageId = UMKMConst.Stages["SLIKRequest"]
+                };
+
+                List<SLIKRequestDebtor> slikRequestDebtors = new()
+                {
+                    new SLIKRequestDebtor {
+                        Id = Guid.NewGuid(),
+                        SLIKRequestId = slikRequest.Id,
+                        Fullname = loanApplication.RfOwnerCategory?.Code == "001" ? loanApplication.Debtor?.Fullname : loanApplication.DebtorCompany?.Name,
+                        NPWP = loanApplication.RfOwnerCategory?.Code == "001" ? loanApplication.Debtor?.NPWP : loanApplication.DebtorCompany?.DebtorCompanyLegal?.NPWP,
+                        SLIKDebtorType = loanApplication.OwnerCategoryId
+                    }
+                };
+
+                slikRequest.SLIKRequestDebtors = slikRequestDebtors;
+            }
+
+            return slikRequest;
         }
     }
 }

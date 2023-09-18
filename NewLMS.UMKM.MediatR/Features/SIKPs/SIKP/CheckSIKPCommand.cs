@@ -4,6 +4,7 @@ using NewLMS.Umkm.SIKP.Interfaces;
 using NewLMS.Umkm.SIKP.Models;
 using NewLMS.UMKM.Data.Dto.SIKPs;
 using NewLMS.UMKM.Data.Entities;
+using NewLMS.UMKM.Domain.Context;
 using NewLMS.UMKM.Helper;
 using NewLMS.UMKM.Repository.GenericRepository;
 using System;
@@ -52,10 +53,11 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
         private IGenericRepositoryAsync<RfEducation> _rfEducation;
         private IGenericRepositoryAsync<RfZipCode> _rfZipCode;
         private IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
-        private ISIKPService _sikpService;
+        private readonly UserContext _userContext;
+        private readonly ISIKPService _sikpService;
         private readonly IMapper _mapper;
 
-        public CheckSIKPCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> sikp, IGenericRepositoryAsync<SIKPRequest> sikpRequest, ISIKPService sikpService, IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IGenericRepositoryAsync<SIKPResponse> sikpResponse, IGenericRepositoryAsync<RfGender> rfGender, IGenericRepositoryAsync<RfJob> rfJob, IGenericRepositoryAsync<RfMarital> rfMarital, IGenericRepositoryAsync<RfEducation> rfEducation, IGenericRepositoryAsync<RfZipCode> rfZipCode, IGenericRepositoryAsync<RfLinkAge> rfLinkage)
+        public CheckSIKPCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> sikp, IGenericRepositoryAsync<SIKPRequest> sikpRequest, ISIKPService sikpService, IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IGenericRepositoryAsync<SIKPResponse> sikpResponse, IGenericRepositoryAsync<RfGender> rfGender, IGenericRepositoryAsync<RfJob> rfJob, IGenericRepositoryAsync<RfMarital> rfMarital, IGenericRepositoryAsync<RfEducation> rfEducation, IGenericRepositoryAsync<RfZipCode> rfZipCode, IGenericRepositoryAsync<RfLinkAge> rfLinkage, UserContext userContext)
         {
             _mapper = mapper;
             _sikp = sikp;
@@ -69,10 +71,12 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
             _rfEducation = rfEducation;
             _rfZipCode = rfZipCode;
             _rfLinkage = rfLinkage;
+            _userContext = userContext;
         }
 
         public async Task<ServiceResponse<ValidasiPostCalonResponseModel>> Handle(CheckSIKPCommand request, CancellationToken cancellationToken)
         {
+            var transaction = await _userContext.Database.BeginTransactionAsync(cancellationToken);
             try
             {
                 var response = new ValidasiPostCalonResponseModel
@@ -244,6 +248,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
                 await _sikpResponse.UpdateAsync(sikpResponse);
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
+                await transaction.CommitAsync(cancellationToken);
                 return new ServiceResponse<ValidasiPostCalonResponseModel>
                 {
                     Data = response
@@ -251,6 +256,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.SIKP
             }
             catch (Exception ex)
             {
+                await transaction.RollbackAsync(cancellationToken);
                 return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnException(ex);
             }
 
