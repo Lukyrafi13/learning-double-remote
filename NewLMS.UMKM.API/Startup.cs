@@ -39,6 +39,7 @@ using NewLMS.UMKM.Data.Dto.AppSettingJson;
 using NewLMS.UMKM.FileUpload;
 using NewLMS.Umkm.SIKP;
 using NewLMS.Umkm.SIKP2;
+using Bjb.DigitalBisnis.Consul;
 
 namespace NewLMS.UMKM.API
 {
@@ -80,7 +81,7 @@ namespace NewLMS.UMKM.API
             services.AddSingleton(MapperConfig.GetMapperConfigs());
             services.AddDependencyInjection();
             services.AddSignalR();
-            //services.AddConsulConfig(Configuration);
+            services.AddConsulConfig(Configuration);
             services.AddFileUploadAPI(Configuration);
             services.AddServiceHealthCheck(Configuration);
             services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
@@ -122,7 +123,7 @@ namespace NewLMS.UMKM.API
             app.UseBaseMvcApiExtension(env, provider, Configuration);
             app.UseExceptionMiddleware();
             app.UseExceptionMiddleware();
-            //app.UseConsul(Configuration);
+            app.UseConsul(Configuration);
             app.UseHealthCheck(env,Configuration);
             app.UseHangfireDashboard("/hangfire", new DashboardOptions
             {
