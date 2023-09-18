@@ -82,7 +82,7 @@ namespace NewLMS.UMKM.Data.Entities
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
         public virtual LoanApplicationRAC LoanApplicationRAC { get; set; }
         public virtual LoanApplicationFieldSurvey LoanApplicationFieldSurvey { get; set; }
-        public virtual LoanApplicationVerificationCycle LoanApplicationVerificationCycle { get; set; }
+        public virtual LoanApplicationVerificationCycle LoanApplicationVerificationCycles { get; set; }
 
         [NotMapped]
         public virtual string MappingTab { get; set; }
