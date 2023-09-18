@@ -2,6 +2,7 @@
 using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
 using NewLMS.UMKM.Data.Entities;
+using System;
 
 namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
 {
@@ -14,6 +15,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s ?? new LoanApplication());
                 });
+
 
             //App Info
             CreateMap<LoanApplication, LoanApplicationAppInfoApprSurveyorResponse>()
@@ -50,6 +52,27 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
                     o.MapFrom(s => s.OwnerCategoryId == 2 ? "-" : s.Debtor.NPWP);
                 })
                 .ForMember(d => d.DateOfBirth, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.DateOfBirth);
+                })
+                ;
+
+
+            //Base Tab
+            CreateMap<LoanApplication, LoanApplicationSurveyTabRespone>()
+                .ForMember(d => d.RequestDate, o =>
+                {
+                    o.MapFrom(s => DateTime.Now);
+                })
+                .ForMember(d => d.SlikStatus, o =>
+                {
+                    o.MapFrom(s => "1/1");
+                })
+                .ForMember(d => d.DebtorName, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? s.DebtorCompany.Name : s.Debtor.Fullname);
+                })
+                .ForMember(d => d.DebtorDateOfBirth, o =>
                 {
                     o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.DateOfBirth);
                 })

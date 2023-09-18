@@ -177,23 +177,23 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         //Surveyor
 
         /// <summary>
-        /// Get List for tables of LoanApplication Surveyor
+        /// Get List for tables of LoanApplication Survey
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("surveyor/get")]
-        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationPrescreeningsTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        [HttpPost("survey/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetFilterSurveyor(LoanApplicationSurveyGetTableQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
 
         /// <summary>
-        /// Get detail Surveyor by Tab
+        /// Get detail Survey by Tab
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("surveyor/get/detail")]
+        [HttpPost("survey/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailSurveyor(GetLoanApplicationSurveyTabDetailQuery command)
         {
