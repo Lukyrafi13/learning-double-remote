@@ -36,7 +36,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Queries
         public async Task<PagedResponse<IEnumerable<DocumentResponse>>> Handle(DocumentsGetFilterQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[]{
-                "RfDocumentType",
                 "RfDocumentStatus",
                 "RfDocument",
                 "Files",

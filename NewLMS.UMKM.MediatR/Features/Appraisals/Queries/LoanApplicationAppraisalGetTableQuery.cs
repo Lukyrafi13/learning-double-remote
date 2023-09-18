@@ -77,7 +77,8 @@ namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
                 var initData = new LoanApplicationAppraisalTableResponse
                 {
                     Collateral = loanApplicationCollateral.RfCollateralBC.CollateralDesc,
-                    LoanApplicationCollateralId = loanApplicationCollateral.Id
+                    LoanApplicationCollateralId = loanApplicationCollateral.Id,
+                    AppraisalGuid = inData.AppraisalId,
                 };
 
                 if (loanApplicationEntity != null)

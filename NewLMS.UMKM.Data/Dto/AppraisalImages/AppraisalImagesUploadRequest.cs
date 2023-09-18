@@ -8,7 +8,7 @@ namespace NewLMS.UMKM.Data.Dto.AppraisalImages
     {
         public IFormFile Files { get; set; }
         public Guid AppraisalGuid { get; set; }
-        public int DocumentType { get; set; }
+        public string DocumentType { get; set; }
         public string Title { get; set; }
     }
 }

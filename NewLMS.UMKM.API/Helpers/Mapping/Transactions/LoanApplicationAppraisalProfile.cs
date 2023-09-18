@@ -18,6 +18,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
             CreateMap<LoanApplicationAppraisal, AppraisalSimpleResponse>();
             CreateMap<LoanApplicationAppraisal, LoanApplicationAppraisalTableResponse>();
             CreateMap<LoanApplication, LoanApplicationAppInfoApprResponse>();
+            CreateMap<LoanApplicationAppraisal, LoanApplicationAppInfoApprSurveyorResponse>();
             
 
             CreateMap<LoanApplicationAppraisal, LoanApplicationApprAsignmentResponse>()
