@@ -20,10 +20,10 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFieldSurveyDetails.Queries
 
     public class GetFilterLoanApplicationFieldSurveyDetailsQueryHandler : IRequestHandler<GetFilterLoanApplicationFieldSurveyDetailsQuery, PagedResponse<IEnumerable<LoanApplicationFieldSurveyDetailsResponse>>>
     {
-        private IGenericRepositoryAsync<LoanApplicationKeyPerson> _core;
+        private IGenericRepositoryAsync<LoanApplicationFieldSurveyDetail> _core;
         private readonly IMapper _mapper;
 
-        public GetFilterLoanApplicationFieldSurveyDetailsQueryHandler(IGenericRepositoryAsync<LoanApplicationKeyPerson> core, IMapper mapper)
+        public GetFilterLoanApplicationFieldSurveyDetailsQueryHandler(IGenericRepositoryAsync<LoanApplicationFieldSurveyDetail> core, IMapper mapper)
         {
             _core = core;
             _mapper = mapper;

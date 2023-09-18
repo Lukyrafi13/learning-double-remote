@@ -81,7 +81,7 @@ namespace NewLMS.UMKM.API
             services.AddSingleton(MapperConfig.GetMapperConfigs());
             services.AddDependencyInjection();
             services.AddSignalR();
-            services.AddConsulConfig(Configuration);
+            //services.AddConsulConfig(Configuration);
             services.AddFileUploadAPI(Configuration);
             services.AddServiceHealthCheck(Configuration);
             services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
@@ -123,7 +123,7 @@ namespace NewLMS.UMKM.API
             app.UseBaseMvcApiExtension(env, provider, Configuration);
             app.UseExceptionMiddleware();
             app.UseExceptionMiddleware();
-            app.UseConsul(Configuration);
+            //app.UseConsul(Configuration);
             app.UseHealthCheck(env,Configuration);
             app.UseHangfireDashboard("/hangfire", new DashboardOptions
             {
