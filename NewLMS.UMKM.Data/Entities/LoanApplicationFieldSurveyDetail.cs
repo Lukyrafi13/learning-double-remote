@@ -19,7 +19,7 @@ namespace NewLMS.UMKM.Data.Entities
         public string City { get; set; }
         public string ProductType { get; set; }
         public string ContactPerson { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [ForeignKey(nameof(PaymentMethod))]
         public int PaymentMethodId { get; set; }

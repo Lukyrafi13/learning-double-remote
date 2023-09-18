@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using NewLMS.UMKM.Data.Dto.LoanApplicationFieldSurveyDetails;
 using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
 using NewLMS.UMKM.Data.Entities;
 using NewLMS.UMKM.Helper;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFieldSurveyDetails.Commands
 {
-    public class PostLoanApplicationFieldSurveyDetailsCommand : LoanApplicationFieldSurveyPostRequest, IRequest<ServiceResponse<Unit>>
+    public class PostLoanApplicationFieldSurveyDetailsCommand : LoanApplicationFieldSurveyDetailsPostRequest, IRequest<ServiceResponse<Unit>>
     {
     }
 
@@ -30,8 +31,9 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationFieldSurveyDetails.Command
         {
             try
             {
-                var loanApplicationFieldSurveyDetal = _mapper.Map<LoanApplicationFieldSurveyDetail>(request);
-                await _loanApplicationFieldSurveyDetail.AddAsync(loanApplicationFieldSurveyDetal);
+                var loanApplicationFieldSurveyDetail = _mapper.Map<LoanApplicationFieldSurveyDetail>(request);
+                loanApplicationFieldSurveyDetail.Id = Guid.NewGuid();
+                await _loanApplicationFieldSurveyDetail.AddAsync(loanApplicationFieldSurveyDetail);
 
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
 

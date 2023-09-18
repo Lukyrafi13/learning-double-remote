@@ -16,7 +16,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationFieldSurveyDetails
         public string City { get; set; }
         public string ProductType { get; set; }
         public string ContactPerson { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public int PamentMethodId { get; set; }
         public int StandingBusiness { get; set; }
     }
