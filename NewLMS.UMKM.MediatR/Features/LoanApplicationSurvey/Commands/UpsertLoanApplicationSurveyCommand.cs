@@ -20,17 +20,20 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<LoanApplicationFieldSurvey> _loanApplicationFieldSurvey;
+        private readonly IGenericRepositoryAsync<LoanApplicationVerificationCycle> _loanApplicationVerificationCycle;
         private readonly UserContext _userContext;
         private readonly IMapper _mapper;
 
         public UpsertLoanApplicationSurveyCommandHandler(
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IGenericRepositoryAsync<LoanApplicationFieldSurvey> loanApplicationFieldSurvey,
+            IGenericRepositoryAsync<LoanApplicationVerificationCycle> loanApplicationVerificationCycle,
             IMapper mapper,
             UserContext userContext)
         {
             _loanApplication = loanApplication;
             _loanApplicationFieldSurvey = loanApplicationFieldSurvey;
+            _loanApplicationVerificationCycle = loanApplicationVerificationCycle;
             _mapper = mapper;
             _userContext = userContext;
         }
@@ -43,6 +46,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands
                 var includes = IncludesGenerator.GetLoanApplicationIncludes(request.Tab);
                 var loanApplication = await _loanApplication.GetByIdAsync(request.LoanApplicationGuid, "Id", includes.ToArray());
                 var loanApplicationFieldSurvey = await _loanApplicationFieldSurvey.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
+                var loanApplicationVerificationCycle = await _loanApplicationVerificationCycle.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
 
                 var debtorCompanyId = loanApplication.DebtorCompanyId;
 
@@ -59,6 +63,20 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands
                             loanApplicationFieldSurvey = _mapper.Map(request.FieldSurvey, loanApplicationFieldSurvey);
                             loanApplicationFieldSurvey.Id = request.LoanApplicationGuid;
                             await _loanApplicationFieldSurvey.AddAsync(loanApplicationFieldSurvey);
+                        }
+                        break;
+
+                    case "survey_verifikasi_siklus":
+                        if (loanApplicationVerificationCycle != null)
+                        {
+                            loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationCycles, loanApplicationVerificationCycle);
+                            await _loanApplicationVerificationCycle.UpdateAsync(loanApplicationVerificationCycle);
+                        }
+                        if (loanApplicationVerificationCycle == null)
+                        {
+                            loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationCycles, loanApplicationVerificationCycle);
+                            loanApplicationVerificationCycle.Id = request.LoanApplicationGuid;
+                            await _loanApplicationVerificationCycle.AddAsync(loanApplicationVerificationCycle);
                         }
                         break;
 

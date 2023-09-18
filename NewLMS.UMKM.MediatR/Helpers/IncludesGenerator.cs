@@ -142,6 +142,20 @@ namespace NewLMS.UMKM.MediatR.Helpers
                     };
                     break;
 
+                case "survey_verifikasi_siklus":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationVerificationCycles.BusinessPlaceOwnership",
+                        "LoanApplicationVerificationCycles.OldBusinessLocation",
+                    };
+                    break;
+
                 default:
                     break;
             }
