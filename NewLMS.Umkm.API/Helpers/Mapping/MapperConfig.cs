@@ -45,6 +45,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new ApprProductiveLandTemplateProfile());
                 mc.AddProfile(new LoanApplicationSurveyProfile());
                 mc.AddProfile(new LoanApplicationFieldSurveyProfile());
+                mc.AddProfile(new LoanApplicationFieldSurveyDetailProfile());
             });
             return mappingConfig.CreateMapper();
         }
