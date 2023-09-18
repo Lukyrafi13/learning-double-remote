@@ -26,7 +26,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         private readonly IGenericRepositoryAsync<DocumentFileUrl> _documentFileUrl;
         private readonly IGenericRepositoryAsync<FileUrl> _fileUrl;
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
-        private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParameterDetail;
         private readonly ICurrentUserService _userInfoToken;
         private readonly IUploadService _uploadService;
 
@@ -35,7 +34,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             IGenericRepositoryAsync<DocumentFileUrl> documentFileUrl,
             IGenericRepositoryAsync<FileUrl> fileUrl,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
-            IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
             ICurrentUserService userInfoToken,
             IUploadService uploadService)
         {
@@ -43,7 +41,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             _documentFileUrl = documentFileUrl;
             _fileUrl = fileUrl;
             _loanApplication = loanApplication;
-            _rfParameterDetail = rfParameterDetail;
             _userInfoToken = userInfoToken;
             _uploadService = uploadService;
         }
@@ -79,14 +76,13 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                     };
 
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(command.LoanApplicationId, "Id", Includes);
-                    var documentType = await _rfParameterDetail.GetByPredicate(x => x.ParameterDetailId == command.DocumentType);
                     command.Files.ToList().ForEach(f =>
                     {
                         var upload = _uploadService.Upload(new FileUpload.Models.UploadRequestModel
                         {
                             Segment = "UMKM",
                             DebtorName = dataLoanApplication.Debtor.Fullname,
-                            DocumentName = documentType.Description,
+                            DocumentName = command.DocumentType,
                             File = f,
                             LoanApplicationId = dataLoanApplication.LoanApplicationId,
                         });

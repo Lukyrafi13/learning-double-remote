@@ -37,7 +37,6 @@ namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
         public async Task<PagedResponse<IEnumerable<AppraisalImagesResponse>>> Handle(GetFilterAppraisalImagesQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[]{
-                "RfDocumentType",
                 "Files",
                 "Files.FileUrl",
             };

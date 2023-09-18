@@ -9,7 +9,7 @@ namespace NewLMS.UMKM.Data.Dto.Documents
     {
         public Guid Id { get; set; }
         public Guid LoanApplicationId { get; set; }
-        public int DocumentType { get; set; }
+        public string DocumentType { get; set; }
         public string DocumentNo { get; set; }
         public DateTime? ExpireDate { get; set; }
         public int? DocumentStatusId { get; set; }
@@ -18,7 +18,6 @@ namespace NewLMS.UMKM.Data.Dto.Documents
         public string Justification { get; set; }
         public string DocumentId { get; set; }
 
-        public RfParameterDetailSimpleResponse RfDocumentType { get; set; }
         public RfParameterDetailSimpleResponse RfDocumentStatus { get; set; }
         public RfDocumentResponse RfDocument { get; set; }
         public ICollection<DocumentFileUrlRes> Files { get; set; }

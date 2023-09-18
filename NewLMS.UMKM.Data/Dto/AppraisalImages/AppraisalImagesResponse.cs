@@ -10,10 +10,9 @@ namespace NewLMS.UMKM.Data.Dto.AppraisalImages
         public Guid Id { get; set; }
         public Guid LoanApplicationId { get; set; }
         public Guid AppraisalGuid { get; set; }
-        public int DocumentType { get; set; }
+        public string DocumentType { get; set; }
         public string Title { get; set; }
 
-        public RfParameterDetailSimpleResponse RfDocumentType { get; set; }
         public ICollection<DocumentFileUrlRes> Files { get; set; }
     }
 }

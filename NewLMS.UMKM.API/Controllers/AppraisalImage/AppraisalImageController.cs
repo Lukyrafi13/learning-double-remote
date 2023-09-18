@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.UMKM.Common.GenericRespository;
 using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Documents.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;

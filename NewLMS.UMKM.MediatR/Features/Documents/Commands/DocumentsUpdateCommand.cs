@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
-using DocumentFormat.OpenXml.Office2010.Word;
 using MediatR;
 using NewLMS.UMKM.Data.Dto.Documents;
 using NewLMS.UMKM.Data.Entities;
@@ -27,7 +26,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
         private readonly IGenericRepositoryAsync<Document> _documentRepo;
         private readonly IGenericRepositoryAsync<DocumentFileUrl> _documentFileUrl;
         private readonly IGenericRepositoryAsync<FileUrl> _fileUrl;
-        private readonly IGenericRepositoryAsync<RfParameterDetail> _rfParameterDetail;
         private readonly IMapper _mapper;
         private readonly ICurrentUserService _userInfoToken;
         private readonly IUploadService _uploadService;
@@ -38,7 +36,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             IGenericRepositoryAsync<DocumentFileUrl> documentFileUrl,
             IGenericRepositoryAsync<FileUrl> fileUrl,
             IGenericRepositoryAsync<LoanApplication> loanApplication,
-            IGenericRepositoryAsync<RfParameterDetail> rfParameterDetail,
             IMapper mapper,
             ICurrentUserService userInfoToken,
             IUploadService uploadService)
@@ -49,7 +46,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
             _userInfoToken = userInfoToken;
             _mapper = mapper;
             _loanApplication = loanApplication;
-            _rfParameterDetail = rfParameterDetail;
             _uploadService = uploadService;
         }
 
@@ -82,7 +78,6 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                         "Debtor",
                     };
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(entity.LoanApplicationId, "Id", Includes);
-                    var documentType = await _rfParameterDetail.GetByPredicate(x => x.ParameterDetailId == command.DocumentType);
 
                     command.Files.ToList().ForEach(f =>
                     {
@@ -90,7 +85,7 @@ namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
                         {
                             Segment = "UMKM",
                             DebtorName = dataLoanApplication.Debtor.Fullname,
-                            DocumentName = documentType.Description,
+                            DocumentName = command.DocumentType,
                             File = f,
                             LoanApplicationId = dataLoanApplication.LoanApplicationId,
                         });
