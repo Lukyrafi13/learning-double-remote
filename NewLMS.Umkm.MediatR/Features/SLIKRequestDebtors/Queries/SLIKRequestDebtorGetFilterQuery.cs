@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Dto.SIKPs;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Queries
                     "SIKPRequest",
                     "LoanApplication"
                 };
+          
+
             var data = await _sikp.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<SIKPTableResponse>>(data.Results);
             return new PagedResponse<IEnumerable<SIKPTableResponse>>(dataVm, data.Info, request.Page, request.Length)

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries;
 using NewLMS.Umkm.Data.Dto.SLIKs;
 using Microsoft.AspNetCore.Authorization;
+using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands;
+using NewLMS.Umkm.Helper;
+using MediatR;
+using System;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
@@ -22,6 +26,63 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         public async Task<IActionResult> GetFilter(GetFilterSLIKRequestQuery command)
         {
             return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Create SLIKRequestDebtor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("debtor/create")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> CreateSLIKRequestDebtor(SLIKRequestDebtorPostCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Update SLIKRequestDebtor </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("debtor/update")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpdateSLIKRequestDebtor(SLIKRequestDebtorPutCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Delete SLIKRequestDebtor </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpDelete("debtor/{Id}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> DeletetSLIKRequestDebtor([FromRoute] Guid Id)
+        {
+            var command = new SLIKRequestDebtorDeleteCommand
+            {
+                Id = Id
+            };
+            var res = await Mediator.Send(command);
+
+            return Ok(res);
+        }
+
+        /// <summary>
+        /// Process SLIKRequest </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("process/{Id}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> ProcessSLIKRequestDebtor([FromRoute] Guid Id)
+        {
+            var command = new SLIKRequestDebtorProcessCommand
+            {
+                Id = Id
+            };
+            var res = await Mediator.Send(command);
+
+            return Ok(res);
         }
     }
 }

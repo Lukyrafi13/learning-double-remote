@@ -2,6 +2,7 @@
 using MediatR;
 using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Dto.SLIKs;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
@@ -36,6 +37,13 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                     "LoanApplication.RfOwnerCategory",
                     "SLIKRequestDebtors"
                 };
+            request.Filters.Add(new RequestFilterParameter
+            {
+                Field = "StageId",
+                ComparisonOperator = "=",
+                Type = "string",
+                Value = UMKMConst.Stages["SLIKRequest"].ToString()
+            });
             var data = await _slikRequest.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<SLIKRequestTableResponse>>(data.Results);
             return new PagedResponse<IEnumerable<SLIKRequestTableResponse>>(dataVm, data.Info, request.Page, request.Length)

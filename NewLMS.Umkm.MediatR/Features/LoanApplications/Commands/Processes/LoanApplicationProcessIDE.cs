@@ -165,6 +165,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                 {
                     Id = loanApplication.Id,
                     BranchCode = loanApplication.BranchId,
+                    StageId = UMKMConst.Stages["SLIKRequest"]
                 };
 
                 var slikRequestDebtors = new List<SLIKRequestDebtor>()

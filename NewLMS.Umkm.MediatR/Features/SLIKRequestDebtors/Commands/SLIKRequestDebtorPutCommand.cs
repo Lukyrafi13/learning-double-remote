@@ -30,7 +30,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands
         {
             try
             {
-                var slikRequestDebtor = await _slikRequestDebtor.GetByIdAsync(request.Id) ?? throw new NullReferenceException("Data Debitur tidak ditemukan.");
+                var slikRequestDebtor = await _slikRequestDebtor.GetByIdAsync(request.Id) ?? throw new NullReferenceException("Data Debitur tidak ditemukan.") ?? throw new NullReferenceException("Data SLIK Debtor tidak ditemukan.");
                 var slikId = slikRequestDebtor.SLIKRequestId;
                 var slikRequestDebtorId = slikRequestDebtor.Id;
 
