@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,5 +84,7 @@ namespace NewLMS.Umkm.Data.Dto.AppraisalProductiveLands
         public string Skewer { get; set; }
         public string GarbageCollectionDistance { get; set; }
         public string EnvEntrance { get; set; }
+
+        public RfZipCodeResponse RfZipCode { get; set; }
     }
 }

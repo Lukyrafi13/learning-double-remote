@@ -12,7 +12,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycleDetails
     {
         public Guid Id { get; set; }
         public Guid LoanApplicationId { get; set; }
-        public string Flaging { get; set; }
+        public string CycleDetailType { get; set; }
         public string Description { get; set; }
         public double Total { get; set; }
         public string Unit { get; set; }
