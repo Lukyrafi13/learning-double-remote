@@ -1,17 +1,16 @@
 using AutoMapper;
 using MediatR;
 using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Constants;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
     public class LoanApplicationProcessIDE : IRequest<ServiceResponse<Unit>>

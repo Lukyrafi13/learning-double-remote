@@ -10,7 +10,6 @@ using NewLMS.Umkm.Data.Enums;
 using System;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
-namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 {
     public class LoanApplicationPrescreeningsTableResponse
     {

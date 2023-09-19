@@ -23,6 +23,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.Umkm.Data.Dto.Users;
 using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
+
 namespace NewLMS.Umkm.Data.Dto.LoanApplications
 {
     public class LoanApplicationResponse : BaseResponse

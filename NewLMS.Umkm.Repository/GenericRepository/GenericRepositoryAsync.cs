@@ -14,7 +14,6 @@ using NewLMS.Umkm.Domain.Context;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 
 namespace NewLMS.Umkm.Repository.GenericRepository
-namespace NewLMS.Umkm.Repository.GenericRepository
 {
     public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
     {
