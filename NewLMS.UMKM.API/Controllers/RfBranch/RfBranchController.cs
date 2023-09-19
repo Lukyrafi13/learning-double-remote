@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfBranches;
-using NewLMS.UMKM.MediatR.Features.RfBranches.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.MediatR.Features.RfBranches.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfBranch
+namespace NewLMS.Umkm.API.Controllers.RfBranch
 {
     public class RfBranchController : BaseController
     {

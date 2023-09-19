@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Maps.Models
+namespace NewLMS.Umkm.Maps.Models
 {
     public class SalesMonitoringModel
     {

@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public static class Test
     {

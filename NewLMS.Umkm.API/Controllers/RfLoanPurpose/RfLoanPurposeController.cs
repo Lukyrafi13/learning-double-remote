@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfLoanPurpose;
-using NewLMS.UMKM.MediatR.Features.RfLoanPurposes.Queries.GetFilterRfLoanPurposes;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfLoanPurpose;
+using NewLMS.Umkm.MediatR.Features.RfLoanPurposes.Queries.GetFilterRfLoanPurposes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfLoanPurpose
+namespace NewLMS.Umkm.API.Controllers.RfLoanPurpose
 {
     public class RfLoanPurposeController : BaseController
     {

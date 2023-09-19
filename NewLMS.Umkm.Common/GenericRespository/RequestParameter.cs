@@ -1,11 +1,11 @@
-﻿using NewLMS.UMKM.Common.GenericRespository;
+﻿using NewLMS.Umkm.Common.GenericRespository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Common.GenericRespository
+namespace NewLMS.Umkm.Common.GenericRespository
 {
     public class RequestParameter : IRequestParameter
     {

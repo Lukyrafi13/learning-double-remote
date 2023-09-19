@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Domain.FUSE.Models
+namespace NewLMS.Umkm.Domain.FUSE.Models
 {
     public class BMPKModel
     {

@@ -1,12 +1,12 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfLoanPurpose;
+using NewLMS.Umkm.Data.Dto.RfLoanPurpose;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfSubProducts;
-using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
-using NewLMS.UMKM.Data.Dto.RfTenor;
-using NewLMS.UMKM.Data.Dto.RfPlacementCountry;
+using NewLMS.Umkm.Data.Dto.RfSubProducts;
+using NewLMS.Umkm.Data.Dto.RfSectorLBU3s;
+using NewLMS.Umkm.Data.Dto.RfTenor;
+using NewLMS.Umkm.Data.Dto.RfPlacementCountry;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationFacilities
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationFacilities
 {
     public class LoanApplicationFacilityResponse : BaseResponse
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.MediatR.Features.RfBusinessPlaceLocations.Queries.GetFilterRfBusinessPlaceLocations;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.MediatR.Features.RfBusinessPlaceLocations.Queries.GetFilterRfBusinessPlaceLocations;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfBusinessPlaceLocation
+namespace NewLMS.Umkm.API.Controllers.RfBusinessPlaceLocation
 {
     public class RfBusinessPlaceLocationController : BaseController
     {

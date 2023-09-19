@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Data.Dto.RfZipCodes
+﻿namespace NewLMS.Umkm.Data.Dto.RfZipCodes
 {
     public class RfZipCodeResponse : BaseResponse
     {

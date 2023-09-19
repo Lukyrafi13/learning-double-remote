@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfCreditNature;
-using NewLMS.UMKM.MediatR.Features.RfCreditNatures.Queries.GetFilterRfCreditNatures;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfCreditNature;
+using NewLMS.Umkm.MediatR.Features.RfCreditNatures.Queries.GetFilterRfCreditNatures;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfCreditNature
+namespace NewLMS.Umkm.API.Controllers.RfCreditNature
 {
     public class RfCreditNatureController : BaseController
     {

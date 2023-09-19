@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollaterals;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollaterals;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class LoanApplicationCollateralProfile : Profile
     {

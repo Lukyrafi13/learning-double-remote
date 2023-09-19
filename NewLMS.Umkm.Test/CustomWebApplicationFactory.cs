@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using NewLMS.UMKM.Domain;
+using NewLMS.Umkm.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Test
+namespace NewLMS.Umkm.Test
 {
     public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {

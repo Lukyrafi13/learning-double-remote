@@ -1,22 +1,22 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Enums;
+using NewLMS.Umkm.Data.Enums;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfProducts;
-using NewLMS.UMKM.Data.Dto.RfBranches;
-using NewLMS.UMKM.Data.Dto.Debtor;
-using NewLMS.UMKM.Data.Dto.DebtorCompany;
-using NewLMS.UMKM.Data.Dto.DebtorEmergencies;
+using NewLMS.Umkm.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.Data.Dto.Debtor;
+using NewLMS.Umkm.Data.Dto.DebtorCompany;
+using NewLMS.Umkm.Data.Dto.DebtorEmergencies;
 using System.Collections.Generic;
-using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
 using System.ComponentModel.DataAnnotations.Schema;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScoring;
-using NewLMS.UMKM.Data.Dto.Users;
-using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Data.Dto.RfDecisionMakers;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScoring;
+using NewLMS.Umkm.Data.Dto.Users;
+using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplications
+namespace NewLMS.Umkm.Data.Dto.LoanApplications
 {
     public class LoanApplicationResponse : BaseResponse
     {

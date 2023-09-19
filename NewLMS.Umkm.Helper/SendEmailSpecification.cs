@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public class SendEmailSpecification
     {

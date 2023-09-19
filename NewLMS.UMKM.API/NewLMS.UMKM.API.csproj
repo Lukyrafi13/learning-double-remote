@@ -69,15 +69,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NewLMS.UMKM.Common\NewLMS.UMKM.Common.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Data\NewLMS.UMKM.Data.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.DomainDHN\NewLMS.UMKM.DomainDHN.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.DomainDWH\NewLMS.UMKM.Domain.Dwh.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Domain\NewLMS.UMKM.Domain.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Helper\NewLMS.UMKM.Helper.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.MediatR\NewLMS.UMKM.MediatR.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Repository\NewLMS.UMKM.Repository.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Domain.FUSE\NewLMS.UMKM.Domain.FUSE.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Common\NewLMS.Umkm.Common.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Data\NewLMS.Umkm.Data.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.DomainDHN\NewLMS.Umkm.DomainDHN.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.DomainDWH\NewLMS.Umkm.Domain.Dwh.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Domain\NewLMS.Umkm.Domain.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Helper\NewLMS.Umkm.Helper.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.MediatR\NewLMS.Umkm.MediatR.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Repository\NewLMS.Umkm.Repository.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Domain.FUSE\NewLMS.Umkm.Domain.FUSE.csproj" />
   </ItemGroup>
 
 

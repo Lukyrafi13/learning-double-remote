@@ -1,9 +1,9 @@
 using AutoMapper;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Data.Dto.Prospects;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Dto.Prospects;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping
+namespace NewLMS.Umkm.API.Helpers.Mapping
 
 {
     public class ProspectProfile : Profile

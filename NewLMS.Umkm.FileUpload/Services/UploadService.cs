@@ -1,5 +1,5 @@
-﻿using NewLMS.UMKM.FileUpload.Interfaces;
-using NewLMS.UMKM.FileUpload.Models;
+﻿using NewLMS.Umkm.FileUpload.Interfaces;
+using NewLMS.Umkm.FileUpload.Models;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.FileUpload.Services
+namespace NewLMS.Umkm.FileUpload.Services
 {
     public class UploadService : IUploadService
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfPlacementCountry;
-using NewLMS.UMKM.MediatR.Features.RfPlacementCountries.Queries.GetFilterRfPlacementCountries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfPlacementCountry;
+using NewLMS.Umkm.MediatR.Features.RfPlacementCountries.Queries.GetFilterRfPlacementCountries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfPlacementCountry
+namespace NewLMS.Umkm.API.Controllers.RfPlacementCountry
 {
     public class RfPlacementCountryController : BaseController
     {

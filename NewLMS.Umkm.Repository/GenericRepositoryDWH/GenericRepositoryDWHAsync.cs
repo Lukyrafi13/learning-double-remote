@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.Umkm.Common.GenericRespository;
 using System.Linq.Dynamic.Core;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Domain.Dwh.Context;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Domain.Dwh.Context;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 
-namespace NewLMS.UMKM.Repository.GenericRepository
+namespace NewLMS.Umkm.Repository.GenericRepository
 {
     public class GenericRepositoryDWHAsync<T> : IGenericRepositoryDWHAsync<T> where T : class
     {

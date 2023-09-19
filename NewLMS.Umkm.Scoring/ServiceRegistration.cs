@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.UMKM.Scoring.Interfaces;
-using NewLMS.UMKM.Scoring.Services;
+using NewLMS.Umkm.Scoring.Interfaces;
+using NewLMS.Umkm.Scoring.Services;
 using System;
 
-namespace NewLMS.UMKM.Scoring
+namespace NewLMS.Umkm.Scoring
 {
     public static class ServiceRegistration
     {

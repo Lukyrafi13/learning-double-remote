@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfEducation;
-using NewLMS.UMKM.MediatR.Features.RfEducations.Queries.GetFilterRfEducations;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfEducation;
+using NewLMS.Umkm.MediatR.Features.RfEducations.Queries.GetFilterRfEducations;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfEducation
+namespace NewLMS.Umkm.API.Controllers.RfEducation
 {
     public class RfEducationController : BaseController
     {

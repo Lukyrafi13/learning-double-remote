@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfTenor;
-using NewLMS.UMKM.MediatR.Features.RfTernors.Queries.GetFilterRfTenors;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfTenor;
+using NewLMS.Umkm.MediatR.Features.RfTernors.Queries.GetFilterRfTenors;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfTenor
+namespace NewLMS.Umkm.API.Controllers.RfTenor
 {
     public class RfTenorController : BaseController
     {

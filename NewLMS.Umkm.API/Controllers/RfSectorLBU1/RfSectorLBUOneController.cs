@@ -1,14 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfSectorLBU1s;
-using NewLMS.UMKM.Helper;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfSectorLBU1s;
+using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.RFSectorLBU1s.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfSectorLBU1
+namespace NewLMS.Umkm.API.Controllers.RfSectorLBU1
 {
     public class RfSectorLBUOneController : BaseController
     {

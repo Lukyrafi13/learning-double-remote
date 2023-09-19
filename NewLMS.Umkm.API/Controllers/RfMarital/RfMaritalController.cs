@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfMarital;
-using NewLMS.UMKM.MediatR.Features.RfMaritals.Queries.GetFilterRfMaritals;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfMarital;
+using NewLMS.Umkm.MediatR.Features.RfMaritals.Queries.GetFilterRfMaritals;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfMarital
+namespace NewLMS.Umkm.API.Controllers.RfMarital
 {
     public class RfMaritalController : BaseController
     {

@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NewLMS.UMKM.API\NewLMS.UMKM.API.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Repository\NewLMS.UMKM.Repository.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.API\NewLMS.Umkm.API.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Repository\NewLMS.Umkm.Repository.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Constants
+namespace NewLMS.Umkm.Data.Constants
 {
     public static class CommonConstant
     {

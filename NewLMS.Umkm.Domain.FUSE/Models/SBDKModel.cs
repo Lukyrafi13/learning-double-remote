@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Domain.FUSE.Models
+namespace NewLMS.Umkm.Domain.FUSE.Models
 {
     public class SBDKModel
     {

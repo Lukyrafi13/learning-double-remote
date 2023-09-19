@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Helper;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Helper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
-using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationFacilities.Queries;
+using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationFacilities.Queries;
 using MediatR;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationFacilities.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationFacilities.Commands;
 
-namespace NewLMS.UMKM.API.Controllers.LoanApplicationFacility
+namespace NewLMS.Umkm.API.Controllers.LoanApplicationFacility
 {
     public class LoanApplicationFacilityController : BaseController
     {

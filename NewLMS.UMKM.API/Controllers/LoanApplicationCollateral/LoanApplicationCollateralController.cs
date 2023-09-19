@@ -1,16 +1,16 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Commands;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationCollaterals.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationCollaterals.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.LoanApplicationCollateral
+namespace NewLMS.Umkm.API.Controllers.LoanApplicationCollateral
 {
     public class LoanApplicationCollateralController : BaseController
     {

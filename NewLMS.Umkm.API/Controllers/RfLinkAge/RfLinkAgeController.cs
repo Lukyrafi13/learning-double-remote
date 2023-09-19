@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfLinkAge;
-using NewLMS.UMKM.MediatR.Features.RfLinkAges.Queries.GetFilterRfLinkAges;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfLinkAge;
+using NewLMS.Umkm.MediatR.Features.RfLinkAges.Queries.GetFilterRfLinkAges;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfLinkAge
+namespace NewLMS.Umkm.API.Controllers.RfLinkAge
 {
     public class RfLinkAgeController : BaseController
     {

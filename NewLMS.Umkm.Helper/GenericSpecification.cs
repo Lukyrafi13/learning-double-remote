@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public class GenericSpecification<T>
     {

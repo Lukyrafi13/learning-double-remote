@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.UMKM.DomainDHN.Context;
+using NewLMS.Umkm.DomainDHN.Context;
 
-namespace NewLMS.UMKM.DomainDHN
+namespace NewLMS.Umkm.DomainDHN
 {
     public static class ServiceRegistration
     {

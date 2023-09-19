@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.Repository.LoanApplicationRepository
+namespace NewLMS.Umkm.Repository.LoanApplicationRepository
 {
     public interface ILoanApplicationRepository
     {

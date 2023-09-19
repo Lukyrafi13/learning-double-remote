@@ -1,11 +1,11 @@
-﻿using NewLMS.UMKM.Common.GenericRespository;
+﻿using NewLMS.Umkm.Common.GenericRespository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Repository.GenericRepository
+namespace NewLMS.Umkm.Repository.GenericRepository
 {
     public interface IGenericRepositoryAsync<T> where T : class
     {

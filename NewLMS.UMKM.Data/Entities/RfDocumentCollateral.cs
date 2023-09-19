@@ -1,5 +1,5 @@
-﻿using NewLMS.UMKM.Data.Dto.RfCollateralBC;
-using NewLMS.UMKM.Data.Dto.RfDocument;
+﻿using NewLMS.Umkm.Data.Dto.RfCollateralBC;
+using NewLMS.Umkm.Data.Dto.RfDocument;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.Umkm.Data.Entities
 {
     public class RfDocumentCollateral : BaseEntity
     {
