@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Common.GenericRespository;
@@ -21,6 +22,7 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 {
+    [Authorize]
     public class LoanApplicationController : BaseController
     {
         /// <summary>

@@ -14,6 +14,7 @@ using MediatR;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
+    [Authorize]
     public class SIKPController : BaseController
     {
         /// <summary>

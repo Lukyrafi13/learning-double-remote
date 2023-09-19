@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using NewLMS.Umkm.MediatR.Features.Prospects.Commands;
 using NewLMS.Umkm.MediatR.Features.Prospects.Queries;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NewLMS.Umkm.API.Controllers.RfTenor
 {
+    [Authorize]
     public class ProspectController : BaseController
     {
         public IMediator _mediator { get; set; }

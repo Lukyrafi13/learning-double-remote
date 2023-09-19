@@ -38,7 +38,7 @@ namespace NewLMS.Umkm.Data.Constants
             { "Supervisor", Guid.Parse("18B70AB8-F48C-4B66-90C3-A630724C1622") },
             { "ManagerBisnis", Guid.Parse("D2A3EFFE-C173-4869-AB56-AA695775B2C7") },
             { "OfficerOperasionalKredit", Guid.Parse("AC84104B-C478-49EC-B6CC-CBA5E711DA7C") },
-            { "AccountOfficerUMKM", Guid.Parse("CB409959-9416-4C35-9AE8-EB905C3DE1A") },
+            { "AccountOfficerUMKM", Guid.Parse("CB409959-9416-4C35-9AE8-EB905C3DE1AC") },
         };
 
     }

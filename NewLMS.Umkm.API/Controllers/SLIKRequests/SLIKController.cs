@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries;
 using NewLMS.Umkm.Data.Dto.SLIKs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
+    [Authorize]
     public class SLIKController : BaseController
     {
         /// <summary>

@@ -6,9 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using NewLMS.Umkm.Common.GenericRespository;
-using NewLMS.Umkm.Common.GenericRespository;
 using System.Linq.Dynamic.Core;
-using NewLMS.Umkm.Data.Dto;
 using NewLMS.Umkm.Data;
 using NewLMS.Umkm.Domain.Context;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
@@ -108,7 +106,7 @@ namespace NewLMS.Umkm.Repository.GenericRepository
             if (_isAudit)
             {
                 (entity as BaseEntity).CreatedDate = DateTime.Now;
-                (entity as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465");
+                (entity as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("4B352B37-332A-40C6-AB05-E38FCF109719");
             }
 
             await _dbContext.Set<T>().AddAsync(entity);
@@ -128,7 +126,7 @@ namespace NewLMS.Umkm.Repository.GenericRepository
                 if (_isAudit)
                 {
                     (item as BaseEntity).CreatedDate = DateTime.Now;
-                    (item as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465");
+                    (item as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("4B352B37-332A-40C6-AB05-E38FCF109719");
                 }
             }
             await _dbContext.Set<T>().AddRangeAsync(entities);
@@ -167,7 +165,7 @@ namespace NewLMS.Umkm.Repository.GenericRepository
                 if (_isAudit)
                 {
                     (item as BaseEntity).ModifiedDate = DateTime.Now;
-                    (item as BaseEntity).ModifiedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465");
+                    (item as BaseEntity).ModifiedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("4B352B37-332A-40C6-AB05-E38FCF109719");
                 }
             }
             _dbContext.UpdateRange(entities);
