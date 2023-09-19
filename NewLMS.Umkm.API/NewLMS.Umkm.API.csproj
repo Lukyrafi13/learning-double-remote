@@ -23,6 +23,7 @@
     <None Remove="Controllers\RfStage\**" />
     <None Remove="Controllers\LoanApplication\" />
     <None Remove="Controllers\Debtor\" />
+    <None Remove="Controllers\SLIKRequests\" />
   </ItemGroup>
   <ItemGroup>
 	  <PackageReference Include="AutoMapper" Version="12.0.0" />
@@ -64,6 +65,7 @@
     <Folder Include="wwwroot\Users\" />
     <Folder Include="Controllers\LoanApplication\" />
     <Folder Include="Controllers\Debtor\" />
+    <Folder Include="Controllers\SLIKRequests\" />
   </ItemGroup>
 
   <ItemGroup>

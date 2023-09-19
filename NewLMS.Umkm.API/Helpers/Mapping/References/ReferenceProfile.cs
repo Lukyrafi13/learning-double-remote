@@ -51,6 +51,7 @@ using NewLMS.Umkm.Data.Dto.RfAppraisalKJPPMasters;
 using NewLMS.Umkm.Data.Dto.RfInternalAssesments;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping
+namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public class ReferenceProfile : Profile
     {
@@ -272,6 +273,9 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
 
             //RfInternalAssesment
             CreateMap<User, RfInternalAssesmentsResponse>();
+
+            //RfStage
+            CreateMap<RfStage, RfStageResponse>();
         }
     }
 }

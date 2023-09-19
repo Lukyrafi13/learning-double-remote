@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
+namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 {
     public class SIKPGetValidasiPostCalonQuery : SIKPRequestRequest, IRequest<ServiceResponse<ValidasiPostCalonResponseModel>>
     {
@@ -43,6 +44,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
     public class CheckSIKPCommandHandler : IRequestHandler<CheckSIKPCommand, ServiceResponse<ValidasiPostCalonResponseModel>>
     {
         private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
+        private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
         private IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
         private IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
         private IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
@@ -52,7 +54,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
         private IGenericRepositoryAsync<RfEducation> _rfEducation;
         private IGenericRepositoryAsync<RfZipCode> _rfZipCode;
         private IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
-        private ISIKPService _sikpService;
+        private readonly UserContext _userContext;
+        private readonly ISIKPService _sikpService;
         private readonly IMapper _mapper;
 
         public CheckSIKPCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> sikp, IGenericRepositoryAsync<SIKPRequest> sikpRequest, ISIKPService sikpService, IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IGenericRepositoryAsync<SIKPResponse> sikpResponse, IGenericRepositoryAsync<RfGender> rfGender, IGenericRepositoryAsync<RfJob> rfJob, IGenericRepositoryAsync<RfMarital> rfMarital, IGenericRepositoryAsync<RfEducation> rfEducation, IGenericRepositoryAsync<RfZipCode> rfZipCode, IGenericRepositoryAsync<RfLinkAge> rfLinkage)
@@ -69,10 +72,12 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             _rfEducation = rfEducation;
             _rfZipCode = rfZipCode;
             _rfLinkage = rfLinkage;
+            _userContext = userContext;
         }
 
         public async Task<ServiceResponse<ValidasiPostCalonResponseModel>> Handle(CheckSIKPCommand request, CancellationToken cancellationToken)
         {
+            var transaction = await _userContext.Database.BeginTransactionAsync(cancellationToken);
             try
             {
                 var response = new ValidasiPostCalonResponseModel
@@ -83,16 +88,16 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                 var sikpIncludes = new string[]
                     {
-                        "SIKPRequest",
+                        //"SIKPRequest",
                         "LoanApplication",
-                        //"SIKPRequest.RfSectorLBU3",
-                        //"SIKPRequest.RfGender",
-                        //"SIKPRequest.RfMarital",
-                        //"SIKPRequest.RfEducation",
-                        //"SIKPRequest.RfJob",
-                        //"SIKPRequest.DebtorRfZipCode",
-                        //"SIKPRequest.DebtorCompanyRfZipCode",
-                        //"SIKPRequest.DebtorCompanyRfLinkage",
+                        "SIKPRequest.RfSectorLBU3",
+                        "SIKPRequest.RfGender",
+                        "SIKPRequest.RfMarital",
+                        "SIKPRequest.RfEducation",
+                        "SIKPRequest.RfJob",
+                        "SIKPRequest.DebtorRfZipCode",
+                        "SIKPRequest.DebtorCompanyRfZipCode",
+                        "SIKPRequest.DebtorCompanyRfLinkage",
                         //"SIKPResponse",
                         "SIKPResponse.RfSectorLBU3",
                         "SIKPResponse.RfGender",
@@ -106,7 +111,13 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 var sikp = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
                 var sikpRequest = sikp.SIKPRequest;
                 var sikpResponse = sikp.SIKPResponse;
+                if (sikpResponse == null)
+                {
+                    sikpResponse = new SIKPResponse() { Id = sikp.Id };
+                    await _sikpResponse.AddAsync(sikpResponse);
+                }
                 sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request, sikpRequest);
+                await _sikpRequest.UpdateAsync(sikpRequest);
 
                 var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikp.SIKPRequest.DebtorNoIdentity))?.data;
                 if (debtorDataResponse == null)
@@ -115,39 +126,55 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 }
                 else
                 {
-                    // Get Rf(s)
-                    // var rfSectorLBU3 = _rfSectorLBU3.GetByPredicate(x => x.Code => debtorDataResponse)
-                    var rfGender = await _rfGender.GetByPredicate(x => x.GenderCodeSIKP == debtorDataResponse.data.jns_kelamin);
-                    var rfMarital = await _rfMarital.GetByPredicate(x => x.MaritalCodeSKIP == debtorDataResponse.data.maritas_sts);
-                    var rfJob = await _rfJob.GetByPredicate(x => x.JobCodeSIKP == debtorDataResponse.data.pekerjaan);
-                    var rfEducation = await _rfEducation.GetByPredicate(x => x.EducationCodeSIKP == debtorDataResponse.data.pendidikan);
-                    var rfZipCode = await _rfZipCode.GetByPredicate(x => x.ZipCode == debtorDataResponse.data.kode_pos);
-                    var rfLinkage = await _rfLinkage.GetByPredicate(x => x.LinkAgeCode == debtorDataResponse.data.is_linkage);
-
-                    // Map from SIKP service response
-                    sikpResponse = _mapper.Map<CalonDebiturResponseModel, SIKPResponse>(debtorDataResponse, sikpResponse);
-                    if (sikpResponse.Id == Guid.Empty)
-                    {
-                        sikpResponse.Id = sikp.Id;
-                        await _sikpResponse.AddAsync(sikpResponse);
-                    }
-
-
-                    sikpResponse.DebtorGenderId = rfGender.GenderCode;
-                    sikpResponse.DebtorMaritalStatusId = rfMarital.MaritalCode;
-                    sikpResponse.DebtorJobId = rfJob.JobCode;
-                    sikpResponse.DebtorEducationId = rfEducation.EducationCode;
-                    sikpResponse.DebtorCompanyLingkageId = rfLinkage.LinkAgeCode;
-                    sikpResponse.DebtorZipCode = rfZipCode.ZipCode;
-                    sikpResponse.DebtorZipCodeId = rfZipCode.Id;
-                    sikpResponse.DebtorProvince = rfZipCode.Provinsi;
-                    sikpResponse.DebtorCity = rfZipCode.Kota;
-                    sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
-                    sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
-
                     response.CalonDebiturResponse = debtorDataResponse;
+                    if (debtorDataResponse.code == "12")
+                    {
+                        // Get Rf(s)
+                        // var rfSectorLBU3 = _rfSectorLBU3.GetByPredicate(x => x.Code => debtorDataResponse)
+                        var rfGender = await _rfGender.GetByPredicate(x => x.GenderCodeSIKP == debtorDataResponse.data.jns_kelamin);
+                        var rfMarital = await _rfMarital.GetByPredicate(x => x.MaritalCodeSKIP == debtorDataResponse.data.maritas_sts);
+                        var rfJob = await _rfJob.GetByPredicate(x => x.JobCodeSIKP == debtorDataResponse.data.pekerjaan);
+                        var rfEducation = await _rfEducation.GetByPredicate(x => x.EducationCodeSIKP == debtorDataResponse.data.pendidikan);
+                        var rfZipCode = await _rfZipCode.GetByPredicate(x => x.ZipCode == debtorDataResponse.data.kode_pos);
+                        var rfLinkage = await _rfLinkage.GetByPredicate(x => x.LinkAgeCode == debtorDataResponse.data.is_linkage);
 
-                    await _sikpResponse.UpdateAsync(sikpResponse);
+                        // Map from SIKP service response
+                        sikpResponse = _mapper.Map<CalonDebiturResponseModel, SIKPResponse>(debtorDataResponse, sikpResponse);
+                        if (sikpResponse.Id == Guid.Empty)
+                        {
+                            sikpResponse.Id = sikp.Id;
+                            await _sikpResponse.AddAsync(sikpResponse);
+                        }
+
+
+                        sikpResponse.DebtorGenderId = rfGender.GenderCode;
+                        sikpResponse.DebtorMaritalStatusId = rfMarital.MaritalCode;
+                        sikpResponse.DebtorJobId = rfJob.JobCode;
+                        sikpResponse.DebtorEducationId = rfEducation.EducationCode;
+                        sikpResponse.DebtorCompanyLingkageId = rfLinkage.LinkAgeCode;
+                        sikpResponse.DebtorZipCode = rfZipCode.ZipCode;
+                        sikpResponse.DebtorZipCodeId = rfZipCode.Id;
+                        sikpResponse.DebtorProvince = rfZipCode.Provinsi;
+                        sikpResponse.DebtorCity = rfZipCode.Kota;
+                        sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
+                        sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
+
+                        await _sikpResponse.UpdateAsync(sikpResponse);
+
+                        if (debtorDataResponse.data?.nmr_registry != null)
+                        {
+                            sikp.RegistrationNumber = debtorDataResponse.data.nmr_registry;
+                            await _sikp.UpdateAsync(sikp);
+                        }
+                        else
+                        {
+                            var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
+                            var sikpRegist = $"{sikp.LoanApplication.BranchId}/{sikpCount + 1:D4}/{sikp.LoanApplication.CreatedDate:MM/yy}";
+
+                            sikp.RegistrationNumber = sikpRegist;
+                            await _sikp.UpdateAsync(sikp);
+                        }
+                    }
                 }
 
                 var debtorPlafondResponse = (await _sikpService.GetPlafon(sikp.SIKPRequest.DebtorNoIdentity))?.data;
@@ -161,7 +188,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 }
 
                 // Check if Skipable
-                if (response.CalonDebiturResponse.code != "07")
+                if (response.CalonDebiturResponse?.code != "07")
                 {
                     response = ValidasiCalonDebitur(response);
                     sikpResponse.Valid = response.Valid;
@@ -175,14 +202,10 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     sikpResponse.ValidationMessage = response.Message;
                 }
 
-                var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
-                var sikpRegist = $"{sikp.LoanApplication.BranchId}/{sikpCount+1:D4}/{sikp.LoanApplication.CreatedDate:MM/yy}";
-
-
                 PostCalonDebiturRequestModel req = new()
                 {
                     nik = sikpRequest.DebtorNoIdentity,
-                    nmr_registry = debtorDataResponse?.data?.nmr_registry ?? sikp.RegistrationNumber ?? sikpRegist,
+                    nmr_registry = sikp.RegistrationNumber,
                     nama = sikpRequest.Fullname,
                     tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
                     jns_kelamin = sikpRequest.RfGender?.GenderCodeSIKP ?? "",
@@ -208,12 +231,16 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 };
                 sikp.RegistrationNumber = req.nmr_registry;
 
-                var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
-                if (sikpCheck.error)
+                if (request.Post)
                 {
-                    response.Valid = false;
-                    response.Message = sikpCheck.message;
+                    var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
+                    if (sikpCheck.error)
+                    {
+                        response.Valid = false;
+                        response.Message = sikpCheck.message;
+                    }
                 }
+
 
                 sikpResponse.Valid = response.Valid;
                 sikpResponse.ValidationMessage = response.Message;
@@ -222,6 +249,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 await _sikpResponse.UpdateAsync(sikpResponse);
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
+                await transaction.CommitAsync(cancellationToken);
                 return new ServiceResponse<ValidasiPostCalonResponseModel>
                 {
                     Data = response
@@ -229,6 +257,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             }
             catch (Exception ex)
             {
+                await transaction.RollbackAsync(cancellationToken);
                 return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnException(ex);
             }
 

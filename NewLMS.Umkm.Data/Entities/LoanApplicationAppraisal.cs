@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using NewLMS.Umkm.Data.Dto.RfStages;
 
 namespace NewLMS.Umkm.Data.Entities
 {

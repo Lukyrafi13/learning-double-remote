@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
+namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 {
     public class LoanApplicationController : BaseController
     {

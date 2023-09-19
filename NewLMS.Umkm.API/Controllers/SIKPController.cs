@@ -4,12 +4,17 @@ using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.SIKPs;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.SIKPs.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.SIKPs;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.SIKPs.Queries;
 using NewLMS.Umkm.SIKP.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
 
+namespace NewLMS.Umkm.API.Controllers.SIKPs
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
     public class SIKPController : BaseController
@@ -50,6 +55,19 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         [HttpPost("check")]
         [ProducesResponseType(type: typeof(ServiceResponse<DetailCalonDebiturResponseModel>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> CheckSIKP(CheckSIKPCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Process SIKP
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost("process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> ProcessSIKP(SIKPProcessCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

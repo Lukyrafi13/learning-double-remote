@@ -7,6 +7,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public Guid Id { get; set; }
         public string Fullname { get; set; }
         public string Scheme { get; set; } = string.Empty;
+        public bool Post { get; set; } = false;
 
         #region Debtor
         public string DebtorNPWP { get; set; }

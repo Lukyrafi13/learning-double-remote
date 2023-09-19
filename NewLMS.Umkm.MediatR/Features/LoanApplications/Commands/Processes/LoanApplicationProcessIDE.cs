@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
+namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
     public class LoanApplicationProcessIDE : IRequest<ServiceResponse<Unit>>
     {
@@ -114,7 +115,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                     var sikp = new Data.Entities.SIKP
                     {
                         Id = loanApplication.Id,
-                        RegistrationNumber = sikpRegist
+                        RegistrationNumber = null
                     };
                     await _sikp.AddAsync(sikp);
 

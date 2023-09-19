@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NewLMS.Umkm.Data.Dto.RfStages;
 
 namespace NewLMS.Umkm.Data.Entities
 {
@@ -17,10 +18,10 @@ namespace NewLMS.Umkm.Data.Entities
         public Guid StageId { get; set; }
 
         [ForeignKey(nameof(OwnerRoleId))]
-        public Guid OwnerRoleId { get; set; }
+        public Guid? OwnerRoleId { get; set; }
 
         [ForeignKey(nameof(OwnerUser))]
-        public Guid OwnerUserId { get; set; }
+        public Guid? OwnerUserId { get; set; }
 
         public bool Processed { get; set; } = false;
         public DateTime? ProcessedDate { get; set; }

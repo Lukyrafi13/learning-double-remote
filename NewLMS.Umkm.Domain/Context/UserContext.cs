@@ -1,10 +1,14 @@
 using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Dto.RfStages;
 
+namespace NewLMS.Umkm.Domain.Context
 namespace NewLMS.Umkm.Domain.Context
 {
     public class UserContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>

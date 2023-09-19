@@ -12,6 +12,8 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
     public class SIKPResponseResponse : BaseResponse
 	{
         public string Fullname { get; set; }
+        public string Valid { get; set; }
+        public string ValidationMessage { get; set; }
 
         #region Debtor
         public string DebtorNPWP { get; set; }

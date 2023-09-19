@@ -74,6 +74,19 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                         var creditScoring = loanApplication.LoanApplicationCreditScoring;
                         if (ownerCategory.Code == "001") // Perorangan
                         {
+                            if (creditScoring == null)
+                            {
+                                creditScoring = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>(request);
+                                creditScoring.Id = loanApplication.Id;
+                                await _loanApplicationCreditScoring.AddAsync(creditScoring);
+                            }
+                            else
+                            {
+                                creditScoring = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplicationCreditScoring>(request);
+                                creditScoring.Id = loanApplication.Id;
+                                await _loanApplicationCreditScoring.UpdateAsync(creditScoring);
+                            }
+
                             loanApplication.DebtorCompanyId = null;
                             await _loanApplication.UpdateAsync(loanApplication);
 
@@ -225,8 +238,15 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                         }
                         #endregion
                         break;
+
+                    case "informasi_fasilitas":
+                        loanApplication.DecisionMakerId = request.DecisionMakerCode;
+                        await _loanApplication.UpdateAsync(loanApplication);
+                        break;
                     default:
                         break;
+
+
                 }
             }
             catch (Exception ex)

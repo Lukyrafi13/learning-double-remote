@@ -93,6 +93,7 @@ namespace NewLMS.Umkm.API
             services.AddScoringService(Configuration);
             services.AddTechRedemptionUtilUim(Configuration);
             services.AddFCMNotification(Configuration);
+            services.AddCurrentUserExtension(Configuration);
             services.AddHangfire(configuration => configuration
             .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
             .UseSimpleAssemblyNameTypeSerializer()

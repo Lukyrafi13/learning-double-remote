@@ -38,7 +38,7 @@ namespace NewLMS.Umkm.Data.Entities
         public int OwnerCategoryId { get; set; }
 
         [ForeignKey(nameof(DecisionMaker))]
-        public Guid? DecisionMakerId { get; set; }
+        public string? DecisionMakerId { get; set; }
 
         [ForeignKey(nameof(Owner))]
         public Guid? OwnerId { get; set; }
@@ -58,7 +58,7 @@ namespace NewLMS.Umkm.Data.Entities
         public bool DuplicationsVerified { get; set; }
 
 
-        public virtual User DecisionMaker { get; set; }
+        public virtual RfDecisionMaker DecisionMaker { get; set; }
         public virtual User Owner { get; set; }
 
         public virtual RfParameterDetail RfOwnerCategory { get; set; }

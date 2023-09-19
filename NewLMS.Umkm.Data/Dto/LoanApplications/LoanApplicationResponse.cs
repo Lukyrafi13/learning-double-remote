@@ -1,12 +1,21 @@
 ﻿using System;
 using NewLMS.Umkm.Data.Enums;
+using NewLMS.Umkm.Data.Enums;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 using NewLMS.Umkm.Data.Dto.RfProducts;
 using NewLMS.Umkm.Data.Dto.RfBranches;
 using NewLMS.Umkm.Data.Dto.Debtor;
 using NewLMS.Umkm.Data.Dto.DebtorCompany;
 using NewLMS.Umkm.Data.Dto.DebtorEmergencies;
+using NewLMS.Umkm.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.Data.Dto.Debtor;
+using NewLMS.Umkm.Data.Dto.DebtorCompany;
+using NewLMS.Umkm.Data.Dto.DebtorEmergencies;
 using System.Collections.Generic;
+using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
 using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
@@ -60,6 +69,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplications
 
     public class LoanApplicationInformasiFasilitasTabResponse
     {
+        public RfDecisionMakerResponse DeicisionMaker { get; set; }
         public List<LoanApplicationFacilityResponse> LoanApplicationFacilities { get; set; }
     }
 

@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.API.Helpers.Mapping.References;
 using NewLMS.Umkm.API.Helpers.Mapping.Transactions;
+using NewLMS.Umkm.API.Helpers.Mapping.References;
+using NewLMS.Umkm.API.Helpers.Mapping.Transactions;
 
+namespace NewLMS.Umkm.API.Helpers.Mapping
 namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public static class MapperConfig

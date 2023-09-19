@@ -77,6 +77,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 .ForMember(d => d.LoanApplicationFacilities, o =>
                 {
                     o.MapFrom(s => s.LoanApplicationFacilities);
+                })
+                .ForMember(d => d.DeicisionMaker, o =>
+                {
+                    o.MapFrom(s => s.DecisionMaker);
                 });
 
             CreateMap<LoanApplication, LoanApplicationIDEResponse>()
@@ -140,6 +144,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 .ForMember(d => d.DebtorNPWP, o =>
                 {
                     o.MapFrom(s => s.Debtor.NPWP);
+                })
+                .ForMember(d => d.DebtorJobId, o =>
+                {
+                    o.MapFrom(s => s.Debtor.JobCode);
                 })
                 .ForMember(d => d.Fullname, o =>
                 {

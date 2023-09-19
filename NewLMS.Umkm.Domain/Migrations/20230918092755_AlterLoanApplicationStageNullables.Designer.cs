@@ -3,8 +3,8 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Domain.Context;
 
 #nullable disable
@@ -12,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230918092755_AlterLoanApplicationStageNullables")]
+    partial class AlterLoanApplicationStageNullables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,7 +24,6 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Action", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Action", b =>
                 {
                     b.Property<Guid>("Id")
@@ -68,7 +68,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.AppSetting", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.AppSetting", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -111,7 +110,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("AppSettings");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.EmailSMTPSetting", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.EmailSMTPSetting", b =>
                 {
                     b.Property<Guid>("Id")
@@ -172,7 +170,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.EmailTemplate", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.EmailTemplate", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -213,7 +210,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("EmailTemplates");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloorDetails", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloorDetails", b =>
                 {
                     b.Property<Guid>("BuildingFloorDetailGuid")
@@ -261,7 +257,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", b =>
                 {
                     b.Property<Guid>("BuildingFloorGuid")
                         .ValueGeneratedOnAdd()
@@ -307,7 +302,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprBuildingFloors");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", b =>
                 {
                     b.Property<Guid>("ApprEnvironmentGuid")
@@ -478,7 +472,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprChecklistReview", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprChecklistReview", b =>
                 {
                     b.Property<Guid>("ApprChecklistReviewGuid")
                         .ValueGeneratedOnAdd()
@@ -527,7 +520,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprChecklistReviews");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLandTemplates", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLandTemplates", b =>
                 {
                     b.Property<Guid>("ApprLandTemplateGuid")
@@ -847,7 +839,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLiquidation", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLiquidation", b =>
                 {
                     b.Property<Guid>("LiquidationGuid")
                         .ValueGeneratedOnAdd()
@@ -900,7 +891,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprLiquidations");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", b =>
                 {
                     b.Property<Guid>("ApprMachineTemplateGuid")
@@ -1015,7 +1005,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprMachineTemplates");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprProductiveLandTemplate", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprProductiveLandTemplate", b =>
                 {
                     b.Property<Guid>("ApprProductiveLandTemplateGuid")
@@ -1260,7 +1249,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprReceivableVerification", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprReceivableVerification", b =>
                 {
                     b.Property<Guid>("ApprReceivableVerificationGuid")
                         .ValueGeneratedOnAdd()
@@ -1331,7 +1319,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleNote", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleNote", b =>
                 {
                     b.Property<Guid>("VehicleNoteGuid")
                         .ValueGeneratedOnAdd()
@@ -1374,7 +1361,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprVehicleNotes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", b =>
                 {
                     b.Property<Guid>("ApprVehicleTemplateGuid")
@@ -1475,7 +1461,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprVehicleTemplate");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildings", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildings", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperLandBuildingGuid")
@@ -1744,7 +1729,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperLandBuildingSummaryGuid")
                         .ValueGeneratedOnAdd()
@@ -1811,7 +1795,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprWorkPaperLandBuildingSummaries");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineCost", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineCost", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperMachineCostGuid")
@@ -1883,7 +1866,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprWorkPaperMachineCost");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarkets", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarkets", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperMachineMarketGuid")
@@ -2040,7 +2022,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperMachineMarketSummaryGuid")
                         .ValueGeneratedOnAdd()
@@ -2100,7 +2081,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprWorkPaperMachineMarketSummaries");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartments", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartments", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperShopApartmentGuid")
@@ -2304,7 +2284,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperShopApartmentSummaryGuid")
                         .ValueGeneratedOnAdd()
@@ -2353,7 +2332,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprWorkPaperShopApartmentSummaries");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicles", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicles", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperVehicleGuid")
@@ -2554,7 +2532,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", b =>
                 {
                     b.Property<Guid>("ApprWorkPaperVehicleSummaryGuid")
                         .ValueGeneratedOnAdd()
@@ -2600,7 +2577,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ApprWorkPaperVehicleSummaries");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Debtor", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Debtor", b =>
                 {
                     b.Property<Guid>("Id")
@@ -2725,7 +2701,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompany", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompany", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -2783,7 +2758,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("DebtorCompanies");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompanyLegal", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompanyLegal", b =>
                 {
                     b.Property<Guid>("Id")
@@ -2864,7 +2838,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCouple", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCouple", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -2940,7 +2913,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorEmergency", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorEmergency", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -2997,7 +2969,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("DebtorEmergencies");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Document", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Document", b =>
                 {
                     b.Property<Guid>("Id")
@@ -3072,7 +3043,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DocumentFileUrl", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DocumentFileUrl", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -3114,7 +3084,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("DocumentFileUrls");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.FileUrl", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.FileUrl", b =>
                 {
                     b.Property<Guid>("Id")
@@ -3254,7 +3223,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplication", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplication", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -3368,7 +3336,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", b =>
                 {
                     b.Property<Guid>("AppraisalId")
                         .ValueGeneratedOnAdd()
@@ -3437,7 +3404,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoanApplicationAppraisals");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
                 {
                     b.Property<Guid>("Id")
@@ -3610,7 +3576,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateralOwner", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateralOwner", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -3755,7 +3720,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -3841,7 +3805,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoanApplicationCreditScorings");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFacility", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFacility", b =>
                 {
                     b.Property<Guid>("Id")
@@ -3930,167 +3893,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("TenorCode");
 
                     b.ToTable("LoanApplicationFacilities");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFieldSurvey", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("AddressSameAsDebtor")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("BusinessFieldKURId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("BusinessLocationStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BusinessName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BusinessPhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConclusionVerification")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Informan")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MonthStandingBusiness")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("NumberOfBranches")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("NumberOfEmployees")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OwnerCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RelationsWithDebtorsId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SurveyAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("SurveyDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SurveyorName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VerifierName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("YearStandingBusiness")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ZipCodeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BusinessFieldKURId");
-
-                    b.HasIndex("BusinessLocationStatusId");
-
-                    b.HasIndex("OwnerCategoryId");
-
-                    b.HasIndex("RelationsWithDebtorsId");
-
-                    b.HasIndex("ZipCodeId");
-
-                    b.ToTable("LoanApplicationFieldSurveys");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFieldSurveyDetail", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactPerson")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FieldSurveyDetail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid>("LoanApplicationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PaymentMethodId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StandingBusiness")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SupplierName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LoanApplicationId");
-
-                    b.HasIndex("PaymentMethodId");
-
-                    b.ToTable("LoanApplicationFieldSurveyDetails");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationKeyPerson", b =>
@@ -4188,7 +3990,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationRAC", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationRAC", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -4249,7 +4050,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoanApplicationRACs");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationStage", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationStage", b =>
                 {
                     b.Property<Guid>("Id")
@@ -4313,195 +4113,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoanApplicationStages");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationBusiness", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<double>("AmountReceivable")
-                        .HasColumnType("float");
-
-                    b.Property<double>("AmountStockpile")
-                        .HasColumnType("float");
-
-                    b.Property<double>("AnnualSalesTurnOver")
-                        .HasColumnType("float");
-
-                    b.Property<string>("BasicConsiderationTurnOver")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("BusinessLocation")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("BusinessOwnershipCode")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("CellphoneFee")
-                        .HasColumnType("float");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("DebtorsBusiness")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("FundedBusiness")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("HighestCostResultsHouseHold")
-                        .HasColumnType("float");
-
-                    b.Property<double>("HouseholdExpenses")
-                        .HasColumnType("float");
-
-                    b.Property<double>("InterviewGPM")
-                        .HasColumnType("float");
-
-                    b.Property<double>("InterviewHouseHold")
-                        .HasColumnType("float");
-
-                    b.Property<string>("InterviewTurnOver")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("LaborCosts")
-                        .HasColumnType("float");
-
-                    b.Property<double>("LowestGrossProfitMarginGPM")
-                        .HasColumnType("float");
-
-                    b.Property<double>("MaximumStandardGPM")
-                        .HasColumnType("float");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("NetWorthTurnOver")
-                        .HasColumnType("float");
-
-                    b.Property<string>("NotesTurnOver")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("ObservationGPM")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ObservationTurnOver")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OldBusinessLocationCode")
-                        .HasColumnType("int");
-
-                    b.Property<double>("OperatingCosts")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PremisesWaterFees")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PurchaseCostPercentGPM")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PurchaseCostValueGPM")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TelephoneCallFee")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalBusinessCost")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalDebt")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TurnoverValueTurnOver")
-                        .HasColumnType("float");
-
-                    b.Property<double>("VenueElectricityCosts")
-                        .HasColumnType("float");
-
-                    b.Property<double>("VerificationResultsHouseHold")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BusinessOwnershipCode");
-
-                    b.HasIndex("OldBusinessLocationCode");
-
-                    b.ToTable("LoanApplicationVerificationBusinesses");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationCycle", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<double>("AnnualSales")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("BusinessCapacityCode")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BusinessLandAreaCode")
-                        .HasColumnType("int");
-
-                    b.Property<double>("BusinessLandCapacity")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("BusinessLandFormCode")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("LandArea")
-                        .HasColumnType("float");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("NetWorthOfPlaceBusiness")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BusinessCapacityCode");
-
-                    b.HasIndex("BusinessLandAreaCode");
-
-                    b.HasIndex("BusinessLandFormCode");
-
-                    b.ToTable("LoanApplicationVerificationCycles");
-                });
-
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidation", b =>
                 {
                     b.Property<string>("TypeId")
@@ -4541,7 +4152,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("MLiquidation");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationCondition", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationCondition", b =>
                 {
                     b.Property<string>("TypeId")
@@ -4588,7 +4198,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationItem", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationItem", b =>
                 {
                     b.Property<string>("TypeId")
                         .HasColumnType("nvarchar(5)");
@@ -4633,7 +4242,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("MLiquidationItems");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationOption", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationOption", b =>
                 {
                     b.Property<string>("OptionId")
@@ -4684,7 +4292,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("MLiquidationOption");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ParameterGroups", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ParameterGroups", b =>
                 {
                     b.Property<Guid>("ParameterGroupGuid")
@@ -4737,7 +4344,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Parameters", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Parameters", b =>
                 {
                     b.Property<Guid>("ParameterGuid")
                         .ValueGeneratedOnAdd()
@@ -4788,7 +4394,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("Parameters");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Prospect", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Prospect", b =>
                 {
                     b.Property<Guid>("Id")
@@ -5008,7 +4613,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfApplicationType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfApplicationType", b =>
                 {
                     b.Property<string>("ApplicationTypeId")
                         .HasColumnType("nvarchar(450)");
@@ -5042,7 +4646,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfApplicationTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfAppraisalKJPPMaster", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfAppraisalKJPPMaster", b =>
                 {
                     b.Property<string>("KJPPMasterCode")
@@ -5089,7 +4692,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfAppraisalKJPPMasters");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBranch", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBranch", b =>
                 {
                     b.Property<string>("Code")
@@ -5169,7 +4771,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessFieldKUR", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessFieldKUR", b =>
                 {
                     b.Property<string>("BusinessFieldKURCode")
                         .HasColumnType("nvarchar(450)");
@@ -5203,7 +4804,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfBusinessFieldKURs");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessLocation", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessLocation", b =>
                 {
                     b.Property<string>("BusinessLocationCode")
@@ -5239,7 +4839,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessOwnership", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessOwnership", b =>
                 {
                     b.Property<string>("BusinessOwnershipCode")
                         .HasColumnType("nvarchar(450)");
@@ -5274,7 +4873,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceLocation", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceLocation", b =>
                 {
                     b.Property<string>("RfBusinessPlaceLocationCode")
                         .HasColumnType("nvarchar(450)");
@@ -5308,7 +4906,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfBusinessPlaceLocations");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", b =>
                 {
                     b.Property<string>("BusinessPlaceOwnCode")
@@ -5349,7 +4946,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceType", b =>
                 {
                     b.Property<string>("BusinessPlaceTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -5384,7 +4980,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessType", b =>
                 {
                     b.Property<string>("BusinessTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -5418,7 +5013,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfBusinessTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCollateralBC", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCollateralBC", b =>
                 {
                     b.Property<string>("CollateralCode")
@@ -5475,7 +5069,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCompanyType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCompanyType", b =>
                 {
                     b.Property<string>("CompanyTypeId")
                         .HasColumnType("nvarchar(450)");
@@ -5514,7 +5107,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfCompanyTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCondition", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCondition", b =>
                 {
                     b.Property<string>("ConditionCode")
@@ -5556,7 +5148,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCreditNature", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCreditNature", b =>
                 {
                     b.Property<string>("CreditNatureCode")
                         .HasColumnType("nvarchar(450)");
@@ -5597,7 +5188,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCreditType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCreditType", b =>
                 {
                     b.Property<string>("CreditTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -5635,7 +5225,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionLeterType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionLeterType", b =>
                 {
                     b.Property<string>("DecisionLeterTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -5669,7 +5258,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfDecisionLeterTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionLetter", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionLetter", b =>
                 {
                     b.Property<string>("DecisionLeterCode")
@@ -5731,7 +5319,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionMaker", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionMaker", b =>
                 {
                     b.Property<string>("DecisionMakerCode")
                         .HasColumnType("nvarchar(450)");
@@ -5765,7 +5352,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfDecisionMakers");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocument", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocument", b =>
                 {
                     b.Property<string>("DocumentCode")
@@ -5822,7 +5408,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocumentCollateral", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocumentCollateral", b =>
                 {
                     b.Property<Guid>("DocumentCollateralCode")
                         .ValueGeneratedOnAdd()
@@ -5867,7 +5452,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfDocumentCollaterals");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfEducation", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfEducation", b =>
                 {
                     b.Property<string>("EducationCode")
@@ -5915,7 +5499,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfGender", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfGender", b =>
                 {
                     b.Property<string>("GenderCode")
                         .HasColumnType("nvarchar(450)");
@@ -5962,7 +5545,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfInstallmentType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfInstallmentType", b =>
                 {
                     b.Property<string>("InstallmentTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -5996,7 +5578,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfInstallmentTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfJob", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfJob", b =>
                 {
                     b.Property<string>("JobCode")
@@ -6061,7 +5642,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfLinkAge", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfLinkAge", b =>
                 {
                     b.Property<string>("LinkAgeCode")
                         .HasColumnType("nvarchar(450)");
@@ -6096,7 +5676,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfLinkAgeType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfLinkAgeType", b =>
                 {
                     b.Property<string>("LinkAgeTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -6130,7 +5709,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfLinkAgeTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfLoanPurpose", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfLoanPurpose", b =>
                 {
                     b.Property<string>("LoanPurposeCode")
@@ -6174,7 +5752,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfLoanPurposes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingCollateral", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingCollateral", b =>
                 {
                     b.Property<Guid>("MappingCollateralId")
@@ -6220,7 +5797,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfMappingCollaterals");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingTenor", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingTenor", b =>
                 {
                     b.Property<Guid>("Id")
@@ -6282,7 +5858,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMarital", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMarital", b =>
                 {
                     b.Property<string>("MaritalCode")
                         .HasColumnType("nvarchar(450)");
@@ -6332,7 +5907,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameter", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameter", b =>
                 {
                     b.Property<int>("ParameterId")
                         .ValueGeneratedOnAdd()
@@ -6376,7 +5950,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameterDetail", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameterDetail", b =>
                 {
                     b.Property<int>("ParameterDetailId")
                         .ValueGeneratedOnAdd()
@@ -6412,7 +5985,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfParameterDetails");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfPlacementCountry", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfPlacementCountry", b =>
                 {
                     b.Property<string>("PlacementCountryCode")
@@ -6459,7 +6031,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfPlacementCountries");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfProduct", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfProduct", b =>
                 {
                     b.Property<string>("ProductId")
@@ -6537,7 +6108,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfRelationCol", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfRelationCol", b =>
                 {
                     b.Property<string>("RelationColCode")
                         .HasColumnType("nvarchar(450)");
@@ -6580,7 +6150,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfRelationCols");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSandiBI", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSandiBI", b =>
                 {
                     b.Property<string>("RfSandiBIId")
@@ -6645,7 +6214,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSandiBIGroup", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSandiBIGroup", b =>
                 {
                     b.Property<string>("BIGroup")
                         .HasMaxLength(3)
@@ -6680,7 +6248,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfSandiBIGroups");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfScPosition", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfScPosition", b =>
                 {
                     b.Property<string>("ScPositionCode")
@@ -6730,7 +6297,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU1", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU1", b =>
                 {
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(450)");
@@ -6773,7 +6339,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfSectorLBU1");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU2", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU2", b =>
                 {
                     b.Property<string>("Code")
@@ -6822,7 +6387,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfSectorLBU2");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU3", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU3", b =>
                 {
                     b.Property<string>("Code")
@@ -6880,7 +6444,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfSectorLBU3");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfStage", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfStage", b =>
                 {
                     b.Property<Guid>("StageId")
@@ -6940,7 +6503,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSubProduct", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSubProduct", b =>
                 {
                     b.Property<string>("SubProductId")
                         .HasColumnType("nvarchar(450)");
@@ -6999,7 +6561,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfSubProducts");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfTenor", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfTenor", b =>
                 {
                     b.Property<string>("TenorCode")
@@ -7061,7 +6622,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfTransportationType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfTransportationType", b =>
                 {
                     b.Property<string>("TransportationTypeCode")
                         .HasColumnType("nvarchar(450)");
@@ -7095,7 +6655,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfTransportationTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehClass", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehClass", b =>
                 {
                     b.Property<string>("VehClassCode")
@@ -7152,7 +6711,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehCountry", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehCountry", b =>
                 {
                     b.Property<string>("VehCountryCode")
                         .HasColumnType("nvarchar(450)");
@@ -7192,7 +6750,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfVehCountries");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehMaker", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehMaker", b =>
                 {
                     b.Property<string>("VehMakerCode")
@@ -7249,7 +6806,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehModel", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehModel", b =>
                 {
                     b.Property<string>("VehModelCode")
                         .HasColumnType("nvarchar(450)");
@@ -7290,7 +6846,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehType", b =>
                 {
                     b.Property<string>("VehCode")
                         .HasColumnType("nvarchar(450)");
@@ -7330,7 +6885,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfVehTypes");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfZipCode", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfZipCode", b =>
                 {
                     b.Property<int>("Id")
@@ -7417,7 +6971,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKP", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKP", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -7451,7 +7004,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("SIKPs");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPRequest", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPRequest", b =>
                 {
                     b.Property<Guid>("Id")
@@ -7604,7 +7156,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("SIKPRequests");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPResponse", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPResponse", b =>
                 {
                     b.Property<Guid>("Id")
@@ -7761,7 +7312,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SLIKRequestDebtor", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SLIKRequestDebtor", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -7848,7 +7398,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.UserDevice", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.UserDevice", b =>
                 {
                     b.Property<Guid>("UserDeviceId")
                         .ValueGeneratedOnAdd()
@@ -7897,7 +7446,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahDistricts", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahDistricts", b =>
                 {
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(450)")
@@ -7926,7 +7474,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahProvinces", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahProvinces", b =>
                 {
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(450)")
@@ -7948,7 +7495,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("WilayahProvinces");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahRegencies", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahRegencies", b =>
                 {
                     b.Property<string>("Code")
@@ -7977,7 +7523,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("WilayahRegencies");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahVillages", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahVillages", b =>
                 {
                     b.Property<string>("Code")
@@ -8029,7 +7574,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.LoginAudit", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.LoginAudit", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -8064,7 +7608,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoginAudits");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.LogSendCallbackThirdParty", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.LogSendCallbackThirdParty", b =>
                 {
                     b.Property<Guid>("Id")
@@ -8111,7 +7654,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.NLog", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.NLog", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -8150,7 +7692,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("NLog");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Page", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Page", b =>
                 {
                     b.Property<Guid>("Id")
@@ -8197,7 +7738,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("Pages");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.PageAction", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.PageAction", b =>
                 {
                     b.Property<Guid>("Id")
@@ -8249,7 +7789,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.RfInstituteCode", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.RfInstituteCode", b =>
                 {
                     b.Property<string>("ServiceCode")
                         .HasColumnType("nvarchar(450)");
@@ -8292,7 +7831,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfInstituteCode");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Role", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -8354,7 +7892,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.RoleClaim", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -8388,7 +7925,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.SLIKRequest", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.SLIKRequest", b =>
                 {
                     b.Property<Guid>("Id")
@@ -8433,9 +7969,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<bool?>("ReadAndUnderstand")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("StageId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int?>("Status")
                         .HasColumnType("int");
 
@@ -8455,12 +7988,9 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.HasIndex("BranchCode");
 
-                    b.HasIndex("StageId");
-
                     b.ToTable("SLIKRequests");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.ThridParty", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.ThridParty", b =>
                 {
                     b.Property<string>("Name")
@@ -8508,7 +8038,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("ThridParties");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.User", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -8683,7 +8212,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserAllowedIP", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserAllowedIP", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -8696,7 +8224,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("UserAllowedIPs");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserClaim", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.UserClaim", b =>
                 {
                     b.Property<int>("Id")
@@ -8732,7 +8259,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserLogin", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -8754,7 +8280,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserRole", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -8769,7 +8294,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserToken", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.UserToken", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -8790,9 +8314,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Action", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Action", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
@@ -8800,12 +8322,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
                         .WithMany()
                         .HasForeignKey("DeletedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                         .WithMany()
                         .HasForeignKey("ModifiedBy")
@@ -8819,9 +8339,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.EmailSMTPSetting", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.EmailSMTPSetting", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
@@ -8829,12 +8347,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
                         .WithMany()
                         .HasForeignKey("DeletedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                         .WithMany()
                         .HasForeignKey("ModifiedBy")
@@ -8848,9 +8364,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloorDetails", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloorDetails", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", "ApprBuildingFloors")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", "ApprBuildingFloors")
                         .WithMany("ApprBuildingFloorDetails")
                         .HasForeignKey("ApprBuildingFloorGuid")
@@ -8861,9 +8375,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", "ApprBuildingTemplates")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", "ApprBuildingTemplates")
                         .WithMany("ApprBuildingFloors")
                         .HasForeignKey("ApprBuildingTemplateGuid")
@@ -8874,9 +8386,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -8884,76 +8394,61 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ArchitectShapeFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ArchitectShapeFK")
                         .WithMany()
                         .HasForeignKey("ArchitectShape");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "BuildingConditionFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "BuildingConditionFK")
                         .WithMany()
                         .HasForeignKey("BuildingCondition");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "CleanWaterFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "CleanWaterFK")
                         .WithMany()
                         .HasForeignKey("CleanWater");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ElectricConnFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ElectricConnFK")
                         .WithMany()
                         .HasForeignKey("ElectricConn");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FenceFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FenceFK")
                         .WithMany()
                         .HasForeignKey("Fence");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FloorFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FloorFK")
                         .WithMany()
                         .HasForeignKey("Floor");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FoundationFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FoundationFK")
                         .WithMany()
                         .HasForeignKey("Foundation");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "InnerWallFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "InnerWallFK")
                         .WithMany()
                         .HasForeignKey("InnerWall");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "PhoneFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "PhoneFK")
                         .WithMany()
                         .HasForeignKey("Phone");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "PlafondFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "PlafondFK")
                         .WithMany()
                         .HasForeignKey("Plafond");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "RoofFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "RoofFK")
                         .WithMany()
                         .HasForeignKey("Roof");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "RoofTrussFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "RoofTrussFK")
                         .WithMany()
                         .HasForeignKey("RoofTruss");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "SillsFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "SillsFK")
                         .WithMany()
                         .HasForeignKey("Sills");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "WallFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "WallFK")
                         .WithMany()
                         .HasForeignKey("Wall");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "YardConditionFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "YardConditionFK")
                         .WithMany()
                         .HasForeignKey("YardCondition");
@@ -8992,9 +8487,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprChecklistReview", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprChecklistReview", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9005,14 +8498,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLandTemplates", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLandTemplates", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                         .WithMany()
                         .HasForeignKey("AddressReference");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9020,151 +8510,121 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ArrangementFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ArrangementFK")
                         .WithMany()
                         .HasForeignKey("Arrangement");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "CertificateTypeFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "CertificateTypeFK")
                         .WithMany()
                         .HasForeignKey("CertificateType");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ChangeToFutureFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ChangeToFutureFK")
                         .WithMany()
                         .HasForeignKey("ChangeToFuture");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "DrainaseTypeFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "DrainaseTypeFK")
                         .WithMany()
                         .HasForeignKey("DrainaseType");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EntranceWayTypeFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EntranceWayTypeFK")
                         .WithMany()
                         .HasForeignKey("EntranceWayType");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvCrimeSecurityFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvCrimeSecurityFK")
                         .WithMany()
                         .HasForeignKey("EnvCrimeSecurity");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvDensityFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvDensityFK")
                         .WithMany()
                         .HasForeignKey("EnvDensity");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvDisasterSafetyFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvDisasterSafetyFK")
                         .WithMany()
                         .HasForeignKey("EnvDisasterSafety");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvEaseOfAccessFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvEaseOfAccessFK")
                         .WithMany()
                         .HasForeignKey("EnvEaseOfAccess");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvFireSafetyFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvFireSafetyFK")
                         .WithMany()
                         .HasForeignKey("EnvFireSafety");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvGrowthFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvGrowthFK")
                         .WithMany()
                         .HasForeignKey("EnvGrowth");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvLandPriceFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvLandPriceFK")
                         .WithMany()
                         .HasForeignKey("EnvLandPrice");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvLocationFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvLocationFK")
                         .WithMany()
                         .HasForeignKey("EnvLocation");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvRecreationalFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvRecreationalFK")
                         .WithMany()
                         .HasForeignKey("EnvRecreational");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvSchoolFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvSchoolFK")
                         .WithMany()
                         .HasForeignKey("EnvSchool");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvShoppingFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvShoppingFK")
                         .WithMany()
                         .HasForeignKey("EnvShopping");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvTransportFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvTransportFK")
                         .WithMany()
                         .HasForeignKey("EnvTransport");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvironmentWayTypeFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "EnvironmentWayTypeFK")
                         .WithMany()
                         .HasForeignKey("EnvironmentWayType");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FireRiskFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FireRiskFK")
                         .WithMany()
                         .HasForeignKey("FireRisk");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FloodRiskFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "FloodRiskFK")
                         .WithMany()
                         .HasForeignKey("FloodRisk");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "GreeningFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "GreeningFK")
                         .WithMany()
                         .HasForeignKey("Greening");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "HighVoltageFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "HighVoltageFK")
                         .WithMany()
                         .HasForeignKey("HighVoltage");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandShapeFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandShapeFK")
                         .WithMany()
                         .HasForeignKey("LandShape");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandTypeFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandTypeFK")
                         .WithMany()
                         .HasForeignKey("LandType");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ResidentialMajorityFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ResidentialMajorityFK")
                         .WithMany()
                         .HasForeignKey("ResidentialMajority");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "SidewalkFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "SidewalkFK")
                         .WithMany()
                         .HasForeignKey("Sidewalk");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "SkewerFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "SkewerFK")
                         .WithMany()
                         .HasForeignKey("Skewer");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "StreetLightFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "StreetLightFK")
                         .WithMany()
                         .HasForeignKey("StreetLight");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TopografiFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TopografiFK")
                         .WithMany()
                         .HasForeignKey("Topografi");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "WaterDisposalFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "WaterDisposalFK")
                         .WithMany()
                         .HasForeignKey("WaterDisposal");
@@ -9235,9 +8695,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLiquidation", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprLiquidation", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9245,11 +8703,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidationOption", "MLiquidationOption")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidationOption", "MLiquidationOption")
                         .WithMany("ApprLiquidations")
                         .HasForeignKey("LiquidationOption");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidationItem", "MLiquidationItem")
                     b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidationItem", "MLiquidationItem")
                         .WithMany("ApprLiquidations")
                         .HasForeignKey("LiquidationType", "LiquidationItem");
@@ -9262,16 +8718,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                         .WithMany()
                         .HasForeignKey("WilayahVillageCode");
@@ -9282,16 +8735,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprProductiveLandTemplate", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprProductiveLandTemplate", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -9302,9 +8752,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprReceivableVerification", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprReceivableVerification", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9315,9 +8763,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleNote", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleNote", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", "VehicleTemplate")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", "VehicleTemplate")
                         .WithMany()
                         .HasForeignKey("ApprVehicleTemplateGuid")
@@ -9328,9 +8774,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9341,29 +8785,23 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildings", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildings", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                         .WithMany()
                         .HasForeignKey("AddressReference");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", "ApprBuildingTemplates")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", "ApprBuildingTemplates")
                         .WithMany()
                         .HasForeignKey("ApprBuildingTemplateGuid");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprLandTemplates", "ApprLandTemplates")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprLandTemplates", "ApprLandTemplates")
                         .WithMany()
                         .HasForeignKey("ApprLandTemplateGuid");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprProductiveLandTemplate", "ApprProductiveLandTemplates")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprProductiveLandTemplate", "ApprProductiveLandTemplates")
                         .WithMany()
                         .HasForeignKey("ApprProductiveLandTemplateGuid");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", "ApprWorkPaperLandBuildingSummaries")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", "ApprWorkPaperLandBuildingSummaries")
                         .WithMany("ApprWorkPaperLandBuildings")
                         .HasForeignKey("ApprWorkPaperLandBuildingSummaryGuid")
@@ -9371,36 +8809,29 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "BuildingCategoryFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "BuildingCategoryFK")
                         .WithMany()
                         .HasForeignKey("BuildingCategory");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandConditionFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandConditionFK")
                         .WithMany()
                         .HasForeignKey("LandCondition");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandDocumentFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandDocumentFK")
                         .WithMany()
                         .HasForeignKey("LandDocument");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandFormFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandFormFK")
                         .WithMany()
                         .HasForeignKey("LandForm");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandPositionFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandPositionFK")
                         .WithMany()
                         .HasForeignKey("LandPosition");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "OfferFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "OfferFK")
                         .WithMany()
                         .HasForeignKey("Offer");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TopografiFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TopografiFK")
                         .WithMany()
                         .HasForeignKey("Topografi");
@@ -9431,9 +8862,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9444,14 +8873,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineCost", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineCost", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", "MachineTemplate")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", "MachineTemplate")
                         .WithMany()
                         .HasForeignKey("ApprMachineTemplateGuid");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", "ApprWorkPaperMachineMarketSummaries")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", "ApprWorkPaperMachineMarketSummaries")
                         .WithMany("ApprWorkPaperMachineCosts")
                         .HasForeignKey("ApprWorkPaperMachineMarketSummaryGuid")
@@ -9464,26 +8890,21 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarkets", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarkets", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                         .WithMany()
                         .HasForeignKey("AddressReference");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", "MachineTemplate")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprMachineTemplate", "MachineTemplate")
                         .WithMany()
                         .HasForeignKey("ApprMachineTemplateGuid");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", "ApprWorkPaperMachineMarketSummaries")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", "ApprWorkPaperMachineMarketSummaries")
                         .WithMany("ApprWorkPaperMachineMarkets")
                         .HasForeignKey("ApprWorkPaperMachineMarketSummaryGuid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TransactionOfferFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TransactionOfferFK")
                         .WithMany()
                         .HasForeignKey("TransactionOffer");
@@ -9498,16 +8919,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ApproachTypeFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ApproachTypeFK")
                         .WithMany()
                         .HasForeignKey("ApproachType");
@@ -9518,24 +8936,19 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartments", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartments", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                         .WithMany()
                         .HasForeignKey("AddressReference");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "AllotmentFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "AllotmentFK")
                         .WithMany()
                         .HasForeignKey("Allotment");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", "ApprBuildingTemplates")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", "ApprBuildingTemplates")
                         .WithMany()
                         .HasForeignKey("ApprBuildingTemplateGuid");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", "ApprWorkPaperShopApartmentSummaries")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", "ApprWorkPaperShopApartmentSummaries")
                         .WithMany("ApprWorkPaperShopApartments")
                         .HasForeignKey("ApprWorkPaperShopApartmentSummaryGuid")
@@ -9543,21 +8956,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "DataTypeFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "DataTypeFK")
                         .WithMany()
                         .HasForeignKey("DataType");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandConditionFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandConditionFK")
                         .WithMany()
                         .HasForeignKey("LandCondition");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandFormFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "LandFormFK")
                         .WithMany()
                         .HasForeignKey("LandForm");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "OwnershipFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "OwnershipFK")
                         .WithMany()
                         .HasForeignKey("Ownership");
@@ -9580,9 +8989,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9593,19 +9000,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicles", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicles", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahVillages", "WilayahVillages")
                         .WithMany()
                         .HasForeignKey("AddressReference");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", "ApprVehicleTemplate")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprVehicleTemplate", "ApprVehicleTemplate")
                         .WithMany()
                         .HasForeignKey("ApprVehicleTemplateGuid");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", "ApprWorkPaperVehicleSummaries")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", "ApprWorkPaperVehicleSummaries")
                         .WithMany("ApprWorkPaperVehicles")
                         .HasForeignKey("ApprWorkPaperVehicleSummaryGuid")
@@ -9613,11 +9016,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "DataTypeFK")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "DataTypeFK")
                         .WithMany()
                         .HasForeignKey("DataType");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TransmissionFK")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "TransmissionFK")
                         .WithMany()
                         .HasForeignKey("Transmission");
@@ -9634,9 +9035,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid")
@@ -9647,34 +9046,27 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Debtor", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Debtor", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
                         .WithMany()
                         .HasForeignKey("EducationId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
                         .WithMany()
                         .HasForeignKey("GenderId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                         .WithMany()
                         .HasForeignKey("JobCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("MaritalStatusId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfResidenceStatus")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfResidenceStatus")
                         .WithMany()
                         .HasForeignKey("ResidenceStatusId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -9693,9 +9085,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompany", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompany", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -9704,12 +9094,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompanyLegal", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompanyLegal", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.DebtorCompany", "DebtorCompany")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.DebtorCompany", "DebtorCompany")
                         .WithOne("DebtorCompanyLegal")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.DebtorCompanyLegal", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.DebtorCompanyLegal", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -9718,22 +9105,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCouple", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCouple", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.Debtor", "Debtor")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Debtor", "Debtor")
                         .WithOne("DebtorCouple")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.DebtorCouple", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.DebtorCouple", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                         .WithMany()
                         .HasForeignKey("JobCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -9746,17 +9128,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorEmergency", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorEmergency", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithOne("DebtorEmergency")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.DebtorEmergency", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.DebtorEmergency", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
@@ -9769,24 +9147,19 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Document", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Document", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", "LoanApplicationAppraisal")
                         .WithMany()
                         .HasForeignKey("AppraisalGuid");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfDocument", "RfDocument")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfDocument", "RfDocument")
                         .WithMany()
                         .HasForeignKey("DocumentId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfDocumentStatus")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfDocumentStatus")
                         .WithMany()
                         .HasForeignKey("DocumentStatusId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany()
                         .HasForeignKey("LoanApplicationId")
@@ -9803,16 +9176,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DocumentFileUrl", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DocumentFileUrl", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Document", "Document")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Document", "Document")
                         .WithMany("Files")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.FileUrl", "FileUrl")
                     b.HasOne("NewLMS.Umkm.Data.Entities.FileUrl", "FileUrl")
                         .WithMany()
                         .HasForeignKey("FileUrlId")
@@ -9833,7 +9203,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplications")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplications")
                         .WithMany()
                         .HasForeignKey("LoanApplicationGuid")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -9845,38 +9214,31 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplication", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplication", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "RfBookingBranch")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "RfBookingBranch")
                         .WithMany()
                         .HasForeignKey("BookingBranchId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "RfBranch")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "RfBranch")
                         .WithMany()
                         .HasForeignKey("BranchId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfBusinessCycle")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfBusinessCycle")
                         .WithMany()
                         .HasForeignKey("BusinessCycleId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.DebtorCompany", "DebtorCompany")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.DebtorCompany", "DebtorCompany")
                         .WithMany()
                         .HasForeignKey("DebtorCompanyId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.Debtor", "Debtor")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Debtor", "Debtor")
                         .WithMany()
                         .HasForeignKey("DebtorId");
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "DecisionMaker")
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfDecisionMaker", "DecisionMaker")
                         .WithMany()
                         .HasForeignKey("DecisionMakerId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOwnerCategory")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOwnerCategory")
                         .WithMany()
                         .HasForeignKey("OwnerCategoryId")
@@ -9884,16 +9246,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.User", "Owner")
-                    b.HasOne("NewLMS.Umkm.Data.User", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Prospect", "Prospect")
                     b.HasOne("NewLMS.Umkm.Data.Entities.Prospect", "Prospect")
                         .WithMany()
                         .HasForeignKey("ProspectId")
@@ -9901,11 +9260,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("RfSectorLBU3Code");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
                         .WithMany()
                         .HasForeignKey("StageId")
@@ -9938,9 +9295,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
                         .WithMany()
                         .HasForeignKey("LoanApplicationCollateralId")
@@ -9948,13 +9303,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany()
                         .HasForeignKey("LoanApplicationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
                         .WithMany()
                         .HasForeignKey("StageId")
@@ -9969,19 +9322,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                         .WithMany()
                         .HasForeignKey("CollateralBCId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfDocument", "RfDocument")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfDocument", "RfDocument")
                         .WithMany()
                         .HasForeignKey("DocumentCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany("LoanApplicationCollaterals")
                         .HasForeignKey("LoanApplicationId")
@@ -9989,26 +9338,21 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfTransportationType", "RfTransportationType")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfTransportationType", "RfTransportationType")
                         .WithMany()
                         .HasForeignKey("TransportationTypeCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehClass", "RfVehClass")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehClass", "RfVehClass")
                         .WithMany()
                         .HasForeignKey("VehClassCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehMaker", "RfVehMaker")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehMaker", "RfVehMaker")
                         .WithMany()
                         .HasForeignKey("VehMakerCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehModel", "RfVehModel")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehModel", "RfVehModel")
                         .WithMany()
                         .HasForeignKey("VehModelCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
@@ -10033,32 +9377,25 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateralOwner", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateralOwner", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
                         .WithOne("LoanApplicationCollateralOwner")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationCollateralOwner", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationCollateralOwner", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("OwnerMaritalId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfRelationCollateral")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfRelationCollateral")
                         .WithMany()
                         .HasForeignKey("RelationCollateralId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCodeOwnerCouple")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCodeOwnerCouple")
                         .WithMany()
                         .HasForeignKey("RfZipCodeIdOwnerCouple");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
@@ -10077,17 +9414,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithOne("LoanApplicationCreditScoring")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoAverageAccBalance")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoAverageAccBalance")
                         .WithMany()
                         .HasForeignKey("ScoAverageAccBalanceId")
@@ -10095,13 +9428,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoBJBCreditHistory")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoBJBCreditHistory")
                         .WithMany()
                         .HasForeignKey("ScoBJBCreditHistoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoBankRelation")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoBankRelation")
                         .WithMany()
                         .HasForeignKey("ScoBankRelationId")
@@ -10109,13 +9440,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoBusinesLocation")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoBusinesLocation")
                         .WithMany()
                         .HasForeignKey("ScoBusinesLocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoCollateral")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoCollateral")
                         .WithMany()
                         .HasForeignKey("ScoCollateralId")
@@ -10123,18 +9452,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoFinanceManager")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoFinanceManager")
                         .WithMany()
                         .HasForeignKey("ScoFinanceManagerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoMonthlyMutation")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoMonthlyMutation")
                         .WithMany()
                         .HasForeignKey("ScoMonthlyMutationId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoNeedLevel")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoNeedLevel")
                         .WithMany()
                         .HasForeignKey("ScoNeedLevelId")
@@ -10142,20 +9468,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoOtherPartyDebt")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoOtherPartyDebt")
                         .WithMany()
                         .HasForeignKey("ScoOtherPartyDebtId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoResidentialReputation")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoResidentialReputation")
                         .WithMany()
                         .HasForeignKey("ScoResidentialReputationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoTransacMethod")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ScoTransacMethod")
                         .WithMany()
                         .HasForeignKey("ScoTransacMethodId")
@@ -10188,9 +9511,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFacility", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFacility", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ApplicationType")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ApplicationType")
                         .WithMany()
                         .HasForeignKey("ApplicationTypeId")
@@ -10198,18 +9519,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany("LoanApplicationFacilities")
                         .HasForeignKey("LoanApplicationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfLoanPurpose", "LoanPurpose")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfLoanPurpose", "LoanPurpose")
                         .WithMany()
                         .HasForeignKey("LoanPurposeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "NatureOfCredit")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "NatureOfCredit")
                         .WithMany()
                         .HasForeignKey("NatureOfCreditId")
@@ -10217,21 +9535,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfPlacementCountry", "RfPlacementCountry")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfPlacementCountry", "RfPlacementCountry")
                         .WithMany()
                         .HasForeignKey("PlacementCountryCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("SectorLBU3Code");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSubProduct", "RfSubProduct")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSubProduct", "RfSubProduct")
                         .WithMany()
                         .HasForeignKey("SubProductId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfTenor", "RfTenor")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfTenor", "RfTenor")
                         .WithMany()
                         .HasForeignKey("TenorCode");
@@ -10253,66 +9567,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfTenor");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFieldSurvey", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessFieldKUR", "BusinessFieldKUR")
-                        .WithMany()
-                        .HasForeignKey("BusinessFieldKURId");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "BusinessLocationStatus")
-                        .WithMany()
-                        .HasForeignKey("BusinessLocationStatusId");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithOne("LoanApplicationFieldSurvey")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationFieldSurvey", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "OwnerCategory")
-                        .WithMany()
-                        .HasForeignKey("OwnerCategoryId");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RelationsWithDebtors")
-                        .WithMany()
-                        .HasForeignKey("RelationsWithDebtorsId");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
-                        .WithMany()
-                        .HasForeignKey("ZipCodeId");
-
-                    b.Navigation("BusinessFieldKUR");
-
-                    b.Navigation("BusinessLocationStatus");
-
-                    b.Navigation("LoanApplication");
-
-                    b.Navigation("OwnerCategory");
-
-                    b.Navigation("RelationsWithDebtors");
-
-                    b.Navigation("RfZipCode");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFieldSurveyDetail", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithMany()
-                        .HasForeignKey("LoanApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "PaymentMethod")
-                        .WithMany()
-                        .HasForeignKey("PaymentMethodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoanApplication");
-
-                    b.Navigation("PaymentMethod");
-                });
-
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationKeyPerson", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
@@ -10320,18 +9574,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasForeignKey("EducationId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany("LoanApplicationKeyPersons")
                         .HasForeignKey("LoanApplicationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("MaritalStatusId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId")
@@ -10348,12 +9599,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationRAC", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationRAC", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithOne("LoanApplicationRAC")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationRAC", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationRAC", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -10362,9 +9610,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationStage", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationStage", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany("LoanApplicationStages")
                         .HasForeignKey("LoanApplicationId")
@@ -10372,21 +9618,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Role", "OwnerRole")
-                    b.HasOne("NewLMS.Umkm.Data.Role", "OwnerRole")
                         .WithMany()
                         .HasForeignKey("OwnerRoleId");
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "OwnerUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "OwnerUser")
                         .WithMany()
                         .HasForeignKey("OwnerUserId");
 
                     b.HasOne("NewLMS.Umkm.Data.User", "ProcessedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "ProcessedByUser")
                         .WithMany()
                         .HasForeignKey("ProcessedBy");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
                         .WithMany()
                         .HasForeignKey("StageId")
@@ -10404,58 +9646,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfStage");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationBusiness", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", "BusinessPlaceOwnership")
-                        .WithMany()
-                        .HasForeignKey("BusinessOwnershipCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithOne("LoanApplicationVerificationBusiness")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationBusiness", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "OldBusinessLocation")
-                        .WithMany()
-                        .HasForeignKey("OldBusinessLocationCode");
-
-                    b.Navigation("BusinessPlaceOwnership");
-
-                    b.Navigation("LoanApplication");
-
-                    b.Navigation("OldBusinessLocation");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationCycle", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "BusinessCapacity")
-                        .WithMany()
-                        .HasForeignKey("BusinessCapacityCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "BusinessLandArea")
-                        .WithMany()
-                        .HasForeignKey("BusinessLandAreaCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "BusinessLandForm")
-                        .WithMany()
-                        .HasForeignKey("BusinessLandFormCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BusinessCapacity");
-
-                    b.Navigation("BusinessLandArea");
-
-                    b.Navigation("BusinessLandForm");
-
-                    b.Navigation("LoanApplication");
-                });
-
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationCondition", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidation", "MLiquidation")
@@ -10468,9 +9658,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationItem", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationItem", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidation", "MLiquidation")
                     b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidation", "MLiquidation")
                         .WithMany("MLiquidationItems")
                         .HasForeignKey("TypeId")
@@ -10481,9 +9669,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationOption", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationOption", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidationItem", "MLiquidationItem")
                     b.HasOne("NewLMS.Umkm.Data.Entities.MLiquidationItem", "MLiquidationItem")
                         .WithMany("MLiquidationOptions")
                         .HasForeignKey("TypeId", "ItemId");
@@ -10492,9 +9678,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Parameters", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Parameters", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.ParameterGroups", "ParameterGroups")
                     b.HasOne("NewLMS.Umkm.Data.Entities.ParameterGroups", "ParameterGroups")
                         .WithMany()
                         .HasForeignKey("ParameterGroupGuid")
@@ -10505,74 +9689,59 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Prospect", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Prospect", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfApplicationType")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfApplicationType")
                         .WithMany()
                         .HasForeignKey("ApplicationTypeId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "RfBranch")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "RfBranch")
                         .WithMany()
                         .HasForeignKey("BranchId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfCategory")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfCategory")
                         .WithMany()
                         .HasForeignKey("CategoryId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfCompanyGroup")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfCompanyGroup")
                         .WithMany()
                         .HasForeignKey("CompanyGroupId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfCompanyStatus")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfCompanyStatus")
                         .WithMany()
                         .HasForeignKey("CompanyStatusId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfCompanyType", "RfCompanyType")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCompanyType", "RfCompanyType")
                         .WithMany()
                         .HasForeignKey("CompanyTypeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfCompanyZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfCompanyZipCode")
                         .WithMany()
                         .HasForeignKey("CompanyZipCodeId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
                         .WithMany()
                         .HasForeignKey("GenderId");
 
-                    b.HasOne("NewLMS.Umkm.Data.RfInstituteCode", "RfInstituteCode")
                     b.HasOne("NewLMS.Umkm.Data.RfInstituteCode", "RfInstituteCode")
                         .WithMany()
                         .HasForeignKey("InstituteCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOwnerCategory")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOwnerCategory")
                         .WithMany()
                         .HasForeignKey("OwnerCategoryId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfPlaceZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfPlaceZipCode")
                         .WithMany()
                         .HasForeignKey("PlaceZipCodeId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("SectorLBU3Code");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "RfZipCode")
                         .WithMany()
                         .HasForeignKey("ZipCodeId");
@@ -10607,9 +9776,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceLocation", "RfBusinessPlaceLocation")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceLocation", "RfBusinessPlaceLocation")
                         .WithMany()
                         .HasForeignKey("BusinessPlaceLocationCode");
@@ -10618,9 +9785,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCompanyType", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfCompanyType", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ParamCompanyGroup")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ParamCompanyGroup")
                         .WithMany()
                         .HasForeignKey("CompanyGroupId");
@@ -10629,9 +9794,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionLetter", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDecisionLetter", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfDecisionLeterType", "RfDecisionLeterType")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfDecisionLeterType", "RfDecisionLeterType")
                         .WithMany()
                         .HasForeignKey("DecisionLeterTypeCode");
@@ -10640,14 +9803,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocumentCollateral", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocumentCollateral", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                         .WithMany()
                         .HasForeignKey("CollateralCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfDocument", "RfDocument")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfDocument", "RfDocument")
                         .WithMany()
                         .HasForeignKey("DocumentCode");
@@ -10658,9 +9818,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfJob", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfJob", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -10669,14 +9827,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingCollateral", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingCollateral", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                         .WithMany()
                         .HasForeignKey("CollateralCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -10687,29 +9842,23 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingTenor", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfMappingTenor", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfLoanPurpose", "RfLoanPurpose")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfLoanPurpose", "RfLoanPurpose")
                         .WithMany()
                         .HasForeignKey("LoanPurposeCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ParamApplicationType")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "ParamApplicationType")
                         .WithMany()
                         .HasForeignKey("ParamApplicationTypeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSubProduct", "RfSubProduct")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSubProduct", "RfSubProduct")
                         .WithMany()
                         .HasForeignKey("SubProductId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfTenor", "RfTenor")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfTenor", "RfTenor")
                         .WithMany()
                         .HasForeignKey("TenorCode");
@@ -10726,9 +9875,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameterDetail", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameterDetail", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameter", "RfParameter")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameter", "RfParameter")
                         .WithMany("RfParameterDetails")
                         .HasForeignKey("ParameterId")
@@ -10739,9 +9886,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSandiBI", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSandiBI", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSandiBIGroup", "RfSandiBIGroup")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSandiBIGroup", "RfSandiBIGroup")
                         .WithMany()
                         .HasForeignKey("BIGroup")
@@ -10752,9 +9897,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfScPosition", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfScPosition", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfDecisionLetter", "RfDecisionLetter")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfDecisionLetter", "RfDecisionLetter")
                         .WithMany()
                         .HasForeignKey("DecisionLeterCode");
@@ -10763,9 +9906,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU2", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU2", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU1", "RfSectorLBU1")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU1", "RfSectorLBU1")
                         .WithMany("RfSectorLBU2s")
                         .HasForeignKey("RfSectorLBU1Code");
@@ -10774,9 +9915,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU3", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU3", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU2", "RfSectorLBU2")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU2", "RfSectorLBU2")
                         .WithMany("RfSectorLBU3s")
                         .HasForeignKey("RfSectorLBU2Code");
@@ -10785,14 +9924,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSubProduct", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSubProduct", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfLoanPurpose", "RfLoanPurpose")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfLoanPurpose", "RfLoanPurpose")
                         .WithMany()
                         .HasForeignKey("LoanPurposeCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -10803,9 +9939,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfTenor", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfTenor", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -10814,19 +9948,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehClass", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehClass", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehType", "RfVehType")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehType", "RfVehType")
                         .WithMany()
                         .HasForeignKey("VehCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehMaker", "RfVehMaker")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehMaker", "RfVehMaker")
                         .WithMany()
                         .HasForeignKey("VehMakerCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehModel", "RfVehModel")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehModel", "RfVehModel")
                         .WithMany()
                         .HasForeignKey("VehModelCode");
@@ -10839,19 +9969,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehMaker", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfVehMaker", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfCollateralBC", "RfCollateralBC")
                         .WithMany()
                         .HasForeignKey("CollateralCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehType", "RfVehType")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehType", "RfVehType")
                         .WithMany()
                         .HasForeignKey("VehCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfVehCountry", "RfVehCountry")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfVehCountry", "RfVehCountry")
                         .WithMany()
                         .HasForeignKey("VehCountryCode");
@@ -10864,9 +9990,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKP", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKP", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany()
                         .HasForeignKey("Id")
@@ -10877,53 +10001,42 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPRequest", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPRequest", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfLinkAge", "DebtorCompanyRfLinkage")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfLinkAge", "DebtorCompanyRfLinkage")
                         .WithMany()
                         .HasForeignKey("DebtorCompanyLingkageId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorCompanyRfZipCode")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorCompanyRfZipCode")
                         .WithMany()
                         .HasForeignKey("DebtorCompanyRfZipCodeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
                         .WithMany()
                         .HasForeignKey("DebtorEducationId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
                         .WithMany()
                         .HasForeignKey("DebtorGenderId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                         .WithMany()
                         .HasForeignKey("DebtorJobId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("DebtorMaritalStatusId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("DebtorSectorLBU3Code");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorRfZipCode")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorRfZipCode")
                         .WithMany()
                         .HasForeignKey("DebtorZipCodeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.SIKP", "SIKP")
                     b.HasOne("NewLMS.Umkm.Data.Entities.SIKP", "SIKP")
                         .WithOne("SIKPRequest")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.SIKPRequest", "Id")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.SIKPRequest", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -10947,52 +10060,41 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPResponse", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKPResponse", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfLinkAge", "DebtorCompanyRfLinkage")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfLinkAge", "DebtorCompanyRfLinkage")
                         .WithMany()
                         .HasForeignKey("DebtorCompanyLingkageId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorCompanyRfZipCode")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorCompanyRfZipCode")
                         .WithMany()
                         .HasForeignKey("DebtorCompanyRfZipCodeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfEducation", "RfEducation")
                         .WithMany()
                         .HasForeignKey("DebtorEducationId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfGender", "RfGender")
                         .WithMany()
                         .HasForeignKey("DebtorGenderId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfJob", "RfJob")
                         .WithMany()
                         .HasForeignKey("DebtorJobId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfMarital", "RfMarital")
                         .WithMany()
                         .HasForeignKey("DebtorMaritalStatusId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSectorLBU3", "RfSectorLBU3")
                         .WithMany()
                         .HasForeignKey("DebtorSectorLBU3Code");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorRfZipCode")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfZipCode", "DebtorRfZipCode")
                         .WithMany()
                         .HasForeignKey("DebtorZipCodeId");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.SIKP", "SIKP")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.SIKP", "SIKP")
                         .WithOne("SIKPResponse")
-                        .HasForeignKey("NewLMS.Umkm.Data.Entities.SIKPResponse", "Id")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.SIKPResponse", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -11017,9 +10119,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SLIKRequestDebtor", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SLIKRequestDebtor", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfSLIKDebtorType")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfSLIKDebtorType")
                         .WithMany()
                         .HasForeignKey("SLIKDebtorType")
@@ -11027,11 +10127,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.FileUrl", "FileUrl")
-                    b.HasOne("NewLMS.Umkm.Data.Entities.FileUrl", "FileUrl")
                         .WithMany()
                         .HasForeignKey("SLIKDocumentUrlId");
 
-                    b.HasOne("NewLMS.Umkm.Data.SLIKRequest", "SLIKRequest")
                     b.HasOne("NewLMS.Umkm.Data.SLIKRequest", "SLIKRequest")
                         .WithMany("SLIKRequestDebtors")
                         .HasForeignKey("SLIKRequestId")
@@ -11046,9 +10144,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.UserDevice", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.UserDevice", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "User")
                     b.HasOne("NewLMS.Umkm.Data.User", "User")
                         .WithMany("UserDevices")
                         .HasForeignKey("UserId")
@@ -11059,9 +10155,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahDistricts", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahDistricts", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahRegencies", "WilayahRegencies")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahRegencies", "WilayahRegencies")
                         .WithMany()
                         .HasForeignKey("ParentCode");
@@ -11070,9 +10164,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahRegencies", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahRegencies", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahProvinces", "WilayahProvinces")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahProvinces", "WilayahProvinces")
                         .WithMany()
                         .HasForeignKey("ParentCode");
@@ -11081,9 +10173,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahVillages", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.WilayahVillages", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.WilayahDistricts", "WilayahDistricts")
                     b.HasOne("NewLMS.Umkm.Data.Entities.WilayahDistricts", "WilayahDistricts")
                         .WithMany()
                         .HasForeignKey("ParentCode");
@@ -11092,9 +10182,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.LogSendCallbackThirdParty", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.LogSendCallbackThirdParty", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.ThridParty", "ThridParty")
                     b.HasOne("NewLMS.Umkm.Data.ThridParty", "ThridParty")
                         .WithMany("LogSendCallbackThirdParties")
                         .HasForeignKey("ThridPartyName");
@@ -11103,9 +10191,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Page", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Page", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
@@ -11113,12 +10199,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
                         .WithMany()
                         .HasForeignKey("DeletedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                         .WithMany()
                         .HasForeignKey("ModifiedBy")
@@ -11132,9 +10216,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.PageAction", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.PageAction", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Action", "Action")
                     b.HasOne("NewLMS.Umkm.Data.Action", "Action")
                         .WithMany()
                         .HasForeignKey("ActionId")
@@ -11142,25 +10224,21 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
                         .WithMany()
                         .HasForeignKey("DeletedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                         .WithMany()
                         .HasForeignKey("ModifiedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("NewLMS.Umkm.Data.Page", "Page")
                     b.HasOne("NewLMS.Umkm.Data.Page", "Page")
                         .WithMany()
                         .HasForeignKey("PageId")
@@ -11179,21 +10257,17 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Role", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Role", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
-                    b.HasOne("NewLMS.Umkm.Data.User", "DeletedByUser")
                         .WithMany()
                         .HasForeignKey("DeletedBy")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                     b.HasOne("NewLMS.Umkm.Data.User", "ModifiedByUser")
                         .WithMany()
                         .HasForeignKey("ModifiedBy")
@@ -11208,9 +10282,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.RoleClaim", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.RoleClaim", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Action", "Action")
                     b.HasOne("NewLMS.Umkm.Data.Action", "Action")
                         .WithMany()
                         .HasForeignKey("ActionId")
@@ -11218,13 +10290,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Page", "Page")
-                    b.HasOne("NewLMS.Umkm.Data.Page", "Page")
                         .WithMany()
                         .HasForeignKey("PageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Role", "Role")
                     b.HasOne("NewLMS.Umkm.Data.Role", "Role")
                         .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
@@ -11239,35 +10309,24 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.SLIKRequest", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.SLIKRequest", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "Branch")
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfBranch", "Branch")
                         .WithMany()
                         .HasForeignKey("BranchCode");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithMany()
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfStage", "RfStage")
-                        .WithMany()
-                        .HasForeignKey("StageId");
-
                     b.Navigation("Branch");
 
                     b.Navigation("LoanApplication");
-
-                    b.Navigation("RfStage");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserAllowedIP", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserAllowedIP", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "User")
                     b.HasOne("NewLMS.Umkm.Data.User", "User")
                         .WithMany("UserAllowedIPs")
                         .HasForeignKey("UserId")
@@ -11278,9 +10337,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserClaim", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserClaim", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Action", "Action")
                     b.HasOne("NewLMS.Umkm.Data.Action", "Action")
                         .WithMany()
                         .HasForeignKey("ActionId")
@@ -11288,13 +10345,11 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("NewLMS.Umkm.Data.Page", "Page")
-                    b.HasOne("NewLMS.Umkm.Data.Page", "Page")
                         .WithMany()
                         .HasForeignKey("PageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "User")
                     b.HasOne("NewLMS.Umkm.Data.User", "User")
                         .WithMany("UserClaims")
                         .HasForeignKey("UserId")
@@ -11309,9 +10364,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserLogin", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserLogin", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "User")
                     b.HasOne("NewLMS.Umkm.Data.User", "User")
                         .WithMany("UserLogins")
                         .HasForeignKey("UserId")
@@ -11322,16 +10375,13 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserRole", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserRole", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Role", "Role")
                     b.HasOne("NewLMS.Umkm.Data.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.User", "User")
                     b.HasOne("NewLMS.Umkm.Data.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
@@ -11344,9 +10394,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.UserToken", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.UserToken", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.User", "User")
                     b.HasOne("NewLMS.Umkm.Data.User", "User")
                         .WithMany("UserTokens")
                         .HasForeignKey("UserId")
@@ -11357,24 +10405,20 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingFloors", b =>
                 {
                     b.Navigation("ApprBuildingFloorDetails");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprBuildingTemplates", b =>
                 {
                     b.Navigation("ApprBuildingFloors");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildingSummaries", b =>
                 {
                     b.Navigation("ApprWorkPaperLandBuildings");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperMachineMarketSummaries", b =>
                 {
                     b.Navigation("ApprWorkPaperMachineCosts");
@@ -11383,36 +10427,30 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperShopApartmentSummaries", b =>
                 {
                     b.Navigation("ApprWorkPaperShopApartments");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperVehicleSummaries", b =>
                 {
                     b.Navigation("ApprWorkPaperVehicles");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Debtor", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Debtor", b =>
                 {
                     b.Navigation("DebtorCouple");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompany", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.DebtorCompany", b =>
                 {
                     b.Navigation("DebtorCompanyLegal");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Document", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.Document", b =>
                 {
                     b.Navigation("Files");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplication", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplication", b =>
                 {
                     b.Navigation("DebtorEmergency");
@@ -11423,24 +10461,18 @@ namespace NewLMS.Umkm.Domain.Migrations
 
                     b.Navigation("LoanApplicationFacilities");
 
-                    b.Navigation("LoanApplicationFieldSurvey");
-
                     b.Navigation("LoanApplicationKeyPersons");
 
                     b.Navigation("LoanApplicationRAC");
 
                     b.Navigation("LoanApplicationStages");
-
-                    b.Navigation("LoanApplicationVerificationBusiness");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
                 {
                     b.Navigation("LoanApplicationCollateralOwner");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidation", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidation", b =>
                 {
                     b.Navigation("MLiquidationConditions");
@@ -11449,7 +10481,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationItem", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationItem", b =>
                 {
                     b.Navigation("ApprLiquidations");
 
@@ -11457,30 +10488,25 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationOption", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MLiquidationOption", b =>
                 {
                     b.Navigation("ApprLiquidations");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameter", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfParameter", b =>
                 {
                     b.Navigation("RfParameterDetails");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU1", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU1", b =>
                 {
                     b.Navigation("RfSectorLBU2s");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU2", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfSectorLBU2", b =>
                 {
                     b.Navigation("RfSectorLBU3s");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKP", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.SIKP", b =>
                 {
                     b.Navigation("SIKPRequest");
@@ -11489,7 +10515,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Role", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.Role", b =>
                 {
                     b.Navigation("RoleClaims");
 
@@ -11497,18 +10522,15 @@ namespace NewLMS.Umkm.Domain.Migrations
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.SLIKRequest", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.SLIKRequest", b =>
                 {
                     b.Navigation("SLIKRequestDebtors");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.ThridParty", b =>
-            modelBuilder.Entity("NewLMS.Umkm.Data.ThridParty", b =>
                 {
                     b.Navigation("LogSendCallbackThirdParties");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.User", b =>
             modelBuilder.Entity("NewLMS.Umkm.Data.User", b =>
                 {
                     b.Navigation("UserAllowedIPs");
