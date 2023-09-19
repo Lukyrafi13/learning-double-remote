@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands
+namespace NewLMS.Umkm.MediatR.Features.RfZipCodes.Commands
 {
     public interface IRfZipCodesUploadJSON
     {

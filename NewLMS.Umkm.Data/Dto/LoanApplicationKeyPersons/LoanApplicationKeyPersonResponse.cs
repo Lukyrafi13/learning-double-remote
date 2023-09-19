@@ -1,9 +1,9 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfEducation;
-using NewLMS.UMKM.Data.Dto.RfMarital;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfEducation;
+using NewLMS.Umkm.Data.Dto.RfMarital;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons
 {
     public class LoanApplicationKeyPersonResponse : BaseResponse
 	{

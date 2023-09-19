@@ -1,8 +1,8 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data.Dto.DebtorCompanyLegal;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.DebtorCompanyLegal;
 
-namespace NewLMS.UMKM.Data.Dto.DebtorCompany
+namespace NewLMS.Umkm.Data.Dto.DebtorCompany
 {
     public class DebtorCompanyResponse : BaseResponse
 	{

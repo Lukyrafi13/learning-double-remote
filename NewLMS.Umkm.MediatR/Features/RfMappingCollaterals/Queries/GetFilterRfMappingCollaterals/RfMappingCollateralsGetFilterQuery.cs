@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfMappingCollateral;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfMappingCollateral;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfMappingCollaterals.Queries.GetFilterRfMappingCollaterals
+namespace NewLMS.Umkm.MediatR.Features.RfMappingCollaterals.Queries.GetFilterRfMappingCollaterals
 {
     public class RfMappingCollateralsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfMappingCollateralResponse>>>
     {

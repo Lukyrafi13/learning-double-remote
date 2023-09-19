@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfJob;
-using NewLMS.UMKM.MediatR.Features.RfJobs.Queries.GetFilterRfJobs;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfJob;
+using NewLMS.Umkm.MediatR.Features.RfJobs.Queries.GetFilterRfJobs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfJob
+namespace NewLMS.Umkm.API.Controllers.RfJob
 {
     public class RfJobController : BaseController
     {

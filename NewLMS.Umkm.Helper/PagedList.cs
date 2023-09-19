@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public class PagedList<T> : List<T>
     {

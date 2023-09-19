@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Exceptions
+namespace NewLMS.Umkm.MediatR.Exceptions
 {
     public class ValidationException : Exception
     {

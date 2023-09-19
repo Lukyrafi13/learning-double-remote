@@ -1,15 +1,15 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands;
-using NewLMS.UMKM.MediatR.Features.RfZipCodes.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.RfZipCodes.Commands;
+using NewLMS.Umkm.MediatR.Features.RfZipCodes.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfZipCode
+namespace NewLMS.Umkm.API.Controllers.RfZipCode
 {
     public class RfZipCodeController : BaseController
     {

@@ -1,13 +1,13 @@
 ﻿using MediatR;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.MediatR.Exceptions;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.MediatR.Exceptions;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret
+namespace NewLMS.Umkm.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret
 {
     public class GetThridPartyByClientIdAndClientSecretQuery : IRequest<bool>
     {

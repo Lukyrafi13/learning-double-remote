@@ -1,9 +1,9 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfMarital;
+using NewLMS.Umkm.Data.Dto.RfMarital;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
 {
     public class LoanApplicationCollateralOwnerResponse : BaseResponse
     {

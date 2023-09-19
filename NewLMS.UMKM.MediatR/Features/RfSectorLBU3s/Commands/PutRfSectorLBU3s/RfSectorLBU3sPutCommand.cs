@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
 using System;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Entities;
 
 namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU3s.Commands
 {

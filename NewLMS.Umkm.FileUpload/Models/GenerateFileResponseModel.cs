@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.FileUpload.Models
+namespace NewLMS.Umkm.FileUpload.Models
 {
     public class GenerateFileResponseModel
     {

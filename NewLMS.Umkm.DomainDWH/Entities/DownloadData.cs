@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Domain.Dwh.Entities
+namespace NewLMS.Umkm.Domain.Dwh.Entities
 {
     public class DownloadData
     {

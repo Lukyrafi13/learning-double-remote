@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfVehModel;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfVehModel;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfVehModels.Queries.GetFilterRfVehModels
+namespace NewLMS.Umkm.MediatR.Features.RfVehModels.Queries.GetFilterRfVehModels
 {
     public class RfVehModelsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfVehModelResponse>>>
     {

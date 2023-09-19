@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfSubProducts;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfSubProducts;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfSubProducts.Queries.GetFilterRfSubProducts
+namespace NewLMS.Umkm.MediatR.Features.RfSubProducts.Queries.GetFilterRfSubProducts
 {
     public class RfSubProductsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfSubProductResponse>>>
     {

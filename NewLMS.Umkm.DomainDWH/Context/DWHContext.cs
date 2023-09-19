@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NewLMS.UMKM.Domain.Dwh.Entities;
+using NewLMS.Umkm.Domain.Dwh.Entities;
 using System;
 
-namespace NewLMS.UMKM.Domain.Dwh.Context
+namespace NewLMS.Umkm.Domain.Dwh.Context
 {
     public class DWHContext : DbContext
     {

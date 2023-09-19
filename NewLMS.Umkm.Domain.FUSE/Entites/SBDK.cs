@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.UMKM.Domain.FUSE.Entites
+namespace NewLMS.Umkm.Domain.FUSE.Entites
 {
     public class SBDK
     {

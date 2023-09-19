@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
-using NewLMS.UMKM.MediatR.Features.RfInstituteCodes.Queries.GetFilterRfInstituteCodes;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfInstituteCodes;
+using NewLMS.Umkm.MediatR.Features.RfInstituteCodes.Queries.GetFilterRfInstituteCodes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfInstituteCode
+namespace NewLMS.Umkm.API.Controllers.RfInstituteCode
 {
     public class RfInstituteCodeController : BaseController
     {

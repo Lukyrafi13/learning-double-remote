@@ -38,8 +38,8 @@
 		<Folder Include="GenericRepository\" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\NewLMS.UMKM.Data\NewLMS.UMKM.Data.csproj" />
-		<ProjectReference Include="..\NewLMS.UMKM.Common\NewLMS.UMKM.Common.csproj" />
-		<ProjectReference Include="..\NewLMS.UMKM.Repository\NewLMS.UMKM.Repository.csproj" />
+		<ProjectReference Include="..\NewLMS.Umkm.Data\NewLMS.Umkm.Data.csproj" />
+		<ProjectReference Include="..\NewLMS.Umkm.Common\NewLMS.Umkm.Common.csproj" />
+		<ProjectReference Include="..\NewLMS.Umkm.Repository\NewLMS.Umkm.Repository.csproj" />
 	</ItemGroup>
 </Project>

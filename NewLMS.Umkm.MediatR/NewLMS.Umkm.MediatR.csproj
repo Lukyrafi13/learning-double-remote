@@ -65,19 +65,19 @@
   <ItemGroup>
     <ProjectReference Include="..\Bjb.DigitalBisnis.CoreBanking\Bjb.DigitalBisnis.CoreBanking.csproj" />
     <ProjectReference Include="..\Bjb.DigitalBisnis.DigiloanAPI\Bjb.DigitalBisnis.DigiloanAPI.csproj" />
-    <ProjectReference Include="..\NewLMS.Umkm.FileUpload\NewLMS.UMKM.FileUpload.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Common\NewLMS.UMKM.Common.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Data\NewLMS.UMKM.Data.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.DomainDHN\NewLMS.UMKM.DomainDHN.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.DomainDWH\NewLMS.UMKM.Domain.Dwh.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Domain\NewLMS.UMKM.Domain.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Helper\NewLMS.UMKM.Helper.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Repository\NewLMS.UMKM.Repository.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.SalesMonitoring\NewLMS.UMKM.Maps.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.SIKP2\NewLMS.UMKM.SIKP2.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.SIKP\NewLMS.UMKM.SIKP.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Scoring\NewLMS.UMKM.Scoring.csproj" />
-    <ProjectReference Include="..\NewLMS.UMKM.Domain.FUSE\NewLMS.UMKM.Domain.FUSE.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.FileUpload\NewLMS.Umkm.FileUpload.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Common\NewLMS.Umkm.Common.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Data\NewLMS.Umkm.Data.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.DomainDHN\NewLMS.Umkm.DomainDHN.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.DomainDWH\NewLMS.Umkm.Domain.Dwh.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Domain\NewLMS.Umkm.Domain.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Helper\NewLMS.Umkm.Helper.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Repository\NewLMS.Umkm.Repository.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.SalesMonitoring\NewLMS.Umkm.Maps.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.SIKP2\NewLMS.Umkm.SIKP2.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.SIKP\NewLMS.Umkm.SIKP.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Scoring\NewLMS.Umkm.Scoring.csproj" />
+    <ProjectReference Include="..\NewLMS.Umkm.Domain.FUSE\NewLMS.Umkm.Domain.FUSE.csproj" />
   </ItemGroup>
 
   <ItemGroup>

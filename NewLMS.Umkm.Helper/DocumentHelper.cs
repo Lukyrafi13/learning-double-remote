@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public static class DocumentHelper
     {

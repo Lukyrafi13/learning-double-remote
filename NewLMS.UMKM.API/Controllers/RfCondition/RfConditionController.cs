@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfCondition;
-using NewLMS.UMKM.MediatR.Features.RfConditions.Queries.GetFilterRfConditions;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfCondition;
+using NewLMS.Umkm.MediatR.Features.RfConditions.Queries.GetFilterRfConditions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfCondition
+namespace NewLMS.Umkm.API.Controllers.RfCondition
 {
     public class RfConditionController : BaseController
     {

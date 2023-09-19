@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Test
+namespace NewLMS.Umkm.Test
 {
     using static Testing;
 

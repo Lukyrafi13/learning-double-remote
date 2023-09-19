@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.MediatR.Features.RfParameterDetails.Queries.GetFilterRfParameterDetails;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.MediatR.Features.RfParameterDetails.Queries.GetFilterRfParameterDetails;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfParameterDetail
+namespace NewLMS.Umkm.API.Controllers.RfParameterDetail
 {
     public class RfParameterDetailController : BaseController
     {

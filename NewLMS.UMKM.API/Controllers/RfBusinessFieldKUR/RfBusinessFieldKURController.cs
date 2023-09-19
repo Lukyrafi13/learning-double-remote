@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfBusinessFieldKUR;
-using NewLMS.UMKM.MediatR.Features.RfBusinessFieldKURs.Queries.GetFilterRfBusinessFieldKURs;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfBusinessFieldKUR;
+using NewLMS.Umkm.MediatR.Features.RfBusinessFieldKURs.Queries.GetFilterRfBusinessFieldKURs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfBusinessFieldKUR
+namespace NewLMS.Umkm.API.Controllers.RfBusinessFieldKUR
 {
     public class RfBusinessFieldKURController : BaseController
     {

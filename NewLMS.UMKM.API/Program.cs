@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using NewLMS.UMKM.Domain;
+using NewLMS.Umkm.Domain;
 
-namespace NewLMS.UMKM.API
+namespace NewLMS.Umkm.API
 {
     public class Program
     {

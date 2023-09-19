@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Maps.Models
+namespace NewLMS.Umkm.Maps.Models
 {
     public class UserLocationRequestModel
     {

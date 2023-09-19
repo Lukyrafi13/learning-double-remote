@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NewLMS.UMKM.API.Controllers
+namespace NewLMS.Umkm.API.Controllers
 {
     [Route("")]
     [ApiController]
