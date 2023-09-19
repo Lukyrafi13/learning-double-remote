@@ -30,7 +30,11 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
         }
         public async Task<ServiceResponse<ApprProductiveLandTemplateResponse>> Handle(GetApprProductiveLandTemplateQuery request, CancellationToken cancellationToken)
         {
-            var data = await _ApprProductiveLandTemplate.GetByIdAsync(request.AppraisalGuid, "AppraisalGuid", null);
+            var include = new string[]
+            {
+                "RfZipCode"
+            };
+            var data = await _ApprProductiveLandTemplate.GetByIdAsync(request.AppraisalGuid, "AppraisalGuid", include);
             var dataVm = _mapper.Map<ApprProductiveLandTemplateResponse>(data);
 
             return ServiceResponse<ApprProductiveLandTemplateResponse>.ReturnResultWith200(dataVm);
