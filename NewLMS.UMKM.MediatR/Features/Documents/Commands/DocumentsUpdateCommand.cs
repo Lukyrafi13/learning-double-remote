@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.Documents;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.FileUpload.Interfaces;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.Documents;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.FileUpload.Interfaces;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
+namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
 {
     public class DocumentsUpdateCommand : DocumentUpdateRequest, IRequest<ServiceResponse<Unit>>
     {

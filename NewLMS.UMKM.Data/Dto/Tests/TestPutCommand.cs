@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Data.Dto.Tests
+﻿namespace NewLMS.Umkm.Data.Dto.Tests
 {
     public class TestPutCommand
     {

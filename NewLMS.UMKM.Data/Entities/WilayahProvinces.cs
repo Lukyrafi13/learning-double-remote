@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.Umkm.Data.Entities
 {
     public class WilayahProvinces
     {

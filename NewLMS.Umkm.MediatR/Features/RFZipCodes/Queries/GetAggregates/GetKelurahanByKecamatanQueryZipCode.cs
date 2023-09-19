@@ -1,14 +1,14 @@
 using MediatR;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Queries
+namespace NewLMS.Umkm.MediatR.Features.RfZipCodes.Queries
 {
     public class GetKelurahanByKecamatanQueryZipCode : IRequest<ServiceResponse<IEnumerable<RfZipCodeKelurahanResponse>>>
     {

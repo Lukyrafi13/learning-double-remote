@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.MediatR.Helpers;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.MediatR.Helpers;
 
-namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
+namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
 {
     public class GetLoanApplicationDetailTabQuery : LoanApplicationGetDetailTabRequest, IRequest<ServiceResponse<LoanApplicationIDEResponse>>
     {

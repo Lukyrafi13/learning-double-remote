@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 
-namespace NewLMS.UMKM.MediatR.Features.Documents.Commands
+namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
 {
     public class FileValidator  : AbstractValidator<IFormFile>
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.Umkm.Data.Entities
 {
     public class FileUrl : BaseEntity
     {

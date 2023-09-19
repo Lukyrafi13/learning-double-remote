@@ -1,12 +1,12 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Data.Dto.RfBranches;
-using NewLMS.UMKM.Data.Dto.RfProducts;
-using NewLMS.UMKM.Data.Dto.Users;
-using NewLMS.UMKM.Data.Enums;
+using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.Users;
+using NewLMS.Umkm.Data.Enums;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.Appraisals
+namespace NewLMS.Umkm.Data.Dto.Appraisals
 {
     public class ApplicationInfoResponse : BaseResponse
     {

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollaterals;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollaterals;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Commands
+namespace NewLMS.Umkm.MediatR.Features.LoanApplicationCollaterals.Commands
 {
     public class LoanApplicationCollateralsDeleteCommand : LoanApplicationCollateralDeleteRequest, IRequest<ServiceResponse<Unit>>
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.Umkm.Data
 {
     public class RfOwnerCategory : BaseEntity
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfCollateralBC;
-using NewLMS.UMKM.MediatR.Features.RfCollateralBCs.Queries.GetFilterRfCollateralBCs;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfCollateralBC;
+using NewLMS.Umkm.MediatR.Features.RfCollateralBCs.Queries.GetFilterRfCollateralBCs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfCollateralBC
+namespace NewLMS.Umkm.API.Controllers.RfCollateralBC
 {
     public class RfCollateralBCController : BaseController
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfCollateralBC
+namespace NewLMS.Umkm.Data.Dto.RfCollateralBC
 {
     public class RfCollateralBCResponse : BaseResponse
     {

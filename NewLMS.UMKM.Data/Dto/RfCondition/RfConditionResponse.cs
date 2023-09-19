@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfCondition
+namespace NewLMS.Umkm.Data.Dto.RfCondition
 {
     public class RfConditionResponse : BaseResponse
     {

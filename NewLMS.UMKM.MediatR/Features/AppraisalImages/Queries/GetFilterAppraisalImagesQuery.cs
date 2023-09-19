@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Data.Dto.AppraisalImages;
-using NewLMS.UMKM.Data.Dto.Documents;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Dto.AppraisalImages;
+using NewLMS.Umkm.Data.Dto.Documents;
 
-namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries
+namespace NewLMS.Umkm.MediatR.Features.AppraisalImages.Queries
 {
     public class GetFilterAppraisalImagesQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<AppraisalImagesResponse>>>
     {

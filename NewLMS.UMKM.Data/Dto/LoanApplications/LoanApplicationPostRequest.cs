@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplications
+namespace NewLMS.Umkm.Data.Dto.LoanApplications
 {
     public class LoanApplicationPostRequest
     {

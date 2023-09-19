@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.Appraisals
+namespace NewLMS.Umkm.Data.Dto.Appraisals
 {
     public class AppraisalPostRequest
     {

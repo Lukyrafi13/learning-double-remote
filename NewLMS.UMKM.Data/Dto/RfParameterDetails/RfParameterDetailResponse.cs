@@ -1,5 +1,5 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameters;
-using NewLMS.UMKM.Data.Dto;
+using NewLMS.Umkm.Data.Dto;
 
 namespace NewLMS.Umkm.Data.Dto.RfParameterDetails
 {

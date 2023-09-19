@@ -1,8 +1,8 @@
-﻿using NewLMS.UMKM.Data.Dto.RfCollateralBC;
-using NewLMS.UMKM.Data.Dto.RfProducts;
+﻿using NewLMS.Umkm.Data.Dto.RfCollateralBC;
+using NewLMS.Umkm.Data.Dto.RfProducts;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.RfMappingCollateral
+namespace NewLMS.Umkm.Data.Dto.RfMappingCollateral
 {
     public class RfMappingCollateralResponse : BaseResponse
     {

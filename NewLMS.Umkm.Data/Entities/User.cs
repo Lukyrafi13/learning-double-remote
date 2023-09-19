@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.Umkm.Data
 {
     public class User : IdentityUser<Guid>
     {

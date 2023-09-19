@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Parameter.Queries;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Parameter.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.Parameter
+namespace NewLMS.Umkm.API.Controllers.Parameter
 {
     public class ParametersController : BaseController
     {

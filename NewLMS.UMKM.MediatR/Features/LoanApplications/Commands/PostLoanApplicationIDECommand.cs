@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using DocumentFormat.OpenXml.Bibliography;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Data.Enums;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Enums;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands
+namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 {
     public class PostLoanApplicationIDECommand : LoanApplicationIDEPostRequest, IRequest<ServiceResponse<Unit>>
     {

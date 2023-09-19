@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.Appraisals;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Appraisals;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.Appraisals.Queries
+namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
 {
     public class LoanApplicationAppraisalGetTableQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>>
     {

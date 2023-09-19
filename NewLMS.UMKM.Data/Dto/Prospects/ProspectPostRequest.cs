@@ -1,7 +1,7 @@
 using System;
 
 #nullable enable
-namespace NewLMS.UMKM.Data.Dto.Prospects
+namespace NewLMS.Umkm.Data.Dto.Prospects
 {
     public class ProspectPostRequest
     {

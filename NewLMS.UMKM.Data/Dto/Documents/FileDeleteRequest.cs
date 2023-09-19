@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.Documents
+namespace NewLMS.Umkm.Data.Dto.Documents
 {
     public class FileDeleteRequest
     {

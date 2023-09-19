@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfDecisionMakers;
-using NewLMS.UMKM.MediatR.Features.RfDecisionMakers.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
+using NewLMS.Umkm.MediatR.Features.RfDecisionMakers.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfDecisionMaker
+namespace NewLMS.Umkm.API.Controllers.RfDecisionMaker
 {
     public class RfDecisionMakerController : BaseController
     {

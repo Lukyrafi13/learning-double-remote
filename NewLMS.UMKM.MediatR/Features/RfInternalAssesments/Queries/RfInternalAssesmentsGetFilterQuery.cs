@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Dto.RfInternalAssesments;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data.Dto.RfInternalAssesments;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfInternalAssesments.Queries
+namespace NewLMS.Umkm.MediatR.Features.RfInternalAssesments.Queries
 {
     public class RfInternalAssesmentsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfInternalAssesmentsResponse>>>
     {

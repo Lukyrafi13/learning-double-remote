@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.UMKM.Domain.FUSE.Context;
-using NewLMS.UMKM.Domain.FUSE.Services;
+using NewLMS.Umkm.Domain.FUSE.Context;
+using NewLMS.Umkm.Domain.FUSE.Services;
 
-namespace NewLMS.UMKM.Domain.FUSE;
+namespace NewLMS.Umkm.Domain.FUSE;
 public static class ServiceRegistration
 {
     private const string DEFAULT_CONNECTION_STRING = "FUSEDbConnectionString";

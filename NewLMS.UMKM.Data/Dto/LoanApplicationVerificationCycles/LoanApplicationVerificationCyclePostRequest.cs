@@ -1,4 +1,4 @@
-﻿using NewLMS.UMKM.Data.Entities;
+﻿using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycles
 {
     public class LoanApplicationVerificationCyclePostRequest
     {

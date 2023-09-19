@@ -1,8 +1,8 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfBusinessPlaceOwnership;
+using NewLMS.Umkm.Data.Dto.RfBusinessPlaceOwnership;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationBusiness
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationVerificationBusiness
 {
     public class LoanApplicationVerificationBusinessResponse : BaseResponse
     {

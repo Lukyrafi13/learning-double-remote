@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NewLMS.UMKM.Domain.Dwh.Entities
+namespace NewLMS.Umkm.Domain.Dwh.Entities
 {
     public class COLLATERAL
     {

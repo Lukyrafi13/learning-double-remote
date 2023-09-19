@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Common.GenericRespository
+namespace NewLMS.Umkm.Common.GenericRespository
 {
     public static class RequestFilterParameterExtension
     {

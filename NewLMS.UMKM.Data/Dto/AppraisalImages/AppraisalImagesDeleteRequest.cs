@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.AppraisalImages
+namespace NewLMS.Umkm.Data.Dto.AppraisalImages
 {
     public class AppraisalImagesDeleteRequest
     {

@@ -4,17 +4,17 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using NewLMS.UMKM.API.Controllers;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.Appraisals;
-using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.AppraisalProductiveLands;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
+using NewLMS.Umkm.API.Controllers;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Appraisals;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Commands;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.AppraisalProductiveLands;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
 
-namespace NewLMS.UMKM.API.Controllers.Appraisal
+namespace NewLMS.Umkm.API.Controllers.Appraisal
 {
 
     public class AppraisalController : BaseController

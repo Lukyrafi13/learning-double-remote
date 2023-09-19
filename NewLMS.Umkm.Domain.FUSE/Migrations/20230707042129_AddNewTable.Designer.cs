@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NewLMS.UMKM.Domain.FUSE.Context;
+using NewLMS.Umkm.Domain.FUSE.Context;
 
 #nullable disable
 
-namespace NewLMS.UMKM.Domain.FUSE.Migrations
+namespace NewLMS.Umkm.Domain.FUSE.Migrations
 {
     [DbContext(typeof(FUSEContext))]
     [Migration("20230707042129_AddNewTable")]
@@ -24,7 +24,7 @@ namespace NewLMS.UMKM.Domain.FUSE.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("NewLMS.UMKM.Domain.FUSE.Entites.Test", b =>
+            modelBuilder.Entity("NewLMS.Umkm.Domain.FUSE.Entites.Test", b =>
                 {
                     b.Property<int>("PlafondId")
                         .ValueGeneratedOnAdd()

@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Data.Dto.RfInstallmentTypes
+﻿namespace NewLMS.Umkm.Data.Dto.RfInstallmentTypes
 {
     public class RfInstallmentTypeResponse : BaseResponse
     {

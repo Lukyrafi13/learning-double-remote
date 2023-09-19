@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationRACs
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationRACs
 {
     public class LoanApplicationRACsResponse : BaseResponse
     {

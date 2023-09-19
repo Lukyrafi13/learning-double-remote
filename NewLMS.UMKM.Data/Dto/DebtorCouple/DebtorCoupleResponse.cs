@@ -1,4 +1,4 @@
-﻿using NewLMS.UMKM.Data.Entities;
+﻿using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,11 +6,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data.Dto.RfJob;
-using NewLMS.UMKM.Data.Dto.RfMarital;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfJob;
+using NewLMS.Umkm.Data.Dto.RfMarital;
 
-namespace NewLMS.UMKM.Data.Dto.DebtorCouple
+namespace NewLMS.Umkm.Data.Dto.DebtorCouple
 {
     public class DebtorCoupleResponse
 	{

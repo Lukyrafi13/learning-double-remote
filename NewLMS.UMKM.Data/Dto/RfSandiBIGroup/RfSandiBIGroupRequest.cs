@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Data.Dto.RfSandiBIGroup
+﻿namespace NewLMS.Umkm.Data.Dto.RfSandiBIGroup
 {
     public class RfSandiBIGroupRequest
     {

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
-using NewLMS.UMKM.Data.Constants;
-using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Data.Enums;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Constants;
+using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Enums;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 
 #nullable enable
-namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
+namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
 {
     public class ProspectProcessCommand : ProspectFindRequest, IRequest<ServiceResponse<Guid>>
     {

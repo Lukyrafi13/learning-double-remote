@@ -1,11 +1,11 @@
-﻿using NewLMS.UMKM.Data.Dto.Appraisals;
+﻿using NewLMS.Umkm.Data.Dto.Appraisals;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.AppraisalWorkPapers.MachineWorkPapers
+namespace NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.MachineWorkPapers
 {
     public class ApprWorkPaperMachineMarketHeaderResponse
     {

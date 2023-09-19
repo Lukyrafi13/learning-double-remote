@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using MediatR;
-using NewLMS.UMKM.MediatR.Exceptions;
-using NewLMS.UMKM.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret;
+using NewLMS.Umkm.MediatR.Exceptions;
+using NewLMS.Umkm.MediatR.Features.ThridParties.Queries.GetThridPartyByClientIdAndClientSecret;
 
-namespace NewLMS.UMKM.API.Filters
+namespace NewLMS.Umkm.API.Filters
 {
     public class BasicAuthFilter : IAuthorizationFilter
     {

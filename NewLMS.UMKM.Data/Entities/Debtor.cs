@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.Umkm.Data.Entities
 {
     public class Debtor : BaseEntity
     {

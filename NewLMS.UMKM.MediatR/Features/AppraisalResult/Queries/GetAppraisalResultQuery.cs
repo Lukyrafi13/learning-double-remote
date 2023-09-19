@@ -1,9 +1,9 @@
 ﻿/*using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.AppraisalResults;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.AppraisalResults;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +11,9 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.AppraisalResult.Queries
+namespace NewLMS.Umkm.MediatR.Features.AppraisalResult.Queries
 {
     public class GetAppraisalResultQuery : IRequest<ServiceResponse<AppraisalResultResponse>>
     {

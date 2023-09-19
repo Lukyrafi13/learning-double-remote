@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Data.Dto.EnumSandiBIGroups
+namespace NewLMS.Umkm.Data.Dto.EnumSandiBIGroups
 {
     public class EnumSandiBIGroupPostRequestDto
     {

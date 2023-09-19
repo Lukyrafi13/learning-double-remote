@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfInternalAssesments;
-using NewLMS.UMKM.MediatR.Features.RfInternalAssesments.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfInternalAssesments;
+using NewLMS.Umkm.MediatR.Features.RfInternalAssesments.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfInternalAssesment
+namespace NewLMS.Umkm.API.Controllers.RfInternalAssesment
 {
     public class RfInternalAssesmentController : BaseController
     {

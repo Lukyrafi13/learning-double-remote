@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto
+namespace NewLMS.Umkm.Data.Dto
 {
     public class AppSettingDto
     {

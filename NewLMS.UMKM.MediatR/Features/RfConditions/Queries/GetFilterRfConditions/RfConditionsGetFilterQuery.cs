@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfCondition;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfCondition;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfConditions.Queries.GetFilterRfConditions
+namespace NewLMS.Umkm.MediatR.Features.RfConditions.Queries.GetFilterRfConditions
 {
     public class RfConditionsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfConditionResponse>>>
     {

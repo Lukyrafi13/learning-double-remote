@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfPlacementCountry
+namespace NewLMS.Umkm.Data.Dto.RfPlacementCountry
 {
     public class RfPlacementCountryResponse : BaseResponse
     {

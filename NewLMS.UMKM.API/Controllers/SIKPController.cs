@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.SIKPs;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.SIKPs.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.SIKPs;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.SIKPs.Queries;
 using NewLMS.Umkm.SIKP.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.UMKM.MediatR.Features.SIKPs.SIKP;
+using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
 
-namespace NewLMS.UMKM.API.Controllers.SIKPs
+namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
     public class SIKPController : BaseController
     {

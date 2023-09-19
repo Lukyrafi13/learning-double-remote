@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Repository.GenericRepository;
-using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
 using System.Net;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
+namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
 {
     public class ProspectsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<ProspectTableResponse>>>
     {

@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.Prospects.Queries
+namespace NewLMS.Umkm.MediatR.Features.Prospects.Queries
 {
     public class ProspectsGetByIdQuery : ProspectFindRequest, IRequest<ServiceResponse<ProspectResponse>>
     {

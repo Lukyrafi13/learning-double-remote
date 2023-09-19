@@ -1,18 +1,18 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Constants;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Domain.Context;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data.Constants;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Domain.Context;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
+namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
     public class LoanApplicationProcessIDE : IRequest<ServiceResponse<Unit>>
     {
@@ -33,7 +33,7 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes
         private readonly IGenericRepositoryAsync<DebtorCompanyLegal> _debtorCompanyLegal;
         private readonly IGenericRepositoryAsync<SLIKRequest> _slikRequest;
         private readonly IGenericRepositoryAsync<SLIKRequestDebtor> _slikRequestDebtor;
-        private readonly IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> _sikp;
+        private readonly IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
         private readonly IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
         private readonly UserContext _userContext;
         private readonly IMapper _mapper;

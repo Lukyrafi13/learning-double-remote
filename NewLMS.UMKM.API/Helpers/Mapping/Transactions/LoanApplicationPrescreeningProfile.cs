@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
+using NewLMS.Umkm.Data.Entities;
 using System;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class LoanApplicationPrescreeningProfile : Profile
     {

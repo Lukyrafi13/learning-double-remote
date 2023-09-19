@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Data.Constants
+namespace NewLMS.Umkm.Data.Constants
 {
     public static class UMKMConst
     {

@@ -1,11 +1,11 @@
-﻿using NewLMS.UMKM.Data;
+﻿using NewLMS.Umkm.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Helpers
+namespace NewLMS.Umkm.MediatR.Helpers
 {
     public class HelperGeneral
     {

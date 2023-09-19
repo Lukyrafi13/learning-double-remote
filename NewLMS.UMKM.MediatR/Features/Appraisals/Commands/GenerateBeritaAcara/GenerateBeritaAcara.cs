@@ -4,16 +4,16 @@
 // using System.Threading.Tasks;
 // using MediatR;
 // using Microsoft.Extensions.Configuration;
-// using NewLMS.UMKM.Data.Entities;
-// using NewLMS.UMKM.Helper;
-// using NewLMS.UMKM.Repository.GenericRepository;
+// using NewLMS.Umkm.Data.Entities;
+// using NewLMS.Umkm.Helper;
+// using NewLMS.Umkm.Repository.GenericRepository;
 // using System.IO;
 // using DocumentFormat.OpenXml.Packaging;
 // using System.Text.RegularExpressions;
 // using System.Globalization;
 // using Bjb.DigitalBisnis.FileUpload;
 
-// namespace NewLMS.UMKM.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
+// namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
 // {
 //     public class GenerateBeritaAcara : IRequest<ServiceResponse<string>>
 //     {

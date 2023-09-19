@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Data.Dto.RfInstituteCodes
+namespace NewLMS.Umkm.Data.Dto.RfInstituteCodes
 {
     public class RfInstituteCodeResponse : BaseResponse
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfBusinessPlaceOwnership;
-using NewLMS.UMKM.MediatR.Features.RfBusinessPlaceOwnerships.Queries.GetFilterRfBusinessPlaceOwnerships;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfBusinessPlaceOwnership;
+using NewLMS.Umkm.MediatR.Features.RfBusinessPlaceOwnerships.Queries.GetFilterRfBusinessPlaceOwnerships;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfBusinessPlaceOwnership
+namespace NewLMS.Umkm.API.Controllers.RfBusinessPlaceOwnership
 {
     public class RfBusinessPlaceOwnershipController : BaseController
     {

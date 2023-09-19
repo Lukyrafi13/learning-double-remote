@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfBusinessType;
-using NewLMS.UMKM.MediatR.Features.RfBusinessTypes.Queries.GetFilterRfBusinessTypes;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfBusinessType;
+using NewLMS.Umkm.MediatR.Features.RfBusinessTypes.Queries.GetFilterRfBusinessTypes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfBusinessType
+namespace NewLMS.Umkm.API.Controllers.RfBusinessType
 {
     public class RfBusinessTypeController : BaseController
     {

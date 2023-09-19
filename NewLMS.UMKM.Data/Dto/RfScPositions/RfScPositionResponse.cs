@@ -1,4 +1,4 @@
-﻿using NewLMS.UMKM.Data.Dto.RfDecisionLetter;
+﻿using NewLMS.Umkm.Data.Dto.RfDecisionLetter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfScPosition
+namespace NewLMS.Umkm.Data.Dto.RfScPosition
 {
     public class RfScPositionResponse : BaseResponse
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplicationRACs;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationRACs;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class LoanApplicationRACProfile : Profile
     {

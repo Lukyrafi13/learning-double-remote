@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Data.Entities;
 using System;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class LoanApplicationSurveyProfile : Profile
     {

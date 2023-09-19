@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycleDetails;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycleDetails;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class LoanApplicationVerificationCycleDetailProfile : Profile
     {

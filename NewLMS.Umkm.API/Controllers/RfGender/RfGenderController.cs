@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfGenders;
-using NewLMS.UMKM.MediatR.Features.RfGenders.Queries.GetFilterRfGenders;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfGenders;
+using NewLMS.Umkm.MediatR.Features.RfGenders.Queries.GetFilterRfGenders;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfGender
+namespace NewLMS.Umkm.API.Controllers.RfGender
 {
     public class RfGenderController : BaseController
     {

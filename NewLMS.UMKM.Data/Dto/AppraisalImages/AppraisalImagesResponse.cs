@@ -1,9 +1,9 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.Documents;
+using NewLMS.Umkm.Data.Dto.Documents;
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Data.Dto.AppraisalImages
+namespace NewLMS.Umkm.Data.Dto.AppraisalImages
 {
     public class AppraisalImagesResponse : BaseResponse
     {

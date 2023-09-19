@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Data.Dto.EnumSandiBITypes
+namespace NewLMS.Umkm.Data.Dto.EnumSandiBITypes
 {
     public class EnumSandiBITypeRequestDto
     {

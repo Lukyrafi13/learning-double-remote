@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.DebtorCompany;
-using NewLMS.UMKM.Data.Dto.DebtorCompanyLegal;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.DebtorCompany;
+using NewLMS.Umkm.Data.Dto.DebtorCompanyLegal;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class DebtorCompanyProfile : Profile
     {

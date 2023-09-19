@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace NewLMS.UMKM.FileUpload.Delegates
+namespace NewLMS.Umkm.FileUpload.Delegates
 {
     public class HttpLoggingHandler : DelegatingHandler
     {

@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplicationCollaterals.Queries
+namespace NewLMS.Umkm.MediatR.Features.LoanApplicationCollaterals.Queries
 {
     public class LoanApplicationCollateralsGetByIdQuery : IRequest<ServiceResponse<LoanApplicationCollateralResponse>>
     {

@@ -1,17 +1,17 @@
 ﻿using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.AppraisalImages;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.FileUpload.Interfaces;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.AppraisalImages;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.FileUpload.Interfaces;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands
+namespace NewLMS.Umkm.MediatR.Features.AppraisalImages.Commands
 {
     public class UploadAppraisalImagesCommand : AppraisalImagesUploadRequest, IRequest<ServiceResponse<Unit>>
     {

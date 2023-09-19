@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Domain.FUSE.Entites
+namespace NewLMS.Umkm.Domain.FUSE.Entites
 {
     public class BMPK
     {

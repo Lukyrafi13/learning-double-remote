@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NewLMS.UMKM.MediatR.Helpers
+namespace NewLMS.Umkm.MediatR.Helpers
 {
     public static class IncludesGenerator
     {

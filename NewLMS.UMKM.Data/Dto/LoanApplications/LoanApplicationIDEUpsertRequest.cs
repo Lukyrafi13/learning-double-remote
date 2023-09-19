@@ -1,13 +1,13 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.Debtor;
-using NewLMS.UMKM.Data.Dto.DebtorCompany;
-using NewLMS.UMKM.Data.Dto.DebtorCompanyLegal;
-using NewLMS.UMKM.Data.Dto.DebtorCouple;
-using NewLMS.UMKM.Data.Dto.DebtorEmergencies;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings;
+using NewLMS.Umkm.Data.Dto.Debtor;
+using NewLMS.Umkm.Data.Dto.DebtorCompany;
+using NewLMS.Umkm.Data.Dto.DebtorCompanyLegal;
+using NewLMS.Umkm.Data.Dto.DebtorCouple;
+using NewLMS.Umkm.Data.Dto.DebtorEmergencies;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScorings;
 
 #nullable enable
-namespace NewLMS.UMKM.Data.Dto.LoanApplications
+namespace NewLMS.Umkm.Data.Dto.LoanApplications
 {
     public class LoanApplicationIDEUpsertRequest
     {

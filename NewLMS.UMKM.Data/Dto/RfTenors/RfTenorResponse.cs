@@ -1,6 +1,6 @@
-﻿using NewLMS.UMKM.Data.Dto.RfProducts;
+﻿using NewLMS.Umkm.Data.Dto.RfProducts;
 
-namespace NewLMS.UMKM.Data.Dto.RfTenor
+namespace NewLMS.Umkm.Data.Dto.RfTenor
 {
     public class RfTenorResponse : BaseResponse
     {

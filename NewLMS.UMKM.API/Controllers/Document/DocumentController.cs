@@ -2,16 +2,16 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.Documents;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Documents.Commands;
-using NewLMS.UMKM.MediatR.Features.Documents.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Documents;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Documents.Commands;
+using NewLMS.Umkm.MediatR.Features.Documents.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.Document
+namespace NewLMS.Umkm.API.Controllers.Document
 {
     [Authorize]
     public class DocumentController : BaseController

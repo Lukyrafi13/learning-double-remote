@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Data.Dto.ApprChecklistReviews;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.ApprChecklistReviews.Commands;
-using NewLMS.UMKM.MediatR.Features.ApprChecklistReviews.Queries;
+using NewLMS.Umkm.Data.Dto.ApprChecklistReviews;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.ApprChecklistReviews.Commands;
+using NewLMS.Umkm.MediatR.Features.ApprChecklistReviews.Queries;
 
-namespace NewLMS.UMKM.API.Controllers.Appraisal
+namespace NewLMS.Umkm.API.Controllers.Appraisal
 {
 
     public class ApprChecklistReviewController : BaseController

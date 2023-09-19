@@ -1,14 +1,14 @@
 using System;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfBranches;
-using NewLMS.UMKM.Data.Dto.RfGenders;
-using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
-using NewLMS.UMKM.Data.Dto.RfProducts;
-using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.Data.Dto.RfGenders;
+using NewLMS.Umkm.Data.Dto.RfInstituteCodes;
+using NewLMS.Umkm.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.RfSectorLBU3s;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfCompanyTypes;
 
-namespace NewLMS.UMKM.Data.Dto.Prospects
+namespace NewLMS.Umkm.Data.Dto.Prospects
 {
     public class ProspectResponse : BaseResponse
     {

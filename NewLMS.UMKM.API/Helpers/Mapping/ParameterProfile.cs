@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping
+namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public class ParameterProfile : Profile
     {

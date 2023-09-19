@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfVehModel
+namespace NewLMS.Umkm.Data.Dto.RfVehModel
 {
     public class RfVehModelResponse : BaseResponse
     {

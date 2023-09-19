@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.Appraisals
+namespace NewLMS.Umkm.Data.Dto.Appraisals
 {
     public class GetLoanApplicationApprAsignmentTabDetailQuery : LoanApplicationApprGetDetailRequests, IRequest<ServiceResponse<LoanApplicationApprAsignmentResponse>>
     {

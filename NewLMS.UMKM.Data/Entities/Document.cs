@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.Umkm.Data.Entities
 {
     public class Document : BaseEntity
     {

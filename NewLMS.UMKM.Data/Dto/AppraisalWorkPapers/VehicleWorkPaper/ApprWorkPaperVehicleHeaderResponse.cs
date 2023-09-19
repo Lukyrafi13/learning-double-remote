@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.AppraisalWorkPapers.VehicleWorkPaper
+namespace NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.VehicleWorkPaper
 {
     public class ApprWorkPaperVehicleHeaderResponse
     {

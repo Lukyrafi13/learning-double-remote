@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.API.Controllers;
-using NewLMS.UMKM.Data.Dto.AppraisalVehicle;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Appraisals.Commands;
-using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
+using NewLMS.Umkm.API.Controllers;
+using NewLMS.Umkm.Data.Dto.AppraisalVehicle;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Commands;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
 
 namespace NewLMS.Komersial.API.Controllers.Appraisal
 {

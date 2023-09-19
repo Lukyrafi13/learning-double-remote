@@ -1,6 +1,6 @@
 ﻿
 
-namespace NewLMS.UMKM.Data.Dto.RfAppraisalKJPPMasters
+namespace NewLMS.Umkm.Data.Dto.RfAppraisalKJPPMasters
 {
     public class RfAppraisalKJPPMastersResponse : BaseResponse
     {

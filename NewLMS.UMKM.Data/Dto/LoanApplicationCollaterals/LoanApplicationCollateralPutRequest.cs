@@ -1,11 +1,11 @@
-﻿using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
+﻿using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollaterals
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollaterals
 {
     public class LoanApplicationCollateralAndOwnerPutRequest
     {

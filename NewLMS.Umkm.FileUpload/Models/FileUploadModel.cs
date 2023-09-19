@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.FileUpload.Models
+namespace NewLMS.Umkm.FileUpload.Models
 {
     public class FileUploadModel
     {

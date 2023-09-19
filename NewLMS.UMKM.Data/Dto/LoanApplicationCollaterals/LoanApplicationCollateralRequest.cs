@@ -1,8 +1,8 @@
-﻿using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
+﻿using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollaterals
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollaterals
 {
     public class LoanApplicationCollateralAndOwnerPostRequest
     {

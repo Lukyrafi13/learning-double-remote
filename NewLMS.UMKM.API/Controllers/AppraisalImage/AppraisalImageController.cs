@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Helper;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Helper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.AppraisalImages;
-using NewLMS.UMKM.MediatR.Features.AppraisalImages.Commands;
-using NewLMS.UMKM.MediatR.Features.AppraisalImages.Queries;
+using NewLMS.Umkm.Data.Dto.AppraisalImages;
+using NewLMS.Umkm.MediatR.Features.AppraisalImages.Commands;
+using NewLMS.Umkm.MediatR.Features.AppraisalImages.Queries;
 
-namespace NewLMS.UMKM.API.Controllers.AppraisalImage
+namespace NewLMS.Umkm.API.Controllers.AppraisalImage
 {
     [Authorize]
     public class AppraisalImageController : BaseController

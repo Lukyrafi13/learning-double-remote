@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationFieldSurveyDetails
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationFieldSurveyDetails
 {
     public class LoanApplicationFieldSurveyDetailsPostRequest
     {

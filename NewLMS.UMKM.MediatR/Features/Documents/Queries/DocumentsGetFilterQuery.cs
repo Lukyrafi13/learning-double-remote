@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.Documents;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Documents;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.Documents.Queries
+namespace NewLMS.Umkm.MediatR.Features.Documents.Queries
 {
     public class DocumentsGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<DocumentResponse>>>
     {

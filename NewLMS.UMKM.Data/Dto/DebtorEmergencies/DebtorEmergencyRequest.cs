@@ -1,5 +1,5 @@
 ﻿using System;
-namespace NewLMS.UMKM.Data.Dto.DebtorEmergencies
+namespace NewLMS.Umkm.Data.Dto.DebtorEmergencies
 {
     public class DebtorEmergencyRequest
     {

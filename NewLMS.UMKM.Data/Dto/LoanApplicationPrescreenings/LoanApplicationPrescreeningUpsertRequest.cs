@@ -1,12 +1,12 @@
-﻿using NewLMS.UMKM.Data.Dto.LoanApplicationRACs;
-using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
+﻿using NewLMS.Umkm.Data.Dto.LoanApplicationRACs;
+using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 {
     public class LoanApplicationPrescreeningUpsertRequest
     {

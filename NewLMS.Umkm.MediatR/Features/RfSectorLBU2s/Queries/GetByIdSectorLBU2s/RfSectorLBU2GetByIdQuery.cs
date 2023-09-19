@@ -3,10 +3,10 @@ using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Data.Dto.RfSectorLBU2s;
-using NewLMS.UMKM.Repository.GenericRepository;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Data.Dto.RfSectorLBU2s;
+using NewLMS.Umkm.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Entities;
 
 namespace NewLMS.Umkm.MediatR.Features.RFSectorLBU2s.Queries
 {

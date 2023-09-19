@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Helper;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Helper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
-using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycleDetails;
+using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycleDetails;
 using MediatR;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationVerificationCycleDetails.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationVerificationCycleDetails.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationVerificationCycleDetails.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationVerificationCycleDetails.Commands;
 
-namespace NewLMS.UMKM.API.Controllers.LoanApplicationVerificationCycleDetail
+namespace NewLMS.Umkm.API.Controllers.LoanApplicationVerificationCycleDetail
 {
     public class LoanApplicationVerificationCycleDetailController : BaseController
     {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Data;
+using NewLMS.Umkm.Data;
 
 namespace NewLMS.Umkm.Data.Entities
 {

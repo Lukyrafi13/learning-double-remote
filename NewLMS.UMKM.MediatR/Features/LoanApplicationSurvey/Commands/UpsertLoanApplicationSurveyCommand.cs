@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Domain.Context;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Helpers;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Domain.Context;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Helpers;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands
+namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands
 {
     public class UpsertLoanApplicationSurveyCommand : LoanApplicationSurveyUpsertRequest, IRequest<ServiceResponse<Unit>>
     {

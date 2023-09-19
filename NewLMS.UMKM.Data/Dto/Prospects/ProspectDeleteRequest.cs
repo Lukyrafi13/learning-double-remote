@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.Prospects
+namespace NewLMS.Umkm.Data.Dto.Prospects
 {
     public class ProspectDeleteRequest
     {

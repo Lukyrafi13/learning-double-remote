@@ -1,6 +1,6 @@
-﻿using NewLMS.UMKM.Data.Dto.RfProducts;
+﻿using NewLMS.Umkm.Data.Dto.RfProducts;
 
-namespace NewLMS.UMKM.Data.Dto.RfJob
+namespace NewLMS.Umkm.Data.Dto.RfJob
 {
     public class RfJobResponse : BaseResponse
     {

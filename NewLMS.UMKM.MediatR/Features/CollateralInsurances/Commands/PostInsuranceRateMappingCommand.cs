@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.CollateralInsurances;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.CollateralInsurances;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.CollateralInsurances.Commands
+namespace NewLMS.Umkm.MediatR.Features.CollateralInsurances.Commands
 {
     public class PostInsuranceRateMappingCommand : InsuranceRateMappingRequest, IRequest<ServiceResponse<Unit>>
     { }

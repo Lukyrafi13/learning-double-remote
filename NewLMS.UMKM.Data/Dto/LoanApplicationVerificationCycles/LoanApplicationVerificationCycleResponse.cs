@@ -1,7 +1,7 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycles
 {
     public class LoanApplicationVerificationCycleResponse : BaseResponse
     {

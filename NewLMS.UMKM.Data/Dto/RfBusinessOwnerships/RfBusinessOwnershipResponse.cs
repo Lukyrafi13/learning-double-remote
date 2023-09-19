@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfBusinessOwnership
+namespace NewLMS.Umkm.Data.Dto.RfBusinessOwnership
 {
     public class RfBusinessOwnershipResponse : BaseResponse
     {

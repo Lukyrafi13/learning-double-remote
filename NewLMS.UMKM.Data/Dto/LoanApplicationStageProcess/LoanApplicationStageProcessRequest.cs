@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationStageProcess
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationStageProcess
 {
     public class LoanApplicationStageProcessRequest
     {

@@ -1,14 +1,14 @@
 ﻿/*using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Data.Dto.AppraisalResults;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.AppraisalResult.Commands;
-using NewLMS.UMKM.MediatR.Features.AppraisalResult.Queries;
+using NewLMS.Umkm.Data.Dto.AppraisalResults;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.AppraisalResult.Commands;
+using NewLMS.Umkm.MediatR.Features.AppraisalResult.Queries;
 using System;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.AppraisalResult
+namespace NewLMS.Umkm.API.Controllers.AppraisalResult
 {
     /// <summary>
     /// Menyediakan fungsionalitas data untuk menu "Hasil Appraisal"

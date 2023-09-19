@@ -1,17 +1,17 @@
 ﻿/*using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data.Dto.CollateralInsurances;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.CollateralInsurances.Commands;
-using NewLMS.UMKM.MediatR.Features.CollateralInsurances.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Data.Dto.CollateralInsurances;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.CollateralInsurances.Commands;
+using NewLMS.Umkm.MediatR.Features.CollateralInsurances.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.CollateralInsurance
+namespace NewLMS.Umkm.API.Controllers.CollateralInsurance
 {
     /// <summary>
     /// Menyediakan fungsionalitas data untuk menu "Appraisal Surveyor -> Asuransi Agunan"

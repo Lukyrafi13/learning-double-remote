@@ -1,6 +1,6 @@
-using NewLMS.UMKM.Data.Dto.RfSectorLBU2s;
+using NewLMS.Umkm.Data.Dto.RfSectorLBU2s;
 
-namespace NewLMS.UMKM.Data.Dto.RfSectorLBU3s
+namespace NewLMS.Umkm.Data.Dto.RfSectorLBU3s
 {
     public class RfSectorLBU3Response : BaseResponse
     {

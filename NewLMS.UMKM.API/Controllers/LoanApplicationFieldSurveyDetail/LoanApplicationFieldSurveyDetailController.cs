@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Helper;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Helper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using MediatR;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationFieldSurveyDetails.Queries;
-using NewLMS.UMKM.Data.Dto.LoanApplicationFieldSurveyDetails;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationFieldSurveyDetails.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationFieldSurveyDetails.Queries;
+using NewLMS.Umkm.Data.Dto.LoanApplicationFieldSurveyDetails;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationFieldSurveyDetails.Commands;
 
-namespace NewLMS.UMKM.API.Controllers.LoanApplicationFieldSurveyDetail
+namespace NewLMS.Umkm.API.Controllers.LoanApplicationFieldSurveyDetail
 {
     public class LoanApplicationFieldSurveyDetailController : BaseController
     {

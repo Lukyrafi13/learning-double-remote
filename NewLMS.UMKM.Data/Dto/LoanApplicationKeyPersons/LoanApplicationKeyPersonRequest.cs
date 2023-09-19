@@ -1,5 +1,5 @@
 ﻿using System;
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons
 {
     public class LoanApplicationKeyPersonRequest
     {

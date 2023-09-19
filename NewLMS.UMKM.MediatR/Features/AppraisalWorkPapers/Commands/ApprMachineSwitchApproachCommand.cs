@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.AppraisalWorkPapers.Commands
+namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Commands
 {
     public class ApprMachineSwitchApproachCommand : IRequest<ServiceResponse<Unit>>
     {

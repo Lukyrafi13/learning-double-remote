@@ -1,10 +1,10 @@
-﻿using NewLMS.UMKM.Data;
+﻿using NewLMS.Umkm.Data;
 using Microsoft.EntityFrameworkCore;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NewLMS.UMKM.Domain
+namespace NewLMS.Umkm.Domain
 {
     public static class DefaultEntityMappingExtension
     {

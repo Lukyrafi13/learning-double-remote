@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Data.Dto.RfLinkAge
+﻿namespace NewLMS.Umkm.Data.Dto.RfLinkAge
 {
     public class RfLinkAgeResponse : BaseResponse
     {

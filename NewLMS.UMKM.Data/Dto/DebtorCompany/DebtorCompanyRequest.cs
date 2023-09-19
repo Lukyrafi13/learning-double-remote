@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.DebtorCompany
+namespace NewLMS.Umkm.Data.Dto.DebtorCompany
 {
     public class DebtorCompanyRequest
     {

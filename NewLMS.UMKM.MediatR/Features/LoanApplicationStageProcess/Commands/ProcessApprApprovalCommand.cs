@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.LoanApplicationStageProcess;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.LoanApplicationStageProcess;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands
+namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
 {
     public class ProcessApprApprovalCommand : LoanApplicationStageProcessRequest, IRequest<ServiceResponse<Unit>>
     {

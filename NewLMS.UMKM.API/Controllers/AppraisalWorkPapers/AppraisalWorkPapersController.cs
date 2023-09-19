@@ -1,19 +1,19 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data.Dto.AppraisalWorkPapers;
-using NewLMS.UMKM.Data.Dto.AppraisalWorkPapers.MachineWorkPapers;
-using NewLMS.UMKM.Data.Dto.AppraisalWorkPapers.ShopAppartmentWorkPaper;
-using NewLMS.UMKM.Data.Dto.AppraisalWorkPapers.VehicleWorkPaper;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.AppraisalWorkPapers.Commands;
-using NewLMS.UMKM.MediatR.Features.AppraisalWorkPapers.Queries;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers;
+using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.MachineWorkPapers;
+using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.ShopAppartmentWorkPaper;
+using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.VehicleWorkPaper;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Commands;
+using NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.AppraisalWorkPapers
+namespace NewLMS.Umkm.API.Controllers.AppraisalWorkPapers
 {
     public class AppraisalWorkPapersController : BaseController
     {

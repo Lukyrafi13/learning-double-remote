@@ -1,10 +1,10 @@
 using System;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfBranches;
-using NewLMS.UMKM.Data.Dto.RfGenders;
-using NewLMS.UMKM.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.Data.Dto.RfGenders;
+using NewLMS.Umkm.Data.Dto.RfProducts;
 
-namespace NewLMS.UMKM.Data.Dto.RfSectorLBU1s
+namespace NewLMS.Umkm.Data.Dto.RfSectorLBU1s
 {
     public class RfSectorLBU1Response : BaseResponse
     {

@@ -1,9 +1,9 @@
-﻿using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationBusiness;
-using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles;
+﻿using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationBusiness;
+using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycles;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationSurvey
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationSurvey
 {
     public class LoanApplicationSurveyResponse
     {

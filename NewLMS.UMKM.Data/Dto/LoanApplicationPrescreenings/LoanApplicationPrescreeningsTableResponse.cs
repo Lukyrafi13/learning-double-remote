@@ -1,15 +1,15 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.Debtor;
-using NewLMS.UMKM.Data.Dto.DebtorCompany;
-using NewLMS.UMKM.Data.Dto.LoanApplicationRACs;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.RfBranches;
-using NewLMS.UMKM.Data.Dto.RfProducts;
-using NewLMS.UMKM.Data.Dto.Users;
-using NewLMS.UMKM.Data.Enums;
+using NewLMS.Umkm.Data.Dto.Debtor;
+using NewLMS.Umkm.Data.Dto.DebtorCompany;
+using NewLMS.Umkm.Data.Dto.LoanApplicationRACs;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.RfBranches;
+using NewLMS.Umkm.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.Users;
+using NewLMS.Umkm.Data.Enums;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 {
     public class LoanApplicationPrescreeningsTableResponse
     {

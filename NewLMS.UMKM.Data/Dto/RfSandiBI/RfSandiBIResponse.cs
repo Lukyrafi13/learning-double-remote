@@ -1,8 +1,8 @@
-﻿using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data.Dto.RfSandiBIGroup;
+﻿using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Data.Dto.RfSandiBIGroup;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.RfSandiBI
+namespace NewLMS.Umkm.Data.Dto.RfSandiBI
 {
     public class RfSandiBIResponse : BaseResponse
     {

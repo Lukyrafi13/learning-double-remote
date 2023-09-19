@@ -1,7 +1,7 @@
-﻿using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
+﻿using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
 
-namespace NewLMS.UMKM.Data.Dto.Appraisals
+namespace NewLMS.Umkm.Data.Dto.Appraisals
 {
     public class AppraisalSurveyorResponse
     {

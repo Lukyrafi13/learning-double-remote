@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfAppraisalKJPPMasters;
-using NewLMS.UMKM.MediatR.Features.RfAppraisalKJPPMasters.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfAppraisalKJPPMasters;
+using NewLMS.Umkm.MediatR.Features.RfAppraisalKJPPMasters.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfAppraisalKJPPMaster
+namespace NewLMS.Umkm.API.Controllers.RfAppraisalKJPPMaster
 {
     public class RfAppraisalKJPPMasterController : BaseController
     {

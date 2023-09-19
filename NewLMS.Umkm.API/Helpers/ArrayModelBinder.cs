@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Api.Helpers
+namespace NewLMS.Umkm.Api.Helpers
 {
     public class ArrayModelBinder : IModelBinder
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.SIKPs
+namespace NewLMS.Umkm.Data.Dto.SIKPs
 {
     public class SIKPRequestRequest
     {

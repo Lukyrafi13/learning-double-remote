@@ -1,13 +1,13 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfLoanPurpose;
-using NewLMS.UMKM.Data.Dto.RfProducts;
-using NewLMS.UMKM.Data.Dto.RfSubProducts;
-using NewLMS.UMKM.Data.Dto.RfTenor;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.RfLoanPurpose;
+using NewLMS.Umkm.Data.Dto.RfProducts;
+using NewLMS.Umkm.Data.Dto.RfSubProducts;
+using NewLMS.Umkm.Data.Dto.RfTenor;
+using NewLMS.Umkm.Data.Entities;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewLMS.UMKM.Data.Dto.RfMappingTenor
+namespace NewLMS.Umkm.Data.Dto.RfMappingTenor
 {
     public class RfMappingTenorResponse : BaseResponse
     {

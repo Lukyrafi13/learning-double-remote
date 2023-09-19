@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Data.Dto.AppraisalImages
+namespace NewLMS.Umkm.Data.Dto.AppraisalImages
 {
     public class AppraisalImagesUploadRequest
     {

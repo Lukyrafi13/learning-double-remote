@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Data.Enums
+namespace NewLMS.Umkm.Data.Enums
 {
     public enum EnumProspectStatus
     {

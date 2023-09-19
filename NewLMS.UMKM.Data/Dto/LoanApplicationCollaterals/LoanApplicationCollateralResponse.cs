@@ -1,14 +1,14 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data.Dto.RfVehMaker;
-using NewLMS.UMKM.Data.Dto.RfVehClass;
-using NewLMS.UMKM.Data.Dto.RfVehModel;
-using NewLMS.UMKM.Data.Dto.RfDocument;
-using NewLMS.UMKM.Data.Dto.RfTransportationType;
-using NewLMS.UMKM.Data.Dto.RfCollateralBC;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfVehMaker;
+using NewLMS.Umkm.Data.Dto.RfVehClass;
+using NewLMS.Umkm.Data.Dto.RfVehModel;
+using NewLMS.Umkm.Data.Dto.RfDocument;
+using NewLMS.Umkm.Data.Dto.RfTransportationType;
+using NewLMS.Umkm.Data.Dto.RfCollateralBC;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
 {
     public class LoanApplicationCollateralResponse : BaseResponse
     {

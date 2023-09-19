@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Wilayah.Queries;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Wilayah.Queries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.WilayahController
+namespace NewLMS.Umkm.API.Controllers.WilayahController
 {
     public class WilayahController : BaseController
     {

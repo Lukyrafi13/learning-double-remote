@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfBusinessFieldKUR
+namespace NewLMS.Umkm.Data.Dto.RfBusinessFieldKUR
 {
     public class RfBusinessFieldKURResponse : BaseResponse
     {

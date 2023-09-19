@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Data.Dto.Tests;
-using NewLMS.UMKM.Helper;
+using NewLMS.Umkm.Data.Dto.Tests;
+using NewLMS.Umkm.Helper;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfVehType
+namespace NewLMS.Umkm.API.Controllers.RfVehType
 {
     public class TestController : BaseController
     {

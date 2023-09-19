@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Data.Dto.SCJabatans
+namespace NewLMS.Umkm.Data.Dto.SCJabatans
 {
     public class SCJabatanPostRequestDto
     {

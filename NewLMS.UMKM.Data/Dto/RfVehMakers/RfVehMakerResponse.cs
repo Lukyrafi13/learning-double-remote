@@ -1,7 +1,7 @@
-﻿using NewLMS.UMKM.Data.Dto.RfCollateralBC;
-using NewLMS.UMKM.Data.Dto.RfVehCountry;
-using NewLMS.UMKM.Data.Dto.RfVehType;
-using NewLMS.UMKM.Data.Entities;
+﻿using NewLMS.Umkm.Data.Dto.RfCollateralBC;
+using NewLMS.Umkm.Data.Dto.RfVehCountry;
+using NewLMS.Umkm.Data.Dto.RfVehType;
+using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfVehMaker
+namespace NewLMS.Umkm.Data.Dto.RfVehMaker
 {
     public class RfVehMakerResponse : BaseResponse
     {

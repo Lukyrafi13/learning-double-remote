@@ -6,12 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 
-namespace NewLMS.UMKM.MediatR.Features.Parameter.Queries
+namespace NewLMS.Umkm.MediatR.Features.Parameter.Queries
 {
     public class GetParameterByCodeQuery : IRequest<ServiceResponse<List<SimpleResponse<Guid>>>>
     {

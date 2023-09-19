@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using NewLMS.UMKM.Data.Enums;
+using NewLMS.Umkm.Data.Enums;
 
-namespace NewLMS.UMKM.Data.Entities
+namespace NewLMS.Umkm.Data.Entities
 {
     public class LoanApplication : BaseEntity
     {

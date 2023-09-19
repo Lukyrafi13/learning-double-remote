@@ -1,10 +1,10 @@
 ﻿using System;
 using AutoMapper;
 using NewLMS.Umkm.SIKP.Models;
-using NewLMS.UMKM.Data.Dto.SIKPs;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.SIKPs;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class SIKPProfile : Profile
     {

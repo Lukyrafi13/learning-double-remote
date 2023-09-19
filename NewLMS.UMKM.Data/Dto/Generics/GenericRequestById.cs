@@ -1,5 +1,5 @@
 ﻿using System;
-namespace NewLMS.UMKM.Data.Dto.Generics
+namespace NewLMS.Umkm.Data.Dto.Generics
 {
     public class GenericRequestById
     {

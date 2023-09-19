@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.RfSandiBI
+namespace NewLMS.Umkm.Data.Dto.RfSandiBI
 {
     public class RfSandiBIPostRequest
     {

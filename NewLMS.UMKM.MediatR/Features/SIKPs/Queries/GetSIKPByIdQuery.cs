@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
-using NewLMS.UMKM.Data.Dto.SIKPs;
+using NewLMS.Umkm.Data.Dto.SIKPs;
 
-namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
+namespace NewLMS.Umkm.MediatR.Features.SIKPs.Queries
 {
     public class SIKPRequestRequest
     {
@@ -20,7 +20,7 @@ namespace NewLMS.UMKM.MediatR.Features.SIKPs.Queries
 
     public class GetSIKPByIdQueryHandler : IRequestHandler<GetParameterByCodeQuery, ServiceResponse<SIKPBaseResponse>>
     {
-        private IGenericRepositoryAsync<NewLMS.UMKM.Data.Entities.SIKP> _sikp;
+        private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
         private readonly IMapper _mapper;
 
         public GetSIKPByIdQueryHandler(IMapper mapper, IGenericRepositoryAsync<Data.Entities.SIKP> sikp)

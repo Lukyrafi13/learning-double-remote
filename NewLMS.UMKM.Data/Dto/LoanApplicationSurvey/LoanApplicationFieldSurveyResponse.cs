@@ -1,9 +1,9 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfBusinessFieldKUR;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfBusinessFieldKUR;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
 using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationSurvey
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationSurvey
 {
     public class LoanApplicationFieldSurveyResponse : BaseResponse
     {

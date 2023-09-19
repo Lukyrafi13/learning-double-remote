@@ -1,13 +1,13 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Dto.RfSectorLBU3s;
-using NewLMS.UMKM.Data.Dto.RfGenders;
-using NewLMS.UMKM.Data.Dto.RfMarital;
-using NewLMS.UMKM.Data.Dto.RfEducation;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data.Dto.RfLinkAge;
-using NewLMS.UMKM.Data.Dto.RfJob;
+using NewLMS.Umkm.Data.Dto.RfSectorLBU3s;
+using NewLMS.Umkm.Data.Dto.RfGenders;
+using NewLMS.Umkm.Data.Dto.RfMarital;
+using NewLMS.Umkm.Data.Dto.RfEducation;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfLinkAge;
+using NewLMS.Umkm.Data.Dto.RfJob;
 
-namespace NewLMS.UMKM.Data.Dto.SIKPs
+namespace NewLMS.Umkm.Data.Dto.SIKPs
 {
     public class SIKPRequestResponse : BaseResponse
     {

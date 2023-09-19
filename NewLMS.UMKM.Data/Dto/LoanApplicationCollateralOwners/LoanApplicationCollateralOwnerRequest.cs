@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
 {
     public class LoanApplicationCollateralOwnerRequest
 	{

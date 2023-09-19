@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace NewLMS.UMKM.MediatR.Exceptions
+namespace NewLMS.Umkm.MediatR.Exceptions
 {
     public class ApiException : Exception
     {

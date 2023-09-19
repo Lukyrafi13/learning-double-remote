@@ -1,5 +1,5 @@
-﻿using NewLMS.UMKM.Data.Dto.RfDecisionLetterType;
-using NewLMS.UMKM.Data.Entities;
+﻿using NewLMS.Umkm.Data.Dto.RfDecisionLetterType;
+using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfDecisionLetter
+namespace NewLMS.Umkm.Data.Dto.RfDecisionLetter
 {
     public class RfDecisionLetterResponse : BaseResponse
     {

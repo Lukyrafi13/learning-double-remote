@@ -1,7 +1,7 @@
-﻿using NewLMS.UMKM.Data;
+﻿using NewLMS.Umkm.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace NewLMS.UMKM.Common
+namespace NewLMS.Umkm.Common
 {
     public static class ContextHelper
     {

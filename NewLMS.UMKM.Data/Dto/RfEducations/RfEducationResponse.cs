@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfEducation
+namespace NewLMS.Umkm.Data.Dto.RfEducation
 {
     public class RfEducationResponse : BaseResponse
     {

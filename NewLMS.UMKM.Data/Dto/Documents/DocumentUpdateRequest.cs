@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Data.Dto.Documents
+namespace NewLMS.Umkm.Data.Dto.Documents
 {
     public class DocumentUpdateRequest
     {

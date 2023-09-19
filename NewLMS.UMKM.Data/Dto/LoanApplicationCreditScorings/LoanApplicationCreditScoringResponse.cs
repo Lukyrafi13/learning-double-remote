@@ -1,7 +1,7 @@
 ﻿using System;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 
-namespace NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings
+namespace NewLMS.Umkm.Data.Dto.LoanApplicationCreditScorings
 {
     public class LoanApplicationCreditScoringResponse
 	{

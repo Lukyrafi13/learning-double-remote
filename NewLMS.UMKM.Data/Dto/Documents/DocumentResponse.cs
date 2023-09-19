@@ -1,9 +1,9 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfDocument;
+using NewLMS.Umkm.Data.Dto.RfDocument;
 using System;
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Data.Dto.Documents
+namespace NewLMS.Umkm.Data.Dto.Documents
 {
     public class DocumentResponse : BaseResponse
     {

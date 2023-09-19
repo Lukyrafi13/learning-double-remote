@@ -1,5 +1,5 @@
 ﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto;
+using NewLMS.Umkm.Data.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

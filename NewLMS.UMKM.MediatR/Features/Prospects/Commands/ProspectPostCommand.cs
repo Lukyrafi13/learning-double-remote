@@ -1,15 +1,15 @@
 using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Data.Dto.Prospects;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Dto.Prospects;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.MediatR.Features.Prospects.Commands
+namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
 
 {
     public class ProspectPostCommand : ProspectPostRequest, IRequest<ServiceResponse<Guid>>

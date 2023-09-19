@@ -1,5 +1,5 @@
-﻿using NewLMS.UMKM.Data.Dto.RfLoanPurpose;
-using NewLMS.UMKM.Data.Dto.RfProducts;
+﻿using NewLMS.Umkm.Data.Dto.RfLoanPurpose;
+using NewLMS.Umkm.Data.Dto.RfProducts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfSubProducts
+namespace NewLMS.Umkm.Data.Dto.RfSubProducts
 {
     public class RfSubProductResponse : BaseResponse
     {

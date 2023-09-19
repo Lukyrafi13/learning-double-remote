@@ -1,8 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using NewLMS.UMKM.Data;
+using NewLMS.Umkm.Data;
 
-namespace NewLMS.UMKM.Data
+namespace NewLMS.Umkm.Data
 {
     public class RfCompanyStatus : BaseEntity
     {

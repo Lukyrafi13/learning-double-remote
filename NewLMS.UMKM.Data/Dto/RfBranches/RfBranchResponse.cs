@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Data.Dto.RfBranches
+namespace NewLMS.Umkm.Data.Dto.RfBranches
 
 {
     public class RfBranchResponse : BaseResponse

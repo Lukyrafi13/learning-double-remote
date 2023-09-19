@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.References
+namespace NewLMS.Umkm.API.Helpers.Mapping.References
 {
     public class WilayahProfile : Profile
     {

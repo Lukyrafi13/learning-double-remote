@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.LoanApplicationStageProcess
+namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
 {
     public class LoanApplicationStageProcessController : BaseController
     {
