@@ -49,8 +49,8 @@ using NewLMS.Umkm.Data.Dto.RfSandiBIGroup;
 using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
 using NewLMS.Umkm.Data.Dto.RfAppraisalKJPPMasters;
 using NewLMS.Umkm.Data.Dto.RfInternalAssesments;
-using NewLMS.Umkm.Data.Dto.RfStages;
 
+namespace NewLMS.Umkm.API.Helpers.Mapping
 namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public class ReferenceProfile : Profile

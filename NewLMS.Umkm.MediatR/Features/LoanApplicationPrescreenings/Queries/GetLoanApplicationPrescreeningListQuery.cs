@@ -28,6 +28,16 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries
 
         public async Task<PagedResponse<IEnumerable<LoanApplicationPrescreeningsTableResponse>>> Handle(GetLoanApplicationPrescreeningListQuery request, CancellationToken cancellationToken)
         {
+            var filters = request.Filters;
+            filters.Add(new RequestFilterParameter()
+            {
+                Field = "rfStage.StageId",
+                ComparisonOperator = "=",
+                Type = "string",
+                Value = LMSUMKMStages.Prescreening.StageId.ToString(),
+            });
+            request.Filters = filters;
+
             var includes = new string[] {
                 "RfOwnerCategory",
                 "Debtor",

@@ -68,5 +68,82 @@ namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
         {
             return Ok(await Mediator.Send(command));
         }
+
+        #region Prescrening
+        //Prescresning
+
+        /// <summary>
+        /// Process Prescrening Process To Survey
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("prescreening/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> PrescreeningProcess(ProcessLoanApplicationPrescreening command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Prescreening Back to IDE
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("prescreening/back-to-ide")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> PrescreeningBackToIDE(BackToIDELoanApplicationPrescreeningCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Prescreening Not Process
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("prescreening/not-process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> PrescreeningNotProcess(NotProcessLoanApplicationPrescreeningCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Prescreening Back To Slik Request
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("prescreening/to-slik-request")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> PrescreeningBakcToSlikRequest(BackToSlikRequestLoanApplicationPrescreeningCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        #endregion
+
+        //Survey
+        /// <summary>
+        /// Process Survey Process To Analisa
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("survey/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprSurveyProcess(ProcessLoanApplicationSurvey command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Appraisal Survey Back to IDE
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("survey/back-to-ide")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> ApprSurveyBackToIDE(BackToIDESurveyCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }

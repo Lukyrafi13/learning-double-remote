@@ -78,7 +78,7 @@ namespace NewLMS.Umkm.Common.GenericRespository
 
         public static UMKMStage InitialData = new UMKMStage(0, Guid.Parse("1FBE4B9F-1B6C-4056-9054-7BBA1AE614E2"), "2.0");
 
-        public static UMKMStage SLIKRequest = new UMKMStage(0, Guid.Parse("B5B1D55C-C1E0-E0BF-E8DF-4B4A5A873F10"), "2.1");
+        public static UMKMStage SLIKRequest = new UMKMStage(0, Guid.Parse("3C2D8CD5-8D40-4D2D-B6D1-9A49E9358105"), "4.0.1");
 
         public static UMKMStage SLIKRequestAKBL = new UMKMStage(1, Guid.Parse("1CB26156-D77A-26F8-14F9-43DE17F99970"), "2.2");
 
@@ -88,11 +88,15 @@ namespace NewLMS.Umkm.Common.GenericRespository
 
         public static UMKMStage Duplikasi = new UMKMStage(7, Guid.Parse("4C385A55-D011-3CB7-A309-30BDFB407B90"), "2.5");
         
+        public static UMKMStage Prescreening = new UMKMStage(0, Guid.Parse("9519207D-2D19-4572-913B-B0D709B8D9EC"), "4.2.2");
+        
         public static UMKMStage AppraisalAsignment = new UMKMStage(0, Guid.Parse("F6164295-F21D-41DF-8C46-089779D0D1DD"), "13.1");
         
         public static UMKMStage AppraisalSurveyor = new UMKMStage(0, Guid.Parse("453019B3-7950-4AE0-8387-2973E8C274B2"), "13.2");
         
         public static UMKMStage AppraisalApproval = new UMKMStage(0, Guid.Parse("C82E6D6F-4ECA-4B77-922C-81F268C4018F"), "13.3");
+        
+        public static UMKMStage Survey = new UMKMStage(0, Guid.Parse("75373BE3-EB23-4B93-8209-1ECD603FB3BA"), "4.2.3");
 
         public static UMKMStage Analisa = new UMKMStage(0, Guid.Parse("DD78F449-A938-4FA9-89A4-5A525BEA1389"), "5.0");
 
@@ -107,5 +111,7 @@ namespace NewLMS.Umkm.Common.GenericRespository
         public static UMKMStage PersiapanAkadReview = new UMKMStage(19, Guid.Parse("35A16E69-42EE-4EA8-B063-DB53E9A4E37B"), "6.1");
 
         public static UMKMStage Disbursement = new UMKMStage(21, Guid.Parse("3433A923-6338-40F1-A40B-73A2ABC13B63"), "7.0");
+        
+        public static UMKMStage NotProcess = new UMKMStage(0, Guid.Parse("0BEFD1A8-C24B-4D3F-8B10-3BAEE7395787"), "0.0");
     }
 }

@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Data.Dto.Tests;
 using NewLMS.Umkm.Helper;
-using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
 using System.Threading.Tasks;
 
+namespace NewLMS.Umkm.API.Controllers.RfVehType
 namespace NewLMS.Umkm.API.Controllers.RfVehType
 {
     public class TestController : BaseController

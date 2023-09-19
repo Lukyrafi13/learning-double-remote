@@ -29,6 +29,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplications
         public string NoIdentity { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string BookingOffice { get; set; }
+        public bool IsBusinessCycle { get; set; }
 
     }
 }

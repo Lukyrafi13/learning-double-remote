@@ -4,7 +4,6 @@ using NewLMS.Umkm.SIKP.Interfaces;
 using NewLMS.Umkm.SIKP.Models;
 using NewLMS.Umkm.Data.Dto.SIKPs;
 using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
@@ -12,6 +11,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
+namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 {
     public class SIKPGetValidasiPostCalonQuery : SIKPRequestRequest, IRequest<ServiceResponse<ValidasiPostCalonResponseModel>>
@@ -44,6 +44,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
     public class CheckSIKPCommandHandler : IRequestHandler<CheckSIKPCommand, ServiceResponse<ValidasiPostCalonResponseModel>>
     {
         private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
+        private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
         private IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
         private IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
         private IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
@@ -57,7 +58,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
         private readonly ISIKPService _sikpService;
         private readonly IMapper _mapper;
 
-        public CheckSIKPCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> sikp, IGenericRepositoryAsync<SIKPRequest> sikpRequest, ISIKPService sikpService, IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IGenericRepositoryAsync<SIKPResponse> sikpResponse, IGenericRepositoryAsync<RfGender> rfGender, IGenericRepositoryAsync<RfJob> rfJob, IGenericRepositoryAsync<RfMarital> rfMarital, IGenericRepositoryAsync<RfEducation> rfEducation, IGenericRepositoryAsync<RfZipCode> rfZipCode, IGenericRepositoryAsync<RfLinkAge> rfLinkage, UserContext userContext)
+        public CheckSIKPCommandHandler(IMapper mapper, IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> sikp, IGenericRepositoryAsync<SIKPRequest> sikpRequest, ISIKPService sikpService, IGenericRepositoryAsync<RfSectorLBU3> rfSectorLBU3, IGenericRepositoryAsync<SIKPResponse> sikpResponse, IGenericRepositoryAsync<RfGender> rfGender, IGenericRepositoryAsync<RfJob> rfJob, IGenericRepositoryAsync<RfMarital> rfMarital, IGenericRepositoryAsync<RfEducation> rfEducation, IGenericRepositoryAsync<RfZipCode> rfZipCode, IGenericRepositoryAsync<RfLinkAge> rfLinkage)
         {
             _mapper = mapper;
             _sikp = sikp;

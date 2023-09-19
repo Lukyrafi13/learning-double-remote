@@ -101,11 +101,10 @@ namespace NewLMS.Umkm.MediatR.Helpers
                 case "loanapplication_rac":
                     includes = new List<string>()
                     {
-                        "RfOwnerCategory",
                         "RfBranch",
                         "RfBookingBranch",
-                        "RfProduct",
                         "Owner",
+                        "RfProduct",
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationRAC",
@@ -123,6 +122,52 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationRAC",
+                    };
+                    break;
+
+                case "survey_ots":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationFieldSurvey.RelationsWithDebtors",
+                        "LoanApplicationFieldSurvey.OwnerCategory",
+                        "LoanApplicationFieldSurvey.BusinessLocationStatus",
+                        "LoanApplicationFieldSurvey.BusinessFieldKUR",
+                        "LoanApplicationFieldSurvey.RfZipCode",
+                    };
+                    break;
+
+                case "survey_verifikasi_business":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationVerificationBusiness.BusinessPlaceOwnership",
+                        "LoanApplicationVerificationBusiness.OldBusinessLocation",
+                    };
+                    break;
+
+                case "survey_verifikasi_siklus":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationVerificationCycle.BusinessLandForm",
+                        "LoanApplicationVerificationCycle.BusinessLandArea",
+                        "LoanApplicationVerificationCycle.BusinessCapacity",
                     };
                     break;
 

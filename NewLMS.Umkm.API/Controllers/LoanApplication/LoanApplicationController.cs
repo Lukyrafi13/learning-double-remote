@@ -5,17 +5,21 @@ using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.Appraisals;
 using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries;
 using NewLMS.Umkm.MediatR.Features.Prospects.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 {
     public class LoanApplicationController : BaseController
@@ -95,6 +99,18 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         }
 
         /// <summary>
+        /// Upsert Appraisal Asignment
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("prescreening/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertPrescreening(UpsertLoanApplicationPrescreeningCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
         /// Process LoanApplication
         /// </summary>
         /// <param name="command"></param>
@@ -155,7 +171,7 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         /// <returns></returns>
         [HttpPost("appraisal-surveyor/get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationApprSurveyorGetTableQuery command)
+        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationSurveyGetTableQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
@@ -168,6 +184,44 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         [HttpPost("appraisal-surveyor/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        //Survey
+
+        /// <summary>
+        /// Get List for tables of LoanApplication Survey
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("survey/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterSurveyor(LoanApplicationSurveyGetTableQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get detail Survey by Tab
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("survey/get/detail")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationSurveyResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDetailSurvey(GetLoanApplicationSurveyTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Survey
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("survey/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertSurvey(UpsertLoanApplicationSurveyCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

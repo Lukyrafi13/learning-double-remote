@@ -40,7 +40,7 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
 
         public async Task<PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>> Handle(LoanApplicationAppraisalGetTableQuery request, CancellationToken cancellationToken)
         {
-            //filter by stage Analyst CR
+            
             var filters = request.Filters;
             filters.Add(new RequestFilterParameter()
             {

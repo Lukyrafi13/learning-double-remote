@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.API.Helpers.Mapping.References;
 using NewLMS.Umkm.API.Helpers.Mapping.Transactions;
+using NewLMS.Umkm.API.Helpers.Mapping.References;
+using NewLMS.Umkm.API.Helpers.Mapping.Transactions;
 
+namespace NewLMS.Umkm.API.Helpers.Mapping
 namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public static class MapperConfig
@@ -43,7 +46,12 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new ApprVehicleTemplateProfile());
                 mc.AddProfile(new AppraisalImagesProfile());
                 mc.AddProfile(new ApprProductiveLandTemplateProfile());
-                mc.AddProfile(new SLIKProfile());
+                mc.AddProfile(new LoanApplicationSurveyProfile());
+                mc.AddProfile(new LoanApplicationFieldSurveyProfile());
+                mc.AddProfile(new LoanApplicationFieldSurveyDetailProfile());
+                mc.AddProfile(new LoanApplicationVerificationBusinessProfile());
+                mc.AddProfile(new LoanApplicationVerificationCycleProfile());
+                mc.AddProfile(new LoanApplicationVerificationCycleDetailProfile());
             });
             return mappingConfig.CreateMapper();
         }

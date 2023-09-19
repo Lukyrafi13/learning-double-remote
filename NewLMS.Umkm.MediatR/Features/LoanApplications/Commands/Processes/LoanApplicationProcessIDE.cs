@@ -2,7 +2,6 @@ using AutoMapper;
 using MediatR;
 using NewLMS.Umkm.Data;
 using NewLMS.Umkm.Data.Constants;
-using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
@@ -12,6 +11,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
+namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
     public class LoanApplicationProcessIDE : IRequest<ServiceResponse<Unit>>
@@ -33,7 +33,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
         private readonly IGenericRepositoryAsync<DebtorCompanyLegal> _debtorCompanyLegal;
         private readonly IGenericRepositoryAsync<SLIKRequest> _slikRequest;
         private readonly IGenericRepositoryAsync<SLIKRequestDebtor> _slikRequestDebtor;
-        private readonly IGenericRepositoryAsync<Data.Entities.SIKP> _sikp;
+        private readonly IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
         private readonly IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
         private readonly UserContext _userContext;
         private readonly IMapper _mapper;
@@ -109,6 +109,9 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                 // Create SIKP (RfProduct == KUR)
                 if (!skipSikp)
                 {
+                    var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
+                    var sikpRegist = $"{loanApplication.BranchId}/{sikpCount + 1:D4}/{loanApplication.CreatedDate:MM/yy}";
+
                     var sikp = new Data.Entities.SIKP
                     {
                         Id = loanApplication.Id,

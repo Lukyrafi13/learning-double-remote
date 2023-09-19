@@ -1,11 +1,14 @@
 using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Data.Dto.RfStages;
 
+namespace NewLMS.Umkm.Domain.Context
 namespace NewLMS.Umkm.Domain.Context
 {
     public class UserContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
@@ -85,6 +88,11 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<ApprChecklistReview> ApprChecklistReviews { get; set; }
         public DbSet<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
         public DbSet<ApprVehicleNote> ApprVehicleNotes { get; set; }
+        public DbSet<LoanApplicationFieldSurvey> LoanApplicationFieldSurveys { get; set; }
+        public DbSet<LoanApplicationFieldSurveyDetail> LoanApplicationFieldSurveyDetails { get; set; }
+        public DbSet<LoanApplicationVerificationBusiness> LoanApplicationVerificationBusinesses { get; set; }
+        public DbSet<LoanApplicationVerificationCycle> LoanApplicationVerificationCycles { get; set; }
+        public DbSet<LoanApplicationVerificationCycleDetail> LoanApplicationVerificationCycleDetails { get; set; }
 
         #endregion
 
