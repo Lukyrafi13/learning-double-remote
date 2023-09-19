@@ -11,5 +11,6 @@ namespace NewLMS.Umkm.Data.Dto.Appraisals
         public string Kjpp { get; set; }
         public string Estimator { get; set; }
         public string AppraisalStatus { get; set; }
+        public string CollateralCode { get; set; }
     }
 }

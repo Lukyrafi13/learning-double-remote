@@ -18,12 +18,16 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
     public class UpsertLoanApplicationApprAsignmentCommandHandler : IRequestHandler<UpsertLoanApplicationApprAsignmentCommand, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
+        private readonly IGenericRepositoryAsync<LoanApplicationCollateral> _loanApplicationCollateral;
         private readonly IMapper _mapper;
 
-        public UpsertLoanApplicationApprAsignmentCommandHandler(IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal,
-        IMapper mapper)
+        public UpsertLoanApplicationApprAsignmentCommandHandler(
+            IGenericRepositoryAsync<LoanApplicationAppraisal> appraisal,
+            IGenericRepositoryAsync<LoanApplicationCollateral> loanApplicationCollateral,
+            IMapper mapper)
         {
             _appraisal = appraisal;
+            _loanApplicationCollateral = loanApplicationCollateral;
             _mapper = mapper;
         }
 
@@ -43,6 +47,13 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                 }
                 await _appraisal.UpdateAsync(apprAsigment);
 
+                //cek Perubahan Agunan
+                var loanApplicationCollateralData = await _loanApplicationCollateral.GetByPredicate(x => x.Id == apprAsigment.LoanApplicationCollateralId);
+                if(request.CollateralCode != loanApplicationCollateralData.CollateralBCId)
+                {
+                    loanApplicationCollateralData.CollateralBCId = request.CollateralCode;
+                    await _loanApplicationCollateral.UpdateAsync(loanApplicationCollateralData);
+                }
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }
             catch (Exception ex)
