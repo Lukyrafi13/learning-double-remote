@@ -172,7 +172,7 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         /// <returns></returns>
         [HttpPost("appraisal-surveyor/get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationSurveyGetTableQuery command)
+        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationApprSurveyorGetTableQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
