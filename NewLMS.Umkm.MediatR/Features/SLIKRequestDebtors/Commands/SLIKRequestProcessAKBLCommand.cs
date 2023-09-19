@@ -13,28 +13,28 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands
 {
-    public class SLIKRequestAKBLProcessCommand : IRequest<ServiceResponse<Unit>>
+    public class SLIKRequestDebtorProcessCommand : IRequest<ServiceResponse<Unit>>
     {
         public Guid Id { get; set; }
     }
 
-    public class SLIKRequestAKBLProcessCommandHandler : IRequestHandler<SLIKRequestAKBLProcessCommand, ServiceResponse<Unit>>
+    public class SLIKRequestDebtorProcessCommandHandler : IRequestHandler<SLIKRequestDebtorProcessCommand, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<SLIKRequest> _slikRequest;
         private readonly IMapper _mapper;
 
-        public SLIKRequestAKBLProcessCommandHandler(IGenericRepositoryAsync<SLIKRequest> slikRequest, IMapper mapper)
+        public SLIKRequestDebtorProcessCommandHandler(IGenericRepositoryAsync<SLIKRequest> slikRequest, IMapper mapper)
         {
             _slikRequest = slikRequest;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(SLIKRequestAKBLProcessCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(SLIKRequestDebtorProcessCommand request, CancellationToken cancellationToken)
         {
             try
             {
                 var slikRequest = await _slikRequest.GetByIdAsync(request.Id, "Id") ?? throw new NullReferenceException("Data SLIK tidak ditemukan.");
-                slikRequest.StageId = UMKMConst.Stages["SLIKRequestAdmin"];
+                slikRequest.StageId = UMKMConst.Stages["SLIKAdmin"];
 
                 await _slikRequest.UpdateAsync(slikRequest);
 
