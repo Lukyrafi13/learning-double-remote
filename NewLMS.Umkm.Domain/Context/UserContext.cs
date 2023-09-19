@@ -88,6 +88,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<LoanApplicationFieldSurveyDetail> LoanApplicationFieldSurveyDetails { get; set; }
         public DbSet<LoanApplicationVerificationBusiness> LoanApplicationVerificationBusinesses { get; set; }
         public DbSet<LoanApplicationVerificationCycle> LoanApplicationVerificationCycles { get; set; }
+        public DbSet<LoanApplicationVerificationCycleDetail> LoanApplicationVerificationCycleDetails { get; set; }
 
         #endregion
 

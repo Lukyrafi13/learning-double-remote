@@ -9,6 +9,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
         public LoanApplicationRACProfile()
         {
             CreateMap<LoanApplicationRAC, LoanApplicationRACsResponse>();
+            CreateMap<LoanApplicationRACRequest, LoanApplicationRAC>();
         }
     }
 }

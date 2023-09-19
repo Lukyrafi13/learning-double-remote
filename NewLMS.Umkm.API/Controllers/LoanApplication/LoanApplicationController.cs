@@ -92,7 +92,7 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         /// <returns></returns>
         [HttpPost("prescreening/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationPrescreeningResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetDetailPrescreening(UpsertLoanApplicationPrescreeningCommand command)
+        public async Task<IActionResult> GetDetailPrescreening(GetLoanApplicationPrescreeningTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
@@ -187,7 +187,7 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
 
-        //Surveyor
+        //Survey
 
         /// <summary>
         /// Get List for tables of LoanApplication Survey

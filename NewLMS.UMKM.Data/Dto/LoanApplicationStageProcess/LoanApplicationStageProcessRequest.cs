@@ -11,7 +11,7 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationStageProcess
         public Guid LoanApplicationCollateralId { get; set; }
     }
 
-    public class LoanApplicationProcessRequest
+    public class LoanApplicationProcessStageRequest
     {
         public Guid LoanApplicationGuid { get; set; }
     }

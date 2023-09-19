@@ -1,5 +1,4 @@
-﻿using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationBusiness;
+﻿using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationBusiness;
 using NewLMS.UMKM.Data.Dto.LoanApplicationVerificationCycles;
 using System;
 

@@ -12,16 +12,16 @@ using System.Threading.Tasks;
 
 namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands
 {
-    public class ProcessLoanApplicationSurvey : LoanApplicationProcessStageRequest, IRequest<ServiceResponse<Unit>>
+    public class BackToSlikRequestLoanApplicationPrescreeningCommand : LoanApplicationProcessStageRequest, IRequest<ServiceResponse<Unit>>
     {
     }
 
-    public class ProcessLoanApplicationSurveyHandler : IRequestHandler<ProcessLoanApplicationSurvey, ServiceResponse<Unit>>
+    public class BackToSlikRequestLoanApplicationPrescreeningCommandHandler : IRequestHandler<BackToSlikRequestLoanApplicationPrescreeningCommand, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IMapper _mapper;
 
-        public ProcessLoanApplicationSurveyHandler(
+        public BackToSlikRequestLoanApplicationPrescreeningCommandHandler(
             IGenericRepositoryAsync<LoanApplication> loanApplication,
             IMapper mapper)
         {
@@ -29,21 +29,20 @@ namespace NewLMS.UMKM.MediatR.Features.LoanApplicationStageProcess.Commands
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(ProcessLoanApplicationSurvey request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(BackToSlikRequestLoanApplicationPrescreeningCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
-                if (loanApplication != null)
+                var loanApplicationData = await _loanApplication.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
+                if (loanApplicationData != null)
                 {
-                    loanApplication.StageId = LMSUMKMStages.Analisa.StageId;
-                    await _loanApplication.UpdateAsync(loanApplication);
+                    loanApplicationData.StageId = LMSUMKMStages.SLIKRequest.StageId;
+                    await _loanApplication.UpdateAsync(loanApplicationData);
                 }
                 else
                 {
                     return ServiceResponse<Unit>.Return404("Data Tidak Ditemukan, Gagal Proses Stage");
                 }
-
 
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
 

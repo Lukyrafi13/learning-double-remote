@@ -2,6 +2,7 @@
 using NewLMS.UMKM.Data.Dto.Debtor;
 using NewLMS.UMKM.Data.Dto.DebtorCompany;
 using NewLMS.UMKM.Data.Dto.LoanApplicationRACs;
+using NewLMS.UMKM.Data.Dto.LoanApplications;
 using NewLMS.UMKM.Data.Dto.RfBranches;
 using NewLMS.UMKM.Data.Dto.RfProducts;
 using NewLMS.UMKM.Data.Dto.Users;
@@ -24,8 +25,8 @@ namespace NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings
     public class LoanApplicationPrescreeningResponse
     {
         public Guid Id { get; set; }
-        public LoanApplicationPrescreeningBaseTabReponse InfoPrescreening { get; set; }
-        public LoanApplicationRACsResponse LoanApplicationRAC { get; set; }
+        public LoanApplicationAppInfoApprSurveyorResponse InfoPrescreening { get; set; }
+        public LoanApplicationRACsResponse? LoanApplicationRAC { get; set; }
     }
 
     public class LoanApplicationPrescreeningBaseTabReponse

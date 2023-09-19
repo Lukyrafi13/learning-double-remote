@@ -100,11 +100,10 @@ namespace NewLMS.UMKM.MediatR.Helpers
                 case "loanapplication_rac":
                     includes = new List<string>()
                     {
-                        "RfOwnerCategory",
                         "RfBranch",
                         "RfBookingBranch",
-                        "RfProduct",
                         "Owner",
+                        "RfProduct",
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationRAC",

@@ -10,6 +10,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
         public LoanApplicationPrescreeningProfile()
         {
             CreateMap<LoanApplication, LoanApplicationPrescreeningsTableResponse>()
+                .ForMember(d => d.Id, o =>
+                {
+                    o.MapFrom(s => s.Id);
+                })
                 .ForMember(d => d.DebtorName, o =>
                 {
                     o.MapFrom(s => s.RfOwnerCategory.ParameterDetailId == 1 ? s.Debtor.Fullname : s.DebtorCompany.Name);
@@ -31,7 +35,7 @@ namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
             CreateMap<LoanApplication, LoanApplicationPrescreeningResponse>()
                 .ForMember(d => d.InfoPrescreening, o =>
                 {
-                    o.MapFrom(s => s);
+                    o.MapFrom(s => s ?? new LoanApplication());
                 })
                 .ForMember(d => d.LoanApplicationRAC, o =>
                 {
