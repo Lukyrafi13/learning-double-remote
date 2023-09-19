@@ -2,7 +2,6 @@ using AutoMapper;
 using MediatR;
 using NewLMS.Umkm.Data;
 using NewLMS.Umkm.Data.Constants;
-using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
@@ -112,7 +111,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                     var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
                     var sikpRegist = $"{loanApplication.BranchId}/{sikpCount + 1:D4}/{loanApplication.CreatedDate:MM/yy}";
 
-                    var sikp = new SIKP
+                    var sikp = new Data.Entities.SIKP
                     {
                         Id = loanApplication.Id,
                         RegistrationNumber = sikpRegist
