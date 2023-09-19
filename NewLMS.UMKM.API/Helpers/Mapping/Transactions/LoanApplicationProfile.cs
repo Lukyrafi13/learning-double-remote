@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings;
-using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
-using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScorings;
+using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
 using System.Linq;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping
+namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public class LoanApplicationProfile : Profile
     {

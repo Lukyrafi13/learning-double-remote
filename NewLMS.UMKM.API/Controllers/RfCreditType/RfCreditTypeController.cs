@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfCreditType;
-using NewLMS.UMKM.MediatR.Features.RfCreditTypes.Queries.GetFilterRfCreditTypes;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfCreditType;
+using NewLMS.Umkm.MediatR.Features.RfCreditTypes.Queries.GetFilterRfCreditTypes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfCreditType
+namespace NewLMS.Umkm.API.Controllers.RfCreditType
 {
     public class RfCreditTypeController : BaseController
     {

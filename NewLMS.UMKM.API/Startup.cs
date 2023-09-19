@@ -1,6 +1,6 @@
-using NewLMS.UMKM.Api.Helpers;
-using NewLMS.UMKM.API.Helpers.Mapping;
-using NewLMS.UMKM.MediatR.PipeLineBehavior;
+using NewLMS.Umkm.Api.Helpers;
+using NewLMS.Umkm.API.Helpers.Mapping;
+using NewLMS.Umkm.MediatR.PipeLineBehavior;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -13,35 +13,35 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Reflection;
-using NewLMS.UMKM.API.Middlewares;
+using NewLMS.Umkm.API.Middlewares;
 using Bjb.DigitalBisnis.SLIK;
-using NewLMS.UMKM.Domain.Dwh;
+using NewLMS.Umkm.Domain.Dwh;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Bjb.Util.GeneratePdf;
-using NewLMS.UMKM.Scoring;
+using NewLMS.Umkm.Scoring;
 using bjb.util.uim;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Bjb.DigitalBisnis.FcmNotification;
 using Hangfire;
 using Hangfire.SqlServer;
-using NewLMS.UMKM.API.Filters;
-using NewLMS.UMKM.Maps;
-using NewLMS.UMKM.Domain.FUSE;
-using NewLMS.UMKM.Domain.Context;
+using NewLMS.Umkm.API.Filters;
+using NewLMS.Umkm.Maps;
+using NewLMS.Umkm.Domain.FUSE;
+using NewLMS.Umkm.Domain.Context;
 using Bjb.DigitalBisnis.CoreBanking;
-using NewLMS.UMKM.DomainDHN;
+using NewLMS.Umkm.DomainDHN;
 using Bjb.DigitalBisnis.DigiloanAPI;
 using Bjb.DigitalBisnis.BaseMvcApi;
 using Bjb.DigitalBisnis.CurrentUser;
 using Bjb.DigitalBisnis.HealthCheck;
-using NewLMS.UMKM.Data.Dto.AppSettingJson;
-using NewLMS.UMKM.FileUpload;
+using NewLMS.Umkm.Data.Dto.AppSettingJson;
+using NewLMS.Umkm.FileUpload;
 using NewLMS.Umkm.SIKP;
 using NewLMS.Umkm.SIKP2;
 using Bjb.DigitalBisnis.Consul;
 
-namespace NewLMS.UMKM.API
+namespace NewLMS.Umkm.API
 {
     public class Startup
     {
@@ -56,7 +56,7 @@ namespace NewLMS.UMKM.API
         public void ConfigureServices(IServiceCollection services)
         {
             BuildAppSettingsProvider();
-            var assembly = AppDomain.CurrentDomain.Load("NewLMS.UMKM.MediatR");
+            var assembly = AppDomain.CurrentDomain.Load("NewLMS.Umkm.MediatR");
             services.AddMediatR(assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));

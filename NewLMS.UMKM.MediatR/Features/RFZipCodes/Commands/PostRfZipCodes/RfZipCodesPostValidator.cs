@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
 
-namespace NewLMS.UMKM.MediatR.Features.RfZipCodes.Commands
+namespace NewLMS.Umkm.MediatR.Features.RfZipCodes.Commands
 {
     public class RfZipCodePostValidator : AbstractValidator<RfZipCodePostRequest>
     {

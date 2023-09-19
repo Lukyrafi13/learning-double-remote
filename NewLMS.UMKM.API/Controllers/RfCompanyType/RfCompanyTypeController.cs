@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfCompanyTypes;
-using NewLMS.UMKM.MediatR.Features.RfCompanyTypes.Queries.GetFilterRfCompanyTypes;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfCompanyTypes;
+using NewLMS.Umkm.MediatR.Features.RfCompanyTypes.Queries.GetFilterRfCompanyTypes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfCompanyType
+namespace NewLMS.Umkm.API.Controllers.RfCompanyType
 {
     public class RfCompanyTypeController : BaseController
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 
-namespace NewLMS.UMKM.Api.Helpers
+namespace NewLMS.Umkm.Api.Helpers
 {
     public class UnprocessableEntityObjectResult : ObjectResult
     {

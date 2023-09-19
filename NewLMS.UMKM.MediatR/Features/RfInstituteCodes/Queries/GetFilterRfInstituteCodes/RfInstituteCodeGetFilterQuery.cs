@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Dto.RfInstituteCodes;
-using NewLMS.UMKM.Data.Dto.RfJob;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.MediatR.Features.RfJobs.Queries.GetFilterRfJobs;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data.Dto.RfInstituteCodes;
+using NewLMS.Umkm.Data.Dto.RfJob;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.MediatR.Features.RfJobs.Queries.GetFilterRfJobs;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.MediatR.Features.RfInstituteCodes.Queries.GetFilterRfInstituteCodes
+namespace NewLMS.Umkm.MediatR.Features.RfInstituteCodes.Queries.GetFilterRfInstituteCodes
 {
     public class RfInstituteCodeGetFilterQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<RfInstituteCodeResponse>>>
     {

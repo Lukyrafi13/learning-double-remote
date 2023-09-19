@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Data.Resources
+﻿namespace NewLMS.Umkm.Data.Resources
 {
     public class LoginAuditResource : ResourceParameter
     {

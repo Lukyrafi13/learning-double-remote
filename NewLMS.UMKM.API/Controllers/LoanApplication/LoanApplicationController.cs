@@ -1,25 +1,25 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.Appraisals;
-using NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands;
-using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes;
-using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Queries;
-using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Appraisals;
+using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries;
+using NewLMS.Umkm.MediatR.Features.Prospects.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
+namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 {
     public class LoanApplicationController : BaseController
     {

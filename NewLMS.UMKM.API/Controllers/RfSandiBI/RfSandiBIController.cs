@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.API.Controllers;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfSandiBI;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.RfSandiBIs.Queries.GetByIdRfSandiBIs;
-using NewLMS.UMKM.MediatR.Features.RfSandiBIs.Queries.GetFilterRfSandiBIs;
+using NewLMS.Umkm.API.Controllers;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfSandiBI;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.RfSandiBIs.Queries.GetByIdRfSandiBIs;
+using NewLMS.Umkm.MediatR.Features.RfSandiBIs.Queries.GetFilterRfSandiBIs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

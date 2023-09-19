@@ -1,10 +1,10 @@
 ﻿using System;
 using AutoMapper;
-using NewLMS.UMKM.Data.Dto.DebtorEmergencies;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.DebtorEmergencies;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class DebtorEmergencyProfile : Profile
     {

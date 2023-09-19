@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfScPosition;
-using NewLMS.UMKM.MediatR.Features.RfScPositions.Queries.GetFilterRfScPositions;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfScPosition;
+using NewLMS.Umkm.MediatR.Features.RfScPositions.Queries.GetFilterRfScPositions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfScPosition
+namespace NewLMS.Umkm.API.Controllers.RfScPosition
 {
     public class RfScPositionController : BaseController
     {

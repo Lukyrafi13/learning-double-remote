@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfInstallmentTypes;
-using NewLMS.UMKM.MediatR.Features.RfInstallmentTypes.Queries.GetFilterRfInstalmetTypes;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfInstallmentTypes;
+using NewLMS.Umkm.MediatR.Features.RfInstallmentTypes.Queries.GetFilterRfInstalmetTypes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
+namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 {
     public class RfInstallmentTypeController : BaseController
     {

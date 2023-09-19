@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Data.Dto.Users;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data.Dto.Users;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping.Transactions
+namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
     public class UserProfile : Profile
     {

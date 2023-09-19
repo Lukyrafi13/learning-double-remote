@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
 using NewLMS.Umkm.Data.Dto.RFSectorLBU1s;
-using NewLMS.UMKM.Data.Entities;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Repository.GenericRepository;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Repository.GenericRepository;
 using System.Threading;
 using System.Threading.Tasks;
 
