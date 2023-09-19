@@ -40,6 +40,9 @@
     <None Remove="Features\SIKPs\Commands\" />
     <None Remove="Features\SLIKRequests\" />
     <None Remove="Features\SLIKRequests\Queries\" />
+    <None Remove="Features\SLIKRequestDebtors\" />
+    <None Remove="Features\SLIKRequestDebtors\Commands\" />
+    <None Remove="Features\SLIKRequestDebtors\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -133,6 +136,9 @@
     <Folder Include="Features\SIKPs\Commands\" />
     <Folder Include="Features\SLIKRequests\" />
     <Folder Include="Features\SLIKRequests\Queries\" />
+    <Folder Include="Features\SLIKRequestDebtors\" />
+    <Folder Include="Features\SLIKRequestDebtors\Commands\" />
+    <Folder Include="Features\SLIKRequestDebtors\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Bjb.DigitalBisnis.CurrentUser.Interfaces" />
