@@ -29,6 +29,19 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         }
 
         /// <summary>
+        /// GetFilter SLIK
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("Get/AKBL")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<SLIKRequestTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterAKBL(GetFilterSLIKAKBLRequestQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+
+        /// <summary>
         /// Create SLIKRequestDebtor
         /// </summary>
         /// <param name="command"></param>
