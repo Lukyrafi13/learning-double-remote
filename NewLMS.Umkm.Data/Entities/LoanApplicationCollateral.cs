@@ -33,6 +33,10 @@ namespace NewLMS.Umkm.Data.Entities
         public int ZipCodeId { get; set; }
         public double? LanArea { get; set; }
         public string BuildingPermit { get; set; }
+
+        [ForeignKey(nameof(TypeOfDeed))]
+        public int? TypeOfDeedId { get; set; }
+
         public string NOPNumber { get; set; }
         public string NJOPPBBNumber { get; set; }
         public double? BuildingArea { get; set; }
@@ -80,5 +84,6 @@ namespace NewLMS.Umkm.Data.Entities
         public virtual RfZipCode RfZipCode { get; set; }
         public virtual RfCollateralBC RfCollateralBC { get; set; }
         public virtual RfTransportationType RfTransportationType { get; set; }
+        public virtual RfParameterDetail TypeOfDeed { get; set; }
     }
 }
