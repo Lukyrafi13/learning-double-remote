@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using NewLMS.Umkm.Domain.Context;
+using System.Net;
 
 namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 {
@@ -115,7 +116,9 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     sikpResponse = new SIKPResponse() { Id = sikp.Id };
                     await _sikpResponse.AddAsync(sikpResponse);
                 }
-                sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request, sikpRequest);
+                sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request);
+                sikpRequest.Id = sikp.Id;
+
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
                 var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikp.SIKPRequest.DebtorNoIdentity))?.data;
@@ -150,7 +153,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         sikpResponse.DebtorMaritalStatusId = rfMarital.MaritalCode;
                         sikpResponse.DebtorJobId = rfJob.JobCode;
                         sikpResponse.DebtorEducationId = rfEducation.EducationCode;
-                        sikpResponse.DebtorCompanyLingkageId = rfLinkage.LinkAgeCode;
+                        sikpResponse.DebtorCompanyLinkageId = rfLinkage.LinkAgeCode;
                         sikpResponse.DebtorZipCode = rfZipCode.ZipCode;
                         sikpResponse.DebtorZipCodeId = rfZipCode.Id;
                         sikpResponse.DebtorProvince = rfZipCode.Provinsi;
@@ -257,7 +260,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             catch (Exception ex)
             {
                 await transaction.RollbackAsync(cancellationToken);
-                return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnException(ex);
+                //return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnException(ex);
+                return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
 
         }

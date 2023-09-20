@@ -46,7 +46,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public string DebtorCompanyPhone { get; set; }
         public string DebtorCompanyCollaterals { get; set; }
         public int DebtorCompanyEmployee { get; set; }
-        public string DebtorCompanyLingkageId { get; set; }
+        public string DebtorCompanyLinkageId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
