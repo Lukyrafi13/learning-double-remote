@@ -59,9 +59,9 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                 if (!(bool)sikp.SIKPResponse.Valid)
                 {
-                    return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, "Data SIKP tidak valid, silahkan periksa kembali.");
+                    return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, $"Data SIKP tidak valid, silahkan periksa kembali: {string.Join(", ", sikp.SIKPResponse?.ValidationMessage?.Split(","))}");
                 }
-                
+
                 var loanApplicationCollaterals = await _loanApplicationCollateral.GetListByPredicate(x => x.LoanApplicationId == sikp.Id);
                 var loanApplicationStageSLIK = new LoanApplicationStage
                 {
