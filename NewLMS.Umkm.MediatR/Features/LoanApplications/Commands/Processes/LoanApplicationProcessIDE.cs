@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
+using System.Net;
 
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
@@ -91,7 +93,9 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                         "DebtorCompany.DebtorCompanyLegal",
                         "DebtorCompany.RfZipCode",
                         "DebtorEmergency.RfZipCode",
-                        "LoanApplicationCollaterals",
+                        "LoanApplicationCollaterals.RfCollateralBC",
+                        "LoanApplicationCollaterals.RfDocument",
+                        "LoanApplicationCollaterals.LoanApplicationCollateralOwner",
                         "LoanApplicationFacilities"
                     };
                 var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id", includes) ?? throw new NullReferenceException($"LoanApplication not found, Id: {request.AppId}");
@@ -119,7 +123,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                     await _sikp.AddAsync(sikp);
 
                     // Create SIKP Request
-                    var sikpRequest = _mapper.Map<SIKPRequest>(loanApplication);
+                    var sikpRequest = _mapper.Map<LoanApplication, SIKPRequest>(loanApplication);
                     sikpRequest.Id = sikp.Id;
                     sikpRequest.DebtorRfZipCode = null;
                     sikpRequest.DebtorCompanyRfZipCode = null;
@@ -139,12 +143,13 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                 };
                 await _loanApplicationStage.AddAsync(loanApplicationStage);
                 loanApplication.Status = Data.Enums.EnumLoanApplicationStatus.Processed;
+                loanApplication.LoanApplicationCollaterals = null;
                 await _loanApplication.UpdateAsync(loanApplication);
             }
             catch (Exception ex)
             {
                 await transaction.RollbackAsync(cancellationToken);
-                return ServiceResponse<Unit>.ReturnException(ex);
+                return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
 
             await transaction.CommitAsync(cancellationToken);
