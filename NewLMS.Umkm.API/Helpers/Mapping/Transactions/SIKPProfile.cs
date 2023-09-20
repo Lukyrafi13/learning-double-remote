@@ -29,6 +29,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
 
             CreateMap<Data.Entities.SIKP, SIKPBaseResponse>()
+                .ForMember(d => d.Info, o => o.MapFrom(s => s.LoanApplication))
                 .ForMember(d => d.CIF, o => o.MapFrom(s => s.LoanApplication.Debtor.CIF))
                 .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
                 .ForMember(d => d.SIKPRequest, o => o.MapFrom(s => s.SIKPRequest))

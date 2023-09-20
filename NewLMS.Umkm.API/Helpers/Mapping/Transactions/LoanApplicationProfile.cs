@@ -13,6 +13,13 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
     {
         public LoanApplicationProfile()
         {
+            CreateMap<LoanApplication, LoanApplicationInfoResponse>()
+                .ForMember(d => d.AccountOfficerName, o => o.MapFrom(s => s.Owner.Nama))
+                .ForMember(d => d.DebtorName, o => o.MapFrom(s => s.RfOwnerCategory.Code == "001" ? s.Debtor.Fullname : s.DebtorCompany.Name))
+                .ForMember(d => d.LoanApplicationId, o => o.MapFrom(s => s.LoanApplicationId))
+                .ForMember(d => d.RfBookingBranch, o => o.MapFrom(s => s.RfBookingBranch))
+                .ForMember(d => d.RfProduct, o => o.MapFrom(s => s.RfProduct));
+
             CreateMap<LoanApplication, LoanApplicationTableResponse>()
                 .ForMember(d => d.DebtorName, o =>
                 {
