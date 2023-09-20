@@ -55,6 +55,8 @@ namespace NewLMS.Umkm.Data.Entities
         public int DebtorCompanyEmployee { get; set; }
         [ForeignKey(nameof(DebtorCompanyRfLinkage))]
         public string? DebtorCompanyLinkageId { get; set; }
+        [ForeignKey(nameof(DebtorCompanyRfLinkageType))]
+        public string? DebtorCompanyLinkageTypeId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
@@ -69,6 +71,7 @@ namespace NewLMS.Umkm.Data.Entities
         public virtual RfZipCode? DebtorRfZipCode { get; set; }
         public virtual RfZipCode? DebtorCompanyRfZipCode { get; set; }
         public virtual RfLinkAge? DebtorCompanyRfLinkage { get; set; }
+        public virtual RfLinkAgeType? DebtorCompanyRfLinkageType { get; set; }
 
     }
 }

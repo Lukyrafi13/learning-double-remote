@@ -7,6 +7,7 @@ using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -224,8 +225,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),
                     jml_pekerja = sikpRequest.DebtorCompanyEmployee.ToString(),
                     jml_kredit = sikpRequest.DebtorCompanyCreditValue.ToString(),
-                    is_linkage = sikpRequest.DebtorCompanyRfLinkage?.LinkAgeCode ?? "",
-                    linkage = sikpRequest.DebtorCompanyRfLinkage?.LinkAgeCode ?? "",
+                    is_linkage =  _userContext.RfLinkAges.Where(x => x.LinkAgeCode == sikpRequest.DebtorCompanyLinkageId).Select(x => x.LinkAgeCode).FirstOrDefault() ?? "",
+                    linkage = _userContext.RfLinkAgeTypes.Where(x => x.LinkAgeTypeCode == sikpRequest.DebtorCompanyLinkageId).Select(x => x.LinkAgeTypeCode).FirstOrDefault() ?? "",
                     no_hp = sikpRequest.DebtorCompanyPhone ?? "",
                     uraian_agunan = sikpRequest.DebtorCompanyCollaterals ?? "",
                     is_subsidized = sikpRequest.DebtorCompanySubisdyStatus ? "1" : "0",
