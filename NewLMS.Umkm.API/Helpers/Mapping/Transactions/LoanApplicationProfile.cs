@@ -136,6 +136,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
             CreateMap<LoanApplicationFacility, LoanApplicationFacilityResponse>();
 
             CreateMap<LoanApplication, SIKPRequest>()
+                .ForMember(d => d.DebtorCompanyCollaterals, o =>
+                {
+                    o.MapFrom(s => $"{string.Join(System.Environment.NewLine, s.LoanApplicationCollaterals.Select((x, i) => $"{i + 1}. {x.RfCollateralBC.CollateralDesc}, {x.RfDocument.DocumentDesc}, {x.DocumentNumber}, {x.LoanApplicationCollateralOwner.OwnerName}"))}");
+                })
                 .ForMember(d => d.DebtorNoIdentity, o =>
                 {
                     o.MapFrom(s => s.Debtor.NoIdentity);
