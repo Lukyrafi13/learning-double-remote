@@ -7,6 +7,7 @@ using NewLMS.Umkm.Data.Dto.RfDocument;
 using NewLMS.Umkm.Data.Dto.RfTransportationType;
 using NewLMS.Umkm.Data.Dto.RfCollateralBC;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
 {
@@ -28,6 +29,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
         public int ZipCodeId { get; set; }
         public double? LanArea { get; set; }
         public string BuildingPermit { get; set; }
+        public int? TypeOfDeedId { get; set; }
         public string NOPNumber { get; set; }
         public string NJOPPBBNumber { get; set; }
         public double? BuildingArea { get; set; }        
@@ -60,6 +62,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
         public RfVehMakerSimpleResponse RfVehMaker { get; set; }
         public RfVehClassSimpleResponse RfVehClass { get; set; }
         public RfVehModelSimplelResponse RfVehModel { get; set; }
+        public RfParameterDetailSimpleResponse TypeOfDeed { get; set; }
         public RfTransportationTypeSimpleResponse RfTransportationType { get; set; }
         public RfCollateralBCResponse RfCollateralBC { get; set; }
         public LoanApplicationCollateralOwnerResponse LoanApplicationCollateralOwner { get; set; }
