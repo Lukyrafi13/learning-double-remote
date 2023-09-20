@@ -109,8 +109,11 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                     o.MapFrom(s => s.MappingTab == "informasi_fasilitas" ? s : null);
                 });
 
-            CreateMap<LoanApplication, LoanApplicationBaseTabResponse>();
-            ;
+            CreateMap<LoanApplication, LoanApplicationBaseTabResponse>()
+                .ForMember(d => d.Owner, o =>
+                {
+                    o.MapFrom(s => s.Owner);
+                });
 
             #region Requests
             CreateMap<LoanApplicationDataFasilitasRequest, LoanApplication>();

@@ -85,7 +85,8 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                     ProductId = prospect.ProductId,
                     Status = EnumLoanApplicationStatus.Draft,
                     StageId = Guid.Parse("1FBE4B9F-1B6C-4056-9054-7BBA1AE614E2"),
-                    OwnerCategoryId = prospect.OwnerCategoryId ?? 1
+                    OwnerCategoryId = prospect.OwnerCategoryId ?? 1,
+                    OwnerId = Guid.Parse(_userInfoToken.Id),
                 };
 
                 Debtor debtor = new();
