@@ -9,6 +9,7 @@ using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -52,8 +53,15 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 var sikp = await _sikp.GetByIdAsync(request.AppId, "Id", new string[] {
                     "LoanApplication.RfOwnerCategory",
                     "LoanApplication.Debtor",
-                    "LoanApplication.DebtorCompany"
-                });
+                    "LoanApplication.DebtorCompany",
+                    "SIKPResponse"
+                }) ?? throw new NullReferenceException("Data SIKP tidak ditemukan.");
+
+                if (!(bool)sikp.SIKPResponse.Valid)
+                {
+                    return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, "Data SIKP tidak valid, silahkan periksa kembali.");
+                }
+                
                 var loanApplicationCollaterals = await _loanApplicationCollateral.GetListByPredicate(x => x.LoanApplicationId == sikp.Id);
                 var loanApplicationStageSLIK = new LoanApplicationStage
                 {
