@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
 {
-    public class GetLoanAppApprSurveyorTabDetailQuery : LoanApplicationApprGetDetailRequests, IRequest<ServiceResponse<LoanApplicationApprAsignmentResponse>>
+    public class GetLoanAppApprSurveyorTabDetailQuery : LoanApplicationApprGetDetailRequests, IRequest<ServiceResponse<LoanApplicationApprSurveyorResponse>>
     {
     }
 
-    public class GetLoanAppApprSurveyorTabDetailQueryHandler : IRequestHandler<GetLoanAppApprSurveyorTabDetailQuery, ServiceResponse<LoanApplicationApprAsignmentResponse>>
+    public class GetLoanAppApprSurveyorTabDetailQueryHandler : IRequestHandler<GetLoanAppApprSurveyorTabDetailQuery, ServiceResponse<LoanApplicationApprSurveyorResponse>>
     {
         private readonly IGenericRepositoryAsync<LoanApplicationAppraisal> _appraisal;
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
@@ -34,12 +34,13 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<LoanApplicationApprAsignmentResponse>> Handle(GetLoanAppApprSurveyorTabDetailQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<LoanApplicationApprSurveyorResponse>> Handle(GetLoanAppApprSurveyorTabDetailQuery request, CancellationToken cancellationToken)
         {
             try
             {
                 var include = new string[]
                 {
+                    "LoanApplication.RfOwnerCategory",
                     "LoanApplicationCollateral",
                     "LoanApplicationCollateral.RfCollateralBC",
                     "LoanApplicationCollateral.RfDocument",
@@ -50,13 +51,14 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
                 var data = await _appraisal.GetByPredicate(x => x.LoanApplicationCollateralId == request.LoanApplicationCollateralId, include);
                 if (data == null)
                 {
-                    return ServiceResponse<LoanApplicationApprAsignmentResponse>.ReturnResultWith204();
+                    return ServiceResponse<LoanApplicationApprSurveyorResponse>.ReturnResultWith204();
                 }
 
-                var dataVm = _mapper.Map<LoanApplicationApprAsignmentResponse>(data);
+                var dataVm = _mapper.Map<LoanApplicationApprSurveyorResponse>(data);
                 var loanApplicationGuid = data.LoanApplicationId;
                 var includesLoanApp = new string[]
                 {
+                    "RfOwnerCategory",
                     "RfBranch",
                     "Debtor",
                     "DebtorCompany",
@@ -79,21 +81,23 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
                     dataVm.LoanApplicationInfo.Name = loanAppData.Debtor.Fullname;
                     dataVm.LoanApplicationInfo.Address = loanAppData.Debtor.Address;
                     dataVm.LoanApplicationInfo.PhoneNumber = loanAppData.Debtor.PhoneNumber;
+                    dataVm.LoanApplicationInfo.NPWP = loanAppData.Debtor.NPWP;
                 }
                 if (loanAppData.OwnerCategoryId == 2)//Badan Usaha
                 {
                     dataVm.LoanApplicationInfo.Name = loanAppData.DebtorCompany.Name;
+                    dataVm.LoanApplicationInfo.SIUPDate = loanAppData.DebtorCompany.DebtorCompanyLegal.SIUPDate;
                     dataVm.LoanApplicationInfo.SIUPNumber = loanAppData.DebtorCompany.DebtorCompanyLegal.SIUPNumber;
-                    dataVm.LoanApplicationInfo.CompanyOld = "-";
                     dataVm.LoanApplicationInfo.Address = loanAppData.DebtorCompany.Address;
+                    dataVm.LoanApplicationInfo.PhoneNumber = loanAppData.DebtorCompany.PhoneNumber;
                     dataVm.LoanApplicationInfo.PhoneNumber = loanAppData.DebtorCompany.PhoneNumber;
                 }
 
-                return ServiceResponse<LoanApplicationApprAsignmentResponse>.ReturnResultWith200(dataVm);
+                return ServiceResponse<LoanApplicationApprSurveyorResponse>.ReturnResultWith200(dataVm);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<LoanApplicationApprAsignmentResponse>.ReturnException(ex);
+                return ServiceResponse<LoanApplicationApprSurveyorResponse>.ReturnException(ex);
             }
         }
     }

@@ -170,7 +170,7 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         //Appraisal Surveyor
 
         /// <summary>
-        /// Get List for tables of LoanApplication ApprAsignment
+        /// Get List for tables of LoanApplication ApprSuveyor
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -182,12 +182,12 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         }
 
         /// <summary>
-        /// Get detail LoanApplication by Tab
+        /// Get detail LoanApplication Surveyor by Tab
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("appraisal-surveyor/get/detail")]
-        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
