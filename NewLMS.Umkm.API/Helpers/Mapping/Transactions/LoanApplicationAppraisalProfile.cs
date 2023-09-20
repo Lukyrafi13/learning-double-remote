@@ -35,6 +35,21 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                     o.MapFrom(s => s.LoanApplicationCollateral ?? new LoanApplicationCollateral());
                 })
                 ;
+
+            CreateMap<LoanApplicationAppraisal, LoanApplicationApprSurveyorResponse>()
+                .ForMember(d => d.PropertyCategory, o =>
+                {
+                    o.MapFrom(s => s ?? new LoanApplicationAppraisal());
+                })
+                .ForMember(d => d.LoanApplicationInfo, o =>
+                {
+                    o.MapFrom(s => s.LoanApplication ?? new LoanApplication());
+                })
+                .ForMember(d => d.LoanApplicationCollateral, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationCollateral ?? new LoanApplicationCollateral());
+                })
+                ;
         }
     }
 }

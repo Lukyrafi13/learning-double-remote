@@ -60,4 +60,11 @@ namespace NewLMS.Umkm.Data.Dto.Appraisals
         public AppraisalSimpleResponse PropertyCategory { get; set; }
         public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
     }
+
+    public class LoanApplicationApprSurveyorResponse
+    {
+        public LoanApplicationAppInfoAppraisalSurveyorResponse LoanApplicationInfo { get; set; }
+        public AppraisalSimpleResponse PropertyCategory { get; set; }
+        public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
+    }
 }
