@@ -90,7 +90,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 var sikpIncludes = new string[]
                     {
                         //"SIKPRequest",
-                        "LoanApplication",
+                        "LoanApplication.LoanApplicationCollaterals.RfCollateralBC",
                         "SIKPRequest.RfSectorLBU3",
                         "SIKPRequest.RfGender",
                         "SIKPRequest.RfMarital",
@@ -110,6 +110,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         "SIKPResponse.DebtorCompanyRfLinkage",
                     };
                 var sikp = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
+                var collaterals = sikp.LoanApplication.LoanApplicationCollaterals;
                 var sikpRequest = sikp.SIKPRequest;
                 var sikpResponse = sikp.SIKPResponse;
                 if (sikpResponse == null)
@@ -225,8 +226,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),
                     jml_pekerja = sikpRequest.DebtorCompanyEmployee.ToString(),
                     jml_kredit = sikpRequest.DebtorCompanyCreditValue.ToString(),
-                    is_linkage =  _userContext.RfLinkAges.Where(x => x.LinkAgeCode == sikpRequest.DebtorCompanyLinkageId).Select(x => x.LinkAgeCode).FirstOrDefault() ?? "",
-                    linkage = _userContext.RfLinkAgeTypes.Where(x => x.LinkAgeTypeCode == sikpRequest.DebtorCompanyLinkageId).Select(x => x.LinkAgeTypeCode).FirstOrDefault() ?? "",
+                    is_linkage = sikpRequest.DebtorCompanyLinkageId ?? "",
+                    linkage = sikpRequest.DebtorCompanyLinkageTypeId ?? "",
                     no_hp = sikpRequest.DebtorCompanyPhone ?? "",
                     uraian_agunan = sikpRequest.DebtorCompanyCollaterals ?? "",
                     is_subsidized = sikpRequest.DebtorCompanySubisdyStatus ? "1" : "0",
@@ -261,7 +262,6 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             catch (Exception ex)
             {
                 await transaction.RollbackAsync(cancellationToken);
-                //return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnException(ex);
                 return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
 
