@@ -117,7 +117,14 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                     debtorCompany = new DebtorCompany()
                     {
                         Id = Guid.NewGuid(),
-                        Name = prospect.Fullname
+                        Name = prospect.Fullname,
+                        Address = prospect.Address,
+                        Province = prospect.Province,
+                        City = prospect.City,
+                        District = prospect.District,
+                        Neighborhoods = prospect.Neighborhoods,
+                        ZipCodeId = prospect.ZipCodeId,
+                        PhoneNumber = prospect.PhoneNumber,
                     };
                     await _debtorCompany.AddAsync(debtorCompany);
 
