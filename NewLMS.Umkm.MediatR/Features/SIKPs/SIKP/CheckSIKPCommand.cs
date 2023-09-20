@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NewLMS.Umkm.Domain.Context;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 {
@@ -90,7 +91,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 var sikpIncludes = new string[]
                     {
                         //"SIKPRequest",
-                        "LoanApplication.LoanApplicationCollaterals.RfCollateralBC",
+                        "LoanApplication",
                         "SIKPRequest.RfSectorLBU3",
                         "SIKPRequest.RfGender",
                         "SIKPRequest.RfMarital",
@@ -99,15 +100,15 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         "SIKPRequest.DebtorRfZipCode",
                         "SIKPRequest.DebtorCompanyRfZipCode",
                         "SIKPRequest.DebtorCompanyRfLinkage",
-                        //"SIKPResponse",
-                        "SIKPResponse.RfSectorLBU3",
-                        "SIKPResponse.RfGender",
-                        "SIKPResponse.RfMarital",
-                        "SIKPResponse.RfEducation",
-                        "SIKPResponse.RfJob",
-                        "SIKPResponse.DebtorRfZipCode",
-                        "SIKPResponse.DebtorCompanyRfZipCode",
-                        "SIKPResponse.DebtorCompanyRfLinkage",
+                        "SIKPResponse",
+                        //"SIKPResponse.RfSectorLBU3",
+                        //"SIKPResponse.RfGender",
+                        //"SIKPResponse.RfMarital",
+                        //"SIKPResponse.RfEducation",
+                        //"SIKPResponse.RfJob",
+                        //"SIKPResponse.DebtorRfZipCode",
+                        //"SIKPResponse.DebtorCompanyRfZipCode",
+                        //"SIKPResponse.DebtorCompanyRfLinkage",
                     };
                 var sikp = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
                 var collaterals = sikp.LoanApplication.LoanApplicationCollaterals;
@@ -138,7 +139,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         var rfGender = await _rfGender.GetByPredicate(x => x.GenderCodeSIKP == debtorDataResponse.data.jns_kelamin);
                         var rfMarital = await _rfMarital.GetByPredicate(x => x.MaritalCodeSKIP == debtorDataResponse.data.maritas_sts);
                         var rfJob = await _rfJob.GetByPredicate(x => x.JobCodeSIKP == debtorDataResponse.data.pekerjaan);
-                        var rfEducation = await _rfEducation.GetByPredicate(x => x.EducationCodeSIKP == debtorDataResponse.data.pendidikan);
+                        var rfEducation = await _userContext.RfEducations.FirstOrDefaultAsync(x => x.EducationCodeSIKP == debtorDataResponse.data.pendidikan, cancellationToken: cancellationToken);
                         var rfZipCode = await _rfZipCode.GetByPredicate(x => x.ZipCode == debtorDataResponse.data.kode_pos);
                         var rfLinkage = await _rfLinkage.GetByPredicate(x => x.LinkAgeCode == debtorDataResponse.data.is_linkage);
 
@@ -162,6 +163,16 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         sikpResponse.DebtorCity = rfZipCode.Kota;
                         sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
                         sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
+
+                        sikpResponse.RfEducation = null;
+                        sikpResponse.RfGender = null;
+                        sikpResponse.RfJob = null;
+                        sikpResponse.RfMarital = null;
+                        sikpResponse.RfSectorLBU3 = null;
+                        sikpResponse.DebtorCompanyRfLinkage = null;
+                        sikpResponse.DebtorCompanyRfLinkageType = null;
+                        sikpResponse.DebtorCompanyRfZipCode = null;
+                        sikpResponse.DebtorRfZipCode = null;
 
                         await _sikpResponse.UpdateAsync(sikpResponse);
 
@@ -212,13 +223,13 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     nmr_registry = sikp.RegistrationNumber,
                     nama = sikpRequest.Fullname,
                     tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
-                    jns_kelamin = sikpRequest.RfGender?.GenderCodeSIKP ?? "",
-                    maritas_sts = "1" ?? sikpRequest.RfMarital?.MaritalCodeSKIP ?? "",
-                    pendidikan = sikpRequest.RfEducation?.EducationCodeSIKP ?? "",
-                    pekerjaan = sikpRequest.RfJob?.JobCodeSIKP ?? "",
+                    jns_kelamin = await _userContext.RfGenders.Where(x => x.GenderCode == sikpRequest.DebtorGenderId).Select(x => x.GenderCodeSIKP).FirstOrDefaultAsync(),
+                    maritas_sts = await _userContext.RfMaritals.Where(x => x.MaritalCode == sikpRequest.DebtorMaritalStatusId).Select(x => x.MaritalCodeSKIP).FirstOrDefaultAsync(),
+                    pendidikan = await _userContext.RfEducations.Where(x => x.EducationCode == sikpRequest.DebtorEducationId).Select(x => x.EducationCodeSIKP).FirstOrDefaultAsync(),
+                    pekerjaan = await _userContext.RfJobs.Where(x => x.JobCode == sikpRequest.DebtorJobId).Select(x => x.JobCodeSIKP).FirstOrDefaultAsync(),
                     alamat = sikpRequest.DebtorAddress ?? "",
-                    kode_kabkota = sikpRequest.DebtorRfZipCode?.KodeKabupaten ?? "",
-                    kode_pos = sikpRequest.DebtorRfZipCode?.ZipCode ?? "",
+                    kode_kabkota = await _userContext.RfZipCodes.Where(x => x.Id == sikpRequest.DebtorZipCodeId).Select(x => x.KodeKabupaten).FirstOrDefaultAsync(),
+                    kode_pos = sikpRequest.DebtorZipCode ?? "",
                     npwp = sikpRequest.DebtorNPWP?.Substring(0, 15) ?? "",
                     mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate?.ToString("ddMMyyyy") ?? "",
                     alamat_usaha = sikpRequest.DebtorCompanyAddress ?? "",
@@ -238,6 +249,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 if (request.Post)
                 {
                     var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
+                    response.PostCalonDebiturResponse = sikpCheck;
                     if (sikpCheck.error)
                     {
                         response.Valid = false;
