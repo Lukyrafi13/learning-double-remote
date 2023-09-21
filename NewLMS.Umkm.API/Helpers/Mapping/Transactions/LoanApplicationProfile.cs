@@ -81,7 +81,12 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 .ForMember(d => d.DeicisionMaker, o =>
                 {
                     o.MapFrom(s => s.DecisionMaker);
-                });
+                })
+                .ForMember(d => d.RfBusinessCycle, o =>
+                {
+                    o.MapFrom(s => s.RfBusinessCycle);
+                })
+                ;
 
             CreateMap<LoanApplication, LoanApplicationIDEResponse>()
                 .ForMember(d => d.Info, o =>
