@@ -74,6 +74,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Prospect",
                         "Owner",
                         "DecisionMaker",
+                        "RfBusinessCycle",
                         "RfOwnerCategory",
                         "RfProduct",
                         "RfBranch",
