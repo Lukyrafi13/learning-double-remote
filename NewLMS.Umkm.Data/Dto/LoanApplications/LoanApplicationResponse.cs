@@ -72,6 +72,9 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplications
     public class LoanApplicationInformasiFasilitasTabResponse
     {
         public RfDecisionMakerResponse DeicisionMaker { get; set; }
+        public bool? IsBusinessCycle { get; set; }
+        public RfParameterDetailSimpleResponse RfBusinessCycle { get; set; }
+        public int? BusinessCycleMonth { get; set; }
         public List<LoanApplicationFacilityResponse> LoanApplicationFacilities { get; set; }
     }
 
