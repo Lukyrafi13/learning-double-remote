@@ -192,6 +192,18 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+
+        /// <summary>
+        /// Upsert Appraisal Surveyor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("appraisal-surveyor/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertApprSurveyor(UpsertLoanApplicationApprSurveyorCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
         #endregion
 
 
