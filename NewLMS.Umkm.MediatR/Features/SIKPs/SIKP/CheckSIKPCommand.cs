@@ -173,6 +173,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         sikpResponse.DebtorCompanyRfLinkageType = null;
                         sikpResponse.DebtorCompanyRfZipCode = null;
                         sikpResponse.DebtorRfZipCode = null;
+                        sikpResponse.Valid = !debtorDataResponse.error;
+                        sikpResponse.ValidationMessage = debtorDataResponse.message;
 
                         await _sikpResponse.UpdateAsync(sikpResponse);
 
@@ -181,6 +183,20 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                             sikp.RegistrationNumber = debtorDataResponse.data.nmr_registry;
                             await _sikp.UpdateAsync(sikp);
                         }
+                    }
+                    else if (debtorDataResponse.code == "15")
+                    {
+                        response.Valid = false;
+                        response.Message = debtorDataResponse.message;
+
+                        sikpResponse = new SIKPResponse
+                        {
+                            Id = sikp.Id,
+                            CreatedBy = sikp.CreatedBy,
+                            CreatedDate = DateTime.Now,
+                            Valid = false,
+                            ValidationMessage = debtorDataResponse.message
+                        };
                     }
                 }
 
@@ -256,11 +272,12 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         response.Valid = false;
                         response.Message = sikpCheck.message;
                     }
+
+                    sikpResponse.Valid = response.Valid;
+                    sikpResponse.ValidationMessage = response.Message;
                 }
 
 
-                sikpResponse.Valid = response.Valid;
-                sikpResponse.ValidationMessage = response.Message;
 
                 await _sikp.UpdateAsync(sikp);
                 await _sikpResponse.UpdateAsync(sikpResponse);
@@ -285,13 +302,13 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             var response = validasiResponse;
             var dataCalonDebitur = response.CalonDebiturResponse.data;
             bool valid;
-            if (dataCalonDebitur.kode_bank != "110")
+            if (dataCalonDebitur.kode_bank == "110")
             {
                 valid = true;
             }
             else
             {
-                var sisaWaktu = int.Parse(dataCalonDebitur.sisa_waktu_book);
+                var sisaWaktu = int.Parse(dataCalonDebitur.sisa_waktu_book ?? "0");
 
                 valid = sisaWaktu < 0;
 
