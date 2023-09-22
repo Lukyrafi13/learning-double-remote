@@ -69,5 +69,18 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         {
             return Ok(await Mediator.Send(command));
         }
+
+        /// <summary>
+        /// SIKP Rate Akad
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost("rateakad")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> RateAkadSIKP(RateAkadSIKPQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }

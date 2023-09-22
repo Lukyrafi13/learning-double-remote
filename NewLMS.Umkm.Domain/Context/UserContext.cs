@@ -148,6 +148,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<WilayahRegencies> WilayahRegencies { get; set; }
         public DbSet<WilayahDistricts> WilayahDistricts { get; set; }
         public DbSet<WilayahVillages> WilayahVillages { get; set; }
+        public DbSet<RfSkemaSIKP> RfSkemaSIKPs { get; set; }
 
         #endregion
 
