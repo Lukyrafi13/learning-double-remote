@@ -34,7 +34,7 @@ namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
         }
 
         /// <summary>
-        /// Appraisal Surveyor Back to IDE
+        /// Appraisal Surveyor Back to Appraisal Asingment
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
