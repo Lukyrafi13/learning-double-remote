@@ -99,6 +99,8 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                         Id = Guid.NewGuid(),
                         Fullname = prospect.Fullname,
                         NoIdentity = prospect.NoIdentity,
+                        DateOfBirth = prospect.DateOfBirth,
+                        PlaceOfBirth = prospect.PlaceOfBirth,
                         Address = prospect.Address,
                         Province = prospect.Province,
                         City = prospect.City,
