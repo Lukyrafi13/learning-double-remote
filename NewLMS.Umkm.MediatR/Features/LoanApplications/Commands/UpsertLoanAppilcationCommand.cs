@@ -137,6 +137,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                         }
 
                         loanApplication = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplication>(request, loanApplication);
+                        loanApplication.BookingBranchId = request.InitialDataEntry.DataFasilitas.BookingBranchId;
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
 
