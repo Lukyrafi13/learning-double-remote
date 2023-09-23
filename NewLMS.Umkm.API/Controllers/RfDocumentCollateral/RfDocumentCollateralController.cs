@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfDocumentCollateral;
-using NewLMS.UMKM.MediatR.Features.RfDocumentCollaterals.Queries.GetFilterRfDocumentCollaterals;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfDocumentCollateral;
+using NewLMS.Umkm.MediatR.Features.RfDocumentCollaterals.Queries.GetFilterRfDocumentCollaterals;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfDocumentCollateral
+namespace NewLMS.Umkm.API.Controllers.RfDocumentCollateral
 {
     public class RfDocumentCollateralController : BaseController
     {

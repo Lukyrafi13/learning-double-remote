@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NewLMS.UMKM.Domain.FUSE.Migrations
+namespace NewLMS.Umkm.Domain.FUSE.Migrations
 {
     public partial class AddNewTable : Migration
     {

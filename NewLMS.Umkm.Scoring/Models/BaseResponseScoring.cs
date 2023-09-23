@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewLMS.UMKM.Scoring.Models
+namespace NewLMS.Umkm.Scoring.Models
 {
     public class BaseResponseScoring
     {

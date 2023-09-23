@@ -1,4 +1,4 @@
-namespace NewLMS.UMKM.Domain.Dwh.Entities
+namespace NewLMS.Umkm.Domain.Dwh.Entities
 {
     public class PH_GABUNGAN
     {

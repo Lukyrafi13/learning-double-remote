@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfDocument;
-using NewLMS.UMKM.MediatR.Features.RfDocuments.Queries.GetFilterRfDocuments;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfDocument;
+using NewLMS.Umkm.MediatR.Features.RfDocuments.Queries.GetFilterRfDocuments;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfDocument
+namespace NewLMS.Umkm.API.Controllers.RfDocument
 {
     public class RfDocumentController : BaseController
     {

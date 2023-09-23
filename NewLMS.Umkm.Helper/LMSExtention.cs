@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-// using NewLMS.UMKM.Data.Dto.AppSettingJson;
+// using NewLMS.Umkm.Data.Dto.AppSettingJson;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public static class LMSExtention
     {

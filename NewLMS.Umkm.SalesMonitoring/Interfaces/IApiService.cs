@@ -1,7 +1,7 @@
-﻿using NewLMS.UMKM.Maps.Models;
+﻿using NewLMS.Umkm.Maps.Models;
 using Refit;
 
-namespace NewLMS.UMKM.Maps.Interfaces
+namespace NewLMS.Umkm.Maps.Interfaces
 {
     public interface IApiService
     {

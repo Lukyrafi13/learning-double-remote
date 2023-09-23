@@ -1,4 +1,4 @@
-﻿namespace NewLMS.UMKM.Helper
+﻿namespace NewLMS.Umkm.Helper
 {
     public class FileInfo
     {

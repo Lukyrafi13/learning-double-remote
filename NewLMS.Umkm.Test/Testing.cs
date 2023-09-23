@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using NUnit.Framework;
 
-namespace NewLMS.UMKM.Test
+namespace NewLMS.Umkm.Test
 {
     [SetUpFixture]
     public partial class Testing

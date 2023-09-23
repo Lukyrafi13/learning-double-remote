@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.RfSubProducts;
-using NewLMS.UMKM.MediatR.Features.RfSubProducts.Queries.GetFilterRfSubProducts;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.RfSubProducts;
+using NewLMS.Umkm.MediatR.Features.RfSubProducts.Queries.GetFilterRfSubProducts;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfSubProduct
+namespace NewLMS.Umkm.API.Controllers.RfSubProduct
 {
     public class RfSubProductController : BaseController
     {

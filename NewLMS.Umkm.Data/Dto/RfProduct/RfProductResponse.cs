@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.Data.Dto.RfProducts
+namespace NewLMS.Umkm.Data.Dto.RfProducts
 {
     public class RfProductResponse : BaseResponse
     {

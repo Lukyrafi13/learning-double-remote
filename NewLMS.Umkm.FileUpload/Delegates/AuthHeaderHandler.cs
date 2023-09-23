@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Options;
-using NewLMS.UMKM.FileUpload.Models;
+using NewLMS.Umkm.FileUpload.Models;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace NewLMS.UMKM.FileUpload.Delegates
+namespace NewLMS.Umkm.FileUpload.Delegates
 {
     public class AuthHeaderHandler : DelegatingHandler
     {

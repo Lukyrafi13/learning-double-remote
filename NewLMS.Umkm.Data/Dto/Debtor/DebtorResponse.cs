@@ -1,16 +1,16 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
-using NewLMS.UMKM.Data.Dto.RfJob;
-using NewLMS.UMKM.Data.Dto.RfGenders;
-using NewLMS.UMKM.Data.Dto.RfEducation;
-using NewLMS.UMKM.Data.Dto.RfMarital;
-using NewLMS.UMKM.Data.Dto.DebtorCouple;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfJob;
+using NewLMS.Umkm.Data.Dto.RfGenders;
+using NewLMS.Umkm.Data.Dto.RfEducation;
+using NewLMS.Umkm.Data.Dto.RfMarital;
+using NewLMS.Umkm.Data.Dto.DebtorCouple;
 
-namespace NewLMS.UMKM.Data.Dto.Debtor
+namespace NewLMS.Umkm.Data.Dto.Debtor
 {
     public class DebtorResponse : BaseResponse
     {

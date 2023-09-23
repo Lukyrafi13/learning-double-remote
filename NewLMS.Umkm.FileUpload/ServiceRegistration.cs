@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NewLMS.UMKM.FileUpload.Delegates;
-using NewLMS.UMKM.FileUpload.Interfaces;
-using NewLMS.UMKM.FileUpload.Models;
-using NewLMS.UMKM.FileUpload.Services;
+using NewLMS.Umkm.FileUpload.Delegates;
+using NewLMS.Umkm.FileUpload.Interfaces;
+using NewLMS.Umkm.FileUpload.Models;
+using NewLMS.Umkm.FileUpload.Services;
 using Refit;
 using System.Text.Json;
 
-namespace NewLMS.UMKM.FileUpload
+namespace NewLMS.Umkm.FileUpload
 {
     public static class ServiceRegistration
     {

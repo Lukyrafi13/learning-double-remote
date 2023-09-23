@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.Data.Dto.Prospects;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.Data.Dto.Prospects;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NewLMS.UMKM.MediatR.Features.Prospects.Commands;
-using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
+using NewLMS.Umkm.MediatR.Features.Prospects.Commands;
+using NewLMS.Umkm.MediatR.Features.Prospects.Queries;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
-namespace NewLMS.UMKM.API.Controllers.RfTenor
+namespace NewLMS.Umkm.API.Controllers.RfTenor
 {
+    [Authorize]
     public class ProspectController : BaseController
     {
         public IMediator _mediator { get; set; }

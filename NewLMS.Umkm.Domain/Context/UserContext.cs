@@ -1,11 +1,14 @@
-using NewLMS.UMKM.Data;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
-using NewLMS.UMKM.Data.Entities;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Dto.RfStages;
 
-namespace NewLMS.UMKM.Domain.Context
+namespace NewLMS.Umkm.Domain.Context
 {
     public class UserContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
@@ -88,6 +91,7 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<LoanApplicationFieldSurveyDetail> LoanApplicationFieldSurveyDetails { get; set; }
         public DbSet<LoanApplicationVerificationBusiness> LoanApplicationVerificationBusinesses { get; set; }
         public DbSet<LoanApplicationVerificationCycle> LoanApplicationVerificationCycles { get; set; }
+        public DbSet<LoanApplicationVerificationCycleDetail> LoanApplicationVerificationCycleDetails { get; set; }
 
         #endregion
 
@@ -144,6 +148,8 @@ namespace NewLMS.UMKM.Domain.Context
         public DbSet<WilayahRegencies> WilayahRegencies { get; set; }
         public DbSet<WilayahDistricts> WilayahDistricts { get; set; }
         public DbSet<WilayahVillages> WilayahVillages { get; set; }
+        public DbSet<RfSkemaSIKP> RfSkemaSIKPs { get; set; }
+        public DbSet<RfMappingSubProduct> RfMappingSubProducts { get; set; }
 
         #endregion
 

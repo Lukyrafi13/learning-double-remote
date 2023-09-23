@@ -1,26 +1,28 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NewLMS.UMKM.Common.GenericRespository;
-using NewLMS.UMKM.Data.Dto.Appraisals;
-using NewLMS.UMKM.Data.Dto.LoanApplicationPrescreenings;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Dto.LoanApplicationSurvey;
-using NewLMS.UMKM.Helper;
-using NewLMS.UMKM.MediatR.Features.Appraisals.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationPrescreenings.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands;
-using NewLMS.UMKM.MediatR.Features.LoanApplications.Commands.Processes;
-using NewLMS.UMKM.MediatR.Features.LoanApplications.Queries;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Commands;
-using NewLMS.UMKM.MediatR.Features.LoanApplicationSurvey.Queries;
-using NewLMS.UMKM.MediatR.Features.Prospects.Queries;
+using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Dto.Appraisals;
+using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries;
+using NewLMS.Umkm.MediatR.Features.Prospects.Queries;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
+namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
 {
+    [Authorize]
     public class LoanApplicationController : BaseController
     {
         /// <summary>
@@ -98,6 +100,18 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         }
 
         /// <summary>
+        /// Upsert Prescreening
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("prescreening/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertPrescreening(UpsertLoanApplicationPrescreeningCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
         /// Process LoanApplication
         /// </summary>
         /// <param name="command"></param>
@@ -111,6 +125,8 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
 
+
+        #region Appraisal Asignment
         //Appraisal Asignment
 
         /// <summary>
@@ -148,17 +164,58 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+        #endregion
 
+        #region Appraisal Surveyor
         //Appraisal Surveyor
-         
+
         /// <summary>
-        /// Get List for tables of LoanApplication ApprAsignment
+        /// Get List for tables of LoanApplication ApprSuveyor
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("appraisal-surveyor/get")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationSurveyGetTableQuery command)
+        public async Task<IActionResult> GetFilterApprSurveyor(LoanApplicationApprSurveyorGetTableQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get detail LoanApplication Surveyor by Tab
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appraisal-surveyor/get/detail")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Appraisal Surveyor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("appraisal-surveyor/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertApprSurveyor(UpsertLoanApplicationApprSurveyorCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        #endregion
+
+
+        #region Appraisal Approval
+        /// <summary>
+        /// Get List for tables of LoanApplication ApprApproval
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("appraisal-approval/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterApprApproval(LoanApplicationApprApprovalGetTableQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
@@ -168,14 +225,16 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("appraisal-surveyor/get/detail")]
+        [HttpPost("appraisal-approval/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
+        public async Task<IActionResult> GetDetailApprApproval(GetLoanAppApprSurveyorTabDetailQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
+        #endregion
 
-        //Surveyor
+        #region Survey
+        //Survey
 
         /// <summary>
         /// Get List for tables of LoanApplication Survey
@@ -212,6 +271,7 @@ namespace NewLMS.UMKM.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+        #endregion
     }
     public class ProcessRequest
     {

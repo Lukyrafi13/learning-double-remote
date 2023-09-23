@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NewLMS.UMKM.Common.Helpers
+namespace NewLMS.Umkm.Common.Helpers
 {
     public static class CommonHelper
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace NewLMS.UMKM.Maps.Delegates
+namespace NewLMS.Umkm.Maps.Delegates
 {
     public class HttpLoggingHandler : DelegatingHandler
     {

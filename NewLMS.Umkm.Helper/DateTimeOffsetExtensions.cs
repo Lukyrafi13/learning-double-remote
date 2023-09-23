@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewLMS.UMKM.Helper
+namespace NewLMS.Umkm.Helper
 {
     public static class DateTimeOffsetExtensions
     {

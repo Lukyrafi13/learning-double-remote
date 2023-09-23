@@ -1,6 +1,6 @@
-﻿using NewLMS.UMKM.Maps.Models;
+﻿using NewLMS.Umkm.Maps.Models;
 
-namespace NewLMS.UMKM.Maps.Interfaces
+namespace NewLMS.Umkm.Maps.Interfaces
 {
     public interface IMapService
     {

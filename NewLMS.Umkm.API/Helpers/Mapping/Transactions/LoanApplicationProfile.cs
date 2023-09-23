@@ -1,18 +1,25 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.UMKM.Data.Dto.LoanApplicationCreditScorings;
-using NewLMS.UMKM.Data.Dto.LoanApplicationFacilities;
-using NewLMS.UMKM.Data.Dto.LoanApplicationKeyPersons;
-using NewLMS.UMKM.Data.Dto.LoanApplications;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScorings;
+using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
+using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.Data.Entities;
 using System.Linq;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping
+namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public class LoanApplicationProfile : Profile
     {
         public LoanApplicationProfile()
         {
+            CreateMap<LoanApplication, LoanApplicationInfoResponse>()
+                .ForMember(d => d.AccountOfficerName, o => o.MapFrom(s => s.Owner.Nama))
+                .ForMember(d => d.DebtorName, o => o.MapFrom(s => s.RfOwnerCategory.Code == "001" ? s.Debtor.Fullname : s.DebtorCompany.Name))
+                .ForMember(d => d.LoanApplicationId, o => o.MapFrom(s => s.LoanApplicationId))
+                .ForMember(d => d.RfBookingBranch, o => o.MapFrom(s => s.RfBookingBranch))
+                .ForMember(d => d.RfProduct, o => o.MapFrom(s => s.RfProduct));
+
             CreateMap<LoanApplication, LoanApplicationTableResponse>()
                 .ForMember(d => d.DebtorName, o =>
                 {
@@ -77,7 +84,16 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 .ForMember(d => d.LoanApplicationFacilities, o =>
                 {
                     o.MapFrom(s => s.LoanApplicationFacilities);
-                });
+                })
+                .ForMember(d => d.DeicisionMaker, o =>
+                {
+                    o.MapFrom(s => s.DecisionMaker);
+                })
+                .ForMember(d => d.RfBusinessCycle, o =>
+                {
+                    o.MapFrom(s => s.RfBusinessCycle);
+                })
+                ;
 
             CreateMap<LoanApplication, LoanApplicationIDEResponse>()
                 .ForMember(d => d.Info, o =>
@@ -105,8 +121,11 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                     o.MapFrom(s => s.MappingTab == "informasi_fasilitas" ? s : null);
                 });
 
-            CreateMap<LoanApplication, LoanApplicationBaseTabResponse>();
-            ;
+            CreateMap<LoanApplication, LoanApplicationBaseTabResponse>()
+                .ForMember(d => d.Owner, o =>
+                {
+                    o.MapFrom(s => s.Owner);
+                });
 
             #region Requests
             CreateMap<LoanApplicationDataFasilitasRequest, LoanApplication>();
@@ -129,6 +148,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
             CreateMap<LoanApplicationFacility, LoanApplicationFacilityResponse>();
 
             CreateMap<LoanApplication, SIKPRequest>()
+                .ForMember(d => d.DebtorCompanyCollaterals, o =>
+                {
+                    o.MapFrom(s => $"{string.Join(System.Environment.NewLine, s.LoanApplicationCollaterals.Select((x, i) => $"{i + 1}. {x.RfCollateralBC.CollateralDesc}, {x.RfDocument.DocumentDesc}, {x.DocumentNumber}, {x.LoanApplicationCollateralOwner.OwnerName}"))}");
+                })
                 .ForMember(d => d.DebtorNoIdentity, o =>
                 {
                     o.MapFrom(s => s.Debtor.NoIdentity);
@@ -140,6 +163,10 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 .ForMember(d => d.DebtorNPWP, o =>
                 {
                     o.MapFrom(s => s.Debtor.NPWP);
+                })
+                .ForMember(d => d.DebtorJobId, o =>
+                {
+                    o.MapFrom(s => s.Debtor.JobCode);
                 })
                 .ForMember(d => d.Fullname, o =>
                 {

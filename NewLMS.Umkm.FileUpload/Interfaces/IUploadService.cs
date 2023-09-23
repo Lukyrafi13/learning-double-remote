@@ -1,6 +1,6 @@
-﻿using NewLMS.UMKM.FileUpload.Models;
+﻿using NewLMS.Umkm.FileUpload.Models;
 
-namespace NewLMS.UMKM.FileUpload.Interfaces
+namespace NewLMS.Umkm.FileUpload.Interfaces
 {
     public interface IUploadService
     {

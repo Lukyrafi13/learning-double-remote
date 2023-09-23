@@ -5,14 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using NewLMS.UMKM.Common.GenericRespository;
+using NewLMS.Umkm.Common.GenericRespository;
 using System.Linq.Dynamic.Core;
-using NewLMS.UMKM.Data.Dto;
-using NewLMS.UMKM.Data;
-using NewLMS.UMKM.Domain.Context;
+using NewLMS.Umkm.Data;
+using NewLMS.Umkm.Domain.Context;
 using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 
-namespace NewLMS.UMKM.Repository.GenericRepository
+namespace NewLMS.Umkm.Repository.GenericRepository
 {
     public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
     {
@@ -107,7 +106,7 @@ namespace NewLMS.UMKM.Repository.GenericRepository
             if (_isAudit)
             {
                 (entity as BaseEntity).CreatedDate = DateTime.Now;
-                (entity as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465");
+                (entity as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("4B352B37-332A-40C6-AB05-E38FCF109719");
             }
 
             await _dbContext.Set<T>().AddAsync(entity);
@@ -127,7 +126,7 @@ namespace NewLMS.UMKM.Repository.GenericRepository
                 if (_isAudit)
                 {
                     (item as BaseEntity).CreatedDate = DateTime.Now;
-                    (item as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465");
+                    (item as BaseEntity).CreatedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("4B352B37-332A-40C6-AB05-E38FCF109719");
                 }
             }
             await _dbContext.Set<T>().AddRangeAsync(entities);
@@ -166,7 +165,7 @@ namespace NewLMS.UMKM.Repository.GenericRepository
                 if (_isAudit)
                 {
                     (item as BaseEntity).ModifiedDate = DateTime.Now;
-                    (item as BaseEntity).ModifiedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("113005DE-06BC-44CB-B97F-A9C65C0C5465");
+                    (item as BaseEntity).ModifiedBy = !string.IsNullOrEmpty(_ICurrentUserService.Id) ? Guid.Parse(_ICurrentUserService.Id) : Guid.Parse("4B352B37-332A-40C6-AB05-E38FCF109719");
                 }
             }
             _dbContext.UpdateRange(entities);

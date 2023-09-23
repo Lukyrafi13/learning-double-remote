@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using NewLMS.UMKM.API.Helpers.Mapping.References;
-using NewLMS.UMKM.API.Helpers.Mapping.Transactions;
+using NewLMS.Umkm.API.Helpers.Mapping.References;
+using NewLMS.Umkm.API.Helpers.Mapping.Transactions;
 
-namespace NewLMS.UMKM.API.Helpers.Mapping
+namespace NewLMS.Umkm.API.Helpers.Mapping
 {
     public static class MapperConfig
     {
@@ -48,6 +48,9 @@ namespace NewLMS.UMKM.API.Helpers.Mapping
                 mc.AddProfile(new LoanApplicationFieldSurveyDetailProfile());
                 mc.AddProfile(new LoanApplicationVerificationBusinessProfile());
                 mc.AddProfile(new LoanApplicationVerificationCycleProfile());
+                mc.AddProfile(new LoanApplicationVerificationCycleDetailProfile());
+                mc.AddProfile(new SLIKProfile());
+                mc.AddProfile(new RfMappingProfile());
             });
             return mappingConfig.CreateMapper();
         }

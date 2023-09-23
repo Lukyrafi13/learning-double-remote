@@ -1,10 +1,10 @@
 ﻿using System;
-using NewLMS.UMKM.Data.Entities;
+using NewLMS.Umkm.Data.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using NewLMS.UMKM.Data.Dto.RfZipCodes;
+using NewLMS.Umkm.Data.Dto.RfZipCodes;
 
-namespace NewLMS.UMKM.Data.Dto.DebtorEmergencies
+namespace NewLMS.Umkm.Data.Dto.DebtorEmergencies
 {
 	public class DebtorEmergencyResponse : BaseResponse
 	{
