@@ -25,7 +25,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
     public class LoanApplicationPrescreeningResponse
     {
         public Guid Id { get; set; }
-        public LoanApplicationAppInfoApprSurveyorResponse InfoPrescreening { get; set; }
+        public LoanApplicationPrescreeningInfoResponse InfoPrescreening { get; set; }
         public LoanApplicationRACsResponse? LoanApplicationRAC { get; set; }
     }
 

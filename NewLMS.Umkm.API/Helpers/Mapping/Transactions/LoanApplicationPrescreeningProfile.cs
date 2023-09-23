@@ -44,6 +44,53 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 ;
 
             CreateMap<LoanApplication, LoanApplicationPrescreeningBaseTabReponse>();
-        }   
+
+            CreateMap<LoanApplication, LoanApplicationPrescreeningInfoResponse>()
+                .ForMember(d => d.Regency, o =>
+                {
+                    o.MapFrom(s => s.RfBranch.Name);
+                })
+                .ForMember(d => d.Branch, o =>
+                {
+                    o.MapFrom(s => s.RfBranch.Code + " - " + s.RfBranch.Name);
+                })
+                .ForMember(d => d.AccountOfficer, o =>
+                {
+                    o.MapFrom(s => s.Owner.Nama);
+                })
+                .ForMember(d => d.LoanApplicationId, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationId);
+                })
+                .ForMember(d => d.Product, o =>
+                {
+                    o.MapFrom(s => "BJB " + s.RfProduct.ProductDesc);
+                })
+                .ForMember(d => d.Name, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? s.DebtorCompany.Name : s.Debtor.Fullname);
+                })
+                .ForMember(d => d.NPWP, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.NPWP);
+                })
+                .ForMember(d => d.NoIdentity, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.NoIdentity);
+                })
+                .ForMember(d => d.DateOfBirth, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.DateOfBirth);
+                })
+                .ForMember(d => d.BookingOffice, o =>
+                {
+                    o.MapFrom(s => s.RfBookingBranch.Code + " - " + s.RfBookingBranch.Name);
+                })
+                .ForMember(d => d.IsBusinessCycle, o =>
+                {
+                    o.MapFrom(s => s.IsBusinessCycle);
+                })
+                ;
+        }
     }
 }

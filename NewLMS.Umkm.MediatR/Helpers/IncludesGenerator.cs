@@ -99,6 +99,9 @@ namespace NewLMS.Umkm.MediatR.Helpers
                     };
                     break;
 
+                #region Prescreening
+                //Prescreening
+
                 case "loanapplication_rac":
                     includes = new List<string>()
                     {
@@ -111,6 +114,45 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "LoanApplicationRAC",
                     };
                     break;
+
+                case "prescreening_slik_admin":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany"
+                    };
+                    break;
+
+                case "prescreening_slik_request":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany"
+                    };
+                    break;
+
+                case "prescreening_dokumen":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany"
+                    };
+                    break;
+                #endregion  
+
+                //Appraisal Surveyor
 
                 case "surveyor_data_pokok_agunan":
                     includes = new List<string>()
@@ -125,6 +167,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "LoanApplicationRAC",
                     };
                     break;
+
+                    //Survey
 
                 case "survey_ots":
                     includes = new List<string>()

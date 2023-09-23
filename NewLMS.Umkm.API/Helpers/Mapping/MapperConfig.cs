@@ -50,6 +50,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new LoanApplicationVerificationCycleProfile());
                 mc.AddProfile(new LoanApplicationVerificationCycleDetailProfile());
                 mc.AddProfile(new SLIKProfile());
+                mc.AddProfile(new RfMappingProfile());
             });
             return mappingConfig.CreateMapper();
         }

@@ -51,7 +51,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                 data.code_inquiry_calon = dataCalon.code;
 
-                if (data.data.Count > 0)
+                if (data.data?.Count > 0)
                 {
                     var listSkema = await _rfSkemaSIKP.GetAllAsync();
 
@@ -62,8 +62,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                     for (var i = 0; i < data.data.Count; i++)
                     {
-                        data.data[i].sisaWaktuBooking = int.Parse(dataCalon.data.sisa_waktu_book ?? "0");
-                        data.data[i].sisaHari = int.Parse(dataCalon.data.sisa_hari ?? "0");
+                        data.data[i].sisaWaktuBooking = int.Parse(dataCalon.data?.sisa_waktu_book ?? "0");
+                        data.data[i].sisaHari = int.Parse(dataCalon.data?.sisa_hari ?? "0");
 
                         var skemaObj = listSkemaParent.Where(x => x.SkemaParentCode == data.data[i].skema).ToList().Last();
 

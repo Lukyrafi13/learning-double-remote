@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.Umkm.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230923041444_addRfMappingSubProduct")]
+    partial class addRfMappingSubProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -6244,9 +6246,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("SubProductId")
                         .HasColumnType("nvarchar(450)");
 
@@ -6255,8 +6254,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ApplicationTypeId");
 
                     b.HasIndex("CreditPurposeId");
-
-                    b.HasIndex("ProductId");
 
                     b.HasIndex("SubProductId");
 
@@ -10508,10 +10505,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("CreditPurposeId");
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfProduct", "RfProduct")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfSubProduct", "RfSubProduct")
                         .WithMany()
                         .HasForeignKey("SubProductId");
@@ -10519,8 +10512,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("ApplicationType");
 
                     b.Navigation("CreditPurpose");
-
-                    b.Navigation("RfProduct");
 
                     b.Navigation("RfSubProduct");
                 });
