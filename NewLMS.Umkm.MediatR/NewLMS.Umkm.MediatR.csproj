@@ -127,7 +127,6 @@
     <Folder Include="Features\RfGracePeriods\Queries\GetSchemaGracePeriod\" />
     <Folder Include="Features\Tests\" />
     <Folder Include="Features\Tests\Commands\" />
-    <Folder Include="Features\SIKPs\Queries\" />
     <Folder Include="Features\SIKPs\Commands\" />
     <Folder Include="Features\SLIKRequests\" />
     <Folder Include="Features\SLIKRequests\Queries\" />
