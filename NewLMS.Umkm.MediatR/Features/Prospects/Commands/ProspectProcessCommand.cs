@@ -109,8 +109,6 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                         ZipCodeId = prospect.ZipCodeId,
                         GenderId = prospect.GenderId,
                         PhoneNumber = prospect.PhoneNumber,
-                        PlaceOfBirth = prospect.PlaceOfBirth,
-                        DateOfBirth = prospect.DateOfBirth
                     };
                     await _debtor.AddAsync(debtor);
 
