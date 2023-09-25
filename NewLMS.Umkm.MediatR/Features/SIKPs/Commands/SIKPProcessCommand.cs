@@ -4,6 +4,7 @@ using NewLMS.Umkm.Data;
 using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Enums;
 using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
@@ -101,6 +102,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 await _loanApplicationStage.AddAsync(loanApplicationStageSLIK);
                 await _loanApplicationStage.AddAsync(loanApplicationStageAppraisal);
 
+                sikp.Status = EnumSIKPStatus.Processed;
+                await _sikp.UpdateAsync(sikp);
                 await transaction.CommitAsync(cancellationToken);
                 return ServiceResponse<Unit>.ReturnResultWith201(Unit.Value);
             }

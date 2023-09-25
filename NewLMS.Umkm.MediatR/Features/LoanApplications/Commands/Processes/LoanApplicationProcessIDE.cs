@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
 using System.Net;
+using NewLMS.Umkm.Data.Enums;
 
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
@@ -118,7 +119,8 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                     var sikp = new Data.Entities.SIKP
                     {
                         Id = loanApplication.Id,
-                        RegistrationNumber = null
+                        RegistrationNumber = null,
+                        Status = EnumSIKPStatus.Draft
                     };
                     await _sikp.AddAsync(sikp);
 
