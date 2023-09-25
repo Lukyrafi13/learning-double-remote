@@ -156,13 +156,17 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         sikpResponse.DebtorMaritalStatusId = rfMarital.MaritalCode;
                         sikpResponse.DebtorJobId = rfJob.JobCode;
                         sikpResponse.DebtorEducationId = rfEducation.EducationCode;
-                        sikpResponse.DebtorCompanyLinkageId = rfLinkage.LinkAgeCode;
                         sikpResponse.DebtorZipCode = rfZipCode.ZipCode;
                         sikpResponse.DebtorZipCodeId = rfZipCode.Id;
                         sikpResponse.DebtorProvince = rfZipCode.Provinsi;
                         sikpResponse.DebtorCity = rfZipCode.Kota;
                         sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
                         sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
+                        sikpResponse.DebtorCompanyLinkageId = rfLinkage.LinkAgeCode;
+
+                        sikpResponse.DebtorCompanyZipCodeId = (int)sikpRequest?.DebtorCompanyZipCodeId;
+                        sikpResponse.DebtorCompanyLinkageTypeId = sikpRequest.DebtorCompanyLinkageTypeId;
+                        sikpResponse.DebtorCompanyEstablishmentDate = sikpRequest.DebtorCompanyEstablishmentDate;
 
                         sikpResponse.RfEducation = null;
                         sikpResponse.RfGender = null;
