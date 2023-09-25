@@ -129,7 +129,8 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                 {
                     Id = loanApplication.Id,
                     BranchCode = loanApplication.BranchId,
-                    StageId = UMKMConst.Stages["SLIKRequest"]
+                    StageId = UMKMConst.Stages["SLIKRequest"],
+                    Status = EnumSLIKStatus.Draft
                 };
 
                 List<SLIKRequestDebtor> slikRequestDebtors = new()
