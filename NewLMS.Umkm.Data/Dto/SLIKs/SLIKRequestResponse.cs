@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NewLMS.Umkm.Data.Dto.RfBranches;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 using NewLMS.Umkm.Data.Dto.RfStages;
+using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
 
 namespace NewLMS.Umkm.Data.Dto.SLIKs
 {

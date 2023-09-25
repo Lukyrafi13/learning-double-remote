@@ -23,6 +23,8 @@
     <None Remove="Dto\Generics\" />
     <None Remove="Dto\SLIKs\" />
     <None Remove="Dto\RfStages\" />
+    <None Remove="Dto\SLIKRequestDebtors\" />
+    <None Remove="Dto\FileUrls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -54,5 +56,7 @@
     <Folder Include="Dto\Generics\" />
     <Folder Include="Dto\SLIKs\" />
     <Folder Include="Dto\RfStages\" />
+    <Folder Include="Dto\SLIKRequestDebtors\" />
+    <Folder Include="Dto\FileUrls\" />
   </ItemGroup>
 </Project>

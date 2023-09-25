@@ -12,22 +12,22 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
 {
-    public class GetFilterSLIKRequestQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
+    public class GetFilterSLIKAKBLRequestQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
     {
     }
 
-    public class SIKPGetFilterQueryHandler : IRequestHandler<GetFilterSLIKRequestQuery, PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
+    public class GetFilterSLIKAKBLRequestQueryHandler : IRequestHandler<GetFilterSLIKAKBLRequestQuery, PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
     {
         private readonly IGenericRepositoryAsync<SLIKRequest> _slikRequest;
         private readonly IMapper _mapper;
 
-        public SIKPGetFilterQueryHandler(IMapper mapper, IGenericRepositoryAsync<SLIKRequest> slikRequest)
+        public GetFilterSLIKAKBLRequestQueryHandler(IMapper mapper, IGenericRepositoryAsync<SLIKRequest> slikRequest)
         {
             _mapper = mapper;
             _slikRequest = slikRequest;
         }
 
-        public async Task<PagedResponse<IEnumerable<SLIKRequestTableResponse>>> Handle(GetFilterSLIKRequestQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<SLIKRequestTableResponse>>> Handle(GetFilterSLIKAKBLRequestQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[]
                 {
@@ -42,7 +42,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                 Field = "StageId",
                 ComparisonOperator = "=",
                 Type = "string",
-                Value = UMKMConst.Stages["SLIKRequest"].ToString()
+                Value = UMKMConst.Stages["SLIKRequestAKBL"].ToString()
             });
             var data = await _slikRequest.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<SLIKRequestTableResponse>>(data.Results);
