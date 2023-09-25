@@ -35,13 +35,11 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationKeyPersons.Queries
             try
             {
                 var includes = new string[] {
-                    "LoanApplicationCollateralOwner",
+                    "RfEducation",
+                    "RfMarital",
                     "RfZipCode",
-                    "RfVehMaker",
-                    "RfVehClass",
-                    "RfVehModel",
                 };
-                var data = await _core.GetByPredicate(x => x.Id == request.Id,includes);
+                var data = await _core.GetByPredicate(x => x.Id == request.Id, includes);
                 if (data == null)
                     return ServiceResponse<LoanApplicationKeyPersonResponse>.Return404("Data Key Person tidak ditemukan.");
                 var dataVm = _mapper.Map<LoanApplicationKeyPersonResponse>(data);
