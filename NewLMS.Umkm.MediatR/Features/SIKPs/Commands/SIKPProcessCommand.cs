@@ -113,7 +113,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                 var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
 
-                if (!(bool)sikp.SIKPResponse.Valid && sikpCheck.error)
+                if (!(bool)sikp.SIKPResponse.Valid)
                 {
                     return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, $"Data SIKP tidak valid, silahkan periksa kembali: {string.Join(", ", sikp.SIKPResponse?.ValidationMessage?.Split(","))}");
                 }
