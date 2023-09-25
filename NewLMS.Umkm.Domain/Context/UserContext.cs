@@ -152,6 +152,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<RfMappingSubProduct> RfMappingSubProducts { get; set; }
         public DbSet<SIKPHistory> SIKPHistories { get; set; }
         public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
+        public DbSet<RfMappingDocumentPrescreening> RfMappingDocumentPrescreenings { get; set; }
 
         #endregion
 
