@@ -66,7 +66,16 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
         public RfTransportationTypeSimpleResponse RfTransportationType { get; set; }
         public RfCollateralBCResponse RfCollateralBC { get; set; }
         public LoanApplicationCollateralOwnerResponse LoanApplicationCollateralOwner { get; set; }
-        public LoanApplicationResponse LoanApplication { get; set; }
+        //public LoanApplicationResponse LoanApplication { get; set; }
+    }
+
+    public class LoanApplicationCollateralPrescreeningResponse : BaseResponse
+    {
+        public Guid Id { get; set; }
+        public Guid LoanApplicationId { get; set; }
+        public string CollateralBCId { get; set; }
+
+        public RfCollateralBCSimpleResponse RfCollateralBC { get; set; }
     }
 }
 

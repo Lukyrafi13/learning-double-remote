@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +21,8 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
         public DateTime? DateOfBirth { get; set; }
         public string BookingOffice { get; set; }
         public bool IsBusinessCycle { get; set; }
+        public int OwnerCategoryId { get; set; }
+
+        public RfParameterDetailSimpleResponse RfOwnerCategory { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using NewLMS.Umkm.Data.Dto.RfProducts;
 using NewLMS.Umkm.Data.Dto.Users;
 using NewLMS.Umkm.Data.Enums;
 using System;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
+using System.Collections.Generic;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 {
@@ -27,6 +29,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
         public Guid Id { get; set; }
         public LoanApplicationPrescreeningInfoResponse InfoPrescreening { get; set; }
         public LoanApplicationRACsResponse? LoanApplicationRAC { get; set; }
+        public List<LoanApplicationCollateralPrescreeningResponse>? LoanApplicationCollaterals { get; set; }
     }
 
     public class LoanApplicationPrescreeningBaseTabReponse

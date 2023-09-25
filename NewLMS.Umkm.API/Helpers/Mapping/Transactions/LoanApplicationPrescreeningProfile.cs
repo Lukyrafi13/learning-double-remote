@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.Umkm.Data.Entities;
 using System;
@@ -41,7 +42,13 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationRAC);
                 })
+                .ForMember(d => d.LoanApplicationCollaterals, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationCollaterals);
+                })
                 ;
+
+            CreateMap<LoanApplicationCollateral, LoanApplicationCollateralResponse>();
 
             CreateMap<LoanApplication, LoanApplicationPrescreeningBaseTabReponse>();
 
@@ -89,6 +96,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.IsBusinessCycle, o =>
                 {
                     o.MapFrom(s => s.IsBusinessCycle);
+                })
+                .ForMember(d => d.RfOwnerCategory, o =>
+                {
+                    o.MapFrom(s => s.RfOwnerCategory);
                 })
                 ;
         }
