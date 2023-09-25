@@ -234,48 +234,48 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     sikpResponse.ValidationMessage = response.Message;
                 }
 
-                PostCalonDebiturRequestModel req = new()
-                {
-                    nik = sikpRequest.DebtorNoIdentity,
-                    nmr_registry = sikp.RegistrationNumber,
-                    nama = sikpRequest.Fullname,
-                    tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
-                    jns_kelamin = await _userContext.RfGenders.Where(x => x.GenderCode == sikpRequest.DebtorGenderId).Select(x => x.GenderCodeSIKP).FirstOrDefaultAsync(),
-                    maritas_sts = await _userContext.RfMaritals.Where(x => x.MaritalCode == sikpRequest.DebtorMaritalStatusId).Select(x => x.MaritalCodeSKIP).FirstOrDefaultAsync(),
-                    pendidikan = await _userContext.RfEducations.Where(x => x.EducationCode == sikpRequest.DebtorEducationId).Select(x => x.EducationCodeSIKP).FirstOrDefaultAsync(),
-                    pekerjaan = await _userContext.RfJobs.Where(x => x.JobCode == sikpRequest.DebtorJobId).Select(x => x.JobCodeSIKP).FirstOrDefaultAsync(),
-                    alamat = sikpRequest.DebtorAddress ?? "",
-                    kode_kabkota = await _userContext.RfZipCodes.Where(x => x.Id == sikpRequest.DebtorZipCodeId).Select(x => x.KodeKabupaten).FirstOrDefaultAsync(),
-                    kode_pos = sikpRequest.DebtorZipCode ?? "",
-                    npwp = sikpRequest.DebtorNPWP?.Substring(0, 15) ?? "",
-                    mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate?.ToString("ddMMyyyy") ?? "",
-                    alamat_usaha = sikpRequest.DebtorCompanyAddress ?? "",
-                    ijin_usaha = sikpRequest.DebtorCompanyPermit ?? "",
-                    modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),
-                    jml_pekerja = sikpRequest.DebtorCompanyEmployee.ToString(),
-                    jml_kredit = sikpRequest.DebtorCompanyCreditValue.ToString(),
-                    is_linkage = sikpRequest.DebtorCompanyLinkageId ?? "",
-                    linkage = sikpRequest.DebtorCompanyLinkageTypeId ?? "",
-                    no_hp = sikpRequest.DebtorCompanyPhone ?? "",
-                    uraian_agunan = sikpRequest.DebtorCompanyCollaterals ?? "",
-                    is_subsidized = sikpRequest.DebtorCompanySubisdyStatus ? "1" : "0",
-                    subsidi_sebelumnya = sikpRequest.DebtorCompanyPreviousSubsidy ?? "",
-                };
-                sikp.RegistrationNumber = req.nmr_registry;
+                //PostCalonDebiturRequestModel req = new()
+                //{
+                //    nik = sikpRequest.DebtorNoIdentity,
+                //    nmr_registry = sikp.RegistrationNumber,
+                //    nama = sikpRequest.Fullname,
+                //    tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
+                //    jns_kelamin = await _userContext.RfGenders.Where(x => x.GenderCode == sikpRequest.DebtorGenderId).Select(x => x.GenderCodeSIKP).FirstOrDefaultAsync(),
+                //    maritas_sts = await _userContext.RfMaritals.Where(x => x.MaritalCode == sikpRequest.DebtorMaritalStatusId).Select(x => x.MaritalCodeSKIP).FirstOrDefaultAsync(),
+                //    pendidikan = await _userContext.RfEducations.Where(x => x.EducationCode == sikpRequest.DebtorEducationId).Select(x => x.EducationCodeSIKP).FirstOrDefaultAsync(),
+                //    pekerjaan = await _userContext.RfJobs.Where(x => x.JobCode == sikpRequest.DebtorJobId).Select(x => x.JobCodeSIKP).FirstOrDefaultAsync(),
+                //    alamat = sikpRequest.DebtorAddress ?? "",
+                //    kode_kabkota = await _userContext.RfZipCodes.Where(x => x.Id == sikpRequest.DebtorZipCodeId).Select(x => x.KodeKabupaten).FirstOrDefaultAsync(),
+                //    kode_pos = sikpRequest.DebtorZipCode ?? "",
+                //    npwp = sikpRequest.DebtorNPWP?.Substring(0, 15) ?? "",
+                //    mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate?.ToString("ddMMyyyy") ?? "",
+                //    alamat_usaha = sikpRequest.DebtorCompanyAddress ?? "",
+                //    ijin_usaha = sikpRequest.DebtorCompanyPermit ?? "",
+                //    modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),
+                //    jml_pekerja = sikpRequest.DebtorCompanyEmployee.ToString(),
+                //    jml_kredit = sikpRequest.DebtorCompanyCreditValue.ToString(),
+                //    is_linkage = sikpRequest.DebtorCompanyLinkageId ?? "",
+                //    linkage = sikpRequest.DebtorCompanyLinkageTypeId ?? "",
+                //    no_hp = sikpRequest.DebtorCompanyPhone ?? "",
+                //    uraian_agunan = sikpRequest.DebtorCompanyCollaterals ?? "",
+                //    is_subsidized = sikpRequest.DebtorCompanySubisdyStatus ? "1" : "0",
+                //    subsidi_sebelumnya = sikpRequest.DebtorCompanyPreviousSubsidy ?? "",
+                //};
+                //sikp.RegistrationNumber = req.nmr_registry;
 
-                if (request.Post)
-                {
-                    var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
-                    response.PostCalonDebiturResponse = sikpCheck;
-                    if (sikpCheck.error)
-                    {
-                        response.Valid = false;
-                        response.Message = sikpCheck.message;
-                    }
+                //if (request.Post)
+                //{
+                //    var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
+                //    response.PostCalonDebiturResponse = sikpCheck;
+                //    if (sikpCheck.error)
+                //    {
+                //        response.Valid = false;
+                //        response.Message = sikpCheck.message;
+                //    }
 
-                    sikpResponse.Valid = response.Valid;
-                    sikpResponse.ValidationMessage = response.Message;
-                }
+                //    sikpResponse.Valid = response.Valid;
+                //    sikpResponse.ValidationMessage = response.Message;
+                //}
 
 
 
