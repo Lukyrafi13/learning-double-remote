@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.Data.Entities
 {
@@ -12,8 +9,8 @@ namespace NewLMS.Umkm.Data.Entities
         [Key]
         [Required]
         public Guid? Id { get; set; }
-        public string NoIdentiry { get; set; }
-        public string BanckCode { get; set; }
+        public string NoIdentity { get; set; }
+        public string BankCode { get; set; }
         public double? PlanPlafond { get; set; }
         public double? RateAkad { get; set; }
         public double? LimitActive { get; set; }

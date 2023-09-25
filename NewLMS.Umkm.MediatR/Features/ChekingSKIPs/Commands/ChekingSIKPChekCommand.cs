@@ -47,14 +47,14 @@ namespace NewLMS.Umkm.MediatR.Features.ChekingSKIPs.Commands
                 };
                 var requestRateAkad = new RateAkadRequestModel
                 {
-                    nik = request.NoIdentiry,
+                    nik = request.NoIdentity,
                     sektor = request.SectorLBU3Code
                 };
                 var data = (await _SIKPService.GetRateAkad(requestRateAkad)).data;
                 if (data == null)
                     return ServiceResponse<RateAkadResponseModel>.Return404("Data SIKPService not found");
 
-                var dataCalon = (await _SIKPService.GetCalonDebitur(request.NoIdentiry))?.data;
+                var dataCalon = (await _SIKPService.GetCalonDebitur(request.NoIdentity))?.data;
                 if (dataCalon == null)
                     return ServiceResponse<RateAkadResponseModel>.Return404("Data Calon not found");
 
@@ -88,8 +88,8 @@ namespace NewLMS.Umkm.MediatR.Features.ChekingSKIPs.Commands
                     var newSIKPHistory = new SIKPHistory
                     {
                         Id = SIKpHistoryId,
-                        NoIdentiry = request.NoIdentiry,
-                        BanckCode = response.data[0].kode_bank,
+                        NoIdentity = request.NoIdentity,
+                        BankCode = response.data[0].kode_bank,
                         PlanPlafond = request.PlanPlafond,
                         RateAkad = response.data[0].rate,
                         LimitActive = Convert.ToDouble(response.data[0].limit_aktif),
