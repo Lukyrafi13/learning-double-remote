@@ -27,6 +27,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 });
 
             CreateMap<LoanApplicationCollateralDeleteRequest, LoanApplicationCollateral>();
+
+            CreateMap<LoanApplicationCollateral, LoanApplicationCollateralPrescreeningResponse>();
         }
     }
 }

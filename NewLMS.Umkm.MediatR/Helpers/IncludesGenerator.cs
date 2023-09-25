@@ -112,6 +112,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationRAC",
+                        "RfOwnerCategory",
                     };
                     break;
 
@@ -123,11 +124,12 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Owner",
                         "RfProduct",
                         "Debtor",
-                        "DebtorCompany"
+                        "DebtorCompany",
+                        "RfOwnerCategory",
                     };
                     break;
 
-                case "prescreening_slik_request":
+                case "prescreening_duplikasi":
                     includes = new List<string>()
                     {
                         "RfBranch",
@@ -135,7 +137,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Owner",
                         "RfProduct",
                         "Debtor",
-                        "DebtorCompany"
+                        "DebtorCompany",
+                        "RfOwnerCategory",
                     };
                     break;
 
@@ -147,7 +150,9 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Owner",
                         "RfProduct",
                         "Debtor",
-                        "DebtorCompany"
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationCollaterals.RfCollateralBC",
                     };
                     break;
                 #endregion  
@@ -168,7 +173,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                     };
                     break;
 
-                    //Survey
+                //Survey
 
                 case "survey_ots":
                     includes = new List<string>()
