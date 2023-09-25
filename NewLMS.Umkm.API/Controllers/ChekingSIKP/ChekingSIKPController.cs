@@ -42,7 +42,7 @@ namespace NewLMS.Umkm.API.Controllers.ChekingSIKP
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("chek")]
+        [HttpPost("check")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
         public async Task<IActionResult> CheckSIKP(ChekingSIKPChekCommand command)
         {

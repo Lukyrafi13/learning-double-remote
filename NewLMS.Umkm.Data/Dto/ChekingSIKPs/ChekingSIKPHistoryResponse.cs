@@ -1,18 +1,13 @@
-﻿using NewLMS.Umkm.Data.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.Data.Dto.ChekingSIKPs
 {
     public class ChekingSIKPHistoryResponse : BaseResponse
     {
         public Guid? Id { get; set; }
-        public string NoIdentiry { get; set; }
-        public string BanckCode { get; set; }
+        public string NoIdentity { get; set; }
+        public string BankCode { get; set; }
         public double? PlanPlafond { get; set; }
         public double? RateAkad { get; set; }
         public double? LimitActive { get; set; }
@@ -26,7 +21,7 @@ namespace NewLMS.Umkm.Data.Dto.ChekingSIKPs
     {
         public Guid? Id { get; set; }
         public Guid? SIKPHistoryId { get; set; }
-        public string BanckCode { get; set; }
+        public string BankCode { get; set; }
         public int? RemainingDay { get; set; }
         public string Schema { get; set; }
         public string TotalAkad { get; set; }
