@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using NewLMS.Umkm.Data.Dto.RfStages;
+using System.Collections.Generic;
 
 namespace NewLMS.Umkm.Data.Entities
 {
@@ -27,7 +28,7 @@ namespace NewLMS.Umkm.Data.Entities
         public string PropertyCategory { get; set; }
         [MaxLength(25)]
         public string AppraisalStatus { get; set; }
-        
+
         [ForeignKey(nameof(RfStage))]
         public Guid StageId { get; set; }
 
@@ -37,10 +38,10 @@ namespace NewLMS.Umkm.Data.Entities
 
         [NotMapped]
         public virtual string MappingTab { get; set; }
-        /*        public virtual ICollection<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
-                public virtual ICollection<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
-                public virtual ICollection<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }
-                public virtual ICollection<ApprWorkPaperShopApartmentSummaries> ApprWorkPaperShopApartmentSummaries { get; set; }
-                public virtual ICollection<ApprWorkPaperVehicleSummaries> ApprWorkPaperVehicleSummaries { get; set; }*/
+        public virtual ICollection<ApprReceivableVerification> ApprReceivableVerifications { get; set; }
+        public virtual ICollection<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
+        public virtual ICollection<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }
+        public virtual ICollection<ApprWorkPaperShopApartmentSummaries> ApprWorkPaperShopApartmentSummaries { get; set; }
+        public virtual ICollection<ApprWorkPaperVehicleSummaries> ApprWorkPaperVehicleSummaries { get; set; }
     }
 }
