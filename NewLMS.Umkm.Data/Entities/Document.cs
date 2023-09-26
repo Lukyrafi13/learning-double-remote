@@ -29,8 +29,7 @@ namespace NewLMS.Umkm.Data.Entities
         
         public string Justification { get; set; }
 
-        [ForeignKey(nameof(RfDocument))]
-        public string DocumentId { get; set; }
+        public string DocumentCategory { get; set; }
 
         //For Appraisal Upload
         [ForeignKey(nameof(LoanApplicationAppraisal))]
@@ -40,7 +39,6 @@ namespace NewLMS.Umkm.Data.Entities
         public virtual LoanApplicationAppraisal LoanApplicationAppraisal { get; set; }
         public virtual LoanApplication LoanApplication { get; set; }
         public virtual RfParameterDetail RfDocumentStatus { get; set; }
-        public virtual RfDocument RfDocument { get; set; }
         public virtual ICollection<DocumentFileUrl> Files { get; set; }
     }
 }
