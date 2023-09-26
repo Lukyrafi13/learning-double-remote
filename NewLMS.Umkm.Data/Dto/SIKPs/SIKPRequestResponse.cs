@@ -17,6 +17,8 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public string DebtorNPWP { get; set; }
         public string DebtorNoIdentity { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string DebtorSectorLBU1Code { get; set; }
+        public string DebtorSectorLBU2Code { get; set; }
         public string DebtorSectorLBU3Code { get; set; }
         public string DebtorGenderId { get; set; }
         public string DebtorMaritalStatusId { get; set; }

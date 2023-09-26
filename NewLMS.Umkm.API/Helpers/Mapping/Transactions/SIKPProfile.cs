@@ -11,6 +11,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
         public SIKPProfile()
         {
             CreateMap<SIKPRequest, SIKPRequestResponse>()
+                .ForMember(d => d.DebtorSectorLBU1Code, o => o.MapFrom(s => s.RfSectorLBU3.RfSectorLBU2.RfSectorLBU1Code))
+                .ForMember(d => d.DebtorSectorLBU2Code, o => o.MapFrom(s => s.RfSectorLBU3.RfSectorLBU2Code))
                 .ForMember(d => d.DebtorRfZipCode, o => o.MapFrom(s => s.DebtorRfZipCode))
                 .ForMember(d => d.DebtorCompanyRfZipCode, o => o.MapFrom(s => s.DebtorCompanyRfZipCode))
                 .ForMember(d => d.RfEducation, o => o.MapFrom(s => s.RfEducation))
