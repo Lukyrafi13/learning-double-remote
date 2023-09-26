@@ -15,6 +15,7 @@ namespace NewLMS.Umkm.Data.Dto.Documents
         public DateTime? TBODate { get; set; }
         public string TBODesc { get; set; }
         public string Justification { get; set; }
+        public string DocumentId { get; set; }
         public string DocumentCategory { get; set; }
     }
 }
