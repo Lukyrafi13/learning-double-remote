@@ -28,9 +28,19 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
         private readonly IGenericRepositoryAsync<ApprLandTemplates> _apprLand;
         private readonly IGenericRepositoryAsync<ApprLiquidation> _apprLiquidation;
         private readonly IGenericRepositoryAsync<MLiquidationItem> _mItem;
+        private readonly IGenericRepositoryAsync<ApprBuildingFloors> _apprBuildingFloor;
         private readonly IMapper _mapper;
 
-        public GetApprLandBuildingQueryHandler(IGenericRepositoryAsync<ApprWorkPaperLandBuildingSummaries> apprSummary, IMapper mapper, IGenericRepositoryAsync<ApprWorkPaperLandBuildings> appr, IGenericRepositoryAsync<ApprBuildingTemplates> apprBuilding, IGenericRepositoryAsync<ApprLandTemplates> apprLand, IGenericRepositoryAsync<ApprLiquidation> apprLiquidation, IGenericRepositoryAsync<MLiquidationItem> mItem)
+        public GetApprLandBuildingQueryHandler(
+            IGenericRepositoryAsync<ApprWorkPaperLandBuildingSummaries> apprSummary, 
+            IMapper mapper, 
+            IGenericRepositoryAsync<ApprWorkPaperLandBuildings> appr, 
+            IGenericRepositoryAsync<ApprBuildingTemplates> apprBuilding, 
+            IGenericRepositoryAsync<ApprLandTemplates> apprLand, 
+            IGenericRepositoryAsync<ApprLiquidation> apprLiquidation, 
+            IGenericRepositoryAsync<MLiquidationItem> mItem,
+            IGenericRepositoryAsync<ApprBuildingFloors> apprbuildingFloor
+            )
         {
             _apprSummary = apprSummary;
             _mapper = mapper;
@@ -39,6 +49,7 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
             _apprLand = apprLand;
             _apprLiquidation = apprLiquidation;
             _mItem = mItem;
+            _apprBuildingFloor = apprbuildingFloor;
         }
         public async Task<ServiceResponse<ApprWorkPaperLandBuildingHeaderResponse>> Handle(GetApprLandBuildingQuery request, CancellationToken cancellationToken)
         {
@@ -136,6 +147,20 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                     }
                 }
 
+                //Get Total Building Area
+                var apprBuildingFloor = await _apprBuildingFloor.GetListByPredicate(x => x.ApprBuildingTemplateGuid == apprBuilding.ApprEnvironmentGuid);
+                double? buildingArea = 0;
+                if (apprBuildingFloor != null && apprBuildingFloor.Any())
+                {
+                    foreach (var apprBF in apprBuildingFloor)
+                    {
+                        if (apprBF.TotalArea.HasValue) 
+                        {
+                            buildingArea += apprBF.TotalArea;
+                        }
+                            
+                    }
+                }
 
                 apprSummary = await GetWorkPaperSummary(request.AppraisalGuid);
                 foreach (var data in apprSummary.ApprWorkPaperLandBuildings)
@@ -145,7 +170,7 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                         var response = new ApprLandBuildingResponse()
                         {
                             DataNumber = data?.DataNumber,
-                            PropertyType = data?.PropertyType,
+                            PropertyType = data?.ApprLandTemplates?.ObjectType,
                             Address = data?.ApprLandTemplates?.Address,
                             Rt = data?.ApprLandTemplates?.Rt,
                             Rw = data?.ApprLandTemplates?.Rw,
@@ -158,14 +183,15 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
 
                             BuildingCategory = _mapper.Map<SimpleResponse<Guid>>(data?.BuildingCategoryFK),
                             EconomicalAge = data?.EconomicalAge,
-                            BuildingArea = data?.ApprBuildingTemplates?.TotalBuildingArea,
+
+                            BuildingArea = buildingArea,
                             YearBuilt = data?.ApprBuildingTemplates?.YearBuilt,
                             RenovatedYear = data?.ApprBuildingTemplates?.RenovatedYear,
                             PctRenovationAdjustment = data?.PctRenovationAdjustment,
                             PctDepreciationAdjustment = data?.PctDepreciationAdjustment,
                             CurrBuildingValue = data?.CurrBuildingValue,
 
-                            LandArea = data?.ApprLandTemplates?.LandWidth == null ? 0 : data?.ApprLandTemplates?.LandWidth * data?.ApprLandTemplates?.LandLength == 0 ? 0 : data?.ApprLandTemplates?.LandLength,
+                            LandArea = data?.ApprLandTemplates?.LandAreaValue,
                             FrontageWidth = data?.FrontageWidth,
                             RoadWidth = data?.RoadWidth,
                             LandPosition = _mapper.Map<SimpleResponse<Guid>>(data?.LandPositionFK),
