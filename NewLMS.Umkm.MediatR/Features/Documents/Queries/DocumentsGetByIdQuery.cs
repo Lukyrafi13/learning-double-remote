@@ -40,6 +40,7 @@ namespace NewLMS.Umkm.MediatR.Features.Documents.Queries
             {
                 var includes = new string[]{
                     "RfDocumentStatus",
+                    "RfDocument",
                     "Files",
                     "Files.FileUrl"
                 };

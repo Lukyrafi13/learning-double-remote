@@ -64,6 +64,7 @@ namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
                     entity.TBODate = command.TBODate;
                     entity.TBODesc = command.TBODesc;
                     entity.Justification = command.Justification;
+                    entity.DocumentId = command.DocumentId;
                     entity.DocumentCategory = command.DocumentCategory;
                 };
                 await _documentRepo.UpdateAsync(entity);
