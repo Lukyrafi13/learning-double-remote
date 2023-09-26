@@ -62,6 +62,7 @@ namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
                     TBODate = command.TBODate,
                     TBODesc = command.TBODesc,
                     Justification = command.Justification,
+                    DocumentId = command.DocumentId,
                     DocumentCategory = command.DocumentCategory,
                 };
                 
