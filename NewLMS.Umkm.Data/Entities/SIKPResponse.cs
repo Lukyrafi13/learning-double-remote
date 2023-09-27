@@ -10,14 +10,14 @@ namespace NewLMS.Umkm.Data.Entities
         [ForeignKey(nameof(SIKP))]
         [Required]
         public Guid Id { get; set; }
-        public string Fullname { get; set; }
+        public string? Fullname { get; set; }
         public bool? Valid { get; set; }
-        public string ValidationMessage { get; set; }
+        public string? ValidationMessage { get; set; }
 
         #region Debtor
-        public string DebtorNPWP { get; set; }
-        public string DebtorNoIdentity { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string? DebtorNPWP { get; set; }
+        public string? DebtorNoIdentity { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         [ForeignKey(nameof(RfSectorLBU3))]
         public string? DebtorSectorLBU3Code { get; set; }
         [ForeignKey(nameof(RfGender))]
@@ -28,38 +28,38 @@ namespace NewLMS.Umkm.Data.Entities
         public string? DebtorEducationId { get; set; }
         [ForeignKey(nameof(RfJob))]
         public string? DebtorJobId { get; set; }
-        public string DebtorAddress { get; set; }
-        public string DebtorProvince { get; set; }
-        public string DebtorCity { get; set; }
-        public string DebtorDistrict { get; set; }
-        public string DebtorNeighborhoods { get; set; }
-        public string DebtorZipCode { get; set; }
+        public string? DebtorAddress { get; set; }
+        public string? DebtorProvince { get; set; }
+        public string? DebtorCity { get; set; }
+        public string? DebtorDistrict { get; set; }
+        public string? DebtorNeighborhoods { get; set; }
+        public string? DebtorZipCode { get; set; }
         [ForeignKey(nameof(DebtorRfZipCode))]
         public int? DebtorZipCodeId { get; set; }
         #endregion
 
         #region DebtorCompany
         public DateTime? DebtorCompanyEstablishmentDate { get; set; }
-        public string DebtorCompanyAddress { get; set; }
-        public string DebtorCompanyProvince { get; set; }
-        public string DebtorCompanyCity { get; set; }
-        public string DebtorCompanyDistrict { get; set; }
-        public string DebtorCompanyNeighborhoods { get; set; }
-        public string DebtorCompanyZipCode { get; set; }
+        public string? DebtorCompanyAddress { get; set; }
+        public string? DebtorCompanyProvince { get; set; }
+        public string? DebtorCompanyCity { get; set; }
+        public string? DebtorCompanyDistrict { get; set; }
+        public string? DebtorCompanyNeighborhoods { get; set; }
+        public string? DebtorCompanyZipCode { get; set; }
         [ForeignKey(nameof(DebtorCompanyRfZipCode))]
         public int? DebtorCompanyZipCodeId { get; set; }
-        public string DebtorCompanyPermit { get; set; }
-        public long DebtorCompanyVentureCapital { get; set; }
-        public long DebtorCompanyCreditValue { get; set; }
-        public string DebtorCompanyPhone { get; set; }
-        public string DebtorCompanyCollaterals { get; set; }
+        public string? DebtorCompanyPermit { get; set; }
+        public long? DebtorCompanyVentureCapital { get; set; }
+        public long? DebtorCompanyCreditValue { get; set; }
+        public string? DebtorCompanyPhone { get; set; }
+        public string? DebtorCompanyCollaterals { get; set; }
         public int DebtorCompanyEmployee { get; set; }
         [ForeignKey(nameof(DebtorCompanyRfLinkage))]
         public string? DebtorCompanyLinkageId { get; set; }
         [ForeignKey(nameof(DebtorCompanyRfLinkageType))]
         public string? DebtorCompanyLinkageTypeId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
-        public string DebtorCompanyPreviousSubsidy { get; set; }
+        public string? DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
 
 
