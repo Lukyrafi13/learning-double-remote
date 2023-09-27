@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Data.Dto.DocumentSurveys;
+using NewLMS.Umkm.Data.Dto.DocumentSurveyors;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.DocumentSurveyors.Queries
 {
-    public class DocumentSurveyorGetByIdQuery : IRequest<ServiceResponse<DocumentSurveyResponse>>
+    public class DocumentSurveyorsGetByIdQuery : IRequest<ServiceResponse<DocumentSurveyorResponse>>
     {
         public Guid Id { get; set; }
     }
 
-    public class DocumentSurveyorGetByIdQueryHandler : IRequestHandler<DocumentSurveyorGetByIdQuery, ServiceResponse<DocumentSurveyResponse>>
+    public class DocumentSurveyorGetByIdQueryHandler : IRequestHandler<DocumentSurveyorsGetByIdQuery, ServiceResponse<DocumentSurveyorResponse>>
     {
         private readonly IGenericRepositoryAsync<Data.Entities.Document> _repo;
         private readonly IMapper _mapper;
@@ -30,7 +30,7 @@ namespace NewLMS.Umkm.MediatR.Features.DocumentSurveyors.Queries
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<DocumentSurveyResponse>> Handle(DocumentSurveyorGetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<DocumentSurveyorResponse>> Handle(DocumentSurveyorsGetByIdQuery request, CancellationToken cancellationToken)
         {
             try
             {
@@ -40,9 +40,9 @@ namespace NewLMS.Umkm.MediatR.Features.DocumentSurveyors.Queries
                 };
                 var data = await _repo.GetByPredicate(x => x.Id == request.Id, includes);
                 if (data == null)
-                    return ServiceResponse<DocumentSurveyResponse>.Return404("Dokumen tidak ditemukan.");
+                    return ServiceResponse<DocumentSurveyorResponse>.Return404("Dokumen tidak ditemukan.");
 
-                var dataVm = _mapper.Map<DocumentSurveyResponse>(data);
+                var dataVm = _mapper.Map<DocumentSurveyorResponse>(data);
 
                 foreach (var f in dataVm.Files.ToList())
                 {
@@ -51,11 +51,11 @@ namespace NewLMS.Umkm.MediatR.Features.DocumentSurveyors.Queries
                     f.FileUrl.FileName = f.FileUrl.Url.Split('/').Last();
                 }
 
-                return ServiceResponse<DocumentSurveyResponse>.ReturnResultWith200(dataVm);
+                return ServiceResponse<DocumentSurveyorResponse>.ReturnResultWith200(dataVm);
             }
             catch (Exception ex)
             {
-                return ServiceResponse<DocumentSurveyResponse>.ReturnException(ex);
+                return ServiceResponse<DocumentSurveyorResponse>.ReturnException(ex);
             }
         }
     }

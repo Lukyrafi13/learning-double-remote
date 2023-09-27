@@ -10,7 +10,7 @@ namespace NewLMS.Umkm.Data.Dto.DocumentSurveyors
     public class DocumentSurveyorResponse : BaseResponse
     {
         public Guid Id { get; set; }
-        public Guid LoanApplicationId { get; set; }
+        public Guid? AppraisalGuid { get; set; }
         public string DocumentType { get; set; }
         public string Title { get; set; }
 
