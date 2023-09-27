@@ -53,6 +53,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new RfMappingProfile());
                 mc.AddProfile(new ChekingSIKPProfile());
                 mc.AddProfile(new DocumentSurveyProfile());
+                mc.AddProfile(new LiquidationProfile());
             });
             return mappingConfig.CreateMapper();
         }
