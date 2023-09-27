@@ -85,6 +85,7 @@
 
   <ItemGroup>
     <Folder Include="Features\BranchInsurance\Queries\" />
+    <Folder Include="Features\DocumentSurveyors\Commands\" />
     <Folder Include="Features\ExternalAccounts\Commands\" />
     <Folder Include="Features\LoanApplicationApprovals\Commands\" />
     <Folder Include="Features\LoanApplicationTermCredits\Commands\DeleteLoanApplicationTermCredits\" />
