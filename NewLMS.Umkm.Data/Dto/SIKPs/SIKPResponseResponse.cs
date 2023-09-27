@@ -6,6 +6,7 @@ using NewLMS.Umkm.Data.Dto.RfMarital;
 using NewLMS.Umkm.Data.Dto.RfGenders;
 using NewLMS.Umkm.Data.Dto.RfSectorLBU3s;
 using NewLMS.Umkm.Data.Dto.RfJob;
+using NewLMS.Umkm.Data.Dto.RfLinkAgeType;
 
 namespace NewLMS.Umkm.Data.Dto.SIKPs
 {
@@ -49,6 +50,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public string DebtorCompanyCollaterals { get; set; }
         public int DebtorCompanyEmployee { get; set; }
         public string DebtorCompanyLingkageId { get; set; }
+        public string DebtorCompanyLinkageTypeId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
@@ -61,6 +63,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public virtual RfZipCodeResponse DebtorRfZipCode { get; set; }
         public virtual RfZipCodeResponse DebtorCompanyRfZipCode { get; set; }
         public virtual RfLinkAgeResponse DebtorCompanyRfLinkage { get; set; }
+        public virtual RfLinkAgeTypeResponse DebtorCompanyRfLinkageType { get; set; }
     }
 }
 

@@ -20,7 +20,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfMarital, o => o.MapFrom(s => s.RfMarital))
                 .ForMember(d => d.RfSectorLBU3, o => o.MapFrom(s => s.RfSectorLBU3))
                 .ForMember(d => d.RfJob, o => o.MapFrom(s => s.RfJob))
-                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
+                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage))
+                .ForMember(d => d.DebtorCompanyRfLinkageType, o => o.MapFrom(s => s.DebtorCompanyRfLinkageType));
             CreateMap<SIKPResponse, SIKPResponseResponse>()
                 .ForMember(d => d.DebtorRfZipCode, o => o.MapFrom(s => s.DebtorRfZipCode))
                 .ForMember(d => d.DebtorCompanyRfZipCode, o => o.MapFrom(s => s.DebtorCompanyRfZipCode))
@@ -28,7 +29,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfGender, o => o.MapFrom(s => s.RfGender))
                 .ForMember(d => d.RfJob, o => o.MapFrom(s => s.RfJob))
                 .ForMember(d => d.RfMarital, o => o.MapFrom(s => s.RfMarital))
-                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
+                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage))
+                .ForMember(d => d.DebtorCompanyRfLinkageType, o => o.MapFrom(s => s.DebtorCompanyRfLinkageType));
 
             CreateMap<Data.Entities.SIKP, SIKPBaseResponse>()
                 .ForMember(d => d.Info, o => o.MapFrom(s => s.LoanApplication))
