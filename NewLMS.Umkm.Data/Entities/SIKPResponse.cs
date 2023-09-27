@@ -46,7 +46,8 @@ namespace NewLMS.Umkm.Data.Entities
         public string DebtorCompanyDistrict { get; set; }
         public string DebtorCompanyNeighborhoods { get; set; }
         public string DebtorCompanyZipCode { get; set; }
-        public int DebtorCompanyZipCodeId { get; set; }
+        [ForeignKey(nameof(DebtorCompanyRfZipCode))]
+        public int? DebtorCompanyZipCodeId { get; set; }
         public string DebtorCompanyPermit { get; set; }
         public long DebtorCompanyVentureCapital { get; set; }
         public long DebtorCompanyCreditValue { get; set; }
