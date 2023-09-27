@@ -196,6 +196,14 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                             RoadWidth = data?.RoadWidth,
                             LandPosition = _mapper.Map<SimpleResponse<Guid>>(data?.LandPositionFK),
                             Allotment = data?.Allotment,
+                            LandDocument = _mapper.Map<SimpleResponse<Guid>>(data?.LandDocumentFK),
+                            LandForm = _mapper.Map<SimpleResponse<Guid>>(data?.LandFormFK),
+                            LandCondition = _mapper.Map<SimpleResponse<Guid>>(data?.LandConditionFK),
+                            Offer = _mapper.Map<SimpleResponse<Guid>>(data?.OfferFK),
+                            OfferTime = data?.OfferTime,
+                            OfferValue = data?.OfferValue,
+                            PctDiscount = data?.PctDiscount,
+                            Topografi = _mapper.Map<SimpleResponse<Guid>>(data?.TopografiFK)
                         };
 
                         // if (data.ApprBuildingTemplates != null && data.ApprBuildingTemplates.ApprBuildingFloors.Count > 0)
