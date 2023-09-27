@@ -12,7 +12,7 @@ namespace NewLMS.Umkm.MediatR.Features.DocumentSurveys.Commands
             RuleFor(x => x.Length).NotNull().LessThanOrEqualTo(10485760) //10MB
                 .WithMessage("File size is larger than allowed (10 MB).");
 
-            var AllowedMimeTypes = Helper.FileStorage.DEFAULT_VALID_MIMETYPES;
+            var AllowedMimeTypes = Helper.FileStorage.DEFAULT_ALL_MIMETYPES;
 
             RuleFor(x => x.ContentType).NotNull().Must(x => AllowedMimeTypes.Contains(x))
                 .WithMessage("File type is not allowed. Only image files are permitted.");
