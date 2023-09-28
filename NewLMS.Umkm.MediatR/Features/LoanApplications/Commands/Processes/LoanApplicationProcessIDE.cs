@@ -97,7 +97,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                         "LoanApplicationCollaterals.RfCollateralBC",
                         "LoanApplicationCollaterals.RfDocument",
                         "LoanApplicationCollaterals.LoanApplicationCollateralOwner",
-                        "LoanApplicationFacilities"
+                        "LoanApplicationFacilities.RfSubProduct.RfProduct"
                     };
                 var loanApplication = await _loanApplication.GetByIdAsync(request.AppId, "Id", includes) ?? throw new NullReferenceException($"LoanApplication not found, Id: {request.AppId}");
                 var skipSikp = loanApplication.RfProduct.ProductType != "KUR" || (loanApplication.RfProduct.ProductType != "KUR" && loanApplication.LoanApplicationCollaterals.Count < 1);
