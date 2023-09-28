@@ -262,7 +262,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
             return ServiceResponse<Unit>.ReturnResultWith201(Unit.Value);
         }
-        public LoanApplication ClearLoanApplicationRelatives(LoanApplication loanApplication)
+        public static LoanApplication ClearLoanApplicationRelatives(LoanApplication loanApplication)
         {
             loanApplication.RfBookingBranch = null;
             loanApplication.RfBranch = null;
@@ -273,6 +273,18 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
             loanApplication.RfStage = null;
             loanApplication.DecisionMaker = null;
             loanApplication.LoanApplicationFacilities = null;
+            loanApplication.Debtor = null;
+            loanApplication.DebtorCompany = null;
+            loanApplication.LoanApplicationCreditScoring = null;
+            loanApplication.LoanApplicationCollaterals = null;
+            loanApplication.LoanApplicationFieldSurvey = null;
+            loanApplication.LoanApplicationKeyPersons = null;
+            loanApplication.LoanApplicationRAC = null;
+            loanApplication.LoanApplicationStages = null;
+            loanApplication.LoanApplicationVerificationBusiness = null;
+            loanApplication.LoanApplicationVerificationCycle = null;
+            loanApplication.LoanApplicationVerificationNeed = null;
+            loanApplication.Prospect = null;
 
             return loanApplication;
         }
