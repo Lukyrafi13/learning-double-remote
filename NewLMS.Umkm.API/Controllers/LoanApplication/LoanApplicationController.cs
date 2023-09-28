@@ -73,7 +73,7 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
 
-        //PreScreening
+        #region Prescreening
 
         /// <summary>
         /// Get List for tables of LoanApplication Prescreening
@@ -110,6 +110,8 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+
+        #endregion
 
         /// <summary>
         /// Process LoanApplication

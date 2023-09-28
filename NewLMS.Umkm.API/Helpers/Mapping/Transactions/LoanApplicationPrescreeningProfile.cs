@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
+using NewLMS.Umkm.Data.Dto.RfTenor;
 using NewLMS.Umkm.Data.Entities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
@@ -55,7 +58,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
             CreateMap<LoanApplication, LoanApplicationPrescreeningInfoResponse>()
                 .ForMember(d => d.Regency, o =>
                 {
-                    o.MapFrom(s => s.RfBranch.Name);
+                    o.MapFrom(s => s.RfBranch.KanwilName);
                 })
                 .ForMember(d => d.Branch, o =>
                 {
@@ -100,6 +103,18 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfOwnerCategory, o =>
                 {
                     o.MapFrom(s => s.RfOwnerCategory);
+                })
+                .ForMember(d => d.DebtorAge, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth));
+                })
+                .ForMember(d => d.DebtorAgePlusTenor, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : (MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth)) + (s.LoanApplicationFacilities.Sum(facility => facility.RfTenor.Tenor)));
+                })
+                .ForMember(d => d.RfMarital, o =>
+                {
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.RfMarital);
                 })
                 ;
         }

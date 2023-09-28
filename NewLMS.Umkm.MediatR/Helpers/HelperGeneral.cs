@@ -21,5 +21,23 @@ namespace NewLMS.Umkm.MediatR.Helpers
 
             return tagetEntity;
         }
+
+        public static int? CalculateAge(DateTime? dateOfBirth)
+        {
+            if (dateOfBirth == null)
+                return null;
+
+            DateTime tanggalSekarang = DateTime.Today;
+            int umur = tanggalSekarang.Year - dateOfBirth.Value.Year;
+
+            // Memeriksa apakah sudah ulang tahun atau belum
+            if (tanggalSekarang < dateOfBirth.Value.AddYears(umur))
+            {
+                umur--;
+            }
+
+            return umur;
+        }
+
     }
 }

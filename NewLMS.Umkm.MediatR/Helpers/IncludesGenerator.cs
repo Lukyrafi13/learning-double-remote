@@ -113,6 +113,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "LoanApplicationRAC",
                         "RfOwnerCategory",
+                        "RfMarital",
+                        "LoanApplicationFacilities.RfTenor",
                     };
                     break;
 
