@@ -44,6 +44,10 @@ namespace NewLMS.Umkm.API.Controllers.SLIKRequestDebtors
             return Ok(await Mediator.Send(command));
         }
 
+        /// <summary>
+        /// Update SLIKRequestDebtor </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPut("{Id}")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> Put([FromRoute] Guid Id, [FromForm] SLIKRequestDebtorPutCommand command)
