@@ -12,6 +12,7 @@ using MediatR;
 using System;
 using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
 using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Queries;
+using NewLMS.Umkm.MediatR.Features.SLIKRequests.Command;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
@@ -126,6 +127,20 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
             var res = await Mediator.Send(command);
 
             return Ok(res);
+        }
+
+        /// <summary>
+        /// Submit SLIKRequests AKBL
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("AKBL/submit-kontigensi")]
+        [ProducesResponseType(type: typeof(byte[]), statusCode: StatusCodes.Status200OK)]
+        [AllowAnonymous]
+        public async Task<IActionResult> AKBLSubmitKontigensi(SubmitSLIKKontigensiRequestCommand command)
+        {
+            var res = await Mediator.Send(command);
+            return File(res, "text/plain", $"SLIK_KONTIGENSI_{DateTime.Now.ToString("dd_MM_yyyy")}.txt");
         }
     }
 }
