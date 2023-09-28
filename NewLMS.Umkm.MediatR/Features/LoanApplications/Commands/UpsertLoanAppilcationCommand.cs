@@ -242,6 +242,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
                     case "informasi_fasilitas":
                         loanApplication.DecisionMakerId = request.DecisionMakerCode;
+                        loanApplication = ClearLoanApplicationRelatives(loanApplication);
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
                     default:
@@ -260,6 +261,18 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
             await transaction.CommitAsync(cancellationToken);
 
             return ServiceResponse<Unit>.ReturnResultWith201(Unit.Value);
+        }
+        public LoanApplication ClearLoanApplicationRelatives(LoanApplication loanApplication)
+        {
+            loanApplication.RfBookingBranch = null;
+            loanApplication.RfBranch = null;
+            loanApplication.RfBusinessCycle = null;
+            loanApplication.RfOwnerCategory = null;
+            loanApplication.RfProduct = null;
+            loanApplication.RfSectorLBU3 = null;
+            loanApplication.RfStage = null;
+
+            return loanApplication;
         }
     }
 }
