@@ -182,6 +182,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "RfBookingBranch",
                         "Owner",
                         "RfProduct",
+                        "LoanApplicationFacilities.RfSubProduct",
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationFieldSurvey.RelationsWithDebtors",
@@ -199,6 +200,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "RfBookingBranch",
                         "Owner",
                         "RfProduct",
+                        "LoanApplicationFacilities.RfSubProduct",
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationVerificationBusiness.BusinessPlaceOwnership",
@@ -213,11 +215,27 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "RfBookingBranch",
                         "Owner",
                         "RfProduct",
+                        "LoanApplicationFacilities.RfSubProduct",
                         "Debtor",
                         "DebtorCompany",
                         "LoanApplicationVerificationCycle.BusinessLandForm",
                         "LoanApplicationVerificationCycle.BusinessLandArea",
                         "LoanApplicationVerificationCycle.BusinessCapacity",
+                    };
+                    break;
+
+                case "survey_verifikasi_kebutuhan":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "LoanApplicationFacilities.RfSubProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "LoanApplicationVerificationNeed.RfPlacementCountry",
+                        "LoanApplicationVerificationNeed.ApplicationType",
                     };
                     break;
 

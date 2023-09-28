@@ -22,6 +22,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands
         private readonly IGenericRepositoryAsync<LoanApplicationFieldSurvey> _loanApplicationFieldSurvey;
         private readonly IGenericRepositoryAsync<LoanApplicationVerificationBusiness> _loanApplicationVerificationBusiness;
         private readonly IGenericRepositoryAsync<LoanApplicationVerificationCycle> _loanApplicationVerificationCycle;
+        private readonly IGenericRepositoryAsync<LoanApplicationVerificationNeed> _loanApplicationVerificationNeed;
         private readonly UserContext _userContext;
         private readonly IMapper _mapper;
 
@@ -30,6 +31,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands
             IGenericRepositoryAsync<LoanApplicationFieldSurvey> loanApplicationFieldSurvey,
             IGenericRepositoryAsync<LoanApplicationVerificationBusiness> loanApplicationVerificationBusiness,
             IGenericRepositoryAsync<LoanApplicationVerificationCycle> loanApplicationVerificationCycle,
+            IGenericRepositoryAsync<LoanApplicationVerificationNeed> loanApplicationVerificationNeed,
             IMapper mapper,
             UserContext userContext)
         {
@@ -37,6 +39,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands
             _loanApplicationFieldSurvey = loanApplicationFieldSurvey;
             _loanApplicationVerificationBusiness = loanApplicationVerificationBusiness;
             _loanApplicationVerificationCycle = loanApplicationVerificationCycle;
+            _loanApplicationVerificationNeed = loanApplicationVerificationNeed;
             _mapper = mapper;
             _userContext = userContext;
         }
@@ -51,6 +54,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands
                 var loanApplicationFieldSurvey = await _loanApplicationFieldSurvey.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
                 var loanApplicationVerificationBusiness = await _loanApplicationVerificationBusiness.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
                 var loanApplicationVerificationCycle = await _loanApplicationVerificationCycle.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
+                var loanApplicationVerificationNeed = await _loanApplicationVerificationNeed.GetByPredicate(x => x.LoanApplicationId == request.LoanApplicationGuid);
 
                 var debtorCompanyId = loanApplication.DebtorCompanyId;
 
@@ -95,6 +99,20 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands
                             loanApplicationVerificationCycle = _mapper.Map(request.LoanApplicationVerificationCycle, loanApplicationVerificationCycle);
                             loanApplicationVerificationCycle.Id = request.LoanApplicationGuid;
                             await _loanApplicationVerificationCycle.AddAsync(loanApplicationVerificationCycle);
+                        }
+                        break;
+
+                    case "survey_verifikasi_kebutuhan":
+                        if (loanApplicationVerificationNeed != null)
+                        {
+                            loanApplicationVerificationNeed = _mapper.Map(request.LoanApplicationVerificationNeed, loanApplicationVerificationNeed);
+                            await _loanApplicationVerificationNeed.UpdateAsync(loanApplicationVerificationNeed);
+                        }
+                        if (loanApplicationVerificationNeed == null)
+                        {
+                            loanApplicationVerificationNeed = _mapper.Map(request.LoanApplicationVerificationNeed, loanApplicationVerificationNeed);
+                            loanApplicationVerificationNeed.LoanApplicationId = request.LoanApplicationGuid;
+                            await _loanApplicationVerificationNeed.AddAsync(loanApplicationVerificationNeed);
                         }
                         break;
 
