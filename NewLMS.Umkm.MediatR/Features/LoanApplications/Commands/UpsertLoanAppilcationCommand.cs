@@ -87,16 +87,8 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                                 await _loanApplicationCreditScoring.UpdateAsync(creditScoring);
                             }
 
-                            loanApplication.DebtorCompanyId = null;
                             loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                             await _loanApplication.UpdateAsync(loanApplication);
-
-                            //DebtorCompany
-                            var debtorCompanyData = await _debtorCompany.GetByPredicate(x => x.Id == debtorCompanyId);
-                            if (debtorCompanyData != null)
-                            {
-                                await _debtorCompany.DeleteAsync(debtorCompanyData);
-                            }
 
                             //DebtorCompanyLegal
                             var debtorCompanyLegal = await _debtorCompanyLegal.GetByPredicate(x => x.Id == debtorCompanyId);
