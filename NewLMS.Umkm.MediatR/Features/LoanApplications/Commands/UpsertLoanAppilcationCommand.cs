@@ -271,6 +271,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
             loanApplication.RfProduct = null;
             loanApplication.RfSectorLBU3 = null;
             loanApplication.RfStage = null;
+            loanApplication.DecisionMaker = null;
 
             return loanApplication;
         }
