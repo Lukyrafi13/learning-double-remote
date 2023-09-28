@@ -34,7 +34,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands
             try
             {
                 var slikRequest = await _slikRequest.GetByIdAsync(request.Id, "Id") ?? throw new NullReferenceException("Data SLIK tidak ditemukan.");
-                slikRequest.StageId = UMKMConst.Stages["SLIKAdmin"];
+                slikRequest.StageId = UMKMConst.Stages["SLIKRequestAKBL"];
 
                 await _slikRequest.UpdateAsync(slikRequest);
 
