@@ -88,6 +88,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                             }
 
                             loanApplication.DebtorCompanyId = null;
+                            loanApplication = ClearLoanApplicationRelatives(loanApplication);
                             await _loanApplication.UpdateAsync(loanApplication);
 
                             //DebtorCompany
@@ -138,6 +139,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
                         loanApplication = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplication>(request, loanApplication);
                         loanApplication.BookingBranchId = request.InitialDataEntry.DataFasilitas.BookingBranchId;
+                        loanApplication = ClearLoanApplicationRelatives(loanApplication);
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
 
