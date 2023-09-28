@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
 using System.Net;
 using NewLMS.Umkm.Data.Enums;
+using NewLMS.Umkm.MediatR.Helpers;
 
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
@@ -146,6 +147,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                 await _loanApplicationStage.AddAsync(loanApplicationStage);
                 loanApplication.Status = Data.Enums.EnumLoanApplicationStatus.Processed;
                 loanApplication.LoanApplicationCollaterals = null;
+                loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                 await _loanApplication.UpdateAsync(loanApplication);
             }
             catch (Exception ex)

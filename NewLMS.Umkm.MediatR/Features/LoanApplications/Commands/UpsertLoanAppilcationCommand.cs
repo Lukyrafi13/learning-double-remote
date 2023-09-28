@@ -88,7 +88,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                             }
 
                             loanApplication.DebtorCompanyId = null;
-                            loanApplication = ClearLoanApplicationRelatives(loanApplication);
+                            loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                             await _loanApplication.UpdateAsync(loanApplication);
 
                             //DebtorCompany
@@ -139,7 +139,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
                         loanApplication = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplication>(request, loanApplication);
                         loanApplication.BookingBranchId = request.InitialDataEntry.DataFasilitas.BookingBranchId;
-                        loanApplication = ClearLoanApplicationRelatives(loanApplication);
+                        loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
 
@@ -244,7 +244,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
                     case "informasi_fasilitas":
                         loanApplication.DecisionMakerId = request.DecisionMakerCode;
-                        loanApplication = ClearLoanApplicationRelatives(loanApplication);
+                        loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
                     default:
@@ -263,32 +263,6 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
             await transaction.CommitAsync(cancellationToken);
 
             return ServiceResponse<Unit>.ReturnResultWith201(Unit.Value);
-        }
-        public static LoanApplication ClearLoanApplicationRelatives(LoanApplication loanApplication)
-        {
-            loanApplication.RfBookingBranch = null;
-            loanApplication.RfBranch = null;
-            loanApplication.RfBusinessCycle = null;
-            loanApplication.RfOwnerCategory = null;
-            loanApplication.RfProduct = null;
-            loanApplication.RfSectorLBU3 = null;
-            loanApplication.RfStage = null;
-            loanApplication.DecisionMaker = null;
-            loanApplication.LoanApplicationFacilities = null;
-            loanApplication.Debtor = null;
-            loanApplication.DebtorCompany = null;
-            loanApplication.LoanApplicationCreditScoring = null;
-            loanApplication.LoanApplicationCollaterals = null;
-            loanApplication.LoanApplicationFieldSurvey = null;
-            loanApplication.LoanApplicationKeyPersons = null;
-            loanApplication.LoanApplicationRAC = null;
-            loanApplication.LoanApplicationStages = null;
-            loanApplication.LoanApplicationVerificationBusiness = null;
-            loanApplication.LoanApplicationVerificationCycle = null;
-            loanApplication.LoanApplicationVerificationNeed = null;
-            loanApplication.Prospect = null;
-
-            return loanApplication;
         }
     }
 }
