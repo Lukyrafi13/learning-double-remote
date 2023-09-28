@@ -116,7 +116,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
-                var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikp.SIKPRequest.DebtorNoIdentity))?.data;
+                var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikpRequest.DebtorNoIdentity))?.data;
                 if (debtorDataResponse == null)
                 {
                     return ServiceResponse<ValidasiPostCalonResponseModel>.Return404("Data SIKP Tidak Ditemukan");
