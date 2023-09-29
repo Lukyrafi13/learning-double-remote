@@ -13,10 +13,14 @@ using NewLMS.Umkm.MediatR.Features.Appraisals.Commands;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.AppraisalProductiveLands;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara;
+using NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateSuratTugas;
+using Microsoft.AspNetCore.Authorization;
+//using NewLMS.Umkm.MediatR.Features.Appraisals.Command s.GenerateSuratTugas;
 
 namespace NewLMS.Umkm.API.Controllers.Appraisal
 {
-
+    [Authorize]
     public class AppraisalController : BaseController
     {
         [HttpGet("surveyor/application-info/{AppraisalGuid}")]
@@ -98,6 +102,20 @@ namespace NewLMS.Umkm.API.Controllers.Appraisal
         [HttpPost("surveyor/building-template-floor-detail")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> SurveyorBuildingFloorDetailPost(ApprBuildingFloorDetailPostCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPost("generate-berita-acara/{LoanApplicationCollateralId}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<string>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GenerateBA([FromRoute] GenerateBeritaAcara command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPost("generate-surat-tugas/{LoanApplicationCollateralId}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<string>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GenerateST([FromRoute] GenerateSuratTugas command)
         {
             return Ok(await Mediator.Send(command));
         }

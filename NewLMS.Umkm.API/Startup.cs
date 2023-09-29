@@ -36,10 +36,10 @@ using Bjb.DigitalBisnis.BaseMvcApi;
 using Bjb.DigitalBisnis.CurrentUser;
 using Bjb.DigitalBisnis.HealthCheck;
 using NewLMS.Umkm.Data.Dto.AppSettingJson;
-using NewLMS.Umkm.FileUpload;
 using NewLMS.Umkm.SIKP;
 using NewLMS.Umkm.SIKP2;
 using Bjb.DigitalBisnis.Consul;
+using Bjb.DigitalBisnis.FileUpload;
 
 namespace NewLMS.Umkm.API
 {
@@ -115,6 +115,7 @@ namespace NewLMS.Umkm.API
             services.AddSIKPAPI(Configuration);
             services.AddSIKPAPI2(Configuration);
             services.AddCurrentUserExtension(Configuration);
+            services.AddFileUploadAPI(Configuration);
         }
 
 
