@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Command
 {
-    public class SubmitSLIKKontigensiRequestCommand: SLIKRequestAKBLSubmitRequest, IRequest<byte[]>
+    public class SubmitSLIKKontigensiRequestCommand : SLIKRequestAKBLSubmitRequest, IRequest<byte[]>
     {
 
     }
@@ -68,7 +68,6 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Command
                             _slikRequestDebtor.KodeRefPengguna = kodeRef;
                             sLIKRequestDebtors.Add(_slikRequestDebtor);
                         }
-                        _slikRequest.Status = 1;
                         sLIKRequests.Add(_slikRequest);
                     }
                     objstreamwriter.Flush();

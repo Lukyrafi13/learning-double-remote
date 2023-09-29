@@ -13,6 +13,7 @@ using System;
 using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
 using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Queries;
 using NewLMS.Umkm.MediatR.Features.SLIKRequests.Command;
+using NewLMS.Umkm.MediatR.Features.SLIKRequests.Commands;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
@@ -101,9 +102,9 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         /// <returns></returns>
         [HttpPost("process/{Id}")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> ProcessSLIKRequestDebtor([FromRoute] Guid Id)
+        public async Task<IActionResult> ProcessSLIKRequest([FromRoute] Guid Id)
         {
-            var command = new SLIKRequestDebtorProcessCommand
+            var command = new SLIKRequestProcessCommand
             {
                 Id = Id
             };
@@ -120,7 +121,7 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> ProcessSLIKRequestAKBL([FromRoute] Guid Id)
         {
-            var command = new SLIKRequestDebtorProcessCommand
+            var command = new SLIKRequestAKBLProcessCommand
             {
                 Id = Id
             };
