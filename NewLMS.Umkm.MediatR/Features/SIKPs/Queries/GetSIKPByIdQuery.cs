@@ -46,6 +46,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.Queries
 						"SIKPRequest.DebtorRfZipCode",
 						"SIKPRequest.DebtorCompanyRfZipCode",
 						"SIKPRequest.DebtorCompanyRfLinkage",
+                        "SIKPRequest.DebtorCompanyRfLinkageType",
 						"SIKPResponse.RfGender",
 						"SIKPResponse.RfMarital",
 						"SIKPResponse.RfEducation",
@@ -53,6 +54,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.Queries
 						"SIKPResponse.DebtorRfZipCode",
 						"SIKPResponse.DebtorCompanyRfZipCode",
 						"SIKPResponse.DebtorCompanyRfLinkage",
+                        "SIKPResponse.DebtorCompanyRfLinkageType",
                     };
                 var data = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
                 if (data == null)

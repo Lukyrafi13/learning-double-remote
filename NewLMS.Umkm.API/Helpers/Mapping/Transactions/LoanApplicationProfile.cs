@@ -148,6 +148,24 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
             CreateMap<LoanApplicationFacility, LoanApplicationFacilityResponse>();
 
             CreateMap<LoanApplication, SIKPRequest>()
+                // Jumlah kredit (Get total kredit fasilitas yg KUR)
+                // No Hp
+                .ForMember(d => d.DebtorCompanyPhone, o =>
+                {
+                    o.MapFrom(s => s.Debtor != null ? s.Debtor.PhoneNumber : s.DebtorCompany.PhoneNumber);
+                })
+                .ForMember(d => d.DebtorCompanyCreditValue, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.Sum(x => x.RfSubProduct.RfProduct.ProductType == "KUR" ? x.SubmittedPlafond : 0));
+                })
+                .ForMember(d => d.Scheme, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.OrderByDescending(x => x.CreatedDate).FirstOrDefault().RfSubProduct.SIKPSkema);
+                })
+                .ForMember(d => d.DebtorCompanyLinkageId, o =>
+                {
+                    o.MapFrom(s => s.RfOwnerCategory.Code == "001" ? "1" : s.RfOwnerCategory.Code == "002" ? "2" : null);
+                })
                 .ForMember(d => d.DebtorCompanyCollaterals, o =>
                 {
                     o.MapFrom(s => $"{string.Join(System.Environment.NewLine, s.LoanApplicationCollaterals.Select((x, i) => $"{i + 1}. {x.RfCollateralBC.CollateralDesc}, {x.RfDocument.DocumentDesc}, {x.DocumentNumber}, {x.LoanApplicationCollateralOwner.OwnerName}"))}");
@@ -190,19 +208,19 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 })
                 .ForMember(d => d.DebtorProvince, o =>
                 {
-                    o.MapFrom(s => s.Debtor.Province);
+                    o.MapFrom(s => s.Debtor.RfZipCode.KodeProvinsi);
                 })
                 .ForMember(d => d.DebtorCity, o =>
                 {
-                    o.MapFrom(s => s.Debtor.City);
+                    o.MapFrom(s => s.Debtor.RfZipCode.KodeKabKota);
                 })
                 .ForMember(d => d.DebtorDistrict, o =>
                 {
-                    o.MapFrom(s => s.Debtor.District);
+                    o.MapFrom(s => s.Debtor.RfZipCode.KodeKecamatan);
                 })
                 .ForMember(d => d.DebtorNeighborhoods, o =>
                 {
-                    o.MapFrom(s => s.Debtor.Neighborhoods);
+                    o.MapFrom(s => s.Debtor.RfZipCode.KodeKelurahan);
                 })
                 .ForMember(d => d.DebtorZipCode, o =>
                 {
@@ -218,19 +236,19 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 })
                 .ForMember(d => d.DebtorCompanyProvince, o =>
                 {
-                    o.MapFrom(s => s.DebtorCompany.Province);
+                    o.MapFrom(s => s.DebtorCompany.RfZipCode.KodeProvinsi);
                 })
                 .ForMember(d => d.DebtorCompanyCity, o =>
                 {
-                    o.MapFrom(s => s.DebtorCompany.City);
+                    o.MapFrom(s => s.DebtorCompany.RfZipCode.KodeKabKota);
                 })
-                .ForMember(d => d.DebtorDistrict, o =>
+                .ForMember(d => d.DebtorCompanyDistrict, o =>
                 {
-                    o.MapFrom(s => s.DebtorCompany.District);
+                    o.MapFrom(s => s.DebtorCompany.RfZipCode.KodeKecamatan);
                 })
                 .ForMember(d => d.DebtorCompanyNeighborhoods, o =>
                 {
-                    o.MapFrom(s => s.DebtorCompany.Neighborhoods);
+                    o.MapFrom(s => s.DebtorCompany.RfZipCode.KodeKelurahan);
                 })
                 .ForMember(d => d.DebtorCompanyZipCode, o =>
                 {

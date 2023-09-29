@@ -22,14 +22,6 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
     }
 
-    //public class ValidasiPostCalonResponseModel
-    //{
-    //    public CalonDebiturResponseModel DebtorData { get; set; }
-    //    public bool Valid { get; set; } = true;
-    //    public string Errors { get; set; }
-    //    public string Message { get; set; } = "Calon Debitur Valid";
-    //}
-
     public class ValidasiPostCalonResponseModel
     {
         public string Message { get; set; } = "Calon Debitur Valid";
@@ -46,16 +38,16 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
     public class CheckSIKPCommandHandler : IRequestHandler<CheckSIKPCommand, ServiceResponse<ValidasiPostCalonResponseModel>>
     {
-        private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
-        private IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
-        private IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
-        private IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
-        private IGenericRepositoryAsync<RfGender> _rfGender;
-        private IGenericRepositoryAsync<RfJob> _rfJob;
-        private IGenericRepositoryAsync<RfMarital> _rfMarital;
-        private IGenericRepositoryAsync<RfEducation> _rfEducation;
-        private IGenericRepositoryAsync<RfZipCode> _rfZipCode;
-        private IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
+        private readonly IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
+        private readonly IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
+        private readonly IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
+        private readonly IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
+        private readonly IGenericRepositoryAsync<RfGender> _rfGender;
+        private readonly IGenericRepositoryAsync<RfJob> _rfJob;
+        private readonly IGenericRepositoryAsync<RfMarital> _rfMarital;
+        private readonly IGenericRepositoryAsync<RfEducation> _rfEducation;
+        private readonly IGenericRepositoryAsync<RfZipCode> _rfZipCode;
+        private readonly IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
         private readonly UserContext _userContext;
         private readonly ISIKPService _sikpService;
         private readonly IMapper _mapper;
@@ -124,7 +116,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
-                var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikp.SIKPRequest.DebtorNoIdentity))?.data;
+                var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikpRequest.DebtorNoIdentity))?.data;
                 if (debtorDataResponse == null)
                 {
                     return ServiceResponse<ValidasiPostCalonResponseModel>.Return404("Data SIKP Tidak Ditemukan");
@@ -192,6 +184,32 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     {
                         response.Valid = false;
                         response.Message = debtorDataResponse.message;
+
+                        if (sikpResponse?.Id == Guid.Empty || sikpResponse == null)
+                        {
+                            sikpResponse.Id = sikp.Id;
+                            await _sikpResponse.AddAsync(sikpResponse);
+                        }
+
+                        sikpResponse = new SIKPResponse
+                        {
+                            Id = sikp.Id,
+                            CreatedBy = sikp.CreatedBy,
+                            CreatedDate = DateTime.Now,
+                            Valid = false,
+                            ValidationMessage = debtorDataResponse.message
+                        };
+                    }
+                    else if (debtorDataResponse.code == "07")
+                    {
+                        response.Valid = false;
+                        response.Message = debtorDataResponse.message;
+
+                        if (sikpResponse?.Id == Guid.Empty || sikpResponse == null)
+                        {
+                            sikpResponse.Id = sikp.Id;
+                            await _sikpResponse.AddAsync(sikpResponse);
+                        }
 
                         sikpResponse = new SIKPResponse
                         {

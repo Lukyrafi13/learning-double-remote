@@ -5,6 +5,7 @@ using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.ShopAppartmentWorkPaper;
 using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers.VehicleWorkPaper;
 using NewLMS.Umkm.Data.Dto.AppraisalWorkPapers;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Dto;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
@@ -36,7 +37,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
             .ForMember(d => d.Provinsi, s => s.MapFrom(s => s.WilayahVillages.WilayahDistricts.WilayahRegencies.WilayahProvinces))
             .ForMember(d => d.TransactionOffer, s => s.MapFrom(s => s.TransactionOfferFK));
 
-            // CreateMap<ApprMachineMarketWorkPaperPostRequest, ApprWorkPaperMachineMarkets>();
+             CreateMap<ApprMachineMarketWorkPaperPostRequest, ApprWorkPaperMachineMarkets>();
             // CreateMap<ApprMachineMarketSummaryRequest, ApprWorkPaperMachineMarketSummaries>();
             CreateMap<ApprWorkPaperMachineCost, ApprWorkPaperMachineCostResponse>()
             .ForMember(d => d.Kelurahan, s => s.MapFrom(s => s.MachineTemplate.WilayahVillages))
@@ -76,9 +77,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 
             CreateMap<ApprLiquidationPostRequest, ApprLiquidation>();
             CreateMap<ApprLiquidation, ApprLiquidationResponse>()
-            .ForMember(d => d.LiquidationType, s => s.MapFrom(s => s.MLiquidationItem.MLiquidation))
-            .ForMember(d => d.LiquidationItem, s => s.MapFrom(s => s.MLiquidationItem))
-            .ForMember(d => d.LiquidationOption, s => s.MapFrom(s => s.MLiquidationOption));
+                .ForMember(d => d.LiquidationType, p => p.MapFrom(s => new SimpleResponse<string> { Id = s.MLiquidationItem.MLiquidation.TypeId, Description = s.MLiquidationItem.MLiquidation.TypeDesc }))
+                .ForMember(d => d.LiquidationItem, p => p.MapFrom(s => new SimpleResponseWithScore<string> { Id = s.MLiquidationItem.ItemId, Description = s.MLiquidationItem.ItemDesc, Score = (double)s.MLiquidationItem.ItemWeight }))
+                .ForMember(d => d.LiquidationOption, p => p.MapFrom(s => new SimpleResponseWithScore<string> { Id = s.MLiquidationOption.OptionId, Description = s.MLiquidationOption.OptionDesc, Score = (double)s.MLiquidationOption.OptionWeight }))
+                ;
 
             CreateMap<ApprWorkPaperLandBuildingSummaries, ApprWorkPaperLandBuildingHeaderResponse>();
             CreateMap<ApprWorkPaperMachineMarketSummaries, ApprWorkPaperMachineMarketHeaderResponse>();

@@ -14,7 +14,7 @@ namespace NewLMS.Umkm.Data.Entities
         [MaxLength(10)]
         public string OptionId { get; set; }
         [MaxLength(100)]
-        public string OptionDesc { get; set; }
+        public string OptionDesc { get; set; }  
         public double? OptionWeight { get; set; }
         public bool IsActive { get; set; } = true;
         public virtual MLiquidationItem MLiquidationItem { get; set; }

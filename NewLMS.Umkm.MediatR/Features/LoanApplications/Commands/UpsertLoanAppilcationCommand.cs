@@ -87,15 +87,8 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                                 await _loanApplicationCreditScoring.UpdateAsync(creditScoring);
                             }
 
-                            loanApplication.DebtorCompanyId = null;
+                            loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                             await _loanApplication.UpdateAsync(loanApplication);
-
-                            //DebtorCompany
-                            var debtorCompanyData = await _debtorCompany.GetByPredicate(x => x.Id == debtorCompanyId);
-                            if (debtorCompanyData != null)
-                            {
-                                await _debtorCompany.DeleteAsync(debtorCompanyData);
-                            }
 
                             //DebtorCompanyLegal
                             var debtorCompanyLegal = await _debtorCompanyLegal.GetByPredicate(x => x.Id == debtorCompanyId);
@@ -138,6 +131,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
                         loanApplication = _mapper.Map<LoanApplicationIDEUpsertRequest, LoanApplication>(request, loanApplication);
                         loanApplication.BookingBranchId = request.InitialDataEntry.DataFasilitas.BookingBranchId;
+                        loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
 
@@ -242,6 +236,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
 
                     case "informasi_fasilitas":
                         loanApplication.DecisionMakerId = request.DecisionMakerCode;
+                        loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                         await _loanApplication.UpdateAsync(loanApplication);
                         break;
                     default:

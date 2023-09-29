@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Data.Dto.RfSubProducts;
 using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Linq;
@@ -28,11 +29,19 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationVerificationCycle);
                 })
+                .ForMember(d => d.LoanApplicationVerificationNeed, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationVerificationNeed);
+                })
                 ;
 
 
             //App Info
-            CreateMap<LoanApplication, LoanApplicationAppInfoApprSurveyorResponse>()
+            CreateMap<LoanApplication, LoanApplicationAppInfoSurveyResponse>()
+                .ForMember(d => d.Regency, o =>
+                {
+                    o.MapFrom(s => s.RfBranch.KanwilName);
+                })
                 .ForMember(d => d.Branch, o =>
                 {
                     o.MapFrom(s => s.RfBranch.Code + " - " + s.RfBranch.Name);
@@ -69,7 +78,12 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.IsBusinessCycle);
                 })
+                .ForMember(d => d.RfSubProduct, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.First().RfSubProduct);
+                })
                 ;
+
 
 
             CreateMap<LoanApplication, LoanApplicationAppInfoAppraisalSurveyorResponse>()

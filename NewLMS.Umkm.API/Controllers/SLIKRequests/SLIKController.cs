@@ -10,6 +10,8 @@ using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands;
 using NewLMS.Umkm.Helper;
 using MediatR;
 using System;
+using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
+using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Queries;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
@@ -40,6 +42,17 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
             return Ok(await Mediator.Send(command));
         }
 
+        /// <summary>
+        /// Get SLIK Request By Id
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpGet("{Id}")]
+        [ProducesResponseType(type:typeof(ServiceResponse<SLIKRequestResponse>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetById([FromRoute] SLIKRequestGetByIdQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
 
         /// <summary>
         /// Create SLIKRequestDebtor

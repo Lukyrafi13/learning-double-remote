@@ -112,7 +112,20 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                     };
                     await _debtor.AddAsync(debtor);
 
-                    loanApplication.DebtorCompanyId = null;
+                    debtorCompany = new DebtorCompany()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = prospect.CompanyName,
+                        Address = prospect.CompanyAddress,
+                        Province = prospect.CompanyProvince,
+                        City = prospect.CompanyCity,
+                        District = prospect.CompanyDistrict,
+                        Neighborhoods = prospect.CompanyNeighborhoods,
+                        ZipCodeId = prospect.CompanyZipCodeId,
+                    };
+                    await _debtorCompany.AddAsync(debtorCompany);
+
+                    loanApplication.DebtorCompanyId = debtorCompany.Id;
                     loanApplication.DebtorId = debtor.Id;
                 }
                 else if (prospect.RfOwnerCategory.Code == "002") // Badan Usaha
