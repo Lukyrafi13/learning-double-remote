@@ -95,6 +95,8 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<LoanApplicationVerificationBusiness> LoanApplicationVerificationBusinesses { get; set; }
         public DbSet<LoanApplicationVerificationCycle> LoanApplicationVerificationCycles { get; set; }
         public DbSet<LoanApplicationVerificationCycleDetail> LoanApplicationVerificationCycleDetails { get; set; }
+        public DbSet<LoanApplicationVerificationNeed> LoanApplicationVerificationNeeds { get; set; }
+        public DbSet<LoanApplicationVerificationNeedDetail> LoanApplicationVerificationNeedDetails { get; set; }
 
         #endregion
 
@@ -156,6 +158,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<SIKPHistory> SIKPHistories { get; set; }
         public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
         public DbSet<RfMappingDocumentPrescreening> RfMappingDocumentPrescreenings { get; set; }
+        public DbSet<RfMappingPlafondPlacementCountry> RfMappingPlafondPlacementCountries { get; set; }
 
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationBusiness;
 using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycles;
+using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationNeeds;
 using System;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplicationSurvey
@@ -11,5 +12,6 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationSurvey
         public LoanApplicationFieldSurveyPostRequest? FieldSurvey { get; set; }
         public LoanApplicationVerificationBusinessPostRequest? LoanApplicationVerificationBusiness { get; set; }
         public LoanApplicationVerificationCyclePostRequest? LoanApplicationVerificationCycle { get; set; }
+        public LoanApplicationVerificationNeedsRequest? LoanApplicationVerificationNeed { get; set; }
     }
 }

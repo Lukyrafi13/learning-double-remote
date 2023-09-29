@@ -21,7 +21,7 @@ namespace NewLMS.Umkm.Data.Dto.SLIKs
         public double TotalOtherUses { get; set; }
         public double TotalWorkingCapital { get; set; }
         public DateTime? InquiryDate { get; set; }
-
+        public RfParameterDetailResponse RfOwnerCategory { get; set; }
         public RfBranchResponse Branch { get; set; }
         public RfStageResponse RfStage { get; set; }
         public ICollection<SLIKRequestDebtorResponse> SLIKRequestDebtors { get; set; }
