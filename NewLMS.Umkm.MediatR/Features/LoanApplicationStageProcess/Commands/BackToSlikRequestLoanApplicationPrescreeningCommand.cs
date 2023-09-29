@@ -33,7 +33,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
         {
             try
             {
-                var loanApplicationData = await _loanApplication.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
+                var loanApplicationData = await _loanApplication.GetByPredicate(x => x.Id == request.Id);
                 if (loanApplicationData != null)
                 {
                     loanApplicationData.StageId = LMSUMKMStages.SLIKRequest.StageId;
