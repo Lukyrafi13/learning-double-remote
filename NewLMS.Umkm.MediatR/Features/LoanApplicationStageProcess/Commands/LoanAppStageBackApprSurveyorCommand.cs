@@ -37,23 +37,10 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
             try
             {
                 var appraisalData = await _appraisal.GetByPredicate(x => x.LoanApplicationCollateralId == request.LoanApplicationCollateralId);
-                var appraisalListData = await _appraisal.GetListByPredicate(x => x.LoanApplicationId == appraisalData.LoanApplicationId);
-                if (appraisalData != null && appraisalListData.Count > 0)
+                if (appraisalData != null)
                 {
-                    //Update All LoanApplicationCollateral Stage to IDE
-                    foreach(var apprListDetail in appraisalListData)
-                    {
-                        apprListDetail.StageId = LMSUMKMStages.InitialData.StageId;//Appr IDE
-                        await _appraisal.UpdateAsync(apprListDetail);
-                    }
-
-                    var loanApplicationData = await _loanApplication.GetByPredicate(x => x.Id == appraisalData.LoanApplicationId);
-                    if(loanApplicationData != null)
-                    {
-                        loanApplicationData.StageId = LMSUMKMStages.InitialData.StageId;//Appr IDE
-                        await _loanApplication.UpdateAsync(loanApplicationData);
-                    }
-                    
+                    appraisalData.StageId = LMSUMKMStages.AppraisalAsignment.StageId;//Appr IDE
+                    await _appraisal.UpdateAsync(appraisalData);
                 }
                 else
                 {

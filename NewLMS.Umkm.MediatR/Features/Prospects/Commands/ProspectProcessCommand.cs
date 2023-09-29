@@ -85,7 +85,8 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                     ProductId = prospect.ProductId,
                     Status = EnumLoanApplicationStatus.Draft,
                     StageId = Guid.Parse("1FBE4B9F-1B6C-4056-9054-7BBA1AE614E2"),
-                    OwnerCategoryId = prospect.OwnerCategoryId ?? 1
+                    OwnerCategoryId = prospect.OwnerCategoryId ?? 1,
+                    OwnerId = Guid.Parse(_userInfoToken.Id),
                 };
 
                 Debtor debtor = new();
@@ -98,6 +99,8 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                         Id = Guid.NewGuid(),
                         Fullname = prospect.Fullname,
                         NoIdentity = prospect.NoIdentity,
+                        DateOfBirth = prospect.DateOfBirth,
+                        PlaceOfBirth = prospect.PlaceOfBirth,
                         Address = prospect.Address,
                         Province = prospect.Province,
                         City = prospect.City,
@@ -106,12 +109,23 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                         ZipCodeId = prospect.ZipCodeId,
                         GenderId = prospect.GenderId,
                         PhoneNumber = prospect.PhoneNumber,
-                        PlaceOfBirth = prospect.PlaceOfBirth,
-                        DateOfBirth = prospect.DateOfBirth
                     };
                     await _debtor.AddAsync(debtor);
 
-                    loanApplication.DebtorCompanyId = null;
+                    debtorCompany = new DebtorCompany()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = prospect.CompanyName,
+                        Address = prospect.CompanyAddress,
+                        Province = prospect.CompanyProvince,
+                        City = prospect.CompanyCity,
+                        District = prospect.CompanyDistrict,
+                        Neighborhoods = prospect.CompanyNeighborhoods,
+                        ZipCodeId = prospect.CompanyZipCodeId,
+                    };
+                    await _debtorCompany.AddAsync(debtorCompany);
+
+                    loanApplication.DebtorCompanyId = debtorCompany.Id;
                     loanApplication.DebtorId = debtor.Id;
                 }
                 else if (prospect.RfOwnerCategory.Code == "002") // Badan Usaha
@@ -119,7 +133,14 @@ namespace NewLMS.Umkm.MediatR.Features.Prospects.Commands
                     debtorCompany = new DebtorCompany()
                     {
                         Id = Guid.NewGuid(),
-                        Name = prospect.Fullname
+                        Name = prospect.Fullname,
+                        Address = prospect.Address,
+                        Province = prospect.Province,
+                        City = prospect.City,
+                        District = prospect.District,
+                        Neighborhoods = prospect.Neighborhoods,
+                        ZipCodeId = prospect.ZipCodeId,
+                        PhoneNumber = prospect.PhoneNumber,
                     };
                     await _debtorCompany.AddAsync(debtorCompany);
 

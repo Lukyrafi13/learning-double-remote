@@ -17,5 +17,6 @@ namespace NewLMS.Umkm.Data.Dto.Documents
         public string TBODesc { get; set; }
         public string Justification { get; set; }
         public string DocumentId { get; set; }
+        public string DocumentCategory { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
         public SIKPProfile()
         {
             CreateMap<SIKPRequest, SIKPRequestResponse>()
+                .ForMember(d => d.DebtorSectorLBU1Code, o => o.MapFrom(s => s.RfSectorLBU3.RfSectorLBU2.RfSectorLBU1Code))
+                .ForMember(d => d.DebtorSectorLBU2Code, o => o.MapFrom(s => s.RfSectorLBU3.RfSectorLBU2Code))
                 .ForMember(d => d.DebtorRfZipCode, o => o.MapFrom(s => s.DebtorRfZipCode))
                 .ForMember(d => d.DebtorCompanyRfZipCode, o => o.MapFrom(s => s.DebtorCompanyRfZipCode))
                 .ForMember(d => d.RfEducation, o => o.MapFrom(s => s.RfEducation))
@@ -18,7 +20,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfMarital, o => o.MapFrom(s => s.RfMarital))
                 .ForMember(d => d.RfSectorLBU3, o => o.MapFrom(s => s.RfSectorLBU3))
                 .ForMember(d => d.RfJob, o => o.MapFrom(s => s.RfJob))
-                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
+                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage))
+                .ForMember(d => d.DebtorCompanyRfLinkageType, o => o.MapFrom(s => s.DebtorCompanyRfLinkageType));
             CreateMap<SIKPResponse, SIKPResponseResponse>()
                 .ForMember(d => d.DebtorRfZipCode, o => o.MapFrom(s => s.DebtorRfZipCode))
                 .ForMember(d => d.DebtorCompanyRfZipCode, o => o.MapFrom(s => s.DebtorCompanyRfZipCode))
@@ -26,9 +29,11 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RfGender, o => o.MapFrom(s => s.RfGender))
                 .ForMember(d => d.RfJob, o => o.MapFrom(s => s.RfJob))
                 .ForMember(d => d.RfMarital, o => o.MapFrom(s => s.RfMarital))
-                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage));
+                .ForMember(d => d.DebtorCompanyRfLinkage, o => o.MapFrom(s => s.DebtorCompanyRfLinkage))
+                .ForMember(d => d.DebtorCompanyRfLinkageType, o => o.MapFrom(s => s.DebtorCompanyRfLinkageType));
 
             CreateMap<Data.Entities.SIKP, SIKPBaseResponse>()
+                .ForMember(d => d.Info, o => o.MapFrom(s => s.LoanApplication))
                 .ForMember(d => d.CIF, o => o.MapFrom(s => s.LoanApplication.Debtor.CIF))
                 .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
                 .ForMember(d => d.SIKPRequest, o => o.MapFrom(s => s.SIKPRequest))

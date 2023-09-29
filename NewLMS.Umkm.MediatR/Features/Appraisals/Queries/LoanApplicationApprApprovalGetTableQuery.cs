@@ -4,6 +4,7 @@ using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.Appraisals;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Repository.GenericRepository;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
@@ -79,6 +80,7 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
                     DocumentNumber = loanApplicationCollateral.DocumentNumber ?? "-",
                     DocumentName = loanApplicationCollateral.RfDocument?.DocumentDesc ?? null,
                     OwnerName = loanApplicationCollateral.LoanApplicationCollateralOwner?.OwnerName ?? null,
+                    EntryDate = loanApplicationCollateral.CreatedDate,
                 };
 
                 if (loanApplicationEntity != null)

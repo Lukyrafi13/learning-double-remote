@@ -7,10 +7,13 @@ using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using NewLMS.Umkm.Domain.Context;
+using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 {
@@ -18,14 +21,6 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
     {
 
     }
-
-    //public class ValidasiPostCalonResponseModel
-    //{
-    //    public CalonDebiturResponseModel DebtorData { get; set; }
-    //    public bool Valid { get; set; } = true;
-    //    public string Errors { get; set; }
-    //    public string Message { get; set; } = "Calon Debitur Valid";
-    //}
 
     public class ValidasiPostCalonResponseModel
     {
@@ -43,16 +38,16 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
 
     public class CheckSIKPCommandHandler : IRequestHandler<CheckSIKPCommand, ServiceResponse<ValidasiPostCalonResponseModel>>
     {
-        private IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
-        private IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
-        private IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
-        private IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
-        private IGenericRepositoryAsync<RfGender> _rfGender;
-        private IGenericRepositoryAsync<RfJob> _rfJob;
-        private IGenericRepositoryAsync<RfMarital> _rfMarital;
-        private IGenericRepositoryAsync<RfEducation> _rfEducation;
-        private IGenericRepositoryAsync<RfZipCode> _rfZipCode;
-        private IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
+        private readonly IGenericRepositoryAsync<NewLMS.Umkm.Data.Entities.SIKP> _sikp;
+        private readonly IGenericRepositoryAsync<SIKPRequest> _sikpRequest;
+        private readonly IGenericRepositoryAsync<SIKPResponse> _sikpResponse;
+        private readonly IGenericRepositoryAsync<RfSectorLBU3> _rfSectorLBU3;
+        private readonly IGenericRepositoryAsync<RfGender> _rfGender;
+        private readonly IGenericRepositoryAsync<RfJob> _rfJob;
+        private readonly IGenericRepositoryAsync<RfMarital> _rfMarital;
+        private readonly IGenericRepositoryAsync<RfEducation> _rfEducation;
+        private readonly IGenericRepositoryAsync<RfZipCode> _rfZipCode;
+        private readonly IGenericRepositoryAsync<RfLinkAge> _rfLinkage;
         private readonly UserContext _userContext;
         private readonly ISIKPService _sikpService;
         private readonly IMapper _mapper;
@@ -97,17 +92,18 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         "SIKPRequest.DebtorRfZipCode",
                         "SIKPRequest.DebtorCompanyRfZipCode",
                         "SIKPRequest.DebtorCompanyRfLinkage",
-                        //"SIKPResponse",
-                        "SIKPResponse.RfSectorLBU3",
-                        "SIKPResponse.RfGender",
-                        "SIKPResponse.RfMarital",
-                        "SIKPResponse.RfEducation",
-                        "SIKPResponse.RfJob",
-                        "SIKPResponse.DebtorRfZipCode",
-                        "SIKPResponse.DebtorCompanyRfZipCode",
-                        "SIKPResponse.DebtorCompanyRfLinkage",
+                        "SIKPResponse",
+                        //"SIKPResponse.RfSectorLBU3",
+                        //"SIKPResponse.RfGender",
+                        //"SIKPResponse.RfMarital",
+                        //"SIKPResponse.RfEducation",
+                        //"SIKPResponse.RfJob",
+                        //"SIKPResponse.DebtorRfZipCode",
+                        //"SIKPResponse.DebtorCompanyRfZipCode",
+                        //"SIKPResponse.DebtorCompanyRfLinkage",
                     };
                 var sikp = await _sikp.GetByIdAsync(request.Id, "Id", sikpIncludes);
+                var collaterals = sikp.LoanApplication.LoanApplicationCollaterals;
                 var sikpRequest = sikp.SIKPRequest;
                 var sikpResponse = sikp.SIKPResponse;
                 if (sikpResponse == null)
@@ -115,10 +111,12 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     sikpResponse = new SIKPResponse() { Id = sikp.Id };
                     await _sikpResponse.AddAsync(sikpResponse);
                 }
-                sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request, sikpRequest);
+                sikpRequest = _mapper.Map<SIKPRequestRequest, SIKPRequest>(request);
+                sikpRequest.Id = sikp.Id;
+
                 await _sikpRequest.UpdateAsync(sikpRequest);
 
-                var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikp.SIKPRequest.DebtorNoIdentity))?.data;
+                var debtorDataResponse = (await _sikpService.GetCalonDebitur(sikpRequest.DebtorNoIdentity))?.data;
                 if (debtorDataResponse == null)
                 {
                     return ServiceResponse<ValidasiPostCalonResponseModel>.Return404("Data SIKP Tidak Ditemukan");
@@ -133,7 +131,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         var rfGender = await _rfGender.GetByPredicate(x => x.GenderCodeSIKP == debtorDataResponse.data.jns_kelamin);
                         var rfMarital = await _rfMarital.GetByPredicate(x => x.MaritalCodeSKIP == debtorDataResponse.data.maritas_sts);
                         var rfJob = await _rfJob.GetByPredicate(x => x.JobCodeSIKP == debtorDataResponse.data.pekerjaan);
-                        var rfEducation = await _rfEducation.GetByPredicate(x => x.EducationCodeSIKP == debtorDataResponse.data.pendidikan);
+                        var rfEducation = await _userContext.RfEducations.FirstOrDefaultAsync(x => x.EducationCodeSIKP == debtorDataResponse.data.pendidikan, cancellationToken: cancellationToken);
                         var rfZipCode = await _rfZipCode.GetByPredicate(x => x.ZipCode == debtorDataResponse.data.kode_pos);
                         var rfLinkage = await _rfLinkage.GetByPredicate(x => x.LinkAgeCode == debtorDataResponse.data.is_linkage);
 
@@ -150,13 +148,29 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                         sikpResponse.DebtorMaritalStatusId = rfMarital.MaritalCode;
                         sikpResponse.DebtorJobId = rfJob.JobCode;
                         sikpResponse.DebtorEducationId = rfEducation.EducationCode;
-                        sikpResponse.DebtorCompanyLingkageId = rfLinkage.LinkAgeCode;
                         sikpResponse.DebtorZipCode = rfZipCode.ZipCode;
                         sikpResponse.DebtorZipCodeId = rfZipCode.Id;
                         sikpResponse.DebtorProvince = rfZipCode.Provinsi;
                         sikpResponse.DebtorCity = rfZipCode.Kota;
                         sikpResponse.DebtorDistrict = rfZipCode.Kecamatan;
                         sikpResponse.DebtorNeighborhoods = rfZipCode.Kelurahan;
+                        sikpResponse.DebtorCompanyLinkageId = rfLinkage.LinkAgeCode;
+
+                        sikpResponse.DebtorCompanyZipCodeId = (int)sikpRequest?.DebtorCompanyZipCodeId;
+                        sikpResponse.DebtorCompanyLinkageTypeId = sikpRequest.DebtorCompanyLinkageTypeId;
+                        sikpResponse.DebtorCompanyEstablishmentDate = sikpRequest.DebtorCompanyEstablishmentDate;
+
+                        sikpResponse.RfEducation = null;
+                        sikpResponse.RfGender = null;
+                        sikpResponse.RfJob = null;
+                        sikpResponse.RfMarital = null;
+                        sikpResponse.RfSectorLBU3 = null;
+                        sikpResponse.DebtorCompanyRfLinkage = null;
+                        sikpResponse.DebtorCompanyRfLinkageType = null;
+                        sikpResponse.DebtorCompanyRfZipCode = null;
+                        sikpResponse.DebtorRfZipCode = null;
+                        sikpResponse.Valid = !debtorDataResponse.error;
+                        sikpResponse.ValidationMessage = debtorDataResponse.message;
 
                         await _sikpResponse.UpdateAsync(sikpResponse);
 
@@ -165,15 +179,56 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                             sikp.RegistrationNumber = debtorDataResponse.data.nmr_registry;
                             await _sikp.UpdateAsync(sikp);
                         }
-                        else
-                        {
-                            var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
-                            var sikpRegist = $"{sikp.LoanApplication.BranchId}/{sikpCount + 1:D4}/{sikp.LoanApplication.CreatedDate:MM/yy}";
-
-                            sikp.RegistrationNumber = sikpRegist;
-                            await _sikp.UpdateAsync(sikp);
-                        }
                     }
+                    else if (debtorDataResponse.code == "15")
+                    {
+                        response.Valid = false;
+                        response.Message = debtorDataResponse.message;
+
+                        if (sikpResponse?.Id == Guid.Empty || sikpResponse == null)
+                        {
+                            sikpResponse.Id = sikp.Id;
+                            await _sikpResponse.AddAsync(sikpResponse);
+                        }
+
+                        sikpResponse = new SIKPResponse
+                        {
+                            Id = sikp.Id,
+                            CreatedBy = sikp.CreatedBy,
+                            CreatedDate = DateTime.Now,
+                            Valid = false,
+                            ValidationMessage = debtorDataResponse.message
+                        };
+                    }
+                    else if (debtorDataResponse.code == "07")
+                    {
+                        response.Valid = false;
+                        response.Message = debtorDataResponse.message;
+
+                        if (sikpResponse?.Id == Guid.Empty || sikpResponse == null)
+                        {
+                            sikpResponse.Id = sikp.Id;
+                            await _sikpResponse.AddAsync(sikpResponse);
+                        }
+
+                        sikpResponse = new SIKPResponse
+                        {
+                            Id = sikp.Id,
+                            CreatedBy = sikp.CreatedBy,
+                            CreatedDate = DateTime.Now,
+                            Valid = false,
+                            ValidationMessage = debtorDataResponse.message
+                        };
+                    }
+                }
+
+                if (sikp.RegistrationNumber == null)
+                {
+                    var sikpCount = await _sikp.GetCountByPredicate(x => x.CreatedDate.Year == DateTime.Now.Year && x.CreatedDate.Month == DateTime.Now.Month);
+                    var sikpRegist = $"{sikp.LoanApplication.BranchId}/{sikpCount + 1:D4}/{sikp.LoanApplication.CreatedDate:MM/yy}";
+
+                    sikp.RegistrationNumber = sikpRegist;
+                    await _sikp.UpdateAsync(sikp);
                 }
 
                 var debtorPlafondResponse = (await _sikpService.GetPlafon(sikp.SIKPRequest.DebtorNoIdentity))?.data;
@@ -201,48 +256,50 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
                     sikpResponse.ValidationMessage = response.Message;
                 }
 
-                PostCalonDebiturRequestModel req = new()
-                {
-                    nik = sikpRequest.DebtorNoIdentity,
-                    nmr_registry = sikp.RegistrationNumber,
-                    nama = sikpRequest.Fullname,
-                    tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
-                    jns_kelamin = sikpRequest.RfGender?.GenderCodeSIKP ?? "",
-                    maritas_sts = "1" ?? sikpRequest.RfMarital?.MaritalCodeSKIP ?? "",
-                    pendidikan = sikpRequest.RfEducation?.EducationCodeSIKP ?? "",
-                    pekerjaan = sikpRequest.RfJob?.JobCodeSIKP ?? "",
-                    alamat = sikpRequest.DebtorAddress ?? "",
-                    kode_kabkota = sikpRequest.DebtorRfZipCode?.KodeKabupaten ?? "",
-                    kode_pos = sikpRequest.DebtorRfZipCode?.ZipCode ?? "",
-                    npwp = sikpRequest.DebtorNPWP?.Substring(0, 15) ?? "",
-                    mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate?.ToString("ddMMyyyy") ?? "",
-                    alamat_usaha = sikpRequest.DebtorCompanyAddress ?? "",
-                    ijin_usaha = sikpRequest.DebtorCompanyPermit ?? "",
-                    modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),
-                    jml_pekerja = sikpRequest.DebtorCompanyEmployee.ToString(),
-                    jml_kredit = sikpRequest.DebtorCompanyCreditValue.ToString(),
-                    is_linkage = sikpRequest.DebtorCompanyRfLinkage?.LinkAgeCode ?? "",
-                    linkage = sikpRequest.DebtorCompanyRfLinkage?.LinkAgeCode ?? "",
-                    no_hp = sikpRequest.DebtorCompanyPhone ?? "",
-                    uraian_agunan = sikpRequest.DebtorCompanyCollaterals ?? "",
-                    is_subsidized = sikpRequest.DebtorCompanySubisdyStatus ? "1" : "0",
-                    subsidi_sebelumnya = sikpRequest.DebtorCompanyPreviousSubsidy ?? "",
-                };
-                sikp.RegistrationNumber = req.nmr_registry;
+                //PostCalonDebiturRequestModel req = new()
+                //{
+                //    nik = sikpRequest.DebtorNoIdentity,
+                //    nmr_registry = sikp.RegistrationNumber,
+                //    nama = sikpRequest.Fullname,
+                //    tgl_lahir = sikpRequest.DateOfBirth.ToString("ddMMyyyy"),
+                //    jns_kelamin = await _userContext.RfGenders.Where(x => x.GenderCode == sikpRequest.DebtorGenderId).Select(x => x.GenderCodeSIKP).FirstOrDefaultAsync(),
+                //    maritas_sts = await _userContext.RfMaritals.Where(x => x.MaritalCode == sikpRequest.DebtorMaritalStatusId).Select(x => x.MaritalCodeSKIP).FirstOrDefaultAsync(),
+                //    pendidikan = await _userContext.RfEducations.Where(x => x.EducationCode == sikpRequest.DebtorEducationId).Select(x => x.EducationCodeSIKP).FirstOrDefaultAsync(),
+                //    pekerjaan = await _userContext.RfJobs.Where(x => x.JobCode == sikpRequest.DebtorJobId).Select(x => x.JobCodeSIKP).FirstOrDefaultAsync(),
+                //    alamat = sikpRequest.DebtorAddress ?? "",
+                //    kode_kabkota = await _userContext.RfZipCodes.Where(x => x.Id == sikpRequest.DebtorZipCodeId).Select(x => x.KodeKabupaten).FirstOrDefaultAsync(),
+                //    kode_pos = sikpRequest.DebtorZipCode ?? "",
+                //    npwp = sikpRequest.DebtorNPWP?.Substring(0, 15) ?? "",
+                //    mulai_usaha = sikpRequest.DebtorCompanyEstablishmentDate?.ToString("ddMMyyyy") ?? "",
+                //    alamat_usaha = sikpRequest.DebtorCompanyAddress ?? "",
+                //    ijin_usaha = sikpRequest.DebtorCompanyPermit ?? "",
+                //    modal_usaha = sikpRequest.DebtorCompanyVentureCapital.ToString(),
+                //    jml_pekerja = sikpRequest.DebtorCompanyEmployee.ToString(),
+                //    jml_kredit = sikpRequest.DebtorCompanyCreditValue.ToString(),
+                //    is_linkage = sikpRequest.DebtorCompanyLinkageId ?? "",
+                //    linkage = sikpRequest.DebtorCompanyLinkageTypeId ?? "",
+                //    no_hp = sikpRequest.DebtorCompanyPhone ?? "",
+                //    uraian_agunan = sikpRequest.DebtorCompanyCollaterals ?? "",
+                //    is_subsidized = sikpRequest.DebtorCompanySubisdyStatus ? "1" : "0",
+                //    subsidi_sebelumnya = sikpRequest.DebtorCompanyPreviousSubsidy ?? "",
+                //};
+                //sikp.RegistrationNumber = req.nmr_registry;
 
-                if (request.Post)
-                {
-                    var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
-                    if (sikpCheck.error)
-                    {
-                        response.Valid = false;
-                        response.Message = sikpCheck.message;
-                    }
-                }
+                //if (request.Post)
+                //{
+                //    var sikpCheck = (await _sikpService.PostCalonDebitur(req))?.data;
+                //    response.PostCalonDebiturResponse = sikpCheck;
+                //    if (sikpCheck.error)
+                //    {
+                //        response.Valid = false;
+                //        response.Message = sikpCheck.message;
+                //    }
+
+                //    sikpResponse.Valid = response.Valid;
+                //    sikpResponse.ValidationMessage = response.Message;
+                //}
 
 
-                sikpResponse.Valid = response.Valid;
-                sikpResponse.ValidationMessage = response.Message;
 
                 await _sikp.UpdateAsync(sikp);
                 await _sikpResponse.UpdateAsync(sikpResponse);
@@ -257,7 +314,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             catch (Exception ex)
             {
                 await transaction.RollbackAsync(cancellationToken);
-                return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnException(ex);
+                return ServiceResponse<ValidasiPostCalonResponseModel>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
             }
 
         }
@@ -267,13 +324,13 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.SIKP
             var response = validasiResponse;
             var dataCalonDebitur = response.CalonDebiturResponse.data;
             bool valid;
-            if (dataCalonDebitur.kode_bank != "110")
+            if (dataCalonDebitur.kode_bank == "110")
             {
                 valid = true;
             }
             else
             {
-                var sisaWaktu = int.Parse(dataCalonDebitur.sisa_waktu_book);
+                var sisaWaktu = int.Parse(dataCalonDebitur.sisa_waktu_book ?? "0");
 
                 valid = sisaWaktu < 0;
 

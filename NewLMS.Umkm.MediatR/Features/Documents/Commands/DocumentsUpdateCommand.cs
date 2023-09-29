@@ -65,6 +65,7 @@ namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
                     entity.TBODesc = command.TBODesc;
                     entity.Justification = command.Justification;
                     entity.DocumentId = command.DocumentId;
+                    entity.DocumentCategory = command.DocumentCategory;
                 };
                 await _documentRepo.UpdateAsync(entity);
                 
@@ -73,18 +74,28 @@ namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
 
                 if (command.Files != null)
                 {
+                    var debtorName = "";
                     var Includes = new string[]
                     {
                         "Debtor",
+                        "DebtorCompany",
                     };
                     var dataLoanApplication = await _loanApplication.GetByIdAsync(entity.LoanApplicationId, "Id", Includes);
+                    if(dataLoanApplication.OwnerCategoryId == 1)
+                    {
+                        debtorName = dataLoanApplication.Debtor.Fullname;
+                    }
+                    if (dataLoanApplication.OwnerCategoryId == 2)
+                    {
+                        debtorName = dataLoanApplication.DebtorCompany.Name;
+                    }
 
                     command.Files.ToList().ForEach(f =>
                     {
                         var upload = _uploadService.Upload(new FileUpload.Models.UploadRequestModel
                         {
                             Segment = "UMKM",
-                            DebtorName = dataLoanApplication.Debtor.Fullname,
+                            DebtorName = debtorName,
                             DocumentName = command.DocumentType,
                             File = f,
                             LoanApplicationId = dataLoanApplication.LoanApplicationId,

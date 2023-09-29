@@ -6,7 +6,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
     {
         public Guid Id { get; set; }
         public string Fullname { get; set; }
-        public string Scheme { get; set; } = string.Empty;
+        public string Scheme { get; set; }
         public bool Post { get; set; } = false;
 
         #region Debtor
@@ -44,6 +44,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public string DebtorCompanyCollaterals { get; set; }
         public int DebtorCompanyEmployee { get; set; }
         public string DebtorCompanyLinkageId { get; set; }
+        public string DebtorCompanyLinkageTypeId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion

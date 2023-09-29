@@ -20,6 +20,20 @@ namespace NewLMS.Umkm.Helper
 
         public static string[] DEFAULT_VALID_MIMETYPES => new string[] { "application/pdf", "application/x-pdf", "image/jpeg", "image/bmp", "image/png", "image/jpg", };
 
+        public static string[] DEFAULT_ALL_MIMETYPES => new string[]
+        {
+            "application/pdf",
+            "application/x-pdf",
+            "image/jpeg",
+            "image/bmp",
+            "image/png",
+            "image/jpg",
+            "application/msword",  // Tipe MIME untuk file doc
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",  // Tipe MIME untuk file docx
+            "application/vnd.ms-excel",  // Tipe MIME untuk file xls
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  // Tipe MIME untuk file xlsx
+        };
+
         /// <summary>
         /// Save IFormFile to local directory
         /// </summary>
@@ -78,5 +92,9 @@ namespace NewLMS.Umkm.Helper
         public static bool IsValidTypeFile(
              this IFormFile file,
              string[] mimeTypes = null) => (mimeTypes != null ? mimeTypes : DEFAULT_VALID_MIMETYPES).Contains(file.ContentType);
+
+        public static bool IsValidAllTypeFile(
+             this IFormFile file,
+             string[] mimeTypes = null) => (mimeTypes != null ? mimeTypes : DEFAULT_ALL_MIMETYPES).Contains(file.ContentType);
     }
 }

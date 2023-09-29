@@ -74,7 +74,10 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
         public DbSet<ApprWorkPaperLandBuildings> ApprWorkPaperLandBuildings { get; set; }
         public DbSet<ApprLiquidation> ApprLiquidations { get; set; }
+        public DbSet<MLiquidation> MLiquidation { get; set; }
+        public DbSet<MLiquidationCondition> MLiquidationCondition { get; set; }
         public DbSet<MLiquidationItem> MLiquidationItems { get; set; }
+        public DbSet<MLiquidationOption> MLiquidationOption { get; set; }
         public DbSet<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }
         public DbSet<ApprMachineTemplate> ApprMachineTemplates { get; set; }
         public DbSet<ApprWorkPaperMachineCost> ApprWorkPaperMachineCost { get; set; }
@@ -92,6 +95,8 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<LoanApplicationVerificationBusiness> LoanApplicationVerificationBusinesses { get; set; }
         public DbSet<LoanApplicationVerificationCycle> LoanApplicationVerificationCycles { get; set; }
         public DbSet<LoanApplicationVerificationCycleDetail> LoanApplicationVerificationCycleDetails { get; set; }
+        public DbSet<LoanApplicationVerificationNeed> LoanApplicationVerificationNeeds { get; set; }
+        public DbSet<LoanApplicationVerificationNeedDetail> LoanApplicationVerificationNeedDetails { get; set; }
 
         #endregion
 
@@ -148,6 +153,12 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<WilayahRegencies> WilayahRegencies { get; set; }
         public DbSet<WilayahDistricts> WilayahDistricts { get; set; }
         public DbSet<WilayahVillages> WilayahVillages { get; set; }
+        public DbSet<RfSkemaSIKP> RfSkemaSIKPs { get; set; }
+        public DbSet<RfMappingSubProduct> RfMappingSubProducts { get; set; }
+        public DbSet<SIKPHistory> SIKPHistories { get; set; }
+        public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
+        public DbSet<RfMappingDocumentPrescreening> RfMappingDocumentPrescreenings { get; set; }
+        public DbSet<RfMappingPlafondPlacementCountry> RfMappingPlafondPlacementCountries { get; set; }
 
         #endregion
 

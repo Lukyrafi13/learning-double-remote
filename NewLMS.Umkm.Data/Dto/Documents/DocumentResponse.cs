@@ -17,9 +17,10 @@ namespace NewLMS.Umkm.Data.Dto.Documents
         public string TBODesc { get; set; }
         public string Justification { get; set; }
         public string DocumentId { get; set; }
+        public string DocumentCategory { get; set; }
 
         public RfParameterDetailSimpleResponse RfDocumentStatus { get; set; }
-        public RfDocumentResponse RfDocument { get; set; }
+        public RfDocumentSimpleResponse RfDocument { get; set; }
         public ICollection<DocumentFileUrlRes> Files { get; set; }
     }
 

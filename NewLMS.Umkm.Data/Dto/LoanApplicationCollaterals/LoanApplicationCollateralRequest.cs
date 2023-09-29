@@ -27,6 +27,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollaterals
         public int ZipCodeId { get; set; }
         public double? LanArea { get; set; }
         public string BuildingPermit { get; set; }
+        public int? TypeOfDeedId { get; set; }
         public string NOPNumber { get; set; }
         public string NJOPPBBNumber { get; set; }
         public double? BuildingArea { get; set; }

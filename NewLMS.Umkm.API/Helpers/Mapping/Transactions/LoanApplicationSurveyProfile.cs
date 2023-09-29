@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Data.Dto.RfSubProducts;
 using NewLMS.Umkm.Data.Entities;
 using System;
+using System.Linq;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
@@ -27,18 +29,22 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationVerificationCycle);
                 })
+                .ForMember(d => d.LoanApplicationVerificationNeed, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationVerificationNeed);
+                })
                 ;
 
 
             //App Info
-            CreateMap<LoanApplication, LoanApplicationAppInfoApprSurveyorResponse>()
+            CreateMap<LoanApplication, LoanApplicationAppInfoSurveyResponse>()
                 .ForMember(d => d.Regency, o =>
                 {
-                    o.MapFrom(s => s.RfBranch.Name);
+                    o.MapFrom(s => s.RfBranch.KanwilName);
                 })
                 .ForMember(d => d.Branch, o =>
                 {
-                    o.MapFrom(s => s.RfBranch.Code + " - "+ s.RfBranch.Name);
+                    o.MapFrom(s => s.RfBranch.Code + " - " + s.RfBranch.Name);
                 })
                 .ForMember(d => d.AccountOfficer, o =>
                 {
@@ -72,7 +78,60 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.IsBusinessCycle);
                 })
+                .ForMember(d => d.RfSubProduct, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.First().RfSubProduct);
+                })
                 ;
+
+
+
+            CreateMap<LoanApplication, LoanApplicationAppInfoAppraisalSurveyorResponse>()
+               .ForMember(d => d.RfOwnerCategory, o =>
+               {
+                   o.MapFrom(s => s.RfOwnerCategory);
+               })
+                /*.ForMember(d => d.Branch, o =>
+               {
+                   o.MapFrom(s => s.RfBranch.Code + " - " + s.RfBranch.Name);
+               })
+               .ForMember(d => d.SubProduct, o =>
+               {
+                   o.MapFrom(s => s.LoanApplicationFacilities.First().RfSubProduct.SubProductDesc);
+               })
+               .ForMember(d => d.Name, o =>
+               {
+                   o.MapFrom(s => s.OwnerCategoryId == 2 ? s.DebtorCompany.Name : s.Debtor.Fullname);
+               })
+               .ForMember(d => d.SIUPDate, o =>
+               {
+                   o.MapFrom(s => s.OwnerCategoryId == 2 ? s.DebtorCompany.DebtorCompanyLegal.SIUPDate.ToString() : null);
+               })
+               .ForMember(d => d.Branch, o =>
+               {
+                   o.MapFrom(s => s.RfBranch.Code + " - " + s.RfBranch.Name);
+               })
+               .ForMember(d => d.SIUPNumber, o =>
+               {
+                   o.MapFrom(s => s.DebtorCompany.DebtorCompanyLegal.SIUPNumber);
+               })
+               .ForMember(d => d.CompanyOld, o =>
+               {
+                   o.MapFrom(s => "-");
+               })
+               .ForMember(d => d.Address, o =>
+               {
+                   o.MapFrom(s => s.OwnerCategoryId == 2 ? s.DebtorCompany.Address : s.Debtor.Address);
+               })
+               .ForMember(d => d.PhoneNumber, o =>
+               {
+                   o.MapFrom(s => s.OwnerCategoryId == 2 ? s.DebtorCompany.PhoneNumber : s.Debtor.PhoneNumber);
+               })
+               .ForMember(d => d.NPWP, o =>
+               {
+                   o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.NPWP);
+               })*/
+               ;
 
 
             //Base Tab

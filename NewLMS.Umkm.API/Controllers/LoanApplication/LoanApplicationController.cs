@@ -73,7 +73,7 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
 
-        //PreScreening
+        #region Prescreening
 
         /// <summary>
         /// Get List for tables of LoanApplication Prescreening
@@ -110,6 +110,8 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+
+        #endregion
 
         /// <summary>
         /// Process LoanApplication
@@ -170,7 +172,7 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         //Appraisal Surveyor
 
         /// <summary>
-        /// Get List for tables of LoanApplication ApprAsignment
+        /// Get List for tables of LoanApplication ApprSuveyor
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -182,13 +184,25 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         }
 
         /// <summary>
-        /// Get detail LoanApplication by Tab
+        /// Get detail LoanApplication Surveyor by Tab
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("appraisal-surveyor/get/detail")]
-        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<AppraisalSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationApprSurveyorResponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailApprSurveyor(GetLoanAppApprSurveyorTabDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Appraisal Surveyor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("appraisal-surveyor/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertApprSurveyor(UpsertLoanApplicationApprSurveyorCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

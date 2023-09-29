@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Data.Enums;
 
 namespace NewLMS.Umkm.Data
 {
@@ -18,7 +19,7 @@ namespace NewLMS.Umkm.Data
         [ForeignKey(nameof(RfStage))]
         public Guid? StageId { get; set; }
         public string Comment { get; set; }
-        public int? Status { get; set; }
+        public EnumSLIKStatus Status { get; set; }
         public bool? ReadAndUnderstand { get; set; }
         public DateTime? ProcessDate { get; set; }
         public byte AdminVerified { get; set; }

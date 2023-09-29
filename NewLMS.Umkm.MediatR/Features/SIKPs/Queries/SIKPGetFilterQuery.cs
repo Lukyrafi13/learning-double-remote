@@ -16,7 +16,7 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.Queries
 
     public class SIKPGetFilterQueryHandler : IRequestHandler<GetParameterByNameQuery, PagedResponse<IEnumerable<SIKPTableResponse>>>
     {
-        private IGenericRepositoryAsync<Data.Entities.SIKP> _sikp;
+        private readonly IGenericRepositoryAsync<Data.Entities.SIKP> _sikp;
         private readonly IMapper _mapper;
 
         public SIKPGetFilterQueryHandler(IMapper mapper, IGenericRepositoryAsync<Data.Entities.SIKP> sikp)
@@ -32,6 +32,14 @@ namespace NewLMS.Umkm.MediatR.Features.SIKPs.Queries
                     "SIKPRequest",
                     "LoanApplication"
                 };
+            request.Filters.Add(new RequestFilterParameter
+            {
+                Field = "Status",
+                Type = "int",
+                ComparisonOperator = "=",
+                Value = "0"
+            });
+
             var data = await _sikp.GetPagedReponseAsync(request, includes);
             var dataVm = _mapper.Map<IEnumerable<SIKPTableResponse>>(data.Results);
             return new PagedResponse<IEnumerable<SIKPTableResponse>>(dataVm, data.Info, request.Page, request.Length)

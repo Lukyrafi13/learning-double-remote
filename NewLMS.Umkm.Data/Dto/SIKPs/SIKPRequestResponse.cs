@@ -6,6 +6,7 @@ using NewLMS.Umkm.Data.Dto.RfEducation;
 using NewLMS.Umkm.Data.Dto.RfZipCodes;
 using NewLMS.Umkm.Data.Dto.RfLinkAge;
 using NewLMS.Umkm.Data.Dto.RfJob;
+using NewLMS.Umkm.Data.Dto.RfLinkAgeType;
 
 namespace NewLMS.Umkm.Data.Dto.SIKPs
 {
@@ -17,6 +18,8 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public string DebtorNPWP { get; set; }
         public string DebtorNoIdentity { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string DebtorSectorLBU1Code { get; set; }
+        public string DebtorSectorLBU2Code { get; set; }
         public string DebtorSectorLBU3Code { get; set; }
         public string DebtorGenderId { get; set; }
         public string DebtorMaritalStatusId { get; set; }
@@ -46,7 +49,8 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public string DebtorCompanyPhone { get; set; }
         public string DebtorCompanyCollaterals { get; set; }
         public int DebtorCompanyEmployee { get; set; }
-        public string DebtorCompanyLingkageId { get; set; }
+        public string DebtorCompanyLinkageId { get; set; }
+        public string DebtorCompanyLinkageTypeId { get; set; }
         public bool DebtorCompanySubisdyStatus { get; set; }
         public string DebtorCompanyPreviousSubsidy { get; set; }
         #endregion
@@ -59,6 +63,7 @@ namespace NewLMS.Umkm.Data.Dto.SIKPs
         public virtual RfZipCodeResponse DebtorRfZipCode { get; set; }
         public virtual RfZipCodeResponse DebtorCompanyRfZipCode { get; set; }
         public virtual RfLinkAgeResponse DebtorCompanyRfLinkage { get; set; }
+        public virtual RfLinkAgeTypeResponse DebtorCompanyRfLinkageType { get; set; }
     }
 }
 

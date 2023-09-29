@@ -52,11 +52,19 @@ namespace NewLMS.Umkm.Data.Dto.Appraisals
         public string DocumentName { get; set; }
         public string DocumentNumber { get; set; }
         public string OwnerName { get; set; }
+        public DateTime EntryDate { get; set; }
     }
 
     public class LoanApplicationApprAsignmentResponse
     {
         public LoanApplicationAppInfoApprResponse LoanApplicationInfo { get; set; }
+        public AppraisalSimpleResponse PropertyCategory { get; set; }
+        public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
+    }
+
+    public class LoanApplicationApprSurveyorResponse
+    {
+        public LoanApplicationAppInfoAppraisalSurveyorResponse LoanApplicationInfo { get; set; }
         public AppraisalSimpleResponse PropertyCategory { get; set; }
         public LoanApplicationCollateralResponse LoanApplicationCollateral { get; set; }
     }
