@@ -78,7 +78,7 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Commands
                     foreach (var condition in mCondition)
                     {
                         var checkcondition = _dbContext
-                            .MLiquidationOption
+                            .MLiquidationCondition
                             .FromSqlRaw(
                                 "select * from [MLiquidationCondition] where TypeId = {0} and {1} " + condition.Condition, request.LiquidationType, sumScore
                             ).FirstOrDefault();
