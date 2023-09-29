@@ -24,7 +24,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
         public string BookingOffice { get; set; }
         public bool IsBusinessCycle { get; set; }
         public int OwnerCategoryId { get; set; }
-        public string DebtorAge { get; set; }
+        public double? DebtorAge { get; set; }
         public double? DebtorAgePlusTenor { get; set; }
 
         public RfParameterDetailSimpleResponse RfOwnerCategory { get; set; }
