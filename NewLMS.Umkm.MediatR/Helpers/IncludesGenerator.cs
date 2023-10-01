@@ -130,6 +130,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "RfOwnerCategory",
                         "Debtor.RfMarital",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationRAC",
                     };
                     break;
 
@@ -145,6 +146,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "RfOwnerCategory",
                         "Debtor.RfMarital",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationRAC",
                     };
                     break;
 
@@ -161,6 +163,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "LoanApplicationCollaterals.RfCollateralBC",
                         "Debtor.RfMarital",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationRAC",
                     };
                     break;
                 #endregion  
