@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Helper;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
 {
+    [Authorize]
     public class LoanApplicationStageProcessController : BaseController
     {
         /// <summary>

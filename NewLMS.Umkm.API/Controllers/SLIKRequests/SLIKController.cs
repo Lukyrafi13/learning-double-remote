@@ -10,8 +10,8 @@ using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands;
 using NewLMS.Umkm.Helper;
 using MediatR;
 using System;
-using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
-using NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Queries;
+using NewLMS.Umkm.MediatR.Features.SLIKRequests.Command;
+using NewLMS.Umkm.MediatR.Features.SLIKRequests.Commands;
 
 namespace NewLMS.Umkm.API.Controllers.SIKPs
 {
@@ -31,13 +31,25 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         }
 
         /// <summary>
-        /// GetFilter SLIK
+        /// GetFilter SLIK AKBL
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("Get/AKBL")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<SLIKRequestTableResponse>>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetFilterAKBL(GetFilterSLIKAKBLRequestQuery command)
+        public async Task<IActionResult> GetFilterAKBL(GetFilterSLIKRequestAKBLQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// GetFilter SLIK Admin
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("Get/Admin")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<SLIKRequestTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterAdmin(GetFilterSLIKAdminQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
@@ -48,50 +60,10 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpGet("{Id}")]
-        [ProducesResponseType(type:typeof(ServiceResponse<SLIKRequestResponse>), statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(type: typeof(ServiceResponse<SLIKRequestResponse>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetById([FromRoute] SLIKRequestGetByIdQuery command)
         {
             return Ok(await Mediator.Send(command));
-        }
-
-        /// <summary>
-        /// Create SLIKRequestDebtor
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        [HttpPost("debtor/create")]
-        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> CreateSLIKRequestDebtor(SLIKRequestDebtorPostCommand command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-
-        /// <summary>
-        /// Update SLIKRequestDebtor </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        [HttpPut("debtor/update")]
-        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> UpdateSLIKRequestDebtor(SLIKRequestDebtorPutCommand command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
-
-        /// <summary>
-        /// Delete SLIKRequestDebtor </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        [HttpDelete("debtor/{Id}")]
-        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> DeletetSLIKRequestDebtor([FromRoute] Guid Id)
-        {
-            var command = new SLIKRequestDebtorDeleteCommand
-            {
-                Id = Id
-            };
-            var res = await Mediator.Send(command);
-
-            return Ok(res);
         }
 
         /// <summary>
@@ -100,9 +72,9 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         /// <returns></returns>
         [HttpPost("process/{Id}")]
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> ProcessSLIKRequestDebtor([FromRoute] Guid Id)
+        public async Task<IActionResult> ProcessSLIKRequest([FromRoute] Guid Id)
         {
-            var command = new SLIKRequestDebtorProcessCommand
+            var command = new SLIKRequestProcessCommand
             {
                 Id = Id
             };
@@ -119,13 +91,27 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> ProcessSLIKRequestAKBL([FromRoute] Guid Id)
         {
-            var command = new SLIKRequestDebtorProcessCommand
+            var command = new SLIKRequestAKBLProcessCommand
             {
                 Id = Id
             };
             var res = await Mediator.Send(command);
 
             return Ok(res);
+        }
+
+        /// <summary>
+        /// Submit SLIKRequests AKBL
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("AKBL/submit-kontigensi")]
+        [ProducesResponseType(type: typeof(byte[]), statusCode: StatusCodes.Status200OK)]
+        [AllowAnonymous]
+        public async Task<IActionResult> AKBLSubmitKontigensi(SubmitSLIKKontigensiRequestCommand command)
+        {
+            var res = await Mediator.Send(command);
+            return File(res, "text/plain", $"SLIK_KONTIGENSI_{DateTime.Now.ToString("dd_MM_yyyy")}.txt");
         }
     }
 }
