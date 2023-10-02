@@ -26,6 +26,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
         public int OwnerCategoryId { get; set; }
         public double? DebtorAge { get; set; }
         public double? DebtorAgePlusTenor { get; set; }
+        public bool DuplicationsVerified { get; set; }
 
         public RfParameterDetailSimpleResponse RfOwnerCategory { get; set; }
         public RfMaritalSimpleResponse RfMarital { get; set; }
