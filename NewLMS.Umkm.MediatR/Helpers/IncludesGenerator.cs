@@ -362,8 +362,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor",
                         "DebtorCompany",
                         "RfOwnerCategory",
-                        "LoanApplicationVerificationNeeds.RfPlacementCountry",
-                        "LoanApplicationVerificationNeeds.ApplicationType",
+                        "LoanApplicationVerificationNeed.RfPlacementCountry",
+                        "LoanApplicationVerificationNeed.ApplicationType",
                     };
                     break;
 

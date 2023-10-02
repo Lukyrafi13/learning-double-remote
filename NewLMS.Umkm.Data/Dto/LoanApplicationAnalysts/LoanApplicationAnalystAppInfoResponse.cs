@@ -5,6 +5,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationAnalysts
 {
     public class LoanApplicationAnalystAppInfoResponse
     {
+        public Guid Id { get; set; }
         public string Regency { get; set; }
         public string Branch { get; set; }
         public string AccountOfficer { get; set; }
