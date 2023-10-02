@@ -4,7 +4,6 @@ using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.Appraisals;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Repository.GenericRepository;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
@@ -40,7 +39,6 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
 
         public async Task<PagedResponse<IEnumerable<LoanApplicationAppraisalTableResponse>>> Handle(LoanApplicationAppraisalGetTableQuery request, CancellationToken cancellationToken)
         {
-            
             var filters = request.Filters;
             filters.Add(new RequestFilterParameter()
             {
@@ -54,6 +52,7 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
             var includes = new string[]
                 {
                     "LoanApplicationCollateral",
+                    "LoanApplicationCollateral.RfCollateralBC",
                 };
             var dataColl = await _appraisal.GetPagedReponseAsync(request, includes);
             var dataColVm = _mapper.Map<IEnumerable<AppraisalResponse>>(dataColl.Results);
@@ -68,21 +67,16 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
                 };
                 var loanApplicationEntity = await _loanApplication.GetByPredicate(x => x.Id == loanApplicationGuid, includesLoan);
 
-                var includesCollateral = new string[]
-                {
-                    "RfCollateralBC",
-                };
-                var loanApplicationCollateral = await _loanApplicationCollateral.GetByPredicate(x => x.LoanApplicationId == loanApplicationGuid, includesCollateral);
-
                 var initData = new LoanApplicationAppraisalTableResponse
                 {
-                    Collateral = loanApplicationCollateral.RfCollateralBC.CollateralDesc,
-                    LoanApplicationCollateralId = loanApplicationCollateral.Id,
+                    Collateral = inData.LoanApplicationCollateral.RfCollateralBC.CollateralDesc,
+                    LoanApplicationCollateralId = inData.LoanApplicationCollateralId,
                     AppraisalGuid = inData.AppraisalId,
                 };
 
                 if (loanApplicationEntity != null)
                 {
+                    
                     initData.LoanApplicationGuid = loanApplicationGuid;
                     initData.LoanApplicationId = loanApplicationEntity.LoanApplicationId;
                     if (loanApplicationEntity.OwnerCategoryId == 1)//Perorangan
