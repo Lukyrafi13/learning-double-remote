@@ -79,6 +79,7 @@ namespace NewLMS.Umkm.Data.Entities
         public virtual ICollection<LoanApplicationCollateral> LoanApplicationCollaterals { get; set; } = new List<LoanApplicationCollateral>();
         public virtual ICollection<LoanApplicationKeyPerson> LoanApplicationKeyPersons { get; set; } = new List<LoanApplicationKeyPerson>();
         public virtual ICollection<LoanApplicationFacility> LoanApplicationFacilities { get; set; } = new List<LoanApplicationFacility>();
+        public virtual ICollection<LoanApplicationCreditHistory> LoanApplicationCreditHistories { get; set; }
         public virtual LoanApplicationCreditScoring LoanApplicationCreditScoring { get; set; }
         public virtual LoanApplicationRAC LoanApplicationRAC { get; set; }
         public virtual LoanApplicationFieldSurvey LoanApplicationFieldSurvey { get; set; }

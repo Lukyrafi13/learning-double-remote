@@ -43,6 +43,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                 var includes = new string[]
                 {
                     "LoanApplication.RfBookingBranch",
+                    "LoanApplication.Product",
                     "LoanApplication.Debtor",
                     "LoanApplication.DebtorCompany",
                     "LoanApplication.RfOwnerCategory",

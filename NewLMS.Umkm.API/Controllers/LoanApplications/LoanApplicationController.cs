@@ -20,7 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
+namespace NewLMS.Umkm.API.Controllers.LoanApplciations
 {
     [Authorize]
     public class LoanApplicationController : BaseController
