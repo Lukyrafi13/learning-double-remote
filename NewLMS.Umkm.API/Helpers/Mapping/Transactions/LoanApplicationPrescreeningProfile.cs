@@ -110,7 +110,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 })
                 .ForMember(d => d.DebtorAgePlusTenor, o =>
                 {
-                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : (MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth)) + (s.LoanApplicationFacilities.Sum(facility => facility.RfTenor.Tenor)));
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : (MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth)) + (s.LoanApplicationFacilities.Sum(facility => facility.RfTenor.Tenor)/12));
                 })
                 .ForMember(d => d.RfMarital, o =>
                 {
