@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Dto.LoanApplicationStageProcess;
 using NewLMS.Umkm.Data.Entities;
