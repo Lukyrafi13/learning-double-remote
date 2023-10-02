@@ -45,6 +45,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationVerificationNeed);
                 })
+                .ForMember(d => d.LoanApplicationBusinessInformation, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationBusinessInformation);
+                })
                 ;
 
             CreateMap<LoanApplication, LoanApplicationAnalystAppInfoResponse>()

@@ -265,7 +265,6 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                        //"LoanApplicationPrescreening.LoanApplicationRAC",
                     };
                     break;
 
@@ -279,7 +278,6 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                        //"LoanApplicationPrescreening.LoanApplicationRAC",
                     };
                     break;
 
@@ -293,7 +291,6 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                        //"LoanApplicationPrescreening.LoanApplicationRAC",
                     };
                     break;
 
@@ -307,7 +304,6 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                        //"LoanApplicationPrescreening.LoanApplicationRAC",
                     };
                     break;
 
@@ -321,7 +317,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                        //"LoanApplicationPrescreening.LoanApplicationRAC",
+                        "LoanApplicationRAC",
                     };
                     break;
 
@@ -340,7 +336,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                     };
                     break;
 
-                case "analisa_informasi_usaha":
+                case "analisa_verifikasi_siklus":
                     includes = new List<string>()
                     {
                         "RfBranch",
@@ -350,6 +346,38 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor",
                         "DebtorCompany",
                         "RfOwnerCategory",
+                        "LoanApplicationVerificationCycle.BusinessLandForm",
+                        "LoanApplicationVerificationCycle.BusinessLandArea",
+                        "LoanApplicationVerificationCycle.BusinessCapacity",
+                    };
+                    break;
+
+                case "analisa_verifikasi_kebutuhan":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationVerificationNeeds.RfPlacementCountry",
+                        "LoanApplicationVerificationNeeds.ApplicationType",
+                    };
+                    break;
+
+                case "analisa_informasi_bisnis":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationBusinessInformation",
                     };
                     break;
 
