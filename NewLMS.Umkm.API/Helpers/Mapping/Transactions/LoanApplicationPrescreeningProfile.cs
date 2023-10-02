@@ -116,7 +116,13 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.RfMarital);
                 })
+                .ForMember(d => d.DuplicationsVerified, o =>
+                {
+                    o.MapFrom(s => s.DuplicationsVerified);
+                })
                 ;
+
+            CreateMap<LoanApplicationPrescreeningDuplicationRequest, LoanApplication>();
         }
     }
 }

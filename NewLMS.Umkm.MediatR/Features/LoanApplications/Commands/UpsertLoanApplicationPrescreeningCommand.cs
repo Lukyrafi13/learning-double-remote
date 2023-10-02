@@ -60,6 +60,14 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands
                         }
                         break;
 
+                    case "prescreening_duplikasi":
+                        if (loanApplication != null)
+                        {
+                            loanApplication.DuplicationsVerified = request.Duplication.DuplicationsVerified;
+                            await _loanApplication.UpdateAsync(loanApplication);
+                        }
+                        break;
+
                     default:
                         break;
                 }
