@@ -74,7 +74,10 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<ApprWorkPaperLandBuildingSummaries> ApprWorkPaperLandBuildingSummaries { get; set; }
         public DbSet<ApprWorkPaperLandBuildings> ApprWorkPaperLandBuildings { get; set; }
         public DbSet<ApprLiquidation> ApprLiquidations { get; set; }
+        public DbSet<MLiquidation> MLiquidation { get; set; }
+        public DbSet<MLiquidationCondition> MLiquidationCondition { get; set; }
         public DbSet<MLiquidationItem> MLiquidationItems { get; set; }
+        public DbSet<MLiquidationOption> MLiquidationOption { get; set; }
         public DbSet<ApprWorkPaperMachineMarketSummaries> ApprWorkPaperMachineMarketSummaries { get; set; }
         public DbSet<ApprMachineTemplate> ApprMachineTemplates { get; set; }
         public DbSet<ApprWorkPaperMachineCost> ApprWorkPaperMachineCost { get; set; }

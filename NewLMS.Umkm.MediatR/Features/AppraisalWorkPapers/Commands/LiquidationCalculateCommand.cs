@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
@@ -73,21 +74,21 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Commands
                         sumScore += liquidation?.LiquidationScore == null ? 0 : (double)liquidation?.LiquidationScore;
                     }
 
-                    //Uncommand this
-                    /*foreach (var condition in mCondition)
+                    
+                    foreach (var condition in mCondition)
                     {
-                        //var checkCondition = _dbContext
-                        //    .MLiquidationCondition
-                        //    .FromSqlRaw(
-                        //        "select * from [MLiquidationCondition] where TypeId = {0} and {1} " + condition.Condition, request.LiquidationType, sumScore
-                        //    ).FirstOrDefault();
+                        var checkcondition = _dbContext
+                            .MLiquidationCondition
+                            .FromSqlRaw(
+                                "select * from [MLiquidationCondition] where TypeId = {0} and {1} " + condition.Condition, request.LiquidationType, sumScore
+                            ).FirstOrDefault();
 
-                        if (checkCondition != null)
+                        if (checkcondition != null)
                         {
                             selected = condition;
                             break;
                         }
-                    }*/
+                    }
                 }
 
                 switch (request.WorkPaperTypeId)
