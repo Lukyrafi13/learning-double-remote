@@ -1,4 +1,5 @@
-﻿using NewLMS.Umkm.Data.Entities;
+﻿using System;
+using NewLMS.Umkm.Data.Entities;
 
 namespace NewLMS.Umkm.MediatR.Helpers
 {
@@ -29,6 +30,23 @@ namespace NewLMS.Umkm.MediatR.Helpers
             loanApplication.Prospect = null;
 
             return loanApplication;
+        }
+
+        public static LoanApplicationStage CreateLoanApplicationStage(LoanApplication loanApplication, Guid userActor, Guid stageId, Guid? ownerUserId, Guid? ownerRoleId)
+        {
+            return new LoanApplicationStage()
+            {
+                Id = Guid.NewGuid(),
+                LoanApplicationId = loanApplication.Id,
+                CreatedBy = userActor,
+                CreatedDate = DateTime.Now,
+                OwnerRoleId = ownerRoleId,
+                OwnerUserId = ownerUserId,
+                Processed = false,
+                ProcessedBy = userActor,
+                ProcessedDate = DateTime.Now,
+                StageId = stageId,
+            };
         }
     }
 }

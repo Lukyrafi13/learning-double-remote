@@ -1,10 +1,5 @@
 ﻿using NewLMS.Umkm.Data.Dto.LoanApplicationRACs;
-using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 {
@@ -13,5 +8,12 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
         public Guid LoanApplicationGuid { get; set; }
         public string Tab { get; set; }
         public LoanApplicationRACRequest? LoanApplicationRAC { get; set; }
+        public LoanApplicationPrescreeningDuplicationRequest Duplication { get; set; }
     }
+
+    public class LoanApplicationPrescreeningDuplicationRequest
+    {
+        public bool DuplicationsVerified { get; set; }
+    }
+
 }

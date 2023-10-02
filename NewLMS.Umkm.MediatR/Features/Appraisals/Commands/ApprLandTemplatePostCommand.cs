@@ -6,10 +6,7 @@ using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Helpers;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,12 +19,16 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands
     public class PostApprLandTemplateCommandHandler : IRequestHandler<ApprLandTemplatePostCommand, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<ApprLandTemplates> _appr;
+        private readonly IGenericRepositoryAsync<ApprBuildingTemplates> _apprBuildingTemplate;
         private readonly IMapper _mapper;
 
-        public PostApprLandTemplateCommandHandler(IGenericRepositoryAsync<ApprLandTemplates> appr,
-        IMapper mapper)
+        public PostApprLandTemplateCommandHandler(
+            IGenericRepositoryAsync<ApprLandTemplates> appr,
+            IGenericRepositoryAsync<ApprBuildingTemplates> apprBuildingTemplate,
+            IMapper mapper)
         {
             _appr = appr;
+            _apprBuildingTemplate = apprBuildingTemplate;
             _mapper = mapper;
         }
 
@@ -35,7 +36,11 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands
         {
             try
             {
-                var dataLand = await _appr.GetByPredicate(x => x.AppraisalGuid == request.AppraisalGuid);
+                var include = new string[]
+                {
+                    "LoanApplicationAppraisal.LoanApplicationCollateral"
+                };
+                var dataLand = await _appr.GetByPredicate(x => x.AppraisalGuid == request.AppraisalGuid, include);
                 var apprEntity = _mapper.Map<ApprLandTemplates>(request);
                 if (dataLand == null)
                 {
@@ -50,11 +55,44 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands
                     await _appr.UpdateAsync(apprEntity);
                 }
 
+                //Cek Collateral
+                if (dataLand.LoanApplicationAppraisal.LoanApplicationCollateral.CollateralBCId == "176")
+                {
+                    await UpdateBuildingTemplate();
+                }
+
+
+
                 return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
             }
             catch (Exception ex)
             {
                 return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+            }
+
+            async Task UpdateBuildingTemplate()
+            {
+                var dataBuildingTemplate = await _apprBuildingTemplate.GetByPredicate(x => x.AppraisalGuid == request.AppraisalGuid);
+                if (dataBuildingTemplate == null)
+                {
+                    dataBuildingTemplate.ApprEnvironmentGuid = Guid.NewGuid();
+                    dataBuildingTemplate.AppraisalGuid = request.AppraisalGuid;
+                    dataBuildingTemplate.ObjectType = request.ObjectType;
+                    dataBuildingTemplate.InspectionDate = request.InspectionDate;
+                    dataBuildingTemplate.ObjectStatus = request.ObjectStatus;
+                    dataBuildingTemplate.Inhabited = request.Inhabited;
+                    dataBuildingTemplate.CollateralOwner = request.CollateralOwner;
+                    await _apprBuildingTemplate.AddAsync(dataBuildingTemplate);
+                }
+                else
+                {
+                    dataBuildingTemplate.ObjectType = request.ObjectType;
+                    dataBuildingTemplate.InspectionDate = request.InspectionDate;
+                    dataBuildingTemplate.ObjectStatus = request.ObjectStatus;
+                    dataBuildingTemplate.Inhabited = request.Inhabited;
+                    dataBuildingTemplate.CollateralOwner = request.CollateralOwner;
+                    await _apprBuildingTemplate.UpdateAsync(dataBuildingTemplate);
+                }
             }
         }
     }

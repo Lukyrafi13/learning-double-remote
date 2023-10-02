@@ -34,6 +34,7 @@ namespace NewLMS.Umkm.Data.Dto.SLIKs
         public RfBranchResponse Branch { get; set; }
         public RfParameterDetailResponse RfOwnerCategory { get; set; }
         public string Fullname { get; set; }
+        public DateTime CreatedDate { get; set; }
         public ICollection<SLIKRequestDebtorResponse> SLIKRequestDebtors { get; set; }
 
     }

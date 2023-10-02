@@ -46,7 +46,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
         {
             try
             {
-                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.LoanApplicationGuid);
+                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.Id);
                 if (loanApplication != null)
                 {
                     #region LoanStage Logging
