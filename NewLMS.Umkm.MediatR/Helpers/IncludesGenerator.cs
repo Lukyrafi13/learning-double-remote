@@ -129,7 +129,9 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfOwnerCategory",
                         "Debtor.RfMarital",
+                        "SLIKRequest.SLIKRequestDebtors",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationCreditHistories",
                         "LoanApplicationRAC",
                     };
                     break;
