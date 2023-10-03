@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using Bjb.DigitalBisnis.FileUpload.Interfaces;
+using Bjb.DigitalBisnis.FileUpload.Models;
 using MediatR;
 using NewLMS.Umkm.Data;
 using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
 using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.FileUpload.Interfaces;
-using NewLMS.Umkm.FileUpload.Models;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
