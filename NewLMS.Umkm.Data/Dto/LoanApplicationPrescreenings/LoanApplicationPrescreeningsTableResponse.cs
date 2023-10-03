@@ -10,6 +10,9 @@ using NewLMS.Umkm.Data.Enums;
 using System;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using System.Collections.Generic;
+using NewLMS.Umkm.Data.Dto.SLIKs;
+using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditHistory;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 {
@@ -30,6 +33,13 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
         public LoanApplicationPrescreeningInfoResponse InfoPrescreening { get; set; }
         public LoanApplicationRACsResponse? LoanApplicationRAC { get; set; }
         public List<LoanApplicationCollateralPrescreeningResponse>? LoanApplicationCollaterals { get; set; }
+        public LoanApplicationPrescreeningSLIKAdminTabResponse? SLIKAdmin { get; set; }
+    }
+
+    public class LoanApplicationPrescreeningSLIKAdminTabResponse
+    {
+        public List<SLIKRequestDebtorResponse> SLIKRequestDebtors { get; set; }
+        public List<LoanApplicationCreditHistoryResponse> CreditHistories { get; set; }
     }
 
     public class LoanApplicationPrescreeningBaseTabReponse

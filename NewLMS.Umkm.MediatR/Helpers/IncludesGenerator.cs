@@ -131,7 +131,9 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfOwnerCategory",
                         "Debtor.RfMarital",
+                        "SLIKRequest.SLIKRequestDebtors",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationCreditHistories",
                         "LoanApplicationRAC",
                     };
                     break;
@@ -250,6 +252,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "LoanApplicationVerificationNeed.RfPlacementCountry",
                         "LoanApplicationVerificationNeed.ApplicationType",
+                        "LoanApplicationFacilities.RfPlacementCountry",
+                        "LoanApplicationFacilities.ApplicationType",
                     };
                     break;
                 #endregion

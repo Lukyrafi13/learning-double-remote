@@ -2,6 +2,8 @@
 using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationBusiness;
 using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationCycles;
 using NewLMS.Umkm.Data.Dto.LoanApplicationVerificationNeeds;
+using NewLMS.Umkm.Data.Dto.RfParameterDetails;
+using NewLMS.Umkm.Data.Dto.RfPlacementCountry;
 using NewLMS.Umkm.Data.Dto.RfSubProducts;
 using System;
 
@@ -39,7 +41,13 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationSurvey
         public DateTime? DateOfBirth { get; set; }
         public string BookingOffice { get; set; }
         public bool IsBusinessCycle { get; set; }
+        public string PlacementCountryCode { get; set; }
+        public int ApplicationTypeId { get; set; }
+
+
+        public RfParameterDetailSimpleResponse ApplicationType { get; set; }
         public RfSubProductSimpleResponse RfSubProduct { get; set; }
+        public RfPlacementCountrySimpleResponse RfPlacementCountry { get; set; }
 
     }
 }

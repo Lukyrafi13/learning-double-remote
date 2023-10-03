@@ -24,6 +24,7 @@ using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.Umkm.Data.Dto.Users;
 using NewLMS.Umkm.Data.Dto.Prospects;
 using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditHistory;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplications
 {
@@ -110,6 +111,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplications
         public RfProductSimpleResponse RfProduct { get; set; }
         public UserSimpleResponse Owner { get; set; }
         public ProspectEstimatedDateResponse Prospect { get; set; }
+        public ICollection<LoanApplicationCreditHistoryResponse> CreditHistories { get; set; }
     }
 }
 
