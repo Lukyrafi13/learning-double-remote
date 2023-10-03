@@ -87,6 +87,7 @@
   <ItemGroup>
     <Folder Include="Features\BranchInsurance\Queries\" />
     <Folder Include="Features\ExternalAccounts\Commands\" />
+    <Folder Include="Features\LoanApplicationAnalysts\Commands\" />
     <Folder Include="Features\LoanApplicationApprovals\Commands\" />
     <Folder Include="Features\LoanApplicationTermCredits\Commands\DeleteLoanApplicationTermCredits\" />
     <Folder Include="Features\LoanApplicationTermCredits\Commands\PostLoanApplicationTermCredits\" />

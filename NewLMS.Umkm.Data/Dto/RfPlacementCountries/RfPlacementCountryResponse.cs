@@ -20,5 +20,6 @@ namespace NewLMS.Umkm.Data.Dto.RfPlacementCountry
     {
         public string PlacementCountryCode { get; set; }
         public string PlacementCountryDesc { get; set; }
+        public double? Kurs { get; set; }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
-using NewLMS.Umkm.Data.Dto.RfTenor;
 using NewLMS.Umkm.Data.Entities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
@@ -33,8 +31,17 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.RequestDate, o =>
                 {
                     o.MapFrom(s => DateTime.Now);
-                })
-                ;
+                });
+
+            CreateMap<LoanApplication, LoanApplicationPrescreeningSLIKAdminTabResponse>()
+				.ForMember(d => d.SLIKRequestDebtors, o =>
+			    {
+					o.MapFrom(s => s.SLIKRequest.SLIKRequestDebtors);
+			    })
+				.ForMember(d => d.CreditHistories, o =>
+				{
+					o.MapFrom(s => s.LoanApplicationCreditHistories);
+				});
 
             CreateMap<LoanApplication, LoanApplicationPrescreeningResponse>()
                 .ForMember(d => d.InfoPrescreening, o =>
@@ -49,7 +56,12 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationCollaterals);
                 })
-                ;
+                .ForMember(d => d.SLIKAdmin, o =>
+                {
+                    o.MapFrom(s => s ?? new LoanApplication());
+                });
+
+
 
             CreateMap<LoanApplicationCollateral, LoanApplicationCollateralResponse>();
 
@@ -110,7 +122,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 })
                 .ForMember(d => d.DebtorAgePlusTenor, o =>
                 {
-                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : (MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth)) + (s.LoanApplicationFacilities.Sum(facility => facility.RfTenor.Tenor)));
+                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : (MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth)) + (s.LoanApplicationFacilities.Sum(facility => facility.RfTenor.Tenor)/12));
                 })
                 .ForMember(d => d.RfMarital, o =>
                 {

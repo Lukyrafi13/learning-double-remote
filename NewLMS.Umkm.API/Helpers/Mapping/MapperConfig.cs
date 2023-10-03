@@ -57,6 +57,9 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new DocumentSurveyorProfile());
                 mc.AddProfile(new LoanApplicationVerificationNeedDetailProfile());
                 mc.AddProfile(new LoanApplicationVerificationNeedProfile());
+                mc.AddProfile(new LoanApplicationAnalystsProfile());
+                mc.AddProfile(new LoanApplicationBusinessInformationsProfile());
+                mc.AddProfile(new LoanApplicationCreditHistoryProfile());
             });
             return mappingConfig.CreateMapper();
         }

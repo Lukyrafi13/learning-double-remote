@@ -5,6 +5,7 @@ using NewLMS.Umkm.Data.Dto.RfBranches;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
 using NewLMS.Umkm.Data.Dto.RfStages;
 using NewLMS.Umkm.Data.Dto.SLIKRequestDebtors;
+using NewLMS.Umkm.Data.Dto.LoanApplications;
 
 namespace NewLMS.Umkm.Data.Dto.SLIKs
 {
@@ -15,12 +16,14 @@ namespace NewLMS.Umkm.Data.Dto.SLIKs
         public int? Status { get; set; }
         public bool? ReadAndUnderstand { get; set; }
         public DateTime? ProcessDate { get; set; }
-        public byte AdminVerified { get; set; }
+        public bool AdminVerified { get; set; }
         public double TotalCreditCard { get; set; }
         public double TotalLimitSlik { get; set; }
         public double TotalOtherUses { get; set; }
         public double TotalWorkingCapital { get; set; }
         public DateTime? InquiryDate { get; set; }
+
+        public LoanApplicationBaseTabResponse LoanApplication { get; set; }
         public RfParameterDetailResponse RfOwnerCategory { get; set; }
         public RfBranchResponse Branch { get; set; }
         public RfStageResponse RfStage { get; set; }

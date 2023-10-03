@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.Appraisals;
+using NewLMS.Umkm.Data.Dto.LoanApplicationAnalysts;
 using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationAnalysts.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes;
@@ -20,7 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
+namespace NewLMS.Umkm.API.Controllers.LoanApplciations
 {
     [Authorize]
     public class LoanApplicationController : BaseController
@@ -169,7 +171,6 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         #endregion
 
         #region Appraisal Surveyor
-        //Appraisal Surveyor
 
         /// <summary>
         /// Get List for tables of LoanApplication ApprSuveyor
@@ -207,7 +208,6 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
             return Ok(await Mediator.Send(command));
         }
         #endregion
-
 
         #region Appraisal Approval
         /// <summary>
@@ -273,6 +273,34 @@ namespace NewLMS.Umkm.API.Controllers.RfInstallmentType
         {
             return Ok(await Mediator.Send(command));
         }
+        #endregion
+
+        #region Analyst
+
+        /// <summary>
+        /// Get List for tables of LoanApplication ApprSuveyor
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("analyst/get")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationAnalystTableResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetFilterAnalyst(LoanApplicationAnalystGetTableQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get detail LoanApplication Surveyor by Tab
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("analyst/get/detail")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationAnalystReponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDetailAnalyst(LoanApplicationAnalystsGetDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
         #endregion
     }
     public class ProcessRequest

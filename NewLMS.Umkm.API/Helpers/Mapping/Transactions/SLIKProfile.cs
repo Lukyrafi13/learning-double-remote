@@ -33,9 +33,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.TotalOtherUses, o => o.MapFrom(s => s.TotalOtherUses))
                 .ForMember(d => d.TotalWorkingCapital, o => o.MapFrom(s => s.TotalWorkingCapital))
                 .ForMember(d => d.InquiryDate, o => o.MapFrom(s => s.InquiryDate))
-                .ForMember(d => d.RfStage, o => o.MapFrom(s => s.LoanApplication.RfStage))
-                .ForMember(d => d.Branch, o => o.MapFrom(s => s.LoanApplication.RfBookingBranch))
-            .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
+                .ForMember(d => d.RfStage, o => o.MapFrom(s => s.RfStage))
+                .ForMember(d => d.Branch, o => o.MapFrom(s => s.Branch))
+			    .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
+			    .ForMember(d => d.LoanApplication, o => o.MapFrom(s => s.LoanApplication))
                 .ForMember(d => d.SLIKRequestDebtors, o => o.MapFrom(s => s.SLIKRequestDebtors));
         }
     }
