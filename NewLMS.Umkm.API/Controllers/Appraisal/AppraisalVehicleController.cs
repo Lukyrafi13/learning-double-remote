@@ -9,7 +9,7 @@ using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Commands;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
 
-namespace NewLMS.Komersial.API.Controllers.Appraisal
+namespace NewLMS.Umkm.API.Controllers.Appraisal
 {
 
     public class AppraisalVehicleController : BaseController

@@ -3205,6 +3205,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<Guid?>("LoanApplicationCollateralGuid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("LoanApplicationGuid")
                         .HasColumnType("uniqueidentifier");
 
@@ -3217,6 +3220,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasKey("GeneratedFileGuid");
 
                     b.HasIndex("GeneratedFileGroupGuid");
+
+                    b.HasIndex("LoanApplicationCollateralGuid");
 
                     b.HasIndex("LoanApplicationGuid");
 
@@ -10221,6 +10226,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
+                        .WithMany()
+                        .HasForeignKey("LoanApplicationCollateralGuid");
+
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplications")
                         .WithMany()
                         .HasForeignKey("LoanApplicationGuid")
@@ -10228,6 +10237,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("GeneratedFileGroups");
+
+                    b.Navigation("LoanApplicationCollateral");
 
                     b.Navigation("LoanApplications");
                 });

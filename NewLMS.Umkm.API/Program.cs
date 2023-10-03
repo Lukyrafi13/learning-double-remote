@@ -1,11 +1,11 @@
-using System;
-using System.IO;
 using Elastic.Apm.SerilogEnricher;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 using NewLMS.Umkm.Domain;
+using Serilog;
+using System;
+using System.IO;
 
 namespace NewLMS.Umkm.API
 {

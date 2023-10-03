@@ -50,6 +50,16 @@ namespace NewLMS.Umkm.Common.GenericRespository
         public static readonly string AAH = "AAH";
     }
 
+    public static class GeneratedFileGroup
+    {
+        public static readonly Guid SuratPeninjauanAppr = Guid.Parse("D2CA38D6-F446-472D-96AC-3A5D63863833");
+        public static readonly Guid BeritaAcaraAppr = Guid.Parse("308828F2-3954-41AB-A516-4BAA2A298AF7");
+        public static readonly Guid KertasKerjaCR = Guid.Parse("935437AD-EA29-4725-AA01-8145730AA38C");
+        public static readonly Guid KK = Guid.Parse("1AADAFE4-E852-4755-8CC3-915723F8E7C4");
+        public static readonly Guid MKK = Guid.Parse("30AC6D1F-58AF-467D-988E-DB6D38D582F7");
+        public static readonly Guid SPPK = Guid.Parse("0B019330-F850-447C-B0F8-F8E7C2D02F71");
+    }
+
     public static class CoreBankingSubmissionType
     {
         public static string NEW = "1";

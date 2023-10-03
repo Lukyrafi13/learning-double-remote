@@ -50,6 +50,7 @@ using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
 using NewLMS.Umkm.Data.Dto.RfAppraisalKJPPMasters;
 using NewLMS.Umkm.Data.Dto.RfInternalAssesments;
 using NewLMS.Umkm.Data.Dto.RfStages;
+using NewLMS.Umkm.Data.Dto.RfBanks;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping
 {
@@ -71,6 +72,9 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
 
             //RfBranch
             CreateMap<RfBranch, RfBranchResponse>();
+
+            //RfBank
+            CreateMap<RfBank, RfBankResponse>();
 
             //RfMarital
             CreateMap<RfMarital, RfMaritalResponse>();
