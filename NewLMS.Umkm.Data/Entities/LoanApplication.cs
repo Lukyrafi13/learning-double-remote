@@ -87,6 +87,7 @@ namespace NewLMS.Umkm.Data.Entities
         public virtual LoanApplicationVerificationCycle LoanApplicationVerificationCycle { get; set; }
         public virtual LoanApplicationVerificationNeed LoanApplicationVerificationNeed { get; set; }
         public virtual SLIKRequest? SLIKRequest { get; set; }
+        public virtual LoanApplicationBusinessInformation LoanApplicationBusinessInformation { get; set; }
 
         [NotMapped]
         public virtual string MappingTab { get; set; }

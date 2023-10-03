@@ -1,50 +1,31 @@
 ﻿using AutoMapper;
-using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
+using NewLMS.Umkm.Data.Dto.LoanApplicationAnalysts;
 using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Linq;
 
 namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 {
-    public class LoanApplicationPrescreeningProfile : Profile
+    public class LoanApplicationAnalystsProfile : Profile
     {
-        public LoanApplicationPrescreeningProfile()
+        public LoanApplicationAnalystsProfile()
         {
-            CreateMap<LoanApplication, LoanApplicationPrescreeningsTableResponse>()
-                .ForMember(d => d.Id, o =>
-                {
-                    o.MapFrom(s => s.Id);
-                })
-                .ForMember(d => d.DebtorName, o =>
-                {
+            CreateMap<LoanApplication, LoanApplicationAnalystTableResponse>()
+                .ForMember(d => d.Id, o => { o.MapFrom(s => s.Id);})
+                .ForMember(d => d.LoanApplicationId, o => { o.MapFrom(s => s.LoanApplicationId);})
+                .ForMember(d => d.RequestDate, o => { o.MapFrom(s => DateTime.Now);})
+                .ForMember(d => d.SlikStatus, o => { o.MapFrom(s => "1/1");})
+                .ForMember(d => d.DebtorName, o => { 
                     o.MapFrom(s => s.RfOwnerCategory.ParameterDetailId == 1 ? s.Debtor.Fullname : s.DebtorCompany.Name);
                 })
                 .ForMember(d => d.DebtorDateOfBirth, o =>
                 {
                     o.MapFrom(s => s.RfOwnerCategory.ParameterDetailId == 1 ? s.Debtor.DateOfBirth : null);
                 })
-                .ForMember(d => d.SlikStatus, o =>
-                {
-                    o.MapFrom(s => "1/1");
-                })
-                .ForMember(d => d.RequestDate, o =>
-                {
-                    o.MapFrom(s => DateTime.Now);
-                });
+                ;
 
-            CreateMap<LoanApplication, LoanApplicationPrescreeningSLIKAdminTabResponse>()
-				.ForMember(d => d.SLIKRequestDebtors, o =>
-			    {
-					o.MapFrom(s => s.SLIKRequest.SLIKRequestDebtors);
-			    })
-				.ForMember(d => d.CreditHistories, o =>
-				{
-					o.MapFrom(s => s.LoanApplicationCreditHistories);
-				});
-
-            CreateMap<LoanApplication, LoanApplicationPrescreeningResponse>()
-                .ForMember(d => d.InfoPrescreening, o =>
+            CreateMap<LoanApplication, LoanApplicationAnalystReponse>()
+                .ForMember(d => d.LoanApplicationAnalystAppInfo, o =>
                 {
                     o.MapFrom(s => s ?? new LoanApplication());
                 })
@@ -52,22 +33,25 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationRAC);
                 })
-                .ForMember(d => d.LoanApplicationCollaterals, o =>
+                .ForMember(d => d.LoanApplicationVerificationBusiness, o =>
                 {
-                    o.MapFrom(s => s.LoanApplicationCollaterals);
+                    o.MapFrom(s => s.LoanApplicationVerificationBusiness);
                 })
-                .ForMember(d => d.SLIKAdmin, o =>
+                .ForMember(d => d.LoanApplicationVerificationCycle, o =>
                 {
-                    o.MapFrom(s => s ?? new LoanApplication());
-                });
+                    o.MapFrom(s => s.LoanApplicationVerificationCycle);
+                })
+                .ForMember(d => d.LoanApplicationVerificationNeeds, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationVerificationNeed);
+                })
+                .ForMember(d => d.LoanApplicationBusinessInformation, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationBusinessInformation);
+                })
+                ;
 
-
-
-            CreateMap<LoanApplicationCollateral, LoanApplicationCollateralResponse>();
-
-            CreateMap<LoanApplication, LoanApplicationPrescreeningBaseTabReponse>();
-
-            CreateMap<LoanApplication, LoanApplicationPrescreeningInfoResponse>()
+            CreateMap<LoanApplication, LoanApplicationAnalystAppInfoResponse>()
                 .ForMember(d => d.Regency, o =>
                 {
                     o.MapFrom(s => s.RfBranch.KanwilName);
@@ -116,25 +100,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.RfOwnerCategory);
                 })
-                .ForMember(d => d.DebtorAge, o =>
-                {
-                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth));
-                })
-                .ForMember(d => d.DebtorAgePlusTenor, o =>
-                {
-                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : (MediatR.Helpers.HelperGeneral.CalculateAge(s.Debtor.DateOfBirth)) + (s.LoanApplicationFacilities.Sum(facility => facility.RfTenor.Tenor)/12));
-                })
-                .ForMember(d => d.RfMarital, o =>
-                {
-                    o.MapFrom(s => s.OwnerCategoryId == 2 ? null : s.Debtor.RfMarital);
-                })
-                .ForMember(d => d.DuplicationsVerified, o =>
-                {
-                    o.MapFrom(s => s.DuplicationsVerified);
-                })
                 ;
-
-            CreateMap<LoanApplicationPrescreeningDuplicationRequest, LoanApplication>();
         }
     }
 }

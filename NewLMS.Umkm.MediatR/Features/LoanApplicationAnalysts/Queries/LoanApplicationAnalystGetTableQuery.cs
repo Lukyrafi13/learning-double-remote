@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Constants;
-using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
+using NewLMS.Umkm.Data.Dto.LoanApplicationAnalysts;
 using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Repository.GenericRepository;
@@ -14,21 +14,21 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries
+namespace NewLMS.Umkm.MediatR.Features.LoanApplicationAnalysts.Queries
 {
-    public class LoanApplicationSurveyGetTableQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>>
+    public class LoanApplicationAnalystGetTableQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<LoanApplicationAnalystTableResponse>>>
     {
     }
 
-    public class LoanApplicationSurveyGetTableQueryHandler : IRequestHandler<LoanApplicationSurveyGetTableQuery, PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>>
+    public class LoanApplicationAnalystGetTableQueryHandler : IRequestHandler<LoanApplicationAnalystGetTableQuery, PagedResponse<IEnumerable<LoanApplicationAnalystTableResponse>>>
     {
         private IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private UserContext _userContext;
         private readonly IMapper _mapper;
 
-        public LoanApplicationSurveyGetTableQueryHandler(
-            IGenericRepositoryAsync<LoanApplication> loanApplication, 
-            UserContext userContext, 
+        public LoanApplicationAnalystGetTableQueryHandler(
+            IGenericRepositoryAsync<LoanApplication> loanApplication,
+            UserContext userContext,
             IMapper mapper)
         {
             _loanApplication = loanApplication;
@@ -36,7 +36,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>> Handle(LoanApplicationSurveyGetTableQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<LoanApplicationAnalystTableResponse>>> Handle(LoanApplicationAnalystGetTableQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[] {
                 "LoanApplicationStages",
@@ -50,7 +50,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries
             {
                 loanQuery = loanQuery.Include(include);
             }
-            var loans = loanQuery.Where(x => x.LoanApplicationStages.Any(x => x.StageId == UMKMConst.Stages["Survey"] && x.Processed == false)).ToList();
+            var loans = loanQuery.Where(x => x.LoanApplicationStages.Any(x => x.StageId == UMKMConst.Stages["Analisa"] && x.Processed == false)).ToList();
             PagedInfoRepositoryResponse info = new PagedInfoRepositoryResponse
             {
                 CurrentPage = request.Page,
@@ -58,13 +58,11 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries
                 TotalPage = (int)Math.Ceiling(Convert.ToDouble(loans.Count) / request.Length)
             };
 
-            //var data = await _loanApplication.GetPagedReponseAsync(request, includes);
-            var dataVm = _mapper.Map<IEnumerable<LoanApplicationSurveyTabRespone>>(loans);
-            return new PagedResponse<IEnumerable<LoanApplicationSurveyTabRespone>>(dataVm, info, request.Page, request.Length)
+            var dataVm = _mapper.Map<IEnumerable<LoanApplicationAnalystTableResponse>>(loans);
+            return new PagedResponse<IEnumerable<LoanApplicationAnalystTableResponse>>(dataVm, info, request.Page, request.Length)
             {
                 StatusCode = (int)HttpStatusCode.OK
             };
         }
     }
-
 }
