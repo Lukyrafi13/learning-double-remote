@@ -1,12 +1,8 @@
 using NewLMS.Umkm.Data;
-using NewLMS.Umkm.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.Data.Dto.RfStages;
 
 namespace NewLMS.Umkm.Domain.Context
 {
@@ -97,6 +93,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<LoanApplicationVerificationCycleDetail> LoanApplicationVerificationCycleDetails { get; set; }
         public DbSet<LoanApplicationVerificationNeed> LoanApplicationVerificationNeeds { get; set; }
         public DbSet<LoanApplicationVerificationNeedDetail> LoanApplicationVerificationNeedDetails { get; set; }
+        public DbSet<LoanApplicationCreditHistory> LoanApplicationCreditHistories { get; set; }
 
         #endregion
 
@@ -159,6 +156,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<SIKPHistoryDetail> SIKPHistoryDetails { get; set; }
         public DbSet<RfMappingDocumentPrescreening> RfMappingDocumentPrescreenings { get; set; }
         public DbSet<RfMappingPlafondPlacementCountry> RfMappingPlafondPlacementCountries { get; set; }
+        public DbSet<RfBank> RfBanks { get; set; }
 
         #endregion
 
