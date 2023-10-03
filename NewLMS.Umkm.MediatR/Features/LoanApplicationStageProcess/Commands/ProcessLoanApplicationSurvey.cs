@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Common.GenericRespository;
+using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Dto.LoanApplicationStageProcess;
 using NewLMS.Umkm.Data.Entities;
+using NewLMS.Umkm.Domain.Context;
 using NewLMS.Umkm.Helper;
+using NewLMS.Umkm.MediatR.Helpers;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,13 +22,22 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
     public class ProcessLoanApplicationSurveyHandler : IRequestHandler<ProcessLoanApplicationSurvey, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
+        private readonly IGenericRepositoryAsync<LoanApplicationStage> _loanStage;
         private readonly IMapper _mapper;
+        private readonly UserContext _userContext;
+        private readonly ICurrentUserService _currentUser;
 
         public ProcessLoanApplicationSurveyHandler(
             IGenericRepositoryAsync<LoanApplication> loanApplication,
+            IGenericRepositoryAsync<LoanApplicationStage> loanStage,
+            UserContext userContext,
+            ICurrentUserService currentUser,
             IMapper mapper)
         {
             _loanApplication = loanApplication;
+            _loanStage = loanStage;
+            _userContext = userContext;
+            _currentUser = currentUser;
             _mapper = mapper;
         }
 
@@ -36,7 +48,26 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
                 var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.Id);
                 if (loanApplication != null)
                 {
-                    loanApplication.StageId = LMSUMKMStages.Analisa.StageId;
+                    #region LoanStage Logging
+                    var prevQuery = _userContext.Set<LoanApplicationStage>().AsQueryable();
+                    var prevLoanApplicationStage = prevQuery.Where(x => x.LoanApplicationId == loanApplication.Id && x.StageId == UMKMConst.Stages["Survey"] && x.Processed == false).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+
+                    if (prevLoanApplicationStage != null)
+                    {
+                        prevLoanApplicationStage.Processed = true;
+                        prevLoanApplicationStage.ProcessedBy = Guid.Parse(_currentUser.Id);
+                        prevLoanApplicationStage.ProcessedDate = DateTime.Now;
+                        await _loanStage.UpdateAsync(prevLoanApplicationStage);
+                    }
+
+                    LoanApplicationStage loanApplicationStage = LoanApplicationHelper.CreateLoanApplicationStage(loanApplication, Guid.Parse(_currentUser.Id), UMKMConst.Stages["Analisa"], loanApplication.CreatedBy, UMKMConst.Roles["AccountOfficerUMKM"]);
+
+                    await _loanStage.AddAsync(loanApplicationStage);
+                    #endregion
+
+
+                    loanApplication.StageId = UMKMConst.Stages["Analisa"];
+                    loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                     await _loanApplication.UpdateAsync(loanApplication);
                 }
                 else
@@ -45,7 +76,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
                 }
 
 
-                return ServiceResponse<Unit>.ReturnResultWith200(Unit.Value);
+                return ServiceResponse<Unit>.ReturnResultWith201(Unit.Value);
 
             }
             catch (Exception ex)
