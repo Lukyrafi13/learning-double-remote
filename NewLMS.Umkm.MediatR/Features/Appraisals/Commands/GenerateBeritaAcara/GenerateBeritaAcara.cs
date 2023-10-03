@@ -10,12 +10,10 @@ using NewLMS.Umkm.Repository.GenericRepository;
 using System.IO;
 using DocumentFormat.OpenXml.Packaging;
 using System.Text.RegularExpressions;
-using NewLMS.Umkm.Data.Entities;
 using NewLMS.Umkm.Data;
-using Bjb.DigitalBisnis.CurrentUser.Interfaces;
 using Bjb.DigitalBisnis.FileUpload.Interfaces;
 using Bjb.DigitalBisnis.FileUpload.Models;
-
+using NewLMS.Umkm.Common.GenericRespository;
 
 namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
 {
@@ -113,25 +111,36 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
             var result = Path.Combine(FolderName, FileTemplate).Replace(@"\", @"/").Replace(@"\\", @"/");
             var link = result;
             //File.Delete(filePath);
-            var generatedFile = await _generatedFile.GetByPredicate(x => x.FileName == fileInfo.Name);
+
+            var generatedFile = await _generatedFile.GetByPredicate(
+                x => x.FileName == fileInfo.Name
+                && x.LoanApplicationGuid == coll.LoanApplicationCollateral.LoanApplicationId
+                && x.GeneratedFileGroupGuid == GeneratedFileGroup.BeritaAcaraAppr
+                );
             if (generatedFile != null)
             {
                 generatedFile.FileName = fileInfo.Name;
                 generatedFile.FilePath = link;
                 generatedFile.FileSize = finalSize;
+                generatedFile.LoanApplicationCollateralGuid = request.LoanApplicationCollateralId;
 
                 await _generatedFile.UpdateAsync(generatedFile);
             }
-            generatedFileEntity = new GeneratedFiles
+            else
             {
-                GeneratedFileGuid = Guid.NewGuid(),
-                LoanApplicationGuid = coll.LoanApplicationCollateral.LoanApplication.Id,
-                FileName = fileInfo.Name,
-                FilePath = link,
-                FileSize = finalSize,
-                GeneratedFileGroupGuid = Guid.Parse("308828f2-3954-41ab-a516-4baa2a298af7")
-            };
-            await _generatedFile.AddAsync(generatedFileEntity);
+                generatedFileEntity = new GeneratedFiles
+                {
+                    GeneratedFileGuid = Guid.NewGuid(),
+                    LoanApplicationGuid = coll.LoanApplicationCollateral.LoanApplication.Id,
+                    FileName = fileInfo.Name,
+                    FilePath = link,
+                    FileSize = finalSize,
+                    GeneratedFileGroupGuid = GeneratedFileGroup.BeritaAcaraAppr,
+                    LoanApplicationCollateralGuid = request.LoanApplicationCollateralId
+                };
+                await _generatedFile.AddAsync(generatedFileEntity);
+            }
+
             return ServiceResponse<string>.ReturnResultWith200(link);
         }
 

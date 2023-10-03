@@ -7,6 +7,7 @@ namespace NewLMS.Umkm.Data.Dto.GenerateFiles
     {
         public Guid GeneratedFileGuid { get; set; }
         public Guid LoanApplicationGuid { get; set; }
+        public Guid LoanApplicationCollateralGuid { get; set; }
         public GeneratedFileGroupResponse GeneratedFileGroups { get; set; }
         public string FileName { get; set; }
         public string FileSize { get; set; }

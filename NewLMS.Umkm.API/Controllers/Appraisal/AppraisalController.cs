@@ -4,19 +4,18 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using NewLMS.Umkm.API.Controllers;
-using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.Appraisals;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Commands;
-using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.AppraisalProductiveLands;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateSuratTugas;
 using Microsoft.AspNetCore.Authorization;
-//using NewLMS.Umkm.MediatR.Features.Appraisals.Command s.GenerateSuratTugas;
+using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationKeyPersons.Queries;
+using NewLMS.Umkm.Data.Dto.GenerateFiles;
 
 namespace NewLMS.Umkm.API.Controllers.Appraisal
 {
@@ -113,9 +112,33 @@ namespace NewLMS.Umkm.API.Controllers.Appraisal
             return Ok(await Mediator.Send(command));
         }
 
+        /// <summary>
+        /// Get Generate Berita Acara By LoanAppCollateralGuid
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpGet("generate-berita-acara/{LoanApplicationCollateralId}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<GeneratedFileResponse>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetBeritaAcaraByCollId([FromRoute] GenerateBeritaAcaraGetByLoanAppCollGuidQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
         [HttpPost("generate-surat-tugas/{LoanApplicationCollateralId}")]
         [ProducesResponseType(type: typeof(ServiceResponse<string>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GenerateST([FromRoute] GenerateSuratTugas command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Get Generate Surat Tugas By LoanAppCollateralGuid
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpGet("generate-surat-tugas/{LoanApplicationCollateralId}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<GeneratedFileResponse>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetSuratTugasByCollId([FromRoute] GenerateSuratTugasGetByCollGuidQuery command)
         {
             return Ok(await Mediator.Send(command));
         }
