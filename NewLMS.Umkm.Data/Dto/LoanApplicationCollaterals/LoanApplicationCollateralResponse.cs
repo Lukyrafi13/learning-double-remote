@@ -18,7 +18,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners
         public string CollateralBCId { get; set; }
         public string DocumentCode { get; set; }
         public string DocumentNumber { get; set; }
-        public DateTime DocumentReleaseDate { get; set; }
+        public DateTime? DocumentReleaseDate { get; set; }
         public DateTime? DocumentExpireDate { get; set; }
         public string DocumentPublisher { get; set; }
         public string Address { get; set; }
