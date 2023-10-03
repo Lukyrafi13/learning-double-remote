@@ -57,7 +57,7 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
 
         string rootDir => "Directory" switch
         {
-            "Directory" => _appConfig.GetValue<string>("UmkmStorage:Directory"),
+            "Directory" => _appConfig.GetValue<string>("ConsumerStorage:Directory"),
             _ => throw new NotSupportedException()
         };
         public async Task<ServiceResponse<string>> Handle(GenerateBeritaAcara request, CancellationToken cancellationToken)
