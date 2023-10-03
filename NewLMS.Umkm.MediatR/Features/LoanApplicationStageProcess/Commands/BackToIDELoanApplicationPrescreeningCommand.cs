@@ -50,7 +50,7 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
                 {
                     #region LoanStage Logging
                     var prevQuery = _userContext.Set<LoanApplicationStage>().AsQueryable();
-                    var prevLoanApplicationStage = prevQuery.Where(x => x.LoanApplicationId == loanApplication.Id && x.StageId == UMKMConst.Stages["Survey"] && x.Processed == false).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+                    var prevLoanApplicationStage = prevQuery.Where(x => x.LoanApplicationId == loanApplication.Id && x.StageId == UMKMConst.Stages["Prescreening"] && x.Processed == false).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
 
                     if (prevLoanApplicationStage != null)
                     {
