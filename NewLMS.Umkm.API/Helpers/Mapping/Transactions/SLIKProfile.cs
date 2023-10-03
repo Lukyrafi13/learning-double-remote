@@ -25,7 +25,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
             CreateMap<SLIKRequestDebtorRequest, SLIKRequestDebtor>();
 
             CreateMap<SLIKRequest, SLIKInfoResponse>()
-                .ForMember(d => d.AccountOfficer, o => o.MapFrom(s => s.LoanApplication.Prospect.AccountOfficer))
+                .ForMember(d => d.AccountOfficer, o => o.MapFrom(s => s.LoanApplication.Owner.Nama))
                 .ForMember(d => d.BookingBranch, o => o.MapFrom(s => s.LoanApplication.RfBookingBranch))
                 .ForMember(d => d.DateOfBirth, o => o.MapFrom(s => s.LoanApplication.Debtor.DateOfBirth))
                 .ForMember(d => d.Fullname, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory.Code == "001" ? s.LoanApplication.Debtor.Fullname : s.LoanApplication.DebtorCompany.Name))

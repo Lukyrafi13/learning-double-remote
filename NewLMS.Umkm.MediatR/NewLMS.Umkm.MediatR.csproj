@@ -44,6 +44,8 @@
     <None Remove="Features\SLIKRequestDebtors\Commands\" />
     <None Remove="Features\SLIKRequestDebtors\Queries\" />
     <None Remove="Features\SLIKRequests\Command\" />
+    <None Remove="Features\RfBanks\" />
+    <None Remove="Features\RfBanks\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -135,6 +137,8 @@
     <Folder Include="Features\SIKPs\Commands\" />
     <Folder Include="Features\SLIKRequestDebtors\Commands\" />
     <Folder Include="Features\SLIKRequests\Command\" />
+    <Folder Include="Features\RfBanks\" />
+    <Folder Include="Features\RfBanks\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Bjb.DigitalBisnis.CurrentUser.Interfaces" />

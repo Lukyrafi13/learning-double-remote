@@ -47,6 +47,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                     "LoanApplication.Debtor",
                     "LoanApplication.DebtorCompany",
                     "LoanApplication.RfOwnerCategory",
+                    "LoanApplication.Owner",
                     "SLIKRequestDebtors"
                 };
 

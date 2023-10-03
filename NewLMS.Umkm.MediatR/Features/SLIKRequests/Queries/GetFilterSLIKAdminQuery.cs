@@ -37,6 +37,15 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                     "LoanApplication.RfOwnerCategory",
                     "SLIKRequestDebtors"
                 };
+
+            request.Filters.Add(new RequestFilterParameter
+            {
+                Field = "AdminVerified",
+                ComparisonOperator = "=",
+                Type = "bool",
+                Value = "false"
+            });
+
             request.Filters.Add(new RequestFilterParameter
             {
                 Field = "StageId",

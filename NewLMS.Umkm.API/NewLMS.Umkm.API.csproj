@@ -26,6 +26,7 @@
     <None Remove="Controllers\SLIKRequestDebtors\" />
     <None Remove="Controllers\LoanApplicationCreditHistories\" />
     <None Remove="Controllers\LoanApplications\" />
+    <None Remove="Controllers\RfBanks\" />
   </ItemGroup>
   <ItemGroup>
 	  <PackageReference Include="AutoMapper" Version="12.0.0" />
@@ -70,6 +71,7 @@
     <Folder Include="Controllers\SLIKRequestDebtors\" />
     <Folder Include="Controllers\LoanApplicationCreditHistories\" />
     <Folder Include="Controllers\LoanApplications\" />
+    <Folder Include="Controllers\RfBanks\" />
   </ItemGroup>
 
   <ItemGroup>
