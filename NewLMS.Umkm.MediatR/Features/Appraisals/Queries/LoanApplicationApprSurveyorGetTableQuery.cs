@@ -50,6 +50,9 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
             var includes = new string[]
                 {
                     "LoanApplicationCollateral",
+                    "LoanApplicationCollateral.RfCollateralBC",
+                    "LoanApplicationCollateral.LoanApplicationCollateralOwner",
+                    "LoanApplicationCollateral.RfDocument",
                 };
             var dataColl = await _appraisal.GetPagedReponseAsync(request, includes);
             var dataColVm = _mapper.Map<IEnumerable<AppraisalResponse>>(dataColl.Results);
@@ -64,21 +67,13 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
                 };
                 var loanApplicationEntity = await _loanApplication.GetByPredicate(x => x.Id == loanApplicationGuid, includesLoan);
 
-                var includesCollateral = new string[]
-                {
-                    "RfCollateralBC",
-                    "RfDocument",
-                    "LoanApplicationCollateralOwner",
-                };
-                var loanApplicationCollateral = await _loanApplicationCollateral.GetByPredicate(x => x.LoanApplicationId == loanApplicationGuid, includesCollateral);
-
                 var initData = new LoanApplicationApprSurveyorTableResponse
                 {
-                    LoanApplicationCollateralId = loanApplicationCollateral.Id,
+                    LoanApplicationCollateralId = inData.LoanApplicationCollateralId,
                     AppraisalGuid = inData.AppraisalId,
-                    DocumentNumber = loanApplicationCollateral.DocumentNumber ?? "-",
-                    DocumentName = loanApplicationCollateral.RfDocument?.DocumentDesc ?? null,
-                    OwnerName = loanApplicationCollateral.LoanApplicationCollateralOwner?.OwnerName ?? null,
+                    DocumentNumber = inData.LoanApplicationCollateral.DocumentNumber ?? "-",
+                    DocumentName = inData.LoanApplicationCollateral.RfDocument?.DocumentDesc ?? null,
+                    OwnerName = inData.LoanApplicationCollateral.LoanApplicationCollateralOwner?.OwnerName ?? null,
                 };
 
                 if (loanApplicationEntity != null)

@@ -121,6 +121,11 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                         var response = new ApprVehicleResponse()
                         {
                             DataNumber = data?.DataNumber,
+                            Address = data?.Address,
+                            Kelurahan = _mapper.Map<SimpleResponseWithPostCode<string>>(data?.WilayahVillages),
+                            Kecamatan = _mapper.Map<SimpleResponse<string>>(data?.WilayahVillages.WilayahDistricts),
+                            KotaKabupaten = _mapper.Map<SimpleResponse<string>>(data?.WilayahVillages.WilayahDistricts.WilayahRegencies),
+                            Provinsi = _mapper.Map<SimpleResponse<string>>(data?.WilayahVillages.WilayahDistricts.WilayahRegencies.WilayahProvinces),
                             DataType = _mapper.Map<SimpleResponse<Guid>>(data?.DataTypeFK),
                             DataSource = data?.DataSource,
                             PhoneNumber = data?.PhoneNumber,
