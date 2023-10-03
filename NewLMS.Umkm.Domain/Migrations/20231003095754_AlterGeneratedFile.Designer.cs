@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.Umkm.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20231003095754_AlterGeneratedFile")]
+    partial class AlterGeneratedFile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3730,109 +3732,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoanApplicationCollateralOwners");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditHistory", b =>
-                {
-                    b.Property<Guid>("CreditHistoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ApplicationType")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("BankId")
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<string>("Behaviour")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("Collectibility")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("Condition")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreditType")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DebtorName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EconomySector")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<float>("Interest")
-                        .HasColumnType("real");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsRobo")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid>("LoanApplicationid")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Outstanding")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlafondLimit")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SLIKNoIdentity")
-                        .HasMaxLength(16)
-                        .HasColumnType("nvarchar(16)");
-
-                    b.Property<bool>("SLIKStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("StuckDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CreditHistoryId");
-
-                    b.HasIndex("ApplicationType");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("Behaviour");
-
-                    b.HasIndex("Collectibility");
-
-                    b.HasIndex("Condition");
-
-                    b.HasIndex("CreditType");
-
-                    b.HasIndex("EconomySector");
-
-                    b.HasIndex("LoanApplicationid");
-
-                    b.ToTable("LoanApplicationCreditHistories");
-                });
-
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", b =>
                 {
                     b.Property<Guid>("Id")
@@ -5334,48 +5233,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("RfAppraisalKJPPMasters");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBank", b =>
-                {
-                    b.Property<string>("BankId")
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("BankName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CoreCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("BankId");
-
-                    b.ToTable("RfBanks");
-                });
-
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfBranch", b =>
                 {
                     b.Property<string>("Code")
@@ -6086,12 +5943,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ParameterAppraisalGuid")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("DocumentCode");
-
-                    b.HasIndex("ParameterAppraisalGuid");
 
                     b.ToTable("RfDocuments");
                 });
@@ -8949,8 +8801,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("AdminVerified")
-                        .HasColumnType("bit");
+                    b.Property<byte>("AdminVerified")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("BranchCode")
                         .HasColumnType("nvarchar(4)");
@@ -10449,59 +10301,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfZipCodeOwnerCouple");
                 });
 
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditHistory", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSandiBI", "RfSandiBIApplicationTypeClass")
-                        .WithMany()
-                        .HasForeignKey("ApplicationType");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBank", "RfBank")
-                        .WithMany()
-                        .HasForeignKey("BankId");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSandiBI", "RfSandiBIBehaviourClass")
-                        .WithMany()
-                        .HasForeignKey("Behaviour");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSandiBI", "RfSandiBICollectibilityClass")
-                        .WithMany()
-                        .HasForeignKey("Collectibility");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCondition", "RfCondition")
-                        .WithMany()
-                        .HasForeignKey("Condition");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfCreditType", "RfCreditType")
-                        .WithMany()
-                        .HasForeignKey("CreditType");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfSandiBI", "RfSandiBIEconomySectorClass")
-                        .WithMany()
-                        .HasForeignKey("EconomySector");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithMany("LoanApplicationCreditHistories")
-                        .HasForeignKey("LoanApplicationid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoanApplication");
-
-                    b.Navigation("RfBank");
-
-                    b.Navigation("RfCondition");
-
-                    b.Navigation("RfCreditType");
-
-                    b.Navigation("RfSandiBIApplicationTypeClass");
-
-                    b.Navigation("RfSandiBIBehaviourClass");
-
-                    b.Navigation("RfSandiBICollectibilityClass");
-
-                    b.Navigation("RfSandiBIEconomySectorClass");
-                });
-
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCreditScoring", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
@@ -11046,15 +10845,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasForeignKey("DecisionLeterTypeCode");
 
                     b.Navigation("RfDecisionLeterType");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocument", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ParametersAppraisal")
-                        .WithMany()
-                        .HasForeignKey("ParameterAppraisalGuid");
-
-                    b.Navigation("ParametersAppraisal");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocumentCollateral", b =>
@@ -11801,8 +11591,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("DebtorEmergency");
 
                     b.Navigation("LoanApplicationCollaterals");
-
-                    b.Navigation("LoanApplicationCreditHistories");
 
                     b.Navigation("LoanApplicationCreditScoring");
 

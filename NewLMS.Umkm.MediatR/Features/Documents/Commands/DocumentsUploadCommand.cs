@@ -1,8 +1,8 @@
-﻿using Bjb.DigitalBisnis.CurrentUser.Interfaces;
+﻿using Bjb.DigitalBisnis.FileUpload.Interfaces;
+using Bjb.DigitalBisnis.FileUpload.Models;
 using MediatR;
 using NewLMS.Umkm.Data.Dto.Documents;
 using NewLMS.Umkm.Data.Entities;
-using NewLMS.Umkm.FileUpload.Interfaces;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
@@ -89,7 +89,7 @@ namespace NewLMS.Umkm.MediatR.Features.Documents.Commands
 
                     command.Files.ToList().ForEach(f =>
                     {
-                        var upload = _uploadService.Upload(new FileUpload.Models.UploadRequestModel
+                        var upload = _uploadService.Upload(new UploadRequestModel
                         {
                             Segment = "UMKM",
                             DebtorName = debtorName,

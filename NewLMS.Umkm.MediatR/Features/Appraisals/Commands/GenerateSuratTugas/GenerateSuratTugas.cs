@@ -15,13 +15,13 @@ using Bjb.DigitalBisnis.FileUpload.Interfaces;
 using Bjb.DigitalBisnis.FileUpload.Models;
 using NewLMS.Umkm.Common.GenericRespository;
 
-namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
+namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateSuratTugas
 {
-    public class GenerateBeritaAcara : IRequest<ServiceResponse<string>>
+    public class GenerateSuratTugas : IRequest<ServiceResponse<string>>
     {
         public Guid LoanApplicationCollateralId { get; set; }
     }
-    public class GenerateBeritaAcaraHandler : IRequestHandler<GenerateBeritaAcara, ServiceResponse<string>>
+    public class GenerateSuratTugasHandler : IRequestHandler<GenerateSuratTugas, ServiceResponse<string>>
     {
         public string filePath = "";
         private readonly IGenericRepositoryAsync<GeneratedFiles> _generatedFile;
@@ -33,7 +33,7 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
         private readonly ICurrentUserService _userService;
 
 
-        public GenerateBeritaAcaraHandler
+        public GenerateSuratTugasHandler
         (
             IGenericRepositoryAsync<LoanApplicationCollateralOwner> loanApplicationcollateralowner,
             IGenericRepositoryAsync<LoanApplicationAppraisal> loanApplicationappraisal,
@@ -58,35 +58,43 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
             "Directory" => _appConfig.GetValue<string>("ConsumerStorage:Directory"),
             _ => throw new NotSupportedException()
         };
-        public async Task<ServiceResponse<string>> Handle(GenerateBeritaAcara request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<string>> Handle(GenerateSuratTugas request, CancellationToken cancellationToken)
         {
             var includes = new string[]
             {
                 "LoanApplicationCollateral",
                 "LoanApplicationCollateral.LoanApplication",
-                "LoanApplicationCollateral.LoanApplication.Debtor"
+                "LoanApplicationCollateral.LoanApplication.Debtor",
+                "LoanApplicationCollateral.RfCollateralBC",
+                "LoanApplicationCollateral.RfDocument",
             };
             User usr = new();
             var generatedFileEntity = new GeneratedFiles();
             var dateNow = DateTime.Now.ToString("dd MMMM yyyy");
             //var day = DateTime.Now.ToString("dddd");
-            var coll = await _loanApplicationcollateralowner.GetByIdAsync(request.LoanApplicationCollateralId, "Id",includes);
+            var coll = await _loanApplicationcollateralowner.GetByIdAsync(request.LoanApplicationCollateralId, "Id", includes);
+            var appr = await _loanApplicationappraisal.GetByIdAsync(request.LoanApplicationCollateralId, "LoanApplicationCollateralId");
+            usr = await _user.GetByPredicate(x => x.UserId == appr.Estimator); 
+
 
             Dictionary<string, string> keyValues = new Dictionary<string, string>()
             {
                 {"{tanggal}",dateNow ?? "[no data]"},
-                {"{namaBl}",_userService?.Fullname ?? "[no data]"},
-                {"{nip}",_userService?.NIP ?? "[no data]"},
-                {"{jabatan}",_userService?.PositionName ?? "[no data]"},
-                // {"{bertindakSelaku1}",},
                 {"{namaAgunan}",coll?.OwnerName ?? "[no data]"},
+                {"{namaBl}",usr?.Nama ?? "[no data]"},
+                {"{jabatan}",usr?.Jabatan ?? "[no data]"},
+                {"{nip}",_userService?.NIP ?? "[no data]"},
+                {"{jenisAgunan}", coll?.LoanApplicationCollateral.RfCollateralBC.CollateralDesc ??"[no data]"},
+                {"{noDokumen}", coll?.LoanApplicationCollateral.DocumentNumber ??"[no data]"},
+                {"{dokumen}", coll?.LoanApplicationCollateral.RfDocument.DocumentDesc ??"[no data]"},
                 {"{alamatAgunan}", coll?.Address ??"[no data]"},
                 {"{noNPWP}",coll?.OwnerNPWP ?? "[no data]"},
-                // {"{bertindakSelaku2}",},
+                {"{cabang}",_userService?.BranchName ?? "[no data]"},
+                {"{namaOOK}",_userService?.Fullname?? "[no data]"}
             };
             var tempalateFolder = "/templates";
-            var templateDir = rootDir + tempalateFolder + "/TemplateBAPAppraisal.docx";
-            var fileName = "Berita_Acara_Pemeriksaan_Setempat_Appraisal_Assignment";
+            var templateDir = rootDir + tempalateFolder + "/TemplatePeninjauan.docx";
+            var fileName = "Surat_Tugas_Peninjauan_Agunan_Appraisal_Surveyor";
 
             filePath = GenerateWordFromTemplate(
                 templateDir,
@@ -99,14 +107,14 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
             string finalSize = kbsize + "kb";
             var fileByte = File.ReadAllBytes(filePath);
             var FolderName = "UMKM/generatefiles/" + $"{coll.LoanApplicationCollateral?.LoanApplication?.LoanApplicationId}{"_"}{coll.LoanApplicationCollateral?.LoanApplication?.Debtor?.Fullname.Replace(" ", "-")}";
-            var FileTemplate = $"{"Berita_Acara"}_{coll.LoanApplicationCollateral?.LoanApplication?.LoanApplicationId}.docx";
+            var FileTemplate = $"{"Surat_Tugas"}_{coll.LoanApplicationCollateral?.LoanApplication?.LoanApplicationId}.docx";
             var upload = await _uploadService.GenerateFileWord(new GenerateFileRequestModel
             {
                 Segment = "umkm",
                 DebtorName = coll.LoanApplicationCollateral.LoanApplication.Debtor.Fullname.Replace(" ", "-"),
-                FileTemplate = $"{"berita_acara"}",
+                FileTemplate = $"{"surat_tugas"}",
                 File = fileByte,
-                LoanApplicationId = coll.LoanApplicationCollateral.LoanApplication.LoanApplicationId
+                LoanApplicationId = coll.LoanApplicationCollateral.LoanApplication.LoanApplicationId,
             });
             var result = Path.Combine(FolderName, FileTemplate).Replace(@"\", @"/").Replace(@"\\", @"/");
             var link = result;
@@ -115,9 +123,8 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
             var generatedFile = await _generatedFile.GetByPredicate(
                 x => x.FileName == fileInfo.Name
                 && x.LoanApplicationGuid == coll.LoanApplicationCollateral.LoanApplicationId
-                && x.GeneratedFileGroupGuid == GeneratedFileGroup.BeritaAcaraAppr
-                );
-            if (generatedFile != null)
+                && x.GeneratedFileGroupGuid == GeneratedFileGroup.SuratPeninjauanAppr);
+            if(generatedFile != null)
             {
                 generatedFile.FileName = fileInfo.Name;
                 generatedFile.FilePath = link;
@@ -135,12 +142,11 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
                     FileName = fileInfo.Name,
                     FilePath = link,
                     FileSize = finalSize,
-                    GeneratedFileGroupGuid = GeneratedFileGroup.BeritaAcaraAppr,
+                    GeneratedFileGroupGuid = GeneratedFileGroup.SuratPeninjauanAppr,
                     LoanApplicationCollateralGuid = request.LoanApplicationCollateralId
                 };
                 await _generatedFile.AddAsync(generatedFileEntity);
             }
-
             return ServiceResponse<string>.ReturnResultWith200(link);
         }
 
@@ -149,7 +155,7 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Commands.GenerateBeritaAcara
             Dictionary<string, string> dict,
             string newFileName)
         {
-            var resultFolder = $@"{rootDir}/Result/BeritaAcara";
+            var resultFolder = $@"{rootDir}/Result/SuratTugas";
             if (!Directory.Exists(resultFolder))
             {
                 Directory.CreateDirectory(resultFolder.ToString());
