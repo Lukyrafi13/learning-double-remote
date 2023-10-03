@@ -25,6 +25,7 @@
     <None Remove="Dto\RfStages\" />
     <None Remove="Dto\SLIKRequestDebtors\" />
     <None Remove="Dto\FileUrls\" />
+    <None Remove="Dto\RfBanks\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -58,5 +59,6 @@
     <Folder Include="Dto\RfStages\" />
     <Folder Include="Dto\SLIKRequestDebtors\" />
     <Folder Include="Dto\FileUrls\" />
+    <Folder Include="Dto\RfBanks\" />
   </ItemGroup>
 </Project>

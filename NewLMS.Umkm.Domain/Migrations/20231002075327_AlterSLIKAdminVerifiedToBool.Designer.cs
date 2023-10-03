@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.Umkm.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20231002075327_AlterSLIKAdminVerifiedToBool")]
+    partial class AlterSLIKAdminVerifiedToBool
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -6081,12 +6083,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ParameterAppraisalGuid")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("DocumentCode");
-
-                    b.HasIndex("ParameterAppraisalGuid");
 
                     b.ToTable("RfDocuments");
                 });
@@ -11035,15 +11032,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasForeignKey("DecisionLeterTypeCode");
 
                     b.Navigation("RfDecisionLeterType");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocument", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.Parameters", "ParametersAppraisal")
-                        .WithMany()
-                        .HasForeignKey("ParameterAppraisalGuid");
-
-                    b.Navigation("ParametersAppraisal");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.RfDocumentCollateral", b =>

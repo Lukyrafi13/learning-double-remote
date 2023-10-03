@@ -22,7 +22,7 @@ namespace NewLMS.Umkm.Data
         public EnumSLIKStatus Status { get; set; }
         public bool? ReadAndUnderstand { get; set; }
         public DateTime? ProcessDate { get; set; }
-        public byte AdminVerified { get; set; }
+        public bool AdminVerified { get; set; }
         public double TotalCreditCard { get; set; }
         public double TotalLimitSlik { get; set; }
         public double TotalOtherUses { get; set; }

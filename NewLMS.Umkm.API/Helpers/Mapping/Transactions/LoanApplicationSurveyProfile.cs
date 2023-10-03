@@ -82,6 +82,22 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationFacilities.First().RfSubProduct);
                 })
+                .ForMember(d => d.PlacementCountryCode, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.First().PlacementCountryCode);
+                })
+                .ForMember(d => d.RfPlacementCountry, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.First().RfPlacementCountry);
+                })
+                .ForMember(d => d.ApplicationTypeId, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.First().ApplicationTypeId) ;
+                })
+                .ForMember(d => d.ApplicationType, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationFacilities.First().ApplicationType);
+                })
                 ;
 
 
