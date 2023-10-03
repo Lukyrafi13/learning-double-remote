@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.Umkm.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20231003121447_AlterCollateralRequestDate")]
+    partial class AlterCollateralRequestDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4468,6 +4470,137 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("StageId");
 
                     b.ToTable("LoanApplicationStages");
+                });
+
+            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationBusiness", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("AmountReceivable")
+                        .HasColumnType("float");
+
+                    b.Property<double>("AmountStockpile")
+                        .HasColumnType("float");
+
+                    b.Property<double>("AnnualSalesTurnOver")
+                        .HasColumnType("float");
+
+                    b.Property<string>("BasicConsiderationTurnOver")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("BusinessLocation")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("BusinessOwnershipCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("CellphoneFee")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("DebtorsBusiness")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("FundedBusiness")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("HighestCostResultsHouseHold")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HouseholdExpenses")
+                        .HasColumnType("float");
+
+                    b.Property<double>("InterviewGPM")
+                        .HasColumnType("float");
+
+                    b.Property<double>("InterviewHouseHold")
+                        .HasColumnType("float");
+
+                    b.Property<string>("InterviewTurnOver")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("LaborCosts")
+                        .HasColumnType("float");
+
+                    b.Property<double>("LowestGrossProfitMarginGPM")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MaximumStandardGPM")
+                        .HasColumnType("float");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("NetWorthTurnOver")
+                        .HasColumnType("float");
+
+                    b.Property<string>("NotesTurnOver")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ObservationGPM")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ObservationTurnOver")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OldBusinessLocationCode")
+                        .HasColumnType("int");
+
+                    b.Property<double>("OperatingCosts")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PremisesWaterFees")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PurchaseCostPercentGPM")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PurchaseCostValueGPM")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TelephoneCallFee")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalBusinessCost")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalDebt")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TurnoverValueTurnOver")
+                        .HasColumnType("float");
+
+                    b.Property<double>("VenueElectricityCosts")
+                        .HasColumnType("float");
+
+                    b.Property<double>("VerificationResultsHouseHold")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessOwnershipCode");
+
+                    b.HasIndex("OldBusinessLocationCode");
+
+                    b.ToTable("LoanApplicationVerificationBusinesses");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationCycle", b =>
@@ -10757,6 +10890,29 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("RfStage");
                 });
 
+            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationBusiness", b =>
+                {
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", "BusinessPlaceOwnership")
+                        .WithMany()
+                        .HasForeignKey("BusinessOwnershipCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
+                        .WithOne("LoanApplicationVerificationBusiness")
+                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationBusiness", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "OldBusinessLocation")
+                        .WithMany()
+                        .HasForeignKey("OldBusinessLocationCode");
+
+                    b.Navigation("BusinessPlaceOwnership");
+
+                    b.Navigation("LoanApplication");
+
+                    b.Navigation("OldBusinessLocation");
+                });
+
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationVerificationCycle", b =>
                 {
                     b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "BusinessCapacity")
@@ -11756,6 +11912,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("LoanApplicationRAC");
 
                     b.Navigation("LoanApplicationStages");
+
+                    b.Navigation("LoanApplicationVerificationBusiness");
 
                     b.Navigation("LoanApplicationVerificationCycle");
 
