@@ -12,22 +12,22 @@ using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
 {
-    public class GetFilterSLIKAKBLRequestQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
+    public class GetFilterSLIKRequestAKBLQuery : RequestParameter, IRequest<PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
     {
     }
 
-    public class GetFilterSLIKAKBLRequestQueryHandler : IRequestHandler<GetFilterSLIKAKBLRequestQuery, PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
+    public class GetFilterSLIKRequestAKBLQueryHandler : IRequestHandler<GetFilterSLIKRequestAKBLQuery, PagedResponse<IEnumerable<SLIKRequestTableResponse>>>
     {
         private readonly IGenericRepositoryAsync<SLIKRequest> _slikRequest;
         private readonly IMapper _mapper;
 
-        public GetFilterSLIKAKBLRequestQueryHandler(IMapper mapper, IGenericRepositoryAsync<SLIKRequest> slikRequest)
+        public GetFilterSLIKRequestAKBLQueryHandler(IMapper mapper, IGenericRepositoryAsync<SLIKRequest> slikRequest)
         {
             _mapper = mapper;
             _slikRequest = slikRequest;
         }
 
-        public async Task<PagedResponse<IEnumerable<SLIKRequestTableResponse>>> Handle(GetFilterSLIKAKBLRequestQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<IEnumerable<SLIKRequestTableResponse>>> Handle(GetFilterSLIKRequestAKBLQuery request, CancellationToken cancellationToken)
         {
             var includes = new string[]
                 {
@@ -37,6 +37,13 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                     "LoanApplication.RfOwnerCategory",
                     "SLIKRequestDebtors"
                 };
+            request.Filters.Add(new RequestFilterParameter
+            {
+                Field = "AdminVerified",
+                ComparisonOperator = "=",
+                Type = "bool",
+                Value = "false"
+            });
             request.Filters.Add(new RequestFilterParameter
             {
                 Field = "StageId",

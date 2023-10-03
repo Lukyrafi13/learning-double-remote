@@ -1,12 +1,6 @@
 ﻿using System;
 using NewLMS.Umkm.Data.Enums;
-using NewLMS.Umkm.Data.Enums;
 using NewLMS.Umkm.Data.Dto.RfParameterDetails;
-using NewLMS.Umkm.Data.Dto.RfProducts;
-using NewLMS.Umkm.Data.Dto.RfBranches;
-using NewLMS.Umkm.Data.Dto.Debtor;
-using NewLMS.Umkm.Data.Dto.DebtorCompany;
-using NewLMS.Umkm.Data.Dto.DebtorEmergencies;
 using NewLMS.Umkm.Data.Dto.RfProducts;
 using NewLMS.Umkm.Data.Dto.RfBranches;
 using NewLMS.Umkm.Data.Dto.Debtor;
@@ -16,14 +10,11 @@ using System.Collections.Generic;
 using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
 using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
-using NewLMS.Umkm.Data.Dto.LoanApplicationKeyPersons;
-using NewLMS.Umkm.Data.Dto.LoanApplicationCollateralOwners;
-using NewLMS.Umkm.Data.Dto.LoanApplicationFacilities;
-using System.ComponentModel.DataAnnotations.Schema;
 using NewLMS.Umkm.Data.Dto.LoanApplicationCreditScoring;
 using NewLMS.Umkm.Data.Dto.Users;
 using NewLMS.Umkm.Data.Dto.Prospects;
 using NewLMS.Umkm.Data.Dto.RfDecisionMakers;
+using NewLMS.Umkm.Data.Dto.LoanApplicationCreditHistory;
 
 namespace NewLMS.Umkm.Data.Dto.LoanApplications
 {
@@ -110,6 +101,7 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplications
         public RfProductSimpleResponse RfProduct { get; set; }
         public UserSimpleResponse Owner { get; set; }
         public ProspectEstimatedDateResponse Prospect { get; set; }
+        public ICollection<LoanApplicationCreditHistoryResponse> CreditHistories { get; set; }
     }
 }
 

@@ -122,6 +122,18 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 });
 
             CreateMap<LoanApplication, LoanApplicationBaseTabResponse>()
+                .ForMember(d => d.RfBookingBranch, o =>
+                {
+                    o.MapFrom(s => s.RfBookingBranch);
+                })
+                .ForMember(d => d.RfProduct, o =>
+                {
+                    o.MapFrom(s => s.RfProduct);
+                })
+                .ForMember(d => d.RfOwnerCategory, o =>
+                {
+                    o.MapFrom(s => s.RfOwnerCategory);
+                })
                 .ForMember(d => d.Owner, o =>
                 {
                     o.MapFrom(s => s.Owner);

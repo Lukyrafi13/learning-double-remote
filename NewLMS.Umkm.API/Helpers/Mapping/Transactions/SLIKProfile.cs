@@ -17,12 +17,26 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.Branch, o => o.MapFrom(s => s.LoanApplication.RfBookingBranch))
                 .ForMember(d => d.Fullname, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory.Code == "002" ? s.LoanApplication.DebtorCompany.Name : s.LoanApplication.Debtor.Fullname))
                 .ForMember(d => d.LoanApplicationId, o => o.MapFrom(s => s.LoanApplication.LoanApplicationId))
+                .ForMember(d => d.ApplicationStatus, o => o.MapFrom(s => s.Status == Data.Enums.EnumSLIKStatus.Draft ? "Belum Dirposes" : s.AdminVerified ? "Sudah Diproses" : "Sedang Diproses"))
+                .ForMember(d => d.NoIdentity, o => o.MapFrom(s => s.LoanApplication.Debtor.NoIdentity))
                 .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
                 .ForMember(d => d.SLIKRequestDebtors, o => o.MapFrom(s => s.SLIKRequestDebtors));
             //CreateMap<LoanApplication, SLIKRequest>();
             CreateMap<SLIKRequestDebtorRequest, SLIKRequestDebtor>();
 
+            CreateMap<SLIKRequest, SLIKInfoResponse>()
+                .ForMember(d => d.AccountOfficer, o => o.MapFrom(s => s.LoanApplication.Owner.Nama))
+                .ForMember(d => d.BookingBranch, o => o.MapFrom(s => s.LoanApplication.RfBookingBranch))
+                .ForMember(d => d.DateOfBirth, o => o.MapFrom(s => s.LoanApplication.Debtor.DateOfBirth))
+                .ForMember(d => d.Fullname, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory.Code == "001" ? s.LoanApplication.Debtor.Fullname : s.LoanApplication.DebtorCompany.Name))
+                .ForMember(d => d.LoanApplicationId, o => o.MapFrom(s => s.LoanApplication.LoanApplicationId))
+                .ForMember(d => d.NoIdentity, o => o.MapFrom(s => s.LoanApplication.Debtor.NoIdentity))
+                .ForMember(d => d.NPWP, o => o.MapFrom(s => s.LoanApplication.Debtor.NPWP))
+                .ForMember(d => d.OwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
+                .ForMember(d => d.RfProduct, o => o.MapFrom(s => s.LoanApplication.RfProduct));
+
             CreateMap<SLIKRequest, SLIKRequestResponse>()
+                .ForMember(d => d.Info, o => o.MapFrom(s => s ?? new SLIKRequest()))
                 .ForMember(d => d.Comment, o => o.MapFrom(s => s.Comment))
                 .ForMember(d => d.Status, o => o.MapFrom(s => s.Status))
                 .ForMember(d => d.ReadAndUnderstand, o => o.MapFrom(s => s.ReadAndUnderstand))
@@ -33,9 +47,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 .ForMember(d => d.TotalOtherUses, o => o.MapFrom(s => s.TotalOtherUses))
                 .ForMember(d => d.TotalWorkingCapital, o => o.MapFrom(s => s.TotalWorkingCapital))
                 .ForMember(d => d.InquiryDate, o => o.MapFrom(s => s.InquiryDate))
-                .ForMember(d => d.RfStage, o => o.MapFrom(s => s.LoanApplication.RfStage))
-                .ForMember(d => d.Branch, o => o.MapFrom(s => s.LoanApplication.RfBookingBranch))
-            .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
+                .ForMember(d => d.RfStage, o => o.MapFrom(s => s.RfStage))
+                .ForMember(d => d.Branch, o => o.MapFrom(s => s.Branch))
+                .ForMember(d => d.RfOwnerCategory, o => o.MapFrom(s => s.LoanApplication.RfOwnerCategory))
+                .ForMember(d => d.LoanApplication, o => o.MapFrom(s => s.LoanApplication))
                 .ForMember(d => d.SLIKRequestDebtors, o => o.MapFrom(s => s.SLIKRequestDebtors));
         }
     }

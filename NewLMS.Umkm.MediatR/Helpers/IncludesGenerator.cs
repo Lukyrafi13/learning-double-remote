@@ -9,6 +9,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
             List<string> includes = new();
             switch (tab)
             {
+                #region IDE
+                
                 case "initial_data_entry":
                     includes = new List<string>()
                     {
@@ -98,9 +100,9 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "LoanApplicationFacilities.RfSectorLBU3",
                     };
                     break;
+                #endregion
 
                 #region Prescreening
-                //Prescreening
 
                 case "loanapplication_rac":
                     includes = new List<string>()
@@ -129,7 +131,10 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfOwnerCategory",
                         "Debtor.RfMarital",
+                        "SLIKRequest.SLIKRequestDebtors",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationCreditHistories",
+                        "LoanApplicationRAC",
                     };
                     break;
 
@@ -145,6 +150,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "RfOwnerCategory",
                         "Debtor.RfMarital",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationRAC",
                     };
                     break;
 
@@ -161,6 +167,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "LoanApplicationCollaterals.RfCollateralBC",
                         "Debtor.RfMarital",
                         "LoanApplicationFacilities.RfTenor",
+                        "LoanApplicationRAC",
                     };
                     break;
                 #endregion  
@@ -182,7 +189,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                     break;
 
                 //Survey
-
+                #region Survey
+                
                 case "survey_ots":
                     includes = new List<string>()
                     {
@@ -244,8 +252,257 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "LoanApplicationVerificationNeed.RfPlacementCountry",
                         "LoanApplicationVerificationNeed.ApplicationType",
+                        "LoanApplicationFacilities.RfPlacementCountry",
+                        "LoanApplicationFacilities.ApplicationType",
                     };
                     break;
+                #endregion
+                #region Analyst
+
+                case "analisa_slik_text":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfBookingBranch",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_slik_summary":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfBookingBranch",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_prescreening_dokumen":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfBookingBranch",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_prescreening_duplikasi":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfBookingBranch",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_prescreening_rac":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfBookingBranch",
+                        "RfOwnerCategory",
+                        "LoanApplicationRAC",
+                    };
+                    break;
+
+                case "analisa_verifikasi_usaha":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationVerificationBusiness.BusinessPlaceOwnership",
+                        "LoanApplicationVerificationBusiness.OldBusinessLocation",
+                    };
+                    break;
+
+                case "analisa_verifikasi_siklus":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationVerificationCycle.BusinessLandForm",
+                        "LoanApplicationVerificationCycle.BusinessLandArea",
+                        "LoanApplicationVerificationCycle.BusinessCapacity",
+                    };
+                    break;
+
+                case "analisa_verifikasi_kebutuhan":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationVerificationNeed.RfPlacementCountry",
+                        "LoanApplicationVerificationNeed.ApplicationType",
+                    };
+                    break;
+
+                case "analisa_informasi_bisnis":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                        "LoanApplicationBusinessInformation",
+                    };
+                    break;
+
+                case "analisa_hubungan_dengan_bank":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_tujuan_peminjaman":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_kemampuan_membayar":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_hasil_rekomendasi":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_jaminan":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_sandi_ojk":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_informasi_pencairan":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_syarat_kredit":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                case "analisa_complience_sheet":
+                    includes = new List<string>()
+                    {
+                        "RfBranch",
+                        "RfBookingBranch",
+                        "Owner",
+                        "RfProduct",
+                        "Debtor",
+                        "DebtorCompany",
+                        "RfOwnerCategory",
+                    };
+                    break;
+
+                #endregion
 
                 default:
                     break;
