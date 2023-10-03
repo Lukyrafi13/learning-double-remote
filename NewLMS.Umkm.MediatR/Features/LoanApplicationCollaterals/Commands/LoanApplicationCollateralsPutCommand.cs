@@ -20,12 +20,12 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationCollaterals.Commands
 
     public class LoanApplicationCollateralsPutCommandHandler : IRequestHandler<LoanApplicationCollateralsPutCommand, ServiceResponse<Unit>>
     {
-        private readonly IGenericRepositoryAsync<loanApplicationcollateralowner> _loanApplicationCollateral;
+        private readonly IGenericRepositoryAsync<LoanApplicationCollateral> _loanApplicationCollateral;
         private readonly IGenericRepositoryAsync<LoanApplicationCollateralOwner> _loanApplicationCollateralOwner;
         private readonly IMapper _mapper;
 
         public LoanApplicationCollateralsPutCommandHandler(
-            IGenericRepositoryAsync<loanApplicationcollateralowner> loanApplicationCollateral, 
+            IGenericRepositoryAsync<LoanApplicationCollateral> loanApplicationCollateral, 
             IGenericRepositoryAsync<LoanApplicationCollateralOwner> loanApplicationCollateralOwner, 
             IMapper mapper)
         {

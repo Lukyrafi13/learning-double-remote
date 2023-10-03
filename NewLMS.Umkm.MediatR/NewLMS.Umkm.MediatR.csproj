@@ -50,13 +50,14 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Bjb.DigitalBisnis.FcmNotification" Version="1.0.4" />
     <PackageReference Include="Bjb.DigitalBisnis.SLIK" Version="6.0.3" />
+    <PackageReference Include="Bjb.DigitalBisnis.FileUpload" Version="1.0.2" />
     <PackageReference Include="Bjb.UIM.Api" Version="1.0.5" />
     <PackageReference Include="Bjb.Util.GeneratePdf" Version="1.0.2" />
     <PackageReference Include="Canducci.GeneratePassword" Version="2.0.0" />
     <PackageReference Include="Canducci.GeneratePassword.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="ClosedXML" Version="0.96.0" />
-    <PackageReference Include="FluentValidation" Version="11.1.0" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
+    <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
     <PackageReference Include="Hangfire.AspNetCore" Version="1.7.31" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.7.31" />
     <PackageReference Include="MediatR" Version="10.0.1" />
