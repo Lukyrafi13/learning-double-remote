@@ -94,6 +94,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<LoanApplicationVerificationNeed> LoanApplicationVerificationNeeds { get; set; }
         public DbSet<LoanApplicationVerificationNeedDetail> LoanApplicationVerificationNeedDetails { get; set; }
         public DbSet<LoanApplicationCreditHistory> LoanApplicationCreditHistories { get; set; }
+        public DbSet<LoanApplicationBusinessInformation> LoanApplicationBusinessInformation { get; set; }
 
         #endregion
 
