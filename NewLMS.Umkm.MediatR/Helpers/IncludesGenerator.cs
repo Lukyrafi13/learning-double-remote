@@ -133,7 +133,13 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor.RfMarital",
                         "SLIKRequest.SLIKRequestDebtors",
                         "LoanApplicationFacilities.RfTenor",
-                        "LoanApplicationCreditHistories",
+                        "LoanApplicationCreditHistories.RfSandiBIEconomySectorClass",
+                        "LoanApplicationCreditHistories.RfSandiBIBehaviourClass",
+                        "LoanApplicationCreditHistories.RfSandiBIApplicationTypeClass",
+                        "LoanApplicationCreditHistories.RfSandiBICollectibilityClass",
+                        "LoanApplicationCreditHistories.RfCondition",
+                        "LoanApplicationCreditHistories.RfCreditType",
+                        "LoanApplicationCreditHistories.RfBank",
                         "LoanApplicationRAC",
                     };
                     break;
