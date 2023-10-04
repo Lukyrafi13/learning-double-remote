@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewLMS.Umkm.Data.Dto.RfBusinessPlaceOwnership;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,25 +11,60 @@ namespace NewLMS.Umkm.Data.Entities
         [Required]
         [ForeignKey(nameof(LoanApplication))]
         public Guid LoanApplicationId { get; set; }
-        public string BusinessAddressSameWithApplication { get; set; }
-        public string BusinessLocation { get; set; }
+        public bool BusinessAddressSameWithApplication { get; set; }
+        
+        [ForeignKey(nameof(RfBusinessLocation))]
+        public string BusinessLocationCode { get; set; }
+
         public double? DistanceBusinessLocation { get; set; }
-        public string BusinessPlaceType { get; set; }
+
+        [ForeignKey(nameof(RfBusinessPlaceType))]
+        public string BusinessPlaceTypeCode { get; set; }
+
+
         public string PermitsHeld { get; set; }
-        public string BusinessGroup { get; set; }
-        public string BusinessPlaceLocation { get; set; }
-        public string Ownership { get; set; }
+
+        [ForeignKey(nameof(RfBusinessType))]
+        public string BusinessTypeCode { get; set; }
+
+        [ForeignKey(nameof(RfBusinessPlaceLocation))]
+        public string BusinessPlaceLocationCode { get; set; }
+        
+        [ForeignKey(nameof(RfBusinessPlaceOwnership))]
+        public string BusinessPlaceOwnCode { get; set; }
+
+        public string OtherBusinessPalceOwnership { get; set; }
         public double? Number { get; set; }
-        public string MarketingAspect { get; set; }
-        public string NumberOfPermanentEmployee { get; set; }
-        public string NumberOfDailyEmployee { get; set; }
+        
+        [ForeignKey(nameof(RfMarketingAspect))]
+        public int? MarketingAspectCode { get; set; }
+
+        [ForeignKey(nameof(RfNumberOfPermanentEmployee))]
+        public int? NumberOfPermanentEmployeeCode { get; set; }
+
+        [ForeignKey(nameof(RfNumberOfDailyEmployee))]
+        public int? NumberOfDailyEmployeeCode { get; set; }
+        
         public double? LongTimeInBusiness { get; set; }
         public double? LongStayBusinessPlace { get; set; }
-        public string DebtorHaveOtherBusiness { get; set; }
-        //kayanya ada tambahan field disini
-        public string DebtorBusinessNotAvoided { get; set; }
+        public bool DebtorHaveOtherBusiness { get; set; }
+        public string DebtorOtherBusiness { get; set; }
+        
+        [ForeignKey(nameof(RfOtherBusinessDuration))]
+        public int? OtherBusinessDurationCode { get; set; }
+
+        public bool DebtorBusinessNotAvoided { get; set; }
         public string BusinessActivity { get; set; }
 
         public virtual LoanApplication LoanApplication { get; set; }
+        public virtual RfBusinessLocation RfBusinessLocation { get; set; }
+        public virtual RfBusinessPlaceType RfBusinessPlaceType { get; set; }
+        public virtual RfBusinessType RfBusinessType { get; set; }
+        public virtual RfBusinessPlaceLocation RfBusinessPlaceLocation { get; set; }
+        public virtual RfBusinessPlaceOwnership RfBusinessPlaceOwnership { get; set; }
+        public virtual RfParameterDetail RfMarketingAspect { get; set; }
+        public virtual RfParameterDetail RfNumberOfPermanentEmployee { get; set; }
+        public virtual RfParameterDetail RfNumberOfDailyEmployee { get; set; }
+        public virtual RfParameterDetail RfOtherBusinessDuration { get; set; }
     }
 }

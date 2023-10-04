@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NewLMS.Umkm.Data.Dto.LoanApplicationAnalysts;
+using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.Umkm.Data.Entities;
 using System;
 using System.Linq;
@@ -26,6 +27,10 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
 
             CreateMap<LoanApplication, LoanApplicationAnalystReponse>()
                 .ForMember(d => d.LoanApplicationAnalystAppInfo, o =>
+                {
+                    o.MapFrom(s => s ?? new LoanApplication());
+                })
+                .ForMember(d => d.SLIKAdmin, o =>
                 {
                     o.MapFrom(s => s ?? new LoanApplication());
                 })
@@ -101,6 +106,16 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                     o.MapFrom(s => s.RfOwnerCategory);
                 })
                 ;
+
+            CreateMap<LoanApplication, LoanApplicationAnalystSLIKAdminTabResponse>()
+                .ForMember(d => d.SLIKRequestDebtors, o =>
+                {
+                    o.MapFrom(s => s.SLIKRequest.SLIKRequestDebtors);
+                })
+                .ForMember(d => d.CreditHistories, o =>
+                {
+                    o.MapFrom(s => s.LoanApplicationCreditHistories);
+                });
         }
     }
 }
