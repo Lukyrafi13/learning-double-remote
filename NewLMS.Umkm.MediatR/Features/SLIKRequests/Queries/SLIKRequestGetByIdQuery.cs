@@ -48,7 +48,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Queries
                     "LoanApplication.DebtorCompany",
                     "LoanApplication.RfOwnerCategory",
                     "LoanApplication.Owner",
-                    "SLIKRequestDebtors"
+                    "SLIKRequestDebtors.FileUrl"
                 };
 
                 var data = await _slikRequest.GetByIdAsync(request.Id, "Id", includes);
