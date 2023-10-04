@@ -26,6 +26,9 @@
     <None Remove="Dto\SLIKRequestDebtors\" />
     <None Remove="Dto\FileUrls\" />
     <None Remove="Dto\RfBanks\" />
+    <None Remove="Dto\MSearch\" />
+    <None Remove="Dto\LoanApplicationDuplications\" />
+    <None Remove="Dto\DuplicateLoanApplications\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -60,5 +63,8 @@
     <Folder Include="Dto\SLIKRequestDebtors\" />
     <Folder Include="Dto\FileUrls\" />
     <Folder Include="Dto\RfBanks\" />
+    <Folder Include="Dto\MSearch\" />
+    <Folder Include="Dto\LoanApplicationDuplications\" />
+    <Folder Include="Dto\DuplicateLoanApplications\" />
   </ItemGroup>
 </Project>

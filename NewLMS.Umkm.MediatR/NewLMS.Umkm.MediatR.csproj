@@ -46,6 +46,7 @@
     <None Remove="Features\SLIKRequests\Command\" />
     <None Remove="Features\RfBanks\" />
     <None Remove="Features\RfBanks\Queries\" />
+    <None Remove="FireAndForgetJobs\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -140,6 +141,7 @@
     <Folder Include="Features\SLIKRequests\Command\" />
     <Folder Include="Features\RfBanks\" />
     <Folder Include="Features\RfBanks\Queries\" />
+    <Folder Include="FireAndForgetJobs\" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Bjb.DigitalBisnis.CurrentUser.Interfaces" />

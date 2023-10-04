@@ -95,6 +95,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<LoanApplicationVerificationNeedDetail> LoanApplicationVerificationNeedDetails { get; set; }
         public DbSet<LoanApplicationCreditHistory> LoanApplicationCreditHistories { get; set; }
         public DbSet<LoanApplicationBusinessInformation> LoanApplicationBusinessInformation { get; set; }
+        public DbSet<LoanApplicationDuplication> LoanApplicationDuplications { get; set; }
 
         #endregion
 
@@ -158,6 +159,7 @@ namespace NewLMS.Umkm.Domain.Context
         public DbSet<RfMappingDocumentPrescreening> RfMappingDocumentPrescreenings { get; set; }
         public DbSet<RfMappingPlafondPlacementCountry> RfMappingPlafondPlacementCountries { get; set; }
         public DbSet<RfBank> RfBanks { get; set; }
+        public DbSet<MSearch> MSearches { get; set; }
 
         #endregion
 
@@ -165,6 +167,13 @@ namespace NewLMS.Umkm.Domain.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<MSearch>().HasKey(x => new
+            {
+                x.TypeId,
+                x.SearchType,
+                x.SearchId
+            });
 
             builder.Entity<MLiquidation>().HasKey(x => new { x.TypeId });
             builder.Entity<MLiquidationCondition>(b =>

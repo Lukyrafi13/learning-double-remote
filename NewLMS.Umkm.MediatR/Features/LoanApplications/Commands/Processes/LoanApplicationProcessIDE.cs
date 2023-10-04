@@ -10,10 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using NewLMS.Umkm.MediatR.Features.SIKPs.SIKP;
 using System.Net;
 using NewLMS.Umkm.Data.Enums;
 using NewLMS.Umkm.MediatR.Helpers;
+using Hangfire;
+using NewLMS.Umkm.MediatR.FireAndForgetJobs;
 
 namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
 {
@@ -145,10 +146,12 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes
                     ProcessedDate = DateTime.Now,
                 };
                 await _loanApplicationStage.AddAsync(loanApplicationStage);
-                loanApplication.Status = Data.Enums.EnumLoanApplicationStatus.Processed;
+                loanApplication.Status = EnumLoanApplicationStatus.Processed;
                 loanApplication.LoanApplicationCollaterals = null;
                 loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                 await _loanApplication.UpdateAsync(loanApplication);
+
+                BackgroundJob.Enqueue<IFireAndForgetDuplicationCheck>(x => x.DuplicationCheck(loanApplication.Id));
             }
             catch (Exception ex)
             {

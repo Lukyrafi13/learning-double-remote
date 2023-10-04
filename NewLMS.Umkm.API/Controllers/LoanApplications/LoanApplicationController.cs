@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Dto.Appraisals;
 using NewLMS.Umkm.Data.Dto.LoanApplicationAnalysts;
+using NewLMS.Umkm.Data.Dto.LoanApplicationDuplication;
 using NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings;
 using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
@@ -15,6 +16,7 @@ using NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands.Processes;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplications.Queries.GetDuplicationLoanApplication;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Commands;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationSurvey.Queries;
 using NewLMS.Umkm.MediatR.Features.Prospects.Queries;
@@ -128,6 +130,22 @@ namespace NewLMS.Umkm.API.Controllers.LoanApplciations
 
             return Ok(await Mediator.Send(command));
         }
+
+        #region Duplication
+        /// <summary>
+        /// Get LoanApplication's Duplications (Local)
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpGet("Duplication/{Id}")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationDuplicationResponse>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> Duplication([FromRoute] Guid Id)
+        {
+            var command = new GetDuplicationLoanApplicationQuery() { LoanApplicationGuid = Id };
+
+            return Ok(await Mediator.Send(command));
+        }
+        #endregion
 
 
         #region Appraisal Asignment
