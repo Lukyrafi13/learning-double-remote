@@ -11,6 +11,7 @@ using NewLMS.Umkm.Data.Dto.LoanApplications;
 using NewLMS.Umkm.Data.Dto.LoanApplicationSurvey;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.Appraisals.Queries;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationAnalysts.Commands;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationAnalysts.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationPrescreenings.Queries;
 using NewLMS.Umkm.MediatR.Features.LoanApplications.Commands;
@@ -315,6 +316,18 @@ namespace NewLMS.Umkm.API.Controllers.LoanApplciations
         [HttpPost("analyst/get/detail")]
         [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<LoanApplicationAnalystReponse>>), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDetailAnalyst(LoanApplicationAnalystsGetDetailQuery command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Upsert Analyst
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("analyst/upsert")]
+        [ProducesResponseType(type: typeof(PagedResponse<IEnumerable<Unit>>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpsertAnalyst(UpsertLoanApplicationAnalystCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
