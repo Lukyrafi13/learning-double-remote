@@ -3205,6 +3205,9 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<Guid?>("LoanApplicationCollateralGuid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("LoanApplicationGuid")
                         .HasColumnType("uniqueidentifier");
 
@@ -3217,6 +3220,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasKey("GeneratedFileGuid");
 
                     b.HasIndex("GeneratedFileGroupGuid");
+
+                    b.HasIndex("LoanApplicationCollateralGuid");
 
                     b.HasIndex("LoanApplicationGuid");
 
@@ -3405,6 +3410,115 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.ToTable("LoanApplicationAppraisals");
                 });
 
+            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationBusinessInformation", b =>
+                {
+                    b.Property<Guid>("LoanApplicationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BusinessActivity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("BusinessAddressSameWithApplication")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("BusinessLocationCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BusinessPlaceLocationCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BusinessPlaceOwnCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BusinessPlaceTypeCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BusinessTypeCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("DebtorBusinessNotAvoided")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("DebtorHaveOtherBusiness")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DebtorOtherBusiness")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double?>("DistanceBusinessLocation")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double?>("LongStayBusinessPlace")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("LongTimeInBusiness")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("MarketingAspectCode")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double?>("Number")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("NumberOfDailyEmployeeCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumberOfPermanentEmployeeCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OtherBusinessDurationCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OtherBusinessPalceOwnership")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PermitsHeld")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LoanApplicationId");
+
+                    b.HasIndex("BusinessLocationCode");
+
+                    b.HasIndex("BusinessPlaceLocationCode");
+
+                    b.HasIndex("BusinessPlaceOwnCode");
+
+                    b.HasIndex("BusinessPlaceTypeCode");
+
+                    b.HasIndex("BusinessTypeCode");
+
+                    b.HasIndex("MarketingAspectCode");
+
+                    b.HasIndex("NumberOfDailyEmployeeCode");
+
+                    b.HasIndex("NumberOfPermanentEmployeeCode");
+
+                    b.HasIndex("OtherBusinessDurationCode");
+
+                    b.ToTable("LoanApplicationBusinessInformation");
+                });
+
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
                 {
                     b.Property<Guid>("Id")
@@ -3468,7 +3582,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("DocumentPublisher")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DocumentReleaseDate")
+                    b.Property<DateTime?>("DocumentReleaseDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EastBoundaries")
@@ -10221,6 +10335,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", "LoanApplicationCollateral")
+                        .WithMany()
+                        .HasForeignKey("LoanApplicationCollateralGuid");
+
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplications")
                         .WithMany()
                         .HasForeignKey("LoanApplicationGuid")
@@ -10228,6 +10346,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("GeneratedFileGroups");
+
+                    b.Navigation("LoanApplicationCollateral");
 
                     b.Navigation("LoanApplications");
                 });
@@ -10338,6 +10458,71 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("LoanApplicationCollateral");
 
                     b.Navigation("RfStage");
+                });
+
+            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationBusinessInformation", b =>
+                {
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessLocation", "RfBusinessLocation")
+                        .WithMany()
+                        .HasForeignKey("BusinessLocationCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceLocation", "RfBusinessPlaceLocation")
+                        .WithMany()
+                        .HasForeignKey("BusinessPlaceLocationCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", "RfBusinessPlaceOwnership")
+                        .WithMany()
+                        .HasForeignKey("BusinessPlaceOwnCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceType", "RfBusinessPlaceType")
+                        .WithMany()
+                        .HasForeignKey("BusinessPlaceTypeCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessType", "RfBusinessType")
+                        .WithMany()
+                        .HasForeignKey("BusinessTypeCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
+                        .WithOne("LoanApplicationBusinessInformation")
+                        .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationBusinessInformation", "LoanApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfMarketingAspect")
+                        .WithMany()
+                        .HasForeignKey("MarketingAspectCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfNumberOfDailyEmployee")
+                        .WithMany()
+                        .HasForeignKey("NumberOfDailyEmployeeCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfNumberOfPermanentEmployee")
+                        .WithMany()
+                        .HasForeignKey("NumberOfPermanentEmployeeCode");
+
+                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOtherBusinessDuration")
+                        .WithMany()
+                        .HasForeignKey("OtherBusinessDurationCode");
+
+                    b.Navigation("LoanApplication");
+
+                    b.Navigation("RfBusinessLocation");
+
+                    b.Navigation("RfBusinessPlaceLocation");
+
+                    b.Navigation("RfBusinessPlaceOwnership");
+
+                    b.Navigation("RfBusinessPlaceType");
+
+                    b.Navigation("RfBusinessType");
+
+                    b.Navigation("RfMarketingAspect");
+
+                    b.Navigation("RfNumberOfDailyEmployee");
+
+                    b.Navigation("RfNumberOfPermanentEmployee");
+
+                    b.Navigation("RfOtherBusinessDuration");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
@@ -11643,8 +11828,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .HasForeignKey("BranchCode");
 
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithMany()
-                        .HasForeignKey("Id")
+                        .WithOne("SLIKRequest")
+                        .HasForeignKey("NewLMS.Umkm.Data.SLIKRequest", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -11789,6 +11974,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                 {
                     b.Navigation("DebtorEmergency");
 
+                    b.Navigation("LoanApplicationBusinessInformation");
+
                     b.Navigation("LoanApplicationCollaterals");
 
                     b.Navigation("LoanApplicationCreditHistories");
@@ -11810,6 +11997,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("LoanApplicationVerificationCycle");
 
                     b.Navigation("LoanApplicationVerificationNeed");
+
+                    b.Navigation("SLIKRequest");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationAppraisal", b =>

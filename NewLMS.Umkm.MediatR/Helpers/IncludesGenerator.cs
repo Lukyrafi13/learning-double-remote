@@ -259,7 +259,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                 #endregion
                 #region Analyst
 
-                case "analisa_slik_text":
+                case "analisa_prescreening_slik_admin":
                     includes = new List<string>()
                     {
                         "RfBranch",
@@ -269,19 +269,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                    };
-                    break;
-
-                case "analisa_slik_summary":
-                    includes = new List<string>()
-                    {
-                        "RfBranch",
-                        "Owner",
-                        "RfProduct",
-                        "Debtor",
-                        "DebtorCompany",
-                        "RfBookingBranch",
-                        "RfOwnerCategory",
+                        "SLIKRequest.SLIKRequestDebtors",
+                        "LoanApplicationCreditHistories",
                     };
                     break;
 

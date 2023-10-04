@@ -60,6 +60,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping
                 mc.AddProfile(new LoanApplicationAnalystsProfile());
                 mc.AddProfile(new LoanApplicationBusinessInformationsProfile());
                 mc.AddProfile(new LoanApplicationCreditHistoryProfile());
+                mc.AddProfile(new GeneratedFileProfile());
             });
             return mappingConfig.CreateMapper();
         }

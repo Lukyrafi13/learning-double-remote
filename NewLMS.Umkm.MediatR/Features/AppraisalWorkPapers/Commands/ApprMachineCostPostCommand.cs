@@ -6,10 +6,8 @@ using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Helpers;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -57,6 +55,15 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Commands
                     machineCostMapped.ApprWorkPaperMachineMarketSummaryGuid = machineCost.ApprWorkPaperMachineMarketSummaryGuid;
                     machineCostMapped.ApprMachineTemplateGuid = machineCost.ApprMachineTemplateGuid;
                     machineCostMapped = HelperGeneral.UpdateBaseEntityTime(machineCostMapped, machineCost);
+                    machineCostMapped.DataSource = request.DataSource;
+                    machineCostMapped.PicPhoneNo = request.PicPhoneNo;
+                    machineCostMapped.DistributorPhoneNo = request.DistributorPhoneNo;
+                    machineCostMapped.MachineType = request.MachineType;
+                    machineCostMapped.ModelType = request.ModelType;
+                    machineCostMapped.EconomicAge = request.EconomicAge;
+                    machineCostMapped.Condition = request.Condition;
+                    machineCostMapped.InvoiceValue = request.InvoiceValue;
+                    machineCostMapped.PctDepreciation = request.PctDepreciation;
 
                     await _machineCost.UpdateAsync(machineCostMapped);
                 }
@@ -65,6 +72,15 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Commands
                     machineCostMapped.ApprWorkPaperMachineCostGuid = Guid.NewGuid();
                     machineCostMapped.ApprWorkPaperMachineMarketSummaryGuid = apprSummary.ApprWorkPaperMachineMarketSummaryGuid;
                     machineCostMapped.ApprMachineTemplateGuid = machineTemplate.ApprMachineTemplateGuid;
+                    machineCostMapped.DataSource = request.DataSource;
+                    machineCostMapped.PicPhoneNo = request.PicPhoneNo;
+                    machineCostMapped.DistributorPhoneNo = request.DistributorPhoneNo;
+                    machineCostMapped.MachineType = request.MachineType;
+                    machineCostMapped.ModelType = request.ModelType;
+                    machineCostMapped.EconomicAge = request.EconomicAge;
+                    machineCostMapped.Condition = request.Condition;
+                    machineCostMapped.InvoiceValue = request.InvoiceValue;
+                    machineCostMapped.PctDepreciation = request.PctDepreciation;
 
                     await _machineCost.AddAsync(machineCostMapped);
                 }
