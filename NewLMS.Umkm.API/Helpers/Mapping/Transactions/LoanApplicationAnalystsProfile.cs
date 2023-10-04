@@ -116,6 +116,8 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
                 {
                     o.MapFrom(s => s.LoanApplicationCreditHistories);
                 });
+
+            CreateMap<LoanApplicationAnalystRequest, LoanApplication>();
         }
     }
 }

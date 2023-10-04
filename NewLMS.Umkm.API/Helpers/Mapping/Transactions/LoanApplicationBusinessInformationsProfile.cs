@@ -9,7 +9,7 @@ namespace NewLMS.Umkm.API.Helpers.Mapping.Transactions
         public LoanApplicationBusinessInformationsProfile()
         {
             CreateMap<LoanApplicationBusinessInformation, LoanApplicationBusinessInformationResponse>();
-            CreateMap<LoanApplicationBusinessInformationRequest, LoanApplicationBusinessInformation > ();
+            CreateMap<LoanApplicationBusinessInformationRequest, LoanApplicationBusinessInformation> ();
         }
     }
 }
