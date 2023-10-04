@@ -101,6 +101,23 @@ namespace NewLMS.Umkm.API.Controllers.SIKPs
         }
 
         /// <summary>
+        /// Process SLIK Admin </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("process/AKBL/{Id}")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> ProcessSLIKAkmin([FromRoute] Guid Id)
+        {
+            var command = new SLIKRequestAKBLProcessCommand
+            {
+                Id = Id
+            };
+            var res = await Mediator.Send(command);
+
+            return Ok(res);
+        }
+
+        /// <summary>
         /// Submit SLIKRequests AKBL
         /// </summary>
         /// <param name="command"></param>
