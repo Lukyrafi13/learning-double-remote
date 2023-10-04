@@ -17,6 +17,10 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Commands
     public class SLIKRequestAKBLProcessCommand : IRequest<ServiceResponse<Unit>>
     {
         public Guid Id { get; set; }
+        public double TotalCreditCard { get; set; }
+        public double TotalLimitSlik { get; set; }
+        public double TotalOtherUses { get; set; }
+        public double TotalWorkingCapital { get; set; }
     }
 
     public class SLIKRequestAKBLProcessCommandHandler : IRequestHandler<SLIKRequestAKBLProcessCommand, ServiceResponse<Unit>>
@@ -39,7 +43,14 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Commands
             try
             {
                 var slikRequest = await _slikRequest.GetByIdAsync(request.Id, "Id", new string[] { "LoanApplication" }) ?? throw new NullReferenceException("Data SLIK tidak ditemukan.");
-                slikRequest.StageId = UMKMConst.Stages["SLIKAdmin"];
+
+                slikRequest.Status = Data.Enums.EnumSLIKStatus.Processed;
+                slikRequest.AdminVerified = true;
+                slikRequest.ReadAndUnderstand = true;
+                slikRequest.TotalCreditCard = request.TotalCreditCard;
+                slikRequest.TotalLimitSlik = request.TotalLimitSlik;
+                slikRequest.TotalOtherUses = request.TotalOtherUses;
+                slikRequest.TotalWorkingCapital = request.TotalWorkingCapital;
 
                 #region LoanStage Logging
                 var prevQuery = _userContext.Set<LoanApplicationStage>().AsQueryable();
@@ -53,8 +64,9 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequests.Commands
                     await _loanStage.UpdateAsync(prevLoanApplicationStage);
                 }
 
-                LoanApplicationStage loanApplicationStage = LoanApplicationHelper.CreateLoanApplicationStage(slikRequest.LoanApplication, Guid.Parse(_currentUser.Id), UMKMConst.Stages["SLIKAdmin"], null, UMKMConst.Roles["AdministrasiOperasional"]);
-                await _loanStage.AddAsync(loanApplicationStage);
+                //Don't Create new log
+                //LoanApplicationStage loanApplicationStage = LoanApplicationHelper.CreateLoanApplicationStage(slikRequest.LoanApplication, Guid.Parse(_currentUser.Id), UMKMConst.Stages["SLIKAdmin"], null, UMKMConst.Roles["AdministrasiOperasional"]);
+                //await _loanStage.AddAsync(loanApplicationStage);
                 #endregion
 
                 await _slikRequest.UpdateAsync(slikRequest);

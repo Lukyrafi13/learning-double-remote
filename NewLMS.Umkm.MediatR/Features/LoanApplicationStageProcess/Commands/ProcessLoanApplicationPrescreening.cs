@@ -46,7 +46,16 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
         {
             try
             {
-                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.Id);
+                var includes = new string[]
+                    {
+                        "SLIKRequest"
+                    };
+                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.Id, includes);
+                if (loanApplication.SLIKRequest != null && !loanApplication.SLIKRequest.AdminVerified)
+                {
+                    return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, "Data belum diverifikasi oleh admin untuk proses SLIK, Gagal Dipreses.");
+                }
+
                 if (loanApplication != null)
                 {
                     #region LoanStage Logging
