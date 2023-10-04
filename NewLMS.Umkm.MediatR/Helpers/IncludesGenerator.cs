@@ -360,7 +360,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                     };
                     break;
 
-                case "analisa_informasi_bisnis":
+                case "analisa_informasi_usaha":
                     includes = new List<string>()
                     {
                         "RfBranch",
@@ -370,7 +370,15 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor",
                         "DebtorCompany",
                         "RfOwnerCategory",
-                        "LoanApplicationBusinessInformation",
+                        "LoanApplicationBusinessInformation.RfBusinessLocation",
+                        "LoanApplicationBusinessInformation.RfBusinessPlaceType",
+                        "LoanApplicationBusinessInformation.RfBusinessType",
+                        "LoanApplicationBusinessInformation.RfBusinessPlaceLocation",
+                        "LoanApplicationBusinessInformation.RfBusinessPlaceOwnership.RfBusinessPlaceLocation",
+                        "LoanApplicationBusinessInformation.RfMarketingAspect",
+                        "LoanApplicationBusinessInformation.RfNumberOfPermanentEmployee",
+                        "LoanApplicationBusinessInformation.RfNumberOfDailyEmployee",
+                        "LoanApplicationBusinessInformation.RfOtherBusinessDuration",
                     };
                     break;
 
