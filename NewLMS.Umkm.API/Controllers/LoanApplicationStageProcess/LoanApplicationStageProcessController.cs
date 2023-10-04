@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands;
+using NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands.Analysts;
 using System.Threading.Tasks;
 
 namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
@@ -123,7 +124,7 @@ namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
         }
         #endregion
 
-        //Survey
+        #region Survey
         /// <summary>
         /// Process Survey Process To Analisa
         /// </summary>
@@ -147,5 +148,57 @@ namespace NewLMS.Umkm.API.Controllers.LoanApplicationStageProcess
         {
             return Ok(await Mediator.Send(command));
         }
+        #endregion
+
+        #region Analisa
+        /// <summary>
+        /// Process Analisa Process To Review
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("analyst/process")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> AnalystProcess(ProcessLoanApplicationAnalystsCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Analisa Back To IDE
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("analyst/back-to-ide")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> AnalystBackToIDE(BackToIdeLoanApplicationAnalystCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Analisa Back To Prescreening
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("analyst/back-to-prescreening")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> AnalystBackToPrescreen(BackToPrescreenLoanApplicationAnalystCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        /// <summary>
+        /// Analisa Back To Survey
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("analyst/back-to-survey")]
+        [ProducesResponseType(type: typeof(ServiceResponse<Unit>), statusCode: StatusCodes.Status201Created)]
+        public async Task<IActionResult> analystBackToSurvey(BackToSurveyLoanApplicationAnalystCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        #endregion
     }
 }
