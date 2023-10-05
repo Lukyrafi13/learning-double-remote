@@ -22,7 +22,9 @@ namespace NewLMS.Umkm.Data.Entities
         public string VehicleType { get; set; }
         public string Manufacture { get; set; }
         public string ModelType { get; set; }
-        public string OwnershipStatus { get; set; }
+
+        [ForeignKey(nameof(RfOwnershipStatus))]
+        public int? OwnershipStatus { get; set; }
         public string OwnerName { get; set; }
         public string DomicileCity { get; set; }
         public string MachineNo { get; set; }
@@ -39,5 +41,7 @@ namespace NewLMS.Umkm.Data.Entities
         public string Mileage { get; set; }
         public string FeatureFunction { get; set; }
         public string PeriodicService { get; set; }
+
+        public virtual RfParameterDetail RfOwnershipStatus { get; set; }
     }
 }
