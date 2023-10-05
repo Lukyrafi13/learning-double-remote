@@ -28,6 +28,7 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
         private readonly IGenericRepositoryAsync<ApprBuildingTemplates> _apprBuilding;
         private readonly IGenericRepositoryAsync<ApprLiquidation> _apprLiquidation;
         private readonly IGenericRepositoryAsync<MLiquidationItem> _mItem;
+        private readonly IGenericRepositoryAsync<ApprBuildingFloors> _apprBuildingFloor;
         private readonly IMapper _mapper;
 
         public GetApprShopApartmentQueryHandler(
@@ -36,7 +37,8 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
             IGenericRepositoryAsync<ApprWorkPaperShopApartments> appr,
             IGenericRepositoryAsync<ApprBuildingTemplates> apprBuilding,
             IGenericRepositoryAsync<ApprLiquidation> apprLiquidation,
-            IGenericRepositoryAsync<MLiquidationItem> mItem)
+            IGenericRepositoryAsync<MLiquidationItem> mItem,
+            IGenericRepositoryAsync<ApprBuildingFloors> apprBuildingFloor)
         {
             _apprSummary = apprSummary;
             _mapper = mapper;
@@ -44,6 +46,7 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
             _apprBuilding = apprBuilding;
             _apprLiquidation = apprLiquidation;
             _mItem = mItem;
+            _apprBuildingFloor = apprBuildingFloor;
         }
         public async Task<ServiceResponse<ApprWorkPaperShopApartmentHeaderResponse>> Handle(GetApprShopApartmentQuery request, CancellationToken cancellationToken)
         {
@@ -113,6 +116,21 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                     }
                 }
 
+                //Get Total Building Area
+                var apprBuildingFloor = await _apprBuildingFloor.GetListByPredicate(x => x.ApprBuildingTemplateGuid == apprBuilding.ApprEnvironmentGuid);
+                double? buildingArea = 0;
+                if (apprBuildingFloor != null && apprBuildingFloor.Any())
+                {
+                    foreach (var apprBF in apprBuildingFloor)
+                    {
+                        if (apprBF.TotalArea.HasValue)
+                        {
+                            buildingArea += apprBF.TotalArea;
+                        }
+
+                    }
+                }
+
                 apprSummary = await GetWorkPaperSummary(request.AppraisalGuid);
                 foreach (var data in apprSummary.ApprWorkPaperShopApartments)
                 {
@@ -128,7 +146,7 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                             RoadWidth = data?.RoadWidth,
                             DataUsage = data?.DataUsage,
                             Allotment = _mapper.Map<SimpleResponse<Guid>>(data?.AllotmentFK),
-                            AreaTotalBuildingFloor = data?.AreaTotalBuildingFloor,
+                            AreaTotalBuildingFloor = buildingArea,
                             AreaActualLandControlled = data?.AreaActualLandControlled,
                             AreaFirstFloorBuilding = data?.AreaFirstFloorBuilding,
                             AreaEqualizationCoefficient = data?.AreaEqualizationCoefficient,
@@ -142,6 +160,11 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                             CurrPriceAfterDiscount = data?.CurrPriceAfterDiscount,
                             CurrShopPriceM2 = data?.CurrShopPriceM2,
                             Remark = data?.Remark,
+                            Address = data?.Address,
+                            Kelurahan = _mapper.Map<SimpleResponseWithPostCode<string>>(data?.WilayahVillages),
+                            Kecamatan = _mapper.Map<SimpleResponse<string>>(data?.WilayahVillages.WilayahDistricts),
+                            KotaKabupaten = _mapper.Map<SimpleResponse<string>>(data?.WilayahVillages.WilayahDistricts.WilayahRegencies),
+                            Provinsi = _mapper.Map<SimpleResponse<string>>(data?.WilayahVillages.WilayahDistricts.WilayahRegencies.WilayahProvinces),
                         };
 
                         dataVm.MarketData.Add(response);
