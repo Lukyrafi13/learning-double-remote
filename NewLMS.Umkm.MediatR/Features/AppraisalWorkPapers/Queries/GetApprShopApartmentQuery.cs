@@ -208,7 +208,8 @@ namespace NewLMS.Umkm.MediatR.Features.AppraisalWorkPapers.Queries
                     "ApprWorkPaperShopApartments.AllotmentFK",
                     "ApprWorkPaperShopApartments.LandFormFK",
                     "ApprWorkPaperShopApartments.LandConditionFK",
-                    "ApprWorkPaperShopApartments.OwnershipFK"
+                    "ApprWorkPaperShopApartments.OwnershipFK",
+                    "ApprWorkPaperShopApartments.DataTypeFK",
                 };
             var apprSummary = await _apprSummary.GetByIdAsync(appraisalGuid, "AppraisalGuid", include);
             if (apprSummary == null)
