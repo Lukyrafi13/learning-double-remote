@@ -38,6 +38,10 @@ namespace NewLMS.Umkm.Data.Dto.LoanApplicationPrescreenings
 
     public class LoanApplicationPrescreeningSLIKAdminTabResponse
     {
+        public double TotalCreditCard { get; set; }
+        public double TotalLimitSlik { get; set; }
+        public double TotalOtherUses { get; set; }
+        public double TotalWorkingCapital { get; set; }
         public List<SLIKRequestDebtorResponse> SLIKRequestDebtors { get; set; }
         public List<LoanApplicationCreditHistoryResponse> CreditHistories { get; set; }
     }
