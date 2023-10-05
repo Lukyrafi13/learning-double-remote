@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using NewLMS.Umkm.Common.GenericRespository;
 using NewLMS.Umkm.Data.Constants;
 using NewLMS.Umkm.Data.Dto.LoanApplicationStageProcess;
 using NewLMS.Umkm.Data.Entities;
@@ -9,58 +8,49 @@ using NewLMS.Umkm.Helper;
 using NewLMS.Umkm.MediatR.Helpers;
 using NewLMS.Umkm.Repository.GenericRepository;
 using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
 
-namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
+namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands.Analysts
 {
-    public class ProcessLoanApplicationPrescreening : LoanApplicationProcessStageRequest, IRequest<ServiceResponse<Unit>>
+    public class ProcessLoanApplicationAnalystsCommand : LoanApplicationProcessStageRequest, IRequest<ServiceResponse<Unit>>
     {
     }
 
-    public class ProcessLoanApplicationPrescreeningHandler : IRequestHandler<ProcessLoanApplicationPrescreening, ServiceResponse<Unit>>
+    public class ProcessLoanApplicationAnalystsCommandHandler : IRequestHandler<ProcessLoanApplicationAnalystsCommand, ServiceResponse<Unit>>
     {
         private readonly IGenericRepositoryAsync<LoanApplication> _loanApplication;
         private readonly IGenericRepositoryAsync<LoanApplicationStage> _loanStage;
+        private readonly IMapper _mapper;
         private readonly UserContext _userContext;
         private readonly ICurrentUserService _currentUser;
-        private readonly IMapper _mapper;
 
-        public ProcessLoanApplicationPrescreeningHandler(
+        public ProcessLoanApplicationAnalystsCommandHandler(
             IGenericRepositoryAsync<LoanApplication> loanApplication,
-            IMapper mapper,
+            IGenericRepositoryAsync<LoanApplicationStage> loanStage,
             UserContext userContext,
             ICurrentUserService currentUser,
-            IGenericRepositoryAsync<LoanApplicationStage> loanStage)
+            IMapper mapper)
         {
             _loanApplication = loanApplication;
-            _mapper = mapper;
+            _loanStage = loanStage;
             _userContext = userContext;
             _currentUser = currentUser;
-            _loanStage = loanStage;
+            _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Unit>> Handle(ProcessLoanApplicationPrescreening request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<Unit>> Handle(ProcessLoanApplicationAnalystsCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var includes = new string[]
-                    {
-                        "SLIKRequest"
-                    };
-                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.Id, includes);
-                if (loanApplication.SLIKRequest != null && !loanApplication.SLIKRequest.AdminVerified)
-                {
-                    return ServiceResponse<Unit>.ReturnFailed((int)HttpStatusCode.BadRequest, "Data belum diverifikasi oleh admin untuk proses SLIK, Gagal Dipreses.");
-                }
-
+                var loanApplication = await _loanApplication.GetByPredicate(x => x.Id == request.Id);
                 if (loanApplication != null)
                 {
                     #region LoanStage Logging
                     var prevQuery = _userContext.Set<LoanApplicationStage>().AsQueryable();
-                    var prevLoanApplicationStage = prevQuery.Where(x => x.LoanApplicationId == loanApplication.Id && x.StageId == UMKMConst.Stages["Prescreening"] && x.Processed == false).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+                    var prevLoanApplicationStage = prevQuery.Where(x => x.LoanApplicationId == loanApplication.Id && x.StageId == UMKMConst.Stages["Analisa"] && x.Processed == false).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
 
                     if (prevLoanApplicationStage != null)
                     {
@@ -70,13 +60,13 @@ namespace NewLMS.Umkm.MediatR.Features.LoanApplicationStageProcess.Commands
                         await _loanStage.UpdateAsync(prevLoanApplicationStage);
                     }
 
-                    LoanApplicationStage loanApplicationStage = LoanApplicationHelper.CreateLoanApplicationStage(loanApplication, Guid.Parse(_currentUser.Id), UMKMConst.Stages["Survey"], loanApplication.CreatedBy, UMKMConst.Roles["AccountOfficerUMKM"]);
+                    LoanApplicationStage loanApplicationStage = LoanApplicationHelper.CreateLoanApplicationStage(loanApplication, Guid.Parse(_currentUser.Id), UMKMConst.Stages["Review"], loanApplication.CreatedBy, UMKMConst.Roles["AccountOfficerUMKM"]);
 
                     await _loanStage.AddAsync(loanApplicationStage);
                     #endregion
 
 
-                    loanApplication.StageId = UMKMConst.Stages["Survey"];
+                    loanApplication.StageId = UMKMConst.Stages["Review"];
                     loanApplication = LoanApplicationHelper.ClearLoanApplicationRelatives(loanApplication);
                     await _loanApplication.UpdateAsync(loanApplication);
                 }

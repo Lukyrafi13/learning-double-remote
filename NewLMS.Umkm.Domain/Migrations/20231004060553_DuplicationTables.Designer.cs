@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.Umkm.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20231004060553_DuplicationTables")]
+    partial class DuplicationTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1434,8 +1436,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("OwnerName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OwnershipStatus")
-                        .HasColumnType("int");
+                    b.Property<string>("OwnershipStatus")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaintCondition")
                         .HasColumnType("nvarchar(max)");
@@ -1455,8 +1457,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasKey("ApprVehicleTemplateGuid");
 
                     b.HasIndex("AppraisalGuid");
-
-                    b.HasIndex("OwnershipStatus");
 
                     b.ToTable("ApprVehicleTemplate");
                 });
@@ -10063,13 +10063,7 @@ namespace NewLMS.Umkm.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOwnershipStatus")
-                        .WithMany()
-                        .HasForeignKey("OwnershipStatus");
-
                     b.Navigation("LoanApplicationAppraisal");
-
-                    b.Navigation("RfOwnershipStatus");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ApprWorkPaperLandBuildings", b =>

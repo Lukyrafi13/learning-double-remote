@@ -133,7 +133,13 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor.RfMarital",
                         "SLIKRequest.SLIKRequestDebtors",
                         "LoanApplicationFacilities.RfTenor",
-                        "LoanApplicationCreditHistories",
+                        "LoanApplicationCreditHistories.RfSandiBIEconomySectorClass",
+                        "LoanApplicationCreditHistories.RfSandiBIBehaviourClass",
+                        "LoanApplicationCreditHistories.RfSandiBIApplicationTypeClass",
+                        "LoanApplicationCreditHistories.RfSandiBICollectibilityClass",
+                        "LoanApplicationCreditHistories.RfCondition",
+                        "LoanApplicationCreditHistories.RfCreditType",
+                        "LoanApplicationCreditHistories.RfBank",
                         "LoanApplicationRAC",
                     };
                     break;
@@ -259,7 +265,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                 #endregion
                 #region Analyst
 
-                case "analisa_slik_text":
+                case "analisa_prescreening_slik_admin":
                     includes = new List<string>()
                     {
                         "RfBranch",
@@ -269,19 +275,8 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "DebtorCompany",
                         "RfBookingBranch",
                         "RfOwnerCategory",
-                    };
-                    break;
-
-                case "analisa_slik_summary":
-                    includes = new List<string>()
-                    {
-                        "RfBranch",
-                        "Owner",
-                        "RfProduct",
-                        "Debtor",
-                        "DebtorCompany",
-                        "RfBookingBranch",
-                        "RfOwnerCategory",
+                        "SLIKRequest.SLIKRequestDebtors",
+                        "LoanApplicationCreditHistories",
                     };
                     break;
 
@@ -371,7 +366,7 @@ namespace NewLMS.Umkm.MediatR.Helpers
                     };
                     break;
 
-                case "analisa_informasi_bisnis":
+                case "analisa_informasi_usaha":
                     includes = new List<string>()
                     {
                         "RfBranch",
@@ -381,7 +376,15 @@ namespace NewLMS.Umkm.MediatR.Helpers
                         "Debtor",
                         "DebtorCompany",
                         "RfOwnerCategory",
-                        "LoanApplicationBusinessInformation",
+                        "LoanApplicationBusinessInformation.RfBusinessLocation",
+                        "LoanApplicationBusinessInformation.RfBusinessPlaceType",
+                        "LoanApplicationBusinessInformation.RfBusinessType",
+                        "LoanApplicationBusinessInformation.RfBusinessPlaceLocation",
+                        "LoanApplicationBusinessInformation.RfBusinessPlaceOwnership.RfBusinessPlaceLocation",
+                        "LoanApplicationBusinessInformation.RfMarketingAspect",
+                        "LoanApplicationBusinessInformation.RfNumberOfPermanentEmployee",
+                        "LoanApplicationBusinessInformation.RfNumberOfDailyEmployee",
+                        "LoanApplicationBusinessInformation.RfOtherBusinessDuration",
                     };
                     break;
 

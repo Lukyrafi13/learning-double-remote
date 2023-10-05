@@ -19,5 +19,6 @@ namespace NewLMS.Umkm.Data.Dto.RfBusinessPlaceOwnership
     {
         public string BusinessPlaceOwnCode { get; set; }
         public string BusinessPlaceOwnDesc { get; set; }
+        public RfBusinessPlaceLocationSimpleResponse RfBusinessPlaceLocation { get; set; }
     }
 }

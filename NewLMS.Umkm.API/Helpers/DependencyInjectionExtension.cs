@@ -4,6 +4,7 @@ using NewLMS.Umkm.Domain.FUSE.GenericRepositoryFuse;
 // using NewLMS.Umkm.Domain.Services;
 // using NewLMS.Umkm.MediatR.Features.SlikRequestDuplikasis.Commands;
 using NewLMS.Umkm.MediatR.Features.RfZipCodes.Commands;
+using NewLMS.Umkm.MediatR.FireAndForgetJobs;
 
 namespace NewLMS.Umkm.Api.Helpers
 {
@@ -11,12 +12,12 @@ namespace NewLMS.Umkm.Api.Helpers
     {
         public static void AddDependencyInjection(this IServiceCollection services)
         {
-            // services.AddScoped<IDuplicationCheckTask, DuplicationCheckTask>();
+            services.AddScoped<IFireAndForgetDuplicationCheck, FireAndForgetDuplicationCheck>();
             services.AddScoped<IRfZipCodesUploadJSON, RfZipCodesUploadJSON>();
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
             services.AddTransient(typeof(IGenericRepositoryFuseAsync<>), typeof(GenericRepositoryFuseAsync<>));
             services.AddTransient(typeof(IGenericRepositoryDWHAsync<>), typeof(GenericRepositoryDWHAsync<>));
-          
+
         }
     }
 }

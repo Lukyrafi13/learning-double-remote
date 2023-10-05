@@ -80,6 +80,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands
                         fileUrl.Url = upload.Result.Data.ToString();
                         fileUrl.FileSize = request.Files.Length.ToString();
                         fileUrl.FileType = fileType;
+                        fileUrl.FileName = $"SLIK_ADMIN_{dataSlikRequest.LoanApplication.LoanApplicationId}_{dataSlikRequest.LoanApplication.Debtor.NoIdentity}.{fileType}";
                         await _fileUrl.UpdateAsync(fileUrl);
                         slikRequestDebtor.SLIKDocumentUrlId = fileUrl.Id;
                     }
@@ -103,6 +104,7 @@ namespace NewLMS.Umkm.MediatR.Features.SLIKRequestDebtors.Commands
                             Url = upload.Result.Data.ToString(),
                             FileSize = request.Files.Length.ToString(),
                             FileType = fileType,
+                            FileName = $"SLIK_ADMIN_{dataSlikRequest.LoanApplication.LoanApplicationId}_{dataSlikRequest.LoanApplication.Debtor.NoIdentity}.{fileType}"
                         };
                         var slikUrl = await _fileUrl.AddAsync(fileUrl);
                         slikRequestDebtor.SLIKDocumentUrlId = fileUrl.Id;
