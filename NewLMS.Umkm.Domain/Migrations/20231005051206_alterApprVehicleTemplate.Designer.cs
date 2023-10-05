@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewLMS.Umkm.Domain.Context;
 
@@ -11,9 +12,10 @@ using NewLMS.Umkm.Domain.Context;
 namespace NewLMS.Umkm.Domain.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20231005051206_alterApprVehicleTemplate")]
+    partial class alterApprVehicleTemplate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3420,23 +3422,20 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<string>("BusinessActivity")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("BusinessAddressSameWithApplication")
-                        .HasColumnType("bit");
+                    b.Property<string>("BusinessAddressSameWithApplication")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BusinessLocationCode")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("BusinessGroup")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BusinessPlaceLocationCode")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("BusinessLocation")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BusinessPlaceOwnCode")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("BusinessPlaceLocation")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BusinessPlaceTypeCode")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("BusinessTypeCode")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("BusinessPlaceType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -3444,13 +3443,10 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("DebtorBusinessNotAvoided")
-                        .HasColumnType("bit");
+                    b.Property<string>("DebtorBusinessNotAvoided")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("DebtorHaveOtherBusiness")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("DebtorOtherBusiness")
+                    b.Property<string>("DebtorHaveOtherBusiness")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("DeletedBy")
@@ -3471,8 +3467,8 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<double?>("LongTimeInBusiness")
                         .HasColumnType("float");
 
-                    b.Property<int?>("MarketingAspectCode")
-                        .HasColumnType("int");
+                    b.Property<string>("MarketingAspect")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
@@ -3483,40 +3479,19 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Property<double?>("Number")
                         .HasColumnType("float");
 
-                    b.Property<int?>("NumberOfDailyEmployeeCode")
-                        .HasColumnType("int");
+                    b.Property<string>("NumberOfDailyEmployee")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NumberOfPermanentEmployeeCode")
-                        .HasColumnType("int");
+                    b.Property<string>("NumberOfPermanentEmployee")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OtherBusinessDurationCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OtherBusinessPalceOwnership")
+                    b.Property<string>("Ownership")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PermitsHeld")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LoanApplicationId");
-
-                    b.HasIndex("BusinessLocationCode");
-
-                    b.HasIndex("BusinessPlaceLocationCode");
-
-                    b.HasIndex("BusinessPlaceOwnCode");
-
-                    b.HasIndex("BusinessPlaceTypeCode");
-
-                    b.HasIndex("BusinessTypeCode");
-
-                    b.HasIndex("MarketingAspectCode");
-
-                    b.HasIndex("NumberOfDailyEmployeeCode");
-
-                    b.HasIndex("NumberOfPermanentEmployeeCode");
-
-                    b.HasIndex("OtherBusinessDurationCode");
 
                     b.ToTable("LoanApplicationBusinessInformation");
                 });
@@ -4028,105 +4003,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("ScoTransacMethodId");
 
                     b.ToTable("LoanApplicationCreditScorings");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationDuplication", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("BankName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Branch")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CIF")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CustType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Expired")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Fullname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<decimal>("Limit")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("LoanApplicationGuid")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("LoanType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NoIdentity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Npwp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Outstanding")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("ReferenceNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ResultType")
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<string>("SearchDesc")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("SearchId")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("SearchType")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Stage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LoanApplicationGuid");
-
-                    b.ToTable("LoanApplicationDuplications");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFacility", b =>
@@ -5142,54 +5018,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.HasIndex("TypeId", "ItemId");
 
                     b.ToTable("MLiquidationOption");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.MSearch", b =>
-                {
-                    b.Property<string>("TypeId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("SearchType")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("SearchId")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ResultType")
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<string>("SearchDesc")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("TypeId", "SearchType", "SearchId");
-
-                    b.ToTable("MSearch");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.ParameterGroups", b =>
@@ -10617,67 +10445,13 @@ namespace NewLMS.Umkm.Domain.Migrations
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationBusinessInformation", b =>
                 {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessLocation", "RfBusinessLocation")
-                        .WithMany()
-                        .HasForeignKey("BusinessLocationCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceLocation", "RfBusinessPlaceLocation")
-                        .WithMany()
-                        .HasForeignKey("BusinessPlaceLocationCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceOwnership", "RfBusinessPlaceOwnership")
-                        .WithMany()
-                        .HasForeignKey("BusinessPlaceOwnCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessPlaceType", "RfBusinessPlaceType")
-                        .WithMany()
-                        .HasForeignKey("BusinessPlaceTypeCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfBusinessType", "RfBusinessType")
-                        .WithMany()
-                        .HasForeignKey("BusinessTypeCode");
-
                     b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
                         .WithOne("LoanApplicationBusinessInformation")
                         .HasForeignKey("NewLMS.Umkm.Data.Entities.LoanApplicationBusinessInformation", "LoanApplicationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfMarketingAspect")
-                        .WithMany()
-                        .HasForeignKey("MarketingAspectCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfNumberOfDailyEmployee")
-                        .WithMany()
-                        .HasForeignKey("NumberOfDailyEmployeeCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfNumberOfPermanentEmployee")
-                        .WithMany()
-                        .HasForeignKey("NumberOfPermanentEmployeeCode");
-
-                    b.HasOne("NewLMS.Umkm.Data.Entities.RfParameterDetail", "RfOtherBusinessDuration")
-                        .WithMany()
-                        .HasForeignKey("OtherBusinessDurationCode");
-
                     b.Navigation("LoanApplication");
-
-                    b.Navigation("RfBusinessLocation");
-
-                    b.Navigation("RfBusinessPlaceLocation");
-
-                    b.Navigation("RfBusinessPlaceOwnership");
-
-                    b.Navigation("RfBusinessPlaceType");
-
-                    b.Navigation("RfBusinessType");
-
-                    b.Navigation("RfMarketingAspect");
-
-                    b.Navigation("RfNumberOfDailyEmployee");
-
-                    b.Navigation("RfNumberOfPermanentEmployee");
-
-                    b.Navigation("RfOtherBusinessDuration");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationCollateral", b =>
@@ -10926,17 +10700,6 @@ namespace NewLMS.Umkm.Domain.Migrations
                     b.Navigation("ScoResidentialReputation");
 
                     b.Navigation("ScoTransacMethod");
-                });
-
-            modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationDuplication", b =>
-                {
-                    b.HasOne("NewLMS.Umkm.Data.Entities.LoanApplication", "LoanApplication")
-                        .WithMany()
-                        .HasForeignKey("LoanApplicationGuid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoanApplication");
                 });
 
             modelBuilder.Entity("NewLMS.Umkm.Data.Entities.LoanApplicationFacility", b =>

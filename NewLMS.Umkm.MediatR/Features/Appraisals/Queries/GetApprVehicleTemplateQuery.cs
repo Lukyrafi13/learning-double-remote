@@ -30,7 +30,11 @@ namespace NewLMS.Umkm.MediatR.Features.Appraisals.Queries
         }
         public async Task<ServiceResponse<ApprVehicleTemplateResponse>> Handle(GetApprVehicleTemplateQuery request, CancellationToken cancellationToken)
         {
-            var data = await _ApprVehicleTemplate.GetByIdAsync(request.AppraisalGuid, "AppraisalGuid", null);
+            var include = new string[]
+            {
+                "RfOwnershipStatus"
+            };
+            var data = await _ApprVehicleTemplate.GetByIdAsync(request.AppraisalGuid, "AppraisalGuid", include);
             var dataVm = _mapper.Map<ApprVehicleTemplateResponse>(data);
 
             return ServiceResponse<ApprVehicleTemplateResponse>.ReturnResultWith200(dataVm);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NewLMS.Umkm.Data.Dto.RfParameterDetails;
+using NewLMS.Umkm.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +16,7 @@ namespace NewLMS.Umkm.Data.Dto.AppraisalVehicle
         public string VehicleType { get; set; }
         public string Manufacture { get; set; }
         public string ModelType { get; set; }
-        public string OwnershipStatus { get; set; }
+        public int? OwnershipStatus { get; set; }
         public string OwnerName { get; set; }
         public string DomicileCity { get; set; }
         public string MachineNo { get; set; }
@@ -31,5 +33,7 @@ namespace NewLMS.Umkm.Data.Dto.AppraisalVehicle
         public string Mileage { get; set; }
         public string FeatureFunction { get; set; }
         public string PeriodicService { get; set; }
+
+        public RfParameterDetailSimpleResponse RfOwnershipStatus { get; set; }
     }
 }
