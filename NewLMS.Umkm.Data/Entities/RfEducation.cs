@@ -17,5 +17,8 @@ namespace NewLMS.Umkm.Data.Entities
         public string EducationDescSIKP { get; set; }
         public string CoreCode { get; set; }
         public bool Active { get; set; }
+        //Add From Gitlab
+        public bool Github { get; set; }
+        //Add From Github
     }
 }
